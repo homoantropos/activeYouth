@@ -30,7 +30,7 @@ export class AppointmentCreatorComponent implements OnInit {
     const appointment: Appointment = {
       title: this.appointmentCreatorForm.value.title
     };
-    this.dbservise.saveToDatabase(appointment).subscribe(
+    this.dbservise.saveAppointmentToDatabase(appointment).subscribe(
       (a) => {
         appointment.id = a.id;
         this.appointmentCreatorForm.reset();

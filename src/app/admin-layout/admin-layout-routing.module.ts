@@ -13,6 +13,7 @@ import {ActivityEditorComponent} from './creators-editors/activity-editor/activi
 import {ResultsCreatorComponent} from './creators-editors/results-creator/results-creator.component';
 import {ResultsEditorComponent} from './creators-editors/results-editor/results-editor.component';
 import {AuthGuardService} from './auth/auth-guard.service';
+import {SportsCreatorComponent} from './creators-editors/sports-creator/sports-creator.component';
 
 const routes: Routes = [
   { path: '', component: AdminLayoutComponent, children: [
@@ -25,7 +26,7 @@ const routes: Routes = [
         ]},
       {path: 'sports', canActivate: [AuthGuardService], children: [
           {path: '', component: SportsDashboardComponent},
-          {path: 'create', component: ActivityCreatorComponent},
+          {path: 'create', component: SportsCreatorComponent},
           {path: 'edit/:id', component: ActivityEditorComponent}
         ]},
       {path: 'schedule', canActivate: [AuthGuardService], children: [

@@ -12,6 +12,7 @@ import {MatButtonModule} from '@angular/material/button';
 import { ActivitiesPageComponent } from './activities-page/activities-page.component';
 import { SportsPageComponent } from './sports-page/sports-page.component';
 import { RatingPageComponent } from './raiting-page/rating-page.component';
+import {QuillModule} from 'ngx-quill';
 
 
 @NgModule({
@@ -22,14 +23,15 @@ import { RatingPageComponent } from './raiting-page/rating-page.component';
     ActivitiesPageComponent,
     SportsPageComponent,
     RatingPageComponent],
-  imports: [
-    FormsModule,
-    ReactiveFormsModule,
-    CommonModule,
-    MainLayoutRoutingModule,
-    MatTableModule,
-    MatInputModule,
-    MatButtonModule
-  ]
+    imports: [
+        FormsModule,
+        ReactiveFormsModule,
+        CommonModule,
+        MainLayoutRoutingModule,
+        MatTableModule,
+        MatInputModule,
+        MatButtonModule,
+        QuillModule
+    ]
 })
 export class MainLayoutModule { }

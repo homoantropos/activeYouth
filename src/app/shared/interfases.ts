@@ -16,5 +16,5 @@ export interface Activity {
   content: string;
   id?: string;
   date?: Date;
-  kindOfActivity: string;
+  kindOfActivity?: string;
 }

@@ -1,15 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
-import {Activity} from '../../../shared/interfases';
 import {DataBaseService} from '../../../shared/services/data-base.service';
 import {Router} from '@angular/router';
+import {Activity} from '../../../shared/interfases';
 
 @Component({
-  selector: 'app-activity-creator',
-  templateUrl: './activity-creator.component.html',
-  styleUrls: ['./activity-creator.component.css']
+  selector: 'app-sports-creator',
+  templateUrl: './sports-creator.component.html',
+  styleUrls: ['./sports-creator.component.css']
 })
-export class ActivityCreatorComponent implements OnInit {
+export class SportsCreatorComponent implements OnInit {
   submitted = false;
   // @ts-ignore
   activitiesCreatorForm: FormGroup;
@@ -43,12 +43,12 @@ export class ActivityCreatorComponent implements OnInit {
       content: this.activitiesCreatorForm.value.text,
       date: new Date()
     };
-    this.dbservise.saveActivityToDataBase(activity).subscribe(a => {
+    this.dbservise.saveSportToDataBase(activity).subscribe(a => {
       activity.id = a.id;
       activity.kindOfActivity = a.kindOfActivity;
       this.activitiesCreatorForm.reset();
       this.submitted = false;
-      this.router.navigate(['admin', 'activities']);
+      this.router.navigate(['admin', 'sports']);
       alert('Вітаємо! Ваш урок успішно додано в базу даних!');
     });
   }

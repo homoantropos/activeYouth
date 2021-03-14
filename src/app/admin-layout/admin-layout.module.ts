@@ -19,6 +19,8 @@ import { ActivityCreatorComponent } from './creators-editors/activity-creator/ac
 import { ActivityEditorComponent } from './creators-editors/activity-editor/activity-editor.component';
 import { ResultsCreatorComponent } from './creators-editors/results-creator/results-creator.component';
 import { ResultsEditorComponent } from './creators-editors/results-editor/results-editor.component';
+import {QuillModule} from 'ngx-quill';
+import { SportsCreatorComponent } from './creators-editors/sports-creator/sports-creator.component';
 
 
 @NgModule({
@@ -34,7 +36,8 @@ import { ResultsEditorComponent } from './creators-editors/results-editor/result
     ActivityCreatorComponent,
     ActivityEditorComponent,
     ResultsCreatorComponent,
-    ResultsEditorComponent],
+    ResultsEditorComponent,
+    SportsCreatorComponent],
     imports: [
         FormsModule,
         ReactiveFormsModule,
@@ -44,7 +47,8 @@ import { ResultsEditorComponent } from './creators-editors/results-editor/result
         MatButtonModule,
         MatInputModule,
         MatButtonModule,
-        MatTableModule
+        MatTableModule,
+        QuillModule
     ]
 })
 export class AdminLayoutModule { }
