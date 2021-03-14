@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {MockActivitiesDataBase, MockSchedule} from '../../thoseWillBeDeletedAfterDBCreating/mockDB';
 
 @Component({
   selector: 'app-activities-page',
@@ -6,7 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./activities-page.component.css']
 })
 export class ActivitiesPageComponent implements OnInit {
-
+  displayedColumns: string[] = ['title', 'author', 'date'];
+  dataSource = MockActivitiesDataBase.mockActivitiesDataBase;
   constructor() { }
 
   ngOnInit(): void {

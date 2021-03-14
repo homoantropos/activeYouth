@@ -8,3 +8,11 @@ export interface Appointment {
   title: string;
   id?: string;
 }
+
+export interface Activity {
+  title: string;
+  author: string;
+  content: string;
+  id?: string;
+  date?: Date;
+}
