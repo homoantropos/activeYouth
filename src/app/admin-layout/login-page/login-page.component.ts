@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { User } from '../../shared/interfases';
-import { AuthService } from '../../shared/services/auth/auth.service';
+import { AuthService } from '../auth/auth.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -21,7 +21,7 @@ export class LoginPageComponent implements OnInit {
 
   ngOnInit(): void {
     if (this.auth.isAuthenticated) {
-      this.router.navigate(['admin', 'dashboard']);
+      this.router.navigate(['admin', 'activities']);
     }
     this.loginForm = new FormGroup({
       email: new FormControl(null, [

@@ -84,7 +84,16 @@ button.active {
   position: relative;
   left: 50%;
   transform: translate(-50%);
-  text-align: center;
+}
+
+.schedule th {
+  font-size: 25px;
+  text-decoration: black;
+}
+
+.schedule td {
+  font-size: 20px;
+  justify-content: space-between;
 }
 
 .presentation {

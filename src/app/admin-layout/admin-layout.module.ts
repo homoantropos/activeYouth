@@ -35,16 +35,16 @@ import { ResultsEditorComponent } from './creators-editors/results-editor/result
     ActivityEditorComponent,
     ResultsCreatorComponent,
     ResultsEditorComponent],
-  imports: [
-    FormsModule,
-    ReactiveFormsModule,
-    CommonModule,
-    AdminLayoutRoutingModule,
-    MatFormFieldModule,
-    MatButtonModule,
-    MatInputModule,
-    MatButtonModule,
-    MatTableModule
-  ]
+    imports: [
+        FormsModule,
+        ReactiveFormsModule,
+        CommonModule,
+        AdminLayoutRoutingModule,
+        MatFormFieldModule,
+        MatButtonModule,
+        MatInputModule,
+        MatButtonModule,
+        MatTableModule
+    ]
 })
 export class AdminLayoutModule { }

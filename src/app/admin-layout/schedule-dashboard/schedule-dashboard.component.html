@@ -1,10 +1,16 @@
 <div class="schedule"><table mat-table [dataSource]="dataSource" class="schedule">
+
   <ng-container matColumnDef="title">
     <th mat-header-cell *matHeaderCellDef> Назва заходу </th>
-    <td mat-cell *matCellDef="let element"> {{element.title}} </td>
+    <td mat-cell *matCellDef="let element"> {{element.title}}
+    <button mat-button>Редагувати</button>
+      <button mat-button>Видалити</button>
+    </td>
   </ng-container>
+
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
   <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
 </table>
   <button mat-raised-button color="accent"
     (click)="goToAppointmentCreator()">Додати</button>

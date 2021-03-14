@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router';
-import {AuthService} from '../shared/services/auth/auth.service';
+import {AuthFinService} from './authFin/authFin.service';
 
 @Component({
   selector: 'app-fin-admin-layout',
@@ -10,7 +10,7 @@ import {AuthService} from '../shared/services/auth/auth.service';
 export class FinAdminLayoutComponent implements OnInit {
 
   constructor(
-    public auth: AuthService,
+    public authFin: AuthFinService,
     private router: Router
   ) { }
 

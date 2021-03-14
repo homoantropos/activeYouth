@@ -12,27 +12,28 @@ import {ActivityCreatorComponent} from './creators-editors/activity-creator/acti
 import {ActivityEditorComponent} from './creators-editors/activity-editor/activity-editor.component';
 import {ResultsCreatorComponent} from './creators-editors/results-creator/results-creator.component';
 import {ResultsEditorComponent} from './creators-editors/results-editor/results-editor.component';
+import {AuthGuardService} from './auth/auth-guard.service';
 
 const routes: Routes = [
   { path: '', component: AdminLayoutComponent, children: [
       {path: '', redirectTo: 'login', pathMatch: 'full'},
       {path: 'login', component: LoginPageComponent},
-      {path: 'activities', children: [
+      {path: 'activities', canActivate: [AuthGuardService], children: [
           {path: '', component: ActivitiesDashboardComponent},
           {path: 'create', component: ActivityCreatorComponent},
           {path: 'edit/:id', component: ActivityEditorComponent}
         ]},
-      {path: 'sports', children: [
+      {path: 'sports', canActivate: [AuthGuardService], children: [
           {path: '', component: SportsDashboardComponent},
           {path: 'create', component: ActivityCreatorComponent},
           {path: 'edit/:id', component: ActivityEditorComponent}
         ]},
-      {path: 'schedule', children: [
+      {path: 'schedule', canActivate: [AuthGuardService], children: [
           {path: '', component: ScheduleDashboardComponent},
           {path: 'create', component: AppointmentCreatorComponent},
           {path: 'edit/:id', component: AppointmentEditorComponent}
         ]},
-      {path: 'rating', children: [
+      {path: 'rating', canActivate: [AuthGuardService], children: [
           {path: '', component: ResultsDashboardComponent},
           {path: 'create', component: ResultsCreatorComponent},
           {path: 'edit/:id', component: ResultsEditorComponent}

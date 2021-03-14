@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
-import {User} from '../../interfases';
-import {Observable, of} from 'rxjs';
-import {MockAuthenticatedUsers} from '../../../thoseWillBeDeletedAfterDBCreating/mockDB';
+import {User} from '../../shared/interfases';
+import {MockAuthenticatedUsers} from '../../thoseWillBeDeletedAfterDBCreating/mockDB';
 import {Router} from '@angular/router';
 
 @Injectable({
@@ -19,7 +18,7 @@ export class AuthService {
       if (user.password === candidate.password) {
         user.idToken = candidate.idToken;
         this.isAuthenticated = true;
-        this.router.navigate(['admin', 'dashboard']);
+        this.router.navigate(['admin', 'schedule']);
       } else {
         alert('password is incorrect');
         this.isAuthenticated = false;
@@ -34,4 +33,5 @@ export class AuthService {
     this.isAuthenticated = false;
     this.router.navigate(['admin', 'login']);
   }
+
 }

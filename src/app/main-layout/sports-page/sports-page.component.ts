@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {MockActivitiesDataBase} from '../../thoseWillBeDeletedAfterDBCreating/mockDB';
 
 @Component({
   selector: 'app-sports-page',
@@ -6,7 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./sports-page.component.css']
 })
 export class SportsPageComponent implements OnInit {
-
+  displayedColumns: string[] = ['title', 'author', 'date'];
+  dataSource = MockActivitiesDataBase.mockActivitiesDataBase.filter(a => a.kindOfActivity === 'sport');
   constructor() { }
 
   ngOnInit(): void {

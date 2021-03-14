@@ -8,7 +8,7 @@ import {MockActivitiesDataBase, MockSchedule} from '../../thoseWillBeDeletedAfte
 })
 export class ActivitiesPageComponent implements OnInit {
   displayedColumns: string[] = ['title', 'author', 'date'];
-  dataSource = MockActivitiesDataBase.mockActivitiesDataBase;
+  dataSource = MockActivitiesDataBase.mockActivitiesDataBase.filter(a => a.kindOfActivity === 'physical culture');
   constructor() { }
 
   ngOnInit(): void {

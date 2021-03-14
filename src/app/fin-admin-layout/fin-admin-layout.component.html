@@ -1,16 +1,13 @@
 <nav>
   <ul>
     <li>
-      <a routerLink="expenses" routerLinkActive="active">Fin admin panel</a>
+      <a routerLink="dashboard" routerLinkActive="active">Fin admin panel</a>
     </li>
   </ul>
 
   <ul>
     <li>
-      <a routerLink="login" routerLinkActive="active">LogIn</a>
-    </li>
-    <li>
-      <a (click)="auth.logOut()" routerLinkActive="active">LogOut</a>
+      <a (click)="authFin.logOut()" routerLinkActive="active">LogOut</a>
     </li>
   </ul>
 </nav>
