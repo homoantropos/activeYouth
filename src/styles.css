@@ -1,0 +1,79 @@
+html, body {
+  height: 100%;
+}
+
+body {
+  margin-top: 0;
+  font-family: "Roboto Condensed", sans-serif;
+}
+
+a {
+  cursor: pointer;
+  text-decoration: none;
+  color: black;
+}
+
+a:hover {
+  color: gold;
+}
+
+a.active {
+  color: white;
+}
+
+nav{
+  height: 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 10px 0 10px;
+}
+
+nav h1, h2 {
+  font-family: "Roboto Condensed", sans-serif;
+  color: gold;
+}
+
+nav li {
+  display: inline-block;
+  padding-left: 10px;
+}
+
+button {
+  margin: 3px 0 3px 0;
+  border-radius: unset;
+}
+button:hover {
+  background-color: gold;
+}
+button.active {
+  background-color: white;
+}
+.btn-container {
+  position: relative;
+  left: 50%;
+  transform: translate(-50%);
+  width: 80%;
+  align-items: center;
+  justify-content: flex-start;
+  border: 1px solid orange;
+}
+
+
+.form-container {
+  justify-content: flex-start;
+  position: relative;
+  left: 50%;
+  transform: translate(-50%);
+  padding: 10px;
+  border: solid grey 1px;
+  margin-top: 20px;
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+}
+
+.forms-inputs {
+  width: 100%;
+}
+
