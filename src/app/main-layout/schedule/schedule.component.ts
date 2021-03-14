@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import {MockSchedule} from '../../thoseWillBeDeletedAfterDBCreating/mockDB';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-main-page',
@@ -6,4 +8,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./schedule.component.css']
 })
 
-export class ScheduleComponent {}
+export class ScheduleComponent {
+  displayedColumns: string[] = ['title'];
+  dataSource = MockSchedule.schedule;
+  constructor( ) {
+  }
+
+}

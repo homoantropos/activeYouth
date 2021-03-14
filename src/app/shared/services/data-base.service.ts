@@ -12,6 +12,7 @@ export class DataBaseService {
   constructor() { }
 
   saveToDatabase(appointment: Appointment): Observable<Appointment> {
+    appointment.id = MockSchedule.schedule.length.toString();
     MockSchedule.schedule.push(appointment);
     return of(appointment);
   }

@@ -1,1 +1,17 @@
-<p>appointment-creator works!</p>
+<form class = "form-container"
+      [formGroup]="appointmentCreatorForm"
+      (ngSubmit)="onCreate()">
+
+  <mat-form-field class="forms-inputs">
+    <mat-label>введіть назву заходу ...</mat-label>
+    <input matInput
+           type="text"
+           formControlName="title">
+  </mat-form-field>
+
+  <button mat-raised-button color="warn"
+          type="submit">
+    Додати
+  </button>
+
+</form>

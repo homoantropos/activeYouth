@@ -14,7 +14,7 @@ export class MockAuthenticatedUsers {
       password: '11111111',
       idToken: 'asewrweotrksdfsdifseYYY'
     },
-    {email: 'homoantropos8@gmail.com',
+    {email: 'homoantropos@gmail.com',
       password: '22222222',
       idToken: 'werterwpisfjjvsdbfsdfd'
     },

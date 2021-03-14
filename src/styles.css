@@ -77,3 +77,11 @@ button.active {
   width: 100%;
 }
 
+.schedule {
+  width: 80%;
+  position: relative;
+  left: 50%;
+  transform: translate(-50%);
+  text-align: center;
+}
+

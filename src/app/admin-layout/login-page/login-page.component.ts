@@ -45,11 +45,9 @@ export class LoginPageComponent implements OnInit {
       password: this.loginForm.value.password
     };
     this.auth.login(user);
-    this.loginForm.reset();
     if (user.idToken) {
-    this.router.navigate(['admin', 'dashboard']);
+      this.loginForm.reset();
     }
     this.submitted = false;
-    console.log(user);
   }
 }

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {MockSchedule} from '../../thoseWillBeDeletedAfterDBCreating/mockDB';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-schedule-dashboard',
@@ -7,9 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ScheduleDashboardComponent implements OnInit {
 
-  constructor() { }
-
+  constructor(
+    private router: Router
+  ) { }
+  displayedColumns: string[] = ['title'];
+  dataSource = MockSchedule.schedule;
   ngOnInit(): void {
+  }
+  goToAppointmentCreator(): void {
+    this.router.navigate(['admin', 'create']);
   }
 
 }
