@@ -9,13 +9,19 @@ import {MatTableModule} from '@angular/material/table';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MatInputModule} from '@angular/material/input';
 import {MatButtonModule} from '@angular/material/button';
+import { ActivitiesPageComponent } from './activities-page/activities-page.component';
+import { SportsPageComponent } from './sports-page/sports-page.component';
+import { RatingPageComponent } from './raiting-page/rating-page.component';
 
 
 @NgModule({
   declarations: [
     MainLayoutComponent,
     MainPageComponent,
-    ScheduleComponent],
+    ScheduleComponent,
+    ActivitiesPageComponent,
+    SportsPageComponent,
+    RatingPageComponent],
   imports: [
     FormsModule,
     ReactiveFormsModule,

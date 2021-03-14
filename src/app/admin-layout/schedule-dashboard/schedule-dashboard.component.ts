@@ -17,7 +17,7 @@ export class ScheduleDashboardComponent implements OnInit {
   ngOnInit(): void {
   }
   goToAppointmentCreator(): void {
-    this.router.navigate(['admin', 'create']);
+    this.router.navigate(['admin', 'schedule', 'create']);
   }
 
 }

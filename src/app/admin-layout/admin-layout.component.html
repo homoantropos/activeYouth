@@ -1,10 +1,16 @@
 <nav>
   <ul>
     <li>
-      <a routerLink="dashboard" routerLinkActive="active">Календар</a>
+      <a routerLink="activities" routerLinkActive="active">Фізична культура</a>
     </li>
     <li>
-      <a routerLink="create" routerLinkActive="active">Додати</a>
+      <a routerLink="sports" routerLinkActive="active">Спорт</a>
+    </li>
+    <li>
+      <a routerLink="schedule" routerLinkActive="active">Календар</a>
+    </li>
+    <li>
+      <a routerLink="rating" routerLinkActive="active">Рейтинг</a>
     </li>
   </ul>
   <ul>
@@ -17,3 +23,4 @@
   </ul>
 </nav>
 <router-outlet></router-outlet>
+<a (click)="goToMainPage()">на головну</a>

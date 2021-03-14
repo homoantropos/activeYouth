@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {AuthService} from '../shared/services/auth/auth.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-admin-layout',
@@ -9,10 +10,15 @@ import {AuthService} from '../shared/services/auth/auth.service';
 export class AdminLayoutComponent implements OnInit {
 
   constructor(
-    public auth: AuthService
+    public auth: AuthService,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
+  }
+
+  goToMainPage(): void {
+    this.router.navigate(['main']);
   }
 
 }

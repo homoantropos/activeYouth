@@ -43,12 +43,15 @@ button {
   margin: 3px 0 3px 0;
   border-radius: unset;
 }
+
 button:hover {
   background-color: gold;
 }
+
 button.active {
   background-color: white;
 }
+
 .btn-container {
   position: relative;
   left: 50%;
@@ -58,7 +61,6 @@ button.active {
   justify-content: flex-start;
   border: 1px solid orange;
 }
-
 
 .form-container {
   justify-content: flex-start;
