@@ -1,0 +1,26 @@
+<form class="form-container"
+      [formGroup]="loginForm"
+      (ngSubmit)="onSubmit()">
+
+  <h3>Увійдіть</h3>
+
+  <mat-form-field class="forms-inputs">
+    <mat-label>введіть емейл...</mat-label>
+    <input matInput
+           title="emailInput"
+           type="text"
+           formControlName="email">
+  </mat-form-field>
+
+  <mat-form-field class="forms-inputs">
+    <mat-label title="passwordInput">введіть пароль...</mat-label>
+    <input matInput
+           title="passwordInput"
+           type="text"
+           formControlName="password">
+  </mat-form-field>
+
+  <button mat-raised-button
+          color="accent"
+          [disabled]="loginForm.invalid || submitted">Увійти</button>
+</form>
