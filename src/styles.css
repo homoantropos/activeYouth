@@ -87,3 +87,9 @@ button.active {
   text-align: center;
 }
 
+.presentation {
+  font-family: "Oswald", "Roboto Condensed", sans-serif;
+  margin: 5vh 10% 0 10%;
+  font-size: medium;
+  border: dotted grey 1px;
+}
