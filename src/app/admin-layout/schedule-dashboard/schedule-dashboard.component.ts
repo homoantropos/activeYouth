@@ -1,21 +1,29 @@
-import { Component, OnInit } from '@angular/core';
+import {AfterViewInit, Component, ViewChild} from '@angular/core';
 import {MockSchedule} from '../../thoseWillBeDeletedAfterDBCreating/mockDB';
 import {Router} from '@angular/router';
+import {MatTableDataSource} from '@angular/material/table';
+import {Appointment} from '../../shared/interfases';
+import {MatPaginator} from '@angular/material/paginator';
 
 @Component({
   selector: 'app-schedule-dashboard',
   templateUrl: './schedule-dashboard.component.html',
   styleUrls: ['./schedule-dashboard.component.css']
 })
-export class ScheduleDashboardComponent implements OnInit {
+export class ScheduleDashboardComponent implements AfterViewInit {
+  displayedColumns: string[] = ['title', 'termsOfHolding', 'placeOfHolding', 'edit', 'delete'];
+  dataSource: MatTableDataSource<Appointment> = new MatTableDataSource<Appointment>(MockSchedule.schedule);
+  // @ts-ignore
+  @ViewChild(MatPaginator) paginator: MatPaginator;
 
   constructor(
     private router: Router
   ) { }
-  displayedColumns: string[] = ['title'];
-  dataSource = MockSchedule.schedule;
-  ngOnInit(): void {
+
+  ngAfterViewInit(): void {
+    this.dataSource.paginator = this.paginator;
   }
+
   goToAppointmentCreator(): void {
     this.router.navigate(['admin', 'schedule', 'create']);
   }

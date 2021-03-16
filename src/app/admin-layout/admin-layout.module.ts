@@ -6,11 +6,7 @@ import { AdminLayoutComponent } from './admin-layout.component';
 import { LoginPageComponent } from './login-page/login-page.component';
 import { ScheduleDashboardComponent } from './schedule-dashboard/schedule-dashboard.component';
 import { AppointmentCreatorComponent } from './creators-editors/appointment-creator/appointment-creator.component';
-import {MatFormFieldModule} from '@angular/material/form-field';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {MatButtonModule} from '@angular/material/button';
-import {MatInputModule} from '@angular/material/input';
-import {MatTableModule} from '@angular/material/table';
 import { ActivitiesDashboardComponent } from './activities-dashboard/activities-dashboard.component';
 import { SportsDashboardComponent } from './sports-dashboard/sports-dashboard.component';
 import { ResultsDashboardComponent } from './results-dashboard/results-dashboard.component';
@@ -21,7 +17,7 @@ import { ResultsCreatorComponent } from './creators-editors/results-creator/resu
 import { ResultsEditorComponent } from './creators-editors/results-editor/results-editor.component';
 import {QuillModule} from 'ngx-quill';
 import { SportsCreatorComponent } from './creators-editors/sports-creator/sports-creator.component';
-
+import {SharedModule} from '../shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -38,17 +34,13 @@ import { SportsCreatorComponent } from './creators-editors/sports-creator/sports
     ResultsCreatorComponent,
     ResultsEditorComponent,
     SportsCreatorComponent],
-    imports: [
-        FormsModule,
-        ReactiveFormsModule,
-        CommonModule,
-        AdminLayoutRoutingModule,
-        MatFormFieldModule,
-        MatButtonModule,
-        MatInputModule,
-        MatButtonModule,
-        MatTableModule,
-        QuillModule
-    ]
+  imports: [
+    FormsModule,
+    ReactiveFormsModule,
+    CommonModule,
+    AdminLayoutRoutingModule,
+    QuillModule,
+    SharedModule
+  ]
 })
 export class AdminLayoutModule { }

@@ -13,6 +13,7 @@ import { ActivitiesPageComponent } from './activities-page/activities-page.compo
 import { SportsPageComponent } from './sports-page/sports-page.component';
 import { RatingPageComponent } from './raiting-page/rating-page.component';
 import {QuillModule} from 'ngx-quill';
+import {SharedModule} from '../shared/shared.module';
 
 
 @NgModule({
@@ -31,7 +32,8 @@ import {QuillModule} from 'ngx-quill';
         MatTableModule,
         MatInputModule,
         MatButtonModule,
-        QuillModule
+        QuillModule,
+        SharedModule
     ]
 })
 export class MainLayoutModule { }

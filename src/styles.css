@@ -4,7 +4,7 @@ html, body {
 }
 
 body {
-  margin-top: 0;
+  margin: 0 15% 5px 15%;
   font-family: "Roboto Condensed", sans-serif;
 }
 
@@ -28,6 +28,7 @@ nav{
   justify-content: space-between;
   align-items: center;
   padding: 0 10px 0 10px;
+  margin-bottom: 5px;
 }
 
 nav h1, h2 {
@@ -110,4 +111,20 @@ button.active {
   margin: 5vh 10% 0 10%;
   font-size: medium;
   border: dotted grey 1px;
+}
+
+.table-container {
+  position: relative;
+  left: 50%;
+  transform: translate(-50%);
+}
+
+table {
+  width: 100%;
+}
+
+table td {
+  font-family: "Roboto Condensed", sans-serif;
+  padding-left: 5px;
+  padding-right: 5px;
 }

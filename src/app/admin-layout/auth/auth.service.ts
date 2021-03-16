@@ -18,7 +18,7 @@ export class AuthService {
       if (user.password === candidate.password) {
         user.idToken = candidate.idToken;
         this.isAuthenticated = true;
-        this.router.navigate(['admin', 'schedule']);
+        this.router.navigate(['admin', 'activities']);
       } else {
         alert('password is incorrect');
         this.isAuthenticated = false;

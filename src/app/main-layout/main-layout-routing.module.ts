@@ -10,7 +10,7 @@ import {RatingPageComponent} from './raiting-page/rating-page.component';
 
 const routes: Routes = [
   { path: '', component: MainLayoutComponent, children: [
-      {path: '', redirectTo: 'schedule', pathMatch: 'full'},
+      {path: '', redirectTo: 'main', pathMatch: 'full'},
       {path: 'main', component: MainPageComponent},
       {path: 'activities', component: ActivitiesPageComponent},
       {path: 'sports', component: SportsPageComponent},

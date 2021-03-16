@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { PageNotFoundComponent } from './shared/components/page-not-found/page-not-found.component';
 import {QuillModule} from 'ngx-quill';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import {QuillModule} from 'ngx-quill';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    QuillModule.forRoot()
+    QuillModule.forRoot(),
+    SharedModule
   ],
   providers: [],
   bootstrap: [AppComponent]
