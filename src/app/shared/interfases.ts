@@ -36,7 +36,43 @@ export interface PlaceOfHolding {
   address?: string;
 }
 
-export interface QuantityOfParticipants {
+export interface EducationEntity {
+  name: string;
+  category?: number;
+  type: string;
+}
+
+export interface Expenses {
+  kekv2210: number;
+  kekv2220: number;
+  kekv2240: number;
+  kekv2250: number;
+  total: number;
+}
+
+export interface Participant {
+  name: string;
+  surname: string;
+  DoB: Date;
+  gender: string;
+}
+
+export interface Result {
+  appointment: Appointment;
+  participant: Participant;
+  eduEntity: EducationEntity;
+  discipline: string;
+  place: number;
+  ratingPoints: number;
+}
+
+export interface FinancialBalance {
+  appointment: Appointment;
+  expensesPlan: Expenses;
+  expensesFact: Expenses;
+}
+
+export interface NumbersOfParticipants {
   countries?: number;
   regions?: number;
   educationEntity?: number;
