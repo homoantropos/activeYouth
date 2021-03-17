@@ -47,9 +47,9 @@ export class MockDBAdministratorService {
   }
 
   createMockAppointmentFinancing(appointment: Appointment): AppointmentFinancing {
-    const kekv2210plan = Math.random() * 10;
+    const kekv2210plan = Math.random() * 2;
     const kekv2220plan = Math.random();
-    const kekv2240plan = Math.random() * 30;
+    const kekv2240plan = Math.random() * 5;
 
     const totalPlan = kekv2210plan + kekv2220plan + kekv2240plan;
 
@@ -60,9 +60,9 @@ export class MockDBAdministratorService {
       total: totalPlan
     };
 
-    const kekv2210fact = Math.random() * 10;
+    const kekv2210fact = Math.random() * 2;
     const kekv2220fact = Math.random();
-    const kekv2240fact = Math.random() * 30;
+    const kekv2240fact = Math.random() * 5;
 
     const totalFact = kekv2210fact + kekv2220fact + kekv2240fact;
 
