@@ -3,6 +3,7 @@ import {MockActivitiesDataBase} from '../../thoseWillBeDeletedAfterDBCreating/mo
 import {MatTableDataSource} from '@angular/material/table';
 import {Activity} from '../../shared/interfases';
 import {MatPaginator} from '@angular/material/paginator';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-activities-page',
@@ -17,9 +18,15 @@ export class ActivitiesPageComponent implements AfterViewInit {
     );
   // @ts-ignore
   @ViewChild(MatPaginator) paginator: MatPaginator;
-  constructor() { }
+  constructor(
+    private router: Router
+  ) { }
 
   ngAfterViewInit(): void {
     this.dataSource.paginator = this.paginator;
+  }
+
+  goToActivityDetails(a: Activity): void {
+    this.router.navigateByUrl(`/activities/${a.id}`);
   }
 }

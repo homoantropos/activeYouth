@@ -9,20 +9,21 @@ export class MockDataBase {
 
   static schedule: Array<Appointment> = [
     {title: 'Зимова Гімназіада України з лижних гонок',
-      startDate: new Date(2021, 2, 16),
-      finishDate: new Date(2021, 2, 28),
-      participants: 'schoolchild',
-      sportKind: 'лижні гонки',
-      direction: 'sport',
-      status: 'ukrainian',
-      placeOfHolding: {
-        country: 'Україна',
-        region: 'Львівська обл.',
-        town: 'Сколе',
-        sportHallName: 'база Тисовець',
-        address: ''
-      },
-      organiser: 'УФУС'
+     startDate: new Date(2021, 2, 16),
+     finishDate: new Date(2021, 2, 28),
+     participants: 'schoolchild',
+     sportKind: 'лижні гонки',
+     direction: 'sport',
+     status: 'ukrainian',
+     placeOfHolding: {
+       country: 'Україна',
+       region: 'Львівська обл.',
+       town: 'Сколе',
+       sportHallName: 'база Тисовець',
+       address: ''
+     },
+     organiser: 'УФУС',
+     id: '1ww'
     },
     {title: 'Зимова Універсіада України з біатлону',
       startDate: new Date(2021, 2, 9),
@@ -38,7 +39,8 @@ export class MockDataBase {
         sportHallName: 'база Тисовець',
         address: ''
       },
-      organiser: 'СССУ'
+      organiser: 'СССУ',
+      id: '2ww'
     },
     {title: 'Зимова Гімназіада України з біатлону',
       startDate: new Date(2021, 2, 28),
@@ -54,7 +56,8 @@ export class MockDataBase {
         sportHallName: 'база Тисовець',
         address: ''
     },
-      organiser: 'УФУС'
+      organiser: 'УФУС',
+      id: '3ww'
     },
     {title: 'Зимова Універсіада України з лижних гонок',
       startDate: new Date(2021, 2, 18),
@@ -70,7 +73,8 @@ export class MockDataBase {
         sportHallName: 'база Тисовець',
         address: ''
     },
-      organiser: 'СССУ'
+      organiser: 'СССУ',
+      id: '4ww'
     },
     {title: 'Європейські університетські ігри з волейболу',
       startDate: new Date(2021, 6, 14),
@@ -86,7 +90,8 @@ export class MockDataBase {
         sportHallName: '',
         address: ''
     },
-      organiser: 'СССУ EUSA'
+      organiser: 'СССУ EUSA',
+      id: '5ww'
     },
     {title: 'Європейські університетські ігри з регбі-7',
       startDate: new Date(2021, 6, 14),
@@ -102,7 +107,8 @@ export class MockDataBase {
         sportHallName: '',
         address: ''
     },
-      organiser: 'СССУ EUSA'
+      organiser: 'СССУ EUSA',
+      id: '6ww'
     },
     {title: 'Чемпіонат України з волейболу серед учнів',
       startDate: new Date(2021, 1, 23),
@@ -118,7 +124,8 @@ export class MockDataBase {
         sportHallName: 'Олімп',
         address: 'вул. Паркова 12'
     },
-      organiser: 'КФВС МОН'
+      organiser: 'КФВС МОН',
+      id: '7ww'
     },
     {title: 'Спортивна надія України з волейболу серед учнів',
       startDate: new Date(2021, 10, 23),
@@ -134,7 +141,8 @@ export class MockDataBase {
         sportHallName: 'спортивний зал ЗОШ № 8',
         address: 'вул. Весняна 12'
     },
-      organiser: 'КФВС МОН'
+      organiser: 'КФВС МОН',
+      id: '8ww'
     },
     {title: 'Спортивна надія України з боксу серед учнів',
       startDate: new Date(2021, 10, 23),
@@ -150,7 +158,8 @@ export class MockDataBase {
         sportHallName: 'спортивний зал ЗОШ № 8',
         address: 'вул. Весняна 12'
     },
-      organiser: 'КФВС МОН'
+      organiser: 'КФВС МОН',
+      id: '9ww'
     },
     {title: 'Спортивна надія України з боротьби вільної серед учнів',
       startDate: new Date(2021, 10, 23),
@@ -166,7 +175,8 @@ export class MockDataBase {
         sportHallName: 'спортивний зал ЗОШ № 8',
         address: 'вул. Весняна 12'
     },
-      organiser: 'КФВС МОН'
+      organiser: 'КФВС МОН',
+      id: '10ww'
     },
     {title: 'Чемпіонат України з козацького двобою серед учнів',
       startDate: new Date(2021, 2, 3),
@@ -182,7 +192,8 @@ export class MockDataBase {
         sportHallName: 'легкоатлетичний манеж СумДУ',
         address: 'вул. Студентська 52'
     },
-      organiser: 'КФВС МОН'
+      organiser: 'КФВС МОН',
+      id: '11ww'
     },
     {title: 'Чемпіонат України з козацького двобою серед студентів',
       startDate: new Date(2021, 2, 6),
@@ -198,7 +209,8 @@ export class MockDataBase {
         sportHallName: 'легкоатлетичний манеж СумДУ',
         address: 'вул. Студентська 52'
     },
-      organiser: 'КФВС МОН'
+      organiser: 'КФВС МОН',
+      id: '12ww'
     },
     {title: 'Всесвітні учнівські спортивні ігри з волейболу (ISF U15 World School Sport Games) (дівчата) (ІІ ранг)',
       startDate: new Date(2021, 8, 11),
@@ -214,7 +226,8 @@ export class MockDataBase {
         sportHallName: '',
         address: ''
     },
-      organiser: 'УФУС ISF'
+      organiser: 'УФУС ISF',
+      id: '1ww1'
     },
     {title: 'Всесвітні учнівські спортивні ігри з дзюдо (ISF U15 World School Sport Games) (дівчата) (ІІ ранг)',
       startDate: new Date(2021, 8, 11),
@@ -230,7 +243,8 @@ export class MockDataBase {
         sportHallName: '',
         address: ''
     },
-      organiser: 'УФУС ISF'
+      organiser: 'УФУС ISF',
+      id: '1ww2'
     },
     {title: 'Всесвітні учнівські спортивні ігри з карате (ISF U15 World School Sport Games) (дівчата) (ІІ ранг)',
       startDate: new Date(2021, 8, 11),
@@ -246,7 +260,8 @@ export class MockDataBase {
         sportHallName: '',
         address: ''
     },
-      organiser: 'УФУС ISF'
+      organiser: 'УФУС ISF',
+      id: '1ww3'
     },
     {title: 'Всесвітні учнівські спортивні ігри з легкої атлетики (ISF U15 World School Sport Games) (дівчата) (ІІ ранг)',
       startDate: new Date(2021, 8, 11),
@@ -262,7 +277,8 @@ export class MockDataBase {
         sportHallName: '',
         address: ''
     },
-      organiser: 'УФУС ISF'
+      organiser: 'УФУС ISF',
+      id: '1ww4'
     },
     {title: 'Всесвітні учнівські спортивні ігри з плавання (ISF U15 World School Sport Games) (дівчата) (ІІ ранг)',
       startDate: new Date(2021, 8, 11),
@@ -278,7 +294,8 @@ export class MockDataBase {
         sportHallName: '',
         address: ''
     },
-      organiser: 'УФУС ISF'
+      organiser: 'УФУС ISF',
+      id: '1ww5'
     },
     {title: 'Літня Гімназіада України з волейболу (відбіркові)',
       startDate: new Date(2021, 3, 12),
@@ -294,7 +311,8 @@ export class MockDataBase {
         sportHallName: 'Спорткомплекс "Атлет"',
         address: 'вул. Мохова, 23'
     },
-      organiser: 'УФУС'
+      organiser: 'УФУС',
+      id: '1ww6'
     },
     {title: 'ІІІ Всеукраїнські Cool Games (відбіркові)',
       startDate: new Date(2021, 3, 17),
@@ -310,7 +328,8 @@ export class MockDataBase {
         sportHallName: '',
         address: ''
     },
-      organiser: 'КФВС МОН'
+      organiser: 'КФВС МОН',
+      id: '1ww7'
     },
     {title: 'ІІІ Всеукраїнські Cool Games (відбіркові)',
       startDate: new Date(2021, 3, 17),
@@ -326,7 +345,8 @@ export class MockDataBase {
         sportHallName: '',
         address: ''
     },
-      organiser: 'КФВС МОН'
+      organiser: 'КФВС МОН',
+      id: '1ww8'
     },
     {title: 'ІІІ Всеукраїнські Cool Games (відбіркові)',
       startDate: new Date(2021, 3, 17),
@@ -342,7 +362,8 @@ export class MockDataBase {
         sportHallName: '',
         address: ''
     },
-      organiser: 'КФВС МОН'
+      organiser: 'КФВС МОН',
+      id: '1ww9'
     },
     {title: 'ІІІ Всеукраїнські Cool Games (відбіркові)',
       startDate: new Date(2021, 3, 17),
@@ -358,7 +379,8 @@ export class MockDataBase {
         sportHallName: '',
         address: ''
     },
-      organiser: 'КФВС МОН'
+      organiser: 'КФВС МОН',
+      id: '1ww10'
     },
     {title: 'ІІІ Всеукраїнські Cool Games (відбіркові)',
       startDate: new Date(2021, 3, 17),
@@ -374,7 +396,8 @@ export class MockDataBase {
         sportHallName: '',
         address: ''
     },
-      organiser: 'КФВС МОН'
+      organiser: 'КФВС МОН',
+      id: '1ww19'
     },
     {title: 'ІІІ Всеукраїнські Cool Games',
       startDate: new Date(2021, 4, 27),
@@ -390,7 +413,8 @@ export class MockDataBase {
         sportHallName: 'Меридіан-Венето',
         address: 'бул. Героїв Севастополя, 11В'
     },
-      organiser: 'КФВС МОН'
+      organiser: 'КФВС МОН',
+      id: '1ww20'
     },
     {title: 'Літня Універсіада України з веслування академічного',
       startDate: new Date(2021, 4, 20),
@@ -406,7 +430,8 @@ export class MockDataBase {
         sportHallName: 'Гребний канал',
         address: 'Труханів острів'
     },
-      organiser: 'СССУ'
+      organiser: 'СССУ',
+      id: '1ww21'
     },
     {title: 'Літня Гімназіада України з тхеквондо ВТФ (відбіркові)',
       startDate: new Date(2021, 0, 20),
@@ -422,7 +447,8 @@ export class MockDataBase {
         sportHallName: 'Спорткомплекс Прикарпатського національного уніврситету',
         address: 'вул. Прикарпатська 90'
     },
-      organiser: 'УФУС'
+      organiser: 'УФУС',
+      id: '1ww223'
     },
     {title: 'Всесвітня літня Гімназіада з велоспорту',
       startDate: new Date(2021, 9, 14),
@@ -438,7 +464,8 @@ export class MockDataBase {
         sportHallName: '',
         address: ''
     },
-      organiser: 'УФУС ISF'
+      organiser: 'УФУС ISF',
+      id: '1ww331'
     },
     {title: 'Літня Універсіада України з гандболу',
       startDate: new Date(2021, 5, 19),
@@ -454,7 +481,8 @@ export class MockDataBase {
         sportHallName: 'спорткомплекс НУХТУ',
         address: 'Дніпровська набережна 25'
     },
-      organiser: 'СССУ'
+      organiser: 'СССУ',
+      id: '1ww334'
     },
     {title: 'Всеукраїнські Combat Games з карате',
       startDate: new Date(2021, 11, 13),
@@ -470,7 +498,8 @@ export class MockDataBase {
         sportHallName: 'Палац Спорту',
         address: 'пл. Спортивна, 1'
     },
-      organiser: 'КФВС МОН'
+      organiser: 'КФВС МОН',
+      id: '1ww40'
     },
     {title: 'Всеукраїнські Combat Games з боротьби греко-римської',
       startDate: new Date(2021, 11, 13),
@@ -486,7 +515,8 @@ export class MockDataBase {
         sportHallName: 'Палац Спорту',
         address: 'пл. Спортивна, 1'
     },
-      organiser: 'КФВС МОН'
+      organiser: 'КФВС МОН',
+      id: '1ww41'
     },
     {title: 'Всеукраїнські Combat Games з тхеквондо ВТФ',
       startDate: new Date(2021, 11, 13),
@@ -502,7 +532,8 @@ export class MockDataBase {
         sportHallName: 'Палац Спорту',
         address: 'пл. Спортивна, 1'
     },
-      organiser: 'КФВС МОН'
+      organiser: 'КФВС МОН',
+      id: '1ww42'
     },
     {title: 'Всеукраїнські Combat Games з боротьби вільної',
       startDate: new Date(2021, 11, 13),
@@ -518,7 +549,8 @@ export class MockDataBase {
         sportHallName: 'Палац Спорту',
         address: 'пл. Спортивна, 1'
     },
-      organiser: 'КФВС МОН'
+      organiser: 'КФВС МОН',
+      id: '1ww43'
     },
     {title: 'Всеукраїнські Combat Games з дзюдо',
       startDate: new Date(2021, 11, 13),
@@ -534,7 +566,8 @@ export class MockDataBase {
         sportHallName: 'Палац Спорту',
         address: 'пл. Спортивна, 1'
     },
-      organiser: 'КФВС МОН'
+      organiser: 'КФВС МОН',
+      id: '1ww44'
     },
     {title: 'Шкільна баскетбольна ліга',
       startDate: new Date(2021, 8, 26),
@@ -550,7 +583,8 @@ export class MockDataBase {
         sportHallName: 'Юність',
         address: 'Центральний бульвар 96'
     },
-      organiser: 'КФВС МОН'
+      organiser: 'КФВС МОН',
+      id: '1ww45'
     },
     {title: 'Чемпіонат України з фрі-файту серед учнів',
       startDate: new Date(2021, 10, 9),
@@ -566,7 +600,8 @@ export class MockDataBase {
         sportHallName: 'Палац Спорту',
         address: 'вул. Б. Хмельницького, 1'
     },
-      organiser: 'КФВС МОН'
+      organiser: 'КФВС МОН',
+      id: '1ww46'
     },
     {title: 'Міжнародний день студентського спорту',
       startDate: new Date(2021, 8, 20),
@@ -581,7 +616,8 @@ export class MockDataBase {
         sportHallName: 'Стадіон ДЮСШ № 5',
         address: 'Центральний Парк'
     },
-      organiser: 'СССУ'
+      organiser: 'СССУ',
+      id: '1ww47'
     }];
     }
 
@@ -604,21 +640,21 @@ export class MockActivitiesDataBase {
      author: 'Сергій Антропов',
      content: ' Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui dicta minus\n' +
             '  molestiae vel beatae natus eveniet ratione temporibus aperiam harum alias  officiis assumenda officia quibusdam deleniti eos cupiditate dolore doloribus!',
-     id: '1',
+     id: `${new Date()}`,
      date: new Date(2010, 10, 10),
      kindOfActivity: 'physical culture'},
 
     {title: 'Естафети Cool Games', author: 'Сергій Антропов',
      content: ' Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui dicta minus\n' +
             '  molestiae vel beatae natus eveniet ratione temporibus aperiam harum alias  officiis assumenda officia quibusdam deleniti eos cupiditate dolore doloribus!',
-     id: '2',
+     id: `${new Date()}`,
      date: new Date(2000, 1, 23),
      kindOfActivity: 'physical culture'},
 
     {title: 'Правила Cool Race', author: 'Олександр Ігнатко',
      content: ' Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui dicta minus\n' +
             '  molestiae vel beatae natus eveniet ratione temporibus aperiam harum alias  officiis assumenda officia quibusdam deleniti eos cupiditate dolore doloribus!',
-     id: '3',
+     id: `${new Date()}`,
      date: new Date(2000, 4, 15),
      kindOfActivity: 'physical culture'},
 
@@ -626,7 +662,7 @@ export class MockActivitiesDataBase {
      author: 'Сергій Антропов',
      content: ' Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui dicta minus\n' +
             '  molestiae vel beatae natus eveniet ratione temporibus aperiam harum alias  officiis assumenda officia quibusdam deleniti eos cupiditate dolore doloribus!',
-     id: '8',
+     id: `${new Date()}`,
      date: new Date(2001, 11, 30),
      kindOfActivity: 'physical culture'},
 
@@ -634,7 +670,7 @@ export class MockActivitiesDataBase {
      author: 'Володимир Артамонов',
      content: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui dicta minus\n' +
             '  molestiae vel beatae natus eveniet ratione temporibus aperiam harum alias  officiis assumenda officia qu',
-     id: '4',
+     id: `${new Date()}`,
      date: new Date(2020, 5, 19),
      kindOfActivity: 'physical culture'},
 
@@ -642,7 +678,7 @@ export class MockActivitiesDataBase {
      author: 'Олена Зерник',
      content: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui dicta minus\n' +
             '  molestiae vel beatae natus eveniet ratione temporibus aperiam harum alias  officiis assumenda officia qu',
-     id: '5',
+     id: `${new Date()}`,
      date: new Date(2020, 12, 22),
      kindOfActivity: 'sport'},
 
@@ -650,7 +686,7 @@ export class MockActivitiesDataBase {
      author: 'Олена Зерник',
      content: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui dicta minus\n' +
             '  molestiae vel beatae natus eveniet ratione temporibus aperiam harum alias  officiis assumenda officia qu',
-     id: '6',
+     id: `${new Date()}`,
      date: new Date(2020, 7, 28),
      kindOfActivity: 'sport'},
 
@@ -658,7 +694,7 @@ export class MockActivitiesDataBase {
      author: 'Олена Негода',
      content: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui dicta minus\n' +
             '  molestiae vel beatae natus eveniet ratione temporibus aperiam harum alias  officiis assumenda officia qu',
-     id: '7',
+     id: `${new Date()}`,
      date: new Date(2020, 5, 2),
      kindOfActivity: 'sport'},
   ];

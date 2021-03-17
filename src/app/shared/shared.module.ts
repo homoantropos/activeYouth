@@ -6,11 +6,13 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatTableModule} from '@angular/material/table';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatSortModule} from '@angular/material/sort';
+import { AppointmentDetailsComponent } from './components/appointment-details/appointment-details.component';
+import { ActivityDetailsComponent } from './components/activity-details/activity-details.component';
 
 
 
 @NgModule({
-  declarations: [],
+  declarations: [AppointmentDetailsComponent, ActivityDetailsComponent],
   imports: [
     CommonModule,
     MatFormFieldModule,

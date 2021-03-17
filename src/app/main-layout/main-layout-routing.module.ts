@@ -7,6 +7,7 @@ import {ScheduleComponent} from './schedule/schedule.component';
 import {ActivitiesPageComponent} from './activities-page/activities-page.component';
 import {SportsPageComponent} from './sports-page/sports-page.component';
 import {RatingPageComponent} from './raiting-page/rating-page.component';
+import {AppointmentDetailsComponent} from '../shared/components/appointment-details/appointment-details.component';
 
 const routes: Routes = [
   { path: '', component: MainLayoutComponent, children: [
@@ -15,6 +16,7 @@ const routes: Routes = [
       {path: 'activities', component: ActivitiesPageComponent},
       {path: 'sports', component: SportsPageComponent},
       {path: 'schedule', component: ScheduleComponent},
+      {path: 'schedule/:id', component: AppointmentDetailsComponent},
       {path: 'rating', component: RatingPageComponent}
     ] }
 ];

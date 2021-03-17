@@ -19,7 +19,7 @@ export interface Appointment {
   startDate: Date;
   finishDate: Date;
   duration?: number;
-  placeOfHolding?: PlaceOfHolding;
+  placeOfHolding: PlaceOfHolding;
   participants: string;
   sportKind?: string;
   direction: string;

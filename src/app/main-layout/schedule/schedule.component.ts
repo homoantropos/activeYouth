@@ -1,9 +1,14 @@
 import {AfterViewInit, Component, ViewChild} from '@angular/core';
-import {MockDataBase} from '../../thoseWillBeDeletedAfterDBCreating/mockDB';
 import {MatTableDataSource} from '@angular/material/table';
-import {Appointment} from '../../shared/interfases';
 import {MatPaginator} from '@angular/material/paginator';
 import {MatSort} from '@angular/material/sort';
+import {Router} from '@angular/router';
+
+import {MockDataBase} from '../../thoseWillBeDeletedAfterDBCreating/mockDB';
+
+import {Appointment} from '../../shared/interfases';
+
+
 
 @Component({
   selector: 'app-main-page',
@@ -20,11 +25,17 @@ export class ScheduleComponent implements AfterViewInit {
 
   // @ts-ignore
   @ViewChild(MatSort) sort: MatSort;
-  constructor( ) {
+  constructor(
+    private router: Router
+  ) {
   }
 
   ngAfterViewInit(): void {
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
+  }
+
+  goToAppointmentDetails(a: Appointment): void {
+    this.router.navigateByUrl(`/schedule/${a.id}`);
   }
 }
