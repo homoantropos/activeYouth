@@ -1,13 +1,13 @@
 <div class="table-container">
-  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+  <table mat-table matSort [dataSource]="dataSource" class="mat-elevation-z8">
 
     <ng-container matColumnDef="title">
-      <th mat-header-cell *matHeaderCellDef> Захід </th>
+      <th mat-header-cell *matHeaderCellDef mat-sort-header="title"> Захід </th>
       <td mat-cell *matCellDef="let appointment"> {{appointment.title}} </td>
     </ng-container>
 
     <ng-container matColumnDef="termsOfHolding">
-      <th mat-header-cell *matHeaderCellDef> Терміни<br>проведення </th>
+      <th mat-header-cell *matHeaderCellDef mat-sort-header="startDate"> Терміни<br>проведення </th>
       <td mat-cell *matCellDef="let appointment">
         {{appointment.startDate | date : 'dd.MM.yy'}}<br>
         {{appointment.finishDate | date : 'dd.MM.yy'}}</td>

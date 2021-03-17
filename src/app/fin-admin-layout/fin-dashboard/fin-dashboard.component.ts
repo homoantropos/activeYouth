@@ -1,7 +1,7 @@
 import {AfterViewInit, Component, ViewChild} from '@angular/core';
 import {MatTableDataSource} from '@angular/material/table';
 import {Appointment} from '../../shared/interfases';
-import {MockSchedule} from '../../thoseWillBeDeletedAfterDBCreating/mockDB';
+import {MockDataBase} from '../../thoseWillBeDeletedAfterDBCreating/mockDB';
 import {MatPaginator} from '@angular/material/paginator';
 
 @Component({
@@ -11,7 +11,7 @@ import {MatPaginator} from '@angular/material/paginator';
 })
 export class FinDashboardComponent implements AfterViewInit {
   displayedColumns: string [] = ['title', 'termsOfHolding', 'placeOfHolding'];
-  dataSource: MatTableDataSource<Appointment> = new MatTableDataSource<Appointment>(MockSchedule.schedule);
+  dataSource: MatTableDataSource<Appointment> = new MatTableDataSource<Appointment>(MockDataBase.schedule);
 
   // @ts-ignore
   @ViewChild(MatPaginator) paginator: MatPaginator;

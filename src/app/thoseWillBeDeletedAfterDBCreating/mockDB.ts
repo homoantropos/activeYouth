@@ -1,6 +1,10 @@
 import {Activity, Appointment, User} from '../shared/interfases';
+import {Statistic} from '../shared/interfases';
 
-export class MockSchedule {
+export class MockDataBase {
+
+  static statistics: Array<Statistic> = [];
+
   static schedule: Array<Appointment> = [
     {title: 'Зимова Гімназіада України з лижних гонок',
       startDate: new Date(2021, 2, 16),

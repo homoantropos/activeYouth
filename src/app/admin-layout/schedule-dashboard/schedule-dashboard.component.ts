@@ -1,5 +1,5 @@
 import {AfterViewInit, Component, ViewChild} from '@angular/core';
-import {MockSchedule} from '../../thoseWillBeDeletedAfterDBCreating/mockDB';
+import {MockDataBase} from '../../thoseWillBeDeletedAfterDBCreating/mockDB';
 import {Router} from '@angular/router';
 import {MatTableDataSource} from '@angular/material/table';
 import {Appointment} from '../../shared/interfases';
@@ -12,7 +12,7 @@ import {MatPaginator} from '@angular/material/paginator';
 })
 export class ScheduleDashboardComponent implements AfterViewInit {
   displayedColumns: string[] = ['title', 'termsOfHolding', 'placeOfHolding', 'edit', 'delete'];
-  dataSource: MatTableDataSource<Appointment> = new MatTableDataSource<Appointment>(MockSchedule.schedule);
+  dataSource: MatTableDataSource<Appointment> = new MatTableDataSource<Appointment>(MockDataBase.schedule);
   // @ts-ignore
   @ViewChild(MatPaginator) paginator: MatPaginator;
 

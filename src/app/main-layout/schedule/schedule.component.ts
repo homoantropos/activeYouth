@@ -1,8 +1,9 @@
 import {AfterViewInit, Component, ViewChild} from '@angular/core';
-import {MockSchedule} from '../../thoseWillBeDeletedAfterDBCreating/mockDB';
+import {MockDataBase} from '../../thoseWillBeDeletedAfterDBCreating/mockDB';
 import {MatTableDataSource} from '@angular/material/table';
 import {Appointment} from '../../shared/interfases';
 import {MatPaginator} from '@angular/material/paginator';
+import {MatSort} from '@angular/material/sort';
 
 @Component({
   selector: 'app-main-page',
@@ -12,14 +13,18 @@ import {MatPaginator} from '@angular/material/paginator';
 
 export class ScheduleComponent implements AfterViewInit {
   displayedColumns: string[] = ['title', 'termsOfHolding', 'placeOfHolding'];
-  dataSource: MatTableDataSource<Appointment> = new MatTableDataSource<Appointment>(MockSchedule.schedule);
+  dataSource: MatTableDataSource<Appointment> = new MatTableDataSource<Appointment>(MockDataBase.schedule);
 
   // @ts-ignore
   @ViewChild(MatPaginator) paginator: MatPaginator;
+
+  // @ts-ignore
+  @ViewChild(MatSort) sort: MatSort;
   constructor( ) {
   }
 
   ngAfterViewInit(): void {
     this.dataSource.paginator = this.paginator;
+    this.dataSource.sort = this.sort;
   }
 }

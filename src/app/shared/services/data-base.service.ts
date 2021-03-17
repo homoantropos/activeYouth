@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {Observable, of} from 'rxjs';
 import {Activity, Appointment} from '../interfases';
-import {MockActivitiesDataBase, MockSchedule} from '../../thoseWillBeDeletedAfterDBCreating/mockDB';
+import {MockActivitiesDataBase, MockDataBase} from '../../thoseWillBeDeletedAfterDBCreating/mockDB';
 
 
 @Injectable({
@@ -12,8 +12,8 @@ export class DataBaseService {
   constructor() { }
 
   saveAppointmentToDatabase(appointment: Appointment): Observable<Appointment> {
-    appointment.id = MockSchedule.schedule.length.toString();
-    MockSchedule.schedule.push(appointment);
+    appointment.id = MockDataBase.schedule.length.toString();
+    MockDataBase.schedule.push(appointment);
     return of(appointment);
   }
 

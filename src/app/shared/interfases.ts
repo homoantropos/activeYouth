@@ -82,3 +82,8 @@ export interface NumbersOfParticipants {
   others: number;
   total: number;
 }
+
+export interface Statistic {
+  appointment: Appointment;
+  numberOfParticipants: NumbersOfParticipants;
+}
