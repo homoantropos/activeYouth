@@ -1,9 +1,11 @@
-import {Activity, Appointment, User} from '../shared/interfases';
+import {Activity, Appointment, AppointmentFinancing, User} from '../shared/interfases';
 import {Statistic} from '../shared/interfases';
 
 export class MockDataBase {
 
   static statistics: Array<Statistic> = [];
+
+  static balance: Array<AppointmentFinancing> = [];
 
   static schedule: Array<Appointment> = [
     {title: 'Зимова Гімназіада України з лижних гонок',

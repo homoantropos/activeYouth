@@ -18,6 +18,7 @@ import { ResultsEditorComponent } from './creators-editors/results-editor/result
 import {QuillModule} from 'ngx-quill';
 import { SportsCreatorComponent } from './creators-editors/sports-creator/sports-creator.component';
 import {SharedModule} from '../shared/shared.module';
+import { StatisticDashboardComponent } from './statistic-dashboard/statistic-dashboard.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import {SharedModule} from '../shared/shared.module';
     ActivityEditorComponent,
     ResultsCreatorComponent,
     ResultsEditorComponent,
-    SportsCreatorComponent],
+    SportsCreatorComponent,
+    StatisticDashboardComponent],
   imports: [
     FormsModule,
     ReactiveFormsModule,

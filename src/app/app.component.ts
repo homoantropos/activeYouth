@@ -15,5 +15,6 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void {
     this.admin.createStatistics();
+    this.admin.createBalance();
   }
 }

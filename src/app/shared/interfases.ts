@@ -42,14 +42,6 @@ export interface EducationEntity {
   type: string;
 }
 
-export interface Expenses {
-  kekv2210: number;
-  kekv2220: number;
-  kekv2240: number;
-  kekv2250: number;
-  total: number;
-}
-
 export interface Participant {
   name: string;
   surname: string;
@@ -66,7 +58,14 @@ export interface Result {
   ratingPoints: number;
 }
 
-export interface FinancialBalance {
+export interface Expenses {
+  kekv2210: number;
+  kekv2220: number;
+  kekv2240: number;
+  total: number;
+}
+
+export interface AppointmentFinancing {
   appointment: Appointment;
   expensesPlan: Expenses;
   expensesFact: Expenses;

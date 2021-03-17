@@ -14,11 +14,13 @@ import {ResultsCreatorComponent} from './creators-editors/results-creator/result
 import {ResultsEditorComponent} from './creators-editors/results-editor/results-editor.component';
 import {AuthGuardService} from './auth/auth-guard.service';
 import {SportsCreatorComponent} from './creators-editors/sports-creator/sports-creator.component';
+import {StatisticDashboardComponent} from './statistic-dashboard/statistic-dashboard.component';
 
 const routes: Routes = [
   { path: '', component: AdminLayoutComponent, children: [
       {path: '', redirectTo: 'login', pathMatch: 'full'},
       {path: 'login', component: LoginPageComponent},
+      {path: 'statistic', component: StatisticDashboardComponent, canActivate: [AuthGuardService]},
       {path: 'activities', canActivate: [AuthGuardService], children: [
           {path: '', component: ActivitiesDashboardComponent},
           {path: 'create', component: ActivityCreatorComponent},

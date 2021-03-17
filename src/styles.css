@@ -117,6 +117,8 @@ button.active {
   position: relative;
   left: 50%;
   transform: translate(-50%);
+  padding-bottom: 10px;
+  border-bottom: dotted grey 1px;
 }
 
 table {
