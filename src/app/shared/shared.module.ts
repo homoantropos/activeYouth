@@ -8,11 +8,15 @@ import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatSortModule} from '@angular/material/sort';
 import { AppointmentDetailsComponent } from './components/appointment-details/appointment-details.component';
 import { ActivityDetailsComponent } from './components/activity-details/activity-details.component';
+import { SanitizeHTMLPipePipe } from './pipes/sanitize-htmlpipe.pipe';
 
 
 
 @NgModule({
-  declarations: [AppointmentDetailsComponent, ActivityDetailsComponent],
+  declarations: [
+    AppointmentDetailsComponent,
+    ActivityDetailsComponent,
+    SanitizeHTMLPipePipe],
   imports: [
     CommonModule,
     MatFormFieldModule,
@@ -28,7 +32,8 @@ import { ActivityDetailsComponent } from './components/activity-details/activity
     MatButtonModule,
     MatTableModule,
     MatPaginatorModule,
-    MatSortModule
+    MatSortModule,
+    SanitizeHTMLPipePipe
   ]
 })
 export class SharedModule { }

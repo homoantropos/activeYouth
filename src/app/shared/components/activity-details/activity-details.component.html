@@ -1,3 +1,4 @@
+<p>{{activity.title}}</p>
 <p>{{activity.author}}</p>
 <p>{{activity.date | date : 'dd.MM.yyyy'}}</p>
-<div [innerHTML]="activity.content"></div>
+<div [innerHTML]="activity.content | sanitizeHTMLPipe"></div>
