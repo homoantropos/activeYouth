@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import {Observable, of} from 'rxjs';
-import {Activity, Appointment} from '../interfases';
-import {MockActivitiesDataBase, MockDataBase} from '../../thoseWillBeDeletedAfterDBCreating/mockDB';
+import { Observable, of } from 'rxjs';
+import { Activity, Appointment } from '../interfases';
+import { MockDataBase } from '../../thoseWillBeDeletedAfterDBCreating/mockDB';
 
 
 @Injectable({
@@ -9,7 +9,7 @@ import {MockActivitiesDataBase, MockDataBase} from '../../thoseWillBeDeletedAfte
 })
 export class DataBaseService {
 
-  constructor() { }
+  constructor( ) { }
 
   saveAppointmentToDatabase(appointment: Appointment): Observable<Appointment> {
     appointment.id = MockDataBase.schedule.length.toString();
@@ -20,14 +20,15 @@ export class DataBaseService {
   saveActivityToDataBase(activity: Activity): Observable<Activity> {
     activity.kindOfActivity = 'physical culture';
     activity.id = 'MockActivitiesDataBase.mockActivitiesDataBase.length + 1';
-    MockActivitiesDataBase.mockActivitiesDataBase.push(activity);
+    MockDataBase.mockActivitiesDataBase.push(activity);
     return of(activity);
   }
 
   saveSportToDataBase(activity: Activity): Observable<Activity> {
     activity.kindOfActivity = 'sport';
     activity.id = 'MockActivitiesDataBase.mockActivitiesDataBase.length + 1';
-    MockActivitiesDataBase.mockActivitiesDataBase.push(activity);
+    MockDataBase.mockActivitiesDataBase.push(activity);
     return of(activity);
   }
+
 }

@@ -56,6 +56,7 @@ export interface Result {
   discipline: string;
   place: number;
   ratingPoints: number;
+  id: string;
 }
 
 export interface Expenses {
@@ -69,6 +70,7 @@ export interface AppointmentFinancing {
   appointment: Appointment;
   expensesPlan: Expenses;
   expensesFact: Expenses;
+  id: string;
 }
 
 export interface NumbersOfParticipants {
@@ -85,4 +87,5 @@ export interface NumbersOfParticipants {
 export interface Statistic {
   appointment: Appointment;
   numberOfParticipants: NumbersOfParticipants;
+  id: string;
 }

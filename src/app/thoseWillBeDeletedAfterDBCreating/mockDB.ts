@@ -1,7 +1,9 @@
-import {Activity, Appointment, AppointmentFinancing, User} from '../shared/interfases';
+import {Activity, Appointment, AppointmentFinancing, Result, User} from '../shared/interfases';
 import {Statistic} from '../shared/interfases';
 
 export class MockDataBase {
+
+  static mockResultsDataBase: Array<Result> = [];
 
   static statistics: Array<Statistic> = [];
 
@@ -619,83 +621,79 @@ export class MockDataBase {
       organiser: 'СССУ',
       id: '1ww47'
     }];
-    }
-
-export class MockAuthenticatedUsers {
   static authenticatedUsers: Array<User> = [
     {email: 'santre8@gmail.com',
-     password: '11111111',
-     accessLevel: 1
+      password: '11111111',
+      accessLevel: 1
     },
     {email: 'homoantropos@gmail.com',
-     password: '22222222',
-     accessLevel: 2
+      password: '22222222',
+      accessLevel: 2
     },
   ];
-}
 
-export class MockActivitiesDataBase {
   static mockActivitiesDataBase: Array<Activity> = [
     {title: 'Правила Cool Games',
-     author: 'Сергій Антропов',
-     content: ' Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui dicta minus\n' +
-            '  molestiae vel beatae natus eveniet ratione temporibus aperiam harum alias  officiis assumenda officia quibusdam deleniti eos cupiditate dolore doloribus!',
-     id: `${new Date()}`,
-     date: new Date(2010, 10, 10),
-     kindOfActivity: 'physical culture'},
+      author: 'Сергій Антропов',
+      content: ' Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui dicta minus\n' +
+        '  molestiae vel beatae natus eveniet ratione temporibus aperiam harum alias  officiis assumenda officia quibusdam deleniti eos cupiditate dolore doloribus!',
+      id: `${Date.now()}`,
+      date: new Date(2010, 10, 10),
+      kindOfActivity: 'physical culture'},
 
     {title: 'Естафети Cool Games', author: 'Сергій Антропов',
-     content: ' Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui dicta minus\n' +
-            '  molestiae vel beatae natus eveniet ratione temporibus aperiam harum alias  officiis assumenda officia quibusdam deleniti eos cupiditate dolore doloribus!',
-     id: `${new Date()}`,
-     date: new Date(2000, 1, 23),
-     kindOfActivity: 'physical culture'},
+      content: ' Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui dicta minus\n' +
+        '  molestiae vel beatae natus eveniet ratione temporibus aperiam harum alias  officiis assumenda officia quibusdam deleniti eos cupiditate dolore doloribus!',
+      id: `${Date.now()}`,
+      date: new Date(2000, 1, 23),
+      kindOfActivity: 'physical culture'},
 
     {title: 'Правила Cool Race', author: 'Олександр Ігнатко',
-     content: ' Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui dicta minus\n' +
-            '  molestiae vel beatae natus eveniet ratione temporibus aperiam harum alias  officiis assumenda officia quibusdam deleniti eos cupiditate dolore doloribus!',
-     id: `${new Date()}`,
-     date: new Date(2000, 4, 15),
-     kindOfActivity: 'physical culture'},
+      content: ' Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui dicta minus\n' +
+        '  molestiae vel beatae natus eveniet ratione temporibus aperiam harum alias  officiis assumenda officia quibusdam deleniti eos cupiditate dolore doloribus!',
+      id: `${Date.now()}`,
+      date: new Date(2000, 4, 15),
+      kindOfActivity: 'physical culture'},
 
     {title: 'Естафети Cool Race',
-     author: 'Сергій Антропов',
-     content: ' Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui dicta minus\n' +
-            '  molestiae vel beatae natus eveniet ratione temporibus aperiam harum alias  officiis assumenda officia quibusdam deleniti eos cupiditate dolore doloribus!',
-     id: `${new Date()}`,
-     date: new Date(2001, 11, 30),
-     kindOfActivity: 'physical culture'},
+      author: 'Сергій Антропов',
+      content: ' Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui dicta minus\n' +
+        '  molestiae vel beatae natus eveniet ratione temporibus aperiam harum alias  officiis assumenda officia quibusdam deleniti eos cupiditate dolore doloribus!',
+      id: `${Date.now()}`,
+      date: new Date(2001, 11, 30),
+      kindOfActivity: 'physical culture'},
 
     {title: 'Структури і правила',
-     author: 'Володимир Артамонов',
-     content: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui dicta minus\n' +
-            '  molestiae vel beatae natus eveniet ratione temporibus aperiam harum alias  officiis assumenda officia qu',
-     id: `${new Date()}`,
-     date: new Date(2020, 5, 19),
-     kindOfActivity: 'physical culture'},
+      author: 'Володимир Артамонов',
+      content: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui dicta minus\n' +
+        '  molestiae vel beatae natus eveniet ratione temporibus aperiam harum alias  officiis assumenda officia qu',
+      id: `${Date.now()}`,
+      date: new Date(2020, 5, 19),
+      kindOfActivity: 'physical culture'},
 
     {title: 'Подача заявок на Європейські університетські ігри',
-     author: 'Олена Зерник',
-     content: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui dicta minus\n' +
-            '  molestiae vel beatae natus eveniet ratione temporibus aperiam harum alias  officiis assumenda officia qu',
-     id: `${new Date()}`,
-     date: new Date(2020, 12, 22),
-     kindOfActivity: 'sport'},
+      author: 'Олена Зерник',
+      content: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui dicta minus\n' +
+        '  molestiae vel beatae natus eveniet ratione temporibus aperiam harum alias  officiis assumenda officia qu',
+      id: `${Date.now()}`,
+      date: new Date(2020, 12, 22),
+      kindOfActivity: 'sport'},
 
     {title: 'Подача заявок на Всесвітню Універсіаду',
-     author: 'Олена Зерник',
-     content: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui dicta minus\n' +
-            '  molestiae vel beatae natus eveniet ratione temporibus aperiam harum alias  officiis assumenda officia qu',
-     id: `${new Date()}`,
-     date: new Date(2020, 7, 28),
-     kindOfActivity: 'sport'},
+      author: 'Олена Зерник',
+      content: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui dicta minus\n' +
+        '  molestiae vel beatae natus eveniet ratione temporibus aperiam harum alias  officiis assumenda officia qu',
+      id: `${Date.now()}`,
+      date: new Date(2020, 7, 28),
+      kindOfActivity: 'sport'},
 
     {title: 'Зимова Універсіада України',
-     author: 'Олена Негода',
-     content: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui dicta minus\n' +
-            '  molestiae vel beatae natus eveniet ratione temporibus aperiam harum alias  officiis assumenda officia qu',
-     id: `${new Date()}`,
-     date: new Date(2020, 5, 2),
-     kindOfActivity: 'sport'},
+      author: 'Олена Негода',
+      content: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui dicta minus\n' +
+        '  molestiae vel beatae natus eveniet ratione temporibus aperiam harum alias  officiis assumenda officia qu',
+      id: `${Date.now()}`,
+      date: new Date(2020, 5, 2),
+      kindOfActivity: 'sport'},
   ];
 }
+

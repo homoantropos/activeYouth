@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {Appointment} from '../../../shared/interfases';
-import {DataBaseService} from '../../../shared/services/data-base.service';
 import {Router} from '@angular/router';
+import {AppointmentService} from '../../../shared/services/appointment.service';
 
 @Component({
   selector: 'app-appointment-creator',
@@ -14,7 +14,7 @@ export class AppointmentCreatorComponent implements OnInit {
   appointmentCreatorForm: FormGroup;
 
   constructor(
-    private dbservise: DataBaseService,
+    private appointmentServise: AppointmentService,
     private router: Router
   ) { }
 
@@ -28,7 +28,7 @@ export class AppointmentCreatorComponent implements OnInit {
 
   onCreate(): void {
     const appointment: Appointment = (this.appointmentCreatorForm.value) as Appointment;
-    this.dbservise.saveAppointmentToDatabase(appointment).subscribe(
+    this.appointmentServise.createAppointment(appointment).subscribe(
       (a) => {
         appointment.id = a.id;
         this.appointmentCreatorForm.reset();

@@ -33,7 +33,8 @@ export class MockDBAdministratorService {
 
     return {
       appointment,
-      numberOfParticipants
+      numberOfParticipants,
+      id: `${Date.now()}`
     };
   }
 
@@ -75,7 +76,8 @@ export class MockDBAdministratorService {
     return {
       appointment,
       expensesPlan,
-      expensesFact
+      expensesFact,
+      id: `${Date.now()}`
     };
   }
 

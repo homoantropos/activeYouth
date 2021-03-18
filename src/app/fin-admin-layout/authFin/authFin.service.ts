@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import {User} from '../../shared/interfases';
-import {MockAuthenticatedUsers} from '../../thoseWillBeDeletedAfterDBCreating/mockDB';
-import {Router} from '@angular/router';
+import { User } from '../../shared/interfases';
+import { MockDataBase } from '../../thoseWillBeDeletedAfterDBCreating/mockDB';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +13,7 @@ export class AuthFinService {
   ) { }
 
   login(user: User): void {
-    const candidate = MockAuthenticatedUsers.authenticatedUsers.find((e) => e.email === user.email);
+    const candidate = MockDataBase.authenticatedUsers.find((e) => e.email === user.email);
     if (candidate) {
       if (!(user.password === candidate.password)) {
         alert('password is incorrect');

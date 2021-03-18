@@ -1,5 +1,5 @@
 import {AfterViewInit, Component, ViewChild} from '@angular/core';
-import {MockActivitiesDataBase} from '../../thoseWillBeDeletedAfterDBCreating/mockDB';
+import {MockDataBase} from '../../thoseWillBeDeletedAfterDBCreating/mockDB';
 import {MatTableDataSource} from '@angular/material/table';
 import {Activity} from '../../shared/interfases';
 import {MatPaginator} from '@angular/material/paginator';
@@ -14,7 +14,7 @@ export class ActivitiesPageComponent implements AfterViewInit {
   displayedColumns: string[] = ['title', 'author', 'date'];
   dataSource: MatTableDataSource<Activity> =
     new MatTableDataSource<Activity>(
-      MockActivitiesDataBase.mockActivitiesDataBase.filter(a => a.kindOfActivity === 'physical culture')
+      MockDataBase.mockActivitiesDataBase.filter(a => a.kindOfActivity === 'physical culture')
     );
   // @ts-ignore
   @ViewChild(MatPaginator) paginator: MatPaginator;

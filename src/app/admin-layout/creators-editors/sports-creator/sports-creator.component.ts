@@ -3,6 +3,7 @@ import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {DataBaseService} from '../../../shared/services/data-base.service';
 import {Router} from '@angular/router';
 import {Activity} from '../../../shared/interfases';
+import {ActivityService} from '../../../shared/services/activity.service';
 
 @Component({
   selector: 'app-sports-creator',
@@ -14,7 +15,7 @@ export class SportsCreatorComponent implements OnInit {
   // @ts-ignore
   activitiesCreatorForm: FormGroup;
   constructor(
-    private dbservise: DataBaseService,
+    private sportServise: ActivityService,
     private router: Router
   ) { }
 
@@ -41,9 +42,10 @@ export class SportsCreatorComponent implements OnInit {
       title: this.activitiesCreatorForm.value.title,
       author: this.activitiesCreatorForm.value.author,
       content: this.activitiesCreatorForm.value.text,
+      kindOfActivity: 'sport',
       date: new Date()
     };
-    this.dbservise.saveSportToDataBase(activity).subscribe(a => {
+    this.sportServise.createActivity(activity).subscribe(a => {
       activity.id = a.id;
       activity.kindOfActivity = a.kindOfActivity;
       this.activitiesCreatorForm.reset();

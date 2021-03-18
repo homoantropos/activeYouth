@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {Activity} from '../../../shared/interfases';
-import {DataBaseService} from '../../../shared/services/data-base.service';
 import {Router} from '@angular/router';
+import {ActivityService} from '../../../shared/services/activity.service';
 
 @Component({
   selector: 'app-activity-creator',
@@ -14,7 +14,7 @@ export class ActivityCreatorComponent implements OnInit {
   // @ts-ignore
   activitiesCreatorForm: FormGroup;
   constructor(
-    private dbservise: DataBaseService,
+    private activityServise: ActivityService,
     private router: Router
   ) { }
 
@@ -40,10 +40,12 @@ export class ActivityCreatorComponent implements OnInit {
     const activity: Activity = {
       title: this.activitiesCreatorForm.value.title,
       author: this.activitiesCreatorForm.value.author,
-      content: this.activitiesCreatorForm.value.text,
+      content: this.activitiesCreatorForm.value.content,
+      kindOfActivity: 'physical culture',
       date: new Date()
     };
-    this.dbservise.saveActivityToDataBase(activity).subscribe(a => {
+    this.activityServise.createActivity(activity).subscribe(a => {
+      console.log(activity);
       activity.id = a.id;
       activity.kindOfActivity = a.kindOfActivity;
       this.activitiesCreatorForm.reset();

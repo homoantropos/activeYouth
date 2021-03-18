@@ -8,12 +8,14 @@ import {ActivitiesPageComponent} from './activities-page/activities-page.compone
 import {SportsPageComponent} from './sports-page/sports-page.component';
 import {RatingPageComponent} from './raiting-page/rating-page.component';
 import {AppointmentDetailsComponent} from '../shared/components/appointment-details/appointment-details.component';
+import {ActivityDetailsComponent} from '../shared/components/activity-details/activity-details.component';
 
 const routes: Routes = [
   { path: '', component: MainLayoutComponent, children: [
       {path: '', redirectTo: 'main', pathMatch: 'full'},
       {path: 'main', component: MainPageComponent},
       {path: 'activities', component: ActivitiesPageComponent},
+      {path: 'activities/:id', component: ActivityDetailsComponent},
       {path: 'sports', component: SportsPageComponent},
       {path: 'schedule', component: ScheduleComponent},
       {path: 'schedule/:id', component: AppointmentDetailsComponent},
