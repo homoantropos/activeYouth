@@ -637,21 +637,21 @@ export class MockDataBase {
       author: 'Сергій Антропов',
       content: ' Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui dicta minus\n' +
         '  molestiae vel beatae natus eveniet ratione temporibus aperiam harum alias  officiis assumenda officia quibusdam deleniti eos cupiditate dolore doloribus!',
-      id: `${Date.now()}`,
+      id: `asdffsf`,
       date: new Date(2010, 10, 10),
       kindOfActivity: 'physical culture'},
 
     {title: 'Естафети Cool Games', author: 'Сергій Антропов',
       content: ' Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui dicta minus\n' +
         '  molestiae vel beatae natus eveniet ratione temporibus aperiam harum alias  officiis assumenda officia quibusdam deleniti eos cupiditate dolore doloribus!',
-      id: `${Date.now()}`,
+      id: `xcbcvb`,
       date: new Date(2000, 1, 23),
       kindOfActivity: 'physical culture'},
 
     {title: 'Правила Cool Race', author: 'Олександр Ігнатко',
       content: ' Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui dicta minus\n' +
         '  molestiae vel beatae natus eveniet ratione temporibus aperiam harum alias  officiis assumenda officia quibusdam deleniti eos cupiditate dolore doloribus!',
-      id: `${Date.now()}`,
+      id: `bdffbg`,
       date: new Date(2000, 4, 15),
       kindOfActivity: 'physical culture'},
 
@@ -659,7 +659,7 @@ export class MockDataBase {
       author: 'Сергій Антропов',
       content: ' Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui dicta minus\n' +
         '  molestiae vel beatae natus eveniet ratione temporibus aperiam harum alias  officiis assumenda officia quibusdam deleniti eos cupiditate dolore doloribus!',
-      id: `${Date.now()}`,
+      id: `fdgfdgdfg`,
       date: new Date(2001, 11, 30),
       kindOfActivity: 'physical culture'},
 
@@ -667,7 +667,7 @@ export class MockDataBase {
       author: 'Володимир Артамонов',
       content: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui dicta minus\n' +
         '  molestiae vel beatae natus eveniet ratione temporibus aperiam harum alias  officiis assumenda officia qu',
-      id: `${Date.now()}`,
+      id: `rdtyyh`,
       date: new Date(2020, 5, 19),
       kindOfActivity: 'physical culture'},
 
@@ -675,7 +675,7 @@ export class MockDataBase {
       author: 'Олена Зерник',
       content: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui dicta minus\n' +
         '  molestiae vel beatae natus eveniet ratione temporibus aperiam harum alias  officiis assumenda officia qu',
-      id: `${Date.now()}`,
+      id: `dfgfgdg`,
       date: new Date(2020, 12, 22),
       kindOfActivity: 'sport'},
 
@@ -683,7 +683,7 @@ export class MockDataBase {
       author: 'Олена Зерник',
       content: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui dicta minus\n' +
         '  molestiae vel beatae natus eveniet ratione temporibus aperiam harum alias  officiis assumenda officia qu',
-      id: `${Date.now()}`,
+      id: `dffffbvdfbf`,
       date: new Date(2020, 7, 28),
       kindOfActivity: 'sport'},
 
@@ -691,7 +691,7 @@ export class MockDataBase {
       author: 'Олена Негода',
       content: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui dicta minus\n' +
         '  molestiae vel beatae natus eveniet ratione temporibus aperiam harum alias  officiis assumenda officia qu',
-      id: `${Date.now()}`,
+      id: `dfgfbvb`,
       date: new Date(2020, 5, 2),
       kindOfActivity: 'sport'},
   ];

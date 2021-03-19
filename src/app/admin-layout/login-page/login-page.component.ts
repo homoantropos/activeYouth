@@ -20,7 +20,7 @@ export class LoginPageComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    if (this.auth.isAuthenticated) {
+    if (this.auth.isAuthenticated()) {
       this.router.navigate(['admin', 'activities']);
     }
     this.loginForm = new FormGroup({

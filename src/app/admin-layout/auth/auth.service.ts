@@ -7,7 +7,7 @@ import { Router } from '@angular/router';
   providedIn: 'root'
 })
 export class AuthService {
-  isAuthenticated = false;
+
   constructor(
     private router: Router
   ) { }
@@ -17,21 +17,23 @@ export class AuthService {
     if (candidate) {
       if (user.password === candidate.password) {
         user.idToken = candidate.idToken;
-        this.isAuthenticated = true;
+        localStorage.setItem('idToken', `${candidate.idToken}`);
         this.router.navigate(['admin', 'activities']);
       } else {
         alert('password is incorrect');
-        this.isAuthenticated = false;
       }
     } else {
       alert('user with such email didnt exist');
-      this.isAuthenticated = false;
     }
   }
 
   logOut(): void {
-    this.isAuthenticated = false;
+    localStorage.clear();
     this.router.navigate(['admin', 'login']);
+  }
+
+  isAuthenticated(): boolean {
+    return !!localStorage.getItem('idToken');
   }
 
 }

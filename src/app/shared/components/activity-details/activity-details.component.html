@@ -1,4 +1,4 @@
-<p>{{activity.title}}</p>
+<h1>{{activity.title}}</h1>
 <p>{{activity.author}}</p>
-<p>{{activity.date | date : 'dd.MM.yyyy'}}</p>
+<small><b>{{activity.date | date : 'dd.MM.yyyy'}}</b></small>
 <div [innerHTML]="activity.content | sanitizeHTMLPipe"></div>
