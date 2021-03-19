@@ -45,7 +45,6 @@ export class ActivityCreatorComponent implements OnInit {
       date: new Date()
     };
     this.activityServise.createActivity(activity).subscribe(a => {
-      console.log(activity);
       activity.id = a.id;
       activity.kindOfActivity = a.kindOfActivity;
       this.activitiesCreatorForm.reset();

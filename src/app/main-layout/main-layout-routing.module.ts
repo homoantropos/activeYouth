@@ -17,6 +17,7 @@ const routes: Routes = [
       {path: 'activities', component: ActivitiesPageComponent},
       {path: 'activities/:id', component: ActivityDetailsComponent},
       {path: 'sports', component: SportsPageComponent},
+      {path: 'sports/:id', component: ActivityDetailsComponent},
       {path: 'schedule', component: ScheduleComponent},
       {path: 'schedule/:id', component: AppointmentDetailsComponent},
       {path: 'rating', component: RatingPageComponent}
