@@ -4,6 +4,7 @@ import {Router} from '@angular/router';
 import {MatTableDataSource} from '@angular/material/table';
 import {Activity} from '../../shared/interfases';
 import {MatPaginator} from '@angular/material/paginator';
+import {ActivityService} from '../../shared/services/activity.service';
 
 @Component({
   selector: 'app-activities-dashboard',
@@ -22,7 +23,8 @@ export class ActivitiesDashboardComponent implements AfterViewInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
   constructor(
-    private router: Router
+    private router: Router,
+    private activityServise: ActivityService
   ) { }
 
   ngAfterViewInit(): void {
@@ -30,6 +32,14 @@ export class ActivitiesDashboardComponent implements AfterViewInit {
   }
 
   goToActivityCreator(): void {
-    this.router.navigate(['admin', 'activities', 'create']);
+    this.router.navigateByUrl(`/admin/activities/create`);
+  }
+
+  goToActivitiesDetails(a: Activity): void {
+    this.router.navigateByUrl(`/admin/activities/${a.id}`);
+  }
+
+  removeActivityFromDB(a: Activity): void {
+    this.activityServise.deleteActivity(a);
   }
 }

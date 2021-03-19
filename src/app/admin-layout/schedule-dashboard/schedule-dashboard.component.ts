@@ -28,4 +28,7 @@ export class ScheduleDashboardComponent implements AfterViewInit {
     this.router.navigate(['admin', 'schedule', 'create']);
   }
 
+  goToAppointmentDetails(a: Appointment): void {
+    this.router.navigateByUrl(`admin/schedule/${a.id}`);
+  }
 }

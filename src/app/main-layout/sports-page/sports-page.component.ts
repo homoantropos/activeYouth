@@ -4,6 +4,7 @@ import {MatTableDataSource} from '@angular/material/table';
 import {Activity} from '../../shared/interfases';
 import {MatPaginator} from '@angular/material/paginator';
 import {ActivityService} from '../../shared/services/activity.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-sports-page',
@@ -22,7 +23,8 @@ export class SportsPageComponent implements OnInit, AfterViewInit {
   displayedColumns: string[] = ['title', 'author', 'date'];
 
   constructor(
-    private activityServise: ActivityService
+    private activityServise: ActivityService,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -35,4 +37,7 @@ export class SportsPageComponent implements OnInit, AfterViewInit {
     this.dataSource.paginator = this.paginator;
   }
 
+  goToActivityDetails(a: Activity): void {
+    this.router.navigateByUrl(`/activities/${a.id}`);
+  }
 }

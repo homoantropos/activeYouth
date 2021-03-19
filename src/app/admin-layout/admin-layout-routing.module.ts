@@ -15,6 +15,8 @@ import {ResultsEditorComponent} from './creators-editors/results-editor/results-
 import {AuthGuardService} from './auth/auth-guard.service';
 import {SportsCreatorComponent} from './creators-editors/sports-creator/sports-creator.component';
 import {StatisticDashboardComponent} from './statistic-dashboard/statistic-dashboard.component';
+import {ActivityDetailsComponent} from '../shared/components/activity-details/activity-details.component';
+import {AppointmentDetailsComponent} from '../shared/components/appointment-details/appointment-details.component';
 
 const routes: Routes = [
   { path: '', component: AdminLayoutComponent, children: [
@@ -24,17 +26,20 @@ const routes: Routes = [
       {path: 'activities', canActivate: [AuthGuardService], children: [
           {path: '', component: ActivitiesDashboardComponent},
           {path: 'create', component: ActivityCreatorComponent},
-          {path: 'edit/:id', component: ActivityEditorComponent}
+          {path: 'edit/:id', component: ActivityEditorComponent},
+          {path: ':id', component: ActivityDetailsComponent}
         ]},
       {path: 'sports', canActivate: [AuthGuardService], children: [
           {path: '', component: SportsDashboardComponent},
           {path: 'create', component: SportsCreatorComponent},
-          {path: 'edit/:id', component: ActivityEditorComponent}
+          {path: 'edit/:id', component: ActivityEditorComponent},
+          {path: ':id', component: ActivityDetailsComponent}
         ]},
       {path: 'schedule', canActivate: [AuthGuardService], children: [
           {path: '', component: ScheduleDashboardComponent},
           {path: 'create', component: AppointmentCreatorComponent},
-          {path: 'edit/:id', component: AppointmentEditorComponent}
+          {path: 'edit/:id', component: AppointmentEditorComponent},
+          {path: ':id', component: AppointmentDetailsComponent}
         ]},
       {path: 'rating', canActivate: [AuthGuardService], children: [
           {path: '', component: ResultsDashboardComponent},

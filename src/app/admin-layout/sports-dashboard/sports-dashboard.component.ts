@@ -31,4 +31,8 @@ export class SportsDashboardComponent implements AfterViewInit {
   goToActivityCreator(): void {
     this.router.navigate(['admin', 'sports', 'create']);
   }
+
+  goToActivitiesDetails(a: Activity): void {
+    this.router.navigateByUrl(`/admin/sports/${a.id}`);
+  }
 }

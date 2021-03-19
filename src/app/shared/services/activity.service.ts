@@ -16,8 +16,8 @@ export class ActivityService {
     return of(activity);
   }
 
-  deleteActivity(activity: Activity): void {
-
+  deleteActivity(activity: Activity): Array<Activity> {
+    return MockDataBase.mockActivitiesDataBase.filter(a => a.id !== activity.id);
   }
 
   updateActivity(activity: Activity): Observable<Activity> {
