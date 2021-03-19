@@ -624,11 +624,13 @@ export class MockDataBase {
   static authenticatedUsers: Array<User> = [
     {email: 'santre8@gmail.com',
       password: '11111111',
-      accessLevel: 1
+      accessLevel: 1,
+      idToken: 'hhhsadsdfkljaf'
     },
     {email: 'homoantropos@gmail.com',
       password: '22222222',
-      accessLevel: 2
+      accessLevel: 2,
+      idToken: 'dad$isadf'
     },
   ];
 
@@ -639,7 +641,8 @@ export class MockDataBase {
         '  molestiae vel beatae natus eveniet ratione temporibus aperiam harum alias  officiis assumenda officia quibusdam deleniti eos cupiditate dolore doloribus!',
       id: `asdffsf`,
       date: new Date(2010, 10, 10),
-      kindOfActivity: 'physical culture'},
+      kindOfActivity: 'physical culture'
+    },
 
     {title: 'Естафети Cool Games', author: 'Сергій Антропов',
       content: ' Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui dicta minus\n' +

@@ -1,5 +1,5 @@
 <nav>
-  <ul>
+  <ul *ngIf="auth.isAuthenticated()">
     <li>
       <a routerLink="activities" routerLinkActive="active">Фізична культура</a>
     </li>
@@ -16,7 +16,7 @@
       <a routerLink="statistic" routerLinkActive="active">Статистика</a>
     </li>
   </ul>
-  <ul>
+  <ul *ngIf="auth.isAuthenticated()">
     <li>
       <a (click)="auth.logOut()" routerLinkActive="active">LogOut</a>
     </li>
