@@ -11,6 +11,8 @@ import { ActivityDetailsComponent } from './components/activity-details/activity
 import { SanitizeHTMLPipePipe } from './pipes/sanitize-htmlpipe.pipe';
 import { StatisticDetailsComponent } from './components/statistic-details/statistic-details.component';
 import { AppointmentFinancingDetailsComponent } from './components/appointment-financing-details/appointment-financing-details.component';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatMomentDateModule} from '@angular/material-moment-adapter';
 
 
 
@@ -28,7 +30,9 @@ import { AppointmentFinancingDetailsComponent } from './components/appointment-f
     MatButtonModule,
     MatTableModule,
     MatPaginatorModule,
-    MatSortModule
+    MatSortModule,
+    MatDatepickerModule,
+    MatMomentDateModule
   ],
   exports: [
     MatFormFieldModule,
@@ -37,7 +41,10 @@ import { AppointmentFinancingDetailsComponent } from './components/appointment-f
     MatTableModule,
     MatPaginatorModule,
     MatSortModule,
+    MatDatepickerModule,
+    MatMomentDateModule,
     SanitizeHTMLPipePipe
-  ]
+  ],
+  providers: []
 })
 export class SharedModule { }

@@ -20,7 +20,7 @@ import { SharedModule } from './shared/shared.module';
     QuillModule.forRoot(),
     SharedModule
   ],
-  providers: [],
+  providers: [ ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

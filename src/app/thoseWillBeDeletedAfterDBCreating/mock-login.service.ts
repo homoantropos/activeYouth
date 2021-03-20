@@ -20,7 +20,7 @@ export class MockLoginService {
       } else {
         if (candidate.accessLevel === 1) {
           const token = 'token';
-          const expireIn = new Date(new Date().getTime() + 60 * 1000);
+          const expireIn = new Date(new Date().getTime() + 20 * 60 * 1000);
           dbResponce = {token, user, expireIn, status: 200};
         } else {
           dbResponce = { user, status: 403};
@@ -40,7 +40,7 @@ export class MockLoginService {
         dbResponce = { user, status: 401};
       } else {
           const token = 'token';
-          const expireIn = new Date(new Date().getTime() + 60 * 1000);
+          const expireIn = new Date(new Date().getTime() + 20 * 60 * 1000);
           dbResponce = {token, user, expireIn, status: 200};
       }
     }

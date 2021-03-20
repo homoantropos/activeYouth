@@ -20,14 +20,27 @@ export class AppointmentCreatorComponent implements OnInit {
 
   ngOnInit(): void {
     this.appointmentCreatorForm = new FormGroup({
-      title: new FormControl (null, [
-        Validators.required
-      ])
+      title: new FormControl ('', [Validators.required]),
+      startDate: new FormControl('', [Validators.required]),
+      finishDate: new FormControl('', [Validators.required]),
+      placeOfHolding: new FormGroup({
+        country: new FormControl('', [Validators.required]),
+        region: new FormControl(''),
+        town: new FormControl('', [Validators.required]),
+        sportHallName: new FormControl(''),
+        address: new FormControl('')
+      }),
+      participants: new FormControl('', [Validators.required]),
+      sportKind: new FormControl('', [Validators.required]),
+      direction: new FormControl('', [Validators.required]),
+      status: new FormControl('', [Validators.required]),
+      organiser: new FormControl('', [Validators.required])
     });
   }
 
-  onCreate(): void {
+onCreate(): void {
     const appointment: Appointment = (this.appointmentCreatorForm.value) as Appointment;
+    console.log(this.appointmentCreatorForm.value.startDate);
     this.appointmentServise.createAppointment(appointment).subscribe(
       (a) => {
         appointment.id = a.id;
@@ -37,5 +50,4 @@ export class AppointmentCreatorComponent implements OnInit {
       }
     );
   }
-
 }

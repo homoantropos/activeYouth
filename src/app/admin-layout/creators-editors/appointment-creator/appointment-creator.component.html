@@ -9,6 +9,34 @@
            formControlName="title">
   </mat-form-field>
 
+  <mat-form-field class="forms-inputs" appearance="fill">
+    <mat-label>дата початку...</mat-label>
+    <input matInput [matDatepicker]="startDate" formControlName="startDate">
+    <mat-datepicker-toggle matSuffix [for]="startDate"></mat-datepicker-toggle>
+    <mat-datepicker #startDate></mat-datepicker>
+  </mat-form-field>
+
+<!--  startDate: new FormControl('', [Validators.required]),-->
+<!--  finishDate: new FormControl('', [Validators.required]),-->
+<!--  placeOfHolding: new FormGroup({-->
+<!--  country: new FormControl('', [Validators.required]),-->
+<!--  region: new FormControl(''),-->
+<!--  town: new FormControl('', [Validators.required]),-->
+<!--  sportHallName: new FormControl(''),-->
+<!--  address: new FormControl('')-->
+<!--  }),-->
+<!--  participants: new FormControl('', [Validators.required]),-->
+<!--  sportKind: new FormControl('', [Validators.required]),-->
+<!--  direction: new FormControl('', [Validators.required]),-->
+<!--  status: new FormControl('', [Validators.required]),-->
+<!--  organiser: new FormControl('', [Validators.required])-->
+
+
+
+
+
+
+
   <button mat-raised-button color="warn"
           type="submit">
     Додати
