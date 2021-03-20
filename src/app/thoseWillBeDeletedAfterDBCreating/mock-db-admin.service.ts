@@ -7,7 +7,8 @@ import {MockDataBase} from './mockDB';
 })
 export class MockDBAdministratorService {
 
-  constructor() { }
+  constructor() {
+  }
 
   createResult(appointment: Appointment): Statistic {
 

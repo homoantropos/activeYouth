@@ -3,6 +3,7 @@ import {MatTableDataSource} from '@angular/material/table';
 import {AppointmentFinancing} from '../../shared/interfases';
 import {MockDataBase} from '../../thoseWillBeDeletedAfterDBCreating/mockDB';
 import {MatPaginator} from '@angular/material/paginator';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-fin-dashboard',
@@ -28,10 +29,15 @@ export class FinDashboardComponent implements AfterViewInit {
   // @ts-ignore
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
-  constructor() { }
+  constructor(
+    private router: Router
+  ) { }
 
   ngAfterViewInit(): void {
     this.dataSource.paginator = this.paginator;
   }
 
+  goToAppointmentFinancingDetails(af: AppointmentFinancing): void {
+    this.router.navigateByUrl(`/expenses/${af.id}`);
+  }
 }

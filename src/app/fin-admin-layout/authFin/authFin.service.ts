@@ -1,42 +1,68 @@
 import { Injectable } from '@angular/core';
 import { User } from '../../shared/interfases';
-import { MockDataBase } from '../../thoseWillBeDeletedAfterDBCreating/mockDB';
 import { Router } from '@angular/router';
+import { MockDbResponse } from '../../../environments/interfaces';
+import {MockLoginService} from '../../thoseWillBeDeletedAfterDBCreating/mock-login.service';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthFinService {
-  isAuthenticated = false;
+
   constructor(
-    private router: Router
+    private router: Router,
+    private mockLoginService: MockLoginService
   ) { }
 
-  login(user: User): void {
-    const candidate = MockDataBase.authenticatedUsers.find((e) => e.email === user.email);
-    if (candidate) {
-      if (!(user.password === candidate.password)) {
-        alert('password is incorrect');
-        this.isAuthenticated = false;
-      } else {
-        if (candidate.accessLevel === 1) {
-        user.idToken = candidate.idToken;
-        this.isAuthenticated = true;
-        this.router.navigate(['expenses', 'dashboard']);
-        } else {
-        alert('you dont have access to this area of the site');
-        this.isAuthenticated = false;
-        }
-      }
+  get token(): string | null {
+      // @ts-ignore
+      const expDate = new Date(localStorage.getItem('expIn'));
+    if (new Date() < expDate) {
+      return localStorage.getItem('token');
     } else {
-      alert('user with such email didnt exist');
-      this.isAuthenticated = false;
+      return null;
     }
   }
 
+  login(user: User): void {
+    this.mockLoginService.mockLogin(user).subscribe(
+      dbres => {
+        if (!dbres.token){
+          localStorage.clear();
+          switch (dbres.status) {
+            case 401 : alert('password is incorrect');
+                       break;
+            case 403 : alert('you dont have access to this area of the site');
+                       break;
+            case 404 : alert('user with such email didnt exist');
+                       break;
+          }
+        } else {
+            this.setToken(dbres);
+            this.router.navigate(['expenses', 'dashboard']);
+        }
+      }
+    );
+  }
+
   logOut(): void {
-    this.isAuthenticated = false;
+    this.setToken(null);
     this.router.navigate(['expenses', 'login']);
+  }
+
+  isAuthenticated(): boolean {
+    return !!this.token;
+  }
+
+  private setToken(dBres: MockDbResponse | null): void {
+    if (dBres) {
+      localStorage.setItem('token', (dBres.token) as string);
+      // @ts-ignore
+      localStorage.setItem('expIn', dBres.expireIn.toString());
+    } else {
+      localStorage.clear();
+    }
   }
 
 }

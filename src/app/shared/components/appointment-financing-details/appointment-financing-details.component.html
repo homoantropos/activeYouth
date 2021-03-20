@@ -1,0 +1,13 @@
+<h1>{{appointmentFinancing.appointment.title}}</h1>
+<h2>Дата початку:</h2><p>{{appointmentFinancing.appointment.startDate | date : 'dd.MM.yy'}}</p>
+<h2>Дата завершення:</h2><p>{{appointmentFinancing.appointment.finishDate | date : 'dd.MM.yy'}}</p>
+<h2>Місце проведення:</h2>
+<p>
+  {{appointmentFinancing.appointment.placeOfHolding.country + ' ' +
+    appointmentFinancing.appointment.placeOfHolding.region + ' ' +
+    appointmentFinancing.appointment.placeOfHolding.town}}
+</p>
+<p>
+  {{appointmentFinancing.appointment.placeOfHolding.sportHallName + ' ' +
+    appointmentFinancing.appointment.placeOfHolding.address}}
+</p>

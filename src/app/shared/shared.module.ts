@@ -10,6 +10,7 @@ import { AppointmentDetailsComponent } from './components/appointment-details/ap
 import { ActivityDetailsComponent } from './components/activity-details/activity-details.component';
 import { SanitizeHTMLPipePipe } from './pipes/sanitize-htmlpipe.pipe';
 import { StatisticDetailsComponent } from './components/statistic-details/statistic-details.component';
+import { AppointmentFinancingDetailsComponent } from './components/appointment-financing-details/appointment-financing-details.component';
 
 
 
@@ -18,7 +19,8 @@ import { StatisticDetailsComponent } from './components/statistic-details/statis
     AppointmentDetailsComponent,
     ActivityDetailsComponent,
     SanitizeHTMLPipePipe,
-    StatisticDetailsComponent],
+    StatisticDetailsComponent,
+    AppointmentFinancingDetailsComponent],
   imports: [
     CommonModule,
     MatFormFieldModule,
