@@ -8,6 +8,7 @@ import {MockLoginService} from '../../thoseWillBeDeletedAfterDBCreating/mock-log
 @Injectable({
   providedIn: 'root'
 })
+
 export class AuthFinService {
 
   constructor(
@@ -17,16 +18,17 @@ export class AuthFinService {
 
   get token(): string | null {
       // @ts-ignore
-      const expDate = new Date(localStorage.getItem('expIn'));
-    if (new Date() < expDate) {
-      return localStorage.getItem('token');
-    } else {
-      return null;
-    }
+      const expDate = new Date(localStorage.getItem('expInFin'));
+      if (new Date() > expDate) {
+        localStorage.clear();
+        return null;
+      } else {
+        return localStorage.getItem('finToken');
+      }
   }
 
   login(user: User): void {
-    this.mockLoginService.mockLogin(user).subscribe(
+    this.mockLoginService.mockFinLogin(user).subscribe(
       dbres => {
         if (!dbres.token){
           localStorage.clear();
@@ -56,12 +58,13 @@ export class AuthFinService {
   }
 
   private setToken(dBres: MockDbResponse | null): void {
-    if (dBres) {
-      localStorage.setItem('token', (dBres.token) as string);
+    if (dBres?.token) {
+      localStorage.setItem('finToken', dBres.token);
       // @ts-ignore
-      localStorage.setItem('expIn', dBres.expireIn.toString());
+      localStorage.setItem('expInFin', dBres.expireIn.toString());
     } else {
-      localStorage.clear();
+      localStorage.delete('finToken');
+      localStorage.delete('expInFin');
     }
   }
 

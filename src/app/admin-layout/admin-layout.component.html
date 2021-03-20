@@ -1,3 +1,4 @@
+<h2>Admin panel</h2>
 <nav>
   <ul *ngIf="auth.isAuthenticated()">
     <li>
@@ -15,8 +16,6 @@
     <li>
       <a routerLink="statistic" routerLinkActive="active">Статистика</a>
     </li>
-  </ul>
-  <ul *ngIf="auth.isAuthenticated()">
     <li>
       <a (click)="auth.logOut()" routerLinkActive="active">LogOut</a>
     </li>

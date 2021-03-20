@@ -11,7 +11,7 @@ export class MockLoginService {
 
   constructor() { }
 
-  mockLogin(user: User): Observable<MockDbResponse> {
+  mockFinLogin(user: User): Observable<MockDbResponse> {
     const candidate = MockDataBase.authenticatedUsers.find((u) => u.email === user.email);
     let dbResponce: MockDbResponse;
     if (candidate) {
@@ -20,7 +20,7 @@ export class MockLoginService {
       } else {
         if (candidate.accessLevel === 1) {
           const token = 'token';
-          const expireIn = new Date(new Date().getTime() + 30 * 60 * 1000);
+          const expireIn = new Date(new Date().getTime() + 60 * 1000);
           dbResponce = {token, user, expireIn, status: 200};
         } else {
           dbResponce = { user, status: 403};
@@ -31,4 +31,23 @@ export class MockLoginService {
     }
     return of(dbResponce);
   }
+
+  mocLogin(user: User): Observable<MockDbResponse> {
+    const candidate = MockDataBase.authenticatedUsers.find((u) => u.email === user.email);
+    let dbResponce: MockDbResponse;
+    if (candidate) {
+      if (!(user.password === candidate.password)) {
+        dbResponce = { user, status: 401};
+      } else {
+          const token = 'token';
+          const expireIn = new Date(new Date().getTime() + 60 * 1000);
+          dbResponce = {token, user, expireIn, status: 200};
+      }
+    }
+    else {
+      dbResponce = { user, status: 404};
+    }
+    return of(dbResponce);
+  }
 }
+

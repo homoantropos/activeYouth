@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { User } from '../../shared/interfases';
-import { MockDataBase } from '../../thoseWillBeDeletedAfterDBCreating/mockDB';
 import { Router } from '@angular/router';
+import {MockLoginService} from '../../thoseWillBeDeletedAfterDBCreating/mock-login.service';
+import {MockDbResponse} from '../../../environments/interfaces';
 
 @Injectable({
   providedIn: 'root'
@@ -9,22 +10,38 @@ import { Router } from '@angular/router';
 export class AuthService {
 
   constructor(
-    private router: Router
+    private router: Router,
+    private dbServise: MockLoginService
   ) { }
 
-  login(user: User): void {
-    const candidate = MockDataBase.authenticatedUsers.find((e) => e.email === user.email);
-    if (candidate) {
-      if (user.password === candidate.password) {
-        user.idToken = candidate.idToken;
-        localStorage.setItem('idToken', `${candidate.idToken}`);
-        this.router.navigate(['admin', 'activities']);
-      } else {
-        alert('password is incorrect');
-      }
+  get token(): string | null {
+    // @ts-ignore
+    const expireDate = new Date(localStorage.getItem('expIn'));
+    if (new Date() > expireDate) {
+      localStorage.clear();
+      return null;
     } else {
-      alert('user with such email didnt exist');
+      return localStorage.getItem('token');
     }
+  }
+
+  login(user: User): void {
+    this.dbServise.mocLogin(user).subscribe(
+      dbRes => {
+        if (!dbRes.token) {
+          localStorage.clear();
+          switch (dbRes.status) {
+            case 401 : alert('password is incorrect');
+                       break;
+            case 404 : alert('user with such email doesnt exist');
+                       break;
+          }
+        } else {
+          this.setToken(dbRes);
+          this.router.navigate(['admin', 'activities']);
+        }
+      }
+    );
   }
 
   logOut(): void {
@@ -33,7 +50,17 @@ export class AuthService {
   }
 
   isAuthenticated(): boolean {
-    return !!localStorage.getItem('idToken');
+    return !!this.token;
+  }
+
+  private setToken(dbres: MockDbResponse | null): void {
+    if (dbres?.token) {
+      localStorage.setItem('token', dbres.token);
+      // @ts-ignore
+      localStorage.setItem('expIn', dbres.expireIn.toString());
+    } else {
+      localStorage.clear();
+    }
   }
 
 }

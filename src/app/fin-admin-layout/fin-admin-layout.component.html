@@ -1,11 +1,9 @@
+<h2 *ngIf="authFin.isAuthenticated()">Fin-admin panel</h2>
 <nav>
-  <ul>
+  <ul *ngIf="authFin.isAuthenticated()">
     <li>
       <a routerLink="dashboard" routerLinkActive="active">Fin admin panel</a>
     </li>
-  </ul>
-
-  <ul>
     <li>
       <a (click)="authFin.logOut()" routerLinkActive="active">LogOut</a>
     </li>

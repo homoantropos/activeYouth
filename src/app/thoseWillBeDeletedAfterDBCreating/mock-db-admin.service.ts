@@ -47,7 +47,7 @@ export class MockDBAdministratorService {
       appointment,
       numberOfParticipantsPlan,
       numberOfParticipantsFact,
-      id: `${Date.now()}`
+      id: `${numberOfParticipantsFact.total + numberOfParticipantsPlan.total}`
     };
   }
 
@@ -90,7 +90,7 @@ export class MockDBAdministratorService {
       appointment,
       expensesPlan,
       expensesFact,
-      id: `${Date.now()}`
+      id: `${totalFact + totalPlan}`
     };
   }
 
