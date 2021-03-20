@@ -17,12 +17,16 @@ import {SportsCreatorComponent} from './creators-editors/sports-creator/sports-c
 import {StatisticDashboardComponent} from './statistic-dashboard/statistic-dashboard.component';
 import {ActivityDetailsComponent} from '../shared/components/activity-details/activity-details.component';
 import {AppointmentDetailsComponent} from '../shared/components/appointment-details/appointment-details.component';
+import {StatisticDetailsComponent} from '../shared/components/statistic-details/statistic-details.component';
 
 const routes: Routes = [
   { path: '', component: AdminLayoutComponent, children: [
       {path: '', redirectTo: 'login', pathMatch: 'full'},
       {path: 'login', component: LoginPageComponent},
-      {path: 'statistic', component: StatisticDashboardComponent, canActivate: [AuthGuardService]},
+      {path: 'statistic', canActivate: [AuthGuardService], children: [
+          {path: '', component: StatisticDashboardComponent},
+          {path: ':id', component: StatisticDetailsComponent}
+        ]},
       {path: 'activities', canActivate: [AuthGuardService], children: [
           {path: '', component: ActivitiesDashboardComponent},
           {path: 'create', component: ActivityCreatorComponent},

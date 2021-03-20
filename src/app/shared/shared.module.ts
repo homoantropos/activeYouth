@@ -9,6 +9,7 @@ import {MatSortModule} from '@angular/material/sort';
 import { AppointmentDetailsComponent } from './components/appointment-details/appointment-details.component';
 import { ActivityDetailsComponent } from './components/activity-details/activity-details.component';
 import { SanitizeHTMLPipePipe } from './pipes/sanitize-htmlpipe.pipe';
+import { StatisticDetailsComponent } from './components/statistic-details/statistic-details.component';
 
 
 
@@ -16,7 +17,8 @@ import { SanitizeHTMLPipePipe } from './pipes/sanitize-htmlpipe.pipe';
   declarations: [
     AppointmentDetailsComponent,
     ActivityDetailsComponent,
-    SanitizeHTMLPipePipe],
+    SanitizeHTMLPipePipe,
+    StatisticDetailsComponent],
   imports: [
     CommonModule,
     MatFormFieldModule,

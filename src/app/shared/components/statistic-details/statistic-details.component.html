@@ -1,0 +1,56 @@
+<h1>{{statistic.appointment.title}}</h1>
+<h2>Дата початку:</h2><p>{{statistic.appointment.startDate | date : 'dd.MM.yy'}}</p>
+<h2>Дата завершення:</h2><p>{{statistic.appointment.finishDate | date : 'dd.MM.yy'}}</p>
+<h2>Місце проведення:</h2><p>{{statistic.appointment.placeOfHolding.country + ' ' + statistic.appointment.placeOfHolding.region + ' ' +
+statistic.appointment.placeOfHolding.town}}</p>
+<p>{{statistic.appointment.placeOfHolding.sportHallName + ' '+ statistic.appointment.placeOfHolding.address}}</p>
+
+<h1>Кількість учасників:</h1>
+
+<table>
+  <tr>
+    <th></th>
+    <th [ngStyle]="{textAlign: 'left'}"> План </th>
+    <th [ngStyle]="{textAlign: 'left'}"> Факт </th>
+  </tr>
+  <tr>
+    <td>країн</td>
+    <td>{{statistic.numberOfParticipantsPlan.countries}}</td>
+    <td>{{statistic.numberOfParticipantsFact.countries}}</td>
+  </tr>
+  <tr>
+    <td>регіонів</td>
+    <td>{{statistic.numberOfParticipantsPlan.regions}}</td>
+    <td>{{statistic.numberOfParticipantsFact.regions}}</td>
+  </tr>
+  <tr>
+    <td>закладів освіти</td>
+    <td>{{statistic.numberOfParticipantsPlan.educationEntity}}</td>
+    <td>{{statistic.numberOfParticipantsFact.educationEntity}}</td>
+  </tr>
+  <tr>
+    <td>учасників</td>
+    <td>{{statistic.numberOfParticipantsPlan.sportsmen}}</td>
+    <td>{{statistic.numberOfParticipantsFact.sportsmen}}</td>
+  </tr>
+  <tr>
+    <td>тренерів</td>
+    <td>{{statistic.numberOfParticipantsPlan.coaches}}</td>
+    <td>{{statistic.numberOfParticipantsFact.coaches}}</td>
+  </tr>
+  <tr>
+    <td>суддів</td>
+    <td>{{statistic.numberOfParticipantsPlan.referees}}</td>
+    <td>{{statistic.numberOfParticipantsFact.referees}}</td>
+  </tr>
+  <tr>
+    <td>інших</td>
+    <td>{{statistic.numberOfParticipantsPlan.others}}</td>
+    <td>{{statistic.numberOfParticipantsFact.others}}</td>
+  </tr>
+  <tr>
+    <td>всього</td>
+    <td>{{statistic.numberOfParticipantsPlan.total}}</td>
+    <td>{{statistic.numberOfParticipantsFact.total}}</td>
+  </tr>
+</table>

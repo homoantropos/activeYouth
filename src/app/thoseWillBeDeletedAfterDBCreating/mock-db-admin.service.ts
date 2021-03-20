@@ -20,7 +20,18 @@ export class MockDBAdministratorService {
     const others = Math.floor(Math.random() * 10);
     const total = countries + regions + educationEntity + sportsmen + coaches + referees + others;
 
-    const numberOfParticipants: NumbersOfParticipants = {
+    const numberOfParticipantsPlan: NumbersOfParticipants = {
+      countries,
+      regions,
+      educationEntity,
+      sportsmen,
+      coaches,
+      referees,
+      others,
+      total
+    };
+
+    const numberOfParticipantsFact: NumbersOfParticipants = {
       countries,
       regions,
       educationEntity,
@@ -33,7 +44,8 @@ export class MockDBAdministratorService {
 
     return {
       appointment,
-      numberOfParticipants,
+      numberOfParticipantsPlan,
+      numberOfParticipantsFact,
       id: `${Date.now()}`
     };
   }

@@ -4,6 +4,7 @@ import {Statistic} from '../../shared/interfases';
 import {MockDataBase} from '../../thoseWillBeDeletedAfterDBCreating/mockDB';
 import {MatPaginator} from '@angular/material/paginator';
 import {MatSort} from '@angular/material/sort';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-statistic-dashboard',
@@ -32,11 +33,17 @@ export class StatisticDashboardComponent implements AfterViewInit {
   // @ts-ignore
   @ViewChild(MatSort) sort: MatSort;
 
-  constructor() { }
+  constructor(
+    private router: Router
+  ) { }
 
   ngAfterViewInit(): void {
     this.dataSource2.paginator = this.paginator;
     this.dataSource2.sort = this.sort;
   }
 
+  goToStatDetails(s: Statistic): void {
+    console.log(s.id);
+    this.router.navigateByUrl(`/admin/statistic/${s.id}`);
+  }
 }

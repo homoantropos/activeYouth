@@ -39,7 +39,11 @@ export class ActivitiesDashboardComponent implements AfterViewInit {
     this.router.navigateByUrl(`/admin/activities/${a.id}`);
   }
 
-  removeActivityFromDB(a: Activity): void {
-    this.activityServise.deleteActivity(a);
+  removeActivityFromDB(activity: Activity): void {
+    this.activityServise.deleteActivity(activity).subscribe(
+      id => MockDataBase.mockActivitiesDataBase.filter(
+        a => a.id !== id
+      )
+    );
   }
 }

@@ -28,7 +28,7 @@ export class StatisticService {
     return of(stats);
   }
 
-  getAppointmentByID(id: string): Observable<Statistic> {
+  getStatisticByID(id: string): Observable<Statistic> {
     return of((MockDataBase.statistics.find(s => s.id === id)) as Statistic);
   }
 }

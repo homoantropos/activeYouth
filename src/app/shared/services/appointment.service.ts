@@ -12,6 +12,7 @@ export class AppointmentService {
 
   createAppointment(appointment: Appointment): Observable<Appointment> {
     appointment.id = `${Date.now()}`;
+    MockDataBase.schedule.unshift(appointment);
     return of(appointment);
   }
 

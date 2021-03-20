@@ -86,6 +86,7 @@ export interface NumbersOfParticipants {
 
 export interface Statistic {
   appointment: Appointment;
-  numberOfParticipants: NumbersOfParticipants;
-  id: string;
+  numberOfParticipantsPlan: NumbersOfParticipants;
+  numberOfParticipantsFact: NumbersOfParticipants;
+  id?: string;
 }
