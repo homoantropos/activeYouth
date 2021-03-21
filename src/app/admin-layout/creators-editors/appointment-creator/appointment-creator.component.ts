@@ -40,7 +40,6 @@ export class AppointmentCreatorComponent implements OnInit {
 
 onCreate(): void {
     const appointment: Appointment = (this.appointmentCreatorForm.value) as Appointment;
-    console.log(this.appointmentCreatorForm.value.startDate);
     this.appointmentServise.createAppointment(appointment).subscribe(
       (a) => {
         appointment.id = a.id;

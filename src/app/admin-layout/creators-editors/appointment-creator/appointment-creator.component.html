@@ -1,45 +1,108 @@
-<form class = "form-container"
+<div class="forms-container">
+  <form
       [formGroup]="appointmentCreatorForm"
       (ngSubmit)="onCreate()">
 
-  <mat-form-field class="forms-inputs">
+  <mat-form-field class="forms-inputs" title="title">
     <mat-label>введіть назву заходу ...</mat-label>
     <input matInput
+           title="title"
            type="text"
            formControlName="title">
   </mat-form-field>
 
-  <mat-form-field class="forms-inputs" appearance="fill">
+  <mat-form-field class="forms-inputs" [ngStyle]="{width: '47%', marginRight: '6%'}">
     <mat-label>дата початку...</mat-label>
-    <input matInput [matDatepicker]="startDate" formControlName="startDate">
+    <input matInput
+           [matDatepicker]="startDate"
+           formControlName="startDate">
     <mat-datepicker-toggle matSuffix [for]="startDate"></mat-datepicker-toggle>
     <mat-datepicker #startDate></mat-datepicker>
   </mat-form-field>
 
-<!--  startDate: new FormControl('', [Validators.required]),-->
-<!--  finishDate: new FormControl('', [Validators.required]),-->
-<!--  placeOfHolding: new FormGroup({-->
-<!--  country: new FormControl('', [Validators.required]),-->
-<!--  region: new FormControl(''),-->
-<!--  town: new FormControl('', [Validators.required]),-->
-<!--  sportHallName: new FormControl(''),-->
-<!--  address: new FormControl('')-->
-<!--  }),-->
-<!--  participants: new FormControl('', [Validators.required]),-->
-<!--  sportKind: new FormControl('', [Validators.required]),-->
-<!--  direction: new FormControl('', [Validators.required]),-->
-<!--  status: new FormControl('', [Validators.required]),-->
-<!--  organiser: new FormControl('', [Validators.required])-->
+  <mat-form-field class="forms-inputs" [ngStyle]="{width: '47%'}">
+    <mat-label>дата завершення...</mat-label>
+    <input matInput
+           [matDatepicker]="finishDate"
+           formControlName="finishDate">
+    <mat-datepicker-toggle matSuffix [for]="finishDate"></mat-datepicker-toggle>
+    <mat-datepicker #finishDate></mat-datepicker>
+  </mat-form-field>
 
+  <form formGroupName = "placeOfHolding">
 
+    <mat-form-field class="forms-inputs" title="country" [ngStyle]="{width: '30%', marginRight: '5%'}">
+      <mat-label>країна проведення...</mat-label>
+      <input matInput
+             title="country"
+             type="text"
+             formControlName="country">
+    </mat-form-field>
 
+    <mat-form-field class="forms-inputs" title="region" [ngStyle]="{width: '30%', marginRight: '5%'}">
+      <mat-label>регіон...</mat-label>
+      <input matInput
+             title="region"
+             type="text"
+             formControlName="region">
+    </mat-form-field>
 
+    <mat-form-field class="forms-inputs" title="town" [ngStyle]="{width: '30%'}">
+      <mat-label>місто...</mat-label>
+      <input matInput
+             title="town"
+             type="text"
+             formControlName="town">
+    </mat-form-field>
 
+    <mat-form-field class="forms-inputs" title="sportHall" [ngStyle]="{width: '45%', marginRight: '5%'}">
+      <mat-label>назва спортивної споруди..</mat-label>
+      <input matInput
+             title="sportHall"
+             type="text"
+             formControlName="sportHallName">
+    </mat-form-field>
 
+    <mat-form-field class="forms-inputs" title="address" [ngStyle]="{width: '45%', marginRight: '5%'}">
+      <mat-label>адреса...</mat-label>
+      <input matInput
+             title="address"
+             type="text"
+             formControlName="address">
+    </mat-form-field>
 
-  <button mat-raised-button color="warn"
-          type="submit">
-    Додати
-  </button>
+  </form>
 
+    <mat-form-field title="participants">
+      <mat-label>учні чи студенти...</mat-label>
+      <input matInput formControlName="participants">
+    </mat-form-field>
+
+    <mat-form-field title="sportKind">
+      <mat-label>вид спорту (активності)...</mat-label>
+      <input matInput formControlName="sportKind">
+    </mat-form-field>
+
+    <mat-form-field title="direction">
+      <mat-label>оберіть напрям - фізичне виховання чи спорт...</mat-label>
+      <input matInput formControlName="direction">
+    </mat-form-field>
+
+    <mat-form-field title="status">
+      <mat-label>характер заходу...</mat-label>
+      <input matInput formControlName="status">
+    </mat-form-field>
+
+    <mat-form-field title="organiser">
+      <mat-label>організатор заходу...</mat-label>
+      <input matInput formControlName="organiser">
+    </mat-form-field>
+
+    <br>
+    <button mat-raised-button color="primary"
+            type="submit">
+      Додати
+    </button>
 </form>
+
+</div>
