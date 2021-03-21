@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { AppointmentFinancing } from '../interfases';
+import {Appointment, AppointmentFinancing} from '../interfases';
 import { Observable, of } from 'rxjs';
 import { MockDataBase } from '../../thoseWillBeDeletedAfterDBCreating/mockDB';
 
@@ -10,7 +10,16 @@ export class AppointmentFinancingService {
 
   constructor() { }
 
-  createAppointmentFinancing(appointmentFinancing: AppointmentFinancing): Observable<AppointmentFinancing> {
+  // all those methods will be changed with the http-client after DB creating
+
+  createAppointmentFinancing(appointment: Appointment): Observable<AppointmentFinancing> {
+    const appointmentFinancing: AppointmentFinancing = {
+      appointment,
+      expensesPlan: {kekv2210: 0, kekv2220: 0, kekv2240: 0, total: 0},
+      expensesFact: {kekv2210: 0, kekv2220: 0, kekv2240: 0, total: 0},
+      id: ''
+    };
+    MockDataBase.balance.unshift(appointmentFinancing);
     return of(appointmentFinancing);
   }
 
