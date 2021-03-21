@@ -14,15 +14,14 @@ import { AppointmentFinancingDetailsComponent } from './components/appointment-f
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatMomentDateModule} from '@angular/material-moment-adapter';
 
-
-
 @NgModule({
   declarations: [
     AppointmentDetailsComponent,
     ActivityDetailsComponent,
+    AppointmentFinancingDetailsComponent,
     SanitizeHTMLPipePipe,
-    StatisticDetailsComponent,
-    AppointmentFinancingDetailsComponent],
+    StatisticDetailsComponent
+  ],
   imports: [
     CommonModule,
     MatFormFieldModule,

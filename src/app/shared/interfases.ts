@@ -18,8 +18,11 @@ export interface Appointment {
   title: string;
   startDate: Date;
   finishDate: Date;
-  duration?: number;
+  duration: number;
   placeOfHolding: PlaceOfHolding;
+  organizationsParticipants: string;
+  character: string;
+  KPKV: number;
   participants: string;
   sportKind?: string;
   direction: string;
@@ -87,6 +90,8 @@ export interface NumbersOfParticipants {
 export interface Statistic {
   appointment: Appointment;
   numberOfParticipantsPlan: NumbersOfParticipants;
+  personPerDayTotalPlan: number;
   numberOfParticipantsFact: NumbersOfParticipants;
+  personPerDayTotalFact: number;
   id?: string;
 }

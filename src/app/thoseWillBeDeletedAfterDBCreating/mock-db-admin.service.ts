@@ -20,6 +20,8 @@ export class MockDBAdministratorService {
     const referees = Math.floor(Math.random() * 15);
     const others = Math.floor(Math.random() * 10);
     const total = countries + regions + educationEntity + sportsmen + coaches + referees + others;
+    const personPerDayTotalPlan = appointment.duration * total;
+    const personPerDayTotalFact = personPerDayTotalPlan;
 
     const numberOfParticipantsPlan: NumbersOfParticipants = {
       countries,
@@ -46,7 +48,9 @@ export class MockDBAdministratorService {
     return {
       appointment,
       numberOfParticipantsPlan,
+      personPerDayTotalPlan,
       numberOfParticipantsFact,
+      personPerDayTotalFact,
       id: `${numberOfParticipantsFact.total + numberOfParticipantsPlan.total}`
     };
   }

@@ -3,6 +3,7 @@ import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {Appointment} from '../../../shared/interfases';
 import {Router} from '@angular/router';
 import {AppointmentService} from '../../../shared/services/appointment.service';
+import {DateProviderService} from '../../../shared/services/date-provider.service';
 
 @Component({
   selector: 'app-appointment-creator',
@@ -14,7 +15,8 @@ export class AppointmentCreatorComponent implements OnInit {
   appointmentCreatorForm: FormGroup;
 
   constructor(
-    private appointmentServise: AppointmentService,
+    private appointmentService: AppointmentService,
+    private dateProvider: DateProviderService,
     private router: Router
   ) { }
 
@@ -30,6 +32,9 @@ export class AppointmentCreatorComponent implements OnInit {
         sportHallName: new FormControl(''),
         address: new FormControl('')
       }),
+      organizationsParticipants: new FormControl('', [Validators.required]),
+      KPKV: new FormControl('2201310'),
+      character: new FormControl('', [Validators.required]),
       participants: new FormControl('', [Validators.required]),
       sportKind: new FormControl('', [Validators.required]),
       direction: new FormControl('', [Validators.required]),
@@ -38,9 +43,11 @@ export class AppointmentCreatorComponent implements OnInit {
     });
   }
 
-onCreate(): void {
-    const appointment: Appointment = (this.appointmentCreatorForm.value) as Appointment;
-    this.appointmentServise.createAppointment(appointment).subscribe(
+onCreate(value: any): void {
+    value.duration = this.dateProvider.provideDuration(value.startDate, value.finishDate);
+    console.log(value.participants);
+    const appointment: Appointment = (value) as Appointment;
+    this.appointmentService.createAppointment(appointment).subscribe(
       (a) => {
         appointment.id = a.id;
         this.appointmentCreatorForm.reset();

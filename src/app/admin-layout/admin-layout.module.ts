@@ -19,6 +19,7 @@ import {QuillModule} from 'ngx-quill';
 import { SportsCreatorComponent } from './creators-editors/sports-creator/sports-creator.component';
 import {SharedModule} from '../shared/shared.module';
 import { StatisticDashboardComponent } from './statistic-dashboard/statistic-dashboard.component';
+import {MatRadioModule} from '@angular/material/radio';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { StatisticDashboardComponent } from './statistic-dashboard/statistic-das
     CommonModule,
     AdminLayoutRoutingModule,
     QuillModule,
-    SharedModule
+    SharedModule,
+    MatRadioModule
   ]
 })
 export class AdminLayoutModule { }
