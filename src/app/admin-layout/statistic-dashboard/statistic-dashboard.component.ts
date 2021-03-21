@@ -15,7 +15,7 @@ export class StatisticDashboardComponent implements AfterViewInit {
 
   title = 'table-lesson';
   displayedColumns = [
-    'title',
+    'appointment.title',
     'termsOfHolding',
     'placeOfHolding',
     'numberOfCountries',

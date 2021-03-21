@@ -1,15 +1,13 @@
 <h1>{{statistic.appointment.title}}</h1>
-<h2>Дата початку:</h2><p>{{statistic.appointment.startDate | date : 'dd.MM.yy'}}</p>
-<h2>Дата завершення:</h2><p>{{statistic.appointment.finishDate | date : 'dd.MM.yy'}}</p>
-<h2>Місце проведення:</h2><p>{{statistic.appointment.placeOfHolding.country + ' ' + statistic.appointment.placeOfHolding.region + ' ' +
+<p><b>Дата початку:  </b>{{statistic.appointment.startDate | date : 'dd.MM.yy'}}</p>
+<p><b>Дата завершення:  </b>{{statistic.appointment.finishDate | date : 'dd.MM.yy'}}</p>
+<p><b>Місце проведення: </b>{{statistic.appointment.placeOfHolding.country + ' ' + statistic.appointment.placeOfHolding.region + ' ' +
 statistic.appointment.placeOfHolding.town}}</p>
 <p>{{statistic.appointment.placeOfHolding.sportHallName + ' '+ statistic.appointment.placeOfHolding.address}}</p>
 
-<h1>Кількість учасників:</h1>
-
 <table>
   <tr>
-    <th></th>
+    <th [ngStyle]="{textAlign: 'left'}"> Кількість учасників: </th>
     <th [ngStyle]="{textAlign: 'left'}"> План </th>
     <th [ngStyle]="{textAlign: 'left'}"> Факт </th>
   </tr>

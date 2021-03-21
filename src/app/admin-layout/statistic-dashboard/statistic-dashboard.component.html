@@ -1,61 +1,61 @@
 <div class="table-container">
   <table mat-table matSort [dataSource] = "dataSource2" class="mat-elevation-z8">
 
-    <ng-container matColumnDef="title">
+    <ng-container matColumnDef="appointment.title">
       <th mat-header-cell *matHeaderCellDef mat-sort-header="appointment.title"> Захід </th>
       <td mat-cell *matCellDef="let statistic">
         <a (click)="goToStatDetails(statistic)">{{statistic.appointment.title}}</a> </td>
     </ng-container>
 
     <ng-container matColumnDef="termsOfHolding">
-      <th mat-header-cell *matHeaderCellDef> Терміни проведення </th>
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Терміни проведення </th>
       <td mat-cell *matCellDef="let statistic"> {{statistic.appointment.startDate | date : 'dd.MM.yy' + '/'}}<br> {{statistic.appointment.finishDate | date : 'dd.MM.yy'}}</td>
     </ng-container>
 
     <ng-container matColumnDef="placeOfHolding">
-      <th mat-header-cell *matHeaderCellDef> Місце проведення </th>
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Місце проведення </th>
       <td mat-cell *matCellDef="let statistic"> {{
         statistic.appointment.placeOfHolding.town + ' ' + statistic.appointment.placeOfHolding.region}}<br>
         {{statistic.appointment.placeOfHolding.country}}</td>
     </ng-container>
 
     <ng-container matColumnDef="numberOfCountries">
-      <th mat-header-cell *matHeaderCellDef> Країн</th>
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Країн</th>
       <td mat-cell *matCellDef="let statistic"> {{statistic.numberOfParticipantsFact.countries}}</td>
     </ng-container>
 
     <ng-container matColumnDef="numberOfRegions">
-      <th mat-header-cell *matHeaderCellDef> Регіонів </th>
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Регіонів </th>
       <td mat-cell *matCellDef="let statistic"> {{statistic.numberOfParticipantsFact.regions}}</td>
     </ng-container>
 
     <ng-container matColumnDef="numberOfEduEnt">
-      <th mat-header-cell *matHeaderCellDef> Закладів<br>освіти </th>
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Закладів<br>освіти </th>
       <td mat-cell *matCellDef="let statistic"> {{statistic.numberOfParticipantsFact.educationEntity}}</td>
     </ng-container>
 
     <ng-container matColumnDef="numberOfSportsmen">
-      <th mat-header-cell *matHeaderCellDef> Учасників </th>
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Учасників </th>
       <td mat-cell *matCellDef="let statistic"> {{statistic.numberOfParticipantsFact.sportsmen}}</td>
     </ng-container>
 
     <ng-container matColumnDef="numberOfCoaches">
-      <th mat-header-cell *matHeaderCellDef> Тренерів </th>
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Тренерів </th>
       <td mat-cell *matCellDef="let statistic"> {{statistic.numberOfParticipantsFact.coaches}}</td>
     </ng-container>
 
     <ng-container matColumnDef="numberOfReferees">
-      <th mat-header-cell *matHeaderCellDef> Суддів </th>
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Суддів </th>
       <td mat-cell *matCellDef="let statistic"> {{statistic.numberOfParticipantsFact.referees}}</td>
     </ng-container>
 
     <ng-container matColumnDef="numberOfOthers">
-      <th mat-header-cell *matHeaderCellDef> Інших </th>
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Інших </th>
       <td mat-cell *matCellDef="let statistic"> {{statistic.numberOfParticipantsFact.others}}</td>
     </ng-container>
 
     <ng-container matColumnDef="total">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header="numberOfParticipants.total"> Всього </th>
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Всього </th>
       <td mat-cell *matCellDef="let statistic"> {{statistic.numberOfParticipantsFact.total}}</td>
     </ng-container>
 

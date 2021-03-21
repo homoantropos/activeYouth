@@ -1,13 +1,38 @@
 <h1>{{appointmentFinancing.appointment.title}}</h1>
-<h2>Дата початку:</h2><p>{{appointmentFinancing.appointment.startDate | date : 'dd.MM.yy'}}</p>
-<h2>Дата завершення:</h2><p>{{appointmentFinancing.appointment.finishDate | date : 'dd.MM.yy'}}</p>
-<h2>Місце проведення:</h2>
-<p>
+<p><b>Дата початку:  </b>{{appointmentFinancing.appointment.startDate | date : 'dd.MM.yy'}}</p>
+<p><b>Дата завершення:  </b>{{appointmentFinancing.appointment.finishDate | date : 'dd.MM.yy'}}</p>
+<p><b>Місце проведення:</b>
   {{appointmentFinancing.appointment.placeOfHolding.country + ' ' +
     appointmentFinancing.appointment.placeOfHolding.region + ' ' +
-    appointmentFinancing.appointment.placeOfHolding.town}}
-</p>
-<p>
-  {{appointmentFinancing.appointment.placeOfHolding.sportHallName + ' ' +
+    appointmentFinancing.appointment.placeOfHolding.town + ' ' +
+    appointmentFinancing.appointment.placeOfHolding.sportHallName + ' ' +
     appointmentFinancing.appointment.placeOfHolding.address}}
 </p>
+
+<table>
+  <tr>
+    <th [ngStyle]="{textAlign: 'left'}"> Витрати: </th>
+    <th [ngStyle]="{textAlign: 'left'}"> План </th>
+    <th [ngStyle]="{textAlign: 'left'}"> Факт </th>
+  </tr>
+  <tr>
+    <td>2210</td>
+    <td>{{appointmentFinancing.expensesPlan.kekv2210 | number : '1.1-3'}}</td>
+    <td>{{appointmentFinancing.expensesFact.kekv2210 | number : '1.1-3'}}</td>
+  </tr>
+  <tr>
+    <td>2220</td>
+    <td>{{appointmentFinancing.expensesPlan.kekv2220 | number : '1.1-3'}}</td>
+    <td>{{appointmentFinancing.expensesFact.kekv2220 | number : '1.1-3'}}</td>
+  </tr>
+  <tr>
+    <td>2240</td>
+    <td>{{appointmentFinancing.expensesPlan.kekv2240 | number : '1.1-3'}}</td>
+    <td>{{appointmentFinancing.expensesFact.kekv2240 | number : '1.1-3'}}</td>
+  </tr>
+  <tr>
+    <td>всього</td>
+    <td>{{appointmentFinancing.expensesPlan.total | number : '1.1-3'}}</td>
+    <td>{{appointmentFinancing.expensesFact.total | number : '1.1-3'}}</td>
+  </tr>
+</table>
