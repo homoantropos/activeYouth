@@ -2,50 +2,21 @@ import { Injectable } from '@angular/core';
 import {Appointment, AppointmentFinancing, Statistic} from '../interfases';
 import { Observable, of } from 'rxjs';
 import { MockDataBase } from '../../thoseWillBeDeletedAfterDBCreating/mockDB';
+import {SynchronizationOfSavingService} from './synchronization-of-saving.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AppointmentService {
 
-  constructor() { }
+  constructor(
+    private synchronizationService: SynchronizationOfSavingService
+  ) { }
 
   createAppointment(appointment: Appointment): Observable<Appointment> {
     appointment.id = `${Date.now()}`;
     MockDataBase.schedule.unshift(appointment);
-    const appointmentFinancing: AppointmentFinancing = {
-      appointment,
-      expensesPlan: {kekv2210: 0, kekv2220: 0, kekv2240: 0, total: 0},
-      expensesFact: {kekv2210: 0, kekv2220: 0, kekv2240: 0, total: 0},
-      id: ''
-    };
-    MockDataBase.balance.unshift(appointmentFinancing);
-
-    const statistic: Statistic = {
-      appointment,
-      numberOfParticipantsPlan: {
-        countries: 0,
-        regions: 0,
-        educationEntity: 0,
-        sportsmen: 0,
-        coaches: 0,
-        referees: 0,
-        others: 0,
-        total: 0},
-      personPerDayTotalPlan: 0,
-      numberOfParticipantsFact: {
-        countries: 0,
-        regions: 0,
-        educationEntity: 0,
-        sportsmen: 0,
-        coaches: 0,
-        referees: 0,
-        others: 0,
-        total: 0},
-      personPerDayTotalFact: 0,
-      id: ' '
-    };
-    MockDataBase.statistics.unshift(statistic);
+    this.synchronizationService.onAppointmentCreeation(appointment);
     return of(appointment);
   }
 
