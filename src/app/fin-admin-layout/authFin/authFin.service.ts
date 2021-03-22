@@ -63,8 +63,7 @@ export class AuthFinService {
       // @ts-ignore
       localStorage.setItem('expInFin', dBres.expireIn.toString());
     } else {
-      localStorage.delete('finToken');
-      localStorage.delete('expInFin');
+      localStorage.clear();
     }
   }
 

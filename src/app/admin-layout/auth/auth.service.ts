@@ -45,7 +45,7 @@ export class AuthService {
   }
 
   logOut(): void {
-    localStorage.clear();
+    this.setToken(null);
     this.router.navigate(['admin', 'login']);
   }
 
