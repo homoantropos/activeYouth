@@ -13,7 +13,7 @@
   </button>
 </div>
 
-<div>
+<div class="table-container">
 
   <table mat-table matSort [dataSource]="dataSource" class="mat-elevation-z8">
 
@@ -51,5 +51,6 @@
     <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
   </table>
 
-  <mat-paginator [pageSizeOptions]="[10, 15, 20]" showFirstLastButtons></mat-paginator>
 </div>
+
+<mat-paginator [pageSizeOptions]="[10, 15, 20]" showFirstLastButtons></mat-paginator>
