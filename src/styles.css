@@ -81,7 +81,7 @@ button.active {
   transform: translate(-50%);
   display: block;
   padding: 10px;
-  margin-top: 20px;
+  margin-top: 5px;
   width: 50vw;
   height: 40vh;
 }

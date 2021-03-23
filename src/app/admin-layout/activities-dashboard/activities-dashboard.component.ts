@@ -40,10 +40,8 @@ export class ActivitiesDashboardComponent implements AfterViewInit {
   }
 
   removeActivityFromDB(activity: Activity): void {
-    this.activityServise.deleteActivity(activity).subscribe(
-      id => MockDataBase.mockActivitiesDataBase.filter(
-        a => a.id !== id
-      )
-    );
+    MockDataBase.mockActivitiesDataBase.filter(
+        a => a.id !== activity.id
+      );
   }
 }
