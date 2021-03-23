@@ -13,7 +13,6 @@ import {Router} from '@angular/router';
 })
 export class StatisticDashboardComponent implements AfterViewInit {
 
-  title = 'table-lesson';
   displayedColumns = [
     'appointment.title',
     'termsOfHolding',

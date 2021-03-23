@@ -5,6 +5,7 @@ import {Activity} from '../../shared/interfases';
 import {MatPaginator} from '@angular/material/paginator';
 import {ActivityService} from '../../shared/services/activity.service';
 import {Router} from '@angular/router';
+import {MatSort} from '@angular/material/sort';
 
 @Component({
   selector: 'app-sports-page',
@@ -19,7 +20,8 @@ export class SportsPageComponent implements OnInit, AfterViewInit {
   dataSource: MatTableDataSource<Activity>;
   // @ts-ignore
   @ViewChild(MatPaginator) paginator: MatPaginator;
-
+  // @ts-ignore
+  @ViewChild(MatSort) sort: MatSort;
   displayedColumns: string[] = ['title', 'author', 'date'];
 
   constructor(
@@ -35,6 +37,7 @@ export class SportsPageComponent implements OnInit, AfterViewInit {
 
   ngAfterViewInit(): void {
     this.dataSource.paginator = this.paginator;
+    this.dataSource.sort = this.sort;
   }
 
   goToActivityDetails(a: Activity): void {

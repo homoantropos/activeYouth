@@ -4,6 +4,7 @@ import {MatTableDataSource} from '@angular/material/table';
 import {Activity} from '../../shared/interfases';
 import {MatPaginator} from '@angular/material/paginator';
 import {Router} from '@angular/router';
+import {MatSort} from '@angular/material/sort';
 
 @Component({
   selector: 'app-activities-page',
@@ -18,12 +19,16 @@ export class ActivitiesPageComponent implements AfterViewInit {
     );
   // @ts-ignore
   @ViewChild(MatPaginator) paginator: MatPaginator;
+  // @ts-ignore
+  @ViewChild(MatSort) sort: MatSort;
+
   constructor(
     private router: Router
   ) { }
 
   ngAfterViewInit(): void {
     this.dataSource.paginator = this.paginator;
+    this.dataSource.sort = this.sort;
   }
 
   goToActivityDetails(a: Activity): void {

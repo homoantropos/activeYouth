@@ -8,6 +8,7 @@ import { FinLoginComponent } from './fin-login/fin-login.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { FinDashboardComponent } from './fin-dashboard/fin-dashboard.component';
 import {SharedModule} from '../shared/shared.module';
+import {MatTableModule} from '@angular/material/table';
 
 
 @NgModule({
@@ -21,6 +22,7 @@ import {SharedModule} from '../shared/shared.module';
         ReactiveFormsModule,
         CommonModule,
         FinAdminLayoutRoutingModule,
+        MatTableModule,
         SharedModule
     ]
 })

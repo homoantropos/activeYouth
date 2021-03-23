@@ -4,6 +4,7 @@ import {AppointmentFinancing} from '../../shared/interfases';
 import {MockDataBase} from '../../thoseWillBeDeletedAfterDBCreating/mockDB';
 import {MatPaginator} from '@angular/material/paginator';
 import {Router} from '@angular/router';
+import {MatSort} from '@angular/material/sort';
 
 @Component({
   selector: 'app-fin-dashboard',
@@ -28,6 +29,8 @@ export class FinDashboardComponent implements AfterViewInit {
 
   // @ts-ignore
   @ViewChild(MatPaginator) paginator: MatPaginator;
+  // @ts-ignore
+  @ViewChild(MatSort) sort: MatSort;
 
   constructor(
     private router: Router
@@ -35,6 +38,7 @@ export class FinDashboardComponent implements AfterViewInit {
 
   ngAfterViewInit(): void {
     this.dataSource.paginator = this.paginator;
+    this.dataSource.sort = this.sort;
   }
 
   goToAppointmentFinancingDetails(af: AppointmentFinancing): void {
