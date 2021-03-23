@@ -25,7 +25,7 @@ export class MockDBAdministratorService {
     const variants = Math.round(Math.random() * 10);
     const gender: string = variants % 2 === 0 ? `ж` : `ч`;
     const schoolchildOrStudent: string = variants % 2 === 0 ? `students` : `schoolchild`;
-    const EduEntName: string = variants % 2 === 0 ? `університет` : `школа`;
+    const EduEntName: string = variants % 2 === 0 ? `університет ${variants}` : `школа ${variants}`;
 
     // @ts-ignore
     let ratingPoints = 0;

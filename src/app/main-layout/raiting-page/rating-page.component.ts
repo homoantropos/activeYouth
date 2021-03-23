@@ -12,7 +12,7 @@ import {MatPaginator} from '@angular/material/paginator';
 export class RatingPageComponent implements OnInit, AfterViewInit {
 
   dataSource: MatTableDataSource<Result> = new MatTableDataSource<Result>(MockDataBase.mockResultsDataBase);
-  displayedColumns = ['participantName', 'appointmentName', 'kindOfActivity', 'discipline', 'place'];
+  displayedColumns = ['participantName', 'eduEntity', 'appointmentName', 'kindOfActivity', 'discipline', 'place'];
 
   // @ts-ignore
   @ViewChild(MatPaginator) paginator: MatPaginator;

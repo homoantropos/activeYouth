@@ -2,28 +2,32 @@
   <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
 
     <ng-container matColumnDef="participantName">
-      <th mat-header-cell *matHeaderCellDef>П. І. спортсмена</th>
+      <th mat-header-cell *matHeaderCellDef> П. І. спортсмена </th>
       <td mat-cell *matCellDef="let result">{{result.participant.surname}}<br>{{result.participant.name}}</td>
     </ng-container>
 
+    <ng-container matColumnDef="eduEntity">
+      <th mat-header-cell *matHeaderCellDef> Заклад освіти </th>
+      <td mat-cell *matCellDef="let result">{{result.eduEntity.name}}</td>
+    </ng-container>
 
     <ng-container matColumnDef="appointmentName">
-      <th mat-header-cell *matHeaderCellDef>Назва заходу</th>
+      <th mat-header-cell *matHeaderCellDef> Назва заходу </th>
       <td mat-cell *matCellDef="let result">{{result.appointment.title}}</td>
     </ng-container>
 
     <ng-container matColumnDef="kindOfActivity">
-      <th mat-header-cell *matHeaderCellDef>Вид спорту<br>(активності)</th>
+      <th mat-header-cell *matHeaderCellDef> Вид спорту <br>(активності)</th>
       <td mat-cell *matCellDef="let result">{{result.appointment.sportKind}}</td>
     </ng-container>
 
     <ng-container matColumnDef="discipline">
-      <th mat-header-cell *matHeaderCellDef>Дисципліна</th>
+      <th mat-header-cell *matHeaderCellDef> Дисципліна </th>
       <td mat-cell *matCellDef="let result">{{result.discipline}}</td>
     </ng-container>
 
     <ng-container matColumnDef="place" >
-      <th mat-header-cell *matHeaderCellDef>Місце</th>
+      <th mat-header-cell *matHeaderCellDef> Місце </th>
       <td mat-cell *matCellDef="let result" [ngStyle]="{ textAlign: 'center' }">{{result.place}}</td>
     </ng-container>
 
