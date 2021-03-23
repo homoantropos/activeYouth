@@ -1,10 +1,19 @@
-<button mat-raised-button color="primary" (click)="changeViewOption()">
-  {{buttonName}}
-</button>
-<button mat-raised-button color="primary">
-  {{gender}}
-</button>
-<div class="form-container">
+<div class="btn-container">
+  <button mat-raised-button color="primary" (click)="changeViewOption()">
+    {{buttonName}}
+  </button>
+  <button mat-raised-button color="primary">
+    фіз.культура/спорт
+  </button>
+  <button mat-raised-button color="primary">
+    дівчата/хлопці
+  </button>
+  <button mat-raised-button color="primary">
+    скинути фільтри
+  </button>
+</div>
+
+<div>
 
   <table mat-table matSort [dataSource]="dataSource" class="mat-elevation-z8">
 

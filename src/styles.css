@@ -69,10 +69,8 @@ button.active {
   position: relative;
   left: 50%;
   transform: translate(-50%);
-  width: 80%;
   align-items: center;
-  justify-content: flex-start;
-  border: 1px solid orange;
+  text-align: center;
 }
 
 .form-container {
