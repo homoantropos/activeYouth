@@ -769,6 +769,8 @@ export class MockDataBase {
       organiser: 'СССУ',
       id: '1ww47'
     }];
+
+
   static authenticatedUsers: Array<User> = [
     {email: 'santre8@gmail.com',
       password: '11111111',

@@ -43,7 +43,6 @@ export class StatisticDashboardComponent implements AfterViewInit {
   }
 
   goToStatDetails(s: Statistic): void {
-    console.log(s.id);
     this.router.navigateByUrl(`/admin/statistic/${s.id}`);
   }
 }

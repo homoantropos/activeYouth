@@ -50,6 +50,7 @@ export interface Participant {
   surname: string;
   DoB: Date;
   gender: string;
+  schoolchildOrStudent: string;
 }
 
 export interface Result {

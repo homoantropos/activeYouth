@@ -1,5 +1,14 @@
 import {Injectable} from '@angular/core';
-import {Appointment, Expenses, AppointmentFinancing, NumbersOfParticipants, Statistic} from '../shared/interfases';
+import {
+  Appointment,
+  Expenses,
+  AppointmentFinancing,
+  NumbersOfParticipants,
+  Statistic,
+  Result,
+  Participant,
+  EducationEntity
+} from '../shared/interfases';
 import {MockDataBase} from './mockDB';
 
 @Injectable({
@@ -10,7 +19,67 @@ export class MockDBAdministratorService {
   constructor() {
   }
 
-  createResult(appointment: Appointment): Statistic {
+  createResult(appointment: Appointment, discipline: string, place: number): Result {
+
+    // mockParticipant creating
+    const variants = Math.round(Math.random() * 10);
+    const gender: string = variants % 2 === 0 ? `ж` : `ч`;
+    const schoolchildOrStudent: string = variants % 2 === 0 ? `students` : `schoolchild`;
+    const EduEntName: string = variants % 2 === 0 ? `університет` : `школа`;
+
+    // @ts-ignore
+    let ratingPoints = 0;
+
+    const mockParticipant: Participant = {
+      name: `ім'я ${variants}`,
+      surname: `прізвище ${variants}`,
+      DoB: new Date(),
+      gender,
+      schoolchildOrStudent,
+    };
+
+    // mockEduEntity creating
+    const mockEducationalEntity: EducationEntity = { name: EduEntName, category: 1, type: EduEntName };
+
+    switch (place) {
+      case 1 : ratingPoints = 5;
+               break;
+      case 2 : ratingPoints = 4;
+               break;
+      case 3 : ratingPoints = 3;
+               break;
+      case 4 : ratingPoints = 2;
+               break;
+      case 5 : ratingPoints = 1;
+               break;
+    }
+
+    const result: Result = {
+      appointment,
+      participant: mockParticipant,
+      eduEntity: mockEducationalEntity,
+      discipline,
+      place,
+      ratingPoints,
+      id: `${Date}`
+    };
+    return result;
+  }
+
+  createResults(): void {
+    MockDataBase.schedule.map(
+      a => {
+        for (let i = 1; i <= 5; i++) {
+          for (let j = 1; j <= 5; j++) {
+            const result: Result = this.createResult(a, `discipline ${i}`, j );
+            MockDataBase.mockResultsDataBase.push(result);
+          }
+        }
+      }
+    );
+  }
+
+  createStatistic(appointment: Appointment): Statistic {
 
     const countries = Math.floor(Math.random() * 25);
     const regions = Math.floor(Math.random() * 25);
@@ -58,7 +127,7 @@ export class MockDBAdministratorService {
   createStatistics(): void {
     MockDataBase.schedule.map(
       a => {
-        const result = this.createResult(a);
+        const result = this.createStatistic(a);
         return MockDataBase.statistics.push(result);
       }
     );
