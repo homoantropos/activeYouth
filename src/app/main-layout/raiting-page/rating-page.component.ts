@@ -41,20 +41,18 @@ export class RatingPageComponent implements OnInit, AfterViewInit {
   }
 
   getRatingFromDB(): void {
-    this.resultService.getAllResults().subscribe(
-      r => {
-        this.ratingFilterService.filterRating(
-          r,
-          this.schoolchildOrStudent,
-          this.direction).subscribe(
-          rf => {
+    this.resultService.getAllResults()
+      .subscribe( r => {
+        this.ratingFilterService
+          .filterRating(r, this.schoolchildOrStudent, this.direction)
+          .subscribe( rf => {
             this.results = rf;
             this.dataSource = new MatTableDataSource<Result>(this.results);
           });
       });
   }
 
-  changeViewOption(): void {
+  showRatingBySchoolchildOrStudents(): void {
     if (this.schoolchildOrStudent === 'schoolchild') {
       this.schoolchildOrStudent = 'students';
     } else {
@@ -64,7 +62,7 @@ export class RatingPageComponent implements OnInit, AfterViewInit {
     this.ngAfterViewInit();
   }
 
-  changeViewOptionByDirection(): void {
+  showRatingByDirection(): void {
     if (this.direction === 'physical culture') {
       this.direction = 'sport';
     } else {
@@ -74,18 +72,21 @@ export class RatingPageComponent implements OnInit, AfterViewInit {
     this.ngAfterViewInit();
   }
 
-  changeViewOptionByGender(): void {
+  showRatingByGender(): void {
     if (this.gender === 'female') {
       this.gender = 'male';
     } else {
       this.gender = 'female';
     }
-    console.log('перед отриманням: ', this.results);
     this.getRatingFromDB();
-    console.log('після отримання: ', this.results);
     this.results = this.results.filter(r => r.participant.gender === this.gender);
     this.dataSource = new MatTableDataSource<Result>(this.results);
     this.ngAfterViewInit();
-    console.log('після сортування: ', this.results);
+  }
+
+  showRatingWithoutDirection(): void {
+    this.getRatingFromDB();
+    this.dataSource = new MatTableDataSource<Result>(this.results);
+    this.ngAfterViewInit();
   }
 }
