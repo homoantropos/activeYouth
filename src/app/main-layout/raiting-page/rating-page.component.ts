@@ -19,7 +19,7 @@ export class RatingPageComponent implements OnInit, AfterViewInit {
   schoolchildOrStudent = 'schoolchild';
   direction = 'physical culture';
   gender = 'female';
-  displayedColumns = ['participantName', 'eduEntity', 'appointmentName', 'kindOfActivity', 'discipline', 'place'];
+  displayedColumns = ['participantName', 'participantGender', 'eduEntity', 'appointmentName', 'kindOfActivity', 'discipline', 'place'];
 
   // @ts-ignore
   dataSource: MatTableDataSource<Result>;
@@ -46,7 +46,7 @@ export class RatingPageComponent implements OnInit, AfterViewInit {
         this.ratingFilterService
           .filterRating(r, this.schoolchildOrStudent, this.direction)
           .subscribe( rf => {
-            this.results = rf;
+            this.results = rf.filter(rt => rt.participant.gender === this.gender);
             this.dataSource = new MatTableDataSource<Result>(this.results);
           });
       });
@@ -85,8 +85,8 @@ export class RatingPageComponent implements OnInit, AfterViewInit {
   }
 
   showRatingWithoutDirection(): void {
+    this.direction = '';
     this.getRatingFromDB();
-    this.dataSource = new MatTableDataSource<Result>(this.results);
     this.ngAfterViewInit();
   }
 }

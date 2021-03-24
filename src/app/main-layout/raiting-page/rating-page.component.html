@@ -22,6 +22,11 @@
       <td mat-cell *matCellDef="let result">{{result.participant.surname}}<br>{{result.participant.name}}</td>
     </ng-container>
 
+    <ng-container matColumnDef="participantGender">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header="participant.gender"> Стать </th>
+      <td mat-cell *matCellDef="let result">{{result.participant.gender}}</td>
+    </ng-container>
+
     <ng-container matColumnDef="eduEntity">
       <th mat-header-cell *matHeaderCellDef> Заклад освіти </th>
       <td mat-cell *matCellDef="let result">{{result.eduEntity.name}}</td>
