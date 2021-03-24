@@ -26,16 +26,16 @@ export class MockDBAdministratorService {
     const gender: string = variants % 2 === 0 ? `female` : `male`;
     const schoolchildOrStudent: string = appointment.participants;
     const EduEntName: string = schoolchildOrStudent === 'students' ? `університет ${variants}` : `школа ${variants}`;
+    const name = `ім'я ${variants}`;
+    const surname = `прізвище ${variants}`;
+    const DoB = new Date();
+    const id = name + surname + DoB.toString();
 
     // @ts-ignore
     let ratingPoints = 0;
 
     const mockParticipant: Participant = {
-      name: `ім'я ${variants}`,
-      surname: `прізвище ${variants}`,
-      DoB: new Date(),
-      gender,
-      schoolchildOrStudent,
+      name, surname, DoB, gender, schoolchildOrStudent, id
     };
 
     // mockEduEntity creating

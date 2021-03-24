@@ -51,6 +51,7 @@ export interface Participant {
   DoB: Date;
   gender: string;
   schoolchildOrStudent: string;
+  id: string;
 }
 
 export interface Result {

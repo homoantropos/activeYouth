@@ -8,7 +8,7 @@ import {ResultService} from '../../shared/services/result.service';
 import {RatingFilterService} from '../../shared/services/rating-filter.service';
 
 @Component({
-  selector: 'app-raiting-page',
+  selector: 'app-rating-page',
   templateUrl: './rating-page.component.html',
   styleUrls: ['./rating-page.component.css']
 })
