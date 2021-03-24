@@ -29,7 +29,7 @@ export class MockDBAdministratorService {
     const name = `ім'я ${variants}`;
     const surname = `прізвище ${variants}`;
     const DoB = new Date();
-    const id = name + surname + DoB.toString();
+    const id = name + surname + DoB.toString() + gender;
 
     // @ts-ignore
     let ratingPoints = 0;
