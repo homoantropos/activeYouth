@@ -37,7 +37,7 @@ export class RatingPageComponent implements OnInit, AfterViewInit {
 
   ngOnInit(): void {
     this.getRatingFromDB();
-    this.ratingManager.createRating(this.results);
+    this.ratingManager.createRating(MockDataBase.mockResultsDataBase);
   }
 
   ngAfterViewInit(): void {

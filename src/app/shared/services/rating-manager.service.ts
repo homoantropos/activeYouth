@@ -15,7 +15,7 @@ export class RatingManagerService {
     let cloneResults = results.slice();
     results.map( r => {
       const onePerson = cloneResults.filter(result => result.participant.id === r.participant.id);
-      onePerson.map( resOne => +(this.totalRating + resOne.ratingPoints) );
+      onePerson.map( resOne => this.totalRating = +(this.totalRating + resOne.ratingPoints) );
       if (onePerson.length === 0) {
         return;
       }
@@ -24,12 +24,7 @@ export class RatingManagerService {
         totalRating: this.totalRating
       });
       cloneResults = cloneResults.filter(result => result.participant.id !== r.participant.id);
-      // if (cloneResults.length === 0) {
-      //   return;
-      // }
     });
-    console.log(this.rating);
-    this.rating.filter(rtng => rtng.results.length !== 0);
     console.log(this.rating);
   }
 }
