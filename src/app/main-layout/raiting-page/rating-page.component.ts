@@ -4,6 +4,8 @@ import {Result} from '../../shared/interfases';
 import {MockDataBase} from '../../thoseWillBeDeletedAfterDBCreating/mockDB';
 import {MatPaginator} from '@angular/material/paginator';
 import {MatSort} from '@angular/material/sort';
+import {ResultService} from '../../shared/services/result.service';
+import {RatingFilterService} from '../../shared/services/rating-filter.service';
 
 @Component({
   selector: 'app-raiting-page',
@@ -12,24 +14,37 @@ import {MatSort} from '@angular/material/sort';
 })
 export class RatingPageComponent implements OnInit, AfterViewInit {
 
-  schoolchildOrStudent = 'schoolchild';
-  buttonName = 'показати студентів';
-  gender = 'дівчата';
   // @ts-ignore
-  dataSource: MatTableDataSource<Result> = new MatTableDataSource<Result>(
-    MockDataBase.mockResultsDataBase.filter(
-      r => r.participant.schoolchildOrStudent === `schoolchild` && r.participant.gender === 'хлопці'
-    ));
+  results: Array<Result>;
+  schoolchildOrStudent = 'schoolchild';
+  direction = 'physical culture';
+  gender = 'female';
   displayedColumns = ['participantName', 'eduEntity', 'appointmentName', 'kindOfActivity', 'discipline', 'place'];
 
+  // @ts-ignore
+  dataSource: MatTableDataSource<Result>;
   // @ts-ignore
   @ViewChild(MatPaginator) paginator: MatPaginator;
   // @ts-ignore
   @ViewChild(MatSort) sort: MatSort;
 
-  constructor() { }
+  constructor(
+    private resultService: ResultService,
+    private ratingFilterService: RatingFilterService
+  ) { }
 
   ngOnInit(): void {
+    this.resultService.getAllResults().subscribe(
+      r => {
+        this.ratingFilterService.filterRating(
+          r,
+          this.schoolchildOrStudent,
+          this.direction).subscribe(
+          rf => {
+            this.results = rf;
+            this.dataSource = new MatTableDataSource<Result>(this.results);
+          });
+      });
   }
 
   ngAfterViewInit(): void {
@@ -40,15 +55,10 @@ export class RatingPageComponent implements OnInit, AfterViewInit {
   changeViewOption(): void {
     if (this.schoolchildOrStudent === 'schoolchild') {
       this.schoolchildOrStudent = 'students';
-      this.buttonName = 'показати учнів';
     } else {
       this.schoolchildOrStudent = 'schoolchild';
-      this.buttonName = 'показати студентів';
     }
-    this.dataSource = new MatTableDataSource<Result>(
-      MockDataBase.mockResultsDataBase.filter(
-        r => r.participant.schoolchildOrStudent === `${this.schoolchildOrStudent}`
-      ));
+    this.ngOnInit();
     this.ngAfterViewInit();
   }
 }

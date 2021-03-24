@@ -10,25 +10,29 @@ export class ResultService {
 
   constructor() {
   }
-  createActivity(result: Result): Observable<Result> {
+  createResult(result: Result): Observable<Result> {
+    // http-client post will be here later
     return of(result);
   }
 
-  deleteActivity(result: Result): void {
-
+  deleteResult(result: Result): void {
+    // http-client delete will be here later
   }
 
-  updateActivity(result: Result): Observable<Result> {
+  updateResult(result: Result): Observable<Result> {
+    // http-client patch will be here later
     return of(result);
   }
 
-  getAllActivity(): Observable<Array<Result>> {
+  getAllResults(): Observable<Array<Result>> {
+    // http-client get will be here later
     const results: Array<Result> =
       (MockDataBase.mockResultsDataBase) as Array<Result>;
     return of(results);
   }
 
-  getAppointmentByID(id: string): Observable<Result> {
+  getResultByID(id: string): Observable<Result> {
+    // http-client get will be here later
     return of((MockDataBase.mockResultsDataBase.find(r => r.id === id)) as Result);
   }
 }
