@@ -6,6 +6,7 @@ import {MatPaginator} from '@angular/material/paginator';
 import {MatSort} from '@angular/material/sort';
 import {ResultService} from '../../shared/services/result.service';
 import {RatingFilterService} from '../../shared/services/rating-filter.service';
+import {RatingManagerService} from '../../shared/services/rating-manager.service';
 
 @Component({
   selector: 'app-rating-page',
@@ -30,10 +31,14 @@ export class RatingPageComponent implements OnInit, AfterViewInit {
 
   constructor(
     private resultService: ResultService,
-    private ratingFilterService: RatingFilterService
+    private ratingFilterService: RatingFilterService,
+    private ratingManager: RatingManagerService
   ) { }
 
-  ngOnInit(): void { this.getRatingFromDB(); }
+  ngOnInit(): void {
+    this.getRatingFromDB();
+    this.ratingManager.createRating(this.results);
+  }
 
   ngAfterViewInit(): void {
     this.dataSource.paginator = this.paginator;

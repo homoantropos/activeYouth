@@ -64,6 +64,11 @@ export interface Result {
   id: string;
 }
 
+export interface RatingBrick  {
+  results: Array<Result>;
+  totalRating: number;
+}
+
 export interface Expenses {
   kekv2210: number;
   kekv2220: number;
