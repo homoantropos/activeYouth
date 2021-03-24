@@ -15,7 +15,6 @@ export class RatingManagerService {
     results.map( r => {
       const onePerson = results.filter(result => result.participant.id === r.participant.id);
       onePerson.map( resOne => +(this.totalRating + resOne.ratingPoints) );
-      results = results.filter(result => result.participant.id !== r.participant.id);
       this.rating.push({
         results: onePerson,
         totalRating: this.totalRating
