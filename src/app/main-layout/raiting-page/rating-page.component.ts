@@ -33,7 +33,14 @@ export class RatingPageComponent implements OnInit, AfterViewInit {
     private ratingFilterService: RatingFilterService
   ) { }
 
-  ngOnInit(): void {
+  ngOnInit(): void { this.getRatingFromDB(); }
+
+  ngAfterViewInit(): void {
+    this.dataSource.paginator = this.paginator;
+    this.dataSource.sort = this.sort;
+  }
+
+  getRatingFromDB(): void {
     this.resultService.getAllResults().subscribe(
       r => {
         this.ratingFilterService.filterRating(
@@ -47,18 +54,33 @@ export class RatingPageComponent implements OnInit, AfterViewInit {
       });
   }
 
-  ngAfterViewInit(): void {
-    this.dataSource.paginator = this.paginator;
-    this.dataSource.sort = this.sort;
-  }
-
   changeViewOption(): void {
     if (this.schoolchildOrStudent === 'schoolchild') {
       this.schoolchildOrStudent = 'students';
     } else {
       this.schoolchildOrStudent = 'schoolchild';
     }
-    this.ngOnInit();
+    this.getRatingFromDB();
+    this.ngAfterViewInit();
+  }
+
+  changeViewOptionByDirection(): void {
+    if (this.direction === 'physical culture') {
+      this.direction = 'sport';
+    } else {
+      this.direction = 'physical culture';
+    }
+    this.getRatingFromDB();
+    this.ngAfterViewInit();
+  }
+
+  changeViewOptionByGender(): void {
+    if (this.gender === 'female') {
+      this.gender = 'male';
+    } else {
+      this.gender = 'female';
+    }
+    this.results = this.results.filter(r => r.participant.gender === this.gender);
     this.ngAfterViewInit();
   }
 }
