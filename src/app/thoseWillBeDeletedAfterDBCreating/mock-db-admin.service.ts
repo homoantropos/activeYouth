@@ -23,7 +23,7 @@ export class MockDBAdministratorService {
 
     // mockParticipant creating
     const variants = Math.round(Math.random() * 10);
-    const gender: string = variants % 2 === 0 ? 'female' : 'male';
+    const gender: string = variants % 2 === 0 ? `female` : `male`;
     const schoolchildOrStudent: string = variants % 2 === 0 ? `students` : `schoolchild`;
     const EduEntName: string = variants % 2 === 0 ? `університет ${variants}` : `школа ${variants}`;
 

@@ -80,7 +80,10 @@ export class RatingPageComponent implements OnInit, AfterViewInit {
     } else {
       this.gender = 'female';
     }
+    console.log(this.results);
     this.results = this.results.filter(r => r.participant.gender === this.gender);
+    this.dataSource = new MatTableDataSource<Result>(this.results);
     this.ngAfterViewInit();
+    console.log(this.results);
   }
 }
