@@ -11,6 +11,8 @@ import { SportsPageComponent } from './sports-page/sports-page.component';
 import { RatingPageComponent } from './raiting-page/rating-page.component';
 import {QuillModule} from 'ngx-quill';
 import {SharedModule} from '../shared/shared.module';
+import { RatingOfStudentsComponent } from './raiting-page/rating-of-students/rating-of-students.component';
+import { RatingOfEducationalEntityComponent } from './raiting-page/rating-of-educational-entity/rating-of-educational-entity.component';
 
 
 @NgModule({
@@ -20,7 +22,9 @@ import {SharedModule} from '../shared/shared.module';
     ScheduleComponent,
     ActivitiesPageComponent,
     SportsPageComponent,
-    RatingPageComponent],
+    RatingPageComponent,
+    RatingOfStudentsComponent,
+    RatingOfEducationalEntityComponent],
     imports: [
         FormsModule,
         ReactiveFormsModule,
