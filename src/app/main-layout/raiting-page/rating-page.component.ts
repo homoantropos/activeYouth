@@ -1,6 +1,6 @@
 import {AfterViewInit, Component, OnInit, ViewChild} from '@angular/core';
 import {MatTableDataSource} from '@angular/material/table';
-import {Result} from '../../shared/interfases';
+import {RatingBrick, Result} from '../../shared/interfases';
 import {MockDataBase} from '../../thoseWillBeDeletedAfterDBCreating/mockDB';
 import {MatPaginator} from '@angular/material/paginator';
 import {MatSort} from '@angular/material/sort';
@@ -22,6 +22,8 @@ export class RatingPageComponent implements OnInit, AfterViewInit {
   gender = 'female';
   displayedColumns = ['participantName', 'participantGender', 'eduEntity', 'appointmentName', 'kindOfActivity', 'discipline', 'place'];
 
+  // @ts-ignore
+  rating: Array<RatingBrick>;
   // @ts-ignore
   dataSource: MatTableDataSource<Result>;
   // @ts-ignore
@@ -52,6 +54,8 @@ export class RatingPageComponent implements OnInit, AfterViewInit {
           .filterRating(r, this.schoolchildOrStudent, this.direction)
           .subscribe( rf => {
             this.results = rf.filter(rt => rt.participant.gender === this.gender);
+            this.rating = this.ratingManager.createRating(this.results);
+            console.log(this.rating);
             this.dataSource = new MatTableDataSource<Result>(this.results);
           });
       });

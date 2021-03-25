@@ -11,7 +11,7 @@ export class RatingManagerService {
   totalRating = 0;
   constructor() { }
 
-  createRating(results: Array<Result>): void {
+  createRating(results: Array<Result>): Array<RatingBrick> {
     let cloneResults = results.slice();
     results.map( r => {
       const onePerson = cloneResults.filter(result => result.participant.id === r.participant.id);
@@ -23,8 +23,10 @@ export class RatingManagerService {
         results: onePerson,
         totalRating: this.totalRating
       });
+      this.totalRating = 0;
       cloneResults = cloneResults.filter(result => result.participant.id !== r.participant.id);
     });
     console.log(this.rating);
+    return this.rating;
   }
 }

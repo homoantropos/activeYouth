@@ -22,7 +22,7 @@ export class MockDBAdministratorService {
   createResult(appointment: Appointment, discipline: string, place: number): Result {
 
     // mockParticipant creating
-    const variants = Math.round(Math.random() * 10);
+    const variants = Math.round(Math.random() * 50);
     const gender: string = variants % 2 === 0 ? `female` : `male`;
     const schoolchildOrStudent: string = appointment.participants;
     const EduEntName: string = schoolchildOrStudent === 'students' ? `університет ${variants}` : `школа ${variants}`;
