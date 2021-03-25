@@ -26,7 +26,6 @@ export class RatingManagerService {
       this.totalRating = 0;
       cloneResults = cloneResults.filter(result => result.participant.id !== r.participant.id);
     });
-    console.log(this.rating);
     return this.rating;
   }
 }
