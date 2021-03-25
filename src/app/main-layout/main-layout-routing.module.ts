@@ -23,6 +23,7 @@ const routes: Routes = [
       {path: 'schedule', component: ScheduleComponent},
       {path: 'schedule/:id', component: AppointmentDetailsComponent},
       {path: 'rating', component: RatingPageComponent, children: [
+          {path: '', redirectTo: 'students', pathMatch: 'full'},
           {path: 'students', component: RatingOfStudentsComponent},
           {path: 'eduentity', component: RatingOfEducationalEntityComponent}
         ]}
