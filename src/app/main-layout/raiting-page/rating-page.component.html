@@ -1,13 +1,11 @@
 <div class = "btn-container">
 
-  <a [routerLink]="['students']" routerLinkActive="activeBtn">
-    <button mat-raised-button (click)="changeOptions()">{{buttonTitlestnd}} РЕЙТИНГ ЗДОБУВАЧІВ ОСВІТИ</button>
-  </a>
+    <button mat-button (click)="changeOptions()">{{buttonTitlestnd}}</button>
 
-  <a [routerLink]="['eduentity']" routerLinkActive="active">
-    <button mat-raised-button (click)="changeOptions()">{{buttonTitleEduEnt}} РЕЙТИНГ ЗАКЛАДІВ ОСВІТИ</button>
-  </a>
+    <button mat-button (click)="changeOptions()">{{buttonTitleEduEnt}}</button>
+
+  <h2>РЕЙТИНГ {{ratingTitle}}</h2>
 
 </div>
-<h2>РЕЙТИНГ {{ratingTitle}}</h2>
+
 <router-outlet></router-outlet>
