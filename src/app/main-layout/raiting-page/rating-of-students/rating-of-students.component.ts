@@ -21,7 +21,7 @@ export class RatingOfStudentsComponent implements OnInit, AfterViewInit {
   gender = 'female';
   titleParticipant = 'учениці';
   titleDirection = 'фізична культура';
-  displayedColumns = ['participantName', 'participantGender', 'totalRating'];
+  displayedColumns = [ 'participantName', 'participantGender', 'totalRating'];
 
   // @ts-ignore
   rating: Array<RatingBrick>;
@@ -55,7 +55,7 @@ export class RatingOfStudentsComponent implements OnInit, AfterViewInit {
           .subscribe( rf => {
             this.results = rf.filter(rt => rt.participant.gender === this.gender);
             this.titlesDefine(this.results);
-            this.rating = this.ratingManager.createRating(this.results);
+            this.rating = this.ratingManager.createStudentsRating(this.results);
             this.dataSource = new MatTableDataSource<RatingBrick>(this.rating);
           });
       });

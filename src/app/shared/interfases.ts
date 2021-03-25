@@ -65,6 +65,8 @@ export interface Result {
 }
 
 export interface RatingBrick  {
+  resultsOwnerStudent?: Participant;
+  resultsOwnerEduEntity?: EducationEntity;
   results: Array<Result>;
   totalRating: number;
 }
