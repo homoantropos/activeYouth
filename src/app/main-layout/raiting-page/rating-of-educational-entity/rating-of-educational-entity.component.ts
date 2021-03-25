@@ -19,7 +19,7 @@ export class RatingOfEducationalEntityComponent implements OnInit, AfterViewInit
   schoolchildOrStudent = 'schoolchild';
   direction = 'physical culture';
   gender = 'female';
-  titleParticipant = 'учениці';
+  titleParticipant = 'заклади середньої освіти';
   titleDirection = 'фізична культура';
   displayedColumns = ['participantName', 'participantGender', 'totalRating'];
 
@@ -57,6 +57,7 @@ export class RatingOfEducationalEntityComponent implements OnInit, AfterViewInit
             this.results = rf.filter(rt => rt.participant.gender === this.gender);
             this.titlesDefine(this.results);
             this.rating = this.ratingManager.createEducationalEntityRating(this.results);
+            this.rating.sort((a, b) => b.totalRating - a.totalRating);
             this.dataSource = new MatTableDataSource<RatingBrick>(this.rating);
           });
       });
@@ -90,6 +91,7 @@ export class RatingOfEducationalEntityComponent implements OnInit, AfterViewInit
     }
     this.getRatingFromDB();
     this.results = this.results.filter(r => r.participant.gender === this.gender);
+    this.rating.sort((a, b) => b.totalRating - a.totalRating);
     this.titlesDefine(this.results);
     this.dataSource = new MatTableDataSource<RatingBrick>(this.rating);
     this.ngAfterViewInit();
@@ -113,17 +115,11 @@ export class RatingOfEducationalEntityComponent implements OnInit, AfterViewInit
         this.titleDirection = 'спорт';
         break;
     }
-    switch (participant.gender) {
-      case('female'):
-        participant.schoolchildOrStudent === 'students' ?
-          this.titleParticipant = 'студентки' :
-          this.titleParticipant = 'учениці';
-        break;
-      case('male'):
-        participant.schoolchildOrStudent === 'students' ?
-          this.titleParticipant = 'студенти' :
-          this.titleParticipant = 'учні';
-        break;
+    switch (participant.schoolchildOrStudent) {
+      case('students'): this.titleParticipant = 'заклади вищої освіти';
+                        break;
+      case('schoolchild'): this.titleParticipant = 'заклади середньої освіти';
+                           break;
     }
   }
 }
