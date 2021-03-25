@@ -16,11 +16,13 @@ export class RatingFilterService {
     gender?: string
   ): Observable<Array<Result>> {
     if (direction) {
-      if (gender === '') {
+      if (gender && gender !== '') {
         return of(
           rating.filter(
             r => r.participant.schoolchildOrStudent === schoolchildOrStudent &&
-              r.appointment.direction === direction));
+              r.appointment.direction === direction &&
+              r.participant.gender === gender)
+          );
       } else {
         return of(rating.filter(
           r => r.participant.schoolchildOrStudent === schoolchildOrStudent &&

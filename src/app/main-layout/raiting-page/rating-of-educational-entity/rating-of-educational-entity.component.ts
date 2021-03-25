@@ -54,9 +54,9 @@ export class RatingOfEducationalEntityComponent implements OnInit, AfterViewInit
         this.ratingFilterService
           .filterRating(r, this.schoolchildOrStudent, this.direction, this.gender)
           .subscribe(rf => {
-            this.results = rf.filter(rt => rt.participant.gender === this.gender);
-            this.titlesDefine(this.results);
-            this.rating = this.ratingManager.createEducationalEntityRating(this.results);
+            this.results = rf;
+            this.titlesDefine(rf);
+            this.rating = this.ratingManager.createEducationalEntityRating(rf);
             this.rating.sort((a, b) => b.totalRating - a.totalRating);
             this.dataSource = new MatTableDataSource<RatingBrick>(this.rating);
           });
@@ -90,15 +90,12 @@ export class RatingOfEducationalEntityComponent implements OnInit, AfterViewInit
       this.gender = 'female';
     }
     this.getRatingFromDB();
-    this.results = this.results.filter(r => r.participant.gender === this.gender);
-    this.rating.sort((a, b) => b.totalRating - a.totalRating);
-    this.titlesDefine(this.results);
-    this.dataSource = new MatTableDataSource<RatingBrick>(this.rating);
     this.ngAfterViewInit();
   }
 
   showRatingWithoutDirection(): void {
     this.direction = '';
+    this.gender = 'female';
     this.getRatingFromDB();
     this.titleDirection = 'фізична культура і спорт разом';
     this.ngAfterViewInit();
