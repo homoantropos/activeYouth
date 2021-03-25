@@ -20,6 +20,8 @@ export class RatingPageComponent implements OnInit, AfterViewInit {
   schoolchildOrStudent = 'schoolchild';
   direction = 'physical culture';
   gender = 'female';
+  titleParticipant = 'учениці';
+  titleDirection = 'фізична культура';
   displayedColumns = ['participantName', 'participantGender', 'totalRating'];
 
   // @ts-ignore
@@ -53,8 +55,8 @@ export class RatingPageComponent implements OnInit, AfterViewInit {
           .filterRating(r, this.schoolchildOrStudent, this.direction)
           .subscribe( rf => {
             this.results = rf.filter(rt => rt.participant.gender === this.gender);
+            this.titlesDefine(this.results);
             this.rating = this.ratingManager.createRating(this.results);
-            console.log(this.rating);
             this.dataSource = new MatTableDataSource<RatingBrick>(this.rating);
           });
       });
@@ -88,6 +90,7 @@ export class RatingPageComponent implements OnInit, AfterViewInit {
     }
     this.getRatingFromDB();
     this.results = this.results.filter(r => r.participant.gender === this.gender);
+    this.titlesDefine(this.results);
     this.dataSource = new MatTableDataSource<RatingBrick>(this.rating);
     this.ngAfterViewInit();
   }
@@ -96,5 +99,25 @@ export class RatingPageComponent implements OnInit, AfterViewInit {
     this.direction = '';
     this.getRatingFromDB();
     this.ngAfterViewInit();
+  }
+
+  titlesDefine(results: Array<Result>): void {
+    const appointment = results[0].appointment;
+    const participant = results[0].participant;
+    switch (appointment.direction) {
+      case ('physical culture'): this.titleDirection = 'фізична культура';
+                                 break;
+      case ('sport'): this.titleDirection = 'спорт';
+    }
+    switch (participant.gender) {
+      case('female'): participant.schoolchildOrStudent === 'students' ?
+        this.titleParticipant = 'студентки' :
+        this.titleParticipant = 'учениці';
+                      break;
+      case('male'): participant.schoolchildOrStudent === 'students' ?
+        this.titleParticipant = 'студенти' :
+        this.titleParticipant = 'учні';
+                    break;
+    }
   }
 }

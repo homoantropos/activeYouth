@@ -26,6 +26,7 @@ export class RatingManagerService {
       totalRating = 0;
       cloneResults = cloneResults.filter(result => result.participant.id !== r.participant.id);
     });
+    rating.sort((a, b) => b.totalRating - a.totalRating);
     return rating;
   }
 }

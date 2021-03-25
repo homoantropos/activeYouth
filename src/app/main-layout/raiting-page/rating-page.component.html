@@ -12,14 +12,14 @@
     скинути фільтри
   </button>
 </div>
-
+<h3>Кращі {{titleParticipant}} напряму {{titleDirection}}</h3>
 <div class="table-container">
 
   <table mat-table matSort [dataSource]="dataSource" class="mat-elevation-z8">
 
     <ng-container matColumnDef="participantName">
       <th mat-header-cell *matHeaderCellDef mat-sort-header="participant.name"> П. І. спортсмена </th>
-      <td mat-cell *matCellDef="let ratingBrick">{{ratingBrick.results[0].participant.surname}}<br>
+      <td mat-cell *matCellDef="let ratingBrick">{{ratingBrick.results[0].participant.surname}}
         {{ratingBrick.results[0].participant.name}}</td>
     </ng-container>
 
