@@ -1,8 +1,17 @@
 <div class = "btn-container">
 
-    <button mat-button (click)="changeOptions()">{{buttonTitlestnd}}</button>
+    <button mat-button (click)="changeOptions()">
+      <a [routerLink]="['students']" routerLinkActive="activeBtn">
+        {{buttonTitlestnd}}
+      </a>
+    </button>
 
-    <button mat-button (click)="changeOptions()">{{buttonTitleEduEnt}}</button>
+
+    <button mat-button (click)="changeOptions()">
+      <a [routerLink]="['eduentity']" routerLinkActive="active">
+        {{buttonTitleEduEnt}}
+      </a>
+    </button>
 
   <h2>РЕЙТИНГ {{ratingTitle}}</h2>
 

@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-rating-page',
@@ -11,9 +10,7 @@ export class RatingPageComponent {
   buttonTitleEduEnt = 'ПЕРЕГЛЯНУТИ РЕЙТИНГ ЗАКЛАДІВ ОСВІТИ';
   ratingTitle = 'ЗДОБУВАЧІВ ОСВІТИ';
   option = true;
-  constructor(
-    private router: Router
-  ) { }
+  constructor( ) { }
 
   changeOptions(): void {
     this.option = !this.option;
@@ -21,12 +18,10 @@ export class RatingPageComponent {
       this.buttonTitlestnd = '';
       this.buttonTitleEduEnt = 'ПЕРЕГЛЯНУТИ РЕЙТИНГ ЗАКЛАДІВ ОСВІТИ';
       this.ratingTitle = 'ЗДОБУВАЧІВ ОСВІТИ';
-      this.router.navigate(['rating', 'eduentity']);
     } else {
       this.buttonTitlestnd = 'ПЕРЕГЛЯНУТИ РЕЙТИНГ ЗДОБУВАЧІВ ОСВІТИ';
       this.buttonTitleEduEnt = '';
       this.ratingTitle = 'ЗАКЛАДІВ ОСВІТИ';
-      this.router.navigate(['rating']);
     }
   }
 }
