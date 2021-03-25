@@ -52,7 +52,7 @@ export class RatingOfEducationalEntityComponent implements OnInit, AfterViewInit
     this.resultService.getAllResults()
       .subscribe(r => {
         this.ratingFilterService
-          .filterRating(r, this.schoolchildOrStudent, this.direction)
+          .filterRating(r, this.schoolchildOrStudent, this.direction, this.gender)
           .subscribe(rf => {
             this.results = rf.filter(rt => rt.participant.gender === this.gender);
             this.titlesDefine(this.results);
@@ -101,6 +101,13 @@ export class RatingOfEducationalEntityComponent implements OnInit, AfterViewInit
     this.direction = '';
     this.getRatingFromDB();
     this.titleDirection = 'фізична культура і спорт разом';
+    this.ngAfterViewInit();
+  }
+
+  showRatingWithoutGender(): void {
+    this.gender = '';
+    this.getRatingFromDB();
+    this.titleDirection = 'дівчата і хлопці разом';
     this.ngAfterViewInit();
   }
 
