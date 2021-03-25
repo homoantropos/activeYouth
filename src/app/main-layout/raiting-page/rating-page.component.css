@@ -5,7 +5,7 @@ button {
   margin-right: 1px;
 }
 
-button .activeBtn {
+.activeBtn {
   background-color: white;
   color: white;
 }
