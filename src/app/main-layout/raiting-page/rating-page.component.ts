@@ -98,6 +98,7 @@ export class RatingPageComponent implements OnInit, AfterViewInit {
   showRatingWithoutDirection(): void {
     this.direction = '';
     this.getRatingFromDB();
+    this.titleDirection = 'фізична культура і спорт разом';
     this.ngAfterViewInit();
   }
 
@@ -108,6 +109,7 @@ export class RatingPageComponent implements OnInit, AfterViewInit {
       case ('physical culture'): this.titleDirection = 'фізична культура';
                                  break;
       case ('sport'): this.titleDirection = 'спорт';
+                      break;
     }
     switch (participant.gender) {
       case('female'): participant.schoolchildOrStudent === 'students' ?
