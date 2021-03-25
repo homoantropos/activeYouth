@@ -22,7 +22,7 @@ export class MockDBAdministratorService {
   createResult(appointment: Appointment, discipline: string, place: number): Result {
 
     // mockParticipant creating
-    const variants = Math.round(Math.random() * 50);
+    const variants = Math.round(Math.random() * 100);
     const gender: string = variants % 2 === 0 ? `female` : `male`;
     const schoolchildOrStudent: string = appointment.participants;
     const EduEntName: string = schoolchildOrStudent === 'students' ? `університет ${variants}` : `школа ${variants}`;
@@ -69,7 +69,7 @@ export class MockDBAdministratorService {
   createResults(): void {
     MockDataBase.schedule.map(
       a => {
-        for (let i = 1; i <= 5; i++) {
+        for (let i = 1; i <= 10; i++) {
           for (let j = 1; j <= 5; j++) {
             const result: Result = this.createResult(a, `discipline ${i}`, j );
             MockDataBase.mockResultsDataBase.push(result);

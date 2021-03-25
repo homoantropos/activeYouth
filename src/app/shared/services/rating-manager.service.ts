@@ -33,7 +33,7 @@ export class RatingManagerService {
   }
 
   createEducationalEntityRating(results: Array<Result>): Array<RatingBrick> {
-    const cloneResults = results.slice();
+    let cloneResults = results.slice();
     const ratingEduEntities: Array<RatingBrick> = [];
     let totalRating = 0;
     results.map(
@@ -53,6 +53,7 @@ export class RatingManagerService {
             totalRating
           }
         );
+        cloneResults = cloneResults.filter(rafter => rafter.eduEntity.name !== r.eduEntity.name);
         totalRating = 0;
       }
     );
