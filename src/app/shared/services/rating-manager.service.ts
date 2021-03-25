@@ -6,26 +6,26 @@ import {Observable} from 'rxjs';
   providedIn: 'root'
 })
 export class RatingManagerService {
-  rating: Array<RatingBrick> = [];
-  // @ts-ignore
-  totalRating = 0;
+
   constructor() { }
 
   createRating(results: Array<Result>): Array<RatingBrick> {
+    const rating: Array<RatingBrick> = [];
+    let totalRating = 0;
     let cloneResults = results.slice();
     results.map( r => {
       const onePerson = cloneResults.filter(result => result.participant.id === r.participant.id);
-      onePerson.map( resOne => this.totalRating = +(this.totalRating + resOne.ratingPoints) );
+      onePerson.map( resOne => totalRating = +(totalRating + resOne.ratingPoints) );
       if (onePerson.length === 0) {
         return;
       }
-      this.rating.push({
+      rating.push({
         results: onePerson,
-        totalRating: this.totalRating
+        totalRating
       });
-      this.totalRating = 0;
+      totalRating = 0;
       cloneResults = cloneResults.filter(result => result.participant.id !== r.participant.id);
     });
-    return this.rating;
+    return rating;
   }
 }

@@ -20,12 +20,12 @@ export class RatingPageComponent implements OnInit, AfterViewInit {
   schoolchildOrStudent = 'schoolchild';
   direction = 'physical culture';
   gender = 'female';
-  displayedColumns = ['participantName', 'participantGender', 'eduEntity', 'appointmentName', 'kindOfActivity', 'discipline', 'place'];
+  displayedColumns = ['participantName', 'participantGender', 'totalRating'];
 
   // @ts-ignore
   rating: Array<RatingBrick>;
   // @ts-ignore
-  dataSource: MatTableDataSource<Result>;
+  dataSource: MatTableDataSource<RatingBrick>;
   // @ts-ignore
   @ViewChild(MatPaginator) paginator: MatPaginator;
   // @ts-ignore
@@ -55,7 +55,7 @@ export class RatingPageComponent implements OnInit, AfterViewInit {
             this.results = rf.filter(rt => rt.participant.gender === this.gender);
             this.rating = this.ratingManager.createRating(this.results);
             console.log(this.rating);
-            this.dataSource = new MatTableDataSource<Result>(this.results);
+            this.dataSource = new MatTableDataSource<RatingBrick>(this.rating);
           });
       });
   }
@@ -88,7 +88,7 @@ export class RatingPageComponent implements OnInit, AfterViewInit {
     }
     this.getRatingFromDB();
     this.results = this.results.filter(r => r.participant.gender === this.gender);
-    this.dataSource = new MatTableDataSource<Result>(this.results);
+    this.dataSource = new MatTableDataSource<RatingBrick>(this.rating);
     this.ngAfterViewInit();
   }
 
