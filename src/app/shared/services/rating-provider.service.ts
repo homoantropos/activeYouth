@@ -16,7 +16,7 @@ export class RatingProviderService {
     const ratingEduEntities: Array<RatingBrick> = [];
     let cloneResults = results;
     cloneResults.filter(oneResult => oneResult.eduEntity.type === eduEntityType);
-    if (category && category !== null) { cloneResults.filter(oneResult => oneResult.eduEntity.category === category); }
+    if (category) { cloneResults.filter(oneResult => oneResult.eduEntity.category === category); }
     cloneResults.map(oneResult => {
       let totalRating = 0;
       const oneEduEntityRatingBrick = cloneResults.filter(result => result.eduEntity.name === oneResult.eduEntity.name);
