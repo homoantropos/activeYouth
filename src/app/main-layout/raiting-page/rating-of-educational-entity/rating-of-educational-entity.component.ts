@@ -5,7 +5,7 @@ import {MatPaginator} from '@angular/material/paginator';
 import {MatSort} from '@angular/material/sort';
 import {ResultService} from '../../../shared/services/result.service';
 import {RatingFilterService} from '../../../shared/services/rating-filter.service';
-import {RatingManagerService} from '../../../shared/services/rating-manager.service';
+import {RatingProviderService} from '../../../shared/services/rating-provider.service';
 
 @Component({
   selector: 'app-rating-of-educational-entity',
@@ -21,6 +21,8 @@ export class RatingOfEducationalEntityComponent implements OnInit, AfterViewInit
   gender = 'female';
   titleParticipant = 'заклади середньої освіти';
   titleDirection = 'фізична культура';
+  eduEntityType = 'ЗВО';
+  category = 2;
   displayedColumns = ['participantName', 'participantGender', 'totalRating'];
 
   // @ts-ignore
@@ -35,17 +37,28 @@ export class RatingOfEducationalEntityComponent implements OnInit, AfterViewInit
   constructor(
     private resultService: ResultService,
     private ratingFilterService: RatingFilterService,
-    private ratingManager: RatingManagerService
+    private ratingProvider: RatingProviderService
   ) {
   }
 
   ngOnInit(): void {
-    this.getRatingFromDB();
+    this.resultService.getAllResults().subscribe(rslts => this.results = rslts);
+    this.fetchRating();
   }
 
   ngAfterViewInit(): void {
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
+  }
+
+  fetchRating(): void {
+    this.ratingProvider.fetchEducationEntityRating(this.results, this.eduEntityType, this.category).subscribe(
+      r => {
+        this.rating = r;
+        this.dataSource = new MatTableDataSource<RatingBrick>(this.rating);
+        this.ngAfterViewInit();
+      }
+    );
   }
 
   getRatingFromDB(): void {
@@ -56,7 +69,7 @@ export class RatingOfEducationalEntityComponent implements OnInit, AfterViewInit
           .subscribe(rf => {
             this.results = rf;
             this.titlesDefine(rf);
-            this.rating = this.ratingManager.createEducationalEntityRating(rf);
+            this.rating = this.ratingProvider.createEducationalEntityRating(rf);
             this.rating.sort((a, b) => b.totalRating - a.totalRating);
             this.dataSource = new MatTableDataSource<RatingBrick>(this.rating);
           });

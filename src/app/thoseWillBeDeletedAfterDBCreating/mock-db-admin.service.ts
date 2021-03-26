@@ -26,6 +26,14 @@ export class MockDBAdministratorService {
     const gender: string = variants % 2 === 0 ? `female` : `male`;
     const schoolchildOrStudent: string = appointment.participants;
     const EduEntName: string = schoolchildOrStudent === 'students' ? `університет ${variants}` : `школа ${variants}`;
+    // @ts-ignore
+    let type: string;
+    if (schoolchildOrStudent === 'schoolchild') {
+      type = variants % 3 === 0 ? 'ЗП(ПТ)О' : 'ЗЗСО';
+    } else {
+      type = variants % 3 === 0 ? 'ЗФПВО' : 'ЗВО';
+    }
+    const category = Math.round(Math.random() * 6);
     const name = `ім'я ${variants}`;
     const surname = `прізвище ${variants}`;
     const DoB = new Date();
@@ -39,7 +47,7 @@ export class MockDBAdministratorService {
     };
 
     // mockEduEntity creating
-    const mockEducationalEntity: EducationEntity = { name: EduEntName, category: 1, type: EduEntName };
+    const mockEducationalEntity: EducationEntity = { name: EduEntName, category, type };
 
     switch (place) {
       case 1 : ratingPoints = 5;

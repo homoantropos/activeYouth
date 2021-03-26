@@ -14,7 +14,7 @@ export class RatingPageComponent {
 
   changeOptions(): void {
     this.option = !this.option;
-    if(this.option) {
+    if (this.option) {
       this.buttonTitlestnd = '';
       this.buttonTitleEduEnt = 'ПЕРЕГЛЯНУТИ РЕЙТИНГ ЗАКЛАДІВ ОСВІТИ';
       this.ratingTitle = 'ЗДОБУВАЧІВ ОСВІТИ';

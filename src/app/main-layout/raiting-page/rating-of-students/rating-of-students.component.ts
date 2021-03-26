@@ -5,7 +5,7 @@ import {MatPaginator} from '@angular/material/paginator';
 import {MatSort} from '@angular/material/sort';
 import {ResultService} from '../../../shared/services/result.service';
 import {RatingFilterService} from '../../../shared/services/rating-filter.service';
-import {RatingManagerService} from '../../../shared/services/rating-manager.service';
+import {RatingProviderService} from '../../../shared/services/rating-provider.service';
 
 @Component({
   selector: 'app-rating-of-students',
@@ -35,7 +35,7 @@ export class RatingOfStudentsComponent implements OnInit, AfterViewInit {
   constructor(
     private resultService: ResultService,
     private ratingFilterService: RatingFilterService,
-    private ratingManager: RatingManagerService
+    private ratingProvider: RatingProviderService
   ) { }
 
   ngOnInit(): void {
@@ -55,7 +55,7 @@ export class RatingOfStudentsComponent implements OnInit, AfterViewInit {
           .subscribe( rf => {
             this.results = rf.filter(rt => rt.participant.gender === this.gender);
             this.titlesDefine(this.results);
-            this.rating = this.ratingManager.createStudentsRating(this.results);
+            this.rating = this.ratingProvider.createStudentsRating(this.results);
             this.dataSource = new MatTableDataSource<RatingBrick>(this.rating);
           });
       });

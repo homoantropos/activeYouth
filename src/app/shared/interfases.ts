@@ -43,6 +43,7 @@ export interface EducationEntity {
   name: string;
   category?: number;
   type: string;
+  region?: string;
 }
 
 export interface Participant {
