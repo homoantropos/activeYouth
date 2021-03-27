@@ -7,7 +7,7 @@
   </button>
   <button mat-raised-button color="primary" (click)="changeEduEntityCategory()"
           [disabled]="eduEntityType !== 'ЗВО'">
-    категорія
+    категорія {{eduEntityCategory}}
   </button>
   <button mat-raised-button color="primary" (click)="showRatingByDirection()">
     фіз.культура/спорт
@@ -32,7 +32,7 @@
     </ng-container>
 
     <ng-container matColumnDef="participantGender">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header="participant.gender"> Категорія {{eduEntityCategory}} </th>
+      <th mat-header-cell *matHeaderCellDef mat-sort-header="participant.gender"> Категорія </th>
       <td mat-cell *matCellDef="let ratingBrick">{{ratingBrick.resultsOwnerEduEntity.category}}</td>
     </ng-container>
 
