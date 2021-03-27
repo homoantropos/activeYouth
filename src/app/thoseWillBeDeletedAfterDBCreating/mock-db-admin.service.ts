@@ -25,7 +25,6 @@ export class MockDBAdministratorService {
     const variants = Math.round(Math.random() * 100);
     const gender: string = variants % 2 === 0 ? `female` : `male`;
     const schoolchildOrStudent: string = appointment.participants;
-    const EduEntName: string = schoolchildOrStudent === 'students' ? `університет ${variants}` : `школа ${variants}`;
     // @ts-ignore
     let type: string;
     if (schoolchildOrStudent === 'schoolchild') {
@@ -33,7 +32,8 @@ export class MockDBAdministratorService {
     } else {
       type = variants % 3 === 0 ? 'ЗФПВО' : 'ЗВО';
     }
-    const category = Math.round(Math.random() * 6);
+    const EduEntName = `${type} ${variants}`;
+    const category = type === 'ЗВО' ? Math.round(Math.random() * 6) : 0;
     const name = `ім'я ${variants}`;
     const surname = `прізвище ${variants}`;
     const DoB = new Date();

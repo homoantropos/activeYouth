@@ -1,3 +1,5 @@
+<h2>РЕЙТИНГ ЗДОБУВАЧІВ ОСВІТИ</h2>
+
 <div class="btn-container">
   <button mat-raised-button color="primary" (click)="showRatingBySchoolchildOrStudents()">
     учні/студенти
@@ -24,8 +26,13 @@
 
     <ng-container matColumnDef="participantName">
       <th mat-header-cell *matHeaderCellDef mat-sort-header="resultsOwnerStudent.surname"> П. І. спортсмена </th>
-      <td mat-cell *matCellDef="let ratingBrick">{{ratingBrick.resultsOwnerStudent.surname}}
-        {{ratingBrick.resultsOwnerStudent.name}}</td>
+      <td mat-cell *matCellDef="let ratingBrick"><b>{{ratingBrick.resultsOwnerStudent.surname}}
+        {{ratingBrick.resultsOwnerStudent.name}}</b></td>
+    </ng-container>
+
+    <ng-container matColumnDef="eduEntity">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header="participant.gender"> Стать </th>
+      <td mat-cell *matCellDef="let ratingBrick">{{ratingBrick.results[0].name}}</td>
     </ng-container>
 
     <ng-container matColumnDef="participantGender">

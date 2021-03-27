@@ -21,7 +21,7 @@ export class RatingOfStudentsComponent implements OnInit, AfterViewInit {
   gender = 'female';
   titleParticipant = 'учениці';
   titleDirection = 'фізична культура';
-  displayedColumns = [ 'participantName', 'participantGender', 'totalRating'];
+  displayedColumns = [ 'participantName', 'eduEntity', 'participantGender', 'totalRating'];
 
   // @ts-ignore
   rating: Array<RatingBrick>;

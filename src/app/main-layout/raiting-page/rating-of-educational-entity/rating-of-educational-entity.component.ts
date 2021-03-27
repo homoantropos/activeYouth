@@ -1,4 +1,4 @@
-import {AfterViewInit, Component, OnInit, ViewChild} from '@angular/core';
+import {AfterViewInit, Component, Input, OnInit, ViewChild} from '@angular/core';
 import {RatingBrick, Result} from '../../../shared/interfases';
 import {MatTableDataSource} from '@angular/material/table';
 import {MatPaginator} from '@angular/material/paginator';
@@ -7,22 +7,27 @@ import {ResultService} from '../../../shared/services/result.service';
 import {RatingFilterService} from '../../../shared/services/rating-filter.service';
 import {RatingProviderService} from '../../../shared/services/rating-provider.service';
 
+interface Food {
+  value: string;
+  viewValue: string;
+}
+
 @Component({
   selector: 'app-rating-of-educational-entity',
   templateUrl: './rating-of-educational-entity.component.html',
   styleUrls: ['./rating-of-educational-entity.component.css']
 })
 export class RatingOfEducationalEntityComponent implements OnInit, AfterViewInit {
-
   // @ts-ignore
   results: Array<Result>;
   schoolchildOrStudent = 'schoolchild';
-  direction = 'physical culture';
-  gender = 'female';
-  titleParticipant = 'заклади середньої освіти';
-  titleDirection = 'фізична культура';
+  direction = '';
+  gender = '';
+  titleEduEntity = '';
+  titleParticipant = '';
+  titleDirection = '';
   eduEntityType = 'ЗВО';
-  category = 2;
+  eduEntityCategory = 0;
   displayedColumns = ['participantName', 'participantGender', 'totalRating'];
 
   // @ts-ignore
@@ -42,47 +47,23 @@ export class RatingOfEducationalEntityComponent implements OnInit, AfterViewInit
   }
 
   ngOnInit(): void {
-    this.resultService.getAllResults().subscribe(rslts => this.results = rslts);
-    this.fetchRating();
+    this.resultService.getAllResults().subscribe(
+      rslts => {
+        this.results = rslts;
+        const cloneResults = this.ratingFilterService.filterByEduEntity(this.results, this.eduEntityType, this.eduEntityCategory );
+        this.fetchRating(cloneResults);
+      });
   }
 
   ngAfterViewInit(): void {
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
+    this.titlesDefine();
   }
 
-  fetchRating(): void {
-    this.ratingProvider.fetchEducationEntityRating(this.results, this.eduEntityType, this.category).subscribe(
-      r => {
-        this.rating = r;
-        this.dataSource = new MatTableDataSource<RatingBrick>(this.rating);
-        this.ngAfterViewInit();
-      }
-    );
-  }
-
-  getRatingFromDB(): void {
-    this.resultService.getAllResults()
-      .subscribe(r => {
-        this.ratingFilterService
-          .filterRating(r, this.schoolchildOrStudent, this.direction, this.gender)
-          .subscribe(rf => {
-            this.results = rf;
-            this.titlesDefine(rf);
-            this.rating = this.ratingProvider.createEducationalEntityRating(rf);
-            this.rating.sort((a, b) => b.totalRating - a.totalRating);
-            this.dataSource = new MatTableDataSource<RatingBrick>(this.rating);
-          });
-      });
-  }
-
-  showRatingBySchoolchildOrStudents(): void {
-    if (this.schoolchildOrStudent === 'schoolchild') {
-      this.schoolchildOrStudent = 'students';
-    } else {
-      this.schoolchildOrStudent = 'schoolchild';
-    }
-    this.getRatingFromDB();
+  fetchRating(results: Array<Result>): void {
+    this.rating = this.ratingProvider.fetchEducationEntityRating(results);
+    this.dataSource = new MatTableDataSource<RatingBrick>(this.rating);
     this.ngAfterViewInit();
   }
 
@@ -92,8 +73,10 @@ export class RatingOfEducationalEntityComponent implements OnInit, AfterViewInit
     } else {
       this.direction = 'physical culture';
     }
-    this.getRatingFromDB();
-    this.ngAfterViewInit();
+    let cloneResults = this.ratingFilterService.filterByEduEntity(this.results, this.eduEntityType, this.eduEntityCategory );
+    cloneResults = this.ratingFilterService.filterByGender(cloneResults, this.gender);
+    cloneResults = this.ratingFilterService.filterByDirection(cloneResults, this.direction);
+    this.fetchRating(cloneResults);
   }
 
   showRatingByGender(): void {
@@ -102,41 +85,79 @@ export class RatingOfEducationalEntityComponent implements OnInit, AfterViewInit
     } else {
       this.gender = 'female';
     }
-    this.getRatingFromDB();
-    this.ngAfterViewInit();
+    let cloneResults = this.ratingFilterService.filterByEduEntity(this.results, this.eduEntityType, this.eduEntityCategory );
+    cloneResults = this.ratingFilterService.filterByGender(cloneResults, this.gender);
+    this.fetchRating(cloneResults);
+  }
+
+  changeEduEntityType(): void {
+    switch (this.eduEntityType) {
+      case('ЗЗСО') : this.eduEntityType = 'ЗП(ПТ)О';
+                     break;
+      case('ЗП(ПТ)О') : this.eduEntityType = 'ЗФПВО';
+                        break;
+      case('ЗФПВО') : this.eduEntityType = 'ЗВО';
+                      break;
+      case('ЗВО') : this.eduEntityType = 'ЗЗСО';
+                    break;
+    }
+    const cloneResults = this.ratingFilterService.filterByEduEntity(this.results, this.eduEntityType, this.eduEntityCategory );
+    this.fetchRating(cloneResults);
+  }
+
+  changeEduEntityCategory(): void {
+    switch (this.eduEntityCategory) {
+      case(0) : this.eduEntityCategory = 1;
+                break;
+      case(1) : this.eduEntityCategory = 2;
+                break;
+      case(2) : this.eduEntityCategory = 3;
+                break;
+      case(3) : this.eduEntityCategory = 4;
+                break;
+      case(4) : this.eduEntityCategory = 5;
+                break;
+      case(5) : this.eduEntityCategory = 6;
+                break;
+      case(6) : this.eduEntityCategory = 0;
+                break;
+    }
+    const cloneResults = this.ratingFilterService.filterByEduEntity(this.results, this.eduEntityType, this.eduEntityCategory );
+    this.fetchRating(cloneResults);
   }
 
   showRatingWithoutDirection(): void {
     this.direction = '';
     this.gender = 'female';
-    this.getRatingFromDB();
-    this.titleDirection = 'фізична культура і спорт разом';
-    this.ngAfterViewInit();
+    let cloneResults = this.ratingFilterService.filterByEduEntity(this.results, this.eduEntityType, this.eduEntityCategory );
+    cloneResults = this.ratingFilterService.filterByGender(cloneResults, this.gender);
+    this.fetchRating(cloneResults);
   }
 
-  showRatingWithoutGender(): void {
-    this.gender = '';
-    this.getRatingFromDB();
-    this.titleDirection = 'дівчата і хлопці разом';
-    this.ngAfterViewInit();
-  }
-
-  titlesDefine(results: Array<Result>): void {
-    const appointment = results[0].appointment;
-    const participant = results[0].participant;
-    switch (appointment.direction) {
-      case ('physical culture'):
-        this.titleDirection = 'фізична культура';
-        break;
-      case ('sport'):
-        this.titleDirection = 'спорт';
-        break;
+  titlesDefine(): void {
+    switch (this.direction) {
+      case('physical culture') : this.titleDirection = 'фізична культура';
+                                 break;
+      case('sport') : this.titleDirection = 'спорт';
+                      break;
+      case ('') : this.titleDirection = 'фізична культура і спорт загалом';
     }
-    switch (participant.schoolchildOrStudent) {
-      case('students'): this.titleParticipant = 'заклади вищої освіти';
+    switch (this.gender) {
+      case('male') : this.titleParticipant = 'хлопців';
+                     break;
+      case('female') : this.titleParticipant = 'дівчат';
+                       break;
+      case('') : this.titleParticipant = 'дівчат і хлопців разом';
+    }
+    switch (this.eduEntityType) {
+      case('ЗВО') : this.titleEduEntity = 'заклади вищої освіти';
+                    break;
+      case('ЗФПВО') : this.titleEduEntity = 'заклади фахової передвищої освіти';
+                      break;
+      case('ЗП(ПТ)О') : this.titleEduEntity = 'заклади професійної (професійно-тенічної) освіти';
                         break;
-      case('schoolchild'): this.titleParticipant = 'заклади середньої освіти';
-                           break;
+      case ('ЗЗСО') : this.titleEduEntity = 'заклади загальної середної освіти';
+                      break;
     }
   }
 }

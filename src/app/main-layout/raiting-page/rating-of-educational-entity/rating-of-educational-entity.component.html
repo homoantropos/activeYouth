@@ -1,6 +1,13 @@
+<h2>РЕЙТИНГ ЗАКЛАДІВ ОСВІТИ</h2>
+
 <div class="btn-container">
-  <button mat-raised-button color="primary" (click)="showRatingBySchoolchildOrStudents()">
-    школи/університети
+
+  <button mat-raised-button color="primary" (click)="changeEduEntityType()">
+    змінити тип закладу освіти
+  </button>
+  <button mat-raised-button color="primary" (click)="changeEduEntityCategory()"
+          [disabled]="eduEntityType !== 'ЗВО'">
+    категорія
   </button>
   <button mat-raised-button color="primary" (click)="showRatingByDirection()">
     фіз.культура/спорт
@@ -11,22 +18,21 @@
   <button mat-raised-button color="primary" (click)="showRatingByGender()">
     дівчата/хлопці
   </button>
-  <button mat-raised-button color="primary" (click)="showRatingWithoutGender()">
-    загалом
-  </button>
 </div>
-<h3>Кращі {{titleParticipant}} напряму {{titleDirection}}</h3>
+
+<h3>Кращі {{titleEduEntity}} в напрямі {{titleDirection}} за результатами {{titleParticipant}}</h3>
+
 <div class="table-container">
 
   <table mat-table matSort [dataSource]="dataSource" class="mat-elevation-z8">
 
     <ng-container matColumnDef="participantName">
       <th mat-header-cell *matHeaderCellDef mat-sort-header="resultsOwnerStudent.surname"> Заклад освіти </th>
-      <td mat-cell *matCellDef="let ratingBrick">{{ratingBrick.resultsOwnerEduEntity.name}}</td>
+      <td mat-cell *matCellDef="let ratingBrick"><b>{{ratingBrick.resultsOwnerEduEntity.name}}</b></td>
     </ng-container>
 
     <ng-container matColumnDef="participantGender">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header="participant.gender"> Категорія </th>
+      <th mat-header-cell *matHeaderCellDef mat-sort-header="participant.gender"> Категорія {{eduEntityCategory}} </th>
       <td mat-cell *matCellDef="let ratingBrick">{{ratingBrick.resultsOwnerEduEntity.category}}</td>
     </ng-container>
 

@@ -13,6 +13,7 @@ import { StatisticDetailsComponent } from './components/statistic-details/statis
 import { AppointmentFinancingDetailsComponent } from './components/appointment-financing-details/appointment-financing-details.component';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatMomentDateModule} from '@angular/material-moment-adapter';
+import {MatSelectModule} from '@angular/material/select';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import {MatMomentDateModule} from '@angular/material-moment-adapter';
     MatPaginatorModule,
     MatSortModule,
     MatDatepickerModule,
-    MatMomentDateModule
+    MatMomentDateModule,
+    MatSelectModule
   ],
   exports: [
     MatFormFieldModule,
@@ -42,6 +44,7 @@ import {MatMomentDateModule} from '@angular/material-moment-adapter';
     MatSortModule,
     MatDatepickerModule,
     MatMomentDateModule,
+    MatSelectModule,
     SanitizeHTMLPipePipe
   ],
   providers: []

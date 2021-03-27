@@ -920,7 +920,7 @@ export class MockDataBase {
       eduEntity: {
         name: 'Київський інститут інженерів цивільної авіації',
         category: 2,
-        type: 'university'
+        type: 'ЗВО'
       },
       discipline: 'біг',
       place: 1,
@@ -945,7 +945,7 @@ export class MockDataBase {
       eduEntity: {
         name: 'Київський інститут інженерів цивільної авіації',
         category: 2,
-        type: 'university'
+        type: 'ЗВО'
       },
       discipline: 'стрибки',
       place: 1,
@@ -970,7 +970,7 @@ export class MockDataBase {
       eduEntity: {
         name: 'Київський інститут інженерів цивільної авіації',
         category: 2,
-        type: 'university'
+        type: 'ЗВО'
       },
       discipline: 'біг',
       place: 3,
@@ -995,7 +995,7 @@ export class MockDataBase {
       eduEntity: {
         name: 'Київський інститут інженерів цивільної авіації',
         category: 2,
-        type: 'university'
+        type: 'ЗВО'
       },
       discipline: 'стрибки',
       place: 2,
@@ -1020,7 +1020,7 @@ export class MockDataBase {
       eduEntity: {
         name: 'Сумський державний університет',
         category: 2,
-        type: 'university'
+        type: 'ЗВО'
       },
       discipline: 'біг',
       place: 2,
@@ -1045,7 +1045,7 @@ export class MockDataBase {
       eduEntity: {
         name: 'Сумський державний університет',
         category: 2,
-        type: 'university'
+        type: 'ЗВО'
       },
       discipline: 'стрибки',
       place: 3,
@@ -1070,7 +1070,7 @@ export class MockDataBase {
       eduEntity: {
         name: 'Сумський державний університет',
         category: 2,
-        type: 'university'
+        type: 'ЗВО'
       },
       discipline: 'стояння',
       place: 1,
@@ -1095,7 +1095,7 @@ export class MockDataBase {
       eduEntity: {
         name: 'Київський національний університет імені Т. Г. Шевченка',
         category: 2,
-        type: 'university'
+        type: 'ЗВО'
       },
       discipline: 'біг',
       place: 1,
@@ -1120,7 +1120,7 @@ export class MockDataBase {
       eduEntity: {
         name: 'Київський національний університет імені Т. Г. Шевченка',
         category: 2,
-        type: 'university'
+        type: 'ЗВО'
       },
       discipline: 'стрибки',
       place: 1,
@@ -1145,7 +1145,7 @@ export class MockDataBase {
       eduEntity: {
         name: 'Національний університет фізичного виховання та спорту України',
         category: 1,
-        type: 'university'
+        type: 'ЗВО'
       },
       discipline: 'біг',
       place: 3,
@@ -1170,7 +1170,7 @@ export class MockDataBase {
       eduEntity: {
         name: 'Національний університет фізичного виховання та спорту України',
         category: 1,
-        type: 'university'
+        type: 'ЗВО'
       },
       discipline: 'стрибки',
       place: 2,
@@ -1195,7 +1195,7 @@ export class MockDataBase {
       eduEntity: {
         name: 'Сумський державний університет',
         category: 2,
-        type: 'university'
+        type: 'ЗВО'
       },
       discipline: 'біг',
       place: 2,
@@ -1220,7 +1220,7 @@ export class MockDataBase {
       eduEntity: {
         name: 'Сумський державний університет',
         category: 2,
-        type: 'university'
+        type: 'ЗВО'
       },
       discipline: 'стрибки',
       place: 3,
@@ -1260,7 +1260,7 @@ export class MockDataBase {
       },
       eduEntity: {
         name: 'Загальноосвітня школа №4 міста Запоріжжа',
-        type: 'school'
+        type: 'ЗЗСО'
       },
       discipline: 'дівчата',
       place: 1,
@@ -1300,7 +1300,7 @@ export class MockDataBase {
       },
       eduEntity: {
         name: 'Загальноосвітня школа №4 міста Запоріжжа',
-        type: 'school'
+        type: 'ЗЗСО'
       },
       discipline: 'дівчата',
       place: 1,
@@ -1340,7 +1340,7 @@ export class MockDataBase {
       },
       eduEntity: {
         name: 'Загальноосвітня школа №4 міста Запоріжжа',
-        type: 'school'
+        type: 'ЗЗСО'
       },
       discipline: 'дівчата',
       place: 1,
@@ -1380,12 +1380,172 @@ export class MockDataBase {
       },
       eduEntity: {
         name: 'Загальноосвітня школа №4 міста Запоріжжа',
-        type: 'school'
+        type: 'ЗЗСО'
       },
       discipline: 'ІІІ віковий дивізіон',
       place: 1,
       ratingPoints: 25,
       id: 'іваівпмуеик'
+    },
+    {
+      appointment: {
+        title: 'ІІІ Всеукраїнські Cool Games',
+        startDate: new Date(2021, 4, 27),
+        finishDate: new Date(2021, 4, 30),
+        duration: 3,
+        organizationsParticipants: 'збірні областей і міста Київ',
+        KPKV: 2201310,
+        character: 'О',
+        participants: 'schoolchild',
+        sportKind: 'Cool Games',
+        direction: 'physical culture',
+        status: 'ukrainian',
+        placeOfHolding: {
+          country: 'Україна',
+          region: 'Київ',
+          town: 'Київ',
+          sportHallName: 'Меридіан-Венето',
+          address: 'бул. Героїв Севастополя, 11В'
+        },
+        organiser: 'КФВС МОН',
+        id: '1ww20'
+      },
+      participant: {
+        name: 'Олександр',
+        surname: 'Попович',
+        DoB: new Date(2009, 2, 13),
+        gender: 'male',
+        schoolchildOrStudent: 'schoolchild',
+        id: 'ОлександрПопович20090213'
+      },
+      eduEntity: {
+        name: 'Загальноосвітня школа №4 міста Запоріжжа',
+        type: 'ЗЗСО'
+      },
+      discipline: 'ІІІ віковий дивізіон',
+      place: 1,
+      ratingPoints: 25,
+      id: 'іваівпмуеик'
+    },
+    {
+      appointment: {
+        title: 'ІІІ Всеукраїнські Cool Games',
+        startDate: new Date(2021, 4, 27),
+        finishDate: new Date(2021, 4, 30),
+        duration: 3,
+        organizationsParticipants: 'збірні областей і міста Київ',
+        KPKV: 2201310,
+        character: 'О',
+        participants: 'schoolchild',
+        sportKind: 'Cool Games',
+        direction: 'physical culture',
+        status: 'ukrainian',
+        placeOfHolding: {
+          country: 'Україна',
+          region: 'Київ',
+          town: 'Київ',
+          sportHallName: 'Меридіан-Венето',
+          address: 'бул. Героїв Севастополя, 11В'
+        },
+        organiser: 'КФВС МОН',
+        id: '1ww20'
+      },
+      participant: {
+        name: 'Олексій',
+        surname: 'Попович',
+        DoB: new Date(2009, 2, 13),
+        gender: 'male',
+        schoolchildOrStudent: 'schoolchild',
+        id: 'ЛюдмилаПопович20090213'
+      },
+      eduEntity: {
+        name: 'Загальноосвітня школа №4 міста Запоріжжа',
+        type: 'ЗЗСО'
+      },
+      discipline: 'ІІІ віковий дивізіон',
+      place: 1,
+      ratingPoints: 25,
+      id: 'іваівпмуеик'
+    },
+    {
+      appointment: {
+        title: 'Шкільна баскетбольна ліга',
+        startDate: new Date(2021, 8, 26),
+        finishDate: new Date(2021, 8, 30),
+        duration: 3,
+        organizationsParticipants: 'збірні областей і міста Київ',
+        KPKV: 2201310,
+        character: 'О',
+        participants: 'schoolchild',
+        sportKind: 'баскетбол',
+        direction: 'sport',
+        status: 'ukrainian',
+        placeOfHolding: {
+          country: 'Україна',
+          region: 'Запорізька обл.',
+          town: 'Запоріжжа',
+          sportHallName: 'Юність',
+          address: 'Центральний бульвар 96'
+        },
+        organiser: 'КФВС МОН',
+        id: '1ww45'
+      },
+      participant: {
+        name: 'Андрій',
+        surname: 'Максимов',
+        DoB: new Date(2009, 2, 13),
+        gender: 'male',
+        schoolchildOrStudent: 'schoolchild',
+        id: 'АндрійМаксимов20090213'
+      },
+      eduEntity: {
+        name: 'Загальноосвітня школа №4 міста Запоріжжа',
+        type: 'ЗЗСО'
+      },
+      discipline: 'хлопці',
+      place: 1,
+      ratingPoints: 25,
+      id: 'іваіаіва'
+    },
+    {
+      appointment: {
+        title: 'Шкільна баскетбольна ліга',
+        startDate: new Date(2021, 8, 26),
+        finishDate: new Date(2021, 8, 30),
+        duration: 3,
+        organizationsParticipants: 'збірні областей і міста Київ',
+        KPKV: 2201310,
+        character: 'О',
+        participants: 'schoolchild',
+        sportKind: 'баскетбол',
+        direction: 'sport',
+        status: 'ukrainian',
+        placeOfHolding: {
+          country: 'Україна',
+          region: 'Запорізька обл.',
+          town: 'Запоріжжа',
+          sportHallName: 'Юність',
+          address: 'Центральний бульвар 96'
+        },
+        organiser: 'КФВС МОН',
+        id: '1ww45'
+      },
+      participant: {
+        name: 'Констянтин',
+        surname: 'Смирнов',
+        DoB: new Date(2009, 2, 13),
+        gender: 'male',
+        schoolchildOrStudent: 'schoolchild',
+        id: 'КОнтантинСмирнов20090213'
+      },
+      eduEntity: {
+        name: 'Загальноосвітня школа №4 міста Запоріжжа',
+        type: 'ЗЗСО'
+      },
+      discipline: 'хлопці',
+      place: 1,
+      ratingPoints: 25,
+      id: 'іваіаіва'
     }
   ];
 }
