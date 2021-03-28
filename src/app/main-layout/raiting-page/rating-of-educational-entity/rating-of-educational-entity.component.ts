@@ -102,6 +102,7 @@ export class RatingOfEducationalEntityComponent implements OnInit, AfterViewInit
       case('ЗВО') : this.eduEntityType = 'ЗЗСО';
                     break;
     }
+    this.gender = '';
     const cloneResults = this.ratingFilterService.filterByEduEntity(this.results, this.eduEntityType, this.eduEntityCategory );
     this.fetchRating(cloneResults);
   }
