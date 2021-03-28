@@ -22,7 +22,7 @@ export class RatingOfEducationalEntityComponent implements OnInit, AfterViewInit
   results: Array<Result>;
   schoolchildOrStudent = 'schoolchild';
   direction = '';
-  gender = 'female';
+  gender = '';
   titleEduEntity = '';
   titleParticipant = '';
   titleDirection = '';
@@ -73,6 +73,7 @@ export class RatingOfEducationalEntityComponent implements OnInit, AfterViewInit
     } else {
       this.direction = 'physical culture';
     }
+    this.gender = 'female';
     let cloneResults = this.ratingFilterService.filterByEduEntity(this.results, this.eduEntityType, this.eduEntityCategory );
     cloneResults = this.ratingFilterService.filterByGender(cloneResults, this.gender);
     cloneResults = this.ratingFilterService.filterByDirection(cloneResults, this.direction);
