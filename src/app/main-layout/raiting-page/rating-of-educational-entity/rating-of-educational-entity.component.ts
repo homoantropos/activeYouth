@@ -22,7 +22,7 @@ export class RatingOfEducationalEntityComponent implements OnInit, AfterViewInit
   results: Array<Result>;
   schoolchildOrStudent = 'schoolchild';
   direction = '';
-  gender = '';
+  gender = 'female';
   titleEduEntity = '';
   titleParticipant = '';
   titleDirection = '';
