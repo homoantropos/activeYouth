@@ -41,7 +41,7 @@ export class SportsCreatorComponent implements OnInit {
     const activity: Activity = {
       title: this.activitiesCreatorForm.value.title,
       author: this.activitiesCreatorForm.value.author,
-      content: this.activitiesCreatorForm.value.text,
+      content: this.activitiesCreatorForm.value.content,
       kindOfActivity: 'sport',
       date: new Date()
     };
