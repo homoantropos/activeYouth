@@ -15,7 +15,7 @@ export class FinDashboardComponent implements AfterViewInit {
   displayedColumns: string [] = [
     'title',
     'termsOfHolding',
-    'placeOfHolding',
+    'place',
     '2210plan',
     '2220plan',
     '2240plan',

@@ -17,10 +17,10 @@
         {{appointmentFinancing.appointment.finishDate | date : 'dd.MM.yy'}}</td>
     </ng-container>
 
-    <ng-container matColumnDef = "placeOfHolding">
+    <ng-container matColumnDef = "place">
       <th mat-header-cell *matHeaderCellDef> Місце<br>проведення </th>
       <td mat-cell *matCellDef="let appointmentFinancing">
-        {{appointmentFinancing.appointment.placeOfHolding.town}}</td>
+        {{appointmentFinancing.appointment.place.town}}</td>
     </ng-container>
 
     <ng-container matColumnDef = "2210plan">

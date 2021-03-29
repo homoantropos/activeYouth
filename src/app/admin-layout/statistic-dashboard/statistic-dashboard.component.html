@@ -12,11 +12,11 @@
       <td mat-cell *matCellDef="let statistic"> {{statistic.appointment.startDate | date : 'dd.MM.yy' + '/'}}<br> {{statistic.appointment.finishDate | date : 'dd.MM.yy'}}</td>
     </ng-container>
 
-    <ng-container matColumnDef="placeOfHolding">
+    <ng-container matColumnDef="place">
       <th mat-header-cell *matHeaderCellDef mat-sort-header> Місце проведення </th>
       <td mat-cell *matCellDef="let statistic"> {{
-        statistic.appointment.placeOfHolding.town + ' ' + statistic.appointment.placeOfHolding.region}}<br>
-        {{statistic.appointment.placeOfHolding.country}}</td>
+        statistic.appointment.place.town + ' ' + statistic.appointment.place.region}}<br>
+        {{statistic.appointment.place.country}}</td>
     </ng-container>
 
     <ng-container matColumnDef="numberOfCountries">
