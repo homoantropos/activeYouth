@@ -12,7 +12,7 @@ import {MatSort} from '@angular/material/sort';
   styleUrls: ['./schedule-dashboard.component.css']
 })
 export class ScheduleDashboardComponent implements AfterViewInit {
-  displayedColumns: string[] = ['title', 'termsOfHolding', 'placeOfHolding', 'edit', 'delete'];
+  displayedColumns: string[] = ['title', 'termsOfHolding', 'place', 'edit', 'delete'];
   dataSource: MatTableDataSource<Appointment> = new MatTableDataSource<Appointment>(MockDataBase.schedule);
   // @ts-ignore
   @ViewChild(MatPaginator) paginator: MatPaginator;

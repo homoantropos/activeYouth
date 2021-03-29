@@ -25,7 +25,7 @@ export class MockDataBase {
       sportKind: 'лижні гонки',
       direction: 'sport',
       status: 'ukrainian',
-      placeOfHolding: {
+      place: {
         country: 'Україна',
         region: 'Львівська обл.',
         town: 'Сколе',
@@ -47,7 +47,7 @@ export class MockDataBase {
       sportKind: 'біатлон',
       direction: 'sport',
       status: 'ukrainian',
-      placeOfHolding: {
+      place: {
         country: 'Україна',
         region: 'Львівська обл.',
         town: 'Сколе',
@@ -69,7 +69,7 @@ export class MockDataBase {
       sportKind: 'біатлон',
       direction: 'sport',
       status: 'ukrainian',
-      placeOfHolding: {
+      place: {
         country: 'Україна',
         region: 'Львівська обл.',
         town: 'Сколе',
@@ -91,7 +91,7 @@ export class MockDataBase {
       sportKind: 'лижні гонки',
       direction: 'sport',
       status: 'ukrainian',
-      placeOfHolding: {
+      place: {
         country: 'Україна',
         region: 'Львівська обл.',
         town: 'Сколе',
@@ -113,7 +113,7 @@ export class MockDataBase {
       sportKind: 'волейбол',
       direction: 'sport',
       status: 'international',
-      placeOfHolding: {
+      place: {
         country: 'Сербія',
         region: '',
         town: 'Белград',
@@ -135,7 +135,7 @@ export class MockDataBase {
       sportKind: 'регбі-7',
       direction: 'sport',
       status: 'international',
-      placeOfHolding: {
+      place: {
         country: 'Сербія',
         region: '',
         town: 'Белград',
@@ -157,7 +157,7 @@ export class MockDataBase {
       sportKind: 'волейбол',
       direction: 'sport',
       status: 'ukrainian',
-      placeOfHolding: {
+      place: {
         country: 'Україна',
         region: 'Івано-Франківська обл.',
         town: 'Івано-Франківськ',
@@ -179,7 +179,7 @@ export class MockDataBase {
       sportKind: 'волейбол',
       direction: 'sport',
       status: 'ukrainian',
-      placeOfHolding: {
+      place: {
         country: 'Україна',
         region: 'Луганська обл.',
         town: 'Кремінна',
@@ -201,7 +201,7 @@ export class MockDataBase {
       sportKind: 'бокс',
       direction: 'sport',
       status: 'ukrainian',
-      placeOfHolding: {
+      place: {
         country: 'Україна',
         region: 'Луганська обл.',
         town: 'Кремінна',
@@ -223,7 +223,7 @@ export class MockDataBase {
       sportKind: 'боротьба вільна',
       direction: 'sport',
       status: 'ukrainian',
-      placeOfHolding: {
+      place: {
         country: 'Україна',
         region: 'Луганська обл.',
         town: 'Кремінна',
@@ -245,7 +245,7 @@ export class MockDataBase {
       sportKind: 'козацький двобій',
       direction: 'sport',
       status: 'ukrainian',
-      placeOfHolding: {
+      place: {
         country: 'Україна',
         region: 'Сумська обл.',
         town: 'Суми',
@@ -267,7 +267,7 @@ export class MockDataBase {
       sportKind: 'козацький двобій',
       direction: 'sport',
       status: 'ukrainian',
-      placeOfHolding: {
+      place: {
         country: 'Україна',
         region: 'Сумська обл.',
         town: 'Суми',
@@ -289,7 +289,7 @@ export class MockDataBase {
       sportKind: 'волейбол',
       direction: 'sport',
       status: 'international',
-      placeOfHolding: {
+      place: {
         country: 'Сербія',
         region: '',
         town: 'Белград',
@@ -311,7 +311,7 @@ export class MockDataBase {
       sportKind: 'дзюдо',
       direction: 'sport',
       status: 'international',
-      placeOfHolding: {
+      place: {
         country: 'Сербія',
         region: '',
         town: 'Белград',
@@ -333,7 +333,7 @@ export class MockDataBase {
       sportKind: 'карате',
       direction: 'sport',
       status: 'international',
-      placeOfHolding: {
+      place: {
         country: 'Сербія',
         region: '',
         town: 'Белград',
@@ -355,7 +355,7 @@ export class MockDataBase {
       sportKind: 'легка атлетика',
       direction: 'sport',
       status: 'international',
-      placeOfHolding: {
+      place: {
         country: 'Сербія',
         region: '',
         town: 'Белград',
@@ -377,7 +377,7 @@ export class MockDataBase {
       sportKind: 'плавання',
       direction: 'sport',
       status: 'international',
-      placeOfHolding: {
+      place: {
         country: 'Сербія',
         region: '',
         town: 'Белград',
@@ -399,7 +399,7 @@ export class MockDataBase {
       sportKind: 'волейбол',
       direction: 'sport',
       status: 'regional',
-      placeOfHolding: {
+      place: {
         country: 'Україна',
         region: 'Волинська обл.',
         town: 'Луцьк',
@@ -421,7 +421,7 @@ export class MockDataBase {
       sportKind: 'Cool Games',
       direction: 'physical culture',
       status: 'regional',
-      placeOfHolding: {
+      place: {
         country: 'Україна',
         region: 'Вінницька обл.',
         town: 'Ладижин',
@@ -443,7 +443,7 @@ export class MockDataBase {
       sportKind: 'Cool Games',
       direction: 'physical culture',
       status: 'regional',
-      placeOfHolding: {
+      place: {
         country: 'Україна',
         region: 'Дніпропетровська обл.',
         town: 'Дніпро',
@@ -465,7 +465,7 @@ export class MockDataBase {
       sportKind: 'Cool Games',
       direction: 'physical culture',
       status: 'regional',
-      placeOfHolding: {
+      place: {
         country: 'Україна',
         region: 'Івано-Франківська обл.',
         town: 'Долина',
@@ -487,7 +487,7 @@ export class MockDataBase {
       sportKind: 'Cool Games',
       direction: 'physical culture',
       status: 'regional',
-      placeOfHolding: {
+      place: {
         country: 'Україна',
         region: 'Запорізька обл.',
         town: 'Запоріжжа',
@@ -509,7 +509,7 @@ export class MockDataBase {
       sportKind: 'Cool Games',
       direction: 'physical culture',
       status: 'regional',
-      placeOfHolding: {
+      place: {
         country: 'Україна',
         region: 'Донецька обл.',
         town: 'Славянск',
@@ -531,7 +531,7 @@ export class MockDataBase {
       sportKind: 'Cool Games',
       direction: 'physical culture',
       status: 'ukrainian',
-      placeOfHolding: {
+      place: {
         country: 'Україна',
         region: 'Київ',
         town: 'Київ',
@@ -553,7 +553,7 @@ export class MockDataBase {
       sportKind: 'веслування академічне',
       direction: 'sport',
       status: 'regional',
-      placeOfHolding: {
+      place: {
         country: 'Україна',
         region: 'Київ',
         town: 'Київ',
@@ -575,7 +575,7 @@ export class MockDataBase {
       sportKind: 'тхеквондо ВТФ',
       direction: 'sport',
       status: 'regional',
-      placeOfHolding: {
+      place: {
         country: 'Україна',
         region: 'Івано-Франківська обл.',
         town: 'Івано-Франківськ',
@@ -597,7 +597,7 @@ export class MockDataBase {
       sportKind: 'велоспорт',
       direction: 'sport',
       status: 'international',
-      placeOfHolding: {
+      place: {
         country: 'КНР',
         region: '',
         town: 'Ченду',
@@ -619,7 +619,7 @@ export class MockDataBase {
       sportKind: 'гандбол',
       direction: 'sport',
       status: 'ukrainian',
-      placeOfHolding: {
+      place: {
         country: 'Україна',
         region: 'Дніпропетровська обл.',
         town: 'Дніпропетровськ',
@@ -641,7 +641,7 @@ export class MockDataBase {
       sportKind: 'карате',
       direction: 'sport',
       status: 'ukrainian',
-      placeOfHolding: {
+      place: {
         country: 'Україна',
         region: 'Київ',
         town: 'Київ',
@@ -663,7 +663,7 @@ export class MockDataBase {
       sportKind: 'боротьба греко-римська',
       direction: 'sport',
       status: 'ukrainian',
-      placeOfHolding: {
+      place: {
         country: 'Україна',
         region: 'Київ',
         town: 'Київ',
@@ -685,7 +685,7 @@ export class MockDataBase {
       sportKind: 'тхеквондо ВТФ',
       direction: 'sport',
       status: 'ukrainian',
-      placeOfHolding: {
+      place: {
         country: 'Україна',
         region: 'Київ',
         town: 'Київ',
@@ -707,7 +707,7 @@ export class MockDataBase {
       sportKind: 'боротьба вільна',
       direction: 'sport',
       status: 'ukrainian',
-      placeOfHolding: {
+      place: {
         country: 'Україна',
         region: 'Київ',
         town: 'Київ',
@@ -729,7 +729,7 @@ export class MockDataBase {
       sportKind: 'дзюдо',
       direction: 'sport',
       status: 'ukrainian',
-      placeOfHolding: {
+      place: {
         country: 'Україна',
         region: 'Київ',
         town: 'Київ',
@@ -751,7 +751,7 @@ export class MockDataBase {
       sportKind: 'баскетбол',
       direction: 'sport',
       status: 'ukrainian',
-      placeOfHolding: {
+      place: {
         country: 'Україна',
         region: 'Запорізька обл.',
         town: 'Запоріжжа',
@@ -773,7 +773,7 @@ export class MockDataBase {
       sportKind: 'фрі-файт',
       direction: 'sport',
       status: 'ukrainian',
-      placeOfHolding: {
+      place: {
         country: 'Україна',
         region: 'Тернопільска обл.',
         town: 'Збараж',
@@ -794,7 +794,7 @@ export class MockDataBase {
       participants: 'students',
       direction: 'physical culture',
       status: 'ukrainian',
-      placeOfHolding: {
+      place: {
         country: 'Україна',
         region: 'Вінницька обл.',
         town: 'Вінниця',
@@ -907,7 +907,7 @@ export class MockDataBase {
         startDate: new Date(2021, 8, 20), finishDate: new Date(2021, 8, 20), duration: 3,
         organizationsParticipants: 'збірні областей і міста Київ', KPKV: 2201310, character: 'О', participants: 'students',
         direction: 'physical culture', status: 'ukrainian',
-        placeOfHolding: {country: 'Україна', region: 'Вінницька обл.', town: 'Вінниця', sportHallName: 'Стадіон ДЮСШ № 5', address: 'Центральний Парк'},
+        place: {country: 'Україна', region: 'Вінницька обл.', town: 'Вінниця', sportHallName: 'Стадіон ДЮСШ № 5', address: 'Центральний Парк'},
         organiser: 'СССУ', id: '1ww47'},
       participant: {
         name: 'Сергій',
@@ -932,7 +932,7 @@ export class MockDataBase {
         startDate: new Date(2021, 8, 20), finishDate: new Date(2021, 8, 20), duration: 3,
         organizationsParticipants: 'збірні областей і міста Київ', KPKV: 2201310, character: 'О', participants: 'students',
         direction: 'physical culture', status: 'ukrainian',
-        placeOfHolding: {country: 'Україна', region: 'Вінницька обл.', town: 'Вінниця', sportHallName: 'Стадіон ДЮСШ № 5', address: 'Центральний Парк'},
+        place: {country: 'Україна', region: 'Вінницька обл.', town: 'Вінниця', sportHallName: 'Стадіон ДЮСШ № 5', address: 'Центральний Парк'},
         organiser: 'СССУ', id: '1ww47'},
       participant: {
         name: 'Сергій',
@@ -957,7 +957,7 @@ export class MockDataBase {
         startDate: new Date(2021, 8, 20), finishDate: new Date(2021, 8, 20), duration: 3,
         organizationsParticipants: 'збірні областей і міста Київ', KPKV: 2201310, character: 'О', participants: 'students',
         direction: 'physical culture', status: 'ukrainian',
-        placeOfHolding: {country: 'Україна', region: 'Вінницька обл.', town: 'Вінниця', sportHallName: 'Стадіон ДЮСШ № 5', address: 'Центральний Парк'},
+        place: {country: 'Україна', region: 'Вінницька обл.', town: 'Вінниця', sportHallName: 'Стадіон ДЮСШ № 5', address: 'Центральний Парк'},
         organiser: 'СССУ', id: '1ww47'},
       participant: {
         name: 'Дмитро',
@@ -982,7 +982,7 @@ export class MockDataBase {
         startDate: new Date(2021, 8, 20), finishDate: new Date(2021, 8, 20), duration: 3,
         organizationsParticipants: 'збірні областей і міста Київ', KPKV: 2201310, character: 'О', participants: 'students',
         direction: 'physical culture', status: 'ukrainian',
-        placeOfHolding: {country: 'Україна', region: 'Вінницька обл.', town: 'Вінниця', sportHallName: 'Стадіон ДЮСШ № 5', address: 'Центральний Парк'},
+        place: {country: 'Україна', region: 'Вінницька обл.', town: 'Вінниця', sportHallName: 'Стадіон ДЮСШ № 5', address: 'Центральний Парк'},
         organiser: 'СССУ', id: '1ww47'},
       participant: {
         name: 'Дмитро',
@@ -1007,7 +1007,7 @@ export class MockDataBase {
         startDate: new Date(2021, 8, 20), finishDate: new Date(2021, 8, 20), duration: 3,
         organizationsParticipants: 'збірні областей і міста Київ', KPKV: 2201310, character: 'О', participants: 'students',
         direction: 'physical culture', status: 'ukrainian',
-        placeOfHolding: {country: 'Україна', region: 'Вінницька обл.', town: 'Вінниця', sportHallName: 'Стадіон ДЮСШ № 5', address: 'Центральний Парк'},
+        place: {country: 'Україна', region: 'Вінницька обл.', town: 'Вінниця', sportHallName: 'Стадіон ДЮСШ № 5', address: 'Центральний Парк'},
         organiser: 'СССУ', id: '1ww47'},
       participant: {
         name: 'Станіслав',
@@ -1032,7 +1032,7 @@ export class MockDataBase {
         startDate: new Date(2021, 8, 20), finishDate: new Date(2021, 8, 20), duration: 3,
         organizationsParticipants: 'збірні областей і міста Київ', KPKV: 2201310, character: 'О', participants: 'students',
         direction: 'physical culture', status: 'ukrainian',
-        placeOfHolding: {country: 'Україна', region: 'Вінницька обл.', town: 'Вінниця', sportHallName: 'Стадіон ДЮСШ № 5', address: 'Центральний Парк'},
+        place: {country: 'Україна', region: 'Вінницька обл.', town: 'Вінниця', sportHallName: 'Стадіон ДЮСШ № 5', address: 'Центральний Парк'},
         organiser: 'СССУ', id: '1ww47'},
       participant: {
         name: 'Станіслав',
@@ -1057,7 +1057,7 @@ export class MockDataBase {
         startDate: new Date(2021, 8, 20), finishDate: new Date(2021, 8, 20), duration: 3,
         organizationsParticipants: 'збірні областей і міста Київ', KPKV: 2201310, character: 'О', participants: 'students',
         direction: 'physical culture', status: 'ukrainian',
-        placeOfHolding: {country: 'Україна', region: 'Вінницька обл.', town: 'Вінниця', sportHallName: 'Стадіон ДЮСШ № 5', address: 'Центральний Парк'},
+        place: {country: 'Україна', region: 'Вінницька обл.', town: 'Вінниця', sportHallName: 'Стадіон ДЮСШ № 5', address: 'Центральний Парк'},
         organiser: 'СССУ', id: '1ww47'},
       participant: {
         name: 'Станіслав',
@@ -1082,7 +1082,7 @@ export class MockDataBase {
         startDate: new Date(2021, 8, 20), finishDate: new Date(2021, 8, 20), duration: 3,
         organizationsParticipants: 'збірні областей і міста Київ', KPKV: 2201310, character: 'О', participants: 'students',
         direction: 'physical culture', status: 'ukrainian',
-        placeOfHolding: {country: 'Україна', region: 'Вінницька обл.', town: 'Вінниця', sportHallName: 'Стадіон ДЮСШ № 5', address: 'Центральний Парк'},
+        place: {country: 'Україна', region: 'Вінницька обл.', town: 'Вінниця', sportHallName: 'Стадіон ДЮСШ № 5', address: 'Центральний Парк'},
         organiser: 'СССУ', id: '1ww47'},
       participant: {
         name: 'Ганна',
@@ -1107,7 +1107,7 @@ export class MockDataBase {
         startDate: new Date(2021, 8, 20), finishDate: new Date(2021, 8, 20), duration: 3,
         organizationsParticipants: 'збірні областей і міста Київ', KPKV: 2201310, character: 'О', participants: 'students',
         direction: 'physical culture', status: 'ukrainian',
-        placeOfHolding: {country: 'Україна', region: 'Вінницька обл.', town: 'Вінниця', sportHallName: 'Стадіон ДЮСШ № 5', address: 'Центральний Парк'},
+        place: {country: 'Україна', region: 'Вінницька обл.', town: 'Вінниця', sportHallName: 'Стадіон ДЮСШ № 5', address: 'Центральний Парк'},
         organiser: 'СССУ', id: '1ww47'},
       participant: {
         name: 'Ганна',
@@ -1132,7 +1132,7 @@ export class MockDataBase {
         startDate: new Date(2021, 8, 20), finishDate: new Date(2021, 8, 20), duration: 3,
         organizationsParticipants: 'збірні областей і міста Київ', KPKV: 2201310, character: 'О', participants: 'students',
         direction: 'physical culture', status: 'ukrainian',
-        placeOfHolding: {country: 'Україна', region: 'Вінницька обл.', town: 'Вінниця', sportHallName: 'Стадіон ДЮСШ № 5', address: 'Центральний Парк'},
+        place: {country: 'Україна', region: 'Вінницька обл.', town: 'Вінниця', sportHallName: 'Стадіон ДЮСШ № 5', address: 'Центральний Парк'},
         organiser: 'СССУ', id: '1ww47'},
       participant: {
         name: 'Наталія',
@@ -1157,7 +1157,7 @@ export class MockDataBase {
         startDate: new Date(2021, 8, 20), finishDate: new Date(2021, 8, 20), duration: 3,
         organizationsParticipants: 'збірні областей і міста Київ', KPKV: 2201310, character: 'О', participants: 'students',
         direction: 'physical culture', status: 'ukrainian',
-        placeOfHolding: {country: 'Україна', region: 'Вінницька обл.', town: 'Вінниця', sportHallName: 'Стадіон ДЮСШ № 5', address: 'Центральний Парк'},
+        place: {country: 'Україна', region: 'Вінницька обл.', town: 'Вінниця', sportHallName: 'Стадіон ДЮСШ № 5', address: 'Центральний Парк'},
         organiser: 'СССУ', id: '1ww47'},
       participant: {
         name: 'Наталія',
@@ -1182,7 +1182,7 @@ export class MockDataBase {
         startDate: new Date(2021, 8, 20), finishDate: new Date(2021, 8, 20), duration: 3,
         organizationsParticipants: 'збірні областей і міста Київ', KPKV: 2201310, character: 'О', participants: 'students',
         direction: 'physical culture', status: 'ukrainian',
-        placeOfHolding: {country: 'Україна', region: 'Вінницька обл.', town: 'Вінниця', sportHallName: 'Стадіон ДЮСШ № 5', address: 'Центральний Парк'},
+        place: {country: 'Україна', region: 'Вінницька обл.', town: 'Вінниця', sportHallName: 'Стадіон ДЮСШ № 5', address: 'Центральний Парк'},
         organiser: 'СССУ', id: '1ww47'},
       participant: {
         name: 'Лілія',
@@ -1207,7 +1207,7 @@ export class MockDataBase {
         startDate: new Date(2021, 8, 20), finishDate: new Date(2021, 8, 20), duration: 3,
         organizationsParticipants: 'збірні областей і міста Київ', KPKV: 2201310, character: 'О', participants: 'students',
         direction: 'physical culture', status: 'ukrainian',
-        placeOfHolding: {country: 'Україна', region: 'Вінницька обл.', town: 'Вінниця', sportHallName: 'Стадіон ДЮСШ № 5', address: 'Центральний Парк'},
+        place: {country: 'Україна', region: 'Вінницька обл.', town: 'Вінниця', sportHallName: 'Стадіон ДЮСШ № 5', address: 'Центральний Парк'},
         organiser: 'СССУ', id: '1ww47'},
       participant: {
         name: 'Лілія',
@@ -1240,7 +1240,7 @@ export class MockDataBase {
         sportKind: 'баскетбол',
         direction: 'sport',
         status: 'ukrainian',
-        placeOfHolding: {
+        place: {
           country: 'Україна',
           region: 'Запорізька обл.',
           town: 'Запоріжжа',
@@ -1280,7 +1280,7 @@ export class MockDataBase {
         sportKind: 'баскетбол',
         direction: 'sport',
         status: 'ukrainian',
-        placeOfHolding: {
+        place: {
           country: 'Україна',
           region: 'Запорізька обл.',
           town: 'Запоріжжа',
@@ -1320,7 +1320,7 @@ export class MockDataBase {
         sportKind: 'баскетбол',
         direction: 'sport',
         status: 'ukrainian',
-        placeOfHolding: {
+        place: {
           country: 'Україна',
           region: 'Запорізька обл.',
           town: 'Запоріжжа',
@@ -1360,7 +1360,7 @@ export class MockDataBase {
         sportKind: 'Cool Games',
         direction: 'physical culture',
         status: 'ukrainian',
-        placeOfHolding: {
+        place: {
           country: 'Україна',
           region: 'Київ',
           town: 'Київ',
@@ -1400,7 +1400,7 @@ export class MockDataBase {
         sportKind: 'Cool Games',
         direction: 'physical culture',
         status: 'ukrainian',
-        placeOfHolding: {
+        place: {
           country: 'Україна',
           region: 'Київ',
           town: 'Київ',
@@ -1440,7 +1440,7 @@ export class MockDataBase {
         sportKind: 'Cool Games',
         direction: 'physical culture',
         status: 'ukrainian',
-        placeOfHolding: {
+        place: {
           country: 'Україна',
           region: 'Київ',
           town: 'Київ',
@@ -1480,7 +1480,7 @@ export class MockDataBase {
         sportKind: 'баскетбол',
         direction: 'sport',
         status: 'ukrainian',
-        placeOfHolding: {
+        place: {
           country: 'Україна',
           region: 'Запорізька обл.',
           town: 'Запоріжжа',
@@ -1520,7 +1520,7 @@ export class MockDataBase {
         sportKind: 'баскетбол',
         direction: 'sport',
         status: 'ukrainian',
-        placeOfHolding: {
+        place: {
           country: 'Україна',
           region: 'Запорізька обл.',
           town: 'Запоріжжа',

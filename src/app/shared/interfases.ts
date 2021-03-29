@@ -19,7 +19,7 @@ export interface Appointment {
   startDate: Date;
   finishDate: Date;
   duration: number;
-  placeOfHolding: PlaceOfHolding;
+  place: Place;
   organizationsParticipants: string;
   character: string;
   KPKV: number;
@@ -31,7 +31,7 @@ export interface Appointment {
   id?: string;
 }
 
-export interface PlaceOfHolding {
+export interface Place {
   country: string;
   region?: string;
   town: string;
@@ -49,10 +49,19 @@ export interface EducationEntity {
 export interface Participant {
   name: string;
   surname: string;
+  fathersName?: string;
   DoB: Date;
   gender: string;
   schoolchildOrStudent: string;
-  id: string;
+  coach?: Coach;
+  id?: string;
+}
+
+export interface Coach {
+  name: string;
+  surname: string;
+  gender: string;
+  id?: string;
 }
 
 export interface Result {

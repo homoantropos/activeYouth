@@ -1,9 +1,9 @@
 <h1>{{statistic.appointment.title}}</h1>
 <p><b>Дата початку:  </b>{{statistic.appointment.startDate | date : 'dd.MM.yy'}}</p>
 <p><b>Дата завершення:  </b>{{statistic.appointment.finishDate | date : 'dd.MM.yy'}}</p>
-<p><b>Місце проведення: </b>{{statistic.appointment.placeOfHolding.country + ' ' + statistic.appointment.placeOfHolding.region + ' ' +
-statistic.appointment.placeOfHolding.town}}</p>
-<p>{{statistic.appointment.placeOfHolding.sportHallName + ' '+ statistic.appointment.placeOfHolding.address}}</p>
+<p><b>Місце проведення: </b>{{statistic.appointment.place.country + ' ' + statistic.appointment.place.region + ' ' +
+statistic.appointment.place.town}}</p>
+<p>{{statistic.appointment.place.sportHallName + ' '+ statistic.appointment.place.address}}</p>
 
 <table>
   <tr>

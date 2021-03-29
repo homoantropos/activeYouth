@@ -25,7 +25,7 @@ export class AppointmentCreatorComponent implements OnInit {
       title: new FormControl ('', [Validators.required]),
       startDate: new FormControl('', [Validators.required]),
       finishDate: new FormControl('', [Validators.required]),
-      placeOfHolding: new FormGroup({
+      place: new FormGroup({
         country: new FormControl('', [Validators.required]),
         region: new FormControl(''),
         town: new FormControl('', [Validators.required]),

@@ -17,7 +17,7 @@ import {Appointment} from '../../shared/interfases';
 })
 
 export class ScheduleComponent implements AfterViewInit {
-  displayedColumns: string[] = ['title', 'termsOfHolding', 'placeOfHolding'];
+  displayedColumns: string[] = ['title', 'termsOfHolding', 'place'];
   dataSource: MatTableDataSource<Appointment> = new MatTableDataSource<Appointment>(MockDataBase.schedule);
 
   // @ts-ignore
