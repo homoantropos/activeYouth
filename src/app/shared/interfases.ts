@@ -37,6 +37,7 @@ export interface Place {
   town: string;
   sportHallName?: string;
   address?: string;
+  id?: string;
 }
 
 export interface EducationEntity {
@@ -44,6 +45,7 @@ export interface EducationEntity {
   category?: number;
   type: string;
   region?: string;
+  id?: string;
 }
 
 export interface Participant {
@@ -60,6 +62,7 @@ export interface Participant {
 export interface Coach {
   name: string;
   surname: string;
+  fatherName: string;
   gender: string;
   id?: string;
 }
@@ -68,10 +71,11 @@ export interface Result {
   appointment: Appointment;
   participant: Participant;
   eduEntity: EducationEntity;
+  region?: string;
   discipline: string;
   place: number;
   ratingPoints: number;
-  id: string;
+  id?: string;
 }
 
 export interface RatingBrick  {
@@ -92,7 +96,7 @@ export interface AppointmentFinancing {
   appointment: Appointment;
   expensesPlan: Expenses;
   expensesFact: Expenses;
-  id: string;
+  id?: string;
 }
 
 export interface NumbersOfParticipants {
@@ -112,5 +116,12 @@ export interface Statistic {
   personPerDayTotalPlan: number;
   numberOfParticipantsFact: NumbersOfParticipants;
   personPerDayTotalFact: number;
+  id?: string;
+}
+
+export interface News {
+  title: string;
+  date: Date;
+  content: string;
   id?: string;
 }
