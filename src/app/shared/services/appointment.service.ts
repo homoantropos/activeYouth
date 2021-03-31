@@ -3,6 +3,7 @@ import {Appointment, AppointmentFinancing, Statistic} from '../interfases';
 import { Observable, of } from 'rxjs';
 import { MockDataBase } from '../../thoseWillBeDeletedAfterDBCreating/mockDB';
 import {SynchronizationOfSavingService} from './synchronization-of-saving.service';
+import {HttpClient} from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -10,10 +11,12 @@ import {SynchronizationOfSavingService} from './synchronization-of-saving.servic
 export class AppointmentService {
 
   constructor(
+    private http: HttpClient,
     private synchronizationService: SynchronizationOfSavingService
   ) { }
 
   createAppointment(appointment: Appointment): Observable<Appointment> {
+    this.http.post('http://localhost:5000/api/schedule', appointment).subscribe(a => console.log(a));
     appointment.id = `${Date.now()}`;
     MockDataBase.schedule.unshift(appointment);
     this.synchronizationService.onAppointmentCreeation(appointment);

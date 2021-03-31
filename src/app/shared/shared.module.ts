@@ -14,6 +14,7 @@ import { AppointmentFinancingDetailsComponent } from './components/appointment-f
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatMomentDateModule} from '@angular/material-moment-adapter';
 import {MatSelectModule} from '@angular/material/select';
+import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import {MatSelectModule} from '@angular/material/select';
     MatSortModule,
     MatDatepickerModule,
     MatMomentDateModule,
-    MatSelectModule
+    MatSelectModule,
+    HttpClientModule
   ],
   exports: [
     MatFormFieldModule,
@@ -45,7 +47,8 @@ import {MatSelectModule} from '@angular/material/select';
     MatDatepickerModule,
     MatMomentDateModule,
     MatSelectModule,
-    SanitizeHTMLPipePipe
+    SanitizeHTMLPipePipe,
+    HttpClientModule
   ],
   providers: []
 })
