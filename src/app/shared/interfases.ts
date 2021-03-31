@@ -2,7 +2,7 @@ export interface User {
   email: string;
   password: string;
   accessLevel?: number;
-  idToken?: string;
+  id?: string;
 }
 
 export interface Activity {
@@ -12,6 +12,7 @@ export interface Activity {
   id?: string;
   date?: Date;
   kindOfActivity?: string;
+  userId?: string;
 }
 
 export interface Appointment {
@@ -29,6 +30,7 @@ export interface Appointment {
   status: string;
   organiser: string;
   id?: string;
+  userId?: string;
 }
 
 export interface Place {
@@ -76,6 +78,7 @@ export interface Result {
   place: number;
   ratingPoints: number;
   id?: string;
+  userId?: string;
 }
 
 export interface RatingBrick  {
@@ -90,6 +93,7 @@ export interface Expenses {
   kekv2220: number;
   kekv2240: number;
   total: number;
+  userId?: string;
 }
 
 export interface AppointmentFinancing {
@@ -97,6 +101,7 @@ export interface AppointmentFinancing {
   expensesPlan: Expenses;
   expensesFact: Expenses;
   id?: string;
+  userId?: string;
 }
 
 export interface NumbersOfParticipants {
@@ -117,6 +122,7 @@ export interface Statistic {
   numberOfParticipantsFact: NumbersOfParticipants;
   personPerDayTotalFact: number;
   id?: string;
+  userId?: string;
 }
 
 export interface News {

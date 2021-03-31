@@ -45,7 +45,7 @@ export class LoginPageComponent implements OnInit {
       password: this.loginForm.value.password
     };
     this.auth.login(user);
-    if (user.idToken) {
+    if (user.id) {
       this.loginForm.reset();
     }
     this.submitted = false;
