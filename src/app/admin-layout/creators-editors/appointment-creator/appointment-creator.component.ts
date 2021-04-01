@@ -45,11 +45,12 @@ export class AppointmentCreatorComponent implements OnInit {
 
 onCreate(value: any): void {
     value.duration = this.dateProvider.provideDuration(value.startDate, value.finishDate);
-    console.log(value.participants);
     const appointment: Appointment = (value) as Appointment;
+    appointment.id = 'sdadasd';
+    console.log(appointment);
     this.appointmentService.saveAppointmentToDb(appointment).subscribe(
       (a) => {
-        console.log(a);
+        console.log(a.id);
         this.appointmentCreatorForm.reset();
         this.router.navigate(['admin', 'schedule']);
         alert('ваш захід додано!');

@@ -62,7 +62,7 @@ export class ScheduleDashboardComponent implements OnInit, AfterViewInit {
       .subscribe(
       (message) => {
         console.log(message);
-        this.router.navigate(['admin', 'schedule'])
+        this.ngOnInit();
       }
     );
   }

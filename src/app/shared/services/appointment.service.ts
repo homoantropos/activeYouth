@@ -23,12 +23,19 @@ export class AppointmentService {
     return this.http.get<Array<Appointment>>(`${environment.mongoDbUrl}/schedule`)
       .pipe(
         map((response: Array<Appointment>) => {
+          // @ts-ignore
+          Object.keys(response).map(key => response[key].id = response[key]._id);
           for (const appointment of response) {
-            this.placesService.getPlaceById((appointment.place) as unknown as string)
+            const id: string = (appointment.place) as unknown as string;
+            this.placesService.getPlaceById(id)
             .subscribe(place => {
+              place.id = id;
               appointment.place = place;
+              console.log(appointment.place.id);
             });
           }
+          console.log(response[0].id);
+          console.log(response);
           return response;
         })
         );
