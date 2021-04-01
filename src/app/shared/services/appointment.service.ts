@@ -4,6 +4,9 @@ import { Observable, of } from 'rxjs';
 import { MockDataBase } from '../../thoseWillBeDeletedAfterDBCreating/mockDB';
 import {SynchronizationOfSavingService} from './synchronization-of-saving.service';
 import {HttpClient} from '@angular/common/http';
+import {environment} from '../../../environments/environment';
+import {PlacesService} from './places.service';
+import {map} from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -12,11 +15,30 @@ export class AppointmentService {
 
   constructor(
     private http: HttpClient,
+    private placesService: PlacesService,
     private synchronizationService: SynchronizationOfSavingService
   ) { }
 
+  getAllAppointment(): Observable<Array<Appointment>> {
+    return this.http.get<Array<Appointment>>(`${environment.mongoDbUrl}/schedule`)
+      .pipe(
+        map((response: Array<Appointment>) => {
+          for (const appointment of response) {
+            this.placesService.getPlaceById((appointment.place) as unknown as string)
+            .subscribe(place => {
+              appointment.place = place;
+            });
+          }
+          return response;
+        })
+        );
+  }
+
+  saveAppointmentToDb(appointment: Appointment): Observable<Appointment> {
+    return this.http.post<Appointment>(`${environment.mongoDbUrl}/schedule`, appointment);
+  }
+
   createAppointment(appointment: Appointment): Observable<Appointment> {
-    this.http.post('http://localhost:5000/api/schedule', appointment).subscribe(a => console.log(a));
     appointment.id = `${Date.now()}`;
     MockDataBase.schedule.unshift(appointment);
     this.synchronizationService.onAppointmentCreeation(appointment);

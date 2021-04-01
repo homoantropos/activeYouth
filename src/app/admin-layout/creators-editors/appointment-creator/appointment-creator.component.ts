@@ -47,9 +47,9 @@ onCreate(value: any): void {
     value.duration = this.dateProvider.provideDuration(value.startDate, value.finishDate);
     console.log(value.participants);
     const appointment: Appointment = (value) as Appointment;
-    this.appointmentService.createAppointment(appointment).subscribe(
+    this.appointmentService.saveAppointmentToDb(appointment).subscribe(
       (a) => {
-        appointment.id = a.id;
+        console.log(a);
         this.appointmentCreatorForm.reset();
         this.router.navigate(['admin', 'schedule']);
         alert('ваш захід додано!');

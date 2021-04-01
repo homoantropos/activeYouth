@@ -6,3 +6,8 @@ export interface MockDbResponse {
   expireIn?: Date;
   status: number;
 }
+
+export interface Environment {
+  production: false;
+  mongoDbUrl: string;
+}
