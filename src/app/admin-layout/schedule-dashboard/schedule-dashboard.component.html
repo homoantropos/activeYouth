@@ -19,9 +19,8 @@
 
     <ng-container matColumnDef = "place">
       <th mat-header-cell *matHeaderCellDef> Місце<br>проведення </th>
-      <td mat-cell *matCellDef="let appointment">
-        {{appointment.place.town + ' ' + appointment.place.region}}<br>
-        {{appointment.place.country}}
+      <td mat-cell *matCellDef="let appointment" (click)="deleteAppointmentFromDb(appointment.id)">
+        {{appointment.id}}
       </td>
     </ng-container>
 
@@ -34,8 +33,8 @@
 
     <ng-container matColumnDef="delete">
       <th mat-header-cell *matHeaderCellDef>Видалити</th>
-      <td mat-cell *matCellDef>
-        <button mat-button color="primary">Видалити</button>
+      <td mat-cell *matCellDef="let appointment">
+        <button mat-button color="primary" (click)="deleteAppointmentFromDb(appointment.id)">Видалити</button>
       </td>
     </ng-container>
 
