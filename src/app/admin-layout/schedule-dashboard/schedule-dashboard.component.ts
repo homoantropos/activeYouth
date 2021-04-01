@@ -35,7 +35,6 @@ export class ScheduleDashboardComponent implements OnInit, AfterViewInit {
     this.appointmentService.getAllAppointment()
       .subscribe((response: Array<Appointment>) => {
           this.schedule1 = response;
-          console.log(this.schedule1);
           this.dataSource = new MatTableDataSource<Appointment>(this.schedule1);
           this.dataSource.paginator = this.paginator;
           this.dataSource.sort = this.sort;

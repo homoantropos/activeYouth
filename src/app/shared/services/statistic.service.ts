@@ -2,27 +2,31 @@ import { Injectable } from '@angular/core';
 import { Statistic } from '../interfases';
 import { Observable, of } from 'rxjs';
 import { MockDataBase } from '../../thoseWillBeDeletedAfterDBCreating/mockDB';
+import {HttpClient} from '@angular/common/http';
+import {environment} from '../../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class StatisticService {
 
-  constructor() {
+  constructor(
+    private http: HttpClient
+  ) {
   }
-  createActivity(stats: Statistic): Observable<Statistic> {
+  createStatistic(stats: Statistic): Observable<Statistic> {
+    return this.http.post<Statistic>(`${environment.mongoDbUrl}/statistic`, stats);
+  }
+
+  deleteStatistic(stats: Statistic): void {
+
+  }
+
+  updateStatistic(stats: Statistic): Observable<Statistic> {
     return of(stats);
   }
 
-  deleteActivity(stats: Statistic): void {
-
-  }
-
-  updateActivity(stats: Statistic): Observable<Statistic> {
-    return of(stats);
-  }
-
-  getAllActivity(): Observable<Array<Statistic>> {
+  getAllStatistics(): Observable<Array<Statistic>> {
     const stats: Array<Statistic> =
       (MockDataBase.statistics) as Array<Statistic>;
     return of(stats);

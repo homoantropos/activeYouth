@@ -1,4 +1,4 @@
-import {User} from '../app/shared/interfases';
+import {AppointmentFinancing, User} from '../app/shared/interfases';
 
 export interface MockDbResponse {
   token?: string;

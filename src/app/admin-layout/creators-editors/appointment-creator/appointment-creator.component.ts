@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
-import {Appointment} from '../../../shared/interfases';
+import {Appointment, AppointmentFinancing} from '../../../shared/interfases';
 import {Router} from '@angular/router';
 import {AppointmentService} from '../../../shared/services/appointment.service';
 import {DateProviderService} from '../../../shared/services/date-provider.service';
+import {basicExpensesFact, basicExpensesPlan} from '../../../../environments/environment';
+import {AppointmentFinancingService} from '../../../shared/services/appointment-financing.service';
 
 @Component({
   selector: 'app-appointment-creator',
@@ -17,6 +19,7 @@ export class AppointmentCreatorComponent implements OnInit {
   constructor(
     private appointmentService: AppointmentService,
     private dateProvider: DateProviderService,
+    private appointmentFinancingService: AppointmentFinancingService,
     private router: Router
   ) { }
 
@@ -43,14 +46,22 @@ export class AppointmentCreatorComponent implements OnInit {
     });
   }
 
-onCreate(value: any): void {
+ onCreate(value: any): void {
     value.duration = this.dateProvider.provideDuration(value.startDate, value.finishDate);
     const appointment: Appointment = (value) as Appointment;
-    appointment.id = 'sdadasd';
-    console.log(appointment);
-    this.appointmentService.saveAppointmentToDb(appointment).subscribe(
-      (a) => {
-        console.log(a.id);
+    this.appointmentService.saveAppointmentToDb(appointment).pipe()
+      .subscribe(
+       (a) => {
+        // @ts-ignore
+        a.id = a._id;
+        const appointmentFinancing: AppointmentFinancing = {
+          appointment: a,
+          expensesPlan: basicExpensesPlan,
+          expensesFact: basicExpensesFact
+        };
+        this.appointmentFinancingService.createAppointmentFinancing(appointmentFinancing).subscribe(
+          apf => console.log(apf)
+        );
         this.appointmentCreatorForm.reset();
         this.router.navigate(['admin', 'schedule']);
         alert('ваш захід додано!');

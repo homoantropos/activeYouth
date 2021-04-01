@@ -2,25 +2,22 @@ import { Injectable } from '@angular/core';
 import {Appointment, AppointmentFinancing} from '../interfases';
 import { Observable, of } from 'rxjs';
 import { MockDataBase } from '../../thoseWillBeDeletedAfterDBCreating/mockDB';
+import {HttpClient} from '@angular/common/http';
+import {environment} from '../../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AppointmentFinancingService {
 
-  constructor() { }
+  constructor(
+    private http: HttpClient
+  ) { }
 
   // all those methods will be changed with the http-client after DB creating
 
-  createAppointmentFinancing(appointment: Appointment): Observable<AppointmentFinancing> {
-    const appointmentFinancing: AppointmentFinancing = {
-      appointment,
-      expensesPlan: {kekv2210: 0, kekv2220: 0, kekv2240: 0, total: 0},
-      expensesFact: {kekv2210: 0, kekv2220: 0, kekv2240: 0, total: 0},
-      id: ''
-    };
-    MockDataBase.balance.unshift(appointmentFinancing);
-    return of(appointmentFinancing);
+  createAppointmentFinancing(appointmentFinancing: AppointmentFinancing): Observable<AppointmentFinancing> {
+    return this.http.post<AppointmentFinancing>(`${environment.mongoDbUrl}/expenses`, appointmentFinancing);
   }
 
   deleteAppointment(appointment: AppointmentFinancing): void {

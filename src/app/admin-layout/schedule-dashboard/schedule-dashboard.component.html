@@ -19,8 +19,9 @@
 
     <ng-container matColumnDef = "place">
       <th mat-header-cell *matHeaderCellDef> Місце<br>проведення </th>
-      <td mat-cell *matCellDef="let appointment" (click)="deleteAppointmentFromDb(appointment.id)">
-        {{appointment.id}}
+      <td mat-cell *matCellDef="let appointment">
+        {{appointment.place.town}}<br>
+        {{appointment.place.country + ' ' + appointment.place.region}}
       </td>
     </ng-container>
 

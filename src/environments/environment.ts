@@ -3,11 +3,38 @@
 // The list of file replacements can be found in `angular.json`.
 
 import {Environment} from './interfaces';
+import {AppointmentFinancing, Expenses, NumbersOfParticipants} from '../app/shared/interfases';
 
 export const environment: Environment = {
   production: false,
   mongoDbUrl: 'http://localhost:5000/api'
 };
+
+export const basicExpensesPlan: Expenses = {kekv2210: 0, kekv2220: 0, kekv2240: 0, total: 0};
+export const basicExpensesFact: Expenses = {kekv2210: 0, kekv2220: 0, kekv2240: 0, total: 0};
+
+export const basicNumberOfParticipantsPlan: NumbersOfParticipants = {
+  countries: 0,
+    regions: 0,
+    educationEntity: 0,
+    sportsmen: 0,
+    coaches: 0,
+    referees: 0,
+    others: 0,
+    total: 0
+};
+
+export const basicNumberOfParticipantsFact: NumbersOfParticipants = {
+  countries: 0,
+  regions: 0,
+  educationEntity: 0,
+  sportsmen: 0,
+  coaches: 0,
+  referees: 0,
+  others: 0,
+  total: 0
+};
+
 
 /*
  * For easier debugging in development mode, you can import the following file

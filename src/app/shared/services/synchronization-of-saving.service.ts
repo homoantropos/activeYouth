@@ -1,47 +1,50 @@
 import { Injectable } from '@angular/core';
 import {Appointment, AppointmentFinancing, Statistic} from '../interfases';
-import {MockDataBase} from '../../thoseWillBeDeletedAfterDBCreating/mockDB';
+import {
+  basicExpensesFact,
+  basicExpensesPlan,
+  basicNumberOfParticipantsFact,
+  basicNumberOfParticipantsPlan
+} from '../../../environments/environment';
+import {HttpClient} from '@angular/common/http';
+import {AppointmentFinancingService} from './appointment-financing.service';
+import {StatisticService} from './statistic.service';
+import {Observable} from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SynchronizationOfSavingService {
+  // @ts-ignore
+  apf: AppointmentFinancing;
+  constructor(
+    private http: HttpClient,
+    private appointmentFinancingService: AppointmentFinancingService,
+    private statisticService: StatisticService
+  ) { }
 
-  constructor() { }
-
-  onAppointmentCreeation(appointment: Appointment): void {
+  onAppointmentCreation(appointment: Appointment): any {
     const appointmentFinancing: AppointmentFinancing = {
       appointment,
-      expensesPlan: {kekv2210: 0, kekv2220: 0, kekv2240: 0, total: 0},
-      expensesFact: {kekv2210: 0, kekv2220: 0, kekv2240: 0, total: 0},
-      id: ''
+      expensesPlan: basicExpensesPlan,
+      expensesFact: basicExpensesFact
     };
-    MockDataBase.balance.unshift(appointmentFinancing);
+    this.appointmentFinancingService.createAppointmentFinancing(appointmentFinancing).subscribe(
+     af => {
+       this.apf = af;
+       console.log(this.apf);
+     }
+    );
 
     const statistic: Statistic = {
       appointment,
-      numberOfParticipantsPlan: {
-        countries: 0,
-        regions: 0,
-        educationEntity: 0,
-        sportsmen: 0,
-        coaches: 0,
-        referees: 0,
-        others: 0,
-        total: 0},
+      numberOfParticipantsPlan: basicNumberOfParticipantsPlan,
       personPerDayTotalPlan: 0,
-      numberOfParticipantsFact: {
-        countries: 0,
-        regions: 0,
-        educationEntity: 0,
-        sportsmen: 0,
-        coaches: 0,
-        referees: 0,
-        others: 0,
-        total: 0},
-      personPerDayTotalFact: 0,
-      id: ' '
+      numberOfParticipantsFact: basicNumberOfParticipantsFact,
+      personPerDayTotalFact: 0
     };
-    MockDataBase.statistics.unshift(statistic);
+    this.statisticService.createStatistic(statistic).subscribe(
+      ststc => console.log(ststc)
+    );
   }
 }

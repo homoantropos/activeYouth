@@ -31,11 +31,8 @@ export class AppointmentService {
             .subscribe(place => {
               place.id = id;
               appointment.place = place;
-              console.log(appointment.place.id);
             });
           }
-          console.log(response[0].id);
-          console.log(response);
           return response;
         })
         );
@@ -48,12 +45,11 @@ export class AppointmentService {
   createAppointment(appointment: Appointment): Observable<Appointment> {
     appointment.id = `${Date.now()}`;
     MockDataBase.schedule.unshift(appointment);
-    this.synchronizationService.onAppointmentCreeation(appointment);
+    this.synchronizationService.onAppointmentCreation(appointment);
     return of(appointment);
   }
 
   deleteAppointment(id: string): Observable<any> {
-    console.log(id);
     return this.http.delete<Appointment>(`${environment.mongoDbUrl}/schedule/${id}`);
   }
 
