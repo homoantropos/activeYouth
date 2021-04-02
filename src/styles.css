@@ -91,7 +91,7 @@ button.active {
   padding: 10px;
   border: solid grey 1px;
   margin-top: 20px;
-  width: 40vh;
+  width: 60vh;
 }
 
 .forms-inputs {
@@ -158,4 +158,25 @@ mat-radio-button {
   margin-left: auto;
   margin-right: auto;
   display: block;
+}
+
+.error {
+  color: red;
+}
+
+.alert {
+  color: white;
+  margin-top: -22px;
+  padding-left: 2px;
+  background-color: red;
+  text-align: center;
+  padding-bottom: 3px;
+}
+
+.danger {
+  background-color: red;
+}
+
+.info {
+  background-color: grey;
 }

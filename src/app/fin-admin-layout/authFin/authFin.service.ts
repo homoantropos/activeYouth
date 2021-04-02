@@ -1,8 +1,10 @@
 import { Injectable } from '@angular/core';
 import { User } from '../../shared/interfases';
 import { Router } from '@angular/router';
-import { MockDbResponse } from '../../../environments/interfaces';
-import {MockLoginService} from '../../thoseWillBeDeletedAfterDBCreating/mock-login.service';
+import {HttpClient} from '@angular/common/http';
+import {Observable} from 'rxjs';
+import {environment} from '../../../environments/environment';
+import {tap} from 'rxjs/operators';
 
 
 @Injectable({
@@ -11,45 +13,32 @@ import {MockLoginService} from '../../thoseWillBeDeletedAfterDBCreating/mock-log
 
 export class AuthFinService {
 
-  constructor(
-    private router: Router,
-    private mockLoginService: MockLoginService
-  ) { }
+  private token = null;
 
-  get token(): string | null {
-      // @ts-ignore
-      const expDate = new Date(localStorage.getItem('expInFin'));
-      if (new Date() > expDate) {
-        localStorage.clear();
-        return null;
-      } else {
-        return localStorage.getItem('finToken');
-      }
+  constructor(
+    private http: HttpClient,
+    private router: Router) {
   }
 
-  login(user: User): void {
-    this.mockLoginService.mockFinLogin(user).subscribe(
-      dbres => {
-        if (!dbres.token){
-          localStorage.clear();
-          switch (dbres.status) {
-            case 401 : alert('password is incorrect');
-                       break;
-            case 403 : alert('you dont have access to this area of the site');
-                       break;
-            case 404 : alert('user with such email didnt exist');
-                       break;
+  getToken(): string | null {
+    return this.token;
+  }
+
+  login(user: User): Observable<{ token: string }> {
+    return this.http.post<{ token: string }>(`${environment.mongoDbUrl}/auth/login`, user)
+      .pipe(
+        tap(
+          ({token}) => {
+            localStorage.setItem('auth-token', token);
+            this.setToken(token);
           }
-        } else {
-            this.setToken(dbres);
-            this.router.navigate(['expenses', 'dashboard']);
-        }
-      }
-    );
+        )
+      );
   }
 
   logOut(): void {
     this.setToken(null);
+    localStorage.clear();
     this.router.navigate(['expenses', 'login']);
   }
 
@@ -57,14 +46,9 @@ export class AuthFinService {
     return !!this.token;
   }
 
-  private setToken(dBres: MockDbResponse | null): void {
-    if (dBres?.token) {
-      localStorage.setItem('finToken', dBres.token);
-      // @ts-ignore
-      localStorage.setItem('expInFin', dBres.expireIn.toString());
-    } else {
-      localStorage.clear();
-    }
+  private setToken(token: string | null): void {
+    // @ts-ignore
+    this.token = token;
   }
 
 }

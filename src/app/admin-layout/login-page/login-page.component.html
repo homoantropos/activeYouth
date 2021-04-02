@@ -4,13 +4,21 @@
 
   <h3>Увійдіть</h3>
 
-    <mat-form-field class="forms-inputs">
-      <mat-label>введіть емейл...</mat-label>
-      <input matInput
+  <div class="alert danger" *ngIf="auth.error$ | async as error">
+    {{ error }}
+  </div>
+
+  <div class="alert info" *ngIf="message">
+    {{ message }}
+  </div>
+
+  <mat-form-field class="forms-inputs">
+    <mat-label>введіть емейл...</mat-label>
+    <input matInput
            title="emailInput"
            type="text"
            formControlName="email">
-    </mat-form-field>
+  </mat-form-field>
 
   <mat-form-field class="forms-inputs">
     <mat-label title="passwordInput">введіть пароль...</mat-label>
@@ -22,5 +30,6 @@
 
   <button mat-button
           color="primary"
-          [disabled]="loginForm.invalid || submitted">Увійти</button>
+          [disabled]="loginForm.invalid || submitted">Увійти
+  </button>
 </form>
