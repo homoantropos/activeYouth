@@ -36,12 +36,12 @@ export class ActivitiesDashboardComponent implements AfterViewInit {
   }
 
   goToActivitiesDetails(a: Activity): void {
-    this.router.navigateByUrl(`/admin/activities/${a.id}`);
+    this.router.navigateByUrl(`/admin/activities/${a._id}`);
   }
 
   removeActivityFromDB(activity: Activity): void {
     MockDataBase.mockActivitiesDataBase.filter(
-        a => a.id !== activity.id
+        a => a._id !== activity._id
       );
   }
 }

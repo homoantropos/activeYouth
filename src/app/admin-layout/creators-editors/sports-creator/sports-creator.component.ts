@@ -46,7 +46,7 @@ export class SportsCreatorComponent implements OnInit {
       date: new Date()
     };
     this.sportServise.createActivity(activity).subscribe(a => {
-      activity.id = a.id;
+      activity._id = a._id;
       activity.kindOfActivity = a.kindOfActivity;
       this.activitiesCreatorForm.reset();
       this.submitted = false;

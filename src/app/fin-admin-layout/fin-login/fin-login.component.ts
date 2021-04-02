@@ -45,7 +45,7 @@ export class FinLoginComponent implements OnInit {
       password: this.loginForm.value.password
     };
     this.auth.login(user);
-    if (user.id) {
+    if (user._id) {
       this.loginForm.reset();
     }
     this.submitted = false;

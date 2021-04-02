@@ -33,6 +33,6 @@ export class StatisticService {
   }
 
   getStatisticByID(id: string): Observable<Statistic> {
-    return of((MockDataBase.statistics.find(s => s.id === id)) as Statistic);
+    return of((MockDataBase.statistics.find(s => s._id === id)) as Statistic);
   }
 }

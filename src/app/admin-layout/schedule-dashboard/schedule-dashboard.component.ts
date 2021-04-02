@@ -18,8 +18,7 @@ export class ScheduleDashboardComponent implements OnInit, AfterViewInit {
 
   // @ts-ignore
   dataSource: MatTableDataSource<Appointment>;
-  // @ts-ignore
-  schedule1: Array<Appointment>;
+  schedule1: Array<Appointment> = [];
 
   // @ts-ignore
   @ViewChild(MatPaginator) paginator: MatPaginator;
@@ -34,7 +33,7 @@ export class ScheduleDashboardComponent implements OnInit, AfterViewInit {
   ngOnInit(): void {
     this.appointmentService.getAllAppointment()
       .subscribe((response: Array<Appointment>) => {
-          this.schedule1 = response;
+          this.schedule1 = response.slice();
           this.dataSource = new MatTableDataSource<Appointment>(this.schedule1);
           this.dataSource.paginator = this.paginator;
           this.dataSource.sort = this.sort;
@@ -46,14 +45,6 @@ export class ScheduleDashboardComponent implements OnInit, AfterViewInit {
   ngAfterViewInit(): void {
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
-  }
-
-  goToAppointmentCreator(): void {
-    this.router.navigate(['admin', 'schedule', 'create']);
-  }
-
-  goToAppointmentDetails(a: Appointment): void {
-    this.router.navigateByUrl(`admin/schedule/${a.id}`);
   }
 
   deleteAppointmentFromDb(id: string): void {

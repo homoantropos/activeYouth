@@ -2,17 +2,17 @@ export interface User {
   email: string;
   password: string;
   accessLevel?: number;
-  id?: string;
+  _id?: string;
 }
 
 export interface Activity {
   title: string;
   author: string;
   content: string;
-  id?: string;
+  _id?: string;
   date?: Date;
   kindOfActivity?: string;
-  userId?: string;
+  _userId?: string;
 }
 
 export interface Appointment {
@@ -29,8 +29,8 @@ export interface Appointment {
   direction: string;
   status: string;
   organiser: string;
-  id?: string;
-  userId?: string;
+  _id?: string;
+  _userId?: string;
 }
 
 export interface Place {
@@ -39,7 +39,7 @@ export interface Place {
   town: string;
   sportHallName?: string;
   address?: string;
-  id?: string;
+  _id?: string;
 }
 
 export interface EducationEntity {
@@ -47,7 +47,7 @@ export interface EducationEntity {
   category?: number;
   type: string;
   region?: string;
-  id?: string;
+  _id?: string;
 }
 
 export interface Participant {
@@ -58,7 +58,7 @@ export interface Participant {
   gender: string;
   schoolchildOrStudent: string;
   coach?: Coach;
-  id?: string;
+  _id?: string;
 }
 
 export interface Coach {
@@ -66,7 +66,7 @@ export interface Coach {
   surname: string;
   fatherName: string;
   gender: string;
-  id?: string;
+  _id?: string;
 }
 
 export interface Result {
@@ -77,8 +77,8 @@ export interface Result {
   discipline: string;
   place: number;
   ratingPoints: number;
-  id?: string;
-  userId?: string;
+  _id?: string;
+  _userId?: string;
 }
 
 export interface RatingBrick  {
@@ -93,15 +93,15 @@ export interface Expenses {
   kekv2220: number;
   kekv2240: number;
   total: number;
-  userId?: string;
+  _userId?: string;
 }
 
 export interface AppointmentFinancing {
   appointment: Appointment;
   expensesPlan: Expenses;
   expensesFact: Expenses;
-  id?: string;
-  userId?: string;
+  _id?: string;
+  _userId?: string;
 }
 
 export interface NumbersOfParticipants {
@@ -121,13 +121,13 @@ export interface Statistic {
   personPerDayTotalPlan: number;
   numberOfParticipantsFact: NumbersOfParticipants;
   personPerDayTotalFact: number;
-  id?: string;
-  userId?: string;
+  _id?: string;
+  _userId?: string;
 }
 
 export interface News {
   title: string;
   date: Date;
   content: string;
-  id?: string;
+  _id?: string;
 }

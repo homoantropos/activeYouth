@@ -24,12 +24,11 @@ export class AppointmentService {
       .pipe(
         map((response: Array<Appointment>) => {
           // @ts-ignore
-          Object.keys(response).map(key => response[key].id = response[key]._id);
           for (const appointment of response) {
             const id: string = (appointment.place) as unknown as string;
             this.placesService.getPlaceById(id)
             .subscribe(place => {
-              place.id = id;
+              place._id = id;
               appointment.place = place;
             });
           }
@@ -43,7 +42,7 @@ export class AppointmentService {
   }
 
   createAppointment(appointment: Appointment): Observable<Appointment> {
-    appointment.id = `${Date.now()}`;
+    appointment._id = `${Date.now()}`;
     MockDataBase.schedule.unshift(appointment);
     this.synchronizationService.onAppointmentCreation(appointment);
     return of(appointment);
@@ -62,6 +61,6 @@ export class AppointmentService {
   }
 
   getAppointmentByID(id: string): Observable<Appointment> {
-    return of((MockDataBase.schedule.find(a => a.id === id)) as Appointment);
+    return of((MockDataBase.schedule.find(a => a._id === id)) as Appointment);
   }
 }

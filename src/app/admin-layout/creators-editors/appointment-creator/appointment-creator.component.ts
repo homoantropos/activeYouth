@@ -53,7 +53,7 @@ export class AppointmentCreatorComponent implements OnInit {
       .subscribe(
        (a) => {
         // @ts-ignore
-        a.id = a._id;
+        a._id = a._id;
         const appointmentFinancing: AppointmentFinancing = {
           appointment: a,
           expensesPlan: basicExpensesPlan,

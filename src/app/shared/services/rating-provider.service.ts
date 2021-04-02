@@ -17,7 +17,7 @@ export class RatingProviderService {
     let totalRating = 0;
     let cloneResults = results.slice();
     results.map( r => {
-      const onePersonResults = cloneResults.filter(result => result.participant.id === r.participant.id);
+      const onePersonResults = cloneResults.filter(result => result.participant._id === r.participant._id);
       if (onePersonResults.length === 0) {
         return;
       }
@@ -29,7 +29,7 @@ export class RatingProviderService {
         totalRating
       });
       totalRating = 0;
-      cloneResults = cloneResults.filter(result => result.participant.id !== r.participant.id);
+      cloneResults = cloneResults.filter(result => result.participant._id !== r.participant._id);
     });
     rating.sort((a, b) => b.totalRating - a.totalRating);
     return rating;

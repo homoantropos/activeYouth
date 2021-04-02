@@ -43,7 +43,7 @@ export class MockDBAdministratorService {
     let ratingPoints = 0;
 
     const mockParticipant: Participant = {
-      name, surname, DoB, gender, schoolchildOrStudent, id
+      name, surname, DoB, gender, schoolchildOrStudent, _id: id
     };
 
     // mockEduEntity creating
@@ -69,7 +69,7 @@ export class MockDBAdministratorService {
       discipline,
       place,
       ratingPoints,
-      id: `${Date}`
+      _id: `${Date}`
     };
     return result;
   }
@@ -128,7 +128,7 @@ export class MockDBAdministratorService {
       personPerDayTotalPlan,
       numberOfParticipantsFact,
       personPerDayTotalFact,
-      id: `${numberOfParticipantsFact.total + numberOfParticipantsPlan.total}`
+      _id: `${numberOfParticipantsFact.total + numberOfParticipantsPlan.total}`
     };
   }
 
@@ -171,7 +171,7 @@ export class MockDBAdministratorService {
       appointment,
       expensesPlan,
       expensesFact,
-      id: `${totalFact + totalPlan}`
+      _id: `${totalFact + totalPlan}`
     };
   }
 

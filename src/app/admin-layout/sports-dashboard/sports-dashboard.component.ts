@@ -33,6 +33,6 @@ export class SportsDashboardComponent implements AfterViewInit {
   }
 
   goToActivitiesDetails(a: Activity): void {
-    this.router.navigateByUrl(`/admin/sports/${a.id}`);
+    this.router.navigateByUrl(`/admin/sports/${a._id}`);
   }
 }

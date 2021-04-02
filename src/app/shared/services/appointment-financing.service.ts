@@ -33,6 +33,6 @@ export class AppointmentFinancingService {
   }
 
   getAppointmentFinancingByID(id: string): Observable<AppointmentFinancing> {
-    return of((MockDataBase.balance.find(a => a.id === id)) as AppointmentFinancing);
+    return of((MockDataBase.balance.find(a => a._id === id)) as AppointmentFinancing);
   }
 }

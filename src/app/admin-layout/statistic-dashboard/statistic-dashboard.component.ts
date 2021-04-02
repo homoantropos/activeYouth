@@ -42,6 +42,6 @@ export class StatisticDashboardComponent implements AfterViewInit {
   }
 
   goToStatDetails(s: Statistic): void {
-    this.router.navigateByUrl(`/admin/statistic/${s.id}`);
+    this.router.navigateByUrl(`/admin/statistic/${s._id}`);
   }
 }

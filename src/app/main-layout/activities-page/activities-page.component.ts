@@ -32,6 +32,6 @@ export class ActivitiesPageComponent implements AfterViewInit {
   }
 
   goToActivityDetails(a: Activity): void {
-    this.router.navigateByUrl(`/activities/${a.id}`);
+    this.router.navigateByUrl(`/activities/${a._id}`);
   }
 }

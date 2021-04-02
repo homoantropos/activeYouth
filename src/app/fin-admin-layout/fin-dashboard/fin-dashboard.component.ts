@@ -42,6 +42,6 @@ export class FinDashboardComponent implements AfterViewInit {
   }
 
   goToAppointmentFinancingDetails(af: AppointmentFinancing): void {
-    this.router.navigateByUrl(`/expenses/${af.id}`);
+    this.router.navigateByUrl(`/expenses/${af._id}`);
   }
 }

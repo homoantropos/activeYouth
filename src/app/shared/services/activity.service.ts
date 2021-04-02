@@ -11,13 +11,13 @@ export class ActivityService {
   constructor() { }
 
   createActivity(activity: Activity): Observable<Activity> {
-    activity.id = `${Date.now()}`;
+    activity._id = `${Date.now()}`;
     MockDataBase.mockActivitiesDataBase.push(activity);
     return of(activity);
   }
 
   deleteActivity(activity: Activity): Observable<string> {
-    return of((activity.id) as string);
+    return of((activity._id) as string);
   }
 
   updateActivity(activity: Activity): Observable<Activity> {
@@ -31,6 +31,6 @@ export class ActivityService {
   }
 
   getActivityByID(id: string): Observable<Activity> {
-    return of((MockDataBase.mockActivitiesDataBase.find(a => a.id === id)) as Activity);
+    return of((MockDataBase.mockActivitiesDataBase.find(a => a._id === id)) as Activity);
   }
 }
