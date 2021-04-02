@@ -1,20 +1,19 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {ActivatedRoute, Router, Params} from '@angular/router';
-import {MockDataBase} from '../../../thoseWillBeDeletedAfterDBCreating/mockDB';
 import {Appointment} from '../../interfases';
-import {switchMap} from 'rxjs/operators';
-import {Observable} from 'rxjs';
-import {DataBaseService} from '../../services/data-base.service';
 import {AppointmentService} from '../../services/appointment.service';
+import {Observable, Subscription} from 'rxjs';
 
 @Component({
   selector: 'app-appointment-details',
   templateUrl: './appointment-details.component.html',
   styleUrls: ['./appointment-details.component.css']
 })
-export class AppointmentDetailsComponent implements OnInit {
+export class AppointmentDetailsComponent implements OnInit, OnDestroy {
   // @ts-ignore
-  appointment: Appointment;
+  appointment$: Observable<Appointment>;
+  // @ts-ignore
+  rSub: Subscription;
 
   constructor(
     private route: ActivatedRoute,
@@ -22,13 +21,16 @@ export class AppointmentDetailsComponent implements OnInit {
     private appointmentService: AppointmentService
   ) { }
 
-  ngOnInit(): void {
-    // @ts-ignore
-    this.route.params.subscribe((params: Params) => {
-        // @ts-ignore
-        this.appointmentService.getAppointmentByID(params.id).
-        subscribe(appointment => this.appointment = appointment);
-      });
+  ngOnInit(): Subscription {
+    return this.rSub = this.route.params.subscribe((params: Params) => {
+     this.appointment$ = this.appointmentService.getAppointmentByID(params.id);
+    });
+  }
+
+  ngOnDestroy(): void {
+    if (this.rSub) {
+      this.rSub.unsubscribe();
+    }
   }
 
 }

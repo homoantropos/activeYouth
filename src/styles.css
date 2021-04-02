@@ -153,3 +153,9 @@ mat-radio-button {
   margin-bottom: 1%;
   padding-right: 1%;
 }
+
+.spinner {
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}

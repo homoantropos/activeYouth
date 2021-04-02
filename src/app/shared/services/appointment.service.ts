@@ -1,7 +1,7 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {Appointment, AppointmentFinancing, Statistic} from '../interfases';
-import { Observable, of } from 'rxjs';
-import { MockDataBase } from '../../thoseWillBeDeletedAfterDBCreating/mockDB';
+import {Observable, of} from 'rxjs';
+import {MockDataBase} from '../../thoseWillBeDeletedAfterDBCreating/mockDB';
 import {SynchronizationOfSavingService} from './synchronization-of-saving.service';
 import {HttpClient} from '@angular/common/http';
 import {environment} from '../../../environments/environment';
@@ -17,7 +17,8 @@ export class AppointmentService {
     private http: HttpClient,
     private placesService: PlacesService,
     private synchronizationService: SynchronizationOfSavingService
-  ) { }
+  ) {
+  }
 
   getAllAppointment(): Observable<Array<Appointment>> {
     return this.http.get<Array<Appointment>>(`${environment.mongoDbUrl}/schedule`)
@@ -27,14 +28,14 @@ export class AppointmentService {
           for (const appointment of response) {
             const id: string = (appointment.place) as unknown as string;
             this.placesService.getPlaceById(id)
-            .subscribe(place => {
-              place._id = id;
-              appointment.place = place;
-            });
+              .subscribe(place => {
+                place._id = id;
+                appointment.place = place;
+              });
           }
           return response;
         })
-        );
+      );
   }
 
   saveAppointmentToDb(appointment: Appointment): Observable<Appointment> {
@@ -61,6 +62,18 @@ export class AppointmentService {
   }
 
   getAppointmentByID(id: string): Observable<Appointment> {
-    return of((MockDataBase.schedule.find(a => a._id === id)) as Appointment);
+    return this.http.get<Appointment>(`${environment.mongoDbUrl}/schedule/${id}`)
+      .pipe(
+        map((appointment: Appointment) => {
+          const appId: string = (appointment.place) as unknown as string;
+          this.placesService.getPlaceById(appId)
+            .subscribe(place => {
+              place._id = appId;
+              appointment.place = place;
+            });
+          return appointment;
+        }
+        )
+      );
   }
 }
