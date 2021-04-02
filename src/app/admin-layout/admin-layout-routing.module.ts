@@ -12,7 +12,7 @@ import {ActivityCreatorComponent} from './creators-editors/activity-creator/acti
 import {ActivityEditorComponent} from './creators-editors/activity-editor/activity-editor.component';
 import {ResultsCreatorComponent} from './creators-editors/results-creator/results-creator.component';
 import {ResultsEditorComponent} from './creators-editors/results-editor/results-editor.component';
-import {AuthGuardService} from '../shared/auth/auth-guard.service';
+import {AuthGuardService} from './auth/auth-guard.service';
 import {SportsCreatorComponent} from './creators-editors/sports-creator/sports-creator.component';
 import {StatisticDashboardComponent} from './statistic-dashboard/statistic-dashboard.component';
 import {ActivityDetailsComponent} from '../shared/components/activity-details/activity-details.component';

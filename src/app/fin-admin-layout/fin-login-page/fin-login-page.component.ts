@@ -1,18 +1,19 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {User} from '../../shared/interfases';
-import {AuthService} from '../auth/auth.service';
+import {AuthService} from '../../admin-layout/auth/auth.service';
 import {ActivatedRoute, Params, Router} from '@angular/router';
 import {Subscription} from 'rxjs';
 import {HttpErrorResponse} from '@angular/common/http';
+import {AuthFinService} from '../authFin/authFin.service';
 
 @Component({
   selector: 'app-login-page',
-  templateUrl: './login-page.component.html',
-  styleUrls: ['./login-page.component.css']
+  templateUrl: './fin-login-page.component.html',
+  styleUrls: ['./fin-login-page.component.css']
 })
 
-export class LoginPageComponent implements OnInit, OnDestroy {
+export class FinLoginPageComponent implements OnInit, OnDestroy {
   // @ts-ignore
   loginForm: FormGroup;
   // @ts-ignore
@@ -20,11 +21,9 @@ export class LoginPageComponent implements OnInit, OnDestroy {
   // @ts-ignore
   message: string;
   submitted = false;
-  // @ts-ignore
-  errorResponse: HttpErrorResponse;
 
   constructor(
-    public auth: AuthService,
+    public auth: AuthFinService,
     private router: Router,
     private route: ActivatedRoute
   ) {
@@ -32,7 +31,7 @@ export class LoginPageComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     if (this.auth.isAuthenticated()) {
-      this.router.navigate(['admin', 'activities']);
+      this.router.navigate(['expenses', 'dashboard']);
     }
     this.route.queryParams.subscribe((params: Params) => {
       if (params.loginFailed) {
@@ -63,11 +62,8 @@ export class LoginPageComponent implements OnInit, OnDestroy {
     };
     this.aSub = this.auth.login(user)
       .subscribe(
-        () => this.router.navigate(['admin', 'schedule']),
+        () => this.router.navigate(['expenses', 'dashboard']),
         error => {
-          this.errorResponse = error;
-          console.log(error.error.message);
-          console.log(error);
           this.loginForm.enable();
         }
       );

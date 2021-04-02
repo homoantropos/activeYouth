@@ -1,6 +1,5 @@
 import {Activity, Appointment, AppointmentFinancing, Result, User} from '../shared/interfases';
 import {Statistic} from '../shared/interfases';
-import {DateProviderService} from '../shared/services/date-provider.service';
 
 export class MockDataBase {
 
@@ -805,22 +804,6 @@ export class MockDataBase {
       _id: '1ww47'
     }];
 
-
-  static authenticatedUsers: Array<User> = [
-    {
-      email: 'santre8@gmail.com',
-      password: '11111111',
-      accessLevel: 1,
-      _id: 'hhhsadsdfkljaf'
-    },
-    {
-      email: 'homoantropos@gmail.com',
-      password: '22222222',
-      accessLevel: 2,
-      _id: 'dad$isadf'
-    },
-  ];
-
   static mockActivitiesDataBase: Array<Activity> = [
     {
       title: 'Правила Cool Games',
@@ -903,12 +886,20 @@ export class MockDataBase {
 
   static mockResultsDataBase: Array<Result> = [
     {
-      appointment: {title: 'Міжнародний день студентського спорту',
+      appointment: {
+        title: 'Міжнародний день студентського спорту',
         startDate: new Date(2021, 8, 20), finishDate: new Date(2021, 8, 20), duration: 3,
         organizationsParticipants: 'збірні областей і міста Київ', KPKV: 2201310, character: 'О', participants: 'students',
         direction: 'physical culture', status: 'ukrainian',
-        place: {country: 'Україна', region: 'Вінницька обл.', town: 'Вінниця', sportHallName: 'Стадіон ДЮСШ № 5', address: 'Центральний Парк'},
-        organiser: 'СССУ', _id: '1ww47'},
+        place: {
+          country: 'Україна',
+          region: 'Вінницька обл.',
+          town: 'Вінниця',
+          sportHallName: 'Стадіон ДЮСШ № 5',
+          address: 'Центральний Парк'
+        },
+        organiser: 'СССУ', _id: '1ww47'
+      },
       participant: {
         name: 'Сергій',
         surname: 'Антропов',
@@ -928,12 +919,20 @@ export class MockDataBase {
       _id: 'dfwvrvwververg'
     },
     {
-      appointment: {title: 'Міжнародний день студентського спорту',
+      appointment: {
+        title: 'Міжнародний день студентського спорту',
         startDate: new Date(2021, 8, 20), finishDate: new Date(2021, 8, 20), duration: 3,
         organizationsParticipants: 'збірні областей і міста Київ', KPKV: 2201310, character: 'О', participants: 'students',
         direction: 'physical culture', status: 'ukrainian',
-        place: {country: 'Україна', region: 'Вінницька обл.', town: 'Вінниця', sportHallName: 'Стадіон ДЮСШ № 5', address: 'Центральний Парк'},
-        organiser: 'СССУ', _id: '1ww47'},
+        place: {
+          country: 'Україна',
+          region: 'Вінницька обл.',
+          town: 'Вінниця',
+          sportHallName: 'Стадіон ДЮСШ № 5',
+          address: 'Центральний Парк'
+        },
+        organiser: 'СССУ', _id: '1ww47'
+      },
       participant: {
         name: 'Сергій',
         surname: 'Антропов',
@@ -953,12 +952,20 @@ export class MockDataBase {
       _id: 'sdfsdgldpbfmp'
     },
     {
-      appointment: {title: 'Міжнародний день студентського спорту',
+      appointment: {
+        title: 'Міжнародний день студентського спорту',
         startDate: new Date(2021, 8, 20), finishDate: new Date(2021, 8, 20), duration: 3,
         organizationsParticipants: 'збірні областей і міста Київ', KPKV: 2201310, character: 'О', participants: 'students',
         direction: 'physical culture', status: 'ukrainian',
-        place: {country: 'Україна', region: 'Вінницька обл.', town: 'Вінниця', sportHallName: 'Стадіон ДЮСШ № 5', address: 'Центральний Парк'},
-        organiser: 'СССУ', _id: '1ww47'},
+        place: {
+          country: 'Україна',
+          region: 'Вінницька обл.',
+          town: 'Вінниця',
+          sportHallName: 'Стадіон ДЮСШ № 5',
+          address: 'Центральний Парк'
+        },
+        organiser: 'СССУ', _id: '1ww47'
+      },
       participant: {
         name: 'Дмитро',
         surname: 'Леонтович',
@@ -978,12 +985,20 @@ export class MockDataBase {
       _id: 'івавпапваіпвап'
     },
     {
-      appointment: {title: 'Міжнародний день студентського спорту',
+      appointment: {
+        title: 'Міжнародний день студентського спорту',
         startDate: new Date(2021, 8, 20), finishDate: new Date(2021, 8, 20), duration: 3,
         organizationsParticipants: 'збірні областей і міста Київ', KPKV: 2201310, character: 'О', participants: 'students',
         direction: 'physical culture', status: 'ukrainian',
-        place: {country: 'Україна', region: 'Вінницька обл.', town: 'Вінниця', sportHallName: 'Стадіон ДЮСШ № 5', address: 'Центральний Парк'},
-        organiser: 'СССУ', _id: '1ww47'},
+        place: {
+          country: 'Україна',
+          region: 'Вінницька обл.',
+          town: 'Вінниця',
+          sportHallName: 'Стадіон ДЮСШ № 5',
+          address: 'Центральний Парк'
+        },
+        organiser: 'СССУ', _id: '1ww47'
+      },
       participant: {
         name: 'Дмитро',
         surname: 'Леонтович',
@@ -1003,12 +1018,20 @@ export class MockDataBase {
       _id: 'dsvsldsdbsd'
     },
     {
-      appointment: {title: 'Міжнародний день студентського спорту',
+      appointment: {
+        title: 'Міжнародний день студентського спорту',
         startDate: new Date(2021, 8, 20), finishDate: new Date(2021, 8, 20), duration: 3,
         organizationsParticipants: 'збірні областей і міста Київ', KPKV: 2201310, character: 'О', participants: 'students',
         direction: 'physical culture', status: 'ukrainian',
-        place: {country: 'Україна', region: 'Вінницька обл.', town: 'Вінниця', sportHallName: 'Стадіон ДЮСШ № 5', address: 'Центральний Парк'},
-        organiser: 'СССУ', _id: '1ww47'},
+        place: {
+          country: 'Україна',
+          region: 'Вінницька обл.',
+          town: 'Вінниця',
+          sportHallName: 'Стадіон ДЮСШ № 5',
+          address: 'Центральний Парк'
+        },
+        organiser: 'СССУ', _id: '1ww47'
+      },
       participant: {
         name: 'Станіслав',
         surname: 'Михайлов',
@@ -1028,12 +1051,20 @@ export class MockDataBase {
       _id: 'оілваіва'
     },
     {
-      appointment: {title: 'Міжнародний день студентського спорту',
+      appointment: {
+        title: 'Міжнародний день студентського спорту',
         startDate: new Date(2021, 8, 20), finishDate: new Date(2021, 8, 20), duration: 3,
         organizationsParticipants: 'збірні областей і міста Київ', KPKV: 2201310, character: 'О', participants: 'students',
         direction: 'physical culture', status: 'ukrainian',
-        place: {country: 'Україна', region: 'Вінницька обл.', town: 'Вінниця', sportHallName: 'Стадіон ДЮСШ № 5', address: 'Центральний Парк'},
-        organiser: 'СССУ', _id: '1ww47'},
+        place: {
+          country: 'Україна',
+          region: 'Вінницька обл.',
+          town: 'Вінниця',
+          sportHallName: 'Стадіон ДЮСШ № 5',
+          address: 'Центральний Парк'
+        },
+        organiser: 'СССУ', _id: '1ww47'
+      },
       participant: {
         name: 'Станіслав',
         surname: 'Михайлов',
@@ -1053,12 +1084,20 @@ export class MockDataBase {
       _id: 'оілваіва'
     },
     {
-      appointment: {title: 'Міжнародний день студентського спорту',
+      appointment: {
+        title: 'Міжнародний день студентського спорту',
         startDate: new Date(2021, 8, 20), finishDate: new Date(2021, 8, 20), duration: 3,
         organizationsParticipants: 'збірні областей і міста Київ', KPKV: 2201310, character: 'О', participants: 'students',
         direction: 'physical culture', status: 'ukrainian',
-        place: {country: 'Україна', region: 'Вінницька обл.', town: 'Вінниця', sportHallName: 'Стадіон ДЮСШ № 5', address: 'Центральний Парк'},
-        organiser: 'СССУ', _id: '1ww47'},
+        place: {
+          country: 'Україна',
+          region: 'Вінницька обл.',
+          town: 'Вінниця',
+          sportHallName: 'Стадіон ДЮСШ № 5',
+          address: 'Центральний Парк'
+        },
+        organiser: 'СССУ', _id: '1ww47'
+      },
       participant: {
         name: 'Станіслав',
         surname: 'Михайлов',
@@ -1078,12 +1117,20 @@ export class MockDataBase {
       _id: 'оілваіва'
     },
     {
-      appointment: {title: 'Міжнародний день студентського спорту',
+      appointment: {
+        title: 'Міжнародний день студентського спорту',
         startDate: new Date(2021, 8, 20), finishDate: new Date(2021, 8, 20), duration: 3,
         organizationsParticipants: 'збірні областей і міста Київ', KPKV: 2201310, character: 'О', participants: 'students',
         direction: 'physical culture', status: 'ukrainian',
-        place: {country: 'Україна', region: 'Вінницька обл.', town: 'Вінниця', sportHallName: 'Стадіон ДЮСШ № 5', address: 'Центральний Парк'},
-        organiser: 'СССУ', _id: '1ww47'},
+        place: {
+          country: 'Україна',
+          region: 'Вінницька обл.',
+          town: 'Вінниця',
+          sportHallName: 'Стадіон ДЮСШ № 5',
+          address: 'Центральний Парк'
+        },
+        organiser: 'СССУ', _id: '1ww47'
+      },
       participant: {
         name: 'Ганна',
         surname: 'Смолякова',
@@ -1103,12 +1150,20 @@ export class MockDataBase {
       _id: 'vdfbdfbdfbdb'
     },
     {
-      appointment: {title: 'Міжнародний день студентського спорту',
+      appointment: {
+        title: 'Міжнародний день студентського спорту',
         startDate: new Date(2021, 8, 20), finishDate: new Date(2021, 8, 20), duration: 3,
         organizationsParticipants: 'збірні областей і міста Київ', KPKV: 2201310, character: 'О', participants: 'students',
         direction: 'physical culture', status: 'ukrainian',
-        place: {country: 'Україна', region: 'Вінницька обл.', town: 'Вінниця', sportHallName: 'Стадіон ДЮСШ № 5', address: 'Центральний Парк'},
-        organiser: 'СССУ', _id: '1ww47'},
+        place: {
+          country: 'Україна',
+          region: 'Вінницька обл.',
+          town: 'Вінниця',
+          sportHallName: 'Стадіон ДЮСШ № 5',
+          address: 'Центральний Парк'
+        },
+        organiser: 'СССУ', _id: '1ww47'
+      },
       participant: {
         name: 'Ганна',
         surname: 'Смолякова',
@@ -1128,12 +1183,20 @@ export class MockDataBase {
       _id: 'sdfsdgldpbfmp'
     },
     {
-      appointment: {title: 'Міжнародний день студентського спорту',
+      appointment: {
+        title: 'Міжнародний день студентського спорту',
         startDate: new Date(2021, 8, 20), finishDate: new Date(2021, 8, 20), duration: 3,
         organizationsParticipants: 'збірні областей і міста Київ', KPKV: 2201310, character: 'О', participants: 'students',
         direction: 'physical culture', status: 'ukrainian',
-        place: {country: 'Україна', region: 'Вінницька обл.', town: 'Вінниця', sportHallName: 'Стадіон ДЮСШ № 5', address: 'Центральний Парк'},
-        organiser: 'СССУ', _id: '1ww47'},
+        place: {
+          country: 'Україна',
+          region: 'Вінницька обл.',
+          town: 'Вінниця',
+          sportHallName: 'Стадіон ДЮСШ № 5',
+          address: 'Центральний Парк'
+        },
+        organiser: 'СССУ', _id: '1ww47'
+      },
       participant: {
         name: 'Наталія',
         surname: 'Макаревич',
@@ -1153,12 +1216,20 @@ export class MockDataBase {
       _id: 'сукпіи'
     },
     {
-      appointment: {title: 'Міжнародний день студентського спорту',
+      appointment: {
+        title: 'Міжнародний день студентського спорту',
         startDate: new Date(2021, 8, 20), finishDate: new Date(2021, 8, 20), duration: 3,
         organizationsParticipants: 'збірні областей і міста Київ', KPKV: 2201310, character: 'О', participants: 'students',
         direction: 'physical culture', status: 'ukrainian',
-        place: {country: 'Україна', region: 'Вінницька обл.', town: 'Вінниця', sportHallName: 'Стадіон ДЮСШ № 5', address: 'Центральний Парк'},
-        organiser: 'СССУ', _id: '1ww47'},
+        place: {
+          country: 'Україна',
+          region: 'Вінницька обл.',
+          town: 'Вінниця',
+          sportHallName: 'Стадіон ДЮСШ № 5',
+          address: 'Центральний Парк'
+        },
+        organiser: 'СССУ', _id: '1ww47'
+      },
       participant: {
         name: 'Наталія',
         surname: 'Макаревич',
@@ -1178,12 +1249,20 @@ export class MockDataBase {
       _id: 'двіпівп'
     },
     {
-      appointment: {title: 'Міжнародний день студентського спорту',
+      appointment: {
+        title: 'Міжнародний день студентського спорту',
         startDate: new Date(2021, 8, 20), finishDate: new Date(2021, 8, 20), duration: 3,
         organizationsParticipants: 'збірні областей і міста Київ', KPKV: 2201310, character: 'О', participants: 'students',
         direction: 'physical culture', status: 'ukrainian',
-        place: {country: 'Україна', region: 'Вінницька обл.', town: 'Вінниця', sportHallName: 'Стадіон ДЮСШ № 5', address: 'Центральний Парк'},
-        organiser: 'СССУ', _id: '1ww47'},
+        place: {
+          country: 'Україна',
+          region: 'Вінницька обл.',
+          town: 'Вінниця',
+          sportHallName: 'Стадіон ДЮСШ № 5',
+          address: 'Центральний Парк'
+        },
+        organiser: 'СССУ', _id: '1ww47'
+      },
       participant: {
         name: 'Лілія',
         surname: 'Підкопаєва',
@@ -1203,12 +1282,20 @@ export class MockDataBase {
       _id: 'іваіп'
     },
     {
-      appointment: {title: 'Міжнародний день студентського спорту',
+      appointment: {
+        title: 'Міжнародний день студентського спорту',
         startDate: new Date(2021, 8, 20), finishDate: new Date(2021, 8, 20), duration: 3,
         organizationsParticipants: 'збірні областей і міста Київ', KPKV: 2201310, character: 'О', participants: 'students',
         direction: 'physical culture', status: 'ukrainian',
-        place: {country: 'Україна', region: 'Вінницька обл.', town: 'Вінниця', sportHallName: 'Стадіон ДЮСШ № 5', address: 'Центральний Парк'},
-        organiser: 'СССУ', _id: '1ww47'},
+        place: {
+          country: 'Україна',
+          region: 'Вінницька обл.',
+          town: 'Вінниця',
+          sportHallName: 'Стадіон ДЮСШ № 5',
+          address: 'Центральний Парк'
+        },
+        organiser: 'СССУ', _id: '1ww47'
+      },
       participant: {
         name: 'Лілія',
         surname: 'Підкопаєва',

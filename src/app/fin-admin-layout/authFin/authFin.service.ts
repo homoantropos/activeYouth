@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
 import { User } from '../../shared/interfases';
 import { Router } from '@angular/router';
-import {HttpClient} from '@angular/common/http';
-import {Observable} from 'rxjs';
+import {HttpClient, HttpErrorResponse} from '@angular/common/http';
+import {Observable, Subject, throwError} from 'rxjs';
 import {environment} from '../../../environments/environment';
-import {tap} from 'rxjs/operators';
+import {catchError, tap} from 'rxjs/operators';
 
 
 @Injectable({
@@ -14,6 +14,7 @@ import {tap} from 'rxjs/operators';
 export class AuthFinService {
 
   private token = null;
+  error$: Subject<string> = new Subject<string>();
 
   constructor(
     private http: HttpClient,
@@ -24,7 +25,7 @@ export class AuthFinService {
     return this.token;
   }
 
-  login(user: User): Observable<{ token: string }> {
+  login(user: User): Observable<any> {
     return this.http.post<{ token: string }>(`${environment.mongoDbUrl}/auth/login`, user)
       .pipe(
         tap(
@@ -32,7 +33,8 @@ export class AuthFinService {
             localStorage.setItem('auth-token', token);
             this.setToken(token);
           }
-        )
+        ),
+        catchError(this.errorHandle.bind(this))
       );
   }
 
@@ -50,5 +52,22 @@ export class AuthFinService {
     // @ts-ignore
     this.token = token;
   }
-
+  private errorHandle(error: HttpErrorResponse): any {
+    const message = error.error.message;
+    if (message) {
+      switch (message) {
+        case('INVALID_EMAIL'):
+          this.error$.next('емейл вже занято.');
+          break;
+        case('INVALID_PASSWORD'):
+          this.error$.next('невірний пароль');
+          break;
+        case('EMAIL_NOT_FOUND'):
+          this.error$.next('емейл не знайдено');
+          break;
+      }
+    }
+    console.log(message);
+    return throwError(error);
+  }
 }

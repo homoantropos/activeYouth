@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {User} from '../interfases';
+import {User} from '../../shared/interfases';
 import {HttpClient, HttpErrorResponse} from '@angular/common/http';
 import {environment} from '../../../environments/environment';
 import {Observable, Subject, throwError} from 'rxjs';
@@ -9,6 +9,7 @@ import {Router} from '@angular/router';
 @Injectable({
   providedIn: 'root'
 })
+
 export class AuthService {
   public error$: Subject<string> = new Subject<string>();
   private token = null;
@@ -38,7 +39,7 @@ export class AuthService {
   logOut(): void {
     this.setToken(null);
     localStorage.clear();
-    this.router.navigate(['admin', 'login']);
+    this.router.navigate(['/admin', 'login']);
   }
 
   isAuthenticated(): boolean {

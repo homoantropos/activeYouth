@@ -1,11 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes, PreloadAllModules } from '@angular/router';
 import {PageNotFoundComponent} from './shared/components/page-not-found/page-not-found.component';
+import {AuthGuardService} from './admin-layout/auth/auth-guard.service';
 
 const routes: Routes = [
   { path: '', loadChildren: () => import('./main-layout/main-layout.module').then(m => m.MainLayoutModule) },
   { path: 'admin', loadChildren: () => import('./admin-layout/admin-layout.module').then(m => m.AdminLayoutModule)},
-  { path: 'expenses', loadChildren: () => import('./fin-admin-layout/fin-admin-layout.module').then(m => m.FinAdminLayoutModule) },
+  { path: 'expenses', loadChildren: () => import('./fin-admin-layout/fin-admin-layout.module').then(m => m.FinAdminLayoutModule)},
   {path: '**', component: PageNotFoundComponent}
 ];
 
