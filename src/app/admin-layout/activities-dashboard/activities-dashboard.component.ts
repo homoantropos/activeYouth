@@ -33,7 +33,7 @@ export class ActivitiesDashboardComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit(): void {
-    this.activities$ = this.activityService.getAllActivity();
+    this.activities$ = this.activityService.getAllActivity('physical culture');
   }
 
   ngAfterViewInit(): void {

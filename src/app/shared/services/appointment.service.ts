@@ -25,6 +25,7 @@ export class AppointmentService {
       .pipe(
         map((response: Array<Appointment>) => {
           // @ts-ignore
+          response.sort((a, b) => new Date(a.startDate) - new Date(b.startDate));
           for (const appointment of response) {
             const id: string = (appointment.place) as unknown as string;
             this.placesService.getPlaceById(id)

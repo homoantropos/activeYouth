@@ -1,9 +1,9 @@
-import {AfterViewInit, Component, ViewChild} from '@angular/core';
-import {MockDataBase} from '../../thoseWillBeDeletedAfterDBCreating/mockDB';
+import {AfterViewInit, Component, OnDestroy, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
 import {MatTableDataSource} from '@angular/material/table';
 import {Activity} from '../../shared/interfases';
-import {MatPaginator} from '@angular/material/paginator';
+import {Observable, Subscription} from 'rxjs';
+import {ActivityService} from '../../shared/services/activity.service';
 
 @Component({
   selector: 'app-sports-dashboard',
@@ -11,22 +11,27 @@ import {MatPaginator} from '@angular/material/paginator';
   styleUrls: ['./sports-dashboard.component.css']
 })
 
-export class SportsDashboardComponent implements AfterViewInit {
-  displayedColumns: string[] = ['title', 'author', 'date', 'edit', 'delete'];
-  dataSource: MatTableDataSource<Activity> =
-    new MatTableDataSource<Activity>(
-      MockDataBase.mockActivitiesDataBase.filter(a => a.kindOfActivity === 'sport')
-    );
+export class SportsDashboardComponent implements OnInit, AfterViewInit, OnDestroy {
+
   // @ts-ignore
-  @ViewChild(MatPaginator) paginator: MatPaginator;
+  sports$: Observable<Array<Activity>>;
+  // @ts-ignore
+  sSub: Subscription;
+  // @ts-ignore
+  dataSource: MatTableDataSource<Activity>;
+
+  displayedColumns: string[] = ['title', 'author', 'date', 'edit', 'delete'];
 
   constructor(
-    private router: Router
+    private router: Router,
+    private activityService: ActivityService
   ) { }
 
-  ngAfterViewInit(): void {
-    this.dataSource.paginator = this.paginator;
+  ngOnInit(): void {
+    this.sports$ = this.activityService.getAllActivity('sport');
   }
+
+  ngAfterViewInit(): void {}
 
   goToActivityCreator(): void {
     this.router.navigate(['admin', 'sports', 'create']);
@@ -34,5 +39,11 @@ export class SportsDashboardComponent implements AfterViewInit {
 
   goToActivitiesDetails(a: Activity): void {
     this.router.navigateByUrl(`/admin/sports/${a._id}`);
+  }
+
+  ngOnDestroy(): void {
+    if (this.sSub) {
+      this.sSub.unsubscribe();
+    }
   }
 }

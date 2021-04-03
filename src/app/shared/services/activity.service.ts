@@ -4,6 +4,7 @@ import {Observable, of} from 'rxjs';
 import {MockDataBase} from '../../thoseWillBeDeletedAfterDBCreating/mockDB';
 import {HttpClient} from '@angular/common/http';
 import {environment} from '../../../environments/environment';
+import {map} from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -27,8 +28,13 @@ export class ActivityService {
     return of(activity);
   }
 
-  getAllActivity(): Observable<Array<Activity>> {
-    return this.http.get<Array<Activity>>(`${environment.mongoDbUrl}/activities`);
+  getAllActivity(kindOfactivity: string): Observable<Array<Activity>> {
+    return this.http.get<Array<Activity>>(`${environment.mongoDbUrl}/activities`)
+      .pipe(
+        map(
+          activities => activities.filter(activity => activity.kindOfActivity === kindOfactivity)
+        )
+      );
   }
 
   getActivityByID(id: string): Observable<Activity> {

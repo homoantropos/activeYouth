@@ -15,7 +15,7 @@ export class SportsCreatorComponent implements OnInit {
   // @ts-ignore
   activitiesCreatorForm: FormGroup;
   constructor(
-    private sportServise: ActivityService,
+    private activityService: ActivityService,
     private router: Router
   ) { }
 
@@ -45,9 +45,7 @@ export class SportsCreatorComponent implements OnInit {
       kindOfActivity: 'sport',
       date: new Date()
     };
-    this.sportServise.createActivity(activity).subscribe(a => {
-      activity._id = a._id;
-      activity.kindOfActivity = a.kindOfActivity;
+    this.activityService.createActivity(activity).subscribe(a => {
       this.activitiesCreatorForm.reset();
       this.submitted = false;
       this.router.navigate(['admin', 'sports']);

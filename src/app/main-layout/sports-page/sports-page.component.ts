@@ -30,7 +30,7 @@ export class SportsPageComponent implements OnInit, AfterViewInit {
   ) { }
 
   ngOnInit(): void {
-    this.activityServise.getAllActivity()
+    this.activityServise.getAllActivity('sport')
       .subscribe(s => this.sports = s);
     this.dataSource = new MatTableDataSource<Activity>(this.sports);
   }
