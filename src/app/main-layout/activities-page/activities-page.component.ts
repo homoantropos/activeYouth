@@ -20,8 +20,6 @@ export class ActivitiesPageComponent implements OnInit {
   activities$: Observable<Array<Activity>>;
   // @ts-ignore
   dataSource: MatTableDataSource<Activity>;
-  // @ts-ignore
-  aSub: Subscription;
 
   constructor(
     private router: Router,

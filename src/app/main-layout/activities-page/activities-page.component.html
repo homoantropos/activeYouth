@@ -1,6 +1,6 @@
-<div class="table-container" *ngIf="activities$ | async as activities; else loader">
+<div class="table-container" *ngIf="activities$ | async as datasource; else loader">
 
-  <table mat-table [dataSource]="activities" class="mat-elevation-z8">
+  <table mat-table [dataSource]="datasource" class="mat-elevation-z8">
 
     <ng-container matColumnDef="title">
       <th mat-header-cell *matHeaderCellDef> Назва</th>
@@ -23,6 +23,7 @@
 
   </table>
 </div>
+
 <mat-paginator class="mat-paginator" [pageSizeOptions]="[10, 5, 15, 20]" showFirstLastButtons></mat-paginator>
 
 <ng-template #loader>
