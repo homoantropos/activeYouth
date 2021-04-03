@@ -15,6 +15,7 @@ import {ActivityService} from '../../shared/services/activity.service';
 export class SportsDashboardComponent implements OnInit {
 
   displayedColumns: string[] = ['title', 'author', 'date', 'edit', 'delete'];
+  paginatorStartPageNumber = 1;
 
   // @ts-ignore
   sports$: Observable<Array<Activity>>;

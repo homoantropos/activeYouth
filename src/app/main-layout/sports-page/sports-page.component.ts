@@ -16,7 +16,7 @@ import {ActivityService} from '../../shared/services/activity.service';
 export class SportsPageComponent implements OnInit {
 
   displayedColumns: string[] = ['title', 'author', 'date'];
-
+  paginatorStartPageNumber = 1;
   // @ts-ignore
   sports$: Observable<Array<Activity>>;
   // @ts-ignore

@@ -1,7 +1,8 @@
 <div class="table-container"
      *ngIf="schedule$ | async as schedule; else loader"
 >
-  <table mat-table matSort [dataSource]="schedule" class="mat-elevation-z8">
+  <table mat-table matSort [dataSource]="schedule  | paginate: { itemsPerPage: 10, currentPage: p }"
+         class="mat-elevation-z8">
 
     <ng-container matColumnDef="title">
       <th mat-header-cell *matHeaderCellDef mat-sort-header="title"> Захід</th>
@@ -29,9 +30,12 @@
   </table>
 
 </div>
-
-<mat-paginator [pageSizeOptions]="[15, 10, 5, 20]" showFirstLastButtons></mat-paginator>
-
+<pagination-controls
+  class = "my-pagination"
+  (pageChange)="p = $event"
+  previousLabel="назад"
+  nextLabel="уперед"
+></pagination-controls>
 
 <ng-template #loader>
   <app-loader></app-loader>

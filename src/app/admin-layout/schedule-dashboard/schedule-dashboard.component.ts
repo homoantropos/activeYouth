@@ -1,10 +1,11 @@
-import {AfterViewInit, Component, OnInit, ViewChild} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {Observable} from 'rxjs';
 import {Router} from '@angular/router';
+
 import {MatTableDataSource} from '@angular/material/table';
 import {Appointment} from '../../shared/interfases';
-import {MatPaginator} from '@angular/material/paginator';
-import {MatSort} from '@angular/material/sort';
 import {AppointmentService} from '../../shared/services/appointment.service';
+
 
 @Component({
   selector: 'app-schedule-dashboard',
@@ -12,18 +13,16 @@ import {AppointmentService} from '../../shared/services/appointment.service';
   styleUrls: ['./schedule-dashboard.component.css']
 })
 
-export class ScheduleDashboardComponent implements OnInit, AfterViewInit {
+export class ScheduleDashboardComponent implements OnInit {
 
   displayedColumns: string[] = ['title', 'termsOfHolding', 'place', 'edit', 'delete'];
 
   // @ts-ignore
   dataSource: MatTableDataSource<Appointment>;
   schedule1: Array<Appointment> = [];
-
+  paginatorStartPageNumber = 1;
   // @ts-ignore
-  @ViewChild(MatPaginator) paginator: MatPaginator;
-  // @ts-ignore
-  @ViewChild(MatSort) sort: MatSort;
+  schedule$: Observable<Array<Appointment>>;
 
   constructor(
     private router: Router,
@@ -32,20 +31,7 @@ export class ScheduleDashboardComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit(): void {
-    this.appointmentService.getAllAppointment()
-      .subscribe((response: Array<Appointment>) => {
-          this.schedule1 = response.slice();
-          this.dataSource = new MatTableDataSource<Appointment>(this.schedule1);
-          this.dataSource.paginator = this.paginator;
-          this.dataSource.sort = this.sort;
-          return this.schedule1;
-        }
-      );
-  }
-
-  ngAfterViewInit(): void {
-    this.dataSource.paginator = this.paginator;
-    this.dataSource.sort = this.sort;
+    this.schedule$ = this.appointmentService.getAllAppointment();
   }
 
   deleteAppointmentFromDb(id: string): void {

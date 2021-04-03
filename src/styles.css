@@ -179,3 +179,8 @@ mat-radio-button {
 .info {
   background-color: grey;
 }
+
+.my-pagination  {
+  font-family: "Oswald", "Roboto Condensed", sans-serif;
+  font-size: 13px;
+}

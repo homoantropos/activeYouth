@@ -14,11 +14,13 @@ import {ActivityService} from '../../shared/services/activity.service';
 export class ActivitiesDashboardComponent implements OnInit {
 
   displayedColumns: string[] = ['title', 'author', 'date', 'edit', 'delete'];
+  paginatorStartPageNumber = 1;
 
   // @ts-ignore
   activities$: Observable<Array<Activity>>;
   // @ts-ignore
   dataSource: MatTableDataSource<Activity>;
+
 
   constructor(
     private router: Router,

@@ -1,10 +1,10 @@
-<div class="table-container" *ngIf="activities$ | async as activities; else loader">
+<div class="table-container" *ngIf="activities$ | async as dataSource; else loader">
 
   <button mat-button color="primary"
           (click)="goToActivityCreator()">Додати
   </button>
 
-  <table mat-table [dataSource]="activities" class="mat-elevation-z8">
+  <table mat-table [dataSource]="dataSource | paginate: { itemsPerPage: 10, currentPage: paginatorStartPageNumber }" class="mat-elevation-z8">
 
     <ng-container matColumnDef="title">
       <th mat-header-cell *matHeaderCellDef> Назва</th>
@@ -42,7 +42,13 @@
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
   </table>
 </div>
-<mat-paginator [pageSizeOptions]="[5, 10, 15, 20]" showFirstLastButtons class="mat-paginator"></mat-paginator>
+
+<pagination-controls
+  class="my-pagination"
+  (pageChange)="paginatorStartPageNumber = $event"
+  previousLabel="назад"
+  nextLabel="уперед"
+></pagination-controls>
 
 <ng-template #loader>
   <app-loader></app-loader>

@@ -17,6 +17,7 @@ import {MatSelectModule} from '@angular/material/select';
 import {HttpClientModule} from '@angular/common/http';
 import {LoaderComponent} from './components/loader/loader.component';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import {NgxPaginationModule} from 'ngx-pagination';
 
 @NgModule({
   declarations: [
@@ -39,6 +40,7 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
     MatMomentDateModule,
     MatSelectModule,
     MatProgressSpinnerModule,
+    NgxPaginationModule,
     HttpClientModule
   ],
   exports: [
@@ -53,6 +55,7 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
     MatSelectModule,
     MatProgressSpinnerModule,
     SanitizeHTMLPipePipe,
+    NgxPaginationModule,
     HttpClientModule,
     LoaderComponent
   ],

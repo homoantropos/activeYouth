@@ -13,6 +13,7 @@ import {Router} from '@angular/router';
 })
 export class StatisticDashboardComponent implements AfterViewInit {
 
+  paginatorStartPageNumber = 1;
   displayedColumns = [
     'appointment.title',
     'termsOfHolding',
@@ -34,7 +35,8 @@ export class StatisticDashboardComponent implements AfterViewInit {
 
   constructor(
     private router: Router
-  ) { }
+  ) {
+  }
 
   ngAfterViewInit(): void {
     this.dataSource2.paginator = this.paginator;
