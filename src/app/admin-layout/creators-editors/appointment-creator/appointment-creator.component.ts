@@ -49,11 +49,12 @@ export class AppointmentCreatorComponent implements OnInit {
  onCreate(value: any): void {
     value.duration = this.dateProvider.provideDuration(value.startDate, value.finishDate);
     const appointment: Appointment = (value) as Appointment;
+    console.log(appointment);
     this.appointmentService.saveAppointmentToDb(appointment).pipe()
       .subscribe(
        (a) => {
         // @ts-ignore
-        a._id = a._id;
+        console.log(a);
         const appointmentFinancing: AppointmentFinancing = {
           appointment: a,
           expensesPlan: basicExpensesPlan,

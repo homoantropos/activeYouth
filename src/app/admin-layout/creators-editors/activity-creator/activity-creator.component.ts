@@ -43,7 +43,7 @@ export class ActivityCreatorComponent implements OnInit {
       title: this.activitiesCreatorForm.value.title,
       author: this.activitiesCreatorForm.value.author,
       content: this.activitiesCreatorForm.value.content,
-      kindOfActivity: 'physical culture',
+      kindOfActivity: 'physicalCulture',
       date: new Date()
     };
     this.activityService.createActivity(activity).subscribe(() => {

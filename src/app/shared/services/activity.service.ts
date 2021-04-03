@@ -27,8 +27,8 @@ export class ActivityService {
     return of(activity);
   }
 
-  getAllActivity(kindOfActivity: string): Observable<Array<Activity>> {
-    return this.http.get<Array<Activity>>(`${environment.mongoDbUrl}/activities/${kindOfActivity}`);
+  getAllActivity(): Observable<Array<Activity>> {
+    return this.http.get<Array<Activity>>(`${environment.mongoDbUrl}/activities`);
   }
 
   getActivityByID(id: string): Observable<Activity> {
