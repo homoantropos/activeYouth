@@ -65,9 +65,6 @@ export class LoginPageComponent implements OnInit, OnDestroy {
       .subscribe(
         () => this.router.navigate(['admin', 'schedule']),
         error => {
-          this.errorResponse = error;
-          console.log(error.error.message);
-          console.log(error);
           this.loginForm.enable();
         }
       );

@@ -7,6 +7,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { PageNotFoundComponent } from './shared/components/page-not-found/page-not-found.component';
 import {QuillModule} from 'ngx-quill';
 import { SharedModule } from './shared/shared.module';
+import {HTTP_INTERCEPTORS} from '@angular/common/http';
+import {AuthInterceptor} from './admin-layout/auth/auth.interceptor';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,13 @@ import { SharedModule } from './shared/shared.module';
     QuillModule.forRoot(),
     SharedModule
   ],
-  providers: [ ],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      multi: true,
+      useClass: AuthInterceptor
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

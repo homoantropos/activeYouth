@@ -1,19 +1,22 @@
-import { Injectable } from '@angular/core';
-import { Activity } from '../interfases';
-import { Observable, of } from 'rxjs';
-import { MockDataBase } from '../../thoseWillBeDeletedAfterDBCreating/mockDB';
+import {Injectable} from '@angular/core';
+import {Activity} from '../interfases';
+import {Observable, of} from 'rxjs';
+import {MockDataBase} from '../../thoseWillBeDeletedAfterDBCreating/mockDB';
+import {HttpClient} from '@angular/common/http';
+import {environment} from '../../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ActivityService {
 
-  constructor() { }
+  constructor(
+    private http: HttpClient
+  ) {
+  }
 
   createActivity(activity: Activity): Observable<Activity> {
-    activity._id = `${Date.now()}`;
-    MockDataBase.mockActivitiesDataBase.push(activity);
-    return of(activity);
+    return this.http.post<Activity>(`${environment.mongoDbUrl}/activities`, activity);
   }
 
   deleteActivity(activity: Activity): Observable<string> {
@@ -25,9 +28,7 @@ export class ActivityService {
   }
 
   getAllActivity(kindOfActivity: string): Observable<Array<Activity>> {
-    const activities: Array<Activity> =
-      (MockDataBase.mockActivitiesDataBase.filter(a => a.kindOfActivity === kindOfActivity)) as Array<Activity>;
-    return of(activities);
+    return this.http.get<Array<Activity>>(`${environment.mongoDbUrl}/activities/${kindOfActivity}`);
   }
 
   getActivityByID(id: string): Observable<Activity> {

@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {MockDBAdministratorService} from './thoseWillBeDeletedAfterDBCreating/mock-db-admin.service';
+import {AuthService} from './admin-layout/auth/auth.service';
 
 @Component({
   selector: 'app-root',
@@ -9,11 +10,16 @@ import {MockDBAdministratorService} from './thoseWillBeDeletedAfterDBCreating/mo
 export class AppComponent implements OnInit {
   title = 'activeYouth';
   constructor(
+    private auth: AuthService,
     private admin: MockDBAdministratorService
   ) {
   }
 
   ngOnInit(): void {
+    const existToken = localStorage.getItem('auth-token');
+    if (existToken !== null){
+      this.auth.setToken(existToken);
+    }
     this.admin.createStatistics();
     this.admin.createBalance();
     this.admin.createResults();

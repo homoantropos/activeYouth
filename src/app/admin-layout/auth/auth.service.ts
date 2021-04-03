@@ -12,7 +12,7 @@ import {Router} from '@angular/router';
 
 export class AuthService {
   public error$: Subject<string> = new Subject<string>();
-  private token = null;
+  token = null;
 
   constructor(
     private http: HttpClient,
@@ -30,6 +30,7 @@ export class AuthService {
           ({token}) => {
             localStorage.setItem('auth-token', token);
             this.setToken(token);
+
           }
         ),
         catchError(this.errorHandle.bind(this))
@@ -46,7 +47,7 @@ export class AuthService {
     return !!this.token;
   }
 
-  private setToken(token: string | null): void {
+  setToken(token: string | null): void {
     // @ts-ignore
     this.token = token;
   }

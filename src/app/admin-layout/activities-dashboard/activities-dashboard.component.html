@@ -1,43 +1,54 @@
 <div class="table-container">
 
   <button mat-button color="primary"
-          (click)="goToActivityCreator()">Додати</button>
+          (click)="goToActivityCreator()">Додати
+  </button>
 
-<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+  <table mat-table
+         *ngIf="activities$ | async as activities; else loader"
+         [dataSource]="activities"
+         class="mat-elevation-z8">
 
-  <ng-container matColumnDef="title">
-    <th mat-header-cell *matHeaderCellDef> Назва </th>
-    <td mat-cell *matCellDef="let activity">
-      <a (click)="goToActivitiesDetails(activity)">{{activity.title}}</a></td>
-  </ng-container>
+    <ng-container matColumnDef="title">
+      <th mat-header-cell *matHeaderCellDef> Назва</th>
+      <td mat-cell *matCellDef="let activity">
+        <a (click)="goToActivitiesDetails(activity)">{{activity.title}}</a></td>
+    </ng-container>
 
-  <ng-container matColumnDef="author">
-    <th mat-header-cell *matHeaderCellDef> Автор </th>
-    <td mat-cell *matCellDef="let activity"> {{activity.author}} </td>
-  </ng-container>
+    <ng-container matColumnDef="author">
+      <th mat-header-cell *matHeaderCellDef> Автор</th>
+      <td mat-cell *matCellDef="let activity"> {{activity.author}} </td>
+    </ng-container>
 
-  <ng-container matColumnDef="date">
-    <th mat-header-cell *matHeaderCellDef> Дата </th>
-    <td mat-cell *matCellDef="let activity"> {{activity.date | date: 'dd.MM.yyyy'}} </td>
-  </ng-container>
+    <ng-container matColumnDef="date">
+      <th mat-header-cell *matHeaderCellDef> Дата</th>
+      <td mat-cell *matCellDef="let activity"> {{activity.date | date: 'dd.MM.yyyy'}} </td>
+    </ng-container>
 
-  <ng-container matColumnDef="edit">
-    <th mat-header-cell *matHeaderCellDef> Редагувати </th>
-    <td mat-cell *matCellDef> <button mat-button color="primary">Редагувати</button> </td>
-  </ng-container>
+    <ng-container matColumnDef="edit">
+      <th mat-header-cell *matHeaderCellDef> Редагувати</th>
+      <td mat-cell *matCellDef>
+        <button mat-button color="primary">Редагувати</button>
+      </td>
+    </ng-container>
 
-  <ng-container matColumnDef="delete">
-    <th mat-header-cell *matHeaderCellDef> Видалити </th>
-    <td mat-cell *matCellDef = "let activity"> <button mat-button color="primary"
-    (click) = "removeActivityFromDB(activity)">Видалити</button> </td>
-  </ng-container>
+    <ng-container matColumnDef="delete">
+      <th mat-header-cell *matHeaderCellDef> Видалити</th>
+      <td mat-cell *matCellDef="let activity">
+        <button mat-button color="primary"
+                (click)="removeActivityFromDB(activity)">Видалити
+        </button>
+      </td>
+    </ng-container>
 
-  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-</table>
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
 </div>
 <mat-paginator [pageSizeOptions]="[5, 10, 15, 20]" showFirstLastButtons class="mat-paginator"></mat-paginator>
 
-
+<ng-template #loader>
+  <app-loader></app-loader>
+</ng-template>
 
 

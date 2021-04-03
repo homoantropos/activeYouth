@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {AuthService} from './auth/auth.service';
 import {Router} from '@angular/router';
 
@@ -12,9 +12,11 @@ export class AdminLayoutComponent implements OnInit {
   constructor(
     public auth: AuthService,
     private router: Router
-  ) { }
+  ) {
+  }
 
   ngOnInit(): void {
+
   }
 
   goToMainPage(): void {

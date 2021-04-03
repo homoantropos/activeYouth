@@ -1,7 +1,6 @@
 export interface User {
   email: string;
   password: string;
-  accessLevel?: number;
   _id?: string;
 }
 

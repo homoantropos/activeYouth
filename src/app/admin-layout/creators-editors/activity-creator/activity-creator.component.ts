@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {Activity} from '../../../shared/interfases';
 import {Router} from '@angular/router';
@@ -13,10 +13,12 @@ export class ActivityCreatorComponent implements OnInit {
   submitted = false;
   // @ts-ignore
   activitiesCreatorForm: FormGroup;
+
   constructor(
-    private activityServise: ActivityService,
+    private activityService: ActivityService,
     private router: Router
-  ) { }
+  ) {
+  }
 
   ngOnInit(): void {
     this.activitiesCreatorForm = new FormGroup({
@@ -44,9 +46,7 @@ export class ActivityCreatorComponent implements OnInit {
       kindOfActivity: 'physical culture',
       date: new Date()
     };
-    this.activityServise.createActivity(activity).subscribe(a => {
-      activity._id = a._id;
-      activity.kindOfActivity = a.kindOfActivity;
+    this.activityService.createActivity(activity).subscribe(() => {
       this.activitiesCreatorForm.reset();
       this.submitted = false;
       this.router.navigate(['admin', 'activities']);
