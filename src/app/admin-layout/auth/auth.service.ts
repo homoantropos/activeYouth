@@ -20,7 +20,13 @@ export class AuthService {
   }
 
   getToken(): string | null {
-    return this.token;
+    // @ts-ignore
+    const expDate = new Date(localStorage.getItem('auth-token-exp'));
+    if (new Date() > expDate) {
+      this.logOut();
+      return null;
+    }
+    return localStorage.getItem('auth-token');
   }
 
   login(user: User): Observable<any> {
@@ -28,9 +34,10 @@ export class AuthService {
       .pipe(
         tap(
           ({token}) => {
+            const authExpTime = new Date(new Date().getTime() + 60 * 60 * 1000 );
+            localStorage.setItem('auth-token-exp', authExpTime.toString());
             localStorage.setItem('auth-token', token);
             this.setToken(token);
-
           }
         ),
         catchError(this.errorHandle.bind(this))

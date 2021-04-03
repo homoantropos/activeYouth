@@ -8,7 +8,7 @@
     {{ error }}
   </div>
 
-  <div class="alert info" *ngIf="message">
+  <div class="alert info" *ngIf="message && loginForm.untouched">
     {{ message }}
   </div>
 
