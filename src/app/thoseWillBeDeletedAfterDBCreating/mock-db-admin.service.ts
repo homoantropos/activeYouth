@@ -3,8 +3,8 @@ import {
   Appointment,
   Expenses,
   AppointmentFinancing,
-  NumbersOfParticipants,
-  Statistic,
+  Members,
+  Report,
   Result,
   Participant,
   EducationEntity
@@ -87,7 +87,7 @@ export class MockDBAdministratorService {
     );
   }
 
-  createStatistic(appointment: Appointment): Statistic {
+  createStatistic(appointment: Appointment): Report {
 
     const countries = Math.floor(Math.random() * 25);
     const regions = Math.floor(Math.random() * 25);
@@ -100,7 +100,7 @@ export class MockDBAdministratorService {
     const personPerDayTotalPlan = appointment.duration * total;
     const personPerDayTotalFact = personPerDayTotalPlan;
 
-    const numberOfParticipantsPlan: NumbersOfParticipants = {
+    const membersPlan: Members = {
       countries,
       regions,
       educationEntity,
@@ -111,7 +111,7 @@ export class MockDBAdministratorService {
       total
     };
 
-    const numberOfParticipantsFact: NumbersOfParticipants = {
+    const membersFact: Members = {
       countries,
       regions,
       educationEntity,
@@ -124,11 +124,11 @@ export class MockDBAdministratorService {
 
     return {
       appointment,
-      numberOfParticipantsPlan,
+      membersPlan,
       personPerDayTotalPlan,
-      numberOfParticipantsFact,
+      membersFact,
       personPerDayTotalFact,
-      _id: `${numberOfParticipantsFact.total + numberOfParticipantsPlan.total}`
+      _id: `${membersFact.total + membersPlan.total}`
     };
   }
 

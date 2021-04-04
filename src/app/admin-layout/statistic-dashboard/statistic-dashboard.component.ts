@@ -1,6 +1,6 @@
 import {AfterViewInit, Component, ViewChild} from '@angular/core';
 import {MatTableDataSource} from '@angular/material/table';
-import {Statistic} from '../../shared/interfases';
+import {Report} from '../../shared/interfases';
 import {MockDataBase} from '../../thoseWillBeDeletedAfterDBCreating/mockDB';
 import {MatPaginator} from '@angular/material/paginator';
 import {MatSort} from '@angular/material/sort';
@@ -27,7 +27,7 @@ export class StatisticDashboardComponent implements AfterViewInit {
     'numberOfOthers',
     'total'
   ];
-  dataSource2: MatTableDataSource<Statistic> = new MatTableDataSource<Statistic>(MockDataBase.statistics);
+  dataSource2: MatTableDataSource<Report> = new MatTableDataSource<Report>(MockDataBase.statistics);
   // @ts-ignore
   @ViewChild(MatPaginator) paginator: MatPaginator;
   // @ts-ignore
@@ -43,7 +43,7 @@ export class StatisticDashboardComponent implements AfterViewInit {
     this.dataSource2.sort = this.sort;
   }
 
-  goToStatDetails(s: Statistic): void {
+  goToStatDetails(s: Report): void {
     this.router.navigateByUrl(`/admin/statistic/${s._id}`);
   }
 }

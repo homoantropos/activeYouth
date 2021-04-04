@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {Appointment, AppointmentFinancing, Statistic} from '../interfases';
+import {Appointment, AppointmentFinancing, Report} from '../interfases';
 import {
   basicExpensesFact,
   basicExpensesPlan,
@@ -8,7 +8,7 @@ import {
 } from '../../../environments/environment';
 import {HttpClient} from '@angular/common/http';
 import {AppointmentFinancingService} from './appointment-financing.service';
-import {StatisticService} from './statistic.service';
+import {ReportService} from './report.service';
 import {Observable} from 'rxjs';
 
 @Injectable({
@@ -20,7 +20,7 @@ export class SynchronizationOfSavingService {
   constructor(
     private http: HttpClient,
     private appointmentFinancingService: AppointmentFinancingService,
-    private statisticService: StatisticService
+    private statisticService: ReportService
   ) { }
 
   onAppointmentCreation(appointment: Appointment): any {
@@ -36,11 +36,11 @@ export class SynchronizationOfSavingService {
      }
     );
 
-    const statistic: Statistic = {
+    const statistic: Report = {
       appointment,
-      numberOfParticipantsPlan: basicNumberOfParticipantsPlan,
+      membersPlan: basicNumberOfParticipantsPlan,
       personPerDayTotalPlan: 0,
-      numberOfParticipantsFact: basicNumberOfParticipantsFact,
+      membersFact: basicNumberOfParticipantsFact,
       personPerDayTotalFact: 0
     };
     this.statisticService.createStatistic(statistic).subscribe(

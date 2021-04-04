@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {Appointment, AppointmentFinancing, Statistic} from '../interfases';
+import {Appointment, AppointmentFinancing, Report} from '../interfases';
 import {Observable, of} from 'rxjs';
 import {MockDataBase} from '../../thoseWillBeDeletedAfterDBCreating/mockDB';
 import {SynchronizationOfSavingService} from './synchronization-of-saving.service';

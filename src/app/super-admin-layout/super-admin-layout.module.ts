@@ -7,7 +7,6 @@ import { UserAdminComponent } from './user-admin/user-admin.component';
 import { PlacesAdminComponent } from './places-admin/places-admin.component';
 import { SportsAdminComponent } from './sports-admin/sports-admin.component';
 import { ActivitiesAdminComponent } from './activities-admin/activities-admin.component';
-import { SuperLoginPageComponent } from './super-login-page/super-login-page.component';
 import { UserCreatorComponent } from './creators-editors/user-creator/user-creator.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {SharedModule} from '../shared/shared.module';
@@ -20,7 +19,6 @@ import {SharedModule} from '../shared/shared.module';
     PlacesAdminComponent,
     SportsAdminComponent,
     ActivitiesAdminComponent,
-    SuperLoginPageComponent,
     UserCreatorComponent],
   imports: [
     FormsModule,

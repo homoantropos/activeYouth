@@ -4,17 +4,15 @@ import {FinAdminLayoutComponent} from './fin-admin-layout.component';
 import {ExpencesManagerComponent} from './creators-editors/expences-creator/expences-manager.component';
 import {FinDashboardComponent} from './fin-dashboard/fin-dashboard.component';
 import {AppointmentFinancingDetailsComponent} from '../shared/components/appointment-financing-details/appointment-financing-details.component';
-import {FinLoginPageComponent} from './fin-login-page/fin-login-page.component';
-import {AuthGuardFinService} from './authFin/auth-guard-fin.service';
+import {AuthGuardService} from '../admin-layout/auth/auth-guard.service';
 
 const routes: Routes = [
   {
-    path: '', component: FinAdminLayoutComponent, children: [
-      {path: '', redirectTo: 'login', pathMatch: 'full'},
-      {path: 'login', component: FinLoginPageComponent},
-      {path: 'dashboard', component: FinDashboardComponent, canActivate: [AuthGuardFinService]},
-      {path: 'edit/:id', component: ExpencesManagerComponent, canActivate: [AuthGuardFinService]},
-      {path: ':id', component: AppointmentFinancingDetailsComponent, canActivate: [AuthGuardFinService]},
+    path: '', component: FinAdminLayoutComponent, canActivate: [AuthGuardService], children: [
+      {path: '', redirectTo: 'dashboard', pathMatch: 'full'},
+      {path: 'dashboard', component: FinDashboardComponent},
+      {path: 'edit/:id', component: ExpencesManagerComponent},
+      {path: ':id', component: AppointmentFinancingDetailsComponent},
     ]
   }
 ];

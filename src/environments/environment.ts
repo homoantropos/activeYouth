@@ -3,7 +3,7 @@
 // The list of file replacements can be found in `angular.json`.
 
 import {Environment} from './interfaces';
-import {AppointmentFinancing, Expenses, NumbersOfParticipants} from '../app/shared/interfases';
+import {AppointmentFinancing, Expenses, Members} from '../app/shared/interfases';
 
 export const environment: Environment = {
   production: false,
@@ -13,7 +13,7 @@ export const environment: Environment = {
 export const basicExpensesPlan: Expenses = {kekv2210: 0, kekv2220: 0, kekv2240: 0, total: 0};
 export const basicExpensesFact: Expenses = {kekv2210: 0, kekv2220: 0, kekv2240: 0, total: 0};
 
-export const basicNumberOfParticipantsPlan: NumbersOfParticipants = {
+export const basicNumberOfParticipantsPlan: Members = {
   countries: 0,
     regions: 0,
     educationEntity: 0,
@@ -24,7 +24,7 @@ export const basicNumberOfParticipantsPlan: NumbersOfParticipants = {
     total: 0
 };
 
-export const basicNumberOfParticipantsFact: NumbersOfParticipants = {
+export const basicNumberOfParticipantsFact: Members = {
   countries: 0,
   regions: 0,
   educationEntity: 0,

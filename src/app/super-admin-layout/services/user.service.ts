@@ -13,6 +13,9 @@ export class UserService {
     private http: HttpClient
   ) { }
 
+  getAllUsers(): Observable<Array<User>> {
+    return this.http.get<Array<User>>(`${environment.mongoDbUrl}/auth/users`);
+  }
   registrateUser(user: User): Observable<User> {
     return this.http.post<User>(`${environment.mongoDbUrl}/auth/register`, user);
   }

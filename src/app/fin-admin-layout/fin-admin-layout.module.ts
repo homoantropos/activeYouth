@@ -7,7 +7,6 @@ import {ExpencesManagerComponent} from './creators-editors/expences-creator/expe
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {FinDashboardComponent} from './fin-dashboard/fin-dashboard.component';
 import {SharedModule} from '../shared/shared.module';
-import {FinLoginPageComponent} from './fin-login-page/fin-login-page.component';
 
 
 @NgModule({
@@ -15,7 +14,6 @@ import {FinLoginPageComponent} from './fin-login-page/fin-login-page.component';
     FinAdminLayoutComponent,
     ExpencesManagerComponent,
     FinDashboardComponent,
-    FinLoginPageComponent
   ],
   imports: [
     FormsModule,

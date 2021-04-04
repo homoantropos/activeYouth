@@ -91,7 +91,8 @@ export interface Expenses {
   kekv2210: number;
   kekv2220: number;
   kekv2240: number;
-  total: number;
+  // TODO: удалить
+  total?: number;
   _userId?: string;
 }
 
@@ -103,7 +104,7 @@ export interface AppointmentFinancing {
   _userId?: string;
 }
 
-export interface NumbersOfParticipants {
+export interface Members {
   countries?: number;
   regions?: number;
   educationEntity?: number;
@@ -114,11 +115,11 @@ export interface NumbersOfParticipants {
   total: number;
 }
 
-export interface Statistic {
+export interface Report {
   appointment: Appointment;
-  numberOfParticipantsPlan: NumbersOfParticipants;
+  membersPlan: Members;
   personPerDayTotalPlan: number;
-  numberOfParticipantsFact: NumbersOfParticipants;
+  membersFact: Members;
   personPerDayTotalFact: number;
   _id?: string;
   _userId?: string;

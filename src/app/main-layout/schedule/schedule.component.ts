@@ -17,9 +17,9 @@ export class ScheduleComponent implements OnInit, AfterViewInit {
 
   // @ts-ignore
   schedule$: Observable<Array<Appointment>>;
-  p = 1;
+  currentPage = 1;
   displayedColumns: string[] = ['title', 'termsOfHolding', 'place'];
-
+  paginatorConfig = { itemsPerPage: 10, currentPage: this.currentPage };
   // @ts-ignore
   @ViewChild(MatPaginator) paginator: MatPaginator;
   // @ts-ignore
@@ -35,7 +35,6 @@ export class ScheduleComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-    this.dataSource.paginator = this.paginator;
   }
 
 }

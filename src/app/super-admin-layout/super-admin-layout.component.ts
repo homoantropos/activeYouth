@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {AuthSuperService} from './authSuper/authSuper.service';
+import {AuthService} from '../admin-layout/auth/auth.service';
 
 @Component({
   selector: 'app-super-admin',
@@ -9,7 +9,7 @@ import {AuthSuperService} from './authSuper/authSuper.service';
 export class SuperAdminLayoutComponent implements OnInit {
 
   constructor(
-    public auth: AuthSuperService
+    public auth: AuthService
   ) { }
 
   ngOnInit(): void {

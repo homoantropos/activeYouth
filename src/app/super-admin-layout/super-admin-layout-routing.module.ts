@@ -5,21 +5,19 @@ import {UserAdminComponent} from './user-admin/user-admin.component';
 import {PlacesAdminComponent} from './places-admin/places-admin.component';
 import {SportsAdminComponent} from './sports-admin/sports-admin.component';
 import {ActivitiesAdminComponent} from './activities-admin/activities-admin.component';
-import {SuperLoginPageComponent} from './super-login-page/super-login-page.component';
 import {UserCreatorComponent} from './creators-editors/user-creator/user-creator.component';
-import {AuthGuardSuperService} from './authSuper/auth-guard-super.service';
+import {AuthGuardService} from '../admin-layout/auth/auth-guard.service';
 
 const routes: Routes = [
-  {path: '', component: SuperAdminLayoutComponent, children: [
-      {path: '', redirectTo: 'login', pathMatch: 'full'},
-      {path: 'login', component: SuperLoginPageComponent},
-      {path: 'users', canActivate: [AuthGuardSuperService], children: [
+  {path: '', component: SuperAdminLayoutComponent, canActivate: [AuthGuardService], children: [
+      {path: '', redirectTo: 'users', pathMatch: 'full'},
+      {path: 'users', children: [
           {path: 'create', component: UserCreatorComponent},
           {path: '', component: UserAdminComponent}]
       },
-      {path: 'places', component: PlacesAdminComponent, canActivate: [AuthGuardSuperService]},
-      {path: 'sports', component: SportsAdminComponent, canActivate: [AuthGuardSuperService]},
-      {path: 'activities', component: ActivitiesAdminComponent, canActivate: [AuthGuardSuperService]}
+      {path: 'places', component: PlacesAdminComponent},
+      {path: 'sports', component: SportsAdminComponent},
+      {path: 'activities', component: ActivitiesAdminComponent}
     ]
   }
 ];

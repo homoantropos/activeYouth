@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute, Params} from '@angular/router';
-import {StatisticService} from '../../services/statistic.service';
-import {NumbersOfParticipants, Statistic} from '../../interfases';
+import {ReportService} from '../../services/report.service';
+import {Members, Report} from '../../interfases';
 import {map} from 'rxjs/operators';
 
 @Component({
@@ -11,7 +11,7 @@ import {map} from 'rxjs/operators';
 })
 export class StatisticDetailsComponent implements OnInit {
   // @ts-ignore
-  statistic: Statistic;
+  statistic: Report;
   displayedColumns: string [] = [
     'level', 'plan'
   ];
@@ -20,7 +20,7 @@ export class StatisticDetailsComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private statService: StatisticService
+    private statService: ReportService
   ) { }
 
   ngOnInit(): void {

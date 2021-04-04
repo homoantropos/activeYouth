@@ -4,7 +4,7 @@ import {Subscription} from 'rxjs';
 import {ActivatedRoute, Params, Router} from '@angular/router';
 import {User} from '../../../shared/interfases';
 import {UserService} from '../../services/user.service';
-import {AuthSuperService} from '../../authSuper/authSuper.service';
+import {AuthService} from '../../../admin-layout/auth/auth.service';
 
 @Component({
   selector: 'app-user-creator',
@@ -22,7 +22,7 @@ export class UserCreatorComponent implements OnInit, OnDestroy {
   submitted = true;
 
   constructor(
-    public auth: AuthSuperService,
+    public auth: AuthService,
     private userService: UserService,
     private router: Router,
     private route: ActivatedRoute

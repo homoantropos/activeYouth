@@ -1,12 +1,12 @@
 import {Activity, Appointment, AppointmentFinancing, Result, User} from '../shared/interfases';
-import {Statistic} from '../shared/interfases';
+import {Report} from '../shared/interfases';
 
 export class MockDataBase {
 
   constructor() {
   }
 
-  static statistics: Array<Statistic> = [];
+  static statistics: Array<Report> = [];
 
 
   static balance: Array<AppointmentFinancing> = [];

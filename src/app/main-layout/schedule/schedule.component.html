@@ -1,7 +1,7 @@
 <div class="table-container"
      *ngIf="schedule$ | async as schedule; else loader"
 >
-  <table mat-table matSort [dataSource]="schedule  | paginate: { itemsPerPage: 10, currentPage: p }"
+  <table mat-table matSort [dataSource]="schedule  | paginate: paginatorConfig"
          class="mat-elevation-z8">
 
     <ng-container matColumnDef="title">
@@ -32,7 +32,7 @@
 </div>
 <pagination-controls
   class = "my-pagination"
-  (pageChange)="p = $event"
+  (pageChange)="currentPage = $event"
   previousLabel="назад"
   nextLabel="уперед"
 ></pagination-controls>

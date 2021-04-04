@@ -21,42 +21,42 @@
 
     <ng-container matColumnDef="numberOfCountries">
       <th mat-header-cell *matHeaderCellDef mat-sort-header> Країн</th>
-      <td mat-cell *matCellDef="let statistic"> {{statistic.numberOfParticipantsFact.countries}}</td>
+      <td mat-cell *matCellDef="let statistic"> {{statistic.membersFact.countries}}</td>
     </ng-container>
 
     <ng-container matColumnDef="numberOfRegions">
       <th mat-header-cell *matHeaderCellDef mat-sort-header> Регіонів </th>
-      <td mat-cell *matCellDef="let statistic"> {{statistic.numberOfParticipantsFact.regions}}</td>
+      <td mat-cell *matCellDef="let statistic"> {{statistic.membersFact.regions}}</td>
     </ng-container>
 
     <ng-container matColumnDef="numberOfEduEnt">
       <th mat-header-cell *matHeaderCellDef mat-sort-header> Закладів<br>освіти </th>
-      <td mat-cell *matCellDef="let statistic"> {{statistic.numberOfParticipantsFact.educationEntity}}</td>
+      <td mat-cell *matCellDef="let statistic"> {{statistic.membersFact.educationEntity}}</td>
     </ng-container>
 
     <ng-container matColumnDef="numberOfSportsmen">
       <th mat-header-cell *matHeaderCellDef mat-sort-header> Учасників </th>
-      <td mat-cell *matCellDef="let statistic"> {{statistic.numberOfParticipantsFact.sportsmen}}</td>
+      <td mat-cell *matCellDef="let statistic"> {{statistic.membersFact.sportsmen}}</td>
     </ng-container>
 
     <ng-container matColumnDef="numberOfCoaches">
       <th mat-header-cell *matHeaderCellDef mat-sort-header> Тренерів </th>
-      <td mat-cell *matCellDef="let statistic"> {{statistic.numberOfParticipantsFact.coaches}}</td>
+      <td mat-cell *matCellDef="let statistic"> {{statistic.membersFact.coaches}}</td>
     </ng-container>
 
     <ng-container matColumnDef="numberOfReferees">
       <th mat-header-cell *matHeaderCellDef mat-sort-header> Суддів </th>
-      <td mat-cell *matCellDef="let statistic"> {{statistic.numberOfParticipantsFact.referees}}</td>
+      <td mat-cell *matCellDef="let statistic"> {{statistic.membersFact.referees}}</td>
     </ng-container>
 
     <ng-container matColumnDef="numberOfOthers">
       <th mat-header-cell *matHeaderCellDef mat-sort-header> Інших </th>
-      <td mat-cell *matCellDef="let statistic"> {{statistic.numberOfParticipantsFact.others}}</td>
+      <td mat-cell *matCellDef="let statistic"> {{statistic.membersFact.others}}</td>
     </ng-container>
 
     <ng-container matColumnDef="total">
       <th mat-header-cell *matHeaderCellDef mat-sort-header> Всього </th>
-      <td mat-cell *matCellDef="let statistic"> {{statistic.numberOfParticipantsFact.total}}</td>
+      <td mat-cell *matCellDef="let statistic"> {{statistic.membersFact.total}}</td>
     </ng-container>
 
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
