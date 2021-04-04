@@ -77,3 +77,6 @@ export class LoginPageComponent implements OnInit, OnDestroy {
     }
   }
 }
+
+/*TODO:
+* 1. Додати пісказки користувачу під час заповнення форми - внести пароль, довжина повинна бути такоюто тощо*/

@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
+
 import {Appointment, AppointmentFinancing} from '../../../shared/interfases';
 import {Router} from '@angular/router';
 import {AppointmentService} from '../../../shared/services/appointment.service';
@@ -21,11 +22,12 @@ export class AppointmentCreatorComponent implements OnInit {
     private dateProvider: DateProviderService,
     private appointmentFinancingService: AppointmentFinancingService,
     private router: Router
-  ) { }
+  ) {
+  }
 
   ngOnInit(): void {
     this.appointmentCreatorForm = new FormGroup({
-      title: new FormControl ('', [Validators.required]),
+      title: new FormControl('', [Validators.required]),
       startDate: new FormControl('', [Validators.required]),
       finishDate: new FormControl('', [Validators.required]),
       place: new FormGroup({
@@ -46,27 +48,38 @@ export class AppointmentCreatorComponent implements OnInit {
     });
   }
 
- onCreate(value: any): void {
+  onCreate(value: any): void {
     value.duration = this.dateProvider.provideDuration(value.startDate, value.finishDate);
     const appointment: Appointment = (value) as Appointment;
-    console.log(appointment);
+    console.log('before saving: ', appointment);
     this.appointmentService.saveAppointmentToDb(appointment).pipe()
       .subscribe(
-       (a) => {
-        // @ts-ignore
-        console.log(a);
-        const appointmentFinancing: AppointmentFinancing = {
-          appointment: a,
-          expensesPlan: basicExpensesPlan,
-          expensesFact: basicExpensesFact
-        };
-        this.appointmentFinancingService.createAppointmentFinancing(appointmentFinancing).subscribe(
-          apf => console.log(apf)
-        );
-        this.appointmentCreatorForm.reset();
-        this.router.navigate(['admin', 'schedule']);
-        alert('ваш захід додано!');
-      }
-    );
+        (a) => {
+          // @ts-ignore
+          console.log('after saving', a);
+          const appointmentFinancing: AppointmentFinancing = {
+            appointment: a,
+            expensesPlan: basicExpensesPlan,
+            expensesFact: basicExpensesFact
+          };
+          this.appointmentFinancingService.createAppointmentFinancing(appointmentFinancing).subscribe(
+            apf => console.log(apf)
+          );
+          this.appointmentCreatorForm.reset();
+          this.router.navigate(['admin', 'schedule']);
+          alert('ваш захід додано!');
+        }
+      );
   }
 }
+
+/* TODO:
+* 1. Додати поля для внесення запланованих показників залучення до заходу.
+* 2. Додати довідники для країн, регіонів, міст, спортивних заходів.
+* 3. Додати валідацію - вибір країн тощо виключно з випадаючого списку "на льоту" -
+*    підсказка вірної країни/регіону повинна виникати під час набору.
+* 4. Додати можливість запам'ятовувати свій варіант під час внесення місця проведення,
+*    якщо такого не знайшлося в довіднику.
+* 5. Додати одночасне створення екземпляру події разом з статистикою і фінансуванням.
+* 6. Додати валідацію вводу цифр - під час введення статистики не повинні вносити брєд.
+*/
