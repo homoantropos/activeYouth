@@ -10,6 +10,7 @@ import {AuthSuperService} from '../authSuper/authSuper.service';
   templateUrl: './super-login-page.component.html',
   styleUrls: ['./super-login-page.component.css']
 })
+
 export class SuperLoginPageComponent implements OnInit, OnDestroy {
   // @ts-ignore
   loginForm: FormGroup;
@@ -28,7 +29,7 @@ export class SuperLoginPageComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     if (this.auth.isAuthenticated()) {
-      this.router.navigate(['superadmin', 'users']);
+      this.router.navigate(['/superadmin', 'users']);
     }
     this.route.queryParams.subscribe((params: Params) => {
       if (params.loginFailed) {
@@ -59,7 +60,7 @@ export class SuperLoginPageComponent implements OnInit, OnDestroy {
     };
     this.aSub = this.auth.login(user)
       .subscribe(
-        () => this.router.navigate(['superadmin', 'users']),
+        () => this.router.navigate(['/superadmin', 'users']),
         error => {
           this.loginForm.enable();
         }

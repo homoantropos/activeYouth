@@ -10,18 +10,16 @@ import {UserCreatorComponent} from './creators-editors/user-creator/user-creator
 import {AuthGuardSuperService} from './authSuper/auth-guard-super.service';
 
 const routes: Routes = [
-  {
-    path: '', component: SuperAdminLayoutComponent, children: [
+  {path: '', component: SuperAdminLayoutComponent, children: [
       {path: '', redirectTo: 'login', pathMatch: 'full'},
       {path: 'login', component: SuperLoginPageComponent},
-      {
-        path: 'users', component: UserAdminComponent, canActivate: [AuthGuardSuperService], children: [
-          {path: 'create', component: UserCreatorComponent, canActivateChild: [AuthGuardSuperService]}
-        ]
+      {path: 'users', canActivate: [AuthGuardSuperService], children: [
+          {path: 'create', component: UserCreatorComponent},
+          {path: '', component: UserAdminComponent}]
       },
-      {path: 'places', component: PlacesAdminComponent},
-      {path: 'sports', component: SportsAdminComponent},
-      {path: 'activities', component: ActivitiesAdminComponent}
+      {path: 'places', component: PlacesAdminComponent, canActivate: [AuthGuardSuperService]},
+      {path: 'sports', component: SportsAdminComponent, canActivate: [AuthGuardSuperService]},
+      {path: 'activities', component: ActivitiesAdminComponent, canActivate: [AuthGuardSuperService]}
     ]
   }
 ];

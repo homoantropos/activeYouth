@@ -1,6 +1,6 @@
-import { Injectable } from '@angular/core';
-import { User } from '../../shared/interfases';
-import { Router } from '@angular/router';
+import {Injectable} from '@angular/core';
+import {User} from '../../shared/interfases';
+import {Router} from '@angular/router';
 import {HttpClient, HttpErrorResponse} from '@angular/common/http';
 import {Observable, Subject, throwError} from 'rxjs';
 import {environment} from '../../../environments/environment';
@@ -35,7 +35,7 @@ export class AuthSuperService {
       .pipe(
         tap(
           ({token}) => {
-            const authExpTime = new Date(new Date().getTime() + 60 * 60 * 1000 );
+            const authExpTime = new Date(new Date().getTime() + 60 * 60 * 1000);
             localStorage.setItem('auth-token-exp', authExpTime.toString());
             localStorage.setItem('auth-token', token);
             this.setToken(token);
@@ -65,14 +65,6 @@ export class AuthSuperService {
     if (message) {
       switch (message) {
         case('INVALID_EMAIL'):
-          this.error$.next('емейл вже занято.');
-          break;
-        case('INVALID_PASSWORD'):
-          this.error$.next('невірний пароль');
-          break;
-        case('EMAIL_NOT_FOUND'):
-          this.error$.next('емейл не знайдено');
-          break;
       }
     }
     console.log(message);

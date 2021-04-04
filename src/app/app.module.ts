@@ -9,6 +9,7 @@ import {QuillModule} from 'ngx-quill';
 import { SharedModule } from './shared/shared.module';
 import {HTTP_INTERCEPTORS} from '@angular/common/http';
 import {AuthInterceptor} from './admin-layout/auth/auth.interceptor';
+import {AuthSuperInterceptor} from './super-admin-layout/authSuper/auth-super.interceptor';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,11 @@ import {AuthInterceptor} from './admin-layout/auth/auth.interceptor';
       provide: HTTP_INTERCEPTORS,
       multi: true,
       useClass: AuthInterceptor
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      multi: true,
+      useClass: AuthSuperInterceptor
     }
   ],
   bootstrap: [AppComponent]

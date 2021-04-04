@@ -1,17 +1,19 @@
-import { Injectable } from '@angular/core';
-import {ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot} from '@angular/router';
+import {Injectable} from '@angular/core';
+import {ActivatedRouteSnapshot, CanActivate, CanActivateChild, Router, RouterStateSnapshot} from '@angular/router';
 import {Observable} from 'rxjs';
 import {AuthSuperService} from './authSuper.service';
 
 @Injectable({
   providedIn: 'root'
 })
-export class AuthGuardSuperService implements CanActivate {
+
+export class AuthGuardSuperService implements CanActivate, CanActivateChild {
 
   constructor(
     private auth: AuthSuperService,
     private router: Router
-  ) { }
+  ) {
+  }
 
   canActivate(
     route: ActivatedRouteSnapshot,
@@ -20,7 +22,7 @@ export class AuthGuardSuperService implements CanActivate {
     if (this.auth.isAuthenticated()) {
       return true;
     } else {
-      this.router.navigate(['superadmin', 'login'], {
+      this.router.navigate(['/superadmin', 'login'], {
         queryParams: {
           loginFailed: true
         }

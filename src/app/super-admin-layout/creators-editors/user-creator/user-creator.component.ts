@@ -31,7 +31,7 @@ export class UserCreatorComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     if (this.auth.isAuthenticated()) {
-      this.router.navigate(['superadmin', 'users']);
+      this.router.navigate(['/superadmin', 'users', 'create']);
     }
     this.route.queryParams.subscribe((params: Params) => {
       if (params.loginFailed) {
@@ -68,23 +68,18 @@ export class UserCreatorComponent implements OnInit, OnDestroy {
       return;
     }
     this.userCreatorForm.disable();
-    if (this.userCreatorForm.value.password === this.userCreatorForm.value.passwordCheck) {
-      const user: User = {
-        email: this.userCreatorForm.value.email,
-        password: this.userCreatorForm.value.password
-      };
-      this.uSub = this.userService.registrateUser(user)
-        .subscribe(
-          () => this.router.navigate(['superadmin', 'users']),
-          error => {
-            this.userCreatorForm.enable();
-          }
-        );
-    } else {
-      this.message = 'Паролі не співпадають';
-      this.userCreatorForm.enable();
-    }
-
+    const user: User = {
+      email: this.userCreatorForm.value.email,
+      password: this.userCreatorForm.value.password
+    };
+    this.uSub = this.userService.registrateUser(user)
+      .subscribe(
+        () => this.router.navigate(['/superadmin', 'users']),
+        error => {
+          this.userCreatorForm.enable();
+        }
+      );
+    this.userCreatorForm.enable();
   }
 
   ngOnDestroy(): void {

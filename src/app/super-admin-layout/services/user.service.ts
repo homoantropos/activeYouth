@@ -14,6 +14,6 @@ export class UserService {
   ) { }
 
   registrateUser(user: User): Observable<User> {
-    return this.http.post<User>(`${environment.mongoDbUrl}/register`, user);
+    return this.http.post<User>(`${environment.mongoDbUrl}/auth/register`, user);
   }
 }
