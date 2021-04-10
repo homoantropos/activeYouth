@@ -91,6 +91,7 @@ export class UserEditorComponent implements OnInit, OnDestroy {
     this.uSub = this.userService.editUser(user)
       .subscribe(
         resuser => {
+          alert(resuser.message);
           this.router.navigate(['/superadmin', 'users']);
         },
         error => {
