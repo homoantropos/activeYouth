@@ -30,7 +30,7 @@ export class AuthService {
   }
 
   login(user: User): Observable<any> {
-    return this.http.post<{ token: string }>(`${environment.mongoDbUrl}/auth/login`, user)
+    return this.http.post<{ token: string }>(`${environment.postgresDbUrl}/user/login`, user)
       .pipe(
         tap(
           ({token}) => {
