@@ -37,4 +37,7 @@ export class UserAdminComponent implements OnInit {
   goToUserCreator(): void {
     this.router.navigate(['/superadmin', 'users', 'create']);
   }
-}
+  goToUserEditor(id: string): void
+  {
+    this.router.navigateByUrl(`/superadmin/users/edit/${id}`);
+  }}

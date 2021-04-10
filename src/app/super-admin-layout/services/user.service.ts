@@ -3,7 +3,7 @@ import {HttpClient, HttpErrorResponse} from '@angular/common/http';
 import {User} from '../../shared/interfases';
 import {Observable, Subject, throwError} from 'rxjs';
 import {environment} from '../../../environments/environment';
-import {catchError, tap} from 'rxjs/operators';
+import {map} from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -27,6 +27,14 @@ export class UserService {
 
   removeUser(id: string): Observable<any> {
     return this.http.delete(`${environment.postgresDbUrl}/user/${id}`);
+  }
+
+  getOneUserById(id: number): Observable<User> {
+    return this.http.get<User>(`${environment.postgresDbUrl}/user/${id}`);
+  }
+
+  editUser(user: User): Observable<any>{
+    return this.http.patch<any>(`${environment.postgresDbUrl}/user/${user._id}`, user);
   }
 
   public errorHandle(error: HttpErrorResponse): any {

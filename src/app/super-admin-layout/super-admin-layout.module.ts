@@ -10,6 +10,7 @@ import { ActivitiesAdminComponent } from './activities-admin/activities-admin.co
 import { UserCreatorComponent } from './creators-editors/user-creator/user-creator.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {SharedModule} from '../shared/shared.module';
+import { UserEditorComponent } from './creators-editors/user-editor/user-editor.component';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import {SharedModule} from '../shared/shared.module';
     PlacesAdminComponent,
     SportsAdminComponent,
     ActivitiesAdminComponent,
-    UserCreatorComponent],
+    UserCreatorComponent,
+    UserEditorComponent],
   imports: [
     FormsModule,
     ReactiveFormsModule,
