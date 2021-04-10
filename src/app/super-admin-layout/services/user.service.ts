@@ -1,22 +1,44 @@
-import { Injectable } from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+import {Injectable} from '@angular/core';
+import {HttpClient, HttpErrorResponse} from '@angular/common/http';
 import {User} from '../../shared/interfases';
-import {Observable} from 'rxjs';
+import {Observable, Subject, throwError} from 'rxjs';
 import {environment} from '../../../environments/environment';
+import {catchError, tap} from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
 
+  public error$: Subject<string> = new Subject<string>();
+
   constructor(
     private http: HttpClient
-  ) { }
+  ) {
+  }
 
-  getAllUsers(): Observable<Array<User>> {
-    return this.http.get<Array<User>>(`${environment.mongoDbUrl}/auth/users`);
+  getAllUsers(): Observable<any> {
+    return this.http.get<any>(`${environment.postgresDbUrl}/user`);
   }
-  registrateUser(user: User): Observable<User> {
-    return this.http.post<User>(`${environment.mongoDbUrl}/auth/register`, user);
+
+  registerUser(user: User): Observable<User> {
+    return this.http.post<User>(`${environment.postgresDbUrl}/user`, user);
   }
+
+  removeUser(id: string): Observable<any> {
+    return this.http.delete(`${environment.postgresDbUrl}/user/${id}`);
+  }
+
+  public errorHandle(error: HttpErrorResponse): any {
+    const message = error.error.message;
+    if (message) {
+      switch (message) {
+        case('повторювані значення ключа порушують обмеження унікальності "person_email_key"'):
+          this.error$.next('емейл вже занято. спробуйте інший.');
+          break;
+      }
+    }
+    return throwError(error);
+  }
+
 }

@@ -1,4 +1,5 @@
 export interface Environment {
   production: false;
-  mongoDbUrl: string;
+  mongoDbUrl?: string;
+  postgresDbUrl?: string;
 }

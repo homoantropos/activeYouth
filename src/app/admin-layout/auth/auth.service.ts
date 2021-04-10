@@ -63,9 +63,6 @@ export class AuthService {
     const message = error.error.message;
     if (message) {
       switch (message) {
-        case('INVALID_EMAIL'):
-          this.error$.next('емейл вже занято.');
-          break;
         case('INVALID_PASSWORD'):
           this.error$.next('невірний пароль');
           break;
@@ -74,7 +71,6 @@ export class AuthService {
           break;
       }
     }
-    console.log(message);
     return throwError(error);
   }
 

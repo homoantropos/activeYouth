@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import {Router} from '@angular/router';
+import {UserService} from '../../super-admin-layout/services/user.service';
 
 @Component({
   selector: 'app-main-page',
@@ -9,7 +10,8 @@ import {Router} from '@angular/router';
 
 export class MainPageComponent {
   constructor(
-    private router: Router
+    private router: Router,
+    private userService: UserService
   ) {}
 
   // ці методи лише для ознайомленя з структурою сайту, вони будуть видалені

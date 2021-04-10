@@ -23,7 +23,7 @@ export class UserCreatorComponent implements OnInit, OnDestroy {
 
   constructor(
     public auth: AuthService,
-    private userService: UserService,
+    public userService: UserService,
     private router: Router,
     private route: ActivatedRoute
   ) {
@@ -50,6 +50,9 @@ export class UserCreatorComponent implements OnInit, OnDestroy {
       passwordCheck: new FormControl(null, [
         Validators.required,
         Validators.minLength(3)
+      ]),
+      role: new FormControl(null, [
+        Validators.required
       ])
     });
   }
@@ -70,12 +73,14 @@ export class UserCreatorComponent implements OnInit, OnDestroy {
     this.userCreatorForm.disable();
     const user: User = {
       email: this.userCreatorForm.value.email,
-      password: this.userCreatorForm.value.password
+      password: this.userCreatorForm.value.password,
+      role: this.userCreatorForm.value.role
     };
-    this.uSub = this.userService.registrateUser(user)
+    this.uSub = this.userService.registerUser(user)
       .subscribe(
         () => this.router.navigate(['/superadmin', 'users']),
         error => {
+          this.userService.errorHandle(error);
           this.userCreatorForm.enable();
         }
       );

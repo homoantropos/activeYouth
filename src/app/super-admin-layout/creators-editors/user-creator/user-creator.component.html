@@ -4,7 +4,7 @@
 
   <h3>Додайте користувача</h3>
 
-  <div class="alert danger" *ngIf="auth.error$ | async as error">
+  <div class="alert danger" *ngIf="userService.error$ | async as error">
     {{ error }}
   </div>
 
@@ -36,6 +36,14 @@
            formControlName="passwordCheck"
            (keyup)="checkPasswords()"
     >
+  </mat-form-field>
+
+  <mat-form-field class="forms-inputs">
+    <mat-label>оберіть роль користувача...</mat-label>
+    <input matInput
+           title="roleInput"
+           type="text"
+           formControlName="role">
   </mat-form-field>
 
   <button mat-button

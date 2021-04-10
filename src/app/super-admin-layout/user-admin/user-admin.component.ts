@@ -14,15 +14,24 @@ export class UserAdminComponent implements OnInit {
   // @ts-ignore
   dataSource: MatTableDataSource<User>;
   // @ts-ignore
-  user$: Observable<Arraye<User>>;
-  displayedColumns = ['email', 'password'];
+  user$: Observable<Array<User>>;
+  displayedColumns = ['_id', 'email', 'role', 'delete'];
   constructor(
     private router: Router,
-    private userServise: UserService
+    private userService: UserService
   ) { }
 
   ngOnInit(): void {
-    this.user$ = this.userServise.getAllUsers();
+    this.user$ = this.userService.getAllUsers();
+  }
+
+  onDelete(id: string): void {
+    this.userService.removeUser(id).subscribe(
+      res => {
+        alert(res.message);
+        this.ngOnInit();
+      }
+    );
   }
 
   goToUserCreator(): void {

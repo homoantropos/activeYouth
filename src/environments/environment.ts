@@ -7,7 +7,8 @@ import {AppointmentFinancing, Expenses, Members} from '../app/shared/interfases'
 
 export const environment: Environment = {
   production: false,
-  mongoDbUrl: 'http://localhost:5000/api'
+  mongoDbUrl: 'http://localhost:5000/api',
+  postgresDbUrl: 'http://localhost:8050/api'
 };
 
 export const basicExpensesPlan: Expenses = {kekv2210: 0, kekv2220: 0, kekv2240: 0, total: 0};
