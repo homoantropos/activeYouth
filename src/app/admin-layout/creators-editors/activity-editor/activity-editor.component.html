@@ -1,1 +1,35 @@
-<p>activity-editor works!</p>
+<form class="form-container"
+      [formGroup]="activitiesEditorForm"
+      (ngSubmit)="onChangeActivity()">
+
+  <h3>Редагувати активність</h3>
+
+  <mat-form-field class="forms-inputs">
+    <mat-label>введіть назву заняття...</mat-label>
+    <input matInput
+           title="for title"
+           type="text"
+           formControlName="title">
+  </mat-form-field>
+
+  <mat-form-field class="forms-inputs">
+    <mat-label>введіть автора...</mat-label>
+    <input matInput
+           class="forms-inputs"
+           title="for author"
+           type="text"
+           formControlName="author">
+  </mat-form-field>
+
+  <quill-editor
+    title="for content"
+    formControlName="content"
+  ></quill-editor>
+
+  <button
+    mat-raised-button
+    type="submit"
+    [disabled]="activitiesEditorForm.invalid">Зберегти зміни
+  </button>
+</form>
+

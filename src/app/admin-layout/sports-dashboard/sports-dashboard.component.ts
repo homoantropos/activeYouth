@@ -29,7 +29,7 @@ export class SportsDashboardComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.sports$ = this.activityService.getAllActivity('sport');
+    this.sports$ = this.activityService.getAllActivities('sport');
   }
 
   goToActivityCreator(): void {

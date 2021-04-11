@@ -24,8 +24,8 @@
 
     <ng-container matColumnDef="edit">
       <th mat-header-cell *matHeaderCellDef> Редагувати</th>
-      <td mat-cell *matCellDef>
-        <button mat-button color="primary">Редагувати</button>
+      <td mat-cell *matCellDef="let activity">
+        <button mat-button color="primary" (click)="goToActivitiesEditor(activity._id)">Редагувати</button>
       </td>
     </ng-container>
 

@@ -18,27 +18,27 @@ export class ActivityService {
   }
 
   createActivity(activity: Activity): Observable<Activity> {
-    return this.http.post<Activity>(`${environment.mongoDbUrl}/activities`, activity);
+    return this.http.post<Activity>(`${environment.postgresDbUrl}/activity`, activity);
   }
 
   deleteActivity(id: string): Observable<any> {
-    return this.http.delete<any>(`${environment.mongoDbUrl}/activities/${id}`);
+    return this.http.delete<any>(`${environment.postgresDbUrl}/activity/${id}`);
   }
 
   updateActivity(activity: Activity): Observable<Activity> {
-    return of(activity);
+    return this.http.patch<Activity>(`${environment.postgresDbUrl}/activity/${activity._id}`, activity);
   }
 
-  getAllActivity(kindOfActivity: string): Observable<Array<Activity>> {
-    return this.http.get<Array<Activity>>(`${environment.mongoDbUrl}/activities`)
-      .pipe(
-        map(
-          activities => activities.filter(activity => activity.kindOfActivity === kindOfActivity)
-        )
-      );
+  getAllActivities(kindOfActivity: string): Observable<Array<Activity>> {
+    return this.http.get<Array<Activity>>(`${environment.postgresDbUrl}/activity?kindOfActivity=${kindOfActivity}`);
+      // .pipe(
+      //   map(
+      //     response => response.filter(act => act.kindOfActivity === kindOfActivity)
+      //   )
+      // );
   }
 
-  getActivityByID(id: string): Observable<Activity> {
-    return this.http.get<Activity>(`${environment.mongoDbUrl}/activities/${id}`);
+  getActivityByID(id: number): Observable<Activity> {
+    return this.http.get<Activity>(`${environment.postgresDbUrl}/activity/${id}`);
   }
 }

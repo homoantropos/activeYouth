@@ -88,7 +88,7 @@ export class UserEditorComponent implements OnInit, OnDestroy {
       role: this.userEditorForm.value.role,
       _id: this.userId
     };
-    this.uSub = this.userService.editUser(user)
+    this.uSub = this.userService.updateUser(user)
       .subscribe(
         resuser => {
           alert(resuser.message);

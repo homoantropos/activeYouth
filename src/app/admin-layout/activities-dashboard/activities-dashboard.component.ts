@@ -29,7 +29,7 @@ export class ActivitiesDashboardComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.activities$ = this.activityService.getAllActivity('physical culture');
+    this.activities$ = this.activityService.getAllActivities('physical culture');
   }
 
   goToActivityCreator(): void {
@@ -38,6 +38,10 @@ export class ActivitiesDashboardComponent implements OnInit {
 
   goToActivitiesDetails(id: string): void {
     this.router.navigateByUrl(`/admin/activities/${id}`);
+  }
+
+  goToActivitiesEditor(id: string): void {
+    this.router.navigateByUrl(`/admin/activities/edit/${id}`);
   }
 
   removeActivityFromDB(id: string): void {

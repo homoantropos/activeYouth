@@ -28,7 +28,7 @@ export class ActivitiesPageComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.activities$ = this.activityService.getAllActivity('physical culture');
+    this.activities$ = this.activityService.getAllActivities('physical culture');
   }
 
   goToActivityDetails(a: Activity): void {

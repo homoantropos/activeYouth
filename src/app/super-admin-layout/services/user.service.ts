@@ -33,7 +33,7 @@ export class UserService {
     return this.http.get<User>(`${environment.postgresDbUrl}/user/${id}`);
   }
 
-  editUser(user: User): Observable<any>{
+  updateUser(user: User): Observable<any>{
     return this.http.patch<any>(`${environment.postgresDbUrl}/user/${user._id}`, user);
   }
 
