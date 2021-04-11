@@ -24,8 +24,8 @@ export class ActivityService {
     return this.http.delete<any>(`${environment.postgresDbUrl}/activity/${id}`);
   }
 
-  updateActivity(activity: Activity): Observable<Activity> {
-    return this.http.patch<Activity>(`${environment.postgresDbUrl}/activity/${activity._id}`, activity);
+  updateActivity(activity: Activity): Observable<any> {
+    return this.http.patch<any>(`${environment.postgresDbUrl}/activity/${activity._id}`, activity);
   }
 
   getAllActivities(kindOfActivity: string): Observable<Array<Activity>> {

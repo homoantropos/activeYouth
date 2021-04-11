@@ -55,6 +55,7 @@ export class SportsEditorComponent implements OnInit, OnDestroy {
       return;
     }
     this.submitted = true;
+    this.sportsEditorForm.disable();
     const activity: Activity = {
       title: this.sportsEditorForm.value.title,
       author: this.sportsEditorForm.value.author,
@@ -62,14 +63,16 @@ export class SportsEditorComponent implements OnInit, OnDestroy {
       kindOfActivity: 'sport',
       _id: this.activityId
     };
-    console.log(activity);
-    this.sSub = this.activityService.updateActivity(activity).subscribe(a => {
-      this.activityId = 0;
-      this.sportsEditorForm.reset();
+    this.sSub = this.activityService.updateActivity(activity)
+      .subscribe(a => {
       this.submitted = false;
       this.router.navigate(['admin', 'sports']);
       alert('Вітаємо! Ваші зміни успішно додано в базу даних!');
-    });
+    }, error => {
+      this.sportsEditorForm.enable();
+    }
+    );
+    this.sportsEditorForm.enable();
   }
 
   ngOnDestroy(): void {
