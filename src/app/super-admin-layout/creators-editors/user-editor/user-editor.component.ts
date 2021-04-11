@@ -33,39 +33,27 @@ export class UserEditorComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    if (this.auth.isAuthenticated()) {
-      this.route.params.subscribe((params: Params) => this.userId = (params.id) as number);
-      this.userService.getOneUserById(this.userId).subscribe(user => {
-        this.user = user;
-        console.log('user: ', this.user);
-        this.userEditorForm = new FormGroup({
-          email: new FormControl(this.user.email, [
-            Validators.required,
-            Validators.email
-          ]),
-          password: new FormControl(null, [
-            Validators.required,
-            Validators.minLength(3)
-          ]),
-          passwordCheck: new FormControl(null, [
-            Validators.required,
-            Validators.minLength(3)
-          ]),
-          role: new FormControl(this.user.role, [
-            Validators.required
-          ])
-        });
+    this.route.params.subscribe((params: Params) => this.userId = (params.id) as number);
+    this.userService.getOneUserById(this.userId).subscribe(user => {
+      this.user = user;
+      this.userEditorForm = new FormGroup({
+        email: new FormControl(this.user.email, [
+          Validators.required,
+          Validators.email
+        ]),
+        password: new FormControl(null, [
+          Validators.required,
+          Validators.minLength(3)
+        ]),
+        passwordCheck: new FormControl(null, [
+          Validators.required,
+          Validators.minLength(3)
+        ]),
+        role: new FormControl(this.user.role, [
+          Validators.required
+        ])
       });
-    } else {
-      this.router.navigate(['admin', 'login']);
-      this.route.queryParams.subscribe((params: Params) => {
-        if (params.loginFailed) {
-          this.message = 'Ви повинні авторизуватися';
-        }
-      });
-    }
-    console.log('user: ', this.user);
-
+    });
   }
 
   checkPasswords(): void {

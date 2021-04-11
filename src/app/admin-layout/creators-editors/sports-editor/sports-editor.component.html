@@ -1,8 +1,8 @@
 <form class="form-container"
-  [formGroup]="activitiesCreatorForm"
-      (ngSubmit)="onCreateActivity()">
+      [formGroup]="sportsEditorForm"
+      (ngSubmit)="onEditActivity()">
 
-  <h3>Додайте активність</h3>
+  <h3>Змініть активність</h3>
 
   <mat-form-field class="forms-inputs">
     <mat-label>введіть назву заняття...</mat-label>
@@ -28,5 +28,7 @@
   <button
     mat-raised-button
     type="submit"
-    [disabled]="activitiesCreatorForm.invalid">Додати</button>
+    [disabled]="sportsEditorForm.invalid">Зберегти зміни</button>
 </form>
+
+

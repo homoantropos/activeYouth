@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
-import {DataBaseService} from '../../../shared/services/data-base.service';
 import {Router} from '@angular/router';
+
 import {Activity} from '../../../shared/interfases';
 import {ActivityService} from '../../../shared/services/activity.service';
 
@@ -10,14 +10,17 @@ import {ActivityService} from '../../../shared/services/activity.service';
   templateUrl: './sports-creator.component.html',
   styleUrls: ['./sports-creator.component.css']
 })
+
 export class SportsCreatorComponent implements OnInit {
   submitted = false;
   // @ts-ignore
   activitiesCreatorForm: FormGroup;
+
   constructor(
     private activityService: ActivityService,
     private router: Router
-  ) { }
+  ) {
+  }
 
   ngOnInit(): void {
     this.activitiesCreatorForm = new FormGroup({

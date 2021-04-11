@@ -38,7 +38,7 @@ export class ScheduleDashboardComponent implements OnInit {
     this.appointmentService.deleteAppointment(id)
       .subscribe(
         (message) => {
-          console.log(message);
+          alert(message.message);
           this.ngOnInit();
         }
       );

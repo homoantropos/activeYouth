@@ -18,6 +18,7 @@ import {StatisticDashboardComponent} from './statistic-dashboard/statistic-dashb
 import {ActivityDetailsComponent} from '../shared/components/activity-details/activity-details.component';
 import {AppointmentDetailsComponent} from '../shared/components/appointment-details/appointment-details.component';
 import {StatisticDetailsComponent} from '../shared/components/statistic-details/statistic-details.component';
+import {SportsEditorComponent} from './creators-editors/sports-editor/sports-editor.component';
 
 const routes: Routes = [
   { path: '', component: AdminLayoutComponent, children: [
@@ -36,7 +37,7 @@ const routes: Routes = [
       {path: 'sports', canActivate: [AuthGuardService], children: [
           {path: '', component: SportsDashboardComponent},
           {path: 'create', component: SportsCreatorComponent},
-          {path: 'edit/:id', component: ActivityEditorComponent},
+          {path: 'edit/:id', component: SportsEditorComponent},
           {path: ':id', component: ActivityDetailsComponent}
         ]},
       {path: 'schedule', canActivate: [AuthGuardService], children: [

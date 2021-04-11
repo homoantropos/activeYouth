@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {ActivityService} from '../../services/activity.service';
 import {ActivatedRoute, Params} from '@angular/router';
 import {Activity} from '../../interfases';
@@ -11,14 +11,16 @@ import {Activity} from '../../interfases';
 export class ActivityDetailsComponent implements OnInit {
   // @ts-ignore
   activity: Activity;
+
   constructor(
-    private activityServise: ActivityService,
+    private activityService: ActivityService,
     private route: ActivatedRoute
-  ) { }
+  ) {
+  }
 
   ngOnInit(): void {
     this.route.params.subscribe(
-      (params: Params) => this.activityServise.getActivityByID(params.id).subscribe(
+      (params: Params) => this.activityService.getActivityByID(params.id).subscribe(
         a => this.activity = a
       )
     );

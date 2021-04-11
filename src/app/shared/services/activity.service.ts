@@ -1,10 +1,9 @@
 import {Injectable} from '@angular/core';
-import {Activity, Appointment} from '../interfases';
 import {Observable, of} from 'rxjs';
-import {MockDataBase} from '../../thoseWillBeDeletedAfterDBCreating/mockDB';
 import {HttpClient} from '@angular/common/http';
+
+import {Activity} from '../interfases';
 import {environment} from '../../../environments/environment';
-import {map} from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -31,11 +30,11 @@ export class ActivityService {
 
   getAllActivities(kindOfActivity: string): Observable<Array<Activity>> {
     return this.http.get<Array<Activity>>(`${environment.postgresDbUrl}/activity?kindOfActivity=${kindOfActivity}`);
-      // .pipe(
-      //   map(
-      //     response => response.filter(act => act.kindOfActivity === kindOfActivity)
-      //   )
-      // );
+    // .pipe(
+    //   map(
+    //     response => response.filter(act => act.kindOfActivity === kindOfActivity)
+    //   )
+    // );
   }
 
   getActivityByID(id: number): Observable<Activity> {

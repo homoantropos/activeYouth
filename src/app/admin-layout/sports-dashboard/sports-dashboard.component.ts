@@ -36,6 +36,10 @@ export class SportsDashboardComponent implements OnInit {
     this.router.navigate(['admin', 'sports', 'create']);
   }
 
+  goToSportsEditor(id: number): void {
+    this.router.navigateByUrl(`/admin/sports/edit/${id}`);
+  }
+
   goToActivitiesDetails(id: string): void {
     this.router.navigateByUrl(`/admin/sports/${id}`);
   }

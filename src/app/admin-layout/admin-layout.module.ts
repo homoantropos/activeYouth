@@ -20,6 +20,7 @@ import { SportsCreatorComponent } from './creators-editors/sports-creator/sports
 import {SharedModule} from '../shared/shared.module';
 import { StatisticDashboardComponent } from './statistic-dashboard/statistic-dashboard.component';
 import {MatRadioModule} from '@angular/material/radio';
+import { SportsEditorComponent } from './creators-editors/sports-editor/sports-editor.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import {MatRadioModule} from '@angular/material/radio';
     ResultsCreatorComponent,
     ResultsEditorComponent,
     SportsCreatorComponent,
-    StatisticDashboardComponent],
+    StatisticDashboardComponent,
+    SportsEditorComponent],
   imports: [
     FormsModule,
     ReactiveFormsModule,

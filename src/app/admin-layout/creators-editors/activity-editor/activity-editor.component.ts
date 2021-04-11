@@ -1,54 +1,48 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {ActivityService} from '../../../shared/services/activity.service';
 import {ActivatedRoute, Params, Router} from '@angular/router';
 import {Activity} from '../../../shared/interfases';
+import {Subscription} from 'rxjs';
 
 @Component({
   selector: 'app-activity-editor',
   templateUrl: './activity-editor.component.html',
   styleUrls: ['./activity-editor.component.css']
 })
-export class ActivityEditorComponent implements OnInit {
+export class ActivityEditorComponent implements OnInit, OnDestroy {
   submitted = false;
   // @ts-ignore
   activitiesEditorForm: FormGroup;
   // @ts-ignore
   activityId: number;
-  // @ts-ignore
-  activity: Activity;
+  aSub: Subscription = new Subscription();
 
   constructor(
-    private activityService: ActivityService,
     private route: ActivatedRoute,
+    private activityService: ActivityService,
     private router: Router
   ) {
   }
 
   ngOnInit(): void {
-    this.route.params.subscribe(
-      (params: Params) => {
-        this.activityId = (params.id) as number;
-        console.log(this.activityId);
-      }
-    );
-    this.activityService.getActivityByID(this.activityId).subscribe(
+    this.route.params.subscribe((params: Params) => this.activityId = (params.id) as number);
+    console.log('onInit');
+    this.aSub = this.activityService.getActivityByID(this.activityId).subscribe(
       (activity: Activity) => {
-        this.activity = activity;
         this.activitiesEditorForm = new FormGroup({
-          title: new FormControl(this.activity.title, [
+          title: new FormControl(activity.title, [
             Validators.required
           ]),
-          author: new FormControl(this.activity.author, [
+          author: new FormControl(activity.author, [
             Validators.required
           ]),
-          content: new FormControl(this.activity.content, [
+          content: new FormControl(activity.content, [
             Validators.required
           ])
-        });;
+        });
       }
     );
-
   }
 
   onChangeActivity(): void {
@@ -63,12 +57,18 @@ export class ActivityEditorComponent implements OnInit {
       kindOfActivity: 'physical culture',
       _id: this.activityId
     };
-    this.activityService.updateActivity(activity).subscribe(() => {
+    this.activityService.updateActivity(activity).subscribe((act) => {
       this.activitiesEditorForm.reset();
       this.submitted = false;
       this.router.navigate(['admin', 'activities']);
-      alert('Вітаємо! Ваш урок успішно додано в базу даних!');
+      alert('Вітаємо! Ваші зміни успішно додано в базу даних!');
     });
+  }
+
+  ngOnDestroy(): void {
+    if (this.aSub) {
+      this.aSub.unsubscribe();
+    }
   }
 
 }
