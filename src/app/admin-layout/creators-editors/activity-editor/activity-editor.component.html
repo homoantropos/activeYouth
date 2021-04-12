@@ -1,4 +1,4 @@
-<form class="form-container"
+<form *ngIf="activitiesEditorForm; else loader" class="form-container"
       [formGroup]="activitiesEditorForm"
       (ngSubmit)="onChangeActivity()">
 
@@ -31,4 +31,8 @@
     [disabled]="activitiesEditorForm.invalid">Зберегти зміни
   </button>
 </form>
+
+<ng-template #loader>
+  <app-loader></app-loader>
+</ng-template>
 
