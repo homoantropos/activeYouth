@@ -27,7 +27,6 @@ export class ActivityEditorComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.route.params.subscribe((params: Params) => this.activityId = (params.id) as number);
-    console.log('onInit');
     this.aSub = this.activityService.getActivityByID(this.activityId).subscribe(
       (activity: Activity) => {
         this.activitiesEditorForm = new FormGroup({

@@ -1,4 +1,5 @@
-<form class="login-container"
+<form *ngIf="userEditorForm; else loader"
+      class="login-container"
       [formGroup]="userEditorForm"
       (ngSubmit)="onSubmit()">
 
@@ -8,7 +9,7 @@
     {{ error }}
   </div>
 
-  <div class="alert info" *ngIf = "message">
+  <div class="alert info" *ngIf="message">
     {{ message }}
   </div>
 
@@ -51,3 +52,7 @@
           [disabled]="userEditorForm.invalid || submitted">Відправити
   </button>
 </form>
+
+<ng-template #loader>
+  <app-loader></app-loader>
+</ng-template>
