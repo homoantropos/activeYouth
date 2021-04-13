@@ -26,7 +26,6 @@ export class SportKindCreatorComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-
     this.sportKindCreatorForm = new FormGroup({
       name: new FormControl(null, [
         Validators.required

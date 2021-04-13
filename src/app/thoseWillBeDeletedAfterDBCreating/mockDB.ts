@@ -1,5 +1,4 @@
-import {Activity, Appointment, AppointmentFinancing, Result, User} from '../shared/interfases';
-import {Report} from '../shared/interfases';
+import {Appointment, AppointmentFinancing, Result, Report} from '../shared/interfases';
 
 export class MockDataBase {
 
@@ -7,7 +6,6 @@ export class MockDataBase {
   }
 
   static statistics: Array<Report> = [];
-
 
   static balance: Array<AppointmentFinancing> = [];
 

@@ -29,12 +29,12 @@ export class SportKindService {
     return this.http.delete(`${environment.postgresDbUrl}/sportKind/${id}`);
   }
 
-  getOneSportKindById(id: number): Observable<User> {
-    return this.http.get<User>(`${environment.postgresDbUrl}/sportKind/${id}`);
+  getOneSportKindById(id: number): Observable<SportKind> {
+    return this.http.get<SportKind>(`${environment.postgresDbUrl}/sportKind/${id}`);
   }
 
   updateSportKind(sportKind: SportKind): Observable<any>{
-    return this.http.patch<any>(`${environment.postgresDbUrl}/sportKind/${sportKind._id}`, sportKind);
+    return this.http.patch<any>(`${environment.postgresDbUrl}/sportKind`, sportKind);
   }
 
   public errorHandle(error: HttpErrorResponse): any {

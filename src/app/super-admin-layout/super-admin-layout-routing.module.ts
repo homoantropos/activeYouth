@@ -10,6 +10,7 @@ import {UserEditorComponent} from './creators-editors/user-editor/user-editor.co
 import {SportsEditorComponent} from '../admin-layout/creators-editors/sports-editor/sports-editor.component';
 import {SportKindAdminComponent} from './sport-kind-admin/sport-kind-admin.component';
 import {SportKindCreatorComponent} from './creators-editors/sport-kind-creator/sport-kind-creator.component';
+import {SportKindEditorComponent} from './creators-editors/sport-kind-editor/sport-kind-editor.component';
 
 const routes: Routes = [
   {path: '', component: SuperAdminLayoutComponent, canActivate: [AuthGuardService], children: [
@@ -22,7 +23,7 @@ const routes: Routes = [
       {path: 'places', component: PlacesAdminComponent},
       {path: 'sports', children: [
           {path: 'create', component: SportKindCreatorComponent},
-          {path: 'edit/:id', component: SportsEditorComponent},
+          {path: 'edit/:id', component: SportKindEditorComponent},
           {path: '', component: SportKindAdminComponent}
         ]},
       {path: 'coaches', component: CoachesesAdminComponent}

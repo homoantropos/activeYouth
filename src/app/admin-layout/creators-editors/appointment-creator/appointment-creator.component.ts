@@ -1,21 +1,30 @@
 import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 
-import {Appointment, AppointmentFinancing, Members, Place} from '../../../shared/interfases';
+import {Appointment, AppointmentFinancing, Members, Place, SportKind} from '../../../shared/interfases';
 import {Router} from '@angular/router';
 import {AppointmentService} from '../../../shared/services/appointment.service';
 import {DateProviderService} from '../../../shared/services/date-provider.service';
 import {basicExpensesFact, basicExpensesPlan} from '../../../../environments/environment';
 import {AppointmentFinancingService} from '../../../shared/services/appointment-financing.service';
+import {Observable} from 'rxjs';
+import {map, startWith} from 'rxjs/operators';
+import {SportKindService} from '../../../super-admin-layout/services/sport-kind.service';
+import {AutoUpdateArrays} from '../../../shared/utils/autoUpdateArrays';
 
 @Component({
   selector: 'app-appointment-creator',
   templateUrl: './appointment-creator.component.html',
   styleUrls: ['./appointment-creator.component.css']
 })
+
 export class AppointmentCreatorComponent implements OnInit {
   // @ts-ignore
   appointmentCreatorForm: FormGroup;
+  // @ts-ignore
+  filteredOptions: Observable<string[]>;
+  // @ts-ignore
+  sportKinds: Array<SportKind>;
 
   constructor(
     private appointmentService: AppointmentService,
@@ -56,8 +65,19 @@ export class AppointmentCreatorComponent implements OnInit {
         status: new FormControl('', [Validators.required]),
         organiser: new FormControl('', [Validators.required])
       }),
-    })
-    ;
+    });
+
+    // @ts-ignore
+    this.filteredOptions = this.appointmentCreatorForm.get('codes').get('sportKind').valueChanges
+      .pipe(
+        startWith(''),
+        map((value: string) => this._filter(value))
+      );
+  }
+
+  private _filter(value: string): string[] {
+    const filterValue = value.toLowerCase();
+    return AutoUpdateArrays.sportKinds.filter(option => option.toLowerCase().includes(filterValue));
   }
 
   onCreate(value: any): void {
@@ -65,10 +85,7 @@ export class AppointmentCreatorComponent implements OnInit {
     const place: Place = (value.place) as Place;
     const members: Members = (value.members) as Members;
     const codes = value.codes;
-    console.log(place);
-    console.log(members);
     const appointment: Appointment = (value) as Appointment;
-    console.log('before saving: ', appointment);
     this.appointmentService.saveAppointmentToDb(appointment).pipe()
       .subscribe(
         (a) => {
