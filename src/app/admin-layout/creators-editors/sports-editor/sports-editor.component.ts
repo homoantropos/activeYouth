@@ -65,14 +65,15 @@ export class SportsEditorComponent implements OnInit, OnDestroy {
     };
     this.sSub = this.activityService.updateActivity(activity)
       .subscribe(a => {
-      this.submitted = false;
-      this.router.navigate(['admin', 'sports']);
-      alert('Вітаємо! Ваші зміни успішно додано в базу даних!');
+        this.submitted = false;
+        this.router.navigate(['admin', 'sports']);
+        alert('Вітаємо! Ваші зміни успішно додано в базу даних!');
     }, error => {
       this.sportsEditorForm.enable();
     }
     );
     this.sportsEditorForm.enable();
+    this.ngOnInit();
   }
 
   ngOnDestroy(): void {

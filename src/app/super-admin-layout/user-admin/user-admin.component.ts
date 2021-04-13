@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
 import {MatTableDataSource} from '@angular/material/table';
 import {User} from '../../shared/interfases';
@@ -16,10 +16,12 @@ export class UserAdminComponent implements OnInit {
   // @ts-ignore
   user$: Observable<Array<User>>;
   displayedColumns = ['_id', 'email', 'role', 'delete'];
+
   constructor(
     private router: Router,
     private userService: UserService
-  ) { }
+  ) {
+  }
 
   ngOnInit(): void {
     this.user$ = this.userService.getAllUsers();
@@ -37,7 +39,8 @@ export class UserAdminComponent implements OnInit {
   goToUserCreator(): void {
     this.router.navigate(['/superadmin', 'users', 'create']);
   }
-  goToUserEditor(id: string): void
-  {
+
+  goToUserEditor(id: string): void {
     this.router.navigateByUrl(`/superadmin/users/edit/${id}`);
-  }}
+  }
+}

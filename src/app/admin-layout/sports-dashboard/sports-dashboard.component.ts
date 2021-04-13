@@ -48,7 +48,7 @@ export class SportsDashboardComponent implements OnInit {
     this.activityService.deleteActivity(id)
       .subscribe(
         (message) => {
-          console.log(message);
+          alert(message.message);
           this.ngOnInit();
         }
       );

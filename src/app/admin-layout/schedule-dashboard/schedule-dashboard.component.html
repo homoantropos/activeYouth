@@ -1,5 +1,7 @@
+<button mat-button color="primary" [routerLink]="['create']">Додати</button>
+
 <div *ngIf="schedule$ | async as dataSource; else loader">
-  <button mat-button color="primary" [routerLink]="['create']">Додати</button>
+
 
   <div class="table-container">
     <table mat-table matSort

@@ -24,20 +24,11 @@ export class UserCreatorComponent implements OnInit, OnDestroy {
   constructor(
     public auth: AuthService,
     public userService: UserService,
-    private router: Router,
-    private route: ActivatedRoute
+    private router: Router
   ) {
   }
 
   ngOnInit(): void {
-    if (this.auth.isAuthenticated()) {
-      this.router.navigate(['/superadmin', 'users', 'create']);
-    }
-    this.route.queryParams.subscribe((params: Params) => {
-      if (params.loginFailed) {
-        this.message = 'Ви повинні авторизуватися';
-      }
-    });
     this.userCreatorForm = new FormGroup({
       email: new FormControl(null, [
         Validators.required,

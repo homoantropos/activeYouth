@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 
-import {Appointment, AppointmentFinancing} from '../../../shared/interfases';
+import {Appointment, AppointmentFinancing, Members, Place} from '../../../shared/interfases';
 import {Router} from '@angular/router';
 import {AppointmentService} from '../../../shared/services/appointment.service';
 import {DateProviderService} from '../../../shared/services/date-provider.service';
@@ -37,19 +37,36 @@ export class AppointmentCreatorComponent implements OnInit {
         sportHallName: new FormControl(''),
         address: new FormControl('')
       }),
+      members: new FormGroup({
+        countries: new FormControl('', [Validators.required]),
+        regions: new FormControl('', [Validators.required]),
+        educationEntity: new FormControl('', [Validators.required]),
+        sportsmen: new FormControl('', [Validators.required]),
+        coaches: new FormControl('', [Validators.required]),
+        referees: new FormControl('', [Validators.required]),
+        others: new FormControl('', [Validators.required]),
+      }),
       organizationsParticipants: new FormControl('', [Validators.required]),
-      KPKV: new FormControl('2201310'),
-      character: new FormControl('', [Validators.required]),
-      participants: new FormControl('', [Validators.required]),
-      sportKind: new FormControl('', [Validators.required]),
-      direction: new FormControl('', [Validators.required]),
-      status: new FormControl('', [Validators.required]),
-      organiser: new FormControl('', [Validators.required])
-    });
+      codes: new FormGroup({
+        KPKV: new FormControl('2201310'),
+        character: new FormControl('', [Validators.required]),
+        participants: new FormControl('', [Validators.required]),
+        sportKind: new FormControl('', [Validators.required]),
+        direction: new FormControl('', [Validators.required]),
+        status: new FormControl('', [Validators.required]),
+        organiser: new FormControl('', [Validators.required])
+      }),
+    })
+    ;
   }
 
   onCreate(value: any): void {
     value.duration = this.dateProvider.provideDuration(value.startDate, value.finishDate);
+    const place: Place = (value.place) as Place;
+    const members: Members = (value.members) as Members;
+    const codes = value.codes;
+    console.log(place);
+    console.log(members);
     const appointment: Appointment = (value) as Appointment;
     console.log('before saving: ', appointment);
     this.appointmentService.saveAppointmentToDb(appointment).pipe()

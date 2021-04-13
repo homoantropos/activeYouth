@@ -22,10 +22,10 @@ export interface Appointment {
   duration: number;
   place: Place;
   organizationsParticipants: string;
-  character: string;
+  sportKind?: SportKind;
   KPKV: number;
+  character: string;
   participants: string;
-  sportKind?: string;
   direction: string;
   status: string;
   organiser: string;
@@ -33,6 +33,10 @@ export interface Appointment {
   _userId?: string;
 }
 
+export interface SportKind{
+  name: string;
+  _id?: number;
+}
 export interface Place {
   country: string;
   region?: string;
@@ -81,7 +85,7 @@ export interface Result {
   _userId?: string;
 }
 
-export interface RatingBrick  {
+export interface RatingBrick {
   resultsOwnerStudent?: Participant;
   resultsOwnerEduEntity?: EducationEntity;
   results: Array<Result>;
@@ -112,7 +116,7 @@ export interface Members {
   sportsmen: number;
   coaches?: number;
   referees?: number;
-  others: number;
+  others?: number;
   total: number;
 }
 

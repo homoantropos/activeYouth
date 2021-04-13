@@ -21,7 +21,6 @@ export class MockDataBase {
       KPKV: 2201310,
       character: 'О',
       participants: 'schoolchild',
-      sportKind: 'лижні гонки',
       direction: 'sport',
       status: 'ukrainian',
       place: {
@@ -43,7 +42,6 @@ export class MockDataBase {
       KPKV: 2201310,
       character: 'О',
       participants: 'students',
-      sportKind: 'біатлон',
       direction: 'sport',
       status: 'ukrainian',
       place: {
@@ -65,7 +63,6 @@ export class MockDataBase {
       KPKV: 2201310,
       character: 'О',
       participants: 'schoolchild',
-      sportKind: 'біатлон',
       direction: 'sport',
       status: 'ukrainian',
       place: {
@@ -87,7 +84,6 @@ export class MockDataBase {
       KPKV: 2201310,
       character: 'О',
       participants: 'students',
-      sportKind: 'лижні гонки',
       direction: 'sport',
       status: 'ukrainian',
       place: {
@@ -109,7 +105,6 @@ export class MockDataBase {
       KPKV: 2201310,
       character: 'О',
       participants: 'students',
-      sportKind: 'волейбол',
       direction: 'sport',
       status: 'international',
       place: {
@@ -131,7 +126,6 @@ export class MockDataBase {
       KPKV: 2201310,
       character: 'О',
       participants: 'students',
-      sportKind: 'регбі-7',
       direction: 'sport',
       status: 'international',
       place: {
@@ -153,7 +147,6 @@ export class MockDataBase {
       KPKV: 2201310,
       character: 'О',
       participants: 'schoolchild',
-      sportKind: 'волейбол',
       direction: 'sport',
       status: 'ukrainian',
       place: {
@@ -175,7 +168,6 @@ export class MockDataBase {
       KPKV: 2201310,
       character: 'О',
       participants: 'schoolchild',
-      sportKind: 'волейбол',
       direction: 'sport',
       status: 'ukrainian',
       place: {
@@ -197,7 +189,6 @@ export class MockDataBase {
       KPKV: 2201310,
       character: 'О',
       participants: 'schoolchild',
-      sportKind: 'бокс',
       direction: 'sport',
       status: 'ukrainian',
       place: {
@@ -219,7 +210,6 @@ export class MockDataBase {
       KPKV: 2201310,
       character: 'О',
       participants: 'schoolchild',
-      sportKind: 'боротьба вільна',
       direction: 'sport',
       status: 'ukrainian',
       place: {
@@ -241,7 +231,6 @@ export class MockDataBase {
       KPKV: 2201310,
       character: 'О',
       participants: 'schoolchild',
-      sportKind: 'козацький двобій',
       direction: 'sport',
       status: 'ukrainian',
       place: {
@@ -263,7 +252,6 @@ export class MockDataBase {
       KPKV: 2201310,
       character: 'О',
       participants: 'students',
-      sportKind: 'козацький двобій',
       direction: 'sport',
       status: 'ukrainian',
       place: {
@@ -285,7 +273,6 @@ export class MockDataBase {
       KPKV: 2201310,
       character: 'О',
       participants: 'schoolchild',
-      sportKind: 'волейбол',
       direction: 'sport',
       status: 'international',
       place: {
@@ -307,7 +294,6 @@ export class MockDataBase {
       KPKV: 2201310,
       character: 'О',
       participants: 'schoolchild',
-      sportKind: 'дзюдо',
       direction: 'sport',
       status: 'international',
       place: {
@@ -329,7 +315,6 @@ export class MockDataBase {
       KPKV: 2201310,
       character: 'О',
       participants: 'schoolchild',
-      sportKind: 'карате',
       direction: 'sport',
       status: 'international',
       place: {
@@ -351,7 +336,6 @@ export class MockDataBase {
       KPKV: 2201310,
       character: 'О',
       participants: 'schoolchild',
-      sportKind: 'легка атлетика',
       direction: 'sport',
       status: 'international',
       place: {
@@ -373,7 +357,6 @@ export class MockDataBase {
       KPKV: 2201310,
       character: 'О',
       participants: 'schoolchild',
-      sportKind: 'плавання',
       direction: 'sport',
       status: 'international',
       place: {
@@ -395,7 +378,6 @@ export class MockDataBase {
       KPKV: 2201310,
       character: 'О',
       participants: 'schoolchild',
-      sportKind: 'волейбол',
       direction: 'sport',
       status: 'regional',
       place: {
@@ -417,7 +399,6 @@ export class MockDataBase {
       KPKV: 2201310,
       character: 'О',
       participants: 'schoolchild',
-      sportKind: 'Cool Games',
       direction: 'physical culture',
       status: 'regional',
       place: {
@@ -439,7 +420,6 @@ export class MockDataBase {
       KPKV: 2201310,
       character: 'О',
       participants: 'schoolchild',
-      sportKind: 'Cool Games',
       direction: 'physical culture',
       status: 'regional',
       place: {
@@ -461,7 +441,6 @@ export class MockDataBase {
       KPKV: 2201310,
       character: 'О',
       participants: 'schoolchild',
-      sportKind: 'Cool Games',
       direction: 'physical culture',
       status: 'regional',
       place: {
@@ -483,7 +462,6 @@ export class MockDataBase {
       KPKV: 2201310,
       character: 'О',
       participants: 'schoolchild',
-      sportKind: 'Cool Games',
       direction: 'physical culture',
       status: 'regional',
       place: {
@@ -505,7 +483,6 @@ export class MockDataBase {
       KPKV: 2201310,
       character: 'О',
       participants: 'schoolchild',
-      sportKind: 'Cool Games',
       direction: 'physical culture',
       status: 'regional',
       place: {
@@ -527,7 +504,6 @@ export class MockDataBase {
       KPKV: 2201310,
       character: 'О',
       participants: 'schoolchild',
-      sportKind: 'Cool Games',
       direction: 'physical culture',
       status: 'ukrainian',
       place: {
@@ -549,7 +525,6 @@ export class MockDataBase {
       KPKV: 2201310,
       character: 'О',
       participants: 'students',
-      sportKind: 'веслування академічне',
       direction: 'sport',
       status: 'regional',
       place: {
@@ -571,7 +546,6 @@ export class MockDataBase {
       KPKV: 2201310,
       character: 'О',
       participants: 'schoolchild',
-      sportKind: 'тхеквондо ВТФ',
       direction: 'sport',
       status: 'regional',
       place: {
@@ -593,7 +567,6 @@ export class MockDataBase {
       KPKV: 2201310,
       character: 'О',
       participants: 'schoolchild',
-      sportKind: 'велоспорт',
       direction: 'sport',
       status: 'international',
       place: {
@@ -615,7 +588,6 @@ export class MockDataBase {
       KPKV: 2201310,
       character: 'О',
       participants: 'students',
-      sportKind: 'гандбол',
       direction: 'sport',
       status: 'ukrainian',
       place: {
@@ -637,7 +609,6 @@ export class MockDataBase {
       KPKV: 2201310,
       character: 'О',
       participants: 'schoolchild',
-      sportKind: 'карате',
       direction: 'sport',
       status: 'ukrainian',
       place: {
@@ -659,7 +630,6 @@ export class MockDataBase {
       KPKV: 2201310,
       character: 'О',
       participants: 'schoolchild',
-      sportKind: 'боротьба греко-римська',
       direction: 'sport',
       status: 'ukrainian',
       place: {
@@ -681,7 +651,6 @@ export class MockDataBase {
       KPKV: 2201310,
       character: 'О',
       participants: 'schoolchild',
-      sportKind: 'тхеквондо ВТФ',
       direction: 'sport',
       status: 'ukrainian',
       place: {
@@ -703,7 +672,6 @@ export class MockDataBase {
       KPKV: 2201310,
       character: 'О',
       participants: 'schoolchild',
-      sportKind: 'боротьба вільна',
       direction: 'sport',
       status: 'ukrainian',
       place: {
@@ -725,7 +693,6 @@ export class MockDataBase {
       KPKV: 2201310,
       character: 'О',
       participants: 'schoolchild',
-      sportKind: 'дзюдо',
       direction: 'sport',
       status: 'ukrainian',
       place: {
@@ -747,7 +714,6 @@ export class MockDataBase {
       KPKV: 2201310,
       character: 'О',
       participants: 'schoolchild',
-      sportKind: 'баскетбол',
       direction: 'sport',
       status: 'ukrainian',
       place: {
@@ -769,7 +735,6 @@ export class MockDataBase {
       KPKV: 2201310,
       character: 'О',
       participants: 'schoolchild',
-      sportKind: 'фрі-файт',
       direction: 'sport',
       status: 'ukrainian',
       place: {
@@ -1244,7 +1209,6 @@ export class MockDataBase {
         KPKV: 2201310,
         character: 'О',
         participants: 'schoolchild',
-        sportKind: 'баскетбол',
         direction: 'sport',
         status: 'ukrainian',
         place: {
@@ -1284,7 +1248,6 @@ export class MockDataBase {
         KPKV: 2201310,
         character: 'О',
         participants: 'schoolchild',
-        sportKind: 'баскетбол',
         direction: 'sport',
         status: 'ukrainian',
         place: {
@@ -1324,7 +1287,6 @@ export class MockDataBase {
         KPKV: 2201310,
         character: 'О',
         participants: 'schoolchild',
-        sportKind: 'баскетбол',
         direction: 'sport',
         status: 'ukrainian',
         place: {
@@ -1364,7 +1326,6 @@ export class MockDataBase {
         KPKV: 2201310,
         character: 'О',
         participants: 'schoolchild',
-        sportKind: 'Cool Games',
         direction: 'physical culture',
         status: 'ukrainian',
         place: {
@@ -1404,7 +1365,6 @@ export class MockDataBase {
         KPKV: 2201310,
         character: 'О',
         participants: 'schoolchild',
-        sportKind: 'Cool Games',
         direction: 'physical culture',
         status: 'ukrainian',
         place: {
@@ -1444,7 +1404,6 @@ export class MockDataBase {
         KPKV: 2201310,
         character: 'О',
         participants: 'schoolchild',
-        sportKind: 'Cool Games',
         direction: 'physical culture',
         status: 'ukrainian',
         place: {
@@ -1484,7 +1443,6 @@ export class MockDataBase {
         KPKV: 2201310,
         character: 'О',
         participants: 'schoolchild',
-        sportKind: 'баскетбол',
         direction: 'sport',
         status: 'ukrainian',
         place: {
@@ -1524,7 +1482,6 @@ export class MockDataBase {
         KPKV: 2201310,
         character: 'О',
         participants: 'schoolchild',
-        sportKind: 'баскетбол',
         direction: 'sport',
         status: 'ukrainian',
         place: {

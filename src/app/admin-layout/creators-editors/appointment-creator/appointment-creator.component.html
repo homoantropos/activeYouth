@@ -4,15 +4,15 @@
   <p><b>Додайте захід:</b></p>
 
   <form
-      [formGroup]="appointmentCreatorForm"
-      (ngSubmit)="onCreate(appointmentCreatorForm.value)"
+    [formGroup]="appointmentCreatorForm"
+    (ngSubmit)="onCreate(appointmentCreatorForm.value)"
   >
     <mat-form-field class="forms-inputs" title="title">
       <mat-label>введіть назву заходу ...</mat-label>
       <input matInput
-           title="title"
-           type="text"
-           formControlName="title">
+             title="title"
+             type="text"
+             formControlName="title">
     </mat-form-field>
 
     <mat-form-field class="forms-inputs" [ngStyle]="{width: '45%'}">
@@ -33,7 +33,7 @@
       <mat-datepicker #finishDate></mat-datepicker>
     </mat-form-field>
 
-    <form formGroupName = "place">
+    <form formGroupName="place">
       <mat-form-field class="forms-inputs" title="country" [ngStyle]="{width: '26%'}">
         <mat-label>країна проведення...</mat-label>
         <input matInput
@@ -76,6 +76,67 @@
 
     </form>
 
+    <label for formGroupName="members">запланована кількість:</label>
+    <form formGroupName="members">
+
+      <mat-form-field class="forms-inputs" title="countries" [ngStyle]="{width: '10%'}">
+        <mat-label>країн...</mat-label>
+        <input matInput
+               title="countries"
+               type="number" min="0"
+               formControlName="countries">
+      </mat-form-field>
+
+      <mat-form-field class="forms-inputs" title="regions" [ngStyle]="{width: '10%'}">
+        <mat-label>регіонів України...</mat-label>
+        <input matInput
+               title="regions"
+               type="number" min="0"
+               formControlName="regions">
+      </mat-form-field>
+
+      <mat-form-field class="forms-inputs" title="educationEntity" [ngStyle]="{width: '10%'}">
+        <mat-label>закладів освіти...</mat-label>
+        <input matInput
+               title="educationEntity"
+               type="number" min="0"
+               formControlName="educationEntity">
+      </mat-form-field>
+
+      <mat-form-field class="forms-inputs" title="sportsmen" [ngStyle]="{width: '10%'}">
+        <mat-label>учасників...</mat-label>
+        <input matInput
+               title="sportsmen"
+               type="number" min="0"
+               formControlName="sportsmen">
+      </mat-form-field>
+
+      <mat-form-field class="forms-inputs" title="coaches" [ngStyle]="{width: '10%'}">
+        <mat-label>тренерів...</mat-label>
+        <input matInput
+               title="coaches"
+               type="number" min="0"
+               formControlName="coaches">
+      </mat-form-field>
+
+      <mat-form-field class="forms-inputs" title="referees" [ngStyle]="{width: '10%'}">
+        <mat-label>суддів...</mat-label>
+        <input matInput
+               title="referees"
+               type="number" min="0"
+               formControlName="referees">
+      </mat-form-field>
+
+      <mat-form-field class="forms-inputs" title="others" [ngStyle]="{width: '10%'}">
+        <mat-label>інших...</mat-label>
+        <input matInput
+               title="others"
+               type="number" min="0"
+               formControlName="others">
+      </mat-form-field>
+
+    </form>
+
     <mat-form-field class="forms-inputs" title="organizationsParticipants" [ngStyle]="{width: '46%'}">
       <mat-label>організації-учасники...</mat-label>
       <input matInput
@@ -84,43 +145,48 @@
              formControlName="organizationsParticipants">
     </mat-form-field>
 
-    <mat-form-field title="sportKind" [ngStyle]="{width: '46%'}">
-      <mat-label>вид спорту (активності)...</mat-label>
-      <input matInput formControlName="sportKind">
-    </mat-form-field>
+    <form formGroupName="codes">
 
-    <small>учасники: </small>
-    <mat-radio-group title="participants" formControlName="participants" >
-      <mat-radio-button value="schoolchild">учні</mat-radio-button>
-      <mat-radio-button value="students">студенти</mat-radio-button>
-    </mat-radio-group>
+      <mat-form-field title="sportKind" [ngStyle]="{width: '46%'}">
+        <mat-label>вид спорту (активності)...</mat-label>
+        <input matInput formControlName="sportKind">
+      </mat-form-field>
 
-    <small>напрям: </small>
-    <mat-radio-group aria-label="Select an option" formControlName="direction">
-       <mat-radio-button value="physical culture">фізичне виховання</mat-radio-button>
-       <mat-radio-button value="sport">спорт</mat-radio-button>
-    </mat-radio-group>
+      <small>учасники: </small>
+      <mat-radio-group title="participants" formControlName="participants">
+        <mat-radio-button value="schoolchild">учні</mat-radio-button>
+        <mat-radio-button value="students">студенти</mat-radio-button>
+      </mat-radio-group>
 
-    <small>характер: </small>
-    <mat-radio-group aria-label="Select an option" formControlName="character">
-      <mat-radio-button value="О">О</mat-radio-button>
-      <mat-radio-button value="К">К</mat-radio-button>
-      <mat-radio-button value="О/К">О/К</mat-radio-button>
-    </mat-radio-group>
-    <br>
-    <small>ранг: </small>
-    <mat-radio-group aria-label="Select an option" formControlName="status">
-      <mat-radio-button value="international">міжнародні</mat-radio-button>
-      <mat-radio-button value="ukrainian">всеукраїнські</mat-radio-button>
-      <mat-radio-button value="regional">регіональні</mat-radio-button>
-    </mat-radio-group>
+      <small>напрям: </small>
+      <mat-radio-group aria-label="Select an option" formControlName="direction">
+        <mat-radio-button value="physical culture">фізичне виховання</mat-radio-button>
+        <mat-radio-button value="sport">спорт</mat-radio-button>
+      </mat-radio-group>
 
-    <small>організатор: </small>
-    <mat-radio-group aria-label="Select an option" formControlName="organiser">
-      <mat-radio-button value="КФВС МОН">КФВС МОН</mat-radio-button>
-      <mat-radio-button value="СССУ">СССУ</mat-radio-button>
-      <mat-radio-button value="УФУС">УФУС</mat-radio-button>
-    </mat-radio-group>
+      <small>характер: </small>
+      <mat-radio-group aria-label="Select an option" formControlName="character">
+        <mat-radio-button value="О">О</mat-radio-button>
+        <mat-radio-button value="К">К</mat-radio-button>
+        <mat-radio-button value="О/К">О/К</mat-radio-button>
+      </mat-radio-group>
+
+      <br>
+      <small>ранг: </small>
+      <mat-radio-group aria-label="Select an option" formControlName="status">
+        <mat-radio-button value="international">міжнародні</mat-radio-button>
+        <mat-radio-button value="ukrainian">всеукраїнські</mat-radio-button>
+        <mat-radio-button value="regional">регіональні</mat-radio-button>
+      </mat-radio-group>
+
+      <small>організатор: </small>
+      <mat-radio-group aria-label="Select an option" formControlName="organiser">
+        <mat-radio-button value="КФВС МОН">КФВС МОН</mat-radio-button>
+        <mat-radio-button value="СССУ">СССУ</mat-radio-button>
+        <mat-radio-button value="УФУС">УФУС</mat-radio-button>
+      </mat-radio-group>
+
+    </form>
 
     <br>
     <button mat-raised-button
