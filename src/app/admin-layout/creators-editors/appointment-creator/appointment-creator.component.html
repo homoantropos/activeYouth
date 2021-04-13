@@ -1,5 +1,5 @@
 <div class="forms-container mat-elevation-z8"
-     [ngStyle]="{padding: '1%'}">
+     [ngStyle]="{padding: '2%'}">
 
   <p><b>Додайте захід:</b></p>
 
@@ -145,59 +145,55 @@
              formControlName="organizationsParticipants">
     </mat-form-field>
 
+    <mat-form-field title="sportKind" [ngStyle]="{width: '46%'}">
+      <mat-label>вид спорту (активності)</mat-label>
+      <input type="text"
+             placeholder="вид спорту (активності)..."
+             aria-label="sportKind"
+             matInput
+             formControlName="sportKind"
+             [matAutocomplete]="auto">
+      <mat-autocomplete #auto="matAutocomplete">
+        <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+          {{option}}
+        </mat-option>
+      </mat-autocomplete>
+    </mat-form-field>
     <br>
-    <form formGroupName="codes">
+    <small>учасники: </small>
+    <mat-radio-group title="participants" formControlName="participants">
+      <mat-radio-button value="schoolchild">учні</mat-radio-button>
+      <mat-radio-button value="students">студенти</mat-radio-button>
+    </mat-radio-group>
 
-      <mat-form-field title="sportKind" [ngStyle]="{width: '46%'}">
-        <mat-label>вид спорту (активності)</mat-label>
-        <input type="text"
-               placeholder="вид спорту (активності)..."
-               aria-label="sportKind"
-               matInput
-               formControlName="sportKind"
-               [matAutocomplete]="auto">
-        <mat-autocomplete #auto="matAutocomplete">
-          <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
-            {{option}}
-          </mat-option>
-        </mat-autocomplete>
-      </mat-form-field>
+    <small>напрям: </small>
+    <mat-radio-group aria-label="Select an option" formControlName="direction">
+      <mat-radio-button value="physical culture">фізичне виховання</mat-radio-button>
+      <mat-radio-button value="sport">спорт</mat-radio-button>
+    </mat-radio-group>
 
-      <small>учасники: </small>
-      <mat-radio-group title="participants" formControlName="participants">
-        <mat-radio-button value="schoolchild">учні</mat-radio-button>
-        <mat-radio-button value="students">студенти</mat-radio-button>
-      </mat-radio-group>
+    <small>характер: </small>
+    <mat-radio-group aria-label="Select an option" formControlName="character">
+      <mat-radio-button value="О">О</mat-radio-button>
+      <mat-radio-button value="К">К</mat-radio-button>
+      <mat-radio-button value="О/К">О/К</mat-radio-button>
+    </mat-radio-group>
 
-      <small>напрям: </small>
-      <mat-radio-group aria-label="Select an option" formControlName="direction">
-        <mat-radio-button value="physical culture">фізичне виховання</mat-radio-button>
-        <mat-radio-button value="sport">спорт</mat-radio-button>
-      </mat-radio-group>
+    <br>
+    <small>ранг: </small>
+    <mat-radio-group aria-label="Select an option" formControlName="status">
+      <mat-radio-button value="international">міжнародні</mat-radio-button>
+      <mat-radio-button value="ukrainian">всеукраїнські</mat-radio-button>
+      <mat-radio-button value="regional">регіональні</mat-radio-button>
+    </mat-radio-group>
 
-      <small>характер: </small>
-      <mat-radio-group aria-label="Select an option" formControlName="character">
-        <mat-radio-button value="О">О</mat-radio-button>
-        <mat-radio-button value="К">К</mat-radio-button>
-        <mat-radio-button value="О/К">О/К</mat-radio-button>
-      </mat-radio-group>
+    <small>організатор: </small>
+    <mat-radio-group aria-label="Select an option" formControlName="organiser">
+      <mat-radio-button value="КФВС МОН">КФВС МОН</mat-radio-button>
+      <mat-radio-button value="СССУ">СССУ</mat-radio-button>
+      <mat-radio-button value="УФУС">УФУС</mat-radio-button>
+    </mat-radio-group>
 
-      <br>
-      <small>ранг: </small>
-      <mat-radio-group aria-label="Select an option" formControlName="status">
-        <mat-radio-button value="international">міжнародні</mat-radio-button>
-        <mat-radio-button value="ukrainian">всеукраїнські</mat-radio-button>
-        <mat-radio-button value="regional">регіональні</mat-radio-button>
-      </mat-radio-group>
-
-      <small>організатор: </small>
-      <mat-radio-group aria-label="Select an option" formControlName="organiser">
-        <mat-radio-button value="КФВС МОН">КФВС МОН</mat-radio-button>
-        <mat-radio-button value="СССУ">СССУ</mat-radio-button>
-        <mat-radio-button value="УФУС">УФУС</mat-radio-button>
-      </mat-radio-group>
-
-    </form>
 
     <br>
     <button mat-raised-button

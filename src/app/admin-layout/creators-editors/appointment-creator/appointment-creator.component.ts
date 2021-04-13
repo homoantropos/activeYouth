@@ -9,7 +9,6 @@ import {basicExpensesFact, basicExpensesPlan} from '../../../../environments/env
 import {AppointmentFinancingService} from '../../../shared/services/appointment-financing.service';
 import {Observable} from 'rxjs';
 import {map, startWith} from 'rxjs/operators';
-import {SportKindService} from '../../../super-admin-layout/services/sport-kind.service';
 import {AutoUpdateArrays} from '../../../shared/utils/autoUpdateArrays';
 
 @Component({
@@ -56,19 +55,17 @@ export class AppointmentCreatorComponent implements OnInit {
         others: new FormControl('', [Validators.required]),
       }),
       organizationsParticipants: new FormControl('', [Validators.required]),
-      codes: new FormGroup({
-        KPKV: new FormControl('2201310'),
-        character: new FormControl('', [Validators.required]),
-        participants: new FormControl('', [Validators.required]),
-        sportKind: new FormControl('', [Validators.required]),
-        direction: new FormControl('', [Validators.required]),
-        status: new FormControl('', [Validators.required]),
-        organiser: new FormControl('', [Validators.required])
-      }),
+      KPKV: new FormControl('2201310'),
+      character: new FormControl('', [Validators.required]),
+      participants: new FormControl('', [Validators.required]),
+      sportKind: new FormControl('', [Validators.required]),
+      direction: new FormControl('', [Validators.required]),
+      status: new FormControl('', [Validators.required]),
+      organiser: new FormControl('', [Validators.required])
     });
 
     // @ts-ignore
-    this.filteredOptions = this.appointmentCreatorForm.get('codes').get('sportKind').valueChanges
+    this.filteredOptions = this.appointmentCreatorForm.get('sportKind').valueChanges
       .pipe(
         startWith(''),
         map((value: string) => this._filter(value))
@@ -84,7 +81,6 @@ export class AppointmentCreatorComponent implements OnInit {
     value.duration = this.dateProvider.provideDuration(value.startDate, value.finishDate);
     const place: Place = (value.place) as Place;
     const members: Members = (value.members) as Members;
-    const codes = value.codes;
     const appointment: Appointment = (value) as Appointment;
     this.appointmentService.saveAppointmentToDb(appointment).pipe()
       .subscribe(
