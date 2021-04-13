@@ -16,6 +16,7 @@ export class SportKindAdminComponent implements OnInit {
   // @ts-ignore
   sports$: Observable<Array<User>>;
   displayedColumns = ['_id', 'name', 'delete'];
+  paginatorStartPageNumber = 0;
 
   constructor(
     private router: Router,
