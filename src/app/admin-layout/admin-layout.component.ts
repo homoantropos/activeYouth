@@ -1,22 +1,40 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {AuthService} from './auth/auth.service';
 import {Router} from '@angular/router';
+import {Subscription} from 'rxjs';
+
+import {SportKindService} from '../super-admin-layout/services/sport-kind.service';
+import {SportKind} from '../shared/interfases';
+import {AutoUpdateArrays} from '../shared/utils/autoUpdateArrays';
 
 @Component({
   selector: 'app-admin-layout',
   templateUrl: './admin-layout.component.html',
   styleUrls: ['./admin-layout.component.css']
 })
-export class AdminLayoutComponent implements OnInit {
+export class AdminLayoutComponent implements OnInit, OnDestroy {
+
+  sSub: Subscription = new Subscription();
 
   constructor(
     public auth: AuthService,
-    private router: Router
+    private router: Router,
+    private sportKindService: SportKindService
   ) {
   }
 
   ngOnInit(): void {
+    this.sSub = this.sportKindService.getAllSportKinds().subscribe(
+      sportKinds => {
+        sportKinds.map((sportKind: SportKind) => AutoUpdateArrays.sportKinds.push(sportKind.name));
+      }
+    );
+  }
 
+  ngOnDestroy(): void {
+    if (this.sSub) {
+      this.sSub.unsubscribe();
+    }
   }
 
   goToMainPage(): void {

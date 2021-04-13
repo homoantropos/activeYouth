@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {AuthService} from '../admin-layout/auth/auth.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-super-admin',
@@ -9,7 +10,8 @@ import {AuthService} from '../admin-layout/auth/auth.service';
 export class SuperAdminLayoutComponent implements OnInit {
 
   constructor(
-    public auth: AuthService
+    public auth: AuthService,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -17,6 +19,10 @@ export class SuperAdminLayoutComponent implements OnInit {
     if (existToken !== null){
       this.auth.setToken(existToken);
     }
+  }
+
+  goToMainPage(): void {
+    this.router.navigate(['main']);
   }
 
 }
