@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 
-import {Appointment, AppointmentFinancing, Members, Place, SportKind} from '../../../shared/interfases';
+import {Appointment, AppointmentFinancing, Country, Members, Place, SportKind} from '../../../shared/interfases';
 import {Router} from '@angular/router';
 import {AppointmentService} from '../../../shared/services/appointment.service';
 import {DateProviderService} from '../../../shared/services/date-provider.service';
@@ -23,7 +23,11 @@ export class AppointmentCreatorComponent implements OnInit {
   // @ts-ignore
   filteredOptions: Observable<string[]>;
   // @ts-ignore
+  countryFilteredOptions: Observable<string[]>;
+  // @ts-ignore
   sportKinds: Array<SportKind>;
+  // @ts-ignore
+  countries: Array<Country>;
 
   constructor(
     private appointmentService: AppointmentService,
@@ -70,6 +74,12 @@ export class AppointmentCreatorComponent implements OnInit {
         startWith(''),
         map((value: string) => this._filter(value))
       );
+    // @ts-ignore
+    this.countryFilteredOptions = this.appointmentCreatorForm.get('place').get('country').valueChanges
+      .pipe(
+        startWith(''),
+        map((value: string) => this._filterCountry(value))
+      );
   }
 
   private _filter(value: string): string[] {
@@ -77,11 +87,17 @@ export class AppointmentCreatorComponent implements OnInit {
     return AutoUpdateArrays.sportKinds.filter(option => option.toLowerCase().includes(filterValue));
   }
 
+  private _filterCountry(value: string): string[] {
+    const filterValue = value.toLowerCase();
+    return AutoUpdateArrays.countries.filter(option => option.toLowerCase().includes(filterValue));
+  }
+
   onCreate(value: any): void {
     value.duration = this.dateProvider.provideDuration(value.startDate, value.finishDate);
     const place: Place = (value.place) as Place;
     const members: Members = (value.members) as Members;
     const appointment: Appointment = (value) as Appointment;
+    console.log(appointment);
     this.appointmentService.saveAppointmentToDb(appointment).pipe()
       .subscribe(
         (a) => {

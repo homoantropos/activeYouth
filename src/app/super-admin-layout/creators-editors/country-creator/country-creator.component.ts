@@ -47,7 +47,7 @@ export class CountryCreatorComponent implements OnInit, OnDestroy {
     this.cSub = this.countryService.createCountry(country)
       .subscribe(
         (con) => {
-          this.router.navigate(['/superadmin', 'places', 'countries']);
+          this.router.navigateByUrl('/superadmin/places/countries');
         },
         error => {
           this.countryService.errorHandle(error);

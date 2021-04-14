@@ -4,8 +4,9 @@ import {Router} from '@angular/router';
 import {Subscription} from 'rxjs';
 
 import {SportKindService} from '../super-admin-layout/services/sport-kind.service';
-import {SportKind} from '../shared/interfases';
+import {Country, SportKind} from '../shared/interfases';
 import {AutoUpdateArrays} from '../shared/utils/autoUpdateArrays';
+import {CountryService} from '../super-admin-layout/services/country.service';
 
 @Component({
   selector: 'app-admin-layout',
@@ -19,7 +20,8 @@ export class AdminLayoutComponent implements OnInit, OnDestroy {
   constructor(
     public auth: AuthService,
     private router: Router,
-    private sportKindService: SportKindService
+    private sportKindService: SportKindService,
+    private countryService: CountryService
   ) {
   }
 
@@ -27,6 +29,11 @@ export class AdminLayoutComponent implements OnInit, OnDestroy {
     this.sSub = this.sportKindService.getAllSportKinds().subscribe(
       sportKinds => {
         sportKinds.map((sportKind: SportKind) => AutoUpdateArrays.sportKinds.push(sportKind.name));
+      }
+    );
+    this.sSub = this.countryService.getAllCountries().subscribe(
+      countries => {
+        countries.map((country: Country) => AutoUpdateArrays.countries.push(country.name));
       }
     );
   }

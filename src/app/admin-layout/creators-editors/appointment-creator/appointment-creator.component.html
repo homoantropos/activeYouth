@@ -34,12 +34,20 @@
     </mat-form-field>
 
     <form formGroupName="place">
-      <mat-form-field class="forms-inputs" title="country" [ngStyle]="{width: '26%'}">
+
+      <mat-form-field title="country" [ngStyle]="{width: '26%'}">
         <mat-label>країна проведення...</mat-label>
-        <input matInput
-               title="country"
-               type="text"
-               formControlName="country">
+        <input type="text"
+               placeholder="країна проведення..."
+               aria-label="country"
+               matInput
+               formControlName="country"
+               [matAutocomplete]="country">
+        <mat-autocomplete #country="matAutocomplete">
+          <mat-option *ngFor="let option of countryFilteredOptions | async" [value]="option">
+            {{option}}
+          </mat-option>
+        </mat-autocomplete>
       </mat-form-field>
 
       <mat-form-field class="forms-inputs" title="region" [ngStyle]="{width: '30%'}">
@@ -159,6 +167,7 @@
         </mat-option>
       </mat-autocomplete>
     </mat-form-field>
+
     <br>
     <small>учасники: </small>
     <mat-radio-group title="participants" formControlName="participants">
