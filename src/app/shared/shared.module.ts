@@ -20,6 +20,7 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {NgxPaginationModule} from 'ngx-pagination';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import {MatNativeDateModule} from '@angular/material/core';
+import {MatRadioModule} from '@angular/material/radio';
 
 @NgModule({
   declarations: [
@@ -44,6 +45,7 @@ import {MatNativeDateModule} from '@angular/material/core';
     MatProgressSpinnerModule,
     MatAutocompleteModule,
     MatNativeDateModule,
+    MatRadioModule,
     NgxPaginationModule,
     HttpClientModule
   ],
@@ -60,6 +62,7 @@ import {MatNativeDateModule} from '@angular/material/core';
     MatProgressSpinnerModule,
     MatAutocompleteModule,
     MatNativeDateModule,
+    MatRadioModule,
     SanitizeHTMLPipePipe,
     NgxPaginationModule,
     HttpClientModule,

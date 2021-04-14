@@ -50,12 +50,19 @@
         </mat-autocomplete>
       </mat-form-field>
 
-      <mat-form-field class="forms-inputs" title="region" [ngStyle]="{width: '30%'}">
-        <mat-label>регіон...</mat-label>
-        <input matInput
-               title="region"
-               type="text"
-               formControlName="region">
+      <mat-form-field title="region" [ngStyle]="{width: '26%'}">
+        <mat-label>регіон проведення...</mat-label>
+        <input type="text"
+               placeholder="регіон проведення..."
+               aria-label="region"
+               matInput
+               formControlName="region"
+               [matAutocomplete]="region">
+        <mat-autocomplete #region="matAutocomplete">
+          <mat-option *ngFor="let option of regionFilteredOptions | async" [value]="option">
+            {{option}}
+          </mat-option>
+        </mat-autocomplete>
       </mat-form-field>
 
       <mat-form-field class="forms-inputs" title="town" [ngStyle]="{width: '30%'}">

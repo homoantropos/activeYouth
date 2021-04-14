@@ -17,30 +17,45 @@ import {AddressesAdminPageComponent} from './places-admin-page/addresses-admin-p
 import {SportHallsAdminPageComponent} from './places-admin-page/sport-halls-admin-page/sport-halls-admin-page.component';
 import {CountryCreatorComponent} from './creators-editors/country-creator/country-creator.component';
 import {CountryEditorComponent} from './creators-editors/country-editor/country-editor.component';
+import {RegionCreatorComponent} from './creators-editors/region-creator/region-creator.component';
+import {RegionEditorComponent} from './creators-editors/region-editor/region-editor.component';
 
 const routes: Routes = [
-  {path: '', component: SuperAdminLayoutComponent, canActivate: [AuthGuardService], children: [
+  {
+    path: '', component: SuperAdminLayoutComponent, canActivate: [AuthGuardService], children: [
       {path: '', redirectTo: 'users', pathMatch: 'full'},
-      {path: 'users', children: [
+      {
+        path: 'users', children: [
           {path: 'create', component: UserCreatorComponent},
           {path: 'edit/:id', component: UserEditorComponent},
           {path: '', component: UserAdminPageComponent}]
       },
-      {path: 'places', component: PlacesAdminPageComponent, canActivate: [AuthGuardService], children: [
-          {path: 'countries', component: CountriesAdminPageComponent, children: [
+      {
+        path: 'places', component: PlacesAdminPageComponent, canActivate: [AuthGuardService], children: [
+          {
+            path: 'countries', component: CountriesAdminPageComponent, children: [
               {path: 'create', component: CountryCreatorComponent},
               {path: 'edit/:id', component: CountryEditorComponent}
-            ]},
-          {path: 'regions', component: RegionsAdminPageComponent},
+            ]
+          },
+          {
+            path: 'regions', component: RegionsAdminPageComponent, children: [
+              {path: 'create', component: RegionCreatorComponent},
+              {path: 'edit/:id', component: RegionEditorComponent}
+            ]
+          },
           {path: 'towns', component: TownsAdminPageComponent},
           {path: 'addresses', component: AddressesAdminPageComponent},
           {path: 'sportHalls', component: SportHallsAdminPageComponent}
-        ]},
-      {path: 'sports', children: [
+        ]
+      },
+      {
+        path: 'sports', children: [
           {path: 'create', component: SportKindCreatorComponent},
           {path: 'edit/:id', component: SportKindEditorComponent},
           {path: '', component: SportKindAdminPageComponent}
-        ]},
+        ]
+      },
       {path: 'coaches', component: CoachesesAdminPageComponent}
     ]
   }

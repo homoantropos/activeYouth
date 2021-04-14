@@ -21,6 +21,8 @@ import { AddressesAdminPageComponent } from './places-admin-page/addresses-admin
 import { SportHallsAdminPageComponent } from './places-admin-page/sport-halls-admin-page/sport-halls-admin-page.component';
 import { CountryCreatorComponent } from './creators-editors/country-creator/country-creator.component';
 import { CountryEditorComponent } from './creators-editors/country-editor/country-editor.component';
+import { RegionCreatorComponent } from './creators-editors/region-creator/region-creator.component';
+import { RegionEditorComponent } from './creators-editors/region-editor/region-editor.component';
 
 
 @NgModule({
@@ -41,7 +43,9 @@ import { CountryEditorComponent } from './creators-editors/country-editor/countr
     AddressesAdminPageComponent,
     SportHallsAdminPageComponent,
     CountryCreatorComponent,
-    CountryEditorComponent],
+    CountryEditorComponent,
+    RegionCreatorComponent,
+    RegionEditorComponent],
   imports: [
     FormsModule,
     ReactiveFormsModule,

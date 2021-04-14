@@ -1,0 +1,38 @@
+<form
+  [formGroup]="regionCreatorForm"
+  (ngSubmit)="onSubmit()">
+
+  <h4>Додати регіон</h4>
+
+  <div class="alert danger" *ngIf="regionService.error$ | async as error">
+    {{ error }}
+  </div>
+
+  <div class="alert info" *ngIf = "message && regionCreatorForm.untouched">
+    {{ message }}
+  </div>
+
+  <mat-form-field>
+    <mat-label>введіть назву регіону...</mat-label>
+    <input matInput
+           title="nameInput"
+           type="text"
+           formControlName="name">
+  </mat-form-field>
+
+  <small>група регіонів: </small>
+  <mat-radio-group title="regionsgroup" formControlName="regionsgroup">
+    <mat-radio-button value="1">перша</mat-radio-button>
+    <mat-radio-button value="2">друга</mat-radio-button>
+    <mat-radio-button value="3">третя</mat-radio-button>
+  </mat-radio-group>
+
+  <button mat-button
+          color="primary"
+          [disabled]="regionCreatorForm.invalid || submitted">Додати
+  </button>
+</form>
+
+
+
+

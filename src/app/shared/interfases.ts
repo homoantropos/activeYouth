@@ -37,6 +37,7 @@ export interface SportKind{
   name: string;
   _id?: number;
 }
+
 export interface Place {
   country: string;
   region?: string;
@@ -48,6 +49,12 @@ export interface Place {
 
 export interface Country {
   name: string;
+  _id?: number;
+}
+
+export interface Region {
+  name: string;
+  regionsgroup: number;
   _id?: number;
 }
 
