@@ -1,16 +1,22 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
 import {SuperAdminLayoutComponent} from './super-admin-layout.component';
-import {UserAdminComponent} from './user-admin/user-admin.component';
-import {PlacesAdminComponent} from './places-admin/places-admin.component';
-import {CoachesesAdminComponent} from './coaches-admin/coacheses-admin.component';
+import {UserAdminPageComponent} from './user-admin-page/user-admin-page.component';
+import {PlacesAdminPageComponent} from './places-admin-page/places-admin-page.component';
+import {CoachesesAdminPageComponent} from './coaches-admin-page/coacheses-admin-page.component';
 import {UserCreatorComponent} from './creators-editors/user-creator/user-creator.component';
 import {AuthGuardService} from '../admin-layout/auth/auth-guard.service';
 import {UserEditorComponent} from './creators-editors/user-editor/user-editor.component';
-import {SportsEditorComponent} from '../admin-layout/creators-editors/sports-editor/sports-editor.component';
-import {SportKindAdminComponent} from './sport-kind-admin/sport-kind-admin.component';
+import {SportKindAdminPageComponent} from './sport-kind-admin-page/sport-kind-admin-page.component';
 import {SportKindCreatorComponent} from './creators-editors/sport-kind-creator/sport-kind-creator.component';
 import {SportKindEditorComponent} from './creators-editors/sport-kind-editor/sport-kind-editor.component';
+import {CountriesAdminPageComponent} from './places-admin-page/countries-admin-page/countries-admin-page.component';
+import {RegionsAdminPageComponent} from './places-admin-page/regions-admin-page/regions-admin-page.component';
+import {TownsAdminPageComponent} from './places-admin-page/towns-admin-page/towns-admin-page.component';
+import {AddressesAdminPageComponent} from './places-admin-page/addresses-admin-page/addresses-admin-page.component';
+import {SportHallsAdminPageComponent} from './places-admin-page/sport-halls-admin-page/sport-halls-admin-page.component';
+import {CountryCreatorComponent} from './creators-editors/country-creator/country-creator.component';
+import {CountryEditorComponent} from './creators-editors/country-editor/country-editor.component';
 
 const routes: Routes = [
   {path: '', component: SuperAdminLayoutComponent, canActivate: [AuthGuardService], children: [
@@ -18,15 +24,24 @@ const routes: Routes = [
       {path: 'users', children: [
           {path: 'create', component: UserCreatorComponent},
           {path: 'edit/:id', component: UserEditorComponent},
-          {path: '', component: UserAdminComponent}]
+          {path: '', component: UserAdminPageComponent}]
       },
-      {path: 'places', component: PlacesAdminComponent},
+      {path: 'places', component: PlacesAdminPageComponent, canActivate: [AuthGuardService], children: [
+          {path: 'countries', component: CountriesAdminPageComponent, children: [
+              {path: 'create', component: CountryCreatorComponent},
+              {path: 'edit/:id', component: CountryEditorComponent}
+            ]},
+          {path: 'regions', component: RegionsAdminPageComponent},
+          {path: 'towns', component: TownsAdminPageComponent},
+          {path: 'addresses', component: AddressesAdminPageComponent},
+          {path: 'sportHalls', component: SportHallsAdminPageComponent}
+        ]},
       {path: 'sports', children: [
           {path: 'create', component: SportKindCreatorComponent},
           {path: 'edit/:id', component: SportKindEditorComponent},
-          {path: '', component: SportKindAdminComponent}
+          {path: '', component: SportKindAdminPageComponent}
         ]},
-      {path: 'coaches', component: CoachesesAdminComponent}
+      {path: 'coaches', component: CoachesesAdminPageComponent}
     ]
   }
 ];

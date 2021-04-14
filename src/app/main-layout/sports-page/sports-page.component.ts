@@ -30,9 +30,6 @@ export class SportsPageComponent implements OnInit {
 
   ngOnInit(): void {
     this.sports$ = this.activityService.getAllActivities('sport');
-    this.activityService.getAllActivities('sport').subscribe(
-      res => console.log(res)
-    );
   }
 
   goToActivityDetails(a: Activity): void {

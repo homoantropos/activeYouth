@@ -1,0 +1,25 @@
+<div class = "btn-container">
+
+  <a [routerLink]="['countries']" routerLinkActive="activeBtn" [routerLinkActiveOptions]="{exact: true}">
+    <button mat-button color="primary" >Країни</button>
+  </a>
+
+  <a [routerLink]="['regions']" routerLinkActive="activeBtn">
+    <button mat-button color="primary" >Регіони</button>
+  </a>
+
+  <a [routerLink]="['towns']" routerLinkActive="activeBtn">
+    <button mat-button color="primary" >Міста</button>
+  </a>
+
+  <a [routerLink]="['addresses']" routerLinkActive="activeBtn">
+    <button mat-button color="primary" >Адреси</button>
+  </a>
+
+  <a [routerLink]="['sportHalls']" routerLinkActive="activeBtn">
+    <button mat-button color="primary" >Спортивні споруди</button>
+  </a>
+
+</div>
+
+<router-outlet></router-outlet>

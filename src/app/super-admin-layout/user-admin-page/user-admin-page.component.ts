@@ -7,10 +7,10 @@ import {UserService} from '../services/user.service';
 
 @Component({
   selector: 'app-user-admin',
-  templateUrl: './user-admin.component.html',
-  styleUrls: ['./user-admin.component.css']
+  templateUrl: './user-admin-page.component.html',
+  styleUrls: ['./user-admin-page.component.css']
 })
-export class UserAdminComponent implements OnInit {
+export class UserAdminPageComponent implements OnInit {
   // @ts-ignore
   dataSource: MatTableDataSource<User>;
   // @ts-ignore

@@ -7,10 +7,10 @@ import {SportKindService} from '../services/sport-kind.service';
 
 @Component({
   selector: 'app-sport-kind-admin',
-  templateUrl: './sport-kind-admin.component.html',
-  styleUrls: ['./sport-kind-admin.component.css']
+  templateUrl: './sport-kind-admin-page.component.html',
+  styleUrls: ['./sport-kind-admin-page.component.css']
 })
-export class SportKindAdminComponent implements OnInit {
+export class SportKindAdminPageComponent implements OnInit {
   // @ts-ignore
   dataSource: MatTableDataSource<User>;
   // @ts-ignore

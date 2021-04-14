@@ -46,6 +46,11 @@ export interface Place {
   _id?: string;
 }
 
+export interface Country {
+  name: string;
+  _id?: number;
+}
+
 export interface EducationEntity {
   name: string;
   category?: number;
