@@ -1,8 +1,8 @@
-<form
+<form class="mat-elevation-z8"
   [formGroup]="regionCreatorForm"
-  (ngSubmit)="onSubmit()">
+  (ngSubmit)="onSubmit(regionCreatorForm.value)">
 
-  <h4>Додати регіон</h4>
+  <small><b>Додати регіон</b></small>
 
   <div class="alert danger" *ngIf="regionService.error$ | async as error">
     {{ error }}
@@ -20,6 +20,21 @@
            formControlName="name">
   </mat-form-field>
 
+  <mat-form-field title="country">
+    <mat-label>країна проведення...</mat-label>
+    <input type="text"
+           placeholder="країна проведення..."
+           aria-label="country"
+           matInput
+           formControlName="country"
+           [matAutocomplete]="country">
+    <mat-autocomplete #country="matAutocomplete">
+      <mat-option *ngFor="let option of countryFilteredOptions | async" [value]="option">
+        {{option}}
+      </mat-option>
+    </mat-autocomplete>
+  </mat-form-field>
+
   <small>група регіонів: </small>
   <mat-radio-group title="regionsgroup" formControlName="regionsgroup">
     <mat-radio-button value="1">перша</mat-radio-button>
@@ -29,7 +44,7 @@
 
   <button mat-button
           color="primary"
-          [disabled]="regionCreatorForm.invalid || submitted">Додати
+          [disabled]="regionCreatorForm.invalid || regionCreatorForm.disabled">Додати
   </button>
 </form>
 

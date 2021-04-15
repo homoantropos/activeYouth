@@ -1,0 +1,9 @@
+form {
+  justify-content: center;
+  align-content: center;
+  display: flow;
+}
+
+form, input{
+  padding-left: 15px;
+}

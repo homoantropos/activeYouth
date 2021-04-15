@@ -35,7 +35,7 @@ export class RegionEditorComponent implements OnInit, OnDestroy {
         this.regionId = params.id;
       }
     );
-    this.regionService.getOneREgionById(this.regionId).subscribe(
+    this.regionService.getOneRegionById(this.regionId).subscribe(
       region => {
         this.region = region;
         this.regionEditorForm = new FormGroup({
@@ -62,7 +62,7 @@ export class RegionEditorComponent implements OnInit, OnDestroy {
       regionsgroup: this.regionEditorForm.value.regionsgroup,
       _id: this.region._id
     };
-    this.rSub = this.regionService.updateREgion(region)
+    this.rSub = this.regionService.updateRegion(region)
       .subscribe(
         () => this.message = 'Ваші зміни успішно збережені!',
         error => {

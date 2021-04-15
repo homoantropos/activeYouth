@@ -9,6 +9,7 @@ import {ActivityService} from '../../../shared/services/activity.service';
   templateUrl: './activity-creator.component.html',
   styleUrls: ['./activity-creator.component.css']
 })
+
 export class ActivityCreatorComponent implements OnInit {
   submitted = false;
   // @ts-ignore

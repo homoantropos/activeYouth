@@ -1,8 +1,8 @@
-<a routerLink="create">
-  <button mat-raised-button color="primary">
+  <button *ngIf="hideButton"
+    (click)="goToRegionCreator()"
+    mat-raised-button color="primary">
     Додати регіон
   </button>
-</a>
 
 <router-outlet></router-outlet>
 
