@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {MatTableDataSource} from '@angular/material/table';
-import {Country, User} from '../../../shared/interfases';
-import {Observable, of, Subscription} from 'rxjs';
+import {Country, Region, User} from '../../../shared/interfases';
+import {Observable, of} from 'rxjs';
 import {ActivatedRoute, Router} from '@angular/router';
 import {RegionService} from '../../services/region.service';
 
@@ -15,7 +15,7 @@ export class RegionsAdminPageComponent implements OnInit {
 // @ts-ignore
   dataSource: MatTableDataSource<User>;
   // @ts-ignore
-  region$: Observable<Array<Country>>;
+  region$: Observable<Array<Region>>;
   displayedColumns = ['_id', 'name', 'group', 'delete'];
   paginatorStartPageNumber = 0;
   // @ts-ignore
@@ -34,11 +34,6 @@ export class RegionsAdminPageComponent implements OnInit {
   ngOnInit(): any {
     this.region$ = this.regionService.getAllRegions();
     this.hideButton = true;
-    return this.countryFilteredOptions.subscribe(length => {
-      if (length === 0) {
-       console.log('сработал');
-      }
-    });
   }
 
   onDelete(id: number): void {

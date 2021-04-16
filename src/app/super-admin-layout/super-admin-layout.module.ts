@@ -17,12 +17,13 @@ import { SportKindEditorComponent } from './creators-editors/sport-kind-editor/s
 import { CountriesAdminPageComponent } from './places-admin-page/countries-admin-page/countries-admin-page.component';
 import { RegionsAdminPageComponent } from './places-admin-page/regions-admin-page/regions-admin-page.component';
 import { TownsAdminPageComponent } from './places-admin-page/towns-admin-page/towns-admin-page.component';
-import { AddressesAdminPageComponent } from './places-admin-page/addresses-admin-page/addresses-admin-page.component';
 import { SportHallsAdminPageComponent } from './places-admin-page/sport-halls-admin-page/sport-halls-admin-page.component';
 import { CountryCreatorComponent } from './creators-editors/country-creator/country-creator.component';
 import { CountryEditorComponent } from './creators-editors/country-editor/country-editor.component';
 import { RegionCreatorComponent } from './creators-editors/region-creator/region-creator.component';
 import { RegionEditorComponent } from './creators-editors/region-editor/region-editor.component';
+import { TownCreatorComponent } from './creators-editors/town-creator/town-creator.component';
+import { TownEditorComponent } from './creators-editors/town-editor/town-editor.component';
 
 
 @NgModule({
@@ -40,12 +41,13 @@ import { RegionEditorComponent } from './creators-editors/region-editor/region-e
     CountriesAdminPageComponent,
     RegionsAdminPageComponent,
     TownsAdminPageComponent,
-    AddressesAdminPageComponent,
     SportHallsAdminPageComponent,
     CountryCreatorComponent,
     CountryEditorComponent,
     RegionCreatorComponent,
-    RegionEditorComponent],
+    RegionEditorComponent,
+    TownCreatorComponent,
+    TownEditorComponent],
   imports: [
     FormsModule,
     ReactiveFormsModule,

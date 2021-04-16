@@ -1,0 +1,61 @@
+<form class="mat-elevation-z8"
+      [formGroup]="townCreatorForm"
+      (ngSubmit)="onSubmit(townCreatorForm.value)">
+
+  <small><b>Додати місто</b></small>
+
+  <div class="alert danger" *ngIf="townService.error$ | async as error">
+    {{ error }}
+  </div>
+
+  <div class="alert info" *ngIf = "message && townCreatorForm.untouched">
+    {{ message }}
+  </div>
+
+  <mat-form-field>
+    <mat-label>введіть назву міста...</mat-label>
+    <input matInput
+           title="nameInput"
+           type="text"
+           formControlName="name">
+  </mat-form-field>
+
+  <mat-form-field title="country">
+    <mat-label>країна проведення...</mat-label>
+    <input type="text"
+           placeholder="країна проведення..."
+           aria-label="country"
+           matInput
+           formControlName="country"
+           [matAutocomplete]="country">
+    <mat-autocomplete #country="matAutocomplete">
+      <mat-option *ngFor="let option of countryFilteredOptions | async" [value]="option">
+        {{option}}
+      </mat-option>
+    </mat-autocomplete>
+  </mat-form-field>
+
+  <mat-form-field title="region">
+    <mat-label>регіон проведення...</mat-label>
+    <input type="text"
+           placeholder="регіон проведення..."
+           aria-label="region"
+           matInput
+           formControlName="region"
+           [matAutocomplete]="region">
+    <mat-autocomplete #region="matAutocomplete">
+      <mat-option *ngFor="let option of regionFilteredOptions | async" [value]="option">
+        {{option}}
+      </mat-option>
+    </mat-autocomplete>
+  </mat-form-field>
+
+  <button mat-button
+          color="primary"
+          [disabled]="townCreatorForm.invalid || townCreatorForm.disabled">Додати
+  </button>
+</form>
+
+
+
+

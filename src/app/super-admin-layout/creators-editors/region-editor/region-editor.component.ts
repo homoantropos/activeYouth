@@ -39,7 +39,7 @@ export class RegionEditorComponent implements OnInit, OnDestroy {
       region => {
         this.region = region;
         this.regionEditorForm = new FormGroup({
-          name: new FormControl(this.region.name, [
+          name: new FormControl(this.region.region_name, [
             Validators.required
           ]),
           regionsgroup: new FormControl(this.region.regionsgroup, [
@@ -58,7 +58,7 @@ export class RegionEditorComponent implements OnInit, OnDestroy {
     this.submitted = true;
     this.regionEditorForm.disable();
     const region: Region = {
-      name: this.regionEditorForm.value.name,
+      region_name: this.regionEditorForm.value.name,
       regionsgroup: this.regionEditorForm.value.regionsgroup,
       _id: this.region._id
     };

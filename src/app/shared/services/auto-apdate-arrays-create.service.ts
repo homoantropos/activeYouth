@@ -33,7 +33,7 @@ export class AutoApdateArraysCreateService implements OnDestroy {
     );
     this.sub = this.regionService.getAllRegions().subscribe(
       regions => {
-        regions.map((region: Region) => AutoUpdateArrays.regions.push(region.name));
+        regions.map((region: Region) => AutoUpdateArrays.regions.push(region.region_name));
       }
     );
   }
