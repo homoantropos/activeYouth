@@ -13,10 +13,6 @@ export class DateProviderService {
 
   provideDuration(startDay: Date, finishDay: Date): number {
     // @ts-ignore
-    console.log(startDay);
-    const startTime: number = startDay.getTime();
-    console.log(startTime);
-    const finishTime: number = finishDay.getTime();
-    return Math.round((1 + (finishTime - startTime) / (1000 * 24 * 60 * 60)));
+    return Math.round((1 + (finishDay - startDay) / (1000 * 24 * 60 * 60)));
   }
 }
