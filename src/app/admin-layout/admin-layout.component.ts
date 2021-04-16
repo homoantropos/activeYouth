@@ -3,6 +3,7 @@ import {AuthService} from './auth/auth.service';
 import {Router} from '@angular/router';
 
 import {AutoApdateArraysCreateService} from '../shared/services/auto-apdate-arrays-create.service';
+import {AutoUpdateArrays} from '../shared/utils/autoUpdateArrays';
 
 @Component({
   selector: 'app-admin-layout',
@@ -20,6 +21,7 @@ export class AdminLayoutComponent implements OnInit {
 
   ngOnInit(): void {
     this.autoUpdateCreator.createAutoApdateArrays();
+    console.log(AutoUpdateArrays.sportKinds);
   }
 
   goToMainPage(): void {

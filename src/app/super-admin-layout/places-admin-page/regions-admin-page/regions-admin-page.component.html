@@ -1,8 +1,10 @@
-  <button *ngIf="hideButton"
-    (click)="goToRegionCreator()"
-    mat-raised-button color="primary">
-    Додати регіон
-  </button>
+<button *ngIf="hideButton"
+        (click)="goToRegionCreator()"
+        mat-raised-button color="primary">
+  Додати регіон
+</button>
+
+<app-regions-creator></app-regions-creator>
 
 <router-outlet></router-outlet>
 
@@ -26,7 +28,7 @@
     <ng-container matColumnDef="group">
       <th mat-header-cell *matHeaderCellDef>Група</th>
       <td mat-cell *matCellDef="let region">
-          {{region.regionsgroup}}
+        {{region.regionsgroup}}
     </ng-container>
 
     <ng-container matColumnDef="delete">

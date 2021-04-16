@@ -32,6 +32,9 @@ export class AppointmentCreatorComponent implements OnInit {
   countries: Array<Country>;
   // @ts-ignore
   regions: Array<Region>;
+  minDate = new Date();
+  // @ts-ignore
+  minFinishDate$: Observable<Date>;
 
   constructor(
     private appointmentService: AppointmentService,
@@ -44,7 +47,7 @@ export class AppointmentCreatorComponent implements OnInit {
   ngOnInit(): void {
     this.appointmentCreatorForm = new FormGroup({
       title: new FormControl('', [Validators.required]),
-      startDate: new FormControl('', [Validators.required]),
+      startDate: new FormControl(new Date(), [Validators.required]),
       finishDate: new FormControl('', [Validators.required]),
       place: new FormGroup({
         country: new FormControl('', [Validators.required]),
@@ -71,7 +74,8 @@ export class AppointmentCreatorComponent implements OnInit {
       status: new FormControl('', [Validators.required]),
       organiser: new FormControl('', [Validators.required])
     });
-
+    // @ts-ignore
+    this.minFinishDate$ = this.appointmentCreatorForm.get('startDate').valueChanges;
     // @ts-ignore
     this.filteredOptions = this.appointmentCreatorForm.get('sportKind').valueChanges
       .pipe(

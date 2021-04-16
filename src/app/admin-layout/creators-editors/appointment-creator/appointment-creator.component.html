@@ -18,6 +18,7 @@
     <mat-form-field class="forms-inputs" [ngStyle]="{width: '45%'}">
       <mat-label>дата початку...</mat-label>
       <input matInput
+             [min]="minDate"
              [matDatepicker]="startDate"
              formControlName="startDate">
       <mat-datepicker-toggle matSuffix [for]="startDate"></mat-datepicker-toggle>
@@ -26,7 +27,7 @@
 
     <mat-form-field class="forms-inputs" [ngStyle]="{width: '45%'}">
       <mat-label>дата завершення...</mat-label>
-      <input matInput
+      <input matInput [min]="minFinishDate$ | async"
              [matDatepicker]="finishDate"
              formControlName="finishDate">
       <mat-datepicker-toggle matSuffix [for]="finishDate"></mat-datepicker-toggle>
@@ -37,7 +38,7 @@
 
       <mat-form-field title="country" [ngStyle]="{width: '26%'}">
         <mat-label>країна проведення...</mat-label>
-        <input type="text"
+        <input type="search"
                placeholder="країна проведення..."
                aria-label="country"
                matInput
