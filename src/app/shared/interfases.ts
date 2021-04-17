@@ -60,10 +60,17 @@ export interface Region {
 }
 
 export interface Town {
-  name: string;
+  town_name: string;
   country?: Country;
   region?: Region;
   town_id?: number;
+}
+
+export interface SportHall {
+  sportHall_name: string;
+  address?: string;
+  town: Town;
+  sportHall_id?: number;
 }
 
 export interface EducationEntity {

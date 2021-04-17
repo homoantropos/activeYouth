@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 
-import {Appointment, AppointmentFinancing, Country, Members, Place, Region, SportKind} from '../../../shared/interfases';
+import {Appointment, AppointmentFinancing, Country, Members, Place, Region, SportKind, Town} from '../../../shared/interfases';
 import {Router} from '@angular/router';
 import {AppointmentService} from '../../../shared/services/appointment.service';
 import {DateProviderService} from '../../../shared/services/date-provider.service';
@@ -27,11 +27,15 @@ export class AppointmentCreatorComponent implements OnInit {
   // @ts-ignore
   regionFilteredOptions: Observable<string[]>;
   // @ts-ignore
+  townFilteredOptions: Observable<string[]>;
+  // @ts-ignore
   sportKinds: Array<SportKind>;
   // @ts-ignore
   countries: Array<Country>;
   // @ts-ignore
   regions: Array<Region>;
+  // @ts-ignore
+  towns: Array<Town>;
   minDate = new Date();
   // @ts-ignore
   minFinishDate$: Observable<Date>;
@@ -94,6 +98,12 @@ export class AppointmentCreatorComponent implements OnInit {
         startWith(''),
         map((value: string) => this._filterRegion(value))
       );
+    // @ts-ignore
+    this.townFilteredOptions = this.appointmentCreatorForm.get('place').get('town').valueChanges
+      .pipe(
+        startWith(''),
+        map((value: string) => this._filterTown(value))
+      );
   }
 
   private _filter(value: string): string[] {
@@ -109,6 +119,11 @@ export class AppointmentCreatorComponent implements OnInit {
   private _filterRegion(value: string): string[] {
     const filterValue = value.toLowerCase();
     return AutoUpdateArrays.regions.filter(option => option.toLowerCase().includes(filterValue));
+  }
+
+  private _filterTown(value: string): string[] {
+    const filterValue = value.toLowerCase();
+    return AutoUpdateArrays.towns.filter(option => option.toLowerCase().includes(filterValue));
   }
 
   onCreate(value: any): void {

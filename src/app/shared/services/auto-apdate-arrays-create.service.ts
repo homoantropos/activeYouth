@@ -2,9 +2,10 @@ import {Injectable, OnDestroy} from '@angular/core';
 import {SportKindService} from '../../super-admin-layout/services/sport-kind.service';
 import {CountryService} from '../../super-admin-layout/services/country.service';
 import {RegionService} from '../../super-admin-layout/services/region.service';
-import {Country, Region, SportKind} from '../interfases';
+import {Country, Region, SportKind, Town} from '../interfases';
 import {AutoUpdateArrays} from '../utils/autoUpdateArrays';
 import {Subscription} from 'rxjs';
+import {TownService} from '../../super-admin-layout/services/town.service';
 
 @Injectable({
   providedIn: 'root'
@@ -16,7 +17,8 @@ export class AutoApdateArraysCreateService implements OnDestroy {
   constructor(
     private sportKindService: SportKindService,
     private countryService: CountryService,
-    private regionService: RegionService
+    private regionService: RegionService,
+    private townService: TownService
   ) {
   }
 
@@ -34,6 +36,11 @@ export class AutoApdateArraysCreateService implements OnDestroy {
     this.sub = this.regionService.getAllRegions().subscribe(
       regions => {
         regions.map((region: Region) => AutoUpdateArrays.regions.push(region.region_name));
+      }
+    );
+    this.sub = this.townService.getAllTowns().subscribe(
+      towns => {
+        towns.map((town: Town) => AutoUpdateArrays.towns.push(town.town_name));
       }
     );
   }

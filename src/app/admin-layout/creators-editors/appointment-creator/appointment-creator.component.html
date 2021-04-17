@@ -34,9 +34,10 @@
       <mat-datepicker #finishDate></mat-datepicker>
     </mat-form-field>
 
+
     <form formGroupName="place">
 
-      <mat-form-field title="country" [ngStyle]="{width: '26%'}">
+      <mat-form-field title="country">
         <mat-label>країна проведення...</mat-label>
         <input type="search"
                placeholder="країна проведення..."
@@ -51,7 +52,7 @@
         </mat-autocomplete>
       </mat-form-field>
 
-      <mat-form-field title="region" [ngStyle]="{width: '26%'}">
+      <mat-form-field title="region" [ngStyle]="{marginLeft: '10px', marginRight: '10px'}">
         <mat-label>регіон проведення...</mat-label>
         <input type="text"
                placeholder="регіон проведення..."
@@ -66,15 +67,22 @@
         </mat-autocomplete>
       </mat-form-field>
 
-      <mat-form-field class="forms-inputs" title="town" [ngStyle]="{width: '30%'}">
-        <mat-label>місто...</mat-label>
-        <input matInput
-               title="town"
-               type="text"
-               formControlName="town">
+      <mat-form-field title="town">
+        <mat-label>місто проведення...</mat-label>
+        <input type="search"
+               placeholder="місто проведення..."
+               aria-label="town"
+               matInput
+               formControlName="town"
+               [matAutocomplete]="town">
+        <mat-autocomplete #town="matAutocomplete">
+          <mat-option *ngFor="let option of townFilteredOptions | async" [value]="option">
+            {{option}}
+          </mat-option>
+        </mat-autocomplete>
       </mat-form-field>
 
-      <mat-form-field class="forms-inputs" title="sportHall" [ngStyle]="{width: '45%'}">
+      <mat-form-field class="forms-inputs" title="sportHall" [ngStyle]="{width: '20%'}">
         <mat-label>назва спортивної споруди..</mat-label>
         <input matInput
                title="sportHall"
@@ -82,7 +90,7 @@
                formControlName="sportHallName">
       </mat-form-field>
 
-      <mat-form-field class="forms-inputs" title="address" [ngStyle]="{width: '45%'}">
+      <mat-form-field class="forms-inputs" title="address" [ngStyle]="{width: '25%'}">
         <mat-label>адреса...</mat-label>
         <input matInput
                title="address"
@@ -91,6 +99,29 @@
       </mat-form-field>
 
     </form>
+
+    <mat-form-field class="forms-inputs" title="organizationsParticipants" [ngStyle]="{width: '46%'}">
+      <mat-label>організації-учасники...</mat-label>
+      <input matInput
+             title="organizationsParticipants"
+             type="text"
+             formControlName="organizationsParticipants">
+    </mat-form-field>
+
+    <mat-form-field title="sportKind" [ngStyle]="{width: '46%'}">
+      <mat-label>вид спорту (активності)</mat-label>
+      <input type="text"
+             placeholder="вид спорту (активності)..."
+             aria-label="sportKind"
+             matInput
+             formControlName="sportKind"
+             [matAutocomplete]="auto">
+      <mat-autocomplete #auto="matAutocomplete">
+        <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+          {{option}}
+        </mat-option>
+      </mat-autocomplete>
+    </mat-form-field>
 
     <label for formGroupName="members">запланована кількість:</label>
     <form formGroupName="members">
@@ -152,29 +183,6 @@
       </mat-form-field>
 
     </form>
-
-    <mat-form-field class="forms-inputs" title="organizationsParticipants" [ngStyle]="{width: '46%'}">
-      <mat-label>організації-учасники...</mat-label>
-      <input matInput
-             title="organizationsParticipants"
-             type="text"
-             formControlName="organizationsParticipants">
-    </mat-form-field>
-
-    <mat-form-field title="sportKind" [ngStyle]="{width: '46%'}">
-      <mat-label>вид спорту (активності)</mat-label>
-      <input type="text"
-             placeholder="вид спорту (активності)..."
-             aria-label="sportKind"
-             matInput
-             formControlName="sportKind"
-             [matAutocomplete]="auto">
-      <mat-autocomplete #auto="matAutocomplete">
-        <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
-          {{option}}
-        </mat-option>
-      </mat-autocomplete>
-    </mat-form-field>
 
     <br>
     <small>учасники: </small>
