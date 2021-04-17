@@ -44,7 +44,7 @@ export class RegionService {
     const message = error.error.message;
     if (message) {
       switch (message) {
-        case('повторювані значення ключа порушують обмеження унікальності "region_name_key"'):
+        case('повторювані значення ключа порушують обмеження унікальності "region_region_name_key"'):
           this.error$.next('така назва регіону для цієї країни вже зареєстрована.');
           break;
       }

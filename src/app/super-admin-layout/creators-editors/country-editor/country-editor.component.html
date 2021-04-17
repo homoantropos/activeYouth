@@ -1,6 +1,6 @@
 <form *ngIf="countryEditorForm; else loader"
       [formGroup]="countryEditorForm"
-      (ngSubmit)="onSubmit()">
+      (ngSubmit)="onSubmit(countryEditorForm.value)">
 
   <h4>Змініти назву країни</h4>
 

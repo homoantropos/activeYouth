@@ -4,8 +4,6 @@
   Додати регіон
 </button>
 
-<app-regions-creator></app-regions-creator>
-
 <router-outlet></router-outlet>
 
 <div *ngIf="region$ | async as regions">
@@ -28,7 +26,7 @@
     <ng-container matColumnDef="group">
       <th mat-header-cell *matHeaderCellDef>Група</th>
       <td mat-cell *matCellDef="let region">
-        {{region.regionsgroup}}
+        {{region.region_group}}
     </ng-container>
 
     <ng-container matColumnDef="delete">

@@ -1,6 +1,6 @@
 <form
       [formGroup]="countryCreatorForm"
-      (ngSubmit)="onSubmit()">
+      (ngSubmit)="onSubmit(countryCreatorForm.value)">
 
   <h4>Додати країну</h4>
 

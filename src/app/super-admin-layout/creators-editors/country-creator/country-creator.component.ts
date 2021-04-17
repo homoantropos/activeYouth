@@ -5,6 +5,7 @@ import {AuthService} from '../../../admin-layout/auth/auth.service';
 import {Router} from '@angular/router';
 import {Country} from '../../../shared/interfases';
 import {CountryService} from '../../services/country.service';
+import {AutoUpdateArrays} from '../../../shared/utils/autoUpdateArrays';
 
 @Component({
   selector: 'app-countries-creator',
@@ -35,15 +36,12 @@ export class CountryCreatorComponent implements OnInit, OnDestroy {
     });
   }
 
-  onSubmit(): void {
+  onSubmit(country: Country): void {
     if (this.countryCreatorForm.invalid) {
       return;
     }
     this.submitted = true;
     this.countryCreatorForm.disable();
-    const country: Country = {
-      name: this.countryCreatorForm.value.name
-    };
     this.cSub = this.countryService.createCountry(country)
       .subscribe(
         (con) => {

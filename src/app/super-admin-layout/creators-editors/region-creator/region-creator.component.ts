@@ -35,10 +35,10 @@ export class RegionCreatorComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.regionCreatorForm = new FormGroup({
-      name: new FormControl('', [
+      region_name: new FormControl('', [
         Validators.required
       ]),
-      regionsgroup: new FormControl('', [
+      region_group: new FormControl('', [
         Validators.required
       ]),
       country: new FormControl('', [

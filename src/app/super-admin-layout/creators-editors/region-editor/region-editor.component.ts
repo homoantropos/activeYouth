@@ -3,6 +3,7 @@ import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {Country, Region} from '../../../shared/interfases';
 import {ActivatedRoute, Params, Router} from '@angular/router';
 import {RegionService} from '../../services/region.service';
+import {AutoUpdateArrays} from '../../../shared/utils/autoUpdateArrays';
 
 @Component({
   selector: 'app-region-editor',
@@ -39,10 +40,10 @@ export class RegionEditorComponent implements OnInit, OnDestroy {
       region => {
         this.region = region;
         this.regionEditorForm = new FormGroup({
-          name: new FormControl(this.region.region_name, [
+          region_name: new FormControl(this.region.region_name, [
             Validators.required
           ]),
-          regionsgroup: new FormControl(this.region.regionsgroup, [
+          region_group: new FormControl(this.region.region_group, [
             Validators.required
           ])
         });
@@ -51,28 +52,27 @@ export class RegionEditorComponent implements OnInit, OnDestroy {
 
   }
 
-  onSubmit(): void {
+  onSubmit(region: Region): void {
     if (this.regionEditorForm.invalid) {
       return;
     }
     this.submitted = true;
     this.regionEditorForm.disable();
-    const region: Region = {
-      region_name: this.regionEditorForm.value.name,
-      regionsgroup: this.regionEditorForm.value.regionsgroup,
-      _id: this.region._id
-    };
+    region.region_id = this.region.region_id;
     this.rSub = this.regionService.updateRegion(region)
       .subscribe(
-        () => this.message = 'Ваші зміни успішно збережені!',
+        (reg) => {
+          AutoUpdateArrays.regions.push(reg.region_name);
+          this.message = 'Ваші зміни успішно збережені!';
+        },
         error => {
           this.regionService.errorHandle(error);
         }
       );
     this.router.navigate(['superadmin', 'places', 'regions']);
-    this.regionEditorForm.reset();
-    this.regionEditorForm.enable();
-    this.submitted = false;
+    // this.regionEditorForm.reset();
+    // this.regionEditorForm.enable();
+    // this.submitted = false;
   }
 
   ngOnDestroy(): void {

@@ -48,22 +48,22 @@ export interface Place {
 }
 
 export interface Country {
-  name: string;
-  _id?: number;
+  country_name: string;
+  country_id?: number;
 }
 
 export interface Region {
   region_name: string;
-  regionsgroup: number;
+  region_group?: number;
   country?: Country;
-  _id?: number;
+  region_id?: number;
 }
 
 export interface Town {
   name: string;
   country?: Country;
   region?: Region;
-  _id?: number;
+  town_id?: number;
 }
 
 export interface EducationEntity {

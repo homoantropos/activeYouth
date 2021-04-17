@@ -3,6 +3,7 @@ import {Observable, Subject, throwError} from 'rxjs';
 import {HttpClient, HttpErrorResponse} from '@angular/common/http';
 import {environment} from '../../../environments/environment';
 import {Country} from '../../shared/interfases';
+import {AutoUpdateArrays} from '../../shared/utils/autoUpdateArrays';
 
 @Injectable({
   providedIn: 'root'
@@ -21,6 +22,7 @@ export class CountryService {
   }
 
   createCountry(country: Country): Observable<Country> {
+    AutoUpdateArrays.countries.push(country.country_name);
     return this.http.post<Country>(`${environment.postgresDbUrl}/country`, country);
   }
 
@@ -33,6 +35,7 @@ export class CountryService {
   }
 
   updateCountry(country: Country): Observable<any>{
+    AutoUpdateArrays.countries.push(country.country_name);
     return this.http.patch<any>(`${environment.postgresDbUrl}/country`, country);
   }
 
@@ -40,7 +43,7 @@ export class CountryService {
     const message = error.error.message;
     if (message) {
       switch (message) {
-        case('повторювані значення ключа порушують обмеження унікальності "country_name_key"'):
+        case('повторювані значення ключа порушують обмеження унікальності "country_country_name_key"'):
           this.error$.next('така назва країни вже зареєстрована.');
           break;
       }

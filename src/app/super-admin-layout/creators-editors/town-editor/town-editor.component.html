@@ -1,1 +1,64 @@
-<p>town-editor works!</p>
+<form class="mat-elevation-z8"
+      *ngIf="townEditorForm; else loader"
+      [formGroup]="townEditorForm"
+      (ngSubmit)="onSubmit(townEditorForm.value)">
+
+  <small><b>Змінити місто</b></small>
+
+  <div class="alert danger" *ngIf="townService.error$ | async as error">
+    {{ error }}
+  </div>
+
+  <div class="alert info" *ngIf = "message && townEditorForm.untouched">
+    {{ message }}
+  </div>
+
+  <mat-form-field>
+    <mat-label>введіть назву міста...</mat-label>
+    <input matInput
+           title="nameInput"
+           type="text"
+           formControlName="town_name">
+  </mat-form-field>
+
+  <mat-form-field title="country">
+    <mat-label>країна проведення...</mat-label>
+    <input type="text"
+           placeholder="країна проведення..."
+           aria-label="country_name"
+           matInput
+           formControlName="country_name"
+           [matAutocomplete]="country">
+    <mat-autocomplete #country="matAutocomplete">
+      <mat-option *ngFor="let option of countryFilteredOptions | async" [value]="option">
+        {{option}}
+      </mat-option>
+    </mat-autocomplete>
+  </mat-form-field>
+
+  <mat-form-field title="region">
+    <mat-label>регіон проведення...</mat-label>
+    <input type="text"
+           placeholder="регіон проведення..."
+           aria-label="region_name"
+           matInput
+           formControlName="region_name"
+           [matAutocomplete]="region">
+    <mat-autocomplete #region="matAutocomplete">
+      <mat-option *ngFor="let option of regionFilteredOptions | async" [value]="option">
+        {{option}}
+      </mat-option>
+    </mat-autocomplete>
+  </mat-form-field>
+
+  <button mat-button
+          color="primary"
+          [disabled]="townEditorForm.invalid || townEditorForm.disabled">Додати
+  </button>
+</form>
+
+<ng-template #loader>
+  <app-loader></app-loader>
+</ng-template>
+
+

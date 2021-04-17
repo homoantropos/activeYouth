@@ -38,7 +38,7 @@ export class CountryEditorComponent implements OnInit, OnDestroy {
       country => {
         this.country = country;
         this.countryEditorForm = new FormGroup({
-          name: new FormControl(this.country.name, [
+          name: new FormControl(this.country.country_name, [
             Validators.required
           ])
         });
@@ -47,16 +47,13 @@ export class CountryEditorComponent implements OnInit, OnDestroy {
 
   }
 
-  onSubmit(): void {
+  onSubmit(country: Country): void {
     if (this.countryEditorForm.invalid) {
       return;
     }
     this.submitted = true;
     this.countryEditorForm.disable();
-    const country: Country = {
-      name: this.countryEditorForm.value.name,
-      _id: this.country._id
-    };
+    country.country_id = this.country.country_id;
     this.cSub = this.countryService.updateCountry(country)
       .subscribe(
         () => this.message = 'Ваші зміни успішно збережені!',

@@ -28,7 +28,7 @@ export class AutoApdateArraysCreateService implements OnDestroy {
     );
     this.sub = this.countryService.getAllCountries().subscribe(
       countries => {
-        countries.map((country: Country) => AutoUpdateArrays.countries.push(country.name));
+        countries.map((country: Country) => AutoUpdateArrays.countries.push(country.country_name));
       }
     );
     this.sub = this.regionService.getAllRegions().subscribe(

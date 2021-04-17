@@ -3,6 +3,7 @@ import {Observable, Subject, throwError} from 'rxjs';
 import {HttpClient, HttpErrorResponse} from '@angular/common/http';
 import {Town} from '../../shared/interfases';
 import {environment} from '../../../environments/environment';
+import {map} from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -33,8 +34,21 @@ export class TownService {
     return this.http.get<Array<Town>>(`${environment.postgresDbUrl}/town`);
   }
 
-  getOneTownById(id: number): Observable<Town> {
-    return this.http.get<Town>(`${environment.postgresDbUrl}/town/${id}`);
+  getOneTownById(id: number): Observable<any> {
+    return this.http.get<any>(`${environment.postgresDbUrl}/town/${id}`)
+      .pipe(
+        map(res => {
+          const country = {country_name: res.country_name};
+          const region = {region_name: res.region_name};
+          const town = {
+            town_name: res.town_name,
+            country,
+            region,
+            _id: res.town_id
+          };
+          return town;
+        })
+      );
   }
 
   getTownsByOptions(option: string): Observable<Array<Town>> {

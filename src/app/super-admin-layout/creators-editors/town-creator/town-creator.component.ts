@@ -1,9 +1,8 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {Observable, Subscription} from 'rxjs';
-import {Region, Town} from '../../../shared/interfases';
+import {Town} from '../../../shared/interfases';
 import {AuthService} from '../../../admin-layout/auth/auth.service';
-import {RegionService} from '../../services/region.service';
 import {Router} from '@angular/router';
 import {map, startWith} from 'rxjs/operators';
 import {AutoUpdateArrays} from '../../../shared/utils/autoUpdateArrays';
@@ -14,6 +13,7 @@ import {TownService} from '../../services/town.service';
   templateUrl: './town-creator.component.html',
   styleUrls: ['./town-creator.component.css']
 })
+
 export class TownCreatorComponent implements OnInit, OnDestroy {
 // @ts-ignore
   townCreatorForm: FormGroup;
@@ -37,7 +37,7 @@ export class TownCreatorComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.townCreatorForm = new FormGroup({
-      name: new FormControl('', [
+      town_name: new FormControl('', [
         Validators.required
       ]),
       country: new FormControl('', [
