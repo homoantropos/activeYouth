@@ -24,6 +24,8 @@ import { RegionCreatorComponent } from './creators-editors/region-creator/region
 import { RegionEditorComponent } from './creators-editors/region-editor/region-editor.component';
 import { TownCreatorComponent } from './creators-editors/town-creator/town-creator.component';
 import { TownEditorComponent } from './creators-editors/town-editor/town-editor.component';
+import { SportHallCreatorComponent } from './creators-editors/sport-hall-creator/sport-hall-creator.component';
+import { SportHallEditorComponent } from './creators-editors/sport-hall-editor/sport-hall-editor.component';
 
 
 @NgModule({
@@ -47,7 +49,9 @@ import { TownEditorComponent } from './creators-editors/town-editor/town-editor.
     RegionCreatorComponent,
     RegionEditorComponent,
     TownCreatorComponent,
-    TownEditorComponent],
+    TownEditorComponent,
+    SportHallCreatorComponent,
+    SportHallEditorComponent],
   imports: [
     FormsModule,
     ReactiveFormsModule,

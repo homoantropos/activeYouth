@@ -25,8 +25,8 @@ export class SportHallService {
     return this.http.delete(`${environment.postgresDbUrl}/sportHall/${id}`);
   }
 
-  updateSportHall(town: Town): Observable<any>{
-    return this.http.patch<any>(`${environment.postgresDbUrl}/sportHall`, town);
+  updateSportHall(sportHall: SportHall): Observable<any>{
+    return this.http.patch<any>(`${environment.postgresDbUrl}/sportHall`, sportHall);
   }
 
   getAllSportHalls(): Observable<Array<SportHall>> {
@@ -39,11 +39,12 @@ export class SportHallService {
         map(res => {
           const town = {town_name: res.town_name};
           const sportHall = {
-            sportHall_name: res.sportHall_name,
-            town,
-            sportHall_id: res.town_id
+            sportHall_name: res.sporthall_name,
+            address: res.address,
+            sportHall_id: res.sporthall_id,
+            town
           };
-          return town;
+          return sportHall;
         })
       );
   }
