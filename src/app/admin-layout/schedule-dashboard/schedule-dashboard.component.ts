@@ -31,7 +31,7 @@ export class ScheduleDashboardComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.schedule$ = this.appointmentService.getAllAppointment();
+    this.schedule$ = this.appointmentService.getAllAppointmentPSQL();
   }
 
   deleteAppointmentFromDb(id: string): void {

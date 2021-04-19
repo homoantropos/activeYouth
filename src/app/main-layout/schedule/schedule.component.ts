@@ -31,7 +31,7 @@ export class ScheduleComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit(): void {
-    this.schedule$ = this.appointmentService.getAllAppointment();
+    this.schedule$ = this.appointmentService.getAllAppointmentPSQL();
   }
 
   ngAfterViewInit(): void {

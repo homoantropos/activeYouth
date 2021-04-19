@@ -20,6 +20,19 @@ export class AppointmentService {
   ) {
   }
 
+  getAllAppointmentPSQL(): Observable<Array<any>> {
+    return this.http.get<Array<any>>(`${environment.postgresDbUrl}/appointment`)
+      .pipe(
+        map((response: Array<any>) => {
+          for (const appointment of response) {
+            appointment.startDate = new Date(appointment.startdate.toString());
+            appointment.finishDate = new Date(appointment.finishdate.toString());
+          }
+          return response;
+        })
+      );
+  }
+
   getAllAppointment(): Observable<Array<Appointment>> {
     return this.http.get<Array<Appointment>>(`${environment.mongoDbUrl}/schedule`)
       .pipe(
@@ -46,6 +59,7 @@ export class AppointmentService {
   saveAppointmentToPSQL(appointment: Appointment): Observable<Appointment> {
     return this.http.post<Appointment>(`${environment.postgresDbUrl}/appointment`, appointment);
   }
+
   createAppointment(appointment: Appointment): Observable<Appointment> {
     appointment.appointment_id = `${Date.now()}`;
     MockDataBase.schedule.unshift(appointment);
@@ -69,14 +83,14 @@ export class AppointmentService {
     return this.http.get<Appointment>(`${environment.mongoDbUrl}/schedule/${id}`)
       .pipe(
         map((appointment: Appointment) => {
-          const appId: string = (appointment.place) as unknown as string;
-          this.placesService.getPlaceById(appId)
-            .subscribe(place => {
-              place.place_id = appId;
-              appointment.place = place;
-            });
-          return appointment;
-        }
+            const appId: string = (appointment.place) as unknown as string;
+            this.placesService.getPlaceById(appId)
+              .subscribe(place => {
+                place.place_id = appId;
+                appointment.place = place;
+              });
+            return appointment;
+          }
         )
       );
   }
