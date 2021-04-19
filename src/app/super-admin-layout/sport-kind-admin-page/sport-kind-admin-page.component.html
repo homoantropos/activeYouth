@@ -9,13 +9,13 @@
 
     <ng-container matColumnDef="_id">
       <th mat-header-cell *matHeaderCellDef>ID</th>
-      <td mat-cell *matCellDef="let sport">{{sport._id}}</td>
+      <td mat-cell *matCellDef="let sport">{{sport.sportkind_id}}</td>
     </ng-container>
 
     <ng-container matColumnDef="name">
       <th mat-header-cell *matHeaderCellDef>Вид спорту (активності)</th>
       <td mat-cell *matCellDef="let sport">
-        <a (click)="goToSportKindEditor(sport._id)">
+        <a (click)="goToSportKindEditor(sport.sportkind_id)">
           {{sport.name}}
         </a></td>
     </ng-container>
@@ -23,7 +23,7 @@
     <ng-container matColumnDef = "delete">
       <th mat-header-cell *matHeaderCellDef>видалити</th>
       <td mat-cell *matCellDef="let sport">
-        <button mat-button color="primary" (click)="onDelete(sport._id)">
+        <button mat-button color="primary" (click)="onDelete(sport.sportkind_id)">
           видалити
         </button>
       </td>

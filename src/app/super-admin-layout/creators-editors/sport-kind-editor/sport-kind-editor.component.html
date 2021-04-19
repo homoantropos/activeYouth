@@ -1,6 +1,6 @@
 <form *ngIf="sportKindEditorForm; else loader" class="login-container"
       [formGroup]="sportKindEditorForm"
-      (ngSubmit)="onSubmit()">
+      (ngSubmit)="onSubmit(sportKindEditorForm.value)">
 
   <h3>Змініть вид спорту (активності)</h3>
 

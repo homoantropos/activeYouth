@@ -2,7 +2,7 @@ export interface User {
   email: string;
   password: string;
   role?: string;
-  _id?: number;
+  person_id?: number;
 }
 
 export interface Activity {
@@ -35,7 +35,7 @@ export interface Appointment {
 
 export interface SportKind{
   name: string;
-  _id?: number;
+  sportkind_id?: number;
 }
 
 export interface Place {

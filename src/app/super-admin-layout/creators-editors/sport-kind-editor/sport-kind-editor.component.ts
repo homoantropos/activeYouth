@@ -46,19 +46,16 @@ export class SportKindEditorComponent implements OnInit, OnDestroy {
         });
       }
     );
-
   }
 
-  onSubmit(): void {
+  onSubmit(sportKind: SportKind): void {
     if (this.sportKindEditorForm.invalid) {
       return;
     }
     this.submitted = true;
     this.sportKindEditorForm.disable();
-    const sportKind: SportKind = {
-      name: this.sportKindEditorForm.value.name,
-      _id: this.sportKind._id
-    };
+    sportKind.sportkind_id = this.sportKind.sportkind_id;
+    console.log(sportKind);
     this.skSub = this.sportKindService.updateSportKind(sportKind)
       .subscribe(
         () => this.message = 'Ваші зміни успішно збережені!',

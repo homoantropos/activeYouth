@@ -34,7 +34,7 @@ export class UserService {
   }
 
   updateUser(user: User): Observable<any>{
-    return this.http.patch<any>(`${environment.postgresDbUrl}/user/${user._id}`, user);
+    return this.http.patch<any>(`${environment.postgresDbUrl}/user/${user.person_id}`, user);
   }
 
   public errorHandle(error: HttpErrorResponse): any {

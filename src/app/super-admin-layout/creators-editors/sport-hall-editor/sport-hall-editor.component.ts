@@ -43,7 +43,6 @@ export class SportHallEditorComponent implements OnInit, OnDestroy {
     );
     this.sportHallService.getOneSportHallById(this.sportHallId).subscribe(
       sportHall => {
-        console.log(sportHall);
         this.sportHallEditorForm = new FormGroup({
           sportHall_name: new FormControl(sportHall.sportHall_name, [
             Validators.required

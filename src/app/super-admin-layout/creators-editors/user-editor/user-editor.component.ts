@@ -74,7 +74,7 @@ export class UserEditorComponent implements OnInit, OnDestroy {
       email: this.userEditorForm.value.email,
       password: this.userEditorForm.value.password,
       role: this.userEditorForm.value.role,
-      _id: this.userId
+      person_id: this.userId
     };
     this.uSub = this.userService.updateUser(user)
       .subscribe(

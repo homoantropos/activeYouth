@@ -9,13 +9,13 @@
 
     <ng-container matColumnDef="_id">
       <th mat-header-cell *matHeaderCellDef>ID</th>
-      <td mat-cell *matCellDef="let user">{{user._id}}</td>
+      <td mat-cell *matCellDef="let user">{{user.person_id}}</td>
     </ng-container>
 
     <ng-container matColumnDef="email">
       <th mat-header-cell *matHeaderCellDef>e-mail</th>
       <td mat-cell *matCellDef="let user">
-        <a (click)="goToUserEditor(user._id)">
+        <a (click)="goToUserEditor(user.person_id)">
           {{user.email}}
         </a></td>
     </ng-container>
@@ -28,7 +28,7 @@
     <ng-container matColumnDef = "delete">
       <th mat-header-cell *matHeaderCellDef>видалити</th>
       <td mat-cell *matCellDef="let user">
-        <button mat-button color="primary" (click)="onDelete(user._id)">
+        <button mat-button color="primary" (click)="onDelete(user.person_id)">
           видалити
         </button>
       </td>
