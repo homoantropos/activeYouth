@@ -42,9 +42,9 @@ export interface Place {
   country: string;
   region?: string;
   town: string;
-  sportHallName?: string;
+  sportHall?: string;
   address?: string;
-  _id?: string;
+  place_id?: string;
 }
 
 export interface Country {
@@ -67,7 +67,7 @@ export interface Town {
 }
 
 export interface SportHall {
-  sportHall_name: string;
+  sporthall_name: string;
   address?: string;
   town: Town;
   sportHall_id?: number;

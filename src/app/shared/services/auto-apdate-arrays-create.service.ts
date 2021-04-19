@@ -2,10 +2,11 @@ import {Injectable, OnDestroy} from '@angular/core';
 import {SportKindService} from '../../super-admin-layout/services/sport-kind.service';
 import {CountryService} from '../../super-admin-layout/services/country.service';
 import {RegionService} from '../../super-admin-layout/services/region.service';
-import {Country, Region, SportKind, Town} from '../interfases';
+import {Country, Region, SportHall, SportKind, Town} from '../interfases';
 import {AutoUpdateArrays} from '../utils/autoUpdateArrays';
 import {Subscription} from 'rxjs';
 import {TownService} from '../../super-admin-layout/services/town.service';
+import {SportHallService} from '../../super-admin-layout/services/sport-hall.service';
 
 @Injectable({
   providedIn: 'root'
@@ -18,7 +19,8 @@ export class AutoApdateArraysCreateService implements OnDestroy {
     private sportKindService: SportKindService,
     private countryService: CountryService,
     private regionService: RegionService,
-    private townService: TownService
+    private townService: TownService,
+    private sportHallService: SportHallService
   ) {
   }
 
@@ -41,6 +43,13 @@ export class AutoApdateArraysCreateService implements OnDestroy {
     this.sub = this.townService.getAllTowns().subscribe(
       towns => {
         towns.map((town: Town) => AutoUpdateArrays.towns.push(town.town_name));
+      }
+    );
+    this.sub = this.sportHallService.getAllSportHalls().subscribe(
+
+      sportHalls => {
+        console.log(sportHalls);
+        sportHalls.map((sportHall: SportHall) => AutoUpdateArrays.sportHall.push(sportHall.sporthall_name));
       }
     );
   }

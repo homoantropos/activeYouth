@@ -30,7 +30,7 @@ export class AppointmentService {
             const id: string = (appointment.place) as unknown as string;
             this.placesService.getPlaceById(id)
               .subscribe(place => {
-                place._id = id;
+                place.place_id = id;
                 appointment.place = place;
               });
           }
@@ -43,6 +43,9 @@ export class AppointmentService {
     return this.http.post<Appointment>(`${environment.mongoDbUrl}/schedule`, appointment);
   }
 
+  saveAppointmentToPSQL(appointment: Appointment): Observable<Appointment> {
+    return this.http.post<Appointment>(`${environment.postgresDbUrl}/appointment`, appointment);
+  }
   createAppointment(appointment: Appointment): Observable<Appointment> {
     appointment.appointment_id = `${Date.now()}`;
     MockDataBase.schedule.unshift(appointment);
@@ -69,7 +72,7 @@ export class AppointmentService {
           const appId: string = (appointment.place) as unknown as string;
           this.placesService.getPlaceById(appId)
             .subscribe(place => {
-              place._id = appId;
+              place.place_id = appId;
               appointment.place = place;
             });
           return appointment;

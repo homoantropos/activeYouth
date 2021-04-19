@@ -29,6 +29,8 @@ export class AppointmentCreatorComponent implements OnInit {
   // @ts-ignore
   townFilteredOptions: Observable<string[]>;
   // @ts-ignore
+  sportHallFilteredOptions: Observable<string[]>;
+  // @ts-ignore
   sportKinds: Array<SportKind>;
   // @ts-ignore
   countries: Array<Country>;
@@ -57,7 +59,7 @@ export class AppointmentCreatorComponent implements OnInit {
         country: new FormControl('', [Validators.required]),
         region: new FormControl(''),
         town: new FormControl('', [Validators.required]),
-        sportHallName: new FormControl(''),
+        sportHall: new FormControl(''),
         address: new FormControl('')
       }),
       members: new FormGroup({
@@ -70,7 +72,7 @@ export class AppointmentCreatorComponent implements OnInit {
         others: new FormControl('', [Validators.required]),
       }),
       organizationsParticipants: new FormControl('', [Validators.required]),
-      KPKV: new FormControl('2201310'),
+      kpkv: new FormControl(2201310),
       character: new FormControl('', [Validators.required]),
       participants: new FormControl('', [Validators.required]),
       sportKind: new FormControl('', [Validators.required]),
@@ -104,6 +106,12 @@ export class AppointmentCreatorComponent implements OnInit {
         startWith(''),
         map((value: string) => this._filterTown(value))
       );
+    // @ts-ignore
+    this.sportHallFilteredOptions = this.appointmentCreatorForm.get('place').get('sportHall').valueChanges
+      .pipe(
+        startWith(''),
+        map((value: string) => this._filterSportHall(value))
+      );
   }
 
   private _filter(value: string): string[] {
@@ -126,13 +134,16 @@ export class AppointmentCreatorComponent implements OnInit {
     return AutoUpdateArrays.towns.filter(option => option.toLowerCase().includes(filterValue));
   }
 
+  private _filterSportHall(value: string): string[] {
+    const filterValue = value.toLowerCase();
+    console.log(AutoUpdateArrays.sportHall);
+    return AutoUpdateArrays.sportHall.filter(option => option.toLowerCase().includes(filterValue));
+  }
+
   onCreate(value: any): void {
     value.duration = this.dateProvider.provideDuration(value.startDate, value.finishDate);
-    const place: Place = (value.place) as Place;
-    const members: Members = (value.members) as Members;
-    const appointment: Appointment = (value) as Appointment;
-    console.log(appointment);
-    this.appointmentService.saveAppointmentToDb(appointment).pipe()
+    console.log(value);
+    this.appointmentService.saveAppointmentToPSQL(value).pipe()
       .subscribe(
         (a) => {
           // @ts-ignore

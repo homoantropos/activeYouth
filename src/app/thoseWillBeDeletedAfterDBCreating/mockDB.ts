@@ -25,7 +25,7 @@ export class MockDataBase {
         country: 'Україна',
         region: 'Львівська обл.',
         town: 'Сколе',
-        sportHallName: 'база Тисовець',
+        sportHall: 'база Тисовець',
         address: ''
       },
       organiser: 'УФУС',
@@ -46,7 +46,7 @@ export class MockDataBase {
         country: 'Україна',
         region: 'Львівська обл.',
         town: 'Сколе',
-        sportHallName: 'база Тисовець',
+        sportHall: 'база Тисовець',
         address: ''
       },
       organiser: 'СССУ',
@@ -67,7 +67,7 @@ export class MockDataBase {
         country: 'Україна',
         region: 'Львівська обл.',
         town: 'Сколе',
-        sportHallName: 'база Тисовець',
+        sportHall: 'база Тисовець',
         address: ''
       },
       organiser: 'УФУС',
@@ -88,7 +88,7 @@ export class MockDataBase {
         country: 'Україна',
         region: 'Львівська обл.',
         town: 'Сколе',
-        sportHallName: 'база Тисовець',
+        sportHall: 'база Тисовець',
         address: ''
       },
       organiser: 'СССУ',
@@ -109,7 +109,7 @@ export class MockDataBase {
         country: 'Сербія',
         region: '',
         town: 'Белград',
-        sportHallName: '',
+        sportHall: '',
         address: ''
       },
       organiser: 'СССУ EUSA',
@@ -130,7 +130,7 @@ export class MockDataBase {
         country: 'Сербія',
         region: '',
         town: 'Белград',
-        sportHallName: '',
+        sportHall: '',
         address: ''
       },
       organiser: 'СССУ EUSA',
@@ -151,7 +151,7 @@ export class MockDataBase {
         country: 'Україна',
         region: 'Івано-Франківська обл.',
         town: 'Івано-Франківськ',
-        sportHallName: 'Олімп',
+        sportHall: 'Олімп',
         address: 'вул. Паркова 12'
       },
       organiser: 'КФВС МОН',
@@ -172,7 +172,7 @@ export class MockDataBase {
         country: 'Україна',
         region: 'Луганська обл.',
         town: 'Кремінна',
-        sportHallName: 'спортивний зал ЗОШ № 8',
+        sportHall: 'спортивний зал ЗОШ № 8',
         address: 'вул. Весняна 12'
       },
       organiser: 'КФВС МОН',
@@ -193,7 +193,7 @@ export class MockDataBase {
         country: 'Україна',
         region: 'Луганська обл.',
         town: 'Кремінна',
-        sportHallName: 'спортивний зал ЗОШ № 8',
+        sportHall: 'спортивний зал ЗОШ № 8',
         address: 'вул. Весняна 12'
       },
       organiser: 'КФВС МОН',
@@ -214,7 +214,7 @@ export class MockDataBase {
         country: 'Україна',
         region: 'Луганська обл.',
         town: 'Кремінна',
-        sportHallName: 'спортивний зал ЗОШ № 8',
+        sportHall: 'спортивний зал ЗОШ № 8',
         address: 'вул. Весняна 12'
       },
       organiser: 'КФВС МОН',
@@ -235,7 +235,7 @@ export class MockDataBase {
         country: 'Україна',
         region: 'Сумська обл.',
         town: 'Суми',
-        sportHallName: 'легкоатлетичний манеж СумДУ',
+        sportHall: 'легкоатлетичний манеж СумДУ',
         address: 'вул. Студентська 52'
       },
       organiser: 'КФВС МОН',
@@ -256,7 +256,7 @@ export class MockDataBase {
         country: 'Україна',
         region: 'Сумська обл.',
         town: 'Суми',
-        sportHallName: 'легкоатлетичний манеж СумДУ',
+        sportHall: 'легкоатлетичний манеж СумДУ',
         address: 'вул. Студентська 52'
       },
       organiser: 'КФВС МОН',
@@ -277,7 +277,7 @@ export class MockDataBase {
         country: 'Сербія',
         region: '',
         town: 'Белград',
-        sportHallName: '',
+        sportHall: '',
         address: ''
       },
       organiser: 'УФУС ISF',
@@ -298,7 +298,7 @@ export class MockDataBase {
         country: 'Сербія',
         region: '',
         town: 'Белград',
-        sportHallName: '',
+        sportHall: '',
         address: ''
       },
       organiser: 'УФУС ISF',
@@ -319,7 +319,7 @@ export class MockDataBase {
         country: 'Сербія',
         region: '',
         town: 'Белград',
-        sportHallName: '',
+        sportHall: '',
         address: ''
       },
       organiser: 'УФУС ISF',
@@ -340,7 +340,7 @@ export class MockDataBase {
         country: 'Сербія',
         region: '',
         town: 'Белград',
-        sportHallName: '',
+        sportHall: '',
         address: ''
       },
       organiser: 'УФУС ISF',
@@ -361,7 +361,7 @@ export class MockDataBase {
         country: 'Сербія',
         region: '',
         town: 'Белград',
-        sportHallName: '',
+        sportHall: '',
         address: ''
       },
       organiser: 'УФУС ISF',
@@ -382,7 +382,7 @@ export class MockDataBase {
         country: 'Україна',
         region: 'Волинська обл.',
         town: 'Луцьк',
-        sportHallName: 'Спорткомплекс "Атлет"',
+        sportHall: 'Спорткомплекс "Атлет"',
         address: 'вул. Мохова, 23'
       },
       organiser: 'УФУС',
@@ -403,7 +403,7 @@ export class MockDataBase {
         country: 'Україна',
         region: 'Вінницька обл.',
         town: 'Ладижин',
-        sportHallName: '',
+        sportHall: '',
         address: ''
       },
       organiser: 'КФВС МОН',
@@ -424,7 +424,7 @@ export class MockDataBase {
         country: 'Україна',
         region: 'Дніпропетровська обл.',
         town: 'Дніпро',
-        sportHallName: '',
+        sportHall: '',
         address: ''
       },
       organiser: 'КФВС МОН',
@@ -445,7 +445,7 @@ export class MockDataBase {
         country: 'Україна',
         region: 'Івано-Франківська обл.',
         town: 'Долина',
-        sportHallName: '',
+        sportHall: '',
         address: ''
       },
       organiser: 'КФВС МОН',
@@ -466,7 +466,7 @@ export class MockDataBase {
         country: 'Україна',
         region: 'Запорізька обл.',
         town: 'Запоріжжа',
-        sportHallName: '',
+        sportHall: '',
         address: ''
       },
       organiser: 'КФВС МОН',
@@ -487,7 +487,7 @@ export class MockDataBase {
         country: 'Україна',
         region: 'Донецька обл.',
         town: 'Славянск',
-        sportHallName: '',
+        sportHall: '',
         address: ''
       },
       organiser: 'КФВС МОН',
@@ -508,7 +508,7 @@ export class MockDataBase {
         country: 'Україна',
         region: 'Київ',
         town: 'Київ',
-        sportHallName: 'Меридіан-Венето',
+        sportHall: 'Меридіан-Венето',
         address: 'бул. Героїв Севастополя, 11В'
       },
       organiser: 'КФВС МОН',
@@ -529,7 +529,7 @@ export class MockDataBase {
         country: 'Україна',
         region: 'Київ',
         town: 'Київ',
-        sportHallName: 'Гребний канал',
+        sportHall: 'Гребний канал',
         address: 'Труханів острів'
       },
       organiser: 'СССУ',
@@ -550,7 +550,7 @@ export class MockDataBase {
         country: 'Україна',
         region: 'Івано-Франківська обл.',
         town: 'Івано-Франківськ',
-        sportHallName: 'Спорткомплекс Прикарпатського національного уніврситету',
+        sportHall: 'Спорткомплекс Прикарпатського національного уніврситету',
         address: 'вул. Прикарпатська 90'
       },
       organiser: 'УФУС',
@@ -571,7 +571,7 @@ export class MockDataBase {
         country: 'КНР',
         region: '',
         town: 'Ченду',
-        sportHallName: '',
+        sportHall: '',
         address: ''
       },
       organiser: 'УФУС ISF',
@@ -592,7 +592,7 @@ export class MockDataBase {
         country: 'Україна',
         region: 'Дніпропетровська обл.',
         town: 'Дніпропетровськ',
-        sportHallName: 'спорткомплекс НУХТУ',
+        sportHall: 'спорткомплекс НУХТУ',
         address: 'Дніпровська набережна 25'
       },
       organiser: 'СССУ',
@@ -613,7 +613,7 @@ export class MockDataBase {
         country: 'Україна',
         region: 'Київ',
         town: 'Київ',
-        sportHallName: 'Палац Спорту',
+        sportHall: 'Палац Спорту',
         address: 'пл. Спортивна, 1'
       },
       organiser: 'КФВС МОН',
@@ -634,7 +634,7 @@ export class MockDataBase {
         country: 'Україна',
         region: 'Київ',
         town: 'Київ',
-        sportHallName: 'Палац Спорту',
+        sportHall: 'Палац Спорту',
         address: 'пл. Спортивна, 1'
       },
       organiser: 'КФВС МОН',
@@ -655,7 +655,7 @@ export class MockDataBase {
         country: 'Україна',
         region: 'Київ',
         town: 'Київ',
-        sportHallName: 'Палац Спорту',
+        sportHall: 'Палац Спорту',
         address: 'пл. Спортивна, 1'
       },
       organiser: 'КФВС МОН',
@@ -676,7 +676,7 @@ export class MockDataBase {
         country: 'Україна',
         region: 'Київ',
         town: 'Київ',
-        sportHallName: 'Палац Спорту',
+        sportHall: 'Палац Спорту',
         address: 'пл. Спортивна, 1'
       },
       organiser: 'КФВС МОН',
@@ -697,7 +697,7 @@ export class MockDataBase {
         country: 'Україна',
         region: 'Київ',
         town: 'Київ',
-        sportHallName: 'Палац Спорту',
+        sportHall: 'Палац Спорту',
         address: 'пл. Спортивна, 1'
       },
       organiser: 'КФВС МОН',
@@ -718,7 +718,7 @@ export class MockDataBase {
         country: 'Україна',
         region: 'Запорізька обл.',
         town: 'Запоріжжа',
-        sportHallName: 'Юність',
+        sportHall: 'Юність',
         address: 'Центральний бульвар 96'
       },
       organiser: 'КФВС МОН',
@@ -739,7 +739,7 @@ export class MockDataBase {
         country: 'Україна',
         region: 'Тернопільска обл.',
         town: 'Збараж',
-        sportHallName: 'Палац Спорту',
+        sportHall: 'Палац Спорту',
         address: 'вул. Б. Хмельницького, 1'
       },
       organiser: 'КФВС МОН',
@@ -760,7 +760,7 @@ export class MockDataBase {
         country: 'Україна',
         region: 'Вінницька обл.',
         town: 'Вінниця',
-        sportHallName: 'Стадіон ДЮСШ № 5',
+        sportHall: 'Стадіон ДЮСШ № 5',
         address: 'Центральний Парк'
       },
       organiser: 'СССУ',
@@ -778,7 +778,7 @@ export class MockDataBase {
           country: 'Україна',
           region: 'Вінницька обл.',
           town: 'Вінниця',
-          sportHallName: 'Стадіон ДЮСШ № 5',
+          sportHall: 'Стадіон ДЮСШ № 5',
           address: 'Центральний Парк'
         },
         organiser: 'СССУ', appointment_id: '1ww47'
@@ -811,7 +811,7 @@ export class MockDataBase {
           country: 'Україна',
           region: 'Вінницька обл.',
           town: 'Вінниця',
-          sportHallName: 'Стадіон ДЮСШ № 5',
+          sportHall: 'Стадіон ДЮСШ № 5',
           address: 'Центральний Парк'
         },
         organiser: 'СССУ', appointment_id: '1ww47'
@@ -844,7 +844,7 @@ export class MockDataBase {
           country: 'Україна',
           region: 'Вінницька обл.',
           town: 'Вінниця',
-          sportHallName: 'Стадіон ДЮСШ № 5',
+          sportHall: 'Стадіон ДЮСШ № 5',
           address: 'Центральний Парк'
         },
         organiser: 'СССУ', appointment_id: '1ww47'
@@ -877,7 +877,7 @@ export class MockDataBase {
           country: 'Україна',
           region: 'Вінницька обл.',
           town: 'Вінниця',
-          sportHallName: 'Стадіон ДЮСШ № 5',
+          sportHall: 'Стадіон ДЮСШ № 5',
           address: 'Центральний Парк'
         },
         organiser: 'СССУ', appointment_id: '1ww47'
@@ -910,7 +910,7 @@ export class MockDataBase {
           country: 'Україна',
           region: 'Вінницька обл.',
           town: 'Вінниця',
-          sportHallName: 'Стадіон ДЮСШ № 5',
+          sportHall: 'Стадіон ДЮСШ № 5',
           address: 'Центральний Парк'
         },
         organiser: 'СССУ', appointment_id: '1ww47'
@@ -943,7 +943,7 @@ export class MockDataBase {
           country: 'Україна',
           region: 'Вінницька обл.',
           town: 'Вінниця',
-          sportHallName: 'Стадіон ДЮСШ № 5',
+          sportHall: 'Стадіон ДЮСШ № 5',
           address: 'Центральний Парк'
         },
         organiser: 'СССУ', appointment_id: '1ww47'
@@ -976,7 +976,7 @@ export class MockDataBase {
           country: 'Україна',
           region: 'Вінницька обл.',
           town: 'Вінниця',
-          sportHallName: 'Стадіон ДЮСШ № 5',
+          sportHall: 'Стадіон ДЮСШ № 5',
           address: 'Центральний Парк'
         },
         organiser: 'СССУ', appointment_id: '1ww47'
@@ -1009,7 +1009,7 @@ export class MockDataBase {
           country: 'Україна',
           region: 'Вінницька обл.',
           town: 'Вінниця',
-          sportHallName: 'Стадіон ДЮСШ № 5',
+          sportHall: 'Стадіон ДЮСШ № 5',
           address: 'Центральний Парк'
         },
         organiser: 'СССУ', appointment_id: '1ww47'
@@ -1042,7 +1042,7 @@ export class MockDataBase {
           country: 'Україна',
           region: 'Вінницька обл.',
           town: 'Вінниця',
-          sportHallName: 'Стадіон ДЮСШ № 5',
+          sportHall: 'Стадіон ДЮСШ № 5',
           address: 'Центральний Парк'
         },
         organiser: 'СССУ', appointment_id: '1ww47'
@@ -1075,7 +1075,7 @@ export class MockDataBase {
           country: 'Україна',
           region: 'Вінницька обл.',
           town: 'Вінниця',
-          sportHallName: 'Стадіон ДЮСШ № 5',
+          sportHall: 'Стадіон ДЮСШ № 5',
           address: 'Центральний Парк'
         },
         organiser: 'СССУ', appointment_id: '1ww47'
@@ -1108,7 +1108,7 @@ export class MockDataBase {
           country: 'Україна',
           region: 'Вінницька обл.',
           town: 'Вінниця',
-          sportHallName: 'Стадіон ДЮСШ № 5',
+          sportHall: 'Стадіон ДЮСШ № 5',
           address: 'Центральний Парк'
         },
         organiser: 'СССУ', appointment_id: '1ww47'
@@ -1141,7 +1141,7 @@ export class MockDataBase {
           country: 'Україна',
           region: 'Вінницька обл.',
           town: 'Вінниця',
-          sportHallName: 'Стадіон ДЮСШ № 5',
+          sportHall: 'Стадіон ДЮСШ № 5',
           address: 'Центральний Парк'
         },
         organiser: 'СССУ', appointment_id: '1ww47'
@@ -1174,7 +1174,7 @@ export class MockDataBase {
           country: 'Україна',
           region: 'Вінницька обл.',
           town: 'Вінниця',
-          sportHallName: 'Стадіон ДЮСШ № 5',
+          sportHall: 'Стадіон ДЮСШ № 5',
           address: 'Центральний Парк'
         },
         organiser: 'СССУ', appointment_id: '1ww47'
@@ -1213,7 +1213,7 @@ export class MockDataBase {
           country: 'Україна',
           region: 'Запорізька обл.',
           town: 'Запоріжжа',
-          sportHallName: 'Юність',
+          sportHall: 'Юність',
           address: 'Центральний бульвар 96'
         },
         organiser: 'КФВС МОН',
@@ -1252,7 +1252,7 @@ export class MockDataBase {
           country: 'Україна',
           region: 'Запорізька обл.',
           town: 'Запоріжжа',
-          sportHallName: 'Юність',
+          sportHall: 'Юність',
           address: 'Центральний бульвар 96'
         },
         organiser: 'КФВС МОН',
@@ -1291,7 +1291,7 @@ export class MockDataBase {
           country: 'Україна',
           region: 'Запорізька обл.',
           town: 'Запоріжжа',
-          sportHallName: 'Юність',
+          sportHall: 'Юність',
           address: 'Центральний бульвар 96'
         },
         organiser: 'КФВС МОН',
@@ -1330,7 +1330,7 @@ export class MockDataBase {
           country: 'Україна',
           region: 'Київ',
           town: 'Київ',
-          sportHallName: 'Меридіан-Венето',
+          sportHall: 'Меридіан-Венето',
           address: 'бул. Героїв Севастополя, 11В'
         },
         organiser: 'КФВС МОН',
@@ -1369,7 +1369,7 @@ export class MockDataBase {
           country: 'Україна',
           region: 'Київ',
           town: 'Київ',
-          sportHallName: 'Меридіан-Венето',
+          sportHall: 'Меридіан-Венето',
           address: 'бул. Героїв Севастополя, 11В'
         },
         organiser: 'КФВС МОН',
@@ -1408,7 +1408,7 @@ export class MockDataBase {
           country: 'Україна',
           region: 'Київ',
           town: 'Київ',
-          sportHallName: 'Меридіан-Венето',
+          sportHall: 'Меридіан-Венето',
           address: 'бул. Героїв Севастополя, 11В'
         },
         organiser: 'КФВС МОН',
@@ -1447,7 +1447,7 @@ export class MockDataBase {
           country: 'Україна',
           region: 'Запорізька обл.',
           town: 'Запоріжжа',
-          sportHallName: 'Юність',
+          sportHall: 'Юність',
           address: 'Центральний бульвар 96'
         },
         organiser: 'КФВС МОН',
@@ -1486,7 +1486,7 @@ export class MockDataBase {
           country: 'Україна',
           region: 'Запорізька обл.',
           town: 'Запоріжжа',
-          sportHallName: 'Юність',
+          sportHall: 'Юність',
           address: 'Центральний бульвар 96'
         },
         organiser: 'КФВС МОН',

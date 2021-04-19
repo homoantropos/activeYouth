@@ -82,12 +82,19 @@
         </mat-autocomplete>
       </mat-form-field>
 
-      <mat-form-field class="forms-inputs" title="sportHall" [ngStyle]="{width: '20%'}">
-        <mat-label>назва спортивної споруди..</mat-label>
-        <input matInput
-               title="sportHall"
-               type="text"
-               formControlName="sportHallName">
+      <mat-form-field title="sportHall">
+        <mat-label>спортивна споруда...</mat-label>
+        <input type="search"
+               placeholder="спортивна споруда..."
+               aria-label="sportHall"
+               matInput
+               formControlName="sportHall"
+               [matAutocomplete]="sportHall">
+        <mat-autocomplete #sportHall="matAutocomplete">
+          <mat-option *ngFor="let option of sportHallFilteredOptions | async" [value]="option">
+            {{option}}
+          </mat-option>
+        </mat-autocomplete>
       </mat-form-field>
 
       <mat-form-field class="forms-inputs" title="address" [ngStyle]="{width: '25%'}">
