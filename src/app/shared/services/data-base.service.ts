@@ -12,7 +12,7 @@ export class DataBaseService {
   constructor( ) { }
 
   saveAppointmentToDatabase(appointment: Appointment): Observable<Appointment> {
-    appointment._id = MockDataBase.schedule.length.toString();
+    appointment.appointment_id = MockDataBase.schedule.length.toString();
     MockDataBase.schedule.push(appointment);
     return of(appointment);
   }

@@ -23,14 +23,14 @@ export interface Appointment {
   place: Place;
   organizationsParticipants: string;
   sportKind?: SportKind;
-  KPKV: number;
+  kpkv: number;
   character: string;
   participants: string;
   direction: string;
   status: string;
   organiser: string;
-  _id?: string;
-  _userId?: string;
+  appointment_id?: string;
+  person_id?: string;
 }
 
 export interface SportKind{
