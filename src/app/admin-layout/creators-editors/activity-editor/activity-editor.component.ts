@@ -54,7 +54,7 @@ export class ActivityEditorComponent implements OnInit, OnDestroy {
       author: this.activitiesEditorForm.value.author,
       content: this.activitiesEditorForm.value.content,
       kindOfActivity: 'physical culture',
-      _id: this.activityId
+      activity_id: this.activityId
     };
     this.activityService.updateActivity(activity).subscribe((act) => {
       this.activitiesEditorForm.reset();

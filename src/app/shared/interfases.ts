@@ -9,10 +9,10 @@ export interface Activity {
   title: string;
   author: string;
   content: string;
-  _id?: number;
+  activity_id?: number;
   date?: Date;
   kindOfActivity?: string;
-  _userId?: string;
+  person_id?: string;
 }
 
 export interface Appointment {
