@@ -49,6 +49,7 @@ export class AutoApdateArraysCreateService implements OnDestroy {
 
       sportHalls => {
         console.log(sportHalls);
+        AutoUpdateArrays.sportHalls = sportHalls.slice();
         sportHalls.map((sportHall: SportHall) => AutoUpdateArrays.sportHall.push(sportHall.sporthall_name));
       }
     );

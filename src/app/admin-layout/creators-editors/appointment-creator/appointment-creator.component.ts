@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 
-import {Appointment, AppointmentFinancing, Country, Members, Place, Region, SportKind, Town} from '../../../shared/interfases';
+import {Appointment, AppointmentFinancing, Country, Members, Place, Region, SportHall, SportKind, Town} from '../../../shared/interfases';
 import {Router} from '@angular/router';
 import {AppointmentService} from '../../../shared/services/appointment.service';
 import {DateProviderService} from '../../../shared/services/date-provider.service';
@@ -38,6 +38,8 @@ export class AppointmentCreatorComponent implements OnInit {
   regions: Array<Region>;
   // @ts-ignore
   towns: Array<Town>;
+  // @ts-ignore
+  sportHallsName: Array<string> = [];
   minDate = new Date();
   // @ts-ignore
   minFinishDate$: Observable<Date>;
@@ -136,8 +138,9 @@ export class AppointmentCreatorComponent implements OnInit {
 
   private _filterSportHall(value: string): string[] {
     const filterValue = value.toLowerCase();
-    console.log(AutoUpdateArrays.sportHall);
-    return AutoUpdateArrays.sportHall.filter(option => option.toLowerCase().includes(filterValue));
+    AutoUpdateArrays.sportHalls.map(sportHall => this.sportHallsName.push(sportHall.sporthall_name));
+    console.log(this.sportHallsName);
+    return this.sportHallsName.filter(option => option.toLowerCase().includes(filterValue));;
   }
 
   onCreate(value: any): void {
