@@ -21,7 +21,7 @@ export class SuperAdminLayoutComponent implements OnInit {
     if (existToken !== null){
       this.auth.setToken(existToken);
     }
-    this.autoUpdateCreator.createAutoApdateArrays();
+    this.autoUpdateCreator.createAutoUpdateArrays();
   }
 
   goToMainPage(): void {

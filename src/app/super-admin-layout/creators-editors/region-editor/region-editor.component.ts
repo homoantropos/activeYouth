@@ -62,7 +62,7 @@ export class RegionEditorComponent implements OnInit, OnDestroy {
     this.rSub = this.regionService.updateRegion(region)
       .subscribe(
         (reg) => {
-          AutoUpdateArrays.regions.push(reg.region_name);
+          AutoUpdateArrays.regionsNames.push(reg.region_name);
           this.message = 'Ваші зміни успішно збережені!';
         },
         error => {

@@ -34,7 +34,7 @@ export class ScheduleDashboardComponent implements OnInit {
     this.schedule$ = this.appointmentService.getAllAppointmentPSQL();
   }
 
-  deleteAppointmentFromDb(id: string): void {
+  deleteAppointmentFromDb(id: number): void {
     this.appointmentService.deleteAppointment(id)
       .subscribe(
         (message) => {

@@ -67,8 +67,8 @@ export class AppointmentService {
     return of(appointment);
   }
 
-  deleteAppointment(id: string): Observable<any> {
-    return this.http.delete<any>(`${environment.mongoDbUrl}/schedule/${id}`);
+  deleteAppointment(id: number): Observable<any> {
+    return this.http.delete<any>(`${environment.postgresDbUrl}/appointment/${id}`);
   }
 
   updateAppointment(appointment: Appointment): Observable<Appointment> {

@@ -20,9 +20,7 @@ export class AdminLayoutComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.autoUpdateCreator.createAutoApdateArrays();
-    console.log(AutoUpdateArrays.sportHall);
-    console.log(AutoUpdateArrays.sportHalls);
+    this.autoUpdateCreator.createAutoUpdateArrays();
   }
 
   goToMainPage(): void {

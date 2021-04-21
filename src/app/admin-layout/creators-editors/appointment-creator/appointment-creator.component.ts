@@ -1,7 +1,7 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 
-import {Appointment, AppointmentFinancing, Country, Members, Place, Region, SportHall, SportKind, Town} from '../../../shared/interfases';
+import {AppointmentFinancing, Country, SportKind} from '../../../shared/interfases';
 import {Router} from '@angular/router';
 import {AppointmentService} from '../../../shared/services/appointment.service';
 import {DateProviderService} from '../../../shared/services/date-provider.service';
@@ -17,7 +17,7 @@ import {AutoUpdateArrays} from '../../../shared/utils/autoUpdateArrays';
   styleUrls: ['./appointment-creator.component.css']
 })
 
-export class AppointmentCreatorComponent implements OnInit {
+export class AppointmentCreatorComponent implements OnInit, OnDestroy {
   // @ts-ignore
   appointmentCreatorForm: FormGroup;
   // @ts-ignore
@@ -30,15 +30,10 @@ export class AppointmentCreatorComponent implements OnInit {
   townFilteredOptions: Observable<string[]>;
   // @ts-ignore
   sportHallFilteredOptions: Observable<string[]>;
-  // @ts-ignore
-  sportKinds: Array<SportKind>;
-  // @ts-ignore
-  countries: Array<Country>;
-  // @ts-ignore
-  regions: Array<Region>;
-  // @ts-ignore
-  towns: Array<Town>;
-  // @ts-ignore
+  sportKinds: Array<SportKind> = [];
+  countries: Array<Country> = [];
+  regionsName: Array<string> = [];
+  townsName: Array<string> = [];
   sportHallsName: Array<string> = [];
   minDate = new Date();
   // @ts-ignore
@@ -118,29 +113,43 @@ export class AppointmentCreatorComponent implements OnInit {
 
   private _filter(value: string): string[] {
     const filterValue = value.toLowerCase();
-    return AutoUpdateArrays.sportKinds.filter(option => option.toLowerCase().includes(filterValue));
+    return AutoUpdateArrays.sportKindsNames.filter(option => option.toLowerCase().includes(filterValue));
   }
 
   private _filterCountry(value: string): string[] {
     const filterValue = value.toLowerCase();
-    return AutoUpdateArrays.countries.filter(option => option.toLowerCase().includes(filterValue));
+    return AutoUpdateArrays.countryNames.filter(option => option.toLowerCase().includes(filterValue));
   }
 
   private _filterRegion(value: string): string[] {
     const filterValue = value.toLowerCase();
-    return AutoUpdateArrays.regions.filter(option => option.toLowerCase().includes(filterValue));
+    AutoUpdateArrays.regions
+      // @ts-ignore
+      .filter(region => region.country_name === this.appointmentCreatorForm.get('place').get('country').value)
+      .map(region => this.regionsName.push(region.region_name));
+    this.regionsName = this.regionsName.filter((v, i, a) => a.indexOf(v) === i);
+    return this.regionsName.filter(option => option.toLowerCase().includes(filterValue));
   }
 
   private _filterTown(value: string): string[] {
     const filterValue = value.toLowerCase();
-    return AutoUpdateArrays.towns.filter(option => option.toLowerCase().includes(filterValue));
+    AutoUpdateArrays.towns
+      // @ts-ignore
+      .filter(town => town.region_name === this.appointmentCreatorForm.get('place').get('region').value)
+      // @ts-ignore
+      .map(town => this.townsName.push(town.town_name));
+    this.townsName = this.townsName.filter((v, i, a) => a.indexOf(v) === i);
+    return this.townsName.filter(option => option.toLowerCase().includes(filterValue));
   }
 
   private _filterSportHall(value: string): string[] {
     const filterValue = value.toLowerCase();
-    AutoUpdateArrays.sportHalls.map(sportHall => this.sportHallsName.push(sportHall.sporthall_name));
-    console.log(this.sportHallsName);
-    return this.sportHallsName.filter(option => option.toLowerCase().includes(filterValue));;
+    AutoUpdateArrays.sportHalls
+      // @ts-ignore
+      .filter(sportHall => sportHall.town = this.appointmentCreatorForm.get('place').get('town').value)
+      .map(sportHall => this.sportHallsName.push(sportHall.sporthall_name));
+    this.sportHallsName = this.sportHallsName.filter((v, i, a) => a.indexOf(v) === i);
+    return this.sportHallsName.filter(option => option.toLowerCase().includes(filterValue));
   }
 
   onCreate(value: any): void {
@@ -164,6 +173,14 @@ export class AppointmentCreatorComponent implements OnInit {
           alert('ваш захід додано!');
         }
       );
+  }
+
+  ngOnDestroy(): void {
+    this.sportKinds.splice(0);
+    this.countries.splice(0);
+    this.regionsName.splice(0);
+    this.townsName.splice(0);
+    this.sportHallsName.splice(0);
   }
 }
 

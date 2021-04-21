@@ -76,12 +76,12 @@ export class TownEditorComponent implements OnInit, OnDestroy {
 
   private _filterCountry(value: string): string[] {
     const filterValue = value.toLowerCase();
-    return AutoUpdateArrays.countries.filter(option => option.toLowerCase().includes(filterValue));
+    return AutoUpdateArrays.countryNames.filter(option => option.toLowerCase().includes(filterValue));
   }
 
   private _filterRegion(value: string): string[] {
     const filterValue = value.toLowerCase();
-    return AutoUpdateArrays.regions.filter(option => option.toLowerCase().includes(filterValue));
+    return AutoUpdateArrays.regionsNames.filter(option => option.toLowerCase().includes(filterValue));
   }
 
   onSubmit(town: Town): void {

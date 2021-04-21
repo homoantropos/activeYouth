@@ -55,7 +55,7 @@ export class RegionCreatorComponent implements OnInit, OnDestroy {
 
   private _filterCountry(value: string): string[] {
     const filterValue = value.toLowerCase();
-    return AutoUpdateArrays.countries.filter(option => option.toLowerCase().includes(filterValue));
+    return AutoUpdateArrays.countryNames.filter(option => option.toLowerCase().includes(filterValue));
   }
 
   onSubmit(region: Region): void {

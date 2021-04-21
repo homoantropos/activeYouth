@@ -1,4 +1,5 @@
-<div class="forms-container mat-elevation-z8"
+<div *ngIf = "appointmentCreatorForm; else loader"
+     class="forms-container mat-elevation-z8"
      [ngStyle]="{padding: '2%'}">
 
   <p><b>Додайте захід:</b></p>
@@ -238,3 +239,7 @@
   </form>
 
 </div>
+
+<ng-template #loader>
+  <app-loader></app-loader>
+</ng-template>
