@@ -56,8 +56,7 @@ export class AppointmentCreatorComponent implements OnInit, OnDestroy {
         country: new FormControl('', [Validators.required]),
         region: new FormControl(''),
         town: new FormControl('', [Validators.required]),
-        sportHall: new FormControl(''),
-        address: new FormControl('')
+        sportHall: new FormControl('')
       }),
       members: new FormGroup({
         countries: new FormControl('', [Validators.required]),
