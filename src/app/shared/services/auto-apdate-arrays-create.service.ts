@@ -45,7 +45,6 @@ export class AutoApdateArraysCreateService implements OnDestroy {
 
     this.sub = this.regionService.getAllRegions().subscribe(
       regions => {
-        console.log(regions);
         AutoUpdateArrays.regions.splice(0);
         AutoUpdateArrays.regionsNames.splice(0);
         AutoUpdateArrays.regions = regions.slice();
@@ -63,6 +62,7 @@ export class AutoApdateArraysCreateService implements OnDestroy {
 
     this.sub = this.sportHallService.getAllSportHalls().subscribe(
       sportHalls => {
+        console.log(sportHalls);
         AutoUpdateArrays.sportHalls.splice(0);
         AutoUpdateArrays.sportHallsNames.splice(0);
         AutoUpdateArrays.sportHalls = sportHalls.slice();
