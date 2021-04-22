@@ -23,7 +23,7 @@ export class AppointmentDetailsComponent implements OnInit, OnDestroy {
 
   ngOnInit(): Subscription {
     return this.rSub = this.route.params.subscribe((params: Params) => {
-     this.appointment$ = this.appointmentService.getAppointmentByID(params.id);
+     this.appointment$ = this.appointmentService.getAppointmentById(params.id);
     });
   }
 

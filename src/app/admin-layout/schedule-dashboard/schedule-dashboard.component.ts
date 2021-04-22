@@ -43,4 +43,8 @@ export class ScheduleDashboardComponent implements OnInit {
         }
       );
   }
+
+  gpToAppiontmentEditor(id: number): void {
+    this.router.navigateByUrl(`admin/schedule/edit/${id}`);
+  }
 }

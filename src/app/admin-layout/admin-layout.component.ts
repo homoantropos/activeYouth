@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {AuthService} from './auth/auth.service';
 import {Router} from '@angular/router';
 
-import {AutoApdateArraysCreateService} from '../shared/services/auto-apdate-arrays-create.service';
+import {AutoUpdateArraysCreateService} from '../shared/services/auto-update-arrays-create.service';
 import {AutoUpdateArrays} from '../shared/utils/autoUpdateArrays';
 
 @Component({
@@ -15,7 +15,7 @@ export class AdminLayoutComponent implements OnInit {
   constructor(
     public auth: AuthService,
     private router: Router,
-    private autoUpdateCreator: AutoApdateArraysCreateService
+    private autoUpdateCreator: AutoUpdateArraysCreateService
   ) {
   }
 

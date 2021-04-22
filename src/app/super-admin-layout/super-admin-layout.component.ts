@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {AuthService} from '../admin-layout/auth/auth.service';
 import {Router} from '@angular/router';
-import {AutoApdateArraysCreateService} from '../shared/services/auto-apdate-arrays-create.service';
+import {AutoUpdateArraysCreateService} from '../shared/services/auto-update-arrays-create.service';
 
 @Component({
   selector: 'app-super-admin',
@@ -13,7 +13,7 @@ export class SuperAdminLayoutComponent implements OnInit {
   constructor(
     public auth: AuthService,
     private router: Router,
-    private autoUpdateCreator: AutoApdateArraysCreateService
+    private autoUpdateCreator: AutoUpdateArraysCreateService
   ) { }
 
   ngOnInit(): void {

@@ -72,11 +72,31 @@ export class AppointmentService {
   }
 
   updateAppointment(appointment: Appointment): Observable<Appointment> {
-    return of(appointment);
+    return this.http.patch<Appointment>(`${environment.postgresDbUrl}/appointment`, appointment);
   }
 
   getAllAppointments(): Observable<Array<Appointment>> {
     return of(MockDataBase.schedule);
+  }
+
+  getAppointmentById(id: number): Observable<any> {
+    return this.http.get<any>(`${environment.postgresDbUrl}/appointment/${id}`)
+      .pipe(
+        map(response => {
+          response.startDate = new Date(response.startdate.toString());
+          console.log(response.startDate);
+          response.finishDate = new Date(response.finishdate.toString());
+          const place = {
+            country: response.country_name,
+            region: response.region_name,
+            town: response.town_name,
+            sportHall: response.sporthall_name,
+            address: response.address
+          };
+          response.place = place;
+          return response;
+        })
+      );
   }
 
   getAppointmentByID(id: string): Observable<Appointment> {

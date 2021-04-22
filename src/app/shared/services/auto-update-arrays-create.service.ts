@@ -10,7 +10,8 @@ import {SportHallService} from '../../super-admin-layout/services/sport-hall.ser
 @Injectable({
   providedIn: 'root'
 })
-export class AutoApdateArraysCreateService implements OnDestroy {
+
+export class AutoUpdateArraysCreateService implements OnDestroy {
 
   sub: Subscription = new Subscription();
 
@@ -62,14 +63,12 @@ export class AutoApdateArraysCreateService implements OnDestroy {
 
     this.sub = this.sportHallService.getAllSportHalls().subscribe(
       sportHalls => {
-        console.log(sportHalls);
         AutoUpdateArrays.sportHalls.splice(0);
         AutoUpdateArrays.sportHallsNames.splice(0);
         AutoUpdateArrays.sportHalls = sportHalls.slice();
         AutoUpdateArrays.sportHalls.map(sportHall => AutoUpdateArrays.sportHallsNames.push(sportHall.sporthall_name));
       }
     );
-
   }
 
   ngOnDestroy(): void {
