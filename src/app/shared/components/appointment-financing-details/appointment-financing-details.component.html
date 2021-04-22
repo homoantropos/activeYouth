@@ -1,6 +1,6 @@
 <h1>{{appointmentFinancing.appointment.title}}</h1>
-<p><b>Дата початку:  </b>{{appointmentFinancing.appointment.startDate | date : 'dd.MM.yy'}}</p>
-<p><b>Дата завершення:  </b>{{appointmentFinancing.appointment.finishDate | date : 'dd.MM.yy'}}</p>
+<p><b>Дата початку:  </b>{{appointmentFinancing.appointment.start | date : 'dd.MM.yy'}}</p>
+<p><b>Дата завершення:  </b>{{appointmentFinancing.appointment.finish | date : 'dd.MM.yy'}}</p>
 <p><b>Місце проведення:</b>
   {{appointmentFinancing.appointment.place.country + ' ' +
     appointmentFinancing.appointment.place.region + ' ' +

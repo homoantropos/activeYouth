@@ -20,19 +20,19 @@
       <mat-label>дата початку...</mat-label>
       <input matInput
              [min]="minDate"
-             [matDatepicker]="startDate"
-             formControlName="startDate">
-      <mat-datepicker-toggle matSuffix [for]="startDate"></mat-datepicker-toggle>
-      <mat-datepicker #startDate></mat-datepicker>
+             [matDatepicker]="start"
+             formControlName="start">
+      <mat-datepicker-toggle matSuffix [for]="start"></mat-datepicker-toggle>
+      <mat-datepicker #start></mat-datepicker>
     </mat-form-field>
 
     <mat-form-field class="forms-inputs" [ngStyle]="{width: '45%'}">
       <mat-label>дата завершення...</mat-label>
       <input matInput [min]="minFinishDate$ | async"
-             [matDatepicker]="finishDate"
-             formControlName="finishDate">
-      <mat-datepicker-toggle matSuffix [for]="finishDate"></mat-datepicker-toggle>
-      <mat-datepicker #finishDate></mat-datepicker>
+             [matDatepicker]="finish"
+             formControlName="finish">
+      <mat-datepicker-toggle matSuffix [for]="finish"></mat-datepicker-toggle>
+      <mat-datepicker #finish></mat-datepicker>
     </mat-form-field>
 
 

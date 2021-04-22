@@ -38,7 +38,7 @@ export class AppointmentService {
       .pipe(
         map((response: Array<Appointment>) => {
           // @ts-ignore
-          response.sort((a, b) => new Date(a.startDate) - new Date(b.startDate));
+          response.sort((a, b) => new Date(a.start) - new Date(b.start));
           for (const appointment of response) {
             const id: string = (appointment.place) as unknown as string;
             this.placesService.getPlaceById(id)
@@ -82,19 +82,18 @@ export class AppointmentService {
   getAppointmentById(id: number): Observable<any> {
     return this.http.get<any>(`${environment.postgresDbUrl}/appointment/${id}`)
       .pipe(
-        map(response => {
-          response.startDate = new Date(response.startdate.toString());
-          console.log(response.startDate);
-          response.finishDate = new Date(response.finishdate.toString());
+        map(appointment => {
+          appointment.start = new Date(appointment.startdate.toString());
+          appointment.finish = new Date(appointment.finishdate.toString());
           const place = {
-            country: response.country_name,
-            region: response.region_name,
-            town: response.town_name,
-            sportHall: response.sporthall_name,
-            address: response.address
+            country: appointment.country_name,
+            region: appointment.region_name,
+            town: appointment.town_name,
+            sportHall: appointment.sporthall_name,
+            address: appointment.address
           };
-          response.place = place;
-          return response;
+          appointment.place = place;
+          return appointment;
         })
       );
   }

@@ -50,8 +50,8 @@ export class AppointmentCreatorComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.appointmentCreatorForm = new FormGroup({
       title: new FormControl('', [Validators.required]),
-      startDate: new FormControl(new Date(), [Validators.required]),
-      finishDate: new FormControl(new Date(), [Validators.required]),
+      start: new FormControl(new Date(), [Validators.required]),
+      finish: new FormControl(new Date(), [Validators.required]),
       place: new FormGroup({
         country: new FormControl('', [Validators.required]),
         region: new FormControl(''),
@@ -77,7 +77,7 @@ export class AppointmentCreatorComponent implements OnInit, OnDestroy {
       organiser: new FormControl('', [Validators.required])
     });
     // @ts-ignore
-    this.minFinishDate$ = this.appointmentCreatorForm.get('startDate').valueChanges;
+    this.minFinishDate$ = this.appointmentCreatorForm.get('start').valueChanges;
     // @ts-ignore
     this.filteredOptions = this.appointmentCreatorForm.get('sportKind').valueChanges
       .pipe(

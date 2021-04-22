@@ -56,8 +56,8 @@ export class AppointmentEditorComponent implements OnInit, OnDestroy {
       appointment => {
         this.appointmentEditorForm = new FormGroup({
           title: new FormControl(appointment.title, [Validators.required]),
-          startDate: new FormControl(appointment.startDate, [Validators.required]),
-          finishDate: new FormControl(appointment.finishDate, [Validators.required]),
+          start: new FormControl(appointment.start, [Validators.required]),
+          finish: new FormControl(appointment.finish, [Validators.required]),
           place: new FormGroup({
             country: new FormControl(appointment.place.country, [Validators.required]),
             region: new FormControl(appointment.place.region),

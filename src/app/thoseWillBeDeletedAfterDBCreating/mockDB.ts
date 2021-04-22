@@ -12,8 +12,8 @@ export class MockDataBase {
   static schedule: Array<Appointment> = [
     {
       title: 'Зимова Гімназіада України з лижних гонок',
-      startDate: new Date(2021, 2, 16),
-      finishDate: new Date(2021, 2, 28),
+      start: new Date(2021, 2, 16),
+      finish: new Date(2021, 2, 28),
       duration: 3,
       organizationsParticipants: 'збірні областей і міста Київ',
       kpkv: 2201310,
@@ -33,8 +33,8 @@ export class MockDataBase {
     },
     {
       title: 'Зимова Універсіада України з біатлону',
-      startDate: new Date(2021, 2, 9),
-      finishDate: new Date(2021, 2, 11),
+      start: new Date(2021, 2, 9),
+      finish: new Date(2021, 2, 11),
       duration: 3,
       organizationsParticipants: 'збірні областей і міста Київ',
       kpkv: 2201310,
@@ -54,8 +54,8 @@ export class MockDataBase {
     },
     {
       title: 'Зимова Гімназіада України з біатлону',
-      startDate: new Date(2021, 2, 28),
-      finishDate: new Date(2021, 2, 30),
+      start: new Date(2021, 2, 28),
+      finish: new Date(2021, 2, 30),
       duration: 3,
       organizationsParticipants: 'збірні областей і міста Київ',
       kpkv: 2201310,
@@ -75,8 +75,8 @@ export class MockDataBase {
     },
     {
       title: 'Зимова Універсіада України з лижних гонок',
-      startDate: new Date(2021, 2, 18),
-      finishDate: new Date(2021, 2, 21),
+      start: new Date(2021, 2, 18),
+      finish: new Date(2021, 2, 21),
       duration: 3,
       organizationsParticipants: 'збірні областей і міста Київ',
       kpkv: 2201310,
@@ -96,8 +96,8 @@ export class MockDataBase {
     },
     {
       title: 'Європейські університетські ігри з волейболу',
-      startDate: new Date(2021, 6, 14),
-      finishDate: new Date(2021, 6, 21),
+      start: new Date(2021, 6, 14),
+      finish: new Date(2021, 6, 21),
       duration: 3,
       organizationsParticipants: 'збірні областей і міста Київ',
       kpkv: 2201310,
@@ -117,8 +117,8 @@ export class MockDataBase {
     },
     {
       title: 'Європейські університетські ігри з регбі-7',
-      startDate: new Date(2021, 6, 14),
-      finishDate: new Date(2021, 6, 21),
+      start: new Date(2021, 6, 14),
+      finish: new Date(2021, 6, 21),
       duration: 3,
       organizationsParticipants: 'збірні областей і міста Київ',
       kpkv: 2201310,
@@ -138,8 +138,8 @@ export class MockDataBase {
     },
     {
       title: 'Чемпіонат України з волейболу серед учнів',
-      startDate: new Date(2021, 1, 23),
-      finishDate: new Date(2021, 1, 26),
+      start: new Date(2021, 1, 23),
+      finish: new Date(2021, 1, 26),
       duration: 3,
       organizationsParticipants: 'збірні областей і міста Київ',
       kpkv: 2201310,
@@ -159,8 +159,8 @@ export class MockDataBase {
     },
     {
       title: 'Спортивна надія України з волейболу серед учнів',
-      startDate: new Date(2021, 10, 23),
-      finishDate: new Date(2021, 10, 26),
+      start: new Date(2021, 10, 23),
+      finish: new Date(2021, 10, 26),
       duration: 3,
       organizationsParticipants: 'збірні областей і міста Київ',
       kpkv: 2201310,
@@ -180,8 +180,8 @@ export class MockDataBase {
     },
     {
       title: 'Спортивна надія України з боксу серед учнів',
-      startDate: new Date(2021, 10, 23),
-      finishDate: new Date(2021, 10, 26),
+      start: new Date(2021, 10, 23),
+      finish: new Date(2021, 10, 26),
       duration: 3,
       organizationsParticipants: 'збірні областей і міста Київ',
       kpkv: 2201310,
@@ -201,8 +201,8 @@ export class MockDataBase {
     },
     {
       title: 'Спортивна надія України з боротьби вільної серед учнів',
-      startDate: new Date(2021, 10, 23),
-      finishDate: new Date(2021, 10, 26),
+      start: new Date(2021, 10, 23),
+      finish: new Date(2021, 10, 26),
       duration: 3,
       organizationsParticipants: 'збірні областей і міста Київ',
       kpkv: 2201310,
@@ -222,8 +222,8 @@ export class MockDataBase {
     },
     {
       title: 'Чемпіонат України з козацького двобою серед учнів',
-      startDate: new Date(2021, 2, 3),
-      finishDate: new Date(2021, 2, 5),
+      start: new Date(2021, 2, 3),
+      finish: new Date(2021, 2, 5),
       duration: 3,
       organizationsParticipants: 'збірні областей і міста Київ',
       kpkv: 2201310,
@@ -243,8 +243,8 @@ export class MockDataBase {
     },
     {
       title: 'Чемпіонат України з козацького двобою серед студентів',
-      startDate: new Date(2021, 2, 6),
-      finishDate: new Date(2021, 2, 8),
+      start: new Date(2021, 2, 6),
+      finish: new Date(2021, 2, 8),
       duration: 3,
       organizationsParticipants: 'збірні областей і міста Київ',
       kpkv: 2201310,
@@ -264,8 +264,8 @@ export class MockDataBase {
     },
     {
       title: 'Всесвітні учнівські спортивні ігри з волейболу (ISF U15 World School Sport Games) (дівчата) (ІІ ранг)',
-      startDate: new Date(2021, 8, 11),
-      finishDate: new Date(2021, 8, 19),
+      start: new Date(2021, 8, 11),
+      finish: new Date(2021, 8, 19),
       duration: 3,
       organizationsParticipants: 'збірні областей і міста Київ',
       kpkv: 2201310,
@@ -285,8 +285,8 @@ export class MockDataBase {
     },
     {
       title: 'Всесвітні учнівські спортивні ігри з дзюдо (ISF U15 World School Sport Games) (дівчата) (ІІ ранг)',
-      startDate: new Date(2021, 8, 11),
-      finishDate: new Date(2021, 8, 19),
+      start: new Date(2021, 8, 11),
+      finish: new Date(2021, 8, 19),
       duration: 3,
       organizationsParticipants: 'збірні областей і міста Київ',
       kpkv: 2201310,
@@ -306,8 +306,8 @@ export class MockDataBase {
     },
     {
       title: 'Всесвітні учнівські спортивні ігри з карате (ISF U15 World School Sport Games) (дівчата) (ІІ ранг)',
-      startDate: new Date(2021, 8, 11),
-      finishDate: new Date(2021, 8, 19),
+      start: new Date(2021, 8, 11),
+      finish: new Date(2021, 8, 19),
       duration: 3,
       organizationsParticipants: 'збірні областей і міста Київ',
       kpkv: 2201310,
@@ -327,8 +327,8 @@ export class MockDataBase {
     },
     {
       title: 'Всесвітні учнівські спортивні ігри з легкої атлетики (ISF U15 World School Sport Games) (дівчата) (ІІ ранг)',
-      startDate: new Date(2021, 8, 11),
-      finishDate: new Date(2021, 8, 19),
+      start: new Date(2021, 8, 11),
+      finish: new Date(2021, 8, 19),
       duration: 3,
       organizationsParticipants: 'збірні областей і міста Київ',
       kpkv: 2201310,
@@ -348,8 +348,8 @@ export class MockDataBase {
     },
     {
       title: 'Всесвітні учнівські спортивні ігри з плавання (ISF U15 World School Sport Games) (дівчата) (ІІ ранг)',
-      startDate: new Date(2021, 8, 11),
-      finishDate: new Date(2021, 8, 19),
+      start: new Date(2021, 8, 11),
+      finish: new Date(2021, 8, 19),
       duration: 3,
       organizationsParticipants: 'збірні областей і міста Київ',
       kpkv: 2201310,
@@ -369,8 +369,8 @@ export class MockDataBase {
     },
     {
       title: 'Літня Гімназіада України з волейболу (відбіркові)',
-      startDate: new Date(2021, 3, 12),
-      finishDate: new Date(2021, 2, 15),
+      start: new Date(2021, 3, 12),
+      finish: new Date(2021, 2, 15),
       duration: 3,
       organizationsParticipants: 'збірні областей і міста Київ',
       kpkv: 2201310,
@@ -390,8 +390,8 @@ export class MockDataBase {
     },
     {
       title: 'ІІІ Всеукраїнські Cool Games (відбіркові)',
-      startDate: new Date(2021, 3, 17),
-      finishDate: new Date(2021, 3, 18),
+      start: new Date(2021, 3, 17),
+      finish: new Date(2021, 3, 18),
       duration: 3,
       organizationsParticipants: 'збірні областей і міста Київ',
       kpkv: 2201310,
@@ -411,8 +411,8 @@ export class MockDataBase {
     },
     {
       title: 'ІІІ Всеукраїнські Cool Games (відбіркові)',
-      startDate: new Date(2021, 3, 17),
-      finishDate: new Date(2021, 3, 18),
+      start: new Date(2021, 3, 17),
+      finish: new Date(2021, 3, 18),
       duration: 3,
       organizationsParticipants: 'збірні областей і міста Київ',
       kpkv: 2201310,
@@ -432,8 +432,8 @@ export class MockDataBase {
     },
     {
       title: 'ІІІ Всеукраїнські Cool Games (відбіркові)',
-      startDate: new Date(2021, 3, 17),
-      finishDate: new Date(2021, 3, 18),
+      start: new Date(2021, 3, 17),
+      finish: new Date(2021, 3, 18),
       duration: 3,
       organizationsParticipants: 'збірні областей і міста Київ',
       kpkv: 2201310,
@@ -453,8 +453,8 @@ export class MockDataBase {
     },
     {
       title: 'ІІІ Всеукраїнські Cool Games (відбіркові)',
-      startDate: new Date(2021, 3, 17),
-      finishDate: new Date(2021, 3, 18),
+      start: new Date(2021, 3, 17),
+      finish: new Date(2021, 3, 18),
       duration: 3,
       organizationsParticipants: 'збірні областей і міста Київ',
       kpkv: 2201310,
@@ -474,8 +474,8 @@ export class MockDataBase {
     },
     {
       title: 'ІІІ Всеукраїнські Cool Games (відбіркові)',
-      startDate: new Date(2021, 3, 17),
-      finishDate: new Date(2021, 3, 18),
+      start: new Date(2021, 3, 17),
+      finish: new Date(2021, 3, 18),
       duration: 3,
       organizationsParticipants: 'збірні областей і міста Київ',
       kpkv: 2201310,
@@ -495,8 +495,8 @@ export class MockDataBase {
     },
     {
       title: 'ІІІ Всеукраїнські Cool Games',
-      startDate: new Date(2021, 4, 27),
-      finishDate: new Date(2021, 4, 30),
+      start: new Date(2021, 4, 27),
+      finish: new Date(2021, 4, 30),
       duration: 3,
       organizationsParticipants: 'збірні областей і міста Київ',
       kpkv: 2201310,
@@ -516,8 +516,8 @@ export class MockDataBase {
     },
     {
       title: 'Літня Універсіада України з веслування академічного',
-      startDate: new Date(2021, 4, 20),
-      finishDate: new Date(2021, 4, 22),
+      start: new Date(2021, 4, 20),
+      finish: new Date(2021, 4, 22),
       duration: 3,
       organizationsParticipants: 'збірні областей і міста Київ',
       kpkv: 2201310,
@@ -537,8 +537,8 @@ export class MockDataBase {
     },
     {
       title: 'Літня Гімназіада України з тхеквондо ВТФ (відбіркові)',
-      startDate: new Date(2021, 0, 20),
-      finishDate: new Date(2021, 0, 23),
+      start: new Date(2021, 0, 20),
+      finish: new Date(2021, 0, 23),
       duration: 3,
       organizationsParticipants: 'збірні областей і міста Київ',
       kpkv: 2201310,
@@ -558,8 +558,8 @@ export class MockDataBase {
     },
     {
       title: 'Всесвітня літня Гімназіада з велоспорту',
-      startDate: new Date(2021, 9, 14),
-      finishDate: new Date(2021, 9, 21),
+      start: new Date(2021, 9, 14),
+      finish: new Date(2021, 9, 21),
       duration: 3,
       organizationsParticipants: 'збірні областей і міста Київ',
       kpkv: 2201310,
@@ -579,8 +579,8 @@ export class MockDataBase {
     },
     {
       title: 'Літня Універсіада України з гандболу',
-      startDate: new Date(2021, 5, 19),
-      finishDate: new Date(2021, 5, 21),
+      start: new Date(2021, 5, 19),
+      finish: new Date(2021, 5, 21),
       duration: 3,
       organizationsParticipants: 'збірні областей і міста Київ',
       kpkv: 2201310,
@@ -600,8 +600,8 @@ export class MockDataBase {
     },
     {
       title: 'Всеукраїнські Combat Games з карате',
-      startDate: new Date(2021, 11, 13),
-      finishDate: new Date(2021, 11, 18),
+      start: new Date(2021, 11, 13),
+      finish: new Date(2021, 11, 18),
       duration: 3,
       organizationsParticipants: 'збірні областей і міста Київ',
       kpkv: 2201310,
@@ -621,8 +621,8 @@ export class MockDataBase {
     },
     {
       title: 'Всеукраїнські Combat Games з боротьби греко-римської',
-      startDate: new Date(2021, 11, 13),
-      finishDate: new Date(2021, 11, 18),
+      start: new Date(2021, 11, 13),
+      finish: new Date(2021, 11, 18),
       duration: 3,
       organizationsParticipants: 'збірні областей і міста Київ',
       kpkv: 2201310,
@@ -642,8 +642,8 @@ export class MockDataBase {
     },
     {
       title: 'Всеукраїнські Combat Games з тхеквондо ВТФ',
-      startDate: new Date(2021, 11, 13),
-      finishDate: new Date(2021, 11, 18),
+      start: new Date(2021, 11, 13),
+      finish: new Date(2021, 11, 18),
       duration: 3,
       organizationsParticipants: 'збірні областей і міста Київ',
       kpkv: 2201310,
@@ -663,8 +663,8 @@ export class MockDataBase {
     },
     {
       title: 'Всеукраїнські Combat Games з боротьби вільної',
-      startDate: new Date(2021, 11, 13),
-      finishDate: new Date(2021, 11, 18),
+      start: new Date(2021, 11, 13),
+      finish: new Date(2021, 11, 18),
       duration: 3,
       organizationsParticipants: 'збірні областей і міста Київ',
       kpkv: 2201310,
@@ -684,8 +684,8 @@ export class MockDataBase {
     },
     {
       title: 'Всеукраїнські Combat Games з дзюдо',
-      startDate: new Date(2021, 11, 13),
-      finishDate: new Date(2021, 11, 18),
+      start: new Date(2021, 11, 13),
+      finish: new Date(2021, 11, 18),
       duration: 3,
       organizationsParticipants: 'збірні областей і міста Київ',
       kpkv: 2201310,
@@ -705,8 +705,8 @@ export class MockDataBase {
     },
     {
       title: 'Шкільна баскетбольна ліга',
-      startDate: new Date(2021, 8, 26),
-      finishDate: new Date(2021, 8, 30),
+      start: new Date(2021, 8, 26),
+      finish: new Date(2021, 8, 30),
       duration: 3,
       organizationsParticipants: 'збірні областей і міста Київ',
       kpkv: 2201310,
@@ -726,8 +726,8 @@ export class MockDataBase {
     },
     {
       title: 'Чемпіонат України з фрі-файту серед учнів',
-      startDate: new Date(2021, 10, 9),
-      finishDate: new Date(2021, 10, 10),
+      start: new Date(2021, 10, 9),
+      finish: new Date(2021, 10, 10),
       duration: 3,
       organizationsParticipants: 'збірні областей і міста Київ',
       kpkv: 2201310,
@@ -747,8 +747,8 @@ export class MockDataBase {
     },
     {
       title: 'Міжнародний день студентського спорту',
-      startDate: new Date(2021, 8, 20),
-      finishDate: new Date(2021, 8, 20),
+      start: new Date(2021, 8, 20),
+      finish: new Date(2021, 8, 20),
       duration: 3,
       organizationsParticipants: 'збірні областей і міста Київ',
       kpkv: 2201310,
@@ -771,7 +771,7 @@ export class MockDataBase {
     {
       appointment: {
         title: 'Міжнародний день студентського спорту',
-        startDate: new Date(2021, 8, 20), finishDate: new Date(2021, 8, 20), duration: 3,
+        start: new Date(2021, 8, 20), finish: new Date(2021, 8, 20), duration: 3,
         organizationsParticipants: 'збірні областей і міста Київ', kpkv: 2201310, character: 'О', participants: 'students',
         direction: 'physical culture', status: 'ukrainian',
         place: {
@@ -804,7 +804,7 @@ export class MockDataBase {
     {
       appointment: {
         title: 'Міжнародний день студентського спорту',
-        startDate: new Date(2021, 8, 20), finishDate: new Date(2021, 8, 20), duration: 3,
+        start: new Date(2021, 8, 20), finish: new Date(2021, 8, 20), duration: 3,
         organizationsParticipants: 'збірні областей і міста Київ', kpkv: 2201310, character: 'О', participants: 'students',
         direction: 'physical culture', status: 'ukrainian',
         place: {
@@ -837,7 +837,7 @@ export class MockDataBase {
     {
       appointment: {
         title: 'Міжнародний день студентського спорту',
-        startDate: new Date(2021, 8, 20), finishDate: new Date(2021, 8, 20), duration: 3,
+        start: new Date(2021, 8, 20), finish: new Date(2021, 8, 20), duration: 3,
         organizationsParticipants: 'збірні областей і міста Київ', kpkv: 2201310, character: 'О', participants: 'students',
         direction: 'physical culture', status: 'ukrainian',
         place: {
@@ -870,7 +870,7 @@ export class MockDataBase {
     {
       appointment: {
         title: 'Міжнародний день студентського спорту',
-        startDate: new Date(2021, 8, 20), finishDate: new Date(2021, 8, 20), duration: 3,
+        start: new Date(2021, 8, 20), finish: new Date(2021, 8, 20), duration: 3,
         organizationsParticipants: 'збірні областей і міста Київ', kpkv: 2201310, character: 'О', participants: 'students',
         direction: 'physical culture', status: 'ukrainian',
         place: {
@@ -903,7 +903,7 @@ export class MockDataBase {
     {
       appointment: {
         title: 'Міжнародний день студентського спорту',
-        startDate: new Date(2021, 8, 20), finishDate: new Date(2021, 8, 20), duration: 3,
+        start: new Date(2021, 8, 20), finish: new Date(2021, 8, 20), duration: 3,
         organizationsParticipants: 'збірні областей і міста Київ', kpkv: 2201310, character: 'О', participants: 'students',
         direction: 'physical culture', status: 'ukrainian',
         place: {
@@ -936,7 +936,7 @@ export class MockDataBase {
     {
       appointment: {
         title: 'Міжнародний день студентського спорту',
-        startDate: new Date(2021, 8, 20), finishDate: new Date(2021, 8, 20), duration: 3,
+        start: new Date(2021, 8, 20), finish: new Date(2021, 8, 20), duration: 3,
         organizationsParticipants: 'збірні областей і міста Київ', kpkv: 2201310, character: 'О', participants: 'students',
         direction: 'physical culture', status: 'ukrainian',
         place: {
@@ -969,7 +969,7 @@ export class MockDataBase {
     {
       appointment: {
         title: 'Міжнародний день студентського спорту',
-        startDate: new Date(2021, 8, 20), finishDate: new Date(2021, 8, 20), duration: 3,
+        start: new Date(2021, 8, 20), finish: new Date(2021, 8, 20), duration: 3,
         organizationsParticipants: 'збірні областей і міста Київ', kpkv: 2201310, character: 'О', participants: 'students',
         direction: 'physical culture', status: 'ukrainian',
         place: {
@@ -1002,7 +1002,7 @@ export class MockDataBase {
     {
       appointment: {
         title: 'Міжнародний день студентського спорту',
-        startDate: new Date(2021, 8, 20), finishDate: new Date(2021, 8, 20), duration: 3,
+        start: new Date(2021, 8, 20), finish: new Date(2021, 8, 20), duration: 3,
         organizationsParticipants: 'збірні областей і міста Київ', kpkv: 2201310, character: 'О', participants: 'students',
         direction: 'physical culture', status: 'ukrainian',
         place: {
@@ -1035,7 +1035,7 @@ export class MockDataBase {
     {
       appointment: {
         title: 'Міжнародний день студентського спорту',
-        startDate: new Date(2021, 8, 20), finishDate: new Date(2021, 8, 20), duration: 3,
+        start: new Date(2021, 8, 20), finish: new Date(2021, 8, 20), duration: 3,
         organizationsParticipants: 'збірні областей і міста Київ', kpkv: 2201310, character: 'О', participants: 'students',
         direction: 'physical culture', status: 'ukrainian',
         place: {
@@ -1068,7 +1068,7 @@ export class MockDataBase {
     {
       appointment: {
         title: 'Міжнародний день студентського спорту',
-        startDate: new Date(2021, 8, 20), finishDate: new Date(2021, 8, 20), duration: 3,
+        start: new Date(2021, 8, 20), finish: new Date(2021, 8, 20), duration: 3,
         organizationsParticipants: 'збірні областей і міста Київ', kpkv: 2201310, character: 'О', participants: 'students',
         direction: 'physical culture', status: 'ukrainian',
         place: {
@@ -1101,7 +1101,7 @@ export class MockDataBase {
     {
       appointment: {
         title: 'Міжнародний день студентського спорту',
-        startDate: new Date(2021, 8, 20), finishDate: new Date(2021, 8, 20), duration: 3,
+        start: new Date(2021, 8, 20), finish: new Date(2021, 8, 20), duration: 3,
         organizationsParticipants: 'збірні областей і міста Київ', kpkv: 2201310, character: 'О', participants: 'students',
         direction: 'physical culture', status: 'ukrainian',
         place: {
@@ -1134,7 +1134,7 @@ export class MockDataBase {
     {
       appointment: {
         title: 'Міжнародний день студентського спорту',
-        startDate: new Date(2021, 8, 20), finishDate: new Date(2021, 8, 20), duration: 3,
+        start: new Date(2021, 8, 20), finish: new Date(2021, 8, 20), duration: 3,
         organizationsParticipants: 'збірні областей і міста Київ', kpkv: 2201310, character: 'О', participants: 'students',
         direction: 'physical culture', status: 'ukrainian',
         place: {
@@ -1167,7 +1167,7 @@ export class MockDataBase {
     {
       appointment: {
         title: 'Міжнародний день студентського спорту',
-        startDate: new Date(2021, 8, 20), finishDate: new Date(2021, 8, 20), duration: 3,
+        start: new Date(2021, 8, 20), finish: new Date(2021, 8, 20), duration: 3,
         organizationsParticipants: 'збірні областей і міста Київ', kpkv: 2201310, character: 'О', participants: 'students',
         direction: 'physical culture', status: 'ukrainian',
         place: {
@@ -1200,8 +1200,8 @@ export class MockDataBase {
     {
       appointment: {
         title: 'Шкільна баскетбольна ліга',
-        startDate: new Date(2021, 8, 26),
-        finishDate: new Date(2021, 8, 30),
+        start: new Date(2021, 8, 26),
+        finish: new Date(2021, 8, 30),
         duration: 3,
         organizationsParticipants: 'збірні областей і міста Київ',
         kpkv: 2201310,
@@ -1239,8 +1239,8 @@ export class MockDataBase {
     {
       appointment: {
         title: 'Шкільна баскетбольна ліга',
-        startDate: new Date(2021, 8, 26),
-        finishDate: new Date(2021, 8, 30),
+        start: new Date(2021, 8, 26),
+        finish: new Date(2021, 8, 30),
         duration: 3,
         organizationsParticipants: 'збірні областей і міста Київ',
         kpkv: 2201310,
@@ -1278,8 +1278,8 @@ export class MockDataBase {
     {
       appointment: {
         title: 'Шкільна баскетбольна ліга',
-        startDate: new Date(2021, 8, 26),
-        finishDate: new Date(2021, 8, 30),
+        start: new Date(2021, 8, 26),
+        finish: new Date(2021, 8, 30),
         duration: 3,
         organizationsParticipants: 'збірні областей і міста Київ',
         kpkv: 2201310,
@@ -1317,8 +1317,8 @@ export class MockDataBase {
     {
       appointment: {
         title: 'ІІІ Всеукраїнські Cool Games',
-        startDate: new Date(2021, 4, 27),
-        finishDate: new Date(2021, 4, 30),
+        start: new Date(2021, 4, 27),
+        finish: new Date(2021, 4, 30),
         duration: 3,
         organizationsParticipants: 'збірні областей і міста Київ',
         kpkv: 2201310,
@@ -1356,8 +1356,8 @@ export class MockDataBase {
     {
       appointment: {
         title: 'ІІІ Всеукраїнські Cool Games',
-        startDate: new Date(2021, 4, 27),
-        finishDate: new Date(2021, 4, 30),
+        start: new Date(2021, 4, 27),
+        finish: new Date(2021, 4, 30),
         duration: 3,
         organizationsParticipants: 'збірні областей і міста Київ',
         kpkv: 2201310,
@@ -1395,8 +1395,8 @@ export class MockDataBase {
     {
       appointment: {
         title: 'ІІІ Всеукраїнські Cool Games',
-        startDate: new Date(2021, 4, 27),
-        finishDate: new Date(2021, 4, 30),
+        start: new Date(2021, 4, 27),
+        finish: new Date(2021, 4, 30),
         duration: 3,
         organizationsParticipants: 'збірні областей і міста Київ',
         kpkv: 2201310,
@@ -1434,8 +1434,8 @@ export class MockDataBase {
     {
       appointment: {
         title: 'Шкільна баскетбольна ліга',
-        startDate: new Date(2021, 8, 26),
-        finishDate: new Date(2021, 8, 30),
+        start: new Date(2021, 8, 26),
+        finish: new Date(2021, 8, 30),
         duration: 3,
         organizationsParticipants: 'збірні областей і міста Київ',
         kpkv: 2201310,
@@ -1473,8 +1473,8 @@ export class MockDataBase {
     {
       appointment: {
         title: 'Шкільна баскетбольна ліга',
-        startDate: new Date(2021, 8, 26),
-        finishDate: new Date(2021, 8, 30),
+        start: new Date(2021, 8, 26),
+        finish: new Date(2021, 8, 30),
         duration: 3,
         organizationsParticipants: 'збірні областей і міста Київ',
         kpkv: 2201310,

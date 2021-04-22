@@ -1,9 +1,9 @@
 <div *ngIf="appointment$ | async as appointment; else loader">
   <h1>{{appointment.title}}</h1>
   <h2>Дата початку:</h2>
-  <p>{{appointment.startDate | date : 'dd.MM.yy'}}</p>
+  <p>{{appointment.start | date : 'dd.MM.yy'}}</p>
   <h2>Дата завершення:</h2>
-  <p>{{appointment.finishDate | date : 'dd.MM.yy'}}</p>
+  <p>{{appointment.finish | date : 'dd.MM.yy'}}</p>
   <h2>Місце проведення:</h2>
   <p>{{appointment.place.sportHall }}</p>
   <p>{{appointment.place.country + ' ' + appointment.place.region + ' ' +

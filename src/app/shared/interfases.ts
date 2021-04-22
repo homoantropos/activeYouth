@@ -17,8 +17,8 @@ export interface Activity {
 
 export interface Appointment {
   title: string;
-  startDate: Date;
-  finishDate: Date;
+  start: Date;
+  finish: Date;
   duration: number;
   place: Place;
   organizationsParticipants: string;
