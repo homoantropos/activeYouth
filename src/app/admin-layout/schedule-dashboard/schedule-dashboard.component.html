@@ -17,8 +17,8 @@
       <ng-container matColumnDef="termsOfHolding">
         <th mat-header-cell *matHeaderCellDef> Терміни<br>проведення</th>
         <td mat-cell *matCellDef="let appointment">
-          {{appointment.start | date : 'dd.MM.yy'}}<br>
-          {{appointment.finish | date : 'dd.MM.yy'}}</td>
+          {{appointment.startDate | date : 'dd.MM.yy'}}<br>
+          {{appointment.finishDate | date : 'dd.MM.yy'}}</td>
       </ng-container>
 
       <ng-container matColumnDef="place">

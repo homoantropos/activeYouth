@@ -17,7 +17,7 @@ export class RatingProviderService {
     let totalRating = 0;
     let cloneResults = results.slice();
     results.map( r => {
-      const onePersonResults = cloneResults.filter(result => result.participant._id === r.participant._id);
+      const onePersonResults = cloneResults.filter(result => result.participant.participant_id === r.participant.participant_id);
       if (onePersonResults.length === 0) {
         return;
       }
@@ -29,7 +29,7 @@ export class RatingProviderService {
         totalRating
       });
       totalRating = 0;
-      cloneResults = cloneResults.filter(result => result.participant._id !== r.participant._id);
+      cloneResults = cloneResults.filter(result => result.participant.participant_id !== r.participant.participant_id);
     });
     rating.sort((a, b) => b.totalRating - a.totalRating);
     return rating;
@@ -41,16 +41,16 @@ export class RatingProviderService {
     let totalRating = 0;
     cloneResults.map(
       r => {
-        const oneEduEntityRatingBrick = cloneResults.filter(result => result.eduEntity.name === r.eduEntity.name);
+        const oneEduEntityRatingBrick = cloneResults.filter(result => result.eduentity.name === r.eduentity.name);
         if (oneEduEntityRatingBrick.length === 0) { return; }
-        const resultsOwnerEduEntity = oneEduEntityRatingBrick[0].eduEntity;
+        const resultsOwnerEduEntity = oneEduEntityRatingBrick[0].eduentity;
         oneEduEntityRatingBrick.map( rOne => totalRating = totalRating + rOne.ratingPoints );
         ratingEduEntities.push({
           resultsOwnerEduEntity,
           results: oneEduEntityRatingBrick,
           totalRating
         });
-        cloneResults = cloneResults.filter(rafter => rafter.eduEntity.name !== r.eduEntity.name);
+        cloneResults = cloneResults.filter(rafter => rafter.eduentity.name !== r.eduentity.name);
         totalRating = 0;
       }
     );

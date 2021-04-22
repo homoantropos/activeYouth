@@ -78,7 +78,7 @@ export interface EducationEntity {
   category?: number;
   type: string;
   region?: string;
-  _id?: string;
+  eduentity_id?: string;
 }
 
 export interface Participant {
@@ -89,7 +89,7 @@ export interface Participant {
   gender: string;
   schoolchildOrStudent: string;
   coach?: Coach;
-  _id?: string;
+  participant_id?: string;
 }
 
 export interface Coach {
@@ -97,19 +97,19 @@ export interface Coach {
   surname: string;
   fatherName: string;
   gender: string;
-  _id?: string;
+  coach_id?: string;
 }
 
 export interface Result {
   appointment: Appointment;
   participant: Participant;
-  eduEntity: EducationEntity;
+  eduentity: EducationEntity;
   region?: string;
   discipline: string;
   place: number;
   ratingPoints: number;
-  _id?: string;
-  _userId?: string;
+  result_id?: string;
+  person_id?: string;
 }
 
 export interface RatingBrick {
@@ -125,15 +125,15 @@ export interface Expenses {
   kekv2240: number;
   // TODO: удалить
   total?: number;
-  _userId?: string;
+  person_id?: string;
 }
 
 export interface AppointmentFinancing {
   appointment: Appointment;
   expensesPlan: Expenses;
   expensesFact: Expenses;
-  _id?: string;
-  _userId?: string;
+  appointmentfinancing_id?: string;
+  person_id?: string;
 }
 
 export interface Members {
@@ -153,8 +153,8 @@ export interface Report {
   personPerDayTotalPlan: number;
   membersFact: Members;
   personPerDayTotalFact: number;
-  _id?: string;
-  _userId?: string;
+  report_id?: string;
+  person_id?: string;
 }
 
 export interface News {

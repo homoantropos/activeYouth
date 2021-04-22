@@ -33,6 +33,6 @@ export class ResultService {
 
   getResultByID(id: string): Observable<Result> {
     // http-client get will be here later
-    return of((MockDataBase.mockResultsDataBase.find(r => r._id === id)) as Result);
+    return of((MockDataBase.mockResultsDataBase.find(r => r.result_id === id)) as Result);
   }
 }

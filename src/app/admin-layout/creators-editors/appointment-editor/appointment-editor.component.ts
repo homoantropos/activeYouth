@@ -56,8 +56,8 @@ export class AppointmentEditorComponent implements OnInit, OnDestroy {
       appointment => {
         this.appointmentEditorForm = new FormGroup({
           title: new FormControl(appointment.title, [Validators.required]),
-          start: new FormControl(appointment.start, [Validators.required]),
-          finish: new FormControl(appointment.finish, [Validators.required]),
+          start: new FormControl(appointment.startdate, [Validators.required]),
+          finish: new FormControl(appointment.finishdate, [Validators.required]),
           place: new FormGroup({
             country: new FormControl(appointment.place.country, [Validators.required]),
             region: new FormControl(appointment.place.region),
@@ -75,7 +75,7 @@ export class AppointmentEditorComponent implements OnInit, OnDestroy {
           organiser: new FormControl(appointment.organiser, [Validators.required])
         });
         // @ts-ignore
-        this.minFinishDate$ = this.appointmentEditorForm.get('startDate').valueChanges;
+        this.minFinishDate$ = this.appointmentEditorForm.get('start').valueChanges;
       }
     );
     // @ts-ignore
@@ -152,7 +152,7 @@ export class AppointmentEditorComponent implements OnInit, OnDestroy {
   }
 
   onEdit(value: any): void {
-    value.duration = this.dateProvider.provideDuration(value.startDate, value.finishDate);
+    value.duration = this.dateProvider.provideDuration(value.start, value.finish);
     value.appointment_id = this.appointmentId;
     this.appointmentService.updateAppointment(value)
       .subscribe(

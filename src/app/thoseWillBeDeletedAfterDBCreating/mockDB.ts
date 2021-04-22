@@ -789,9 +789,9 @@ export class MockDataBase {
         DoB: new Date(1990, 2, 13),
         gender: 'male',
         schoolchildOrStudent: 'students',
-        _id: 'СергійАнтропов19900213'
+        participant_id: 'СергійАнтропов19900213'
       },
-      eduEntity: {
+      eduentity: {
         name: 'Київський інститут інженерів цивільної авіації',
         category: 2,
         type: 'ЗВО'
@@ -799,7 +799,7 @@ export class MockDataBase {
       discipline: 'біг',
       place: 1,
       ratingPoints: 25,
-      _id: 'dfwvrvwververg'
+      result_id: 'dfwvrvwververg'
     },
     {
       appointment: {
@@ -822,9 +822,9 @@ export class MockDataBase {
         DoB: new Date(1990, 2, 13),
         gender: 'male',
         schoolchildOrStudent: 'students',
-        _id: 'СергійАнтропов19900213'
+        participant_id: 'СергійАнтропов19900213'
       },
-      eduEntity: {
+      eduentity: {
         name: 'Київський інститут інженерів цивільної авіації',
         category: 2,
         type: 'ЗВО'
@@ -832,7 +832,7 @@ export class MockDataBase {
       discipline: 'стрибки',
       place: 1,
       ratingPoints: 25,
-      _id: 'sdfsdgldpbfmp'
+      result_id: 'sdfsdgldpbfmp'
     },
     {
       appointment: {
@@ -855,9 +855,9 @@ export class MockDataBase {
         DoB: new Date(1990, 2, 13),
         gender: 'male',
         schoolchildOrStudent: 'students',
-        _id: 'ДмитроЛеонтович19900213'
+        participant_id: 'ДмитроЛеонтович19900213'
       },
-      eduEntity: {
+      eduentity: {
         name: 'Київський інститут інженерів цивільної авіації',
         category: 2,
         type: 'ЗВО'
@@ -865,7 +865,7 @@ export class MockDataBase {
       discipline: 'біг',
       place: 3,
       ratingPoints: 20,
-      _id: 'івавпапваіпвап'
+      result_id: 'івавпапваіпвап'
     },
     {
       appointment: {
@@ -888,9 +888,9 @@ export class MockDataBase {
         DoB: new Date(1990, 2, 13),
         gender: 'male',
         schoolchildOrStudent: 'students',
-        _id: 'ДмитроЛеонтович19900213'
+        participant_id: 'ДмитроЛеонтович19900213'
       },
-      eduEntity: {
+      eduentity: {
         name: 'Київський інститут інженерів цивільної авіації',
         category: 2,
         type: 'ЗВО'
@@ -898,7 +898,7 @@ export class MockDataBase {
       discipline: 'стрибки',
       place: 2,
       ratingPoints: 22,
-      _id: 'dsvsldsdbsd'
+      result_id: 'dsvsldsdbsd'
     },
     {
       appointment: {
@@ -921,9 +921,9 @@ export class MockDataBase {
         DoB: new Date(1990, 2, 13),
         gender: 'male',
         schoolchildOrStudent: 'students',
-        _id: 'СтаніславМихайлов19900213'
+        participant_id: 'СтаніславМихайлов19900213'
       },
-      eduEntity: {
+      eduentity: {
         name: 'Сумський державний університет',
         category: 2,
         type: 'ЗВО'
@@ -931,7 +931,7 @@ export class MockDataBase {
       discipline: 'біг',
       place: 2,
       ratingPoints: 22,
-      _id: 'оілваіва'
+      result_id: 'оілваіва'
     },
     {
       appointment: {
@@ -954,9 +954,9 @@ export class MockDataBase {
         DoB: new Date(1990, 2, 13),
         gender: 'male',
         schoolchildOrStudent: 'students',
-        _id: 'СтаніславМихайлов19900213'
+        participant_id: 'СтаніславМихайлов19900213'
       },
-      eduEntity: {
+      eduentity: {
         name: 'Сумський державний університет',
         category: 2,
         type: 'ЗВО'
@@ -964,7 +964,7 @@ export class MockDataBase {
       discipline: 'стрибки',
       place: 3,
       ratingPoints: 20,
-      _id: 'оілваіва'
+      result_id: 'оілваіва'
     },
     {
       appointment: {
@@ -987,9 +987,9 @@ export class MockDataBase {
         DoB: new Date(1990, 2, 13),
         gender: 'male',
         schoolchildOrStudent: 'students',
-        _id: 'СтаніславМихайлов19900213'
+        participant_id: 'СтаніславМихайлов19900213'
       },
-      eduEntity: {
+      eduentity: {
         name: 'Сумський державний університет',
         category: 2,
         type: 'ЗВО'
@@ -997,7 +997,7 @@ export class MockDataBase {
       discipline: 'стояння',
       place: 1,
       ratingPoints: 25,
-      _id: 'оілваіва'
+      result_id: 'оілваіва'
     },
     {
       appointment: {
@@ -1020,9 +1020,9 @@ export class MockDataBase {
         DoB: new Date(2000, 2, 13),
         gender: 'female',
         schoolchildOrStudent: 'students',
-        _id: 'ГаннаСмолякова20000213'
+        participant_id: 'ГаннаСмолякова20000213'
       },
-      eduEntity: {
+      eduentity: {
         name: 'Київський національний університет імені Т. Г. Шевченка',
         category: 2,
         type: 'ЗВО'
@@ -1030,7 +1030,7 @@ export class MockDataBase {
       discipline: 'біг',
       place: 1,
       ratingPoints: 25,
-      _id: 'vdfbdfbdfbdb'
+      result_id: 'vdfbdfbdfbdb'
     },
     {
       appointment: {
@@ -1053,9 +1053,9 @@ export class MockDataBase {
         DoB: new Date(2000, 2, 13),
         gender: 'female',
         schoolchildOrStudent: 'students',
-        _id: 'ГаннаСмолякова20000213'
+        participant_id: 'ГаннаСмолякова20000213'
       },
-      eduEntity: {
+      eduentity: {
         name: 'Київський національний університет імені Т. Г. Шевченка',
         category: 2,
         type: 'ЗВО'
@@ -1063,7 +1063,7 @@ export class MockDataBase {
       discipline: 'стрибки',
       place: 1,
       ratingPoints: 25,
-      _id: 'sdfsdgldpbfmp'
+      result_id: 'sdfsdgldpbfmp'
     },
     {
       appointment: {
@@ -1086,9 +1086,9 @@ export class MockDataBase {
         DoB: new Date(2005, 2, 13),
         gender: 'female',
         schoolchildOrStudent: 'students',
-        _id: 'НаталіяМакаревич20050213'
+        participant_id: 'НаталіяМакаревич20050213'
       },
-      eduEntity: {
+      eduentity: {
         name: 'Національний університет фізичного виховання та спорту України',
         category: 1,
         type: 'ЗВО'
@@ -1096,7 +1096,7 @@ export class MockDataBase {
       discipline: 'біг',
       place: 3,
       ratingPoints: 20,
-      _id: 'сукпіи'
+      result_id: 'сукпіи'
     },
     {
       appointment: {
@@ -1119,9 +1119,9 @@ export class MockDataBase {
         DoB: new Date(2005, 2, 13),
         gender: 'female',
         schoolchildOrStudent: 'students',
-        _id: 'НаталіяМакаревич20050213'
+        participant_id: 'НаталіяМакаревич20050213'
       },
-      eduEntity: {
+      eduentity: {
         name: 'Національний університет фізичного виховання та спорту України',
         category: 1,
         type: 'ЗВО'
@@ -1129,7 +1129,7 @@ export class MockDataBase {
       discipline: 'стрибки',
       place: 2,
       ratingPoints: 22,
-      _id: 'двіпівп'
+      result_id: 'двіпівп'
     },
     {
       appointment: {
@@ -1152,9 +1152,9 @@ export class MockDataBase {
         DoB: new Date(2010, 2, 13),
         gender: 'female',
         schoolchildOrStudent: 'students',
-        _id: 'ЛіліяПідкопаєва20120213'
+        participant_id: 'ЛіліяПідкопаєва20120213'
       },
-      eduEntity: {
+      eduentity: {
         name: 'Сумський державний університет',
         category: 2,
         type: 'ЗВО'
@@ -1162,7 +1162,7 @@ export class MockDataBase {
       discipline: 'біг',
       place: 2,
       ratingPoints: 22,
-      _id: 'іваіп'
+      result_id: 'іваіп'
     },
     {
       appointment: {
@@ -1185,9 +1185,9 @@ export class MockDataBase {
         DoB: new Date(1990, 2, 13),
         gender: 'female',
         schoolchildOrStudent: 'students',
-        _id: 'ЛіліяПідкопаєва20120213'
+        participant_id: 'ЛіліяПідкопаєва20120213'
       },
-      eduEntity: {
+      eduentity: {
         name: 'Сумський державний університет',
         category: 2,
         type: 'ЗВО'
@@ -1195,7 +1195,7 @@ export class MockDataBase {
       discipline: 'стрибки',
       place: 3,
       ratingPoints: 20,
-      _id: 'івмівп'
+      result_id: 'івмівп'
     },
     {
       appointment: {
@@ -1225,16 +1225,16 @@ export class MockDataBase {
         DoB: new Date(2009, 2, 13),
         gender: 'female',
         schoolchildOrStudent: 'schoolchild',
-        _id: 'МілаЙойович20090213'
+        participant_id: 'МілаЙойович20090213'
       },
-      eduEntity: {
+      eduentity: {
         name: 'Загальноосвітня школа №4 міста Запоріжжа',
         type: 'ЗЗСО'
       },
       discipline: 'дівчата',
       place: 1,
       ratingPoints: 25,
-      _id: 'івпщуикь'
+      result_id: 'івпщуикь'
     },
     {
       appointment: {
@@ -1264,16 +1264,16 @@ export class MockDataBase {
         DoB: new Date(2009, 2, 13),
         gender: 'female',
         schoolchildOrStudent: 'schoolchild',
-        _id: 'ІринаМаксимко20090213'
+        participant_id: 'ІринаМаксимко20090213'
       },
-      eduEntity: {
+      eduentity: {
         name: 'Загальноосвітня школа №4 міста Запоріжжа',
         type: 'ЗЗСО'
       },
       discipline: 'дівчата',
       place: 1,
       ratingPoints: 25,
-      _id: 'іваіаіва'
+      result_id: 'іваіаіва'
     },
     {
       appointment: {
@@ -1303,16 +1303,16 @@ export class MockDataBase {
         DoB: new Date(2009, 2, 13),
         gender: 'female',
         schoolchildOrStudent: 'schoolchild',
-        _id: 'ЛюдмилаПопович20090213'
+        participant_id: 'ЛюдмилаПопович20090213'
       },
-      eduEntity: {
+      eduentity: {
         name: 'Загальноосвітня школа №4 міста Запоріжжа',
         type: 'ЗЗСО'
       },
       discipline: 'дівчата',
       place: 1,
       ratingPoints: 25,
-      _id: 'івпщуикь'
+      result_id: 'івпщуикь'
     },
     {
       appointment: {
@@ -1342,16 +1342,16 @@ export class MockDataBase {
         DoB: new Date(2009, 2, 13),
         gender: 'female',
         schoolchildOrStudent: 'schoolchild',
-        _id: 'ЛюдмилаПопович20090213'
+        participant_id: 'ЛюдмилаПопович20090213'
       },
-      eduEntity: {
+      eduentity: {
         name: 'Загальноосвітня школа №4 міста Запоріжжа',
         type: 'ЗЗСО'
       },
       discipline: 'ІІІ віковий дивізіон',
       place: 1,
       ratingPoints: 25,
-      _id: 'іваівпмуеик'
+      result_id: 'іваівпмуеик'
     },
     {
       appointment: {
@@ -1381,16 +1381,16 @@ export class MockDataBase {
         DoB: new Date(2009, 2, 13),
         gender: 'male',
         schoolchildOrStudent: 'schoolchild',
-        _id: 'ОлександрПопович20090213'
+        participant_id: 'ОлександрПопович20090213'
       },
-      eduEntity: {
+      eduentity: {
         name: 'Загальноосвітня школа №4 міста Запоріжжа',
         type: 'ЗЗСО'
       },
       discipline: 'ІІІ віковий дивізіон',
       place: 1,
       ratingPoints: 25,
-      _id: 'іваівпмуеик'
+      result_id: 'іваівпмуеик'
     },
     {
       appointment: {
@@ -1420,16 +1420,16 @@ export class MockDataBase {
         DoB: new Date(2009, 2, 13),
         gender: 'male',
         schoolchildOrStudent: 'schoolchild',
-        _id: 'ЛюдмилаПопович20090213'
+        participant_id: 'ЛюдмилаПопович20090213'
       },
-      eduEntity: {
+      eduentity: {
         name: 'Загальноосвітня школа №4 міста Запоріжжа',
         type: 'ЗЗСО'
       },
       discipline: 'ІІІ віковий дивізіон',
       place: 1,
       ratingPoints: 25,
-      _id: 'іваівпмуеик'
+      result_id: 'іваівпмуеик'
     },
     {
       appointment: {
@@ -1459,16 +1459,16 @@ export class MockDataBase {
         DoB: new Date(2009, 2, 13),
         gender: 'male',
         schoolchildOrStudent: 'schoolchild',
-        _id: 'АндрійМаксимов20090213'
+        participant_id: 'АндрійМаксимов20090213'
       },
-      eduEntity: {
+      eduentity: {
         name: 'Загальноосвітня школа №4 міста Запоріжжа',
         type: 'ЗЗСО'
       },
       discipline: 'хлопці',
       place: 1,
       ratingPoints: 25,
-      _id: 'іваіаіва'
+      result_id: 'іваіаіва'
     },
     {
       appointment: {
@@ -1498,16 +1498,16 @@ export class MockDataBase {
         DoB: new Date(2009, 2, 13),
         gender: 'male',
         schoolchildOrStudent: 'schoolchild',
-        _id: 'КОнтантинСмирнов20090213'
+        participant_id: 'КОнтантинСмирнов20090213'
       },
-      eduEntity: {
+      eduentity: {
         name: 'Загальноосвітня школа №4 міста Запоріжжа',
         type: 'ЗЗСО'
       },
       discipline: 'хлопці',
       place: 1,
       ratingPoints: 25,
-      _id: 'іваіаіва'
+      result_id: 'іваіаіва'
     }
   ];
 }
