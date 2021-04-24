@@ -125,9 +125,9 @@ export class MockDBAdministratorService {
     return {
       appointment,
       membersPlan,
-      personPerDayTotalPlan,
+      personPerDayPlan: personPerDayTotalPlan,
       membersFact,
-      personPerDayTotalFact,
+      personPerDayFact: personPerDayTotalFact,
       report_id: `${membersFact.total + membersPlan.total}`
     };
   }

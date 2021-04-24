@@ -153,7 +153,6 @@ export class AppointmentCreatorComponent implements OnInit, OnDestroy {
 
   onCreate(value: any): void {
     value.duration = this.dateProvider.provideDuration(value.start, value.finish);
-    console.log(value);
     this.appointmentService.saveAppointmentToPSQL(value).pipe()
       .subscribe(
         (a) => {

@@ -150,9 +150,9 @@ export interface Members {
 export interface Report {
   appointment: Appointment;
   membersPlan: Members;
-  personPerDayTotalPlan: number;
+  personPerDayPlan: number;
   membersFact: Members;
-  personPerDayTotalFact: number;
+  personPerDayFact: number;
   report_id?: string;
   person_id?: string;
 }

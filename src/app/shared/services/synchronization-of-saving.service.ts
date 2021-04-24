@@ -39,9 +39,9 @@ export class SynchronizationOfSavingService {
     const statistic: Report = {
       appointment,
       membersPlan: basicNumberOfParticipantsPlan,
-      personPerDayTotalPlan: 0,
+      personPerDayPlan: 0,
       membersFact: basicNumberOfParticipantsFact,
-      personPerDayTotalFact: 0
+      personPerDayFact: 0
     };
     this.statisticService.createStatistic(statistic).subscribe(
       ststc => console.log(ststc)
