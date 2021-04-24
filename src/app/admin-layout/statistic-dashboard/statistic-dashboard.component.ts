@@ -18,6 +18,7 @@ export class StatisticDashboardComponent implements OnInit, AfterViewInit {
   displayedColumns = [
     'appointment.title',
     'termsOfHolding',
+    'place',
     'numberOfCountries',
     'numberOfRegions',
     'numberOfEduEnt',
@@ -26,14 +27,6 @@ export class StatisticDashboardComponent implements OnInit, AfterViewInit {
     'numberOfReferees',
     'numberOfOthers',
     'total',
-    'countries_fact',
-    'regions_fact',
-    'eduEnt_fact',
-    'sportsmen_fact',
-    'coaches_fact',
-    'referees_fact',
-    'others_fact',
-    'total_fact'
   ];
   // @ts-ignore
   dataSource2: MatTableDataSource<Report>;

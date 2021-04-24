@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute, Params} from '@angular/router';
 import {ReportService} from '../../services/report.service';
-import {Members, Report} from '../../interfases';
-import {map} from 'rxjs/operators';
+import {HttpResponse} from '@angular/common/http';
 
 @Component({
   selector: 'app-statistic-details',
@@ -11,7 +10,9 @@ import {map} from 'rxjs/operators';
 })
 export class StatisticDetailsComponent implements OnInit {
   // @ts-ignore
-  statistic: Report;
+  statistic: any;
+  // @ts-ignore
+  reportId: number;
   displayedColumns: string [] = [
     'level', 'plan'
   ];
@@ -24,13 +25,12 @@ export class StatisticDetailsComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.route.params.subscribe(
-      (params: Params) => this.statService.getStatisticByID(params.id)
-        .subscribe(
-          s => {
-            this.statistic = s;
-          }
-        )
+    this.route.params.subscribe((params: Params) => this.reportId = params.id);
+    this.statService.getStatisticByID(this.reportId).subscribe(
+      responce => {
+        console.log(responce);
+        this.statistic = responce;
+      }
     );
   }
 

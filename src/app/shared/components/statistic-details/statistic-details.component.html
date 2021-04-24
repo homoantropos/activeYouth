@@ -1,9 +1,11 @@
-<h1>{{statistic.appointment.title}}</h1>
-<p><b>Дата початку:  </b>{{statistic.appointment.start | date : 'dd.MM.yy'}}</p>
-<p><b>Дата завершення:  </b>{{statistic.appointment.finish | date : 'dd.MM.yy'}}</p>
-<p><b>Місце проведення: </b>{{statistic.appointment.place.country + ' ' + statistic.appointment.place.region + ' ' +
-statistic.appointment.place.town}}</p>
-<p>{{statistic.appointment.place.sportHall + ' '+ statistic.appointment.place.address}}</p>
+<div *ngIf="statistic; else loader">
+
+<h1>{{statistic.title}}</h1>
+<p><b>Дата початку:  </b>{{statistic.startdate | date : 'dd.MM.yy'}}</p>
+<p><b>Дата завершення:  </b>{{statistic.finishdate | date : 'dd.MM.yy'}}</p>
+<p><b>Місце проведення: </b>{{statistic.country_name + ' ' + statistic.region_name + ' ' +
+statistic.town_name}}</p>
+<p>{{statistic.sporthall_name + ' '+ statistic.address}}</p>
 
 <table>
   <tr>
@@ -13,42 +15,47 @@ statistic.appointment.place.town}}</p>
   </tr>
   <tr>
     <td>країн</td>
-    <td>{{statistic.membersPlan.countries}}</td>
-    <td>{{statistic.membersFact.countries}}</td>
+    <td>{{statistic.countries_plan}}</td>
+    <td>{{statistic.countries_fact}}</td>
   </tr>
   <tr>
     <td>регіонів</td>
-    <td>{{statistic.membersPlan.regions}}</td>
-    <td>{{statistic.membersFact.regions}}</td>
+    <td>{{statistic.regions_plan}}</td>
+    <td>{{statistic.regions_fact}}</td>
   </tr>
   <tr>
     <td>закладів освіти</td>
-    <td>{{statistic.membersPlan.educationEntity}}</td>
-    <td>{{statistic.membersFact.educationEntity}}</td>
+    <td>{{statistic.educationentity_plan}}</td>
+    <td>{{statistic.educationentity_fact}}</td>
   </tr>
   <tr>
     <td>учасників</td>
-    <td>{{statistic.membersPlan.sportsmen}}</td>
-    <td>{{statistic.membersFact.sportsmen}}</td>
+    <td>{{statistic.sportsmen_plan}}</td>
+    <td>{{statistic.sportsmen_fact}}</td>
   </tr>
   <tr>
     <td>тренерів</td>
-    <td>{{statistic.membersPlan.coaches}}</td>
-    <td>{{statistic.membersFact.coaches}}</td>
+    <td>{{statistic.coaches_plan}}</td>
+    <td>{{statistic.coaches_fact}}</td>
   </tr>
   <tr>
     <td>суддів</td>
-    <td>{{statistic.membersPlan.referees}}</td>
-    <td>{{statistic.membersFact.referees}}</td>
+    <td>{{statistic.referees_plan}}</td>
+    <td>{{statistic.referees_fact}}</td>
   </tr>
   <tr>
     <td>інших</td>
-    <td>{{statistic.membersPlan.others}}</td>
-    <td>{{statistic.membersFact.others}}</td>
+    <td>{{statistic.others_plan}}</td>
+    <td>{{statistic.others_fact}}</td>
   </tr>
   <tr>
     <td>всього</td>
-    <td>{{statistic.membersPlan.total}}</td>
-    <td>{{statistic.membersFact.total}}</td>
+    <td>{{statistic.total_plan}}</td>
+    <td>{{statistic.total_fact}}</td>
   </tr>
 </table>
+</div>
+
+<ng-template #loader>
+  <app-loader></app-loader>
+</ng-template>

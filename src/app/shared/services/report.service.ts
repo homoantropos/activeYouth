@@ -35,7 +35,7 @@ export class ReportService {
   getAllReports(): Observable<Array<Report>> {
     return this.http.get<Array<Report>>(`${environment.postgresDbUrl}/report`);
   }
-  getStatisticByID(id: string): Observable<Report> {
-    return of((MockDataBase.statistics.find(s => s.report_id === id)) as Report);
+  getStatisticByID(id: number): Observable<any> {
+    return this.http.get<any>(`${environment.postgresDbUrl}/report/${id}`);
   }
 }
