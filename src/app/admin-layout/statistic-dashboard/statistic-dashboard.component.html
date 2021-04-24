@@ -20,43 +20,83 @@
 <!--    </ng-container>-->
 
     <ng-container matColumnDef="numberOfCountries">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header> Країн</th>
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Країн (план)</th>
       <td mat-cell *matCellDef="let statistic"> {{statistic.countries_plan}}</td>
     </ng-container>
 
     <ng-container matColumnDef="numberOfRegions">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header> Регіонів </th>
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Регіонів (план)</th>
       <td mat-cell *matCellDef="let statistic"> {{statistic.regions_plan}}</td>
     </ng-container>
 
     <ng-container matColumnDef="numberOfEduEnt">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header> Закладів<br>освіти </th>
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Закладів<br>освіти (план)</th>
       <td mat-cell *matCellDef="let statistic"> {{statistic.educationentity_plan}}</td>
     </ng-container>
 
     <ng-container matColumnDef="numberOfSportsmen">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header> Учасників </th>
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Учасників (план)</th>
       <td mat-cell *matCellDef="let statistic"> {{statistic.sportsmen_plan}}</td>
     </ng-container>
 
     <ng-container matColumnDef="numberOfCoaches">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header> Тренерів </th>
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Тренерів (план)</th>
       <td mat-cell *matCellDef="let statistic"> {{statistic.coaches_plan}}</td>
     </ng-container>
 
     <ng-container matColumnDef="numberOfReferees">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header> Суддів </th>
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Суддів (план)</th>
       <td mat-cell *matCellDef="let statistic"> {{statistic.referees_plan}}</td>
     </ng-container>
 
     <ng-container matColumnDef="numberOfOthers">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header> Інших </th>
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Інших (план)</th>
       <td mat-cell *matCellDef="let statistic"> {{statistic.others_plan}}</td>
     </ng-container>
 
     <ng-container matColumnDef="total">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header> Всього </th>
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Всього (план)</th>
       <td mat-cell *matCellDef="let statistic"> {{statistic.total_plan}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="countries_fact">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Країн (факт)</th>
+      <td mat-cell *matCellDef="let statistic"> {{statistic.countries_fact}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="regions_fact">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Регіонів (факт)</th>
+      <td mat-cell *matCellDef="let statistic"> {{statistic.regions_fact}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="eduEnt_fact">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Закладів<br>освіти (факт)</th>
+      <td mat-cell *matCellDef="let statistic"> {{statistic.educationentity_fact}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="sportsmen_fact">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Учасників (факт)</th>
+      <td mat-cell *matCellDef="let statistic"> {{statistic.sportsmen_fact}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="coaches_fact">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Тренерів (факт)</th>
+      <td mat-cell *matCellDef="let statistic"> {{statistic.coaches_fact}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="referees_fact">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Суддів (факт)</th>
+      <td mat-cell *matCellDef="let statistic"> {{statistic.referees_fact}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="others_fact">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Інших (факт)</th>
+      <td mat-cell *matCellDef="let statistic"> {{statistic.others_fact}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="total_fact">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Всього (факт)</th>
+      <td mat-cell *matCellDef="let statistic"> {{statistic.total_fact}}</td>
     </ng-container>
 
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>

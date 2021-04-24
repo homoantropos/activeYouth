@@ -25,7 +25,15 @@ export class StatisticDashboardComponent implements OnInit, AfterViewInit {
     'numberOfCoaches',
     'numberOfReferees',
     'numberOfOthers',
-    'total'
+    'total',
+    'countries_fact',
+    'regions_fact',
+    'eduEnt_fact',
+    'sportsmen_fact',
+    'coaches_fact',
+    'referees_fact',
+    'others_fact',
+    'total_fact'
   ];
   // @ts-ignore
   dataSource2: MatTableDataSource<Report>;
