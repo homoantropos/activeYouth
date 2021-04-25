@@ -19,6 +19,7 @@ import {ActivityDetailsComponent} from '../shared/components/activity-details/ac
 import {AppointmentDetailsComponent} from '../shared/components/appointment-details/appointment-details.component';
 import {StatisticDetailsComponent} from '../shared/components/statistic-details/statistic-details.component';
 import {SportsEditorComponent} from './creators-editors/sports-editor/sports-editor.component';
+import {ReportEditorComponent} from './creators-editors/report-editor/report-editor.component';
 
 const routes: Routes = [
   { path: '', component: AdminLayoutComponent, children: [
@@ -26,7 +27,8 @@ const routes: Routes = [
       {path: 'login', component: LoginPageComponent},
       {path: 'statistic', canActivate: [AuthGuardService], children: [
           {path: '', component: StatisticDashboardComponent},
-          {path: ':id', component: StatisticDetailsComponent}
+          {path: ':id', component: StatisticDetailsComponent},
+          {path: 'edit/:id', component: ReportEditorComponent}
         ]},
       {path: 'activities', canActivate: [AuthGuardService], children: [
           {path: '', component: ActivitiesDashboardComponent},

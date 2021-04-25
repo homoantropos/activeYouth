@@ -17,7 +17,6 @@ export class RatingFilterService {
   ): Observable<Array<Result>> {
     if (direction && direction.length > 1) {
       if (gender && gender.length > 1) {
-        console.log('та де є і напрям і стать');
         return of(
           rating.filter(
             r => r.participant.schoolchildOrStudent === schoolchildOrStudent &&
@@ -25,14 +24,11 @@ export class RatingFilterService {
               r.participant.gender === gender)
           );
       } else {
-        console.log('та де є напрям');
         return of(rating.filter(
           r => r.participant.schoolchildOrStudent === schoolchildOrStudent &&
             r.appointment.direction === direction));
       }
     } else {
-
-      console.log('та де нема ні напряму ні статі');
       return of(rating.filter(
         r => r.participant.schoolchildOrStudent === schoolchildOrStudent));
     }

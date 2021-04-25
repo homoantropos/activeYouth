@@ -76,38 +76,39 @@ export class AppointmentEditorComponent implements OnInit, OnDestroy {
         });
         // @ts-ignore
         this.minFinishDate$ = this.appointmentEditorForm.get('start').valueChanges;
+        // @ts-ignore
+        this.filteredOptions = this.appointmentEditorForm.get('sportKind').valueChanges
+          .pipe(
+            startWith(''),
+            map((value: string) => this._filter(value))
+          );
+        // @ts-ignore
+        this.countryFilteredOptions = this.appointmentEditorForm.get('place').get('country').valueChanges
+          .pipe(
+            startWith(''),
+            map((value: string) => this._filterCountry(value))
+          );
+        // @ts-ignore
+        this.regionFilteredOptions = this.appointmentEditorForm.get('place').get('region').valueChanges
+          .pipe(
+            startWith(''),
+            map((value: string) => this._filterRegion(value))
+          );
+        // @ts-ignore
+        this.townFilteredOptions = this.appointmentEditorForm.get('place').get('town').valueChanges
+          .pipe(
+            startWith(''),
+            map((value: string) => this._filterTown(value))
+          );
+        // @ts-ignore
+        this.sportHallFilteredOptions = this.appointmentEditorForm.get('place').get('sportHall').valueChanges
+          .pipe(
+            startWith(''),
+            map((value: string) => this._filterSportHall(value))
+          );
       }
     );
-    // @ts-ignore
-    this.filteredOptions = this.appointmentEditorForm.get('sportKind').valueChanges
-      .pipe(
-        startWith(''),
-        map((value: string) => this._filter(value))
-      );
-    // @ts-ignore
-    this.countryFilteredOptions = this.appointmentEditorForm.get('place').get('country').valueChanges
-      .pipe(
-        startWith(''),
-        map((value: string) => this._filterCountry(value))
-      );
-    // @ts-ignore
-    this.regionFilteredOptions = this.appointmentEditorForm.get('place').get('region').valueChanges
-      .pipe(
-        startWith(''),
-        map((value: string) => this._filterRegion(value))
-      );
-    // @ts-ignore
-    this.townFilteredOptions = this.appointmentEditorForm.get('place').get('town').valueChanges
-      .pipe(
-        startWith(''),
-        map((value: string) => this._filterTown(value))
-      );
-    // @ts-ignore
-    this.sportHallFilteredOptions = this.appointmentEditorForm.get('place').get('sportHall').valueChanges
-      .pipe(
-        startWith(''),
-        map((value: string) => this._filterSportHall(value))
-      );
+
   }
 
   private _filter(value: string): string[] {

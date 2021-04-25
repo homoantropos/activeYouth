@@ -28,7 +28,6 @@ export class StatisticDetailsComponent implements OnInit {
     this.route.params.subscribe((params: Params) => this.reportId = params.id);
     this.statService.getStatisticByID(this.reportId).subscribe(
       responce => {
-        console.log(responce);
         this.statistic = responce;
       }
     );

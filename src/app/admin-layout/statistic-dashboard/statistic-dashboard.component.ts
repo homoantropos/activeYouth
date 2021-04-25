@@ -27,6 +27,7 @@ export class StatisticDashboardComponent implements OnInit, AfterViewInit {
     'numberOfReferees',
     'numberOfOthers',
     'total',
+    'report'
   ];
   // @ts-ignore
   dataSource2: MatTableDataSource<Report>;
@@ -45,18 +46,21 @@ export class StatisticDashboardComponent implements OnInit, AfterViewInit {
     this.reportService.getAllReports().subscribe(
       reports => {
         MockDataBase.statistics = reports.slice();
-        console.log(reports);
         this.dataSource2 = new MatTableDataSource<Report>(MockDataBase.statistics);
+        this.dataSource2.paginator = this.paginator;
+        this.dataSource2.sort = this.sort;
       }
     );
   }
 
   ngAfterViewInit(): void {
-    this.dataSource2.paginator = this.paginator;
-    this.dataSource2.sort = this.sort;
   }
 
   goToStatDetails(s: Report): void {
     this.router.navigateByUrl(`/admin/statistic/${s.report_id}`);
+  }
+
+  goToReportEditor(id: number): void {
+    this.router.navigateByUrl(`/admin/statistic/edit/${id}`);
   }
 }

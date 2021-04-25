@@ -1,0 +1,138 @@
+<div *ngIf="reportEditorForm; else loader">
+  <h1>{{report.title}}</h1>
+  <p><b>Дата початку: </b>{{report.startdate | date : 'dd.MM.yy'}}</p>
+  <p><b>Дата завершення: </b>{{report.finishdate | date : 'dd.MM.yy'}}</p>
+  <p><b>Місце проведення: </b>{{report.country_name + ' ' + report.region_name + ' ' +
+  report.town_name}}</p>
+
+  <form [formGroup]="reportEditorForm" (ngSubmit)="onSubmit(reportEditorForm.value)" autocomplete="off">
+
+    <div>
+      <h5>Запланована кількість</h5>
+      <mat-form-field class="forms-inputs" title="countries_plan" [ngStyle]="{width: '10%'}">
+        <mat-label>країн...</mat-label>
+        <input matInput
+               title="countries_plan"
+               type="number" min="0"
+               formControlName="countries_plan">
+      </mat-form-field>
+
+      <mat-form-field class="forms-inputs" title="regions_plan" [ngStyle]="{width: '10%'}">
+        <mat-label>регіонів України...</mat-label>
+        <input matInput
+               title="regions_plan"
+               type="number" min="0"
+               formControlName="regions_plan">
+      </mat-form-field>
+
+      <mat-form-field class="forms-inputs" title="educationEntity_plan" [ngStyle]="{width: '10%'}">
+        <mat-label>закладів освіти...</mat-label>
+        <input matInput
+               title="educationEntity_plan"
+               type="number" min="0"
+               formControlName="educationEntity_plan">
+      </mat-form-field>
+
+      <mat-form-field class="forms-inputs" title="sportsmen_plan" [ngStyle]="{width: '10%'}">
+        <mat-label>учасників...</mat-label>
+        <input matInput
+               title="sportsmen_plan"
+               type="number" min="0"
+               formControlName="sportsmen_plan">
+      </mat-form-field>
+
+      <mat-form-field class="forms-inputs" title="coaches_plan" [ngStyle]="{width: '10%'}">
+        <mat-label>тренерів...</mat-label>
+        <input matInput
+               title="coaches_plan"
+               type="number" min="0"
+               formControlName="coaches_plan">
+      </mat-form-field>
+
+      <mat-form-field class="forms-inputs" title="referees_plan" [ngStyle]="{width: '10%'}">
+        <mat-label>суддів...</mat-label>
+        <input matInput
+               title="referees_plan"
+               type="number" min="0"
+               formControlName="referees_plan">
+      </mat-form-field>
+
+      <mat-form-field class="forms-inputs" title="others_plan" [ngStyle]="{width: '10%'}">
+        <mat-label>інших...</mat-label>
+        <input matInput
+               title="others_plan"
+               type="number" min="0"
+               formControlName="others_plan">
+      </mat-form-field>
+    </div>
+    <div>
+      <h5>Фактична кількість</h5>
+      <mat-form-field class="forms-inputs" title="countries_fact" [ngStyle]="{width: '10%'}">
+        <mat-label>країн...</mat-label>
+        <input matInput
+               title="countries_fact"
+               type="number" min="0"
+               formControlName="countries_fact">
+      </mat-form-field>
+
+      <mat-form-field class="forms-inputs" title="regions_fact" [ngStyle]="{width: '10%'}">
+        <mat-label>регіонів України...</mat-label>
+        <input matInput
+               title="regions_fact"
+               type="number" min="0"
+               formControlName="regions_fact">
+      </mat-form-field>
+
+      <mat-form-field class="forms-inputs" title="educationEntity_fact" [ngStyle]="{width: '10%'}">
+        <mat-label>закладів освіти...</mat-label>
+        <input matInput
+               title="educationEntity_fact"
+               type="number" min="0"
+               formControlName="educationEntity_fact">
+      </mat-form-field>
+
+      <mat-form-field class="forms-inputs" title="sportsmen_fact" [ngStyle]="{width: '10%'}">
+        <mat-label>учасників...</mat-label>
+        <input matInput
+               title="sportsmen_fact"
+               type="number" min="0"
+               formControlName="sportsmen_fact">
+      </mat-form-field>
+
+      <mat-form-field class="forms-inputs" title="coaches_fact" [ngStyle]="{width: '10%'}">
+        <mat-label>тренерів...</mat-label>
+        <input matInput
+               title="coaches_fact"
+               type="number" min="0"
+               formControlName="coaches_fact">
+      </mat-form-field>
+
+      <mat-form-field class="forms-inputs" title="referees_fact" [ngStyle]="{width: '10%'}">
+        <mat-label>суддів...</mat-label>
+        <input matInput
+               title="referees_fact"
+               type="number" min="0"
+               formControlName="referees_fact">
+      </mat-form-field>
+
+      <mat-form-field class="forms-inputs" title="others_fact" [ngStyle]="{width: '10%'}">
+        <mat-label>інших...</mat-label>
+        <input matInput
+               title="others_fact"
+               type="number" min="0"
+               formControlName="others_fact">
+      </mat-form-field>
+    </div>
+
+    <button mat-button color="primary"
+            type="submit"
+            [disabled] = "reportEditorForm.invalid"
+    >
+      Вiдправити
+    </button>
+  </form>
+</div>
+
+<ng-template #loader>
+  <app-loader></app-loader>
+</ng-template>
