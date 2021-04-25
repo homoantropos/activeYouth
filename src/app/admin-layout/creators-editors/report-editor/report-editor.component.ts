@@ -41,13 +41,13 @@ export class ReportEditorComponent implements OnInit, OnDestroy {
           coaches_plan: new FormControl(report.coaches_plan, [Validators.required]),
           referees_plan: new FormControl(report.referees_plan, [Validators.required]),
           others_plan: new FormControl(report.others_plan, [Validators.required]),
-          countries_fact: new FormControl(0, [Validators.required]),
-          regions_fact: new FormControl(0, [Validators.required]),
-          educationEntity_fact: new FormControl(0, [Validators.required]),
-          sportsmen_fact: new FormControl(0, [Validators.required]),
-          coaches_fact: new FormControl(0, [Validators.required]),
-          referees_fact: new FormControl(0, [Validators.required]),
-          others_fact: new FormControl(0, [Validators.required]),
+          countries_fact: new FormControl(report.countries_fact, [Validators.required]),
+          regions_fact: new FormControl(report.regions_fact, [Validators.required]),
+          educationEntity_fact: new FormControl(report.educationentity_fact, [Validators.required]),
+          sportsmen_fact: new FormControl(report.sportsmen_fact, [Validators.required]),
+          coaches_fact: new FormControl(report.coaches_fact, [Validators.required]),
+          referees_fact: new FormControl(report.referees_fact, [Validators.required]),
+          others_fact: new FormControl(report.others_fact, [Validators.required]),
         });
       }
     );
