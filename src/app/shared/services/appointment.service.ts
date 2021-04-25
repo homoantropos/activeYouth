@@ -79,6 +79,10 @@ export class AppointmentService {
     return of(MockDataBase.schedule);
   }
 
+  getCalendar(): Observable<any> {
+    return this.http.get<any>(`${environment.postgresDbUrl}/appointment/calendar`);
+  }
+
   getAppointmentById(id: number): Observable<any> {
     return this.http.get<any>(`${environment.postgresDbUrl}/appointment/${id}`)
       .pipe(

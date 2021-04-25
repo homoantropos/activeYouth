@@ -20,6 +20,7 @@ import {AppointmentDetailsComponent} from '../shared/components/appointment-deta
 import {StatisticDetailsComponent} from '../shared/components/statistic-details/statistic-details.component';
 import {SportsEditorComponent} from './creators-editors/sports-editor/sports-editor.component';
 import {ReportEditorComponent} from './creators-editors/report-editor/report-editor.component';
+import {CalendarComponent} from './calendar/calendar.component';
 
 const routes: Routes = [
   { path: '', component: AdminLayoutComponent, children: [
@@ -52,7 +53,8 @@ const routes: Routes = [
           {path: '', component: ResultsDashboardComponent},
           {path: 'create', component: ResultsCreatorComponent},
           {path: 'edit/:id', component: ResultsEditorComponent}
-        ]}
+        ]},
+      {path: 'calendar', component: CalendarComponent}
     ] }];
 
 @NgModule({

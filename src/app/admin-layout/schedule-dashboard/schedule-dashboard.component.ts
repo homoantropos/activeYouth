@@ -19,7 +19,6 @@ export class ScheduleDashboardComponent implements OnInit {
 
   // @ts-ignore
   dataSource: MatTableDataSource<Appointment>;
-  schedule1: Array<Appointment> = [];
   paginatorStartPageNumber = 1;
   // @ts-ignore
   schedule$: Observable<Array<Appointment>>;
