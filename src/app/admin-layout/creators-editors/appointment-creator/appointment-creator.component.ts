@@ -165,7 +165,6 @@ export class AppointmentCreatorComponent implements OnInit, OnDestroy {
           this.appointmentFinancingService.createAppointmentFinancing(appointmentFinancing).subscribe(
             apf => console.log(apf)
           );
-          this.appointmentCreatorForm.reset();
           this.router.navigate(['admin', 'schedule']);
           alert('ваш захід додано!');
         }

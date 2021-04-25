@@ -32,7 +32,6 @@ export class ReportEditorComponent implements OnInit, OnDestroy {
     this.rSub = this.reportService.getStatisticByID(this.reportId).subscribe(
       report => {
         this.report = report;
-        console.log(report);
         this.reportEditorForm = new FormGroup({
           countries_plan: new FormControl(report.countries_plan, [Validators.required]),
           regions_plan: new FormControl(report.regions_plan, [Validators.required]),
