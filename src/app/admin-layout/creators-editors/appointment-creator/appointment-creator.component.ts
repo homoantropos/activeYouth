@@ -153,11 +153,10 @@ export class AppointmentCreatorComponent implements OnInit, OnDestroy {
 
   onCreate(value: any): void {
     value.duration = this.dateProvider.provideDuration(value.start, value.finish);
-    this.appointmentService.saveAppointmentToPSQL(value).pipe()
+    this.appointmentService.saveAppointmentToPSQL(value)
       .subscribe(
         (a) => {
           // @ts-ignore
-          console.log('after saving', a);
           const appointmentFinancing: AppointmentFinancing = {
             appointment: a,
             expensesPlan: basicExpensesPlan,

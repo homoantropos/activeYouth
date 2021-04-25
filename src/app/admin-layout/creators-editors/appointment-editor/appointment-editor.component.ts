@@ -153,13 +153,12 @@ export class AppointmentEditorComponent implements OnInit, OnDestroy {
   }
 
   onEdit(value: any): void {
-    value.duration = this.dateProvider.provideDuration(value.start, value.finish);
+    value.duration = this.dateProvider.provideDuration(new Date(value.start), new Date(value.finish));
     value.appointment_id = this.appointmentId;
     this.appointmentService.updateAppointment(value)
       .subscribe(
         (a) => {
           // @ts-ignore
-          this.appointmentEditorForm.reset();
           this.router.navigate(['admin', 'schedule']);
           alert('Ваші зміни збережено!');
         }
