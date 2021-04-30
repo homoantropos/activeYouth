@@ -6,7 +6,7 @@ import { SuperAdminLayoutComponent } from './super-admin-layout.component';
 import { UserAdminPageComponent } from './user-admin-page/user-admin-page.component';
 import { PlacesAdminPageComponent } from './places-admin-page/places-admin-page.component';
 import { SportsAdminPageComponent } from './sports-admin-page/sports-admin-page.component';
-import { CoachesesAdminPageComponent } from './coaches-admin-page/coacheses-admin-page.component';
+import { CoachesAdminPageComponent } from './coaches-admin-page/coaches-admin-page.component';
 import { UserCreatorComponent } from './creators-editors/user-creator/user-creator.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {SharedModule} from '../shared/shared.module';
@@ -34,7 +34,7 @@ import { SportHallEditorComponent } from './creators-editors/sport-hall-editor/s
     UserAdminPageComponent,
     PlacesAdminPageComponent,
     SportsAdminPageComponent,
-    CoachesesAdminPageComponent,
+    CoachesAdminPageComponent,
     UserCreatorComponent,
     UserEditorComponent,
     SportKindAdminPageComponent,

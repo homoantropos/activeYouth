@@ -22,7 +22,6 @@ import {SportsEditorComponent} from './creators-editors/sports-editor/sports-edi
 import {ReportEditorComponent} from './creators-editors/report-editor/report-editor.component';
 import {CalendarComponent} from './calendar/calendar.component';
 import {TeacherAdminPageComponent} from './teacher-admin-page/teacher-admin-page.component';
-import {OrganizatorsPageComponent} from '../main-layout/organizators-page/organizators-page.component';
 import {OrganizatorAdminPageComponent} from './organizator-admin-page/organizator-admin-page.component';
 
 const routes: Routes = [

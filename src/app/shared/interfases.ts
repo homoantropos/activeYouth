@@ -93,7 +93,7 @@ export interface Participant {
 }
 
 export interface Coach {
-  name: string;
+  coach_name: string;
   surname: string;
   fatherName: string;
   gender: string;

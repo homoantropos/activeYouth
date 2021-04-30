@@ -3,7 +3,7 @@ import {RouterModule, Routes} from '@angular/router';
 import {SuperAdminLayoutComponent} from './super-admin-layout.component';
 import {UserAdminPageComponent} from './user-admin-page/user-admin-page.component';
 import {PlacesAdminPageComponent} from './places-admin-page/places-admin-page.component';
-import {CoachesesAdminPageComponent} from './coaches-admin-page/coacheses-admin-page.component';
+import {CoachesAdminPageComponent} from './coaches-admin-page/coaches-admin-page.component';
 import {UserCreatorComponent} from './creators-editors/user-creator/user-creator.component';
 import {AuthGuardService} from '../admin-layout/auth/auth-guard.service';
 import {UserEditorComponent} from './creators-editors/user-editor/user-editor.component';
@@ -66,7 +66,7 @@ const routes: Routes = [
           {path: '', component: SportKindAdminPageComponent}
         ]
       },
-      {path: 'coaches', component: CoachesesAdminPageComponent}
+      {path: 'coaches', component: CoachesAdminPageComponent}
     ]
   }
 ];

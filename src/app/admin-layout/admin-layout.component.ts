@@ -20,10 +20,6 @@ export class AdminLayoutComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    const existToken = localStorage.getItem('auth-token');
-    if (existToken !== null) {
-      this.auth.setToken(existToken);
-    }
     this.autoUpdateCreator.createAutoUpdateArrays();
   }
 
