@@ -13,6 +13,8 @@ import {QuillModule} from 'ngx-quill';
 import {SharedModule} from '../shared/shared.module';
 import { RatingOfStudentsComponent } from './raiting-page/rating-of-students/rating-of-students.component';
 import { RatingOfEducationalEntityComponent } from './raiting-page/rating-of-educational-entity/rating-of-educational-entity.component';
+import { TeachersPageComponent } from './teachers-page/teachers-page.component';
+import { OrganizatorsPageComponent } from './organizators-page/organizators-page.component';
 
 
 @NgModule({
@@ -24,7 +26,9 @@ import { RatingOfEducationalEntityComponent } from './raiting-page/rating-of-edu
     SportsPageComponent,
     RatingPageComponent,
     RatingOfStudentsComponent,
-    RatingOfEducationalEntityComponent],
+    RatingOfEducationalEntityComponent,
+    TeachersPageComponent,
+    OrganizatorsPageComponent],
     imports: [
         FormsModule,
         ReactiveFormsModule,

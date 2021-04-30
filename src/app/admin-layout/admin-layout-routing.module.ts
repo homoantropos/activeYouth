@@ -21,6 +21,9 @@ import {StatisticDetailsComponent} from '../shared/components/statistic-details/
 import {SportsEditorComponent} from './creators-editors/sports-editor/sports-editor.component';
 import {ReportEditorComponent} from './creators-editors/report-editor/report-editor.component';
 import {CalendarComponent} from './calendar/calendar.component';
+import {TeacherAdminPageComponent} from './teacher-admin-page/teacher-admin-page.component';
+import {OrganizatorsPageComponent} from '../main-layout/organizators-page/organizators-page.component';
+import {OrganizatorAdminPageComponent} from './organizator-admin-page/organizator-admin-page.component';
 
 const routes: Routes = [
   { path: '', component: AdminLayoutComponent, children: [
@@ -54,7 +57,13 @@ const routes: Routes = [
           {path: 'create', component: ResultsCreatorComponent},
           {path: 'edit/:id', component: ResultsEditorComponent}
         ]},
-      {path: 'calendar', component: CalendarComponent}
+      {path: 'calendar', component: CalendarComponent, canActivate: [AuthGuardService]},
+      {path: 'teacher', canActivate: [AuthGuardService], children: [
+          {path: '', component: TeacherAdminPageComponent}
+        ]},
+      {path: 'organizator', canActivate: [AuthGuardService], children: [
+          {path: '', component: OrganizatorAdminPageComponent}
+        ]}
     ] }];
 
 @NgModule({

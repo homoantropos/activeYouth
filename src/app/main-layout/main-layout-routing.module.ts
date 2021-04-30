@@ -11,6 +11,8 @@ import {AppointmentDetailsComponent} from '../shared/components/appointment-deta
 import {ActivityDetailsComponent} from '../shared/components/activity-details/activity-details.component';
 import {RatingOfStudentsComponent} from './raiting-page/rating-of-students/rating-of-students.component';
 import {RatingOfEducationalEntityComponent} from './raiting-page/rating-of-educational-entity/rating-of-educational-entity.component';
+import {TeachersPageComponent} from './teachers-page/teachers-page.component';
+import {OrganizatorsPageComponent} from './organizators-page/organizators-page.component';
 
 const routes: Routes = [
   { path: '', component: MainLayoutComponent, children: [
@@ -26,7 +28,9 @@ const routes: Routes = [
           {path: '', redirectTo: 'students', pathMatch: 'full'},
           {path: 'students', component: RatingOfStudentsComponent},
           {path: 'eduentity', component: RatingOfEducationalEntityComponent}
-        ]}
+        ]},
+      {path: 'teacher', component: TeachersPageComponent},
+      {path: 'organizator', component: OrganizatorsPageComponent}
     ] }
 ];
 

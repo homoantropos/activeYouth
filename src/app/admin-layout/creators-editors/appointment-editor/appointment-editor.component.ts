@@ -173,7 +173,3 @@ export class AppointmentEditorComponent implements OnInit, OnDestroy {
     this.sportHallsName.splice(0);
   }
 }
-
-
-/* TODO:
-* 1. Всі маніпуляції з подією повинні автоматично синхронізуватися в базі даних з відповідними статистикою і фінансуванням.*/

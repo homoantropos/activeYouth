@@ -23,6 +23,8 @@ import {MatRadioModule} from '@angular/material/radio';
 import { SportsEditorComponent } from './creators-editors/sports-editor/sports-editor.component';
 import { ReportEditorComponent } from './creators-editors/report-editor/report-editor.component';
 import { CalendarComponent } from './calendar/calendar.component';
+import { TeacherAdminPageComponent } from './teacher-admin-page/teacher-admin-page.component';
+import { OrganizatorAdminPageComponent } from './organizator-admin-page/organizator-admin-page.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +44,9 @@ import { CalendarComponent } from './calendar/calendar.component';
     StatisticDashboardComponent,
     SportsEditorComponent,
     ReportEditorComponent,
-    CalendarComponent],
+    CalendarComponent,
+    TeacherAdminPageComponent,
+    OrganizatorAdminPageComponent],
   imports: [
     FormsModule,
     ReactiveFormsModule,

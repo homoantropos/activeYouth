@@ -19,10 +19,6 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    const existToken = localStorage.getItem('auth-token');
-    if (existToken !== null) {
-      this.auth.setToken(existToken);
-    }
     this.admin.createStatistics();
     this.admin.createBalance();
     this.admin.createResults();
