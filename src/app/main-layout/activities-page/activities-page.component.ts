@@ -32,7 +32,7 @@ export class ActivitiesPageComponent implements OnInit {
   }
 
   goToActivityDetails(a: Activity): void {
-    this.router.navigateByUrl(`/activities/${a.activity_id}`);
+    this.router.navigateByUrl(`/activities/${a.id}`);
   }
 
 }

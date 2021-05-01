@@ -1,8 +1,9 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {Activity} from '../../../shared/interfases';
 import {Router} from '@angular/router';
 import {ActivityService} from '../../../shared/services/activity.service';
+import {Subscription} from 'rxjs';
 
 @Component({
   selector: 'app-activity-creator',
@@ -10,10 +11,12 @@ import {ActivityService} from '../../../shared/services/activity.service';
   styleUrls: ['./activity-creator.component.css']
 })
 
-export class ActivityCreatorComponent implements OnInit {
+export class ActivityCreatorComponent implements OnInit, OnDestroy {
   submitted = false;
   // @ts-ignore
   activitiesCreatorForm: FormGroup;
+  // @ts-ignore
+  aSub: Subscription;
 
   constructor(
     private activityService: ActivityService,
@@ -44,15 +47,17 @@ export class ActivityCreatorComponent implements OnInit {
       title: this.activitiesCreatorForm.value.title,
       author: this.activitiesCreatorForm.value.author,
       content: this.activitiesCreatorForm.value.content,
-      kindOfActivity: 'physical culture',
-      date: new Date()
+      kindOfActivity: 'physical culture'
     };
-    this.activityService.createActivity(activity).subscribe(() => {
-      this.activitiesCreatorForm.reset();
-      this.submitted = false;
+    this.aSub = this.activityService.createActivity(activity).subscribe(() => {
       this.router.navigate(['admin', 'activities']);
       alert('Вітаємо! Ваш урок успішно додано в базу даних!');
     });
   }
 
+  ngOnDestroy(): void {
+    if (this.aSub) {
+      this.aSub.unsubscribe();
+    }
+  }
 }

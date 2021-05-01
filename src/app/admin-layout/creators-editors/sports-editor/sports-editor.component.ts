@@ -61,7 +61,7 @@ export class SportsEditorComponent implements OnInit, OnDestroy {
       author: this.sportsEditorForm.value.author,
       content: this.sportsEditorForm.value.content,
       kindOfActivity: 'sport',
-      activity_id: this.activityId
+      id: this.activityId
     };
     this.sSub = this.activityService.updateActivity(activity)
       .subscribe(a => {

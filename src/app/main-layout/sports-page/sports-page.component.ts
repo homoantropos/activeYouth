@@ -33,6 +33,6 @@ export class SportsPageComponent implements OnInit {
   }
 
   goToActivityDetails(a: Activity): void {
-    this.router.navigateByUrl(`/sports/${a.activity_id}`);
+    this.router.navigateByUrl(`/sports/${a.id}`);
   }
 }
