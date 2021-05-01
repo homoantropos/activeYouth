@@ -19,8 +19,6 @@ export class UserEditorComponent implements OnInit, OnDestroy {
   // @ts-ignore
   message: string;
   // @ts-ignore
-  user: User;
-  // @ts-ignore
   userId: number;
   submitted = true;
 
@@ -35,9 +33,8 @@ export class UserEditorComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.route.params.subscribe((params: Params) => this.userId = (params.id) as number);
     this.userService.getOneUserById(this.userId).subscribe(user => {
-      this.user = user;
       this.userEditorForm = new FormGroup({
-        email: new FormControl(this.user.email, [
+        email: new FormControl(user.email, [
           Validators.required,
           Validators.email
         ]),
@@ -49,7 +46,7 @@ export class UserEditorComponent implements OnInit, OnDestroy {
           Validators.required,
           Validators.minLength(3)
         ]),
-        role: new FormControl(this.user.role, [
+        role: new FormControl(user.role, [
           Validators.required
         ])
       });
@@ -74,7 +71,7 @@ export class UserEditorComponent implements OnInit, OnDestroy {
       email: this.userEditorForm.value.email,
       password: this.userEditorForm.value.password,
       role: this.userEditorForm.value.role,
-      person_id: this.userId
+      id: this.userId
     };
     this.uSub = this.userService.updateUser(user)
       .subscribe(

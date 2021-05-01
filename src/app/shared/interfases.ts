@@ -2,7 +2,7 @@ export interface User {
   email: string;
   password: string;
   role?: string;
-  person_id?: number;
+  id?: number;
 }
 
 export interface Activity {

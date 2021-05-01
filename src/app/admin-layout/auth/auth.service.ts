@@ -30,14 +30,15 @@ export class AuthService {
   }
 
   login(user: User): Observable<any> {
-    return this.http.post<{ token: string }>(`${environment.postgresDbUrl}/user/login`, user)
+    return this.http.post<{ token: string, userRole: string }>(`${environment.postgresDbUrl}/user/login`, user)
       .pipe(
         tap(
-          ({token}) => {
+          response => {
             const authExpTime = new Date(new Date().getTime() + 60 * 60 * 1000 );
             localStorage.setItem('auth-token-exp', authExpTime.toString());
-            localStorage.setItem('auth-token', token);
-            this.setToken(token);
+            localStorage.setItem('auth-token', response.token);
+            localStorage.setItem('role', response.userRole);
+            this.setToken(response.token);
           }
         ),
         catchError(this.errorHandle.bind(this))
@@ -52,6 +53,11 @@ export class AuthService {
 
   isAuthenticated(): boolean {
     return !!this.token;
+  }
+
+  role(): string | null {
+    const role = localStorage.getItem('role');
+    return role;
   }
 
   setToken(token: string | null): void {

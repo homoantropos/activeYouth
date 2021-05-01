@@ -10,12 +10,22 @@ import {AuthService} from '../admin-layout/auth/auth.service';
 export class FinAdminLayoutComponent implements OnInit {
 
   constructor(
-    public authFin: AuthService,
+    public auth: AuthService,
     private router: Router
   ) { }
 
   ngOnInit(): void {
+    if (this.auth.role() === 'superadmin') {
+      const existToken = localStorage.getItem('auth-token');
+      if (existToken !== null){
+        this.auth.setToken(existToken);
+      }
+    } else {
+      this.router.navigate(['main']);
+      alert('Немає доступу до цього рівня сайту');
+    }
   }
+
   goToMainPage(): void {
     this.router.navigate(['main']);
 }
