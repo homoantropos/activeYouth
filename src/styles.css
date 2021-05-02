@@ -55,14 +55,7 @@ nav li {
 button {
   margin: 3px 0 3px 0;
   border-radius: unset;
-}
-
-button:hover {
-  background-color: gold;
-}
-
-button.active {
-  background-color: white;
+  color: black;
 }
 
 .btn-container {
@@ -71,6 +64,19 @@ button.active {
   transform: translate(-50%);
   align-items: center;
   text-align: center;
+}
+
+.btn-container button {
+  border-radius: unset;
+  color: gray;
+}
+
+.btn-container button:hover {
+  color: blue;
+}
+
+.btn-container button.active {
+  color: blue;
 }
 
 .form-container {
@@ -150,6 +156,7 @@ mat-radio-group {
   font-family: "Roboto Condensed", sans-serif;
   color: grey;
 }
+
 mat-radio-button {
   margin-bottom: 1%;
   padding-right: 1%;

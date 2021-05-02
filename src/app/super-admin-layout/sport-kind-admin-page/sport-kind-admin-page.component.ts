@@ -15,7 +15,7 @@ export class SportKindAdminPageComponent implements OnInit {
   dataSource: MatTableDataSource<User>;
   // @ts-ignore
   sports$: Observable<Array<User>>;
-  displayedColumns = ['_id', 'name', 'delete'];
+  displayedColumns = ['_id', 'code', 'sport_kind', 'delete'];
   paginatorStartPageNumber = 0;
 
   constructor(

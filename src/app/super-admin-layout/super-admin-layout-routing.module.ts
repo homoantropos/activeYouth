@@ -35,6 +35,7 @@ const routes: Routes = [
       },
       {
         path: 'places', component: PlacesAdminPageComponent, canActivate: [AuthGuardService], children: [
+          {path: '', redirectTo: 'countries', pathMatch: 'full'},
           {
             path: 'countries', component: CountriesAdminPageComponent, children: [
               {path: 'create', component: CountryCreatorComponent},

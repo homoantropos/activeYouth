@@ -27,7 +27,10 @@ export class SportKindCreatorComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.sportKindCreatorForm = new FormGroup({
-      name: new FormControl(null, [
+      sport_kind: new FormControl(null, [
+        Validators.required
+      ]),
+      code: new FormControl(null, [
         Validators.required
       ])
     });
@@ -40,8 +43,10 @@ export class SportKindCreatorComponent implements OnInit, OnDestroy {
     this.submitted = true;
     this.sportKindCreatorForm.disable();
     const sportKind: SportKind = {
-      name: this.sportKindCreatorForm.value.name
+      sport_kind: this.sportKindCreatorForm.value.sport_kind,
+      code: this.sportKindCreatorForm.value.code
     };
+    console.log(sportKind);
     this.skSub = this.sportKindService.createSportKind(sportKind)
       .subscribe(
         () => this.message = 'Вид спорту успішно додано до бази даних!',

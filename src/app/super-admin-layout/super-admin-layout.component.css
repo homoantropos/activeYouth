@@ -1,3 +1,17 @@
 nav {
   background-color: grey;
 }
+
+button {
+  margin: 3px 0 3px 0;
+  border-radius: unset;
+  color: black;
+}
+
+button:hover {
+  background-color: gold;
+}
+
+button.active {
+  background-color: gold;
+}

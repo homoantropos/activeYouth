@@ -71,7 +71,7 @@ export class AppointmentCreatorComponent implements OnInit, OnDestroy {
       kpkv: new FormControl(2201310),
       character: new FormControl('', [Validators.required]),
       participants: new FormControl('', [Validators.required]),
-      sportKind: new FormControl('', [Validators.required]),
+      sport_kind: new FormControl('', [Validators.required]),
       direction: new FormControl('', [Validators.required]),
       status: new FormControl('', [Validators.required]),
       organiser: new FormControl('', [Validators.required])

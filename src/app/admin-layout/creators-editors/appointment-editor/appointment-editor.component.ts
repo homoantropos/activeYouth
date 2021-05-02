@@ -69,7 +69,7 @@ export class AppointmentEditorComponent implements OnInit, OnDestroy {
           kpkv: new FormControl(2201310),
           character: new FormControl(appointment.haracter, [Validators.required]),
           participants: new FormControl(appointment.participants, [Validators.required]),
-          sportKind: new FormControl(appointment.name, [Validators.required]),
+          sport_kind: new FormControl(appointment.name, [Validators.required]),
           direction: new FormControl(appointment.direction, [Validators.required]),
           status: new FormControl(appointment.status, [Validators.required]),
           organiser: new FormControl(appointment.organiser, [Validators.required])

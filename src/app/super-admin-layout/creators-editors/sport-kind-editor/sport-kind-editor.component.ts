@@ -38,9 +38,11 @@ export class SportKindEditorComponent implements OnInit, OnDestroy {
     );
     this.sportKindService.getOneSportKindById(this.sportKindId).subscribe(
       sportKind => {
-        this.sportKind = sportKind;
         this.sportKindEditorForm = new FormGroup({
-          name: new FormControl(this.sportKind.name, [
+          sport_kind: new FormControl(sportKind.sport_kind, [
+            Validators.required
+          ]),
+          code: new FormControl(sportKind.code, [
             Validators.required
           ])
         });
@@ -54,8 +56,7 @@ export class SportKindEditorComponent implements OnInit, OnDestroy {
     }
     this.submitted = true;
     this.sportKindEditorForm.disable();
-    sportKind.sportkind_id = this.sportKind.sportkind_id;
-    console.log(sportKind);
+    sportKind.id = this.sportKindId;
     this.skSub = this.sportKindService.updateSportKind(sportKind)
       .subscribe(
         () => this.message = 'Ваші зміни успішно збережені!',

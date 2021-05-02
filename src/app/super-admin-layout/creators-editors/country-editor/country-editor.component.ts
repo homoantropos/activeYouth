@@ -38,7 +38,7 @@ export class CountryEditorComponent implements OnInit, OnDestroy {
       country => {
         this.country = country;
         this.countryEditorForm = new FormGroup({
-          name: new FormControl(this.country.country_name, [
+          sport_kind: new FormControl(this.country.country_name, [
             Validators.required
           ])
         });

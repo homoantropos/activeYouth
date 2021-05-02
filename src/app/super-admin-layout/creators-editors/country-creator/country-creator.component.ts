@@ -30,7 +30,7 @@ export class CountryCreatorComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.countryCreatorForm = new FormGroup({
-      name: new FormControl(null, [
+      sport_kind: new FormControl(null, [
         Validators.required
       ])
     });

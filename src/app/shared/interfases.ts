@@ -33,9 +33,10 @@ export interface Appointment {
   person_id?: string;
 }
 
-export interface SportKind{
-  name: string;
-  sportkind_id?: number;
+export interface SportKind {
+  sport_kind: string;
+  code?: string;
+  id?: number;
 }
 
 export interface Place {

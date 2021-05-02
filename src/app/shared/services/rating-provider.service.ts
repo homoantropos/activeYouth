@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import {Participant, RatingBrick, Result} from '../interfases';
-import {Observable, of} from 'rxjs';
 import {ResultService} from './result.service';
 
 @Injectable({
