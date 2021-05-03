@@ -16,7 +16,7 @@
     <ng-container matColumnDef="code">
       <th mat-header-cell *matHeaderCellDef>Реєстровий номер</th>
       <td mat-cell *matCellDef="let sport">
-        {{sport.code}}
+        {{sport.program + '.' + sport.registration_number + '.'}}
       </td>
     </ng-container>
 

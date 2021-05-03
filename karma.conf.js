@@ -28,8 +28,8 @@ module.exports = function (config) {
       dir: require('path').join(__dirname, './coverage/activeYouth'),
       subdir: '.',
       reporters: [
-        { type: 'html' },
-        { type: 'text-summary' }
+        { program: 'html' },
+        { program: 'text-summary' }
       ]
     },
     reporters: ['progress', 'kjhtml'],

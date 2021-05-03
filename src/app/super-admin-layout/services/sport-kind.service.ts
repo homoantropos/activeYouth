@@ -41,7 +41,7 @@ export class SportKindService {
     const message = error.error.message;
     if (message) {
       switch (message) {
-        case('повторювані значення ключа порушують обмеження унікальності "sportkind_name_key"'):
+        case('повторювані значення ключа порушують обмеження унікальності "sport_kind_sport_kind_program_key"'):
           this.error$.next('такий вид спорту вже зареєстровано.');
           break;
       }

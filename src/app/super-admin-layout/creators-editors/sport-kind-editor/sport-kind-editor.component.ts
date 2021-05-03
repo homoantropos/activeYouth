@@ -42,7 +42,10 @@ export class SportKindEditorComponent implements OnInit, OnDestroy {
           sport_kind: new FormControl(sportKind.sport_kind, [
             Validators.required
           ]),
-          code: new FormControl(sportKind.code, [
+          program: new FormControl(sportKind.program, [
+            Validators.required
+          ]),
+          registration_number: new FormControl(sportKind.registration_number, [
             Validators.required
           ])
         });

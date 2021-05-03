@@ -151,8 +151,9 @@ table td {
 }
 
 mat-radio-group {
-  margin-right: 1%;
-  margin-bottom: 5%;
+  display: flex;
+  flex-direction: column;
+  margin: 0 1%;
   font-family: "Roboto Condensed", sans-serif;
   color: grey;
 }

@@ -8,7 +8,7 @@
     {{ error }}
   </div>
 
-  <div class="alert info" *ngIf = "message && sportKindCreatorForm.untouched">
+  <div class="alert info" *ngIf="message && sportKindCreatorForm.untouched">
     {{ message }}
   </div>
 
@@ -20,13 +20,13 @@
            formControlName="sport_kind">
   </mat-form-field>
 
-  <mat-form-field class="forms-inputs">
-    <mat-label>введіть реєстровий номер виду активності...</mat-label>
-    <input matInput
-           title="codeInput"
-           type="text"
-           formControlName="code">
-  </mat-form-field>
+  <b>оберіть групу видів спорту:</b>
+  <mat-radio-group title="typeInput" formControlName="program">
+    <mat-radio-button value="I">олімпійські</mat-radio-button>
+    <mat-radio-button value="II">неолімпійські</mat-radio-button>
+    <mat-radio-button value="III">пара(деф)лімпійські</mat-radio-button>
+    <mat-radio-button value="IV">інші</mat-radio-button>
+  </mat-radio-group>
 
   <button mat-button
           color="primary"

@@ -4,6 +4,8 @@ import {Subscription} from 'rxjs';
 
 import {SportKind} from '../../../shared/interfases';
 import {SportKindService} from '../../services/sport-kind.service';
+import {AutoUpdateArrays} from '../../../shared/utils/autoUpdateArrays';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-sport-kind-creator',
@@ -21,7 +23,8 @@ export class SportKindCreatorComponent implements OnInit, OnDestroy {
   submitted = false;
 
   constructor(
-    public sportKindService: SportKindService
+    public sportKindService: SportKindService,
+    private router: Router
   ) {
   }
 
@@ -30,9 +33,9 @@ export class SportKindCreatorComponent implements OnInit, OnDestroy {
       sport_kind: new FormControl(null, [
         Validators.required
       ]),
-      code: new FormControl(null, [
+      program: new FormControl('', [
         Validators.required
-      ])
+      ]),
     });
   }
 
@@ -42,21 +45,24 @@ export class SportKindCreatorComponent implements OnInit, OnDestroy {
     }
     this.submitted = true;
     this.sportKindCreatorForm.disable();
+    const registrationNumber = AutoUpdateArrays.sportKinds.length + 1;
     const sportKind: SportKind = {
       sport_kind: this.sportKindCreatorForm.value.sport_kind,
-      code: this.sportKindCreatorForm.value.code
+      program: this.sportKindCreatorForm.value.program,
+      registration_number: registrationNumber
     };
-    console.log(sportKind);
     this.skSub = this.sportKindService.createSportKind(sportKind)
       .subscribe(
-        () => this.message = 'Вид спорту успішно додано до бази даних!',
+        () => {
+          this.message = 'Вид спорту успішно додано до бази даних!';
+          this.router.navigate(['superadmin', 'sports']);
+        },
         error => {
           this.sportKindService.errorHandle(error);
+          this.submitted = false;
+          this.sportKindCreatorForm.enable();
         }
       );
-    this.sportKindCreatorForm.reset();
-    this.sportKindCreatorForm.enable();
-    this.submitted = false;
   }
 
   ngOnDestroy(): void {
