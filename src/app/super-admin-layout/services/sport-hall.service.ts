@@ -1,9 +1,8 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {Observable, Subject, throwError} from 'rxjs';
 import {HttpClient, HttpErrorResponse} from '@angular/common/http';
-import {SportHall, Town} from '../../shared/interfases';
+import {SportHall} from '../../shared/interfases';
 import {environment} from '../../../environments/environment';
-import {map} from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -25,7 +24,7 @@ export class SportHallService {
     return this.http.delete(`${environment.postgresDbUrl}/sportHall/${id}`);
   }
 
-  updateSportHall(sportHall: SportHall): Observable<any>{
+  updateSportHall(sportHall: SportHall): Observable<any> {
     return this.http.patch<any>(`${environment.postgresDbUrl}/sportHall`, sportHall);
   }
 
@@ -34,19 +33,7 @@ export class SportHallService {
   }
 
   getOneSportHallById(id: number): Observable<any> {
-    return this.http.get<any>(`${environment.postgresDbUrl}/sportHall/${id}`)
-      .pipe(
-        map(res => {
-          const town = {town_name: res.town_name};
-          const sportHall = {
-            sportHall_name: res.sporthall_name,
-            address: res.address,
-            sportHall_id: res.sporthall_id,
-            town
-          };
-          return sportHall;
-        })
-      );
+    return this.http.get<any>(`${environment.postgresDbUrl}/sportHall/${id}`);
   }
 
   getSportHallByOptions(option: string): Observable<Array<SportHall>> {

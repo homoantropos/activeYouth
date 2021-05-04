@@ -14,8 +14,6 @@ export class CountryEditorComponent implements OnInit, OnDestroy {
   countryEditorForm: FormGroup;
   countryId = 0;
   // @ts-ignore
-  country: Country;
-  // @ts-ignore
   cSub: Subscription;
   // @ts-ignore
   message: string;
@@ -36,9 +34,8 @@ export class CountryEditorComponent implements OnInit, OnDestroy {
     );
     this.countryService.getOneCountryById(this.countryId).subscribe(
       country => {
-        this.country = country;
         this.countryEditorForm = new FormGroup({
-          sport_kind: new FormControl(this.country.country_name, [
+          country_name: new FormControl(country.country_name, [
             Validators.required
           ])
         });
@@ -47,24 +44,28 @@ export class CountryEditorComponent implements OnInit, OnDestroy {
 
   }
 
-  onSubmit(country: Country): void {
+  onSubmit(): void {
     if (this.countryEditorForm.invalid) {
       return;
     }
     this.submitted = true;
     this.countryEditorForm.disable();
-    country.country_id = this.country.country_id;
+    const country: Country = {
+      country_name: this.countryEditorForm.value.country_name,
+      id: this.countryId
+    };
     this.cSub = this.countryService.updateCountry(country)
       .subscribe(
-        () => this.message = 'Ваші зміни успішно збережені!',
+        (res) => {
+          alert(`${res.message}`);
+          this.router.navigate(['superadmin', 'places', 'countries']);
+        },
         error => {
           this.countryService.errorHandle(error);
+          this.submitted = false;
+          this.countryEditorForm.enable();
         }
       );
-    this.router.navigate(['superadmin', 'places', 'countries']);
-    this.countryEditorForm.reset();
-    this.countryEditorForm.enable();
-    this.submitted = false;
   }
 
   ngOnDestroy(): void {

@@ -12,13 +12,13 @@
 
     <ng-container matColumnDef="_id">
       <th mat-header-cell *matHeaderCellDef>ID</th>
-      <td mat-cell *matCellDef="let town">{{town.town_id}}</td>
+      <td mat-cell *matCellDef="let town">{{town.id}}</td>
     </ng-container>
 
     <ng-container matColumnDef="name">
       <th mat-header-cell *matHeaderCellDef>Місто</th>
       <td mat-cell *matCellDef="let town">
-        <a (click)="goToRegionEditor(town.town_id)">
+        <a (click)="goToRegionEditor(town.id)">
           {{town.town_name}}
         </a></td>
     </ng-container>
@@ -26,19 +26,19 @@
     <ng-container matColumnDef="country">
       <th mat-header-cell *matHeaderCellDef>Країна</th>
       <td mat-cell *matCellDef="let town">
-        {{town.country_name}}
+        {{town.country.country_name | titlecase}}
     </ng-container>
 
     <ng-container matColumnDef="region">
       <th mat-header-cell *matHeaderCellDef>Регіон</th>
       <td mat-cell *matCellDef="let town">
-        {{town.region_name}}
+        {{town.region.region_name}}
     </ng-container>
 
     <ng-container matColumnDef="delete">
       <th mat-header-cell *matHeaderCellDef>видалити</th>
       <td mat-cell *matCellDef="let town">
-        <button mat-button color="primary" (click)="onDelete(town.town_id)">
+        <button mat-button color="primary" (click)="onDelete(town.id)">
           видалити
         </button>
       </td>

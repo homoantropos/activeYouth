@@ -35,20 +35,7 @@ export class TownService {
   }
 
   getOneTownById(id: number): Observable<any> {
-    return this.http.get<any>(`${environment.postgresDbUrl}/town/${id}`)
-      .pipe(
-        map(res => {
-          const country = {country_name: res.country_name};
-          const region = {region_name: res.region_name};
-          const town = {
-            town_name: res.town_name,
-            country,
-            region,
-            _id: res.town_id
-          };
-          return town;
-        })
-      );
+    return this.http.get<any>(`${environment.postgresDbUrl}/town/${id}`);
   }
 
   getTownsByOptions(option: string): Observable<Array<Town>> {

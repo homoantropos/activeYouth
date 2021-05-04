@@ -147,7 +147,7 @@ export class AppointmentEditorComponent implements OnInit, OnDestroy {
     AutoUpdateArrays.sportHalls
       // @ts-ignore
       .filter(sportHall => sportHall.town_name === this.appointmentEditorForm.get('place').get('town').value)
-      .map(sportHall => this.sportHallsName.push(sportHall.sporthall_name));
+      .map(sportHall => this.sportHallsName.push(sportHall.sport_hall_name));
     this.sportHallsName = this.sportHallsName.filter((v, i, a) => a.indexOf(v) === i);
     return this.sportHallsName.filter(option => option.toLowerCase().includes(filterValue));
   }

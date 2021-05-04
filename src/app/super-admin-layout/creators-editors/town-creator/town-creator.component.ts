@@ -40,21 +40,21 @@ export class TownCreatorComponent implements OnInit, OnDestroy {
       town_name: new FormControl('', [
         Validators.required
       ]),
-      country: new FormControl('', [
+      country_name: new FormControl('', [
         Validators.required
       ]),
-      region: new FormControl('', [
+      region_name: new FormControl('', [
         Validators.required
       ])
     });
     // @ts-ignore
-    this.countryFilteredOptions = this.townCreatorForm.get('country').valueChanges
+    this.countryFilteredOptions = this.townCreatorForm.get('country_name').valueChanges
       .pipe(
         startWith(''),
         map((value: string) => this._filterCountry(value))
       );
     // @ts-ignore
-    this.regionFilteredOptions = this.townCreatorForm.get('region').valueChanges
+    this.regionFilteredOptions = this.townCreatorForm.get('region_name').valueChanges
       .pipe(
         startWith(''),
         map((value: string) => this._filterRegion(value))
@@ -71,12 +71,17 @@ export class TownCreatorComponent implements OnInit, OnDestroy {
     return AutoUpdateArrays.regionsNames.filter(option => option.toLowerCase().includes(filterValue));
   }
 
-  onSubmit(town: Town): void {
+  onSubmit(): void {
     if (this.townCreatorForm.invalid) {
       return;
     }
+    const town: Town = {
+      town_name: this.townCreatorForm.value.town_name,
+      region: {
+        region_name: this.townCreatorForm.value.region_name
+      }
+    };
     this.townCreatorForm.disable();
-    console.log(town);
     this.tSub = this.townService.createTown(town)
       .subscribe(
         () => {

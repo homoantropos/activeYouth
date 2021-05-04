@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import {Observable, Subject, throwError} from 'rxjs';
 import {HttpClient, HttpErrorResponse} from '@angular/common/http';
 import {environment} from '../../../environments/environment';
-import {SportKind, User} from '../../shared/interfases';
+import {SportKind} from '../../shared/interfases';
 
 @Injectable({
   providedIn: 'root'

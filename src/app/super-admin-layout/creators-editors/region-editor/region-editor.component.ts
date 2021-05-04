@@ -38,12 +38,11 @@ export class RegionEditorComponent implements OnInit, OnDestroy {
     );
     this.regionService.getOneRegionById(this.regionId).subscribe(
       region => {
-        this.region = region;
         this.regionEditorForm = new FormGroup({
-          region_name: new FormControl(this.region.region_name, [
+          region_name: new FormControl(region.region_name, [
             Validators.required
           ]),
-          region_group: new FormControl(this.region.region_group, [
+          region_group: new FormControl(region.region_group, [
             Validators.required
           ])
         });
@@ -52,27 +51,30 @@ export class RegionEditorComponent implements OnInit, OnDestroy {
 
   }
 
-  onSubmit(region: Region): void {
+  onSubmit(): void {
     if (this.regionEditorForm.invalid) {
       return;
     }
     this.submitted = true;
     this.regionEditorForm.disable();
-    region.region_id = this.region.region_id;
+    const region: Region = {
+      region_name: this.regionEditorForm.value.region_name,
+      region_group: this.regionEditorForm.value.region_group,
+      country: {
+        country_name: this.regionEditorForm.value.country_name
+      }
+    };
+    region.id = this.regionId;
     this.rSub = this.regionService.updateRegion(region)
       .subscribe(
-        (reg) => {
-          AutoUpdateArrays.regionsNames.push(reg.region_name);
-          this.message = 'Ваші зміни успішно збережені!';
+        (res) => {
+          alert(`${res.message}`);
+          this.router.navigate(['superadmin', 'places', 'regions']);
         },
         error => {
           this.regionService.errorHandle(error);
         }
       );
-    this.router.navigate(['superadmin', 'places', 'regions']);
-    // this.regionEditorForm.reset();
-    // this.regionEditorForm.enable();
-    // this.submitted = false;
   }
 
   ngOnDestroy(): void {

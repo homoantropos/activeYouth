@@ -3,7 +3,7 @@ import {AuthService} from '../../../admin-layout/auth/auth.service';
 import {SportHallService} from '../../services/sport-hall.service';
 import {Router} from '@angular/router';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
-import {map, startWith } from 'rxjs/operators';
+import {map, startWith} from 'rxjs/operators';
 import {AutoUpdateArrays} from '../../../shared/utils/autoUpdateArrays';
 import {SportHall} from '../../../shared/interfases';
 
@@ -37,7 +37,7 @@ export class SportHallCreatorComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.sportHallCreatorForm = new FormGroup({
-      sportHall_name: new FormControl('', [
+      sport_hall_name: new FormControl('', [
         Validators.required
       ]),
       address: new FormControl(''),
@@ -82,11 +82,18 @@ export class SportHallCreatorComponent implements OnInit, OnDestroy {
     return AutoUpdateArrays.townsNames.filter(option => option.toLowerCase().includes(filterValue));
   }
 
-  onSubmit(sportHall: SportHall): void {
+  onSubmit(): void {
     if (this.sportHallCreatorForm.invalid) {
       return;
     }
     this.sportHallCreatorForm.disable();
+    const sportHall: SportHall = {
+      sport_hall_name: this.sportHallCreatorForm.value.sport_hall_name,
+      address: this.sportHallCreatorForm.value.address,
+      town: {
+        town_name: this.sportHallCreatorForm.value.town_name
+      }
+    };
     console.log(sportHall);
     this.sSub = this.sportHallService.createSportHall(sportHall)
       .subscribe(
@@ -99,7 +106,6 @@ export class SportHallCreatorComponent implements OnInit, OnDestroy {
           this.sportHallCreatorForm.enable();
         }
       );
-    this.sportHallCreatorForm.enable();
   }
 
   ngOnDestroy(): void {

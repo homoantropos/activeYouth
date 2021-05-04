@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {MatTableDataSource} from '@angular/material/table';
 import {SportHall, Town, User} from '../../../shared/interfases';
 import {Observable} from 'rxjs';

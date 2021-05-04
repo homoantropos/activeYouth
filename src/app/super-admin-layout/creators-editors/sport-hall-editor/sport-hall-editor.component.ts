@@ -3,7 +3,7 @@ import {AuthService} from '../../../admin-layout/auth/auth.service';
 import {SportHallService} from '../../services/sport-hall.service';
 import {ActivatedRoute, Params, Router} from '@angular/router';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
-import {map, startWith } from 'rxjs/operators';
+import {map, startWith} from 'rxjs/operators';
 import {AutoUpdateArrays} from '../../../shared/utils/autoUpdateArrays';
 import {SportHall} from '../../../shared/interfases';
 
@@ -43,13 +43,14 @@ export class SportHallEditorComponent implements OnInit, OnDestroy {
     );
     this.sportHallService.getOneSportHallById(this.sportHallId).subscribe(
       sportHall => {
+        console.log(sportHall);
         this.sportHallEditorForm = new FormGroup({
-          sportHall_name: new FormControl(sportHall.sportHall_name, [
+          sport_hall_name: new FormControl(sportHall.sport_hall_name, [
             Validators.required
           ]),
           address: new FormControl(sportHall.address),
-          country_name: new FormControl(''),
-          region_name: new FormControl(''),
+          country_name: new FormControl(sportHall.town.country.country_name),
+          region_name: new FormControl(sportHall.town.region.region_name),
           town_name: new FormControl(sportHall.town.town_name, [
             Validators.required
           ])
@@ -91,12 +92,19 @@ export class SportHallEditorComponent implements OnInit, OnDestroy {
     return AutoUpdateArrays.townsNames.filter(option => option.toLowerCase().includes(filterValue));
   }
 
-  onSubmit(sportHall: SportHall): void {
+  onSubmit(): void {
     if (this.sportHallEditorForm.invalid) {
       return;
     }
     this.sportHallEditorForm.disable();
-    sportHall.sportHall_id = this.sportHallId;
+    const sportHall: SportHall = {
+      sport_hall_name: this.sportHallEditorForm.value.sport_hall_name,
+      address: this.sportHallEditorForm.value.address,
+      town: {
+        town_name: this.sportHallEditorForm.value.town_name
+      }
+    };
+    sportHall.id = this.sportHallId;
     this.sSub = this.sportHallService.updateSportHall(sportHall)
       .subscribe(
         () => {
@@ -108,7 +116,6 @@ export class SportHallEditorComponent implements OnInit, OnDestroy {
           this.sportHallEditorForm.enable();
         }
       );
-    this.sportHallEditorForm.enable();
   }
 
   ngOnDestroy(): void {

@@ -62,15 +62,15 @@ export class SportKindEditorComponent implements OnInit, OnDestroy {
     sportKind.id = this.sportKindId;
     this.skSub = this.sportKindService.updateSportKind(sportKind)
       .subscribe(
-        () => this.message = 'Ваші зміни успішно збережені!',
+        (res) => {
+          alert(`${res.message}`);
+          this.router.navigate(['superadmin', 'sports']);
+        },
         error => {
+          this.sportKindEditorForm.enable();
           this.sportKindService.errorHandle(error);
         }
       );
-    this.router.navigate(['superadmin', 'sports']);
-    this.sportKindEditorForm.reset();
-    this.sportKindEditorForm.enable();
-    this.submitted = false;
   }
 
   ngOnDestroy(): void {

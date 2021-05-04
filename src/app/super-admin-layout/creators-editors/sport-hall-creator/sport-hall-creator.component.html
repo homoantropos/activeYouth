@@ -1,6 +1,6 @@
 <form class="mat-elevation-z8"
       [formGroup]="sportHallCreatorForm"
-      (ngSubmit)="onSubmit(sportHallCreatorForm.value)">
+      (ngSubmit)="onSubmit()">
 
   <small><b>Додати спортивну споруду</b></small>
 
@@ -17,7 +17,7 @@
     <input matInput
            title="nameInput"
            type="text"
-           formControlName="sportHall_name">
+           formControlName="sport_hall_name">
   </mat-form-field>
 
   <mat-form-field>

@@ -42,8 +42,9 @@ export class CountriesAdminPageComponent implements OnInit {
     this.router.navigate(['/superadmin', 'places', 'countries', 'create']);
   }
 
-  goToCountryEditor(id: number): void {
-    this.router.navigateByUrl(`/superadmin/places/countries/edit/${id}`);
+  goToCountryEditor(country: Country): void {
+    const id = Number(country.id);
+    this.router.navigate(['superadmin', 'places', 'countries', 'edit', `${id}`]);
   }
 }
 

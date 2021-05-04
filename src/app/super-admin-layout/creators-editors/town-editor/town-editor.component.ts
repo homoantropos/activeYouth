@@ -7,7 +7,6 @@ import { startWith } from 'rxjs/internal/operators/startWith';
 import { map } from 'rxjs/operators';
 import {AutoUpdateArrays} from '../../../shared/utils/autoUpdateArrays';
 import {Town} from '../../../shared/interfases';
-import {HttpResponse} from '@angular/common/http';
 
 @Component({
   selector: 'app-town-editor',
@@ -45,7 +44,6 @@ export class TownEditorComponent implements OnInit, OnDestroy {
     );
     this.townService.getOneTownById(this.townId).subscribe(
       res => {
-        console.log(res);
         this.townEditorForm = new FormGroup({
           town_name: new FormControl(res.town_name, [
             Validators.required
@@ -84,16 +82,22 @@ export class TownEditorComponent implements OnInit, OnDestroy {
     return AutoUpdateArrays.regionsNames.filter(option => option.toLowerCase().includes(filterValue));
   }
 
-  onSubmit(town: Town): void {
+  onSubmit(): void {
     if (this.townEditorForm.invalid) {
       return;
     }
     this.townEditorForm.disable();
-    town.town_id = this.townId;
+    const town: Town = {
+      town_name: this.townEditorForm.value.town_name,
+      region: {
+        region_name: this.townEditorForm.value.region_name
+      }
+    };
+    town.id = this.townId;
     this.tSub = this.townService.updateTown(town)
       .subscribe(
-        () => {
-          alert(`Нове місто успішно додано до бази даних.`);
+        (res) => {
+          alert(`${res.message}`);
           this.router.navigate(['superadmin', 'places', 'towns']);
         },
         error => {

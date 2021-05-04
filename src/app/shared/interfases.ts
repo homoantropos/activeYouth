@@ -51,28 +51,28 @@ export interface Place {
 
 export interface Country {
   country_name: string;
-  country_id?: number;
+  id?: number;
 }
 
 export interface Region {
   region_name: string;
   region_group?: number;
   country?: Country;
-  region_id?: number;
+  id?: number;
 }
 
 export interface Town {
   town_name: string;
   country?: Country;
   region?: Region;
-  town_id?: number;
+  id?: number;
 }
 
 export interface SportHall {
-  sporthall_name: string;
+  sport_hall_name: string;
   address?: string;
   town: Town;
-  sportHall_id?: number;
+  id?: number;
 }
 
 export interface EducationEntity {

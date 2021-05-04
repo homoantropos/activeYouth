@@ -1,6 +1,6 @@
 <form class="mat-elevation-z8"
       [formGroup]="townCreatorForm"
-      (ngSubmit)="onSubmit(townCreatorForm.value)">
+      (ngSubmit)="onSubmit()">
 
   <small><b>Додати місто</b></small>
 
@@ -26,7 +26,7 @@
            placeholder="країна проведення..."
            aria-label="country"
            matInput
-           formControlName="country"
+           formControlName="country_name"
            [matAutocomplete]="country">
     <mat-autocomplete #country="matAutocomplete">
       <mat-option *ngFor="let option of countryFilteredOptions | async" [value]="option">
@@ -41,7 +41,7 @@
            placeholder="регіон проведення..."
            aria-label="region"
            matInput
-           formControlName="region"
+           formControlName="region_name"
            [matAutocomplete]="region">
     <mat-autocomplete #region="matAutocomplete">
       <mat-option *ngFor="let option of regionFilteredOptions | async" [value]="option">

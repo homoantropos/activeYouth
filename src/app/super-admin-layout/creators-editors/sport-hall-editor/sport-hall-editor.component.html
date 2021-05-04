@@ -1,7 +1,7 @@
 <form class="mat-elevation-z8"
       *ngIf="sportHallEditorForm; else loader"
       [formGroup]="sportHallEditorForm"
-      (ngSubmit)="onSubmit(sportHallEditorForm.value)">
+      (ngSubmit)="onSubmit()">
 
   <small><b>Змінити інформацію про спортивну споруду</b></small>
 
@@ -18,7 +18,7 @@
     <input matInput
            title="nameInput"
            type="text"
-           formControlName="sportHall_name">
+           formControlName="sport_hall_name">
   </mat-form-field>
 
   <mat-form-field>
