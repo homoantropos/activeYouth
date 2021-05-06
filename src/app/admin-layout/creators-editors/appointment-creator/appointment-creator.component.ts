@@ -79,7 +79,7 @@ export class AppointmentCreatorComponent implements OnInit, OnDestroy {
     // @ts-ignore
     this.minFinishDate$ = this.appointmentCreatorForm.get('start').valueChanges;
     // @ts-ignore
-    this.filteredOptions = this.appointmentCreatorForm.get('sportKind').valueChanges
+    this.filteredOptions = this.appointmentCreatorForm.get('sport_kind').valueChanges
       .pipe(
         startWith(''),
         map((value: string) => this._filter(value))
@@ -124,7 +124,7 @@ export class AppointmentCreatorComponent implements OnInit, OnDestroy {
     const filterValue = value.toLowerCase();
     AutoUpdateArrays.regions
       // @ts-ignore
-      .filter(region => region.country_name === this.appointmentCreatorForm.get('place').get('country').value)
+      .filter(region => region.country.country_name === this.appointmentCreatorForm.get('place').get('country').value)
       .map(region => this.regionsName.push(region.region_name));
     this.regionsName = this.regionsName.filter((v, i, a) => a.indexOf(v) === i);
     return this.regionsName.filter(option => option.toLowerCase().includes(filterValue));
@@ -134,7 +134,7 @@ export class AppointmentCreatorComponent implements OnInit, OnDestroy {
     const filterValue = value.toLowerCase();
     AutoUpdateArrays.towns
       // @ts-ignore
-      .filter(town => town.region_name === this.appointmentCreatorForm.get('place').get('region').value)
+      .filter(town => town.region.region_name === this.appointmentCreatorForm.get('place').get('region').value)
       // @ts-ignore
       .map(town => this.townsName.push(town.town_name));
     this.townsName = this.townsName.filter((v, i, a) => a.indexOf(v) === i);

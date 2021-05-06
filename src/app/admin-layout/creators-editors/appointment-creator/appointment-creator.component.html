@@ -112,9 +112,9 @@
       <mat-label>вид спорту (активності)</mat-label>
       <input type="text"
              placeholder="вид спорту (активності)..."
-             aria-label="sportKind"
+             aria-label="sport_kind"
              matInput
-             formControlName="sportKind"
+             formControlName="sport_kind"
              [matAutocomplete]="auto">
       <mat-autocomplete #auto="matAutocomplete">
         <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
