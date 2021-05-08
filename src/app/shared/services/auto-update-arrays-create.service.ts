@@ -6,6 +6,7 @@ import {AutoUpdateArrays} from '../utils/autoUpdateArrays';
 import {Subscription} from 'rxjs';
 import {TownService} from '../../super-admin-layout/services/town.service';
 import {SportHallService} from '../../super-admin-layout/services/sport-hall.service';
+import {AppointmentPlaceService} from '../../super-admin-layout/services/appointment-place.service';
 
 @Injectable({
   providedIn: 'root'
@@ -20,7 +21,8 @@ export class AutoUpdateArraysCreateService implements OnDestroy {
     private countryService: CountryService,
     private regionService: RegionService,
     private townService: TownService,
-    private sportHallService: SportHallService
+    private sportHallService: SportHallService,
+    private appointmentPlaceService: AppointmentPlaceService
   ) {
   }
 
@@ -67,6 +69,18 @@ export class AutoUpdateArraysCreateService implements OnDestroy {
         AutoUpdateArrays.sportHallsNames.splice(0);
         AutoUpdateArrays.sportHalls = sportHalls.slice();
         AutoUpdateArrays.sportHalls.map(sportHall => AutoUpdateArrays.sportHallsNames.push(sportHall.sport_hall_name));
+      }
+    );
+
+    this.sub = this.appointmentPlaceService.getAllAppointmentPlaces().subscribe(
+      appointmentPlaces => {
+        AutoUpdateArrays.appointmentPlaces.splice(0);
+        AutoUpdateArrays.appointmentPlacesNames.splice(0);
+        AutoUpdateArrays.appointmentPlaces = appointmentPlaces.slice();
+        AutoUpdateArrays.appointmentPlaces
+          .map(
+            appointmentPlace =>
+              AutoUpdateArrays.appointmentPlacesNames.push(appointmentPlace.appointment_place_name));
       }
     );
   }

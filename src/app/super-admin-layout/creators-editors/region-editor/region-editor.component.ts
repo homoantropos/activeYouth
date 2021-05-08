@@ -69,7 +69,7 @@ export class RegionEditorComponent implements OnInit, OnDestroy {
       .subscribe(
         (res) => {
           alert(`${res.message}`);
-          this.router.navigate(['superadmin', 'places', 'regions']);
+          this.router.navigate(['superadmin', 'appointmentPlaces']);
         },
         error => {
           this.regionService.errorHandle(error);

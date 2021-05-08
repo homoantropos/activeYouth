@@ -13,15 +13,15 @@ import {SportKindEditorComponent} from './creators-editors/sport-kind-editor/spo
 import {CountriesAdminPageComponent} from './places-admin-page/countries-admin-page/countries-admin-page.component';
 import {RegionsAdminPageComponent} from './places-admin-page/regions-admin-page/regions-admin-page.component';
 import {TownsAdminPageComponent} from './places-admin-page/towns-admin-page/towns-admin-page.component';
-import {SportHallsAdminPageComponent} from './places-admin-page/sport-halls-admin-page/sport-halls-admin-page.component';
 import {CountryCreatorComponent} from './creators-editors/country-creator/country-creator.component';
 import {CountryEditorComponent} from './creators-editors/country-editor/country-editor.component';
 import {RegionCreatorComponent} from './creators-editors/region-creator/region-creator.component';
 import {RegionEditorComponent} from './creators-editors/region-editor/region-editor.component';
 import {TownCreatorComponent} from './creators-editors/town-creator/town-creator.component';
 import {TownEditorComponent} from './creators-editors/town-editor/town-editor.component';
-import {SportHallCreatorComponent} from './creators-editors/sport-hall-creator/sport-hall-creator.component';
-import {SportHallEditorComponent} from './creators-editors/sport-hall-editor/sport-hall-editor.component';
+import {AppointmentPlaceAdminPageComponent} from './appointment-place-admin-page/appointment-place-admin-page.component';
+import {AppointmentPlaceCreatorComponent} from './creators-editors/appointment-place-creator/appointment-place-creator.component';
+import {AppointmentPlaceEditorComponent} from './creators-editors/appointment-place-editor/appointment-place-editor.component';
 
 const routes: Routes = [
   {
@@ -34,8 +34,16 @@ const routes: Routes = [
           {path: '', component: UserAdminPageComponent}]
       },
       {
+        path: 'appointmentPlaces', children: [
+          {path: 'create', component: AppointmentPlaceCreatorComponent},
+          {path: 'edit/:id', component: AppointmentPlaceEditorComponent},
+          {path: '', component: AppointmentPlaceAdminPageComponent}
+        ]
+      },
+      {
         path: 'places', component: PlacesAdminPageComponent, canActivate: [AuthGuardService], children: [
           {path: '', redirectTo: 'countries', pathMatch: 'full'},
+
           {
             path: 'countries', component: CountriesAdminPageComponent, children: [
               {path: 'create', component: CountryCreatorComponent},
@@ -53,11 +61,7 @@ const routes: Routes = [
               {path: 'create', component: TownCreatorComponent},
               {path: 'edit/:id', component: TownEditorComponent}
             ]
-          },
-          {path: 'sportHalls', component: SportHallsAdminPageComponent, children:[
-              {path: 'create', component: SportHallCreatorComponent},
-              {path: 'edit/:id', component: SportHallEditorComponent}
-            ]}
+          }
         ]
       },
       {

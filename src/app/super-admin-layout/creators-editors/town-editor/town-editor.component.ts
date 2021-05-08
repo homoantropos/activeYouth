@@ -98,7 +98,7 @@ export class TownEditorComponent implements OnInit, OnDestroy {
       .subscribe(
         (res) => {
           alert(`${res.message}`);
-          this.router.navigate(['superadmin', 'places', 'towns']);
+          this.router.navigate(['superadmin', 'appointmentPlaces']);
         },
         error => {
           this.townService.errorHandle(error);

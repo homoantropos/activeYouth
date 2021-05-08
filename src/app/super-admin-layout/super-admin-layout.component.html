@@ -5,7 +5,10 @@
       <a routerLink="users" routerLinkActive="active">Користувачі</a>
     </li>
     <li>
-      <a routerLink="places" routerLinkActive="active">Місця проведення</a>
+      <a [routerLink]="['appointmentPlaces']" routerLinkActive="active">Місця проведення</a>
+    </li>
+    <li>
+      <a routerLink="places" routerLinkActive="active">Редагувати місця проведення</a>
     </li>
     <li>
       <a routerLink="sports" routerLinkActive="active">Види спорту</a>

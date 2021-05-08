@@ -58,7 +58,7 @@ export class CountryEditorComponent implements OnInit, OnDestroy {
       .subscribe(
         (res) => {
           alert(`${res.message}`);
-          this.router.navigate(['superadmin', 'places', 'countries']);
+          this.router.navigate(['superadmin', 'appointmentPlaces']);
         },
         error => {
           this.countryService.errorHandle(error);

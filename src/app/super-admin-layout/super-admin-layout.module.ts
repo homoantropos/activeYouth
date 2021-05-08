@@ -17,15 +17,15 @@ import { SportKindEditorComponent } from './creators-editors/sport-kind-editor/s
 import { CountriesAdminPageComponent } from './places-admin-page/countries-admin-page/countries-admin-page.component';
 import { RegionsAdminPageComponent } from './places-admin-page/regions-admin-page/regions-admin-page.component';
 import { TownsAdminPageComponent } from './places-admin-page/towns-admin-page/towns-admin-page.component';
-import { SportHallsAdminPageComponent } from './places-admin-page/sport-halls-admin-page/sport-halls-admin-page.component';
 import { CountryCreatorComponent } from './creators-editors/country-creator/country-creator.component';
 import { CountryEditorComponent } from './creators-editors/country-editor/country-editor.component';
 import { RegionCreatorComponent } from './creators-editors/region-creator/region-creator.component';
 import { RegionEditorComponent } from './creators-editors/region-editor/region-editor.component';
 import { TownCreatorComponent } from './creators-editors/town-creator/town-creator.component';
 import { TownEditorComponent } from './creators-editors/town-editor/town-editor.component';
-import { SportHallCreatorComponent } from './creators-editors/sport-hall-creator/sport-hall-creator.component';
-import { SportHallEditorComponent } from './creators-editors/sport-hall-editor/sport-hall-editor.component';
+import { AppointmentPlaceAdminPageComponent } from './appointment-place-admin-page/appointment-place-admin-page.component';
+import { AppointmentPlaceCreatorComponent } from './creators-editors/appointment-place-creator/appointment-place-creator.component';
+import { AppointmentPlaceEditorComponent } from './creators-editors/appointment-place-editor/appointment-place-editor.component';
 
 
 @NgModule({
@@ -43,15 +43,15 @@ import { SportHallEditorComponent } from './creators-editors/sport-hall-editor/s
     CountriesAdminPageComponent,
     RegionsAdminPageComponent,
     TownsAdminPageComponent,
-    SportHallsAdminPageComponent,
     CountryCreatorComponent,
     CountryEditorComponent,
     RegionCreatorComponent,
     RegionEditorComponent,
     TownCreatorComponent,
     TownEditorComponent,
-    SportHallCreatorComponent,
-    SportHallEditorComponent],
+    AppointmentPlaceAdminPageComponent,
+    AppointmentPlaceCreatorComponent,
+    AppointmentPlaceEditorComponent],
   imports: [
     FormsModule,
     ReactiveFormsModule,

@@ -21,6 +21,7 @@ export interface Appointment {
   finish: Date;
   duration: number;
   place: Place;
+  plac?: AppointmentPlace;
   organizationsParticipants: string;
   sportKind?: SportKind;
   kpkv: number;
@@ -71,6 +72,15 @@ export interface Town {
 export interface SportHall {
   sport_hall_name: string;
   address?: string;
+  town: Town;
+  id?: number;
+}
+
+export interface AppointmentPlace {
+  appointment_place_name: string;
+  address: string;
+  country: Country;
+  region: Region;
   town: Town;
   id?: number;
 }
