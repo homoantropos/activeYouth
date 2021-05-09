@@ -123,21 +123,27 @@ export class AppointmentEditorComponent implements OnInit, OnDestroy {
 
   private _filterRegion(value: string): string[] {
     const filterValue = value.toLowerCase();
+    this.regionsName.splice(0);
     AutoUpdateArrays.regions
       // @ts-ignore
-      .filter(region => region.country_name === this.appointmentEditorForm.get('place').get('country').value)
-      .map(region => this.regionsName.push(region.region_name));
+      .filter(region => region.country.country_name === this.appointmentEditorForm.get('place').get('country').value)
+      .map(region => {
+        this.regionsName.push(region.region_name);
+      });
     this.regionsName = this.regionsName.filter((v, i, a) => a.indexOf(v) === i);
     return this.regionsName.filter(option => option.toLowerCase().includes(filterValue));
   }
 
   private _filterTown(value: string): string[] {
     const filterValue = value.toLowerCase();
+    this.townsName.splice(0);
     AutoUpdateArrays.towns
       // @ts-ignore
-      .filter(town => town.region_name === this.appointmentEditorForm.get('place').get('region').value)
+      .filter(town => town.region.region_name === this.appointmentEditorForm.get('place').get('region').value)
       // @ts-ignore
-      .map(town => this.townsName.push(town.town_name));
+      .map(town => {
+        this.townsName.push(town.town_name);
+      });
     this.townsName = this.townsName.filter((v, i, a) => a.indexOf(v) === i);
     return this.townsName.filter(option => option.toLowerCase().includes(filterValue));
   }
