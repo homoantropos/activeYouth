@@ -29,12 +29,12 @@ export class AppointmentCreatorComponent implements OnInit, OnDestroy {
   // @ts-ignore
   townFilteredOptions: Observable<string[]>;
   // @ts-ignore
-  sportHallFilteredOptions: Observable<string[]>;
+  placeNamesFilteredOptions: Observable<string[]>;
   sportKinds: Array<SportKind> = [];
   countries: Array<Country> = [];
   regionsName: Array<string> = [];
   townsName: Array<string> = [];
-  sportHallsName: Array<string> = [];
+  appointmentPlaceNames: Array<string> = [];
   minDate = new Date();
   // @ts-ignore
   minFinishDate$: Observable<Date>;
@@ -56,7 +56,7 @@ export class AppointmentCreatorComponent implements OnInit, OnDestroy {
         country: new FormControl('', [Validators.required]),
         region: new FormControl(''),
         town: new FormControl('', [Validators.required]),
-        sportHall: new FormControl('')
+        appointment_place_name: new FormControl('', [Validators.required])
       }),
       members: new FormGroup({
         countries: new FormControl('', [Validators.required]),
@@ -103,10 +103,10 @@ export class AppointmentCreatorComponent implements OnInit, OnDestroy {
         map((value: string) => this._filterTown(value))
       );
     // @ts-ignore
-    this.sportHallFilteredOptions = this.appointmentCreatorForm.get('place').get('sportHall').valueChanges
+    this.placeNamesFilteredOptions = this.appointmentCreatorForm.get('place').get('appointment_place_name').valueChanges
       .pipe(
         startWith(''),
-        map((value: string) => this._filterSportHall(value))
+        map((value: string) => this._filterPlaceNames(value))
       );
   }
 
@@ -141,14 +141,14 @@ export class AppointmentCreatorComponent implements OnInit, OnDestroy {
     return this.townsName.filter(option => option.toLowerCase().includes(filterValue));
   }
 
-  private _filterSportHall(value: string): string[] {
+  private _filterPlaceNames(value: string): string[] {
     const filterValue = value.toLowerCase();
-    AutoUpdateArrays.sportHalls
+    AutoUpdateArrays.appointmentPlaces
       // @ts-ignore
-      .filter(sportHall => sportHall.town_name === this.appointmentCreatorForm.get('place').get('town').value)
-      .map(sportHall => this.sportHallsName.push(sportHall.sport_hall_name));
-    this.sportHallsName = this.sportHallsName.filter((v, i, a) => a.indexOf(v) === i);
-    return this.sportHallsName.filter(option => option.toLowerCase().includes(filterValue));
+      .filter(appointmentPlace => appointmentPlace.town.town_name === this.appointmentCreatorForm.get('place').get('town').value)
+      .map(appointmentPlace => this.appointmentPlaceNames.push(appointmentPlace.appointment_place_name));
+    this.appointmentPlaceNames = this.appointmentPlaceNames.filter((v, i, a) => a.indexOf(v) === i);
+    return this.appointmentPlaceNames.filter(option => option.toLowerCase().includes(filterValue));
   }
 
   onCreate(value: any): void {
@@ -176,7 +176,7 @@ export class AppointmentCreatorComponent implements OnInit, OnDestroy {
     this.countries.splice(0);
     this.regionsName.splice(0);
     this.townsName.splice(0);
-    this.sportHallsName.splice(0);
+    this.appointmentPlaceNames.splice(0);
   }
 }
 

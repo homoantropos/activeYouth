@@ -83,16 +83,16 @@
         </mat-autocomplete>
       </mat-form-field>
 
-      <mat-form-field title="sportHall">
+      <mat-form-field title="appointment_place_name">
         <mat-label>спортивна споруда...</mat-label>
         <input type="search"
                placeholder="спортивна споруда..."
-               aria-label="sportHall"
+               aria-label="appointment_place_name"
                matInput
-               formControlName="sportHall"
-               [matAutocomplete]="sportHall">
-        <mat-autocomplete #sportHall="matAutocomplete">
-          <mat-option *ngFor="let option of sportHallFilteredOptions | async" [value]="option">
+               formControlName="appointment_place_name"
+               [matAutocomplete]="appointment_place_name">
+        <mat-autocomplete #appointment_place_name="matAutocomplete">
+          <mat-option *ngFor="let option of placeNamesFilteredOptions | async" [value]="option">
             {{option}}
           </mat-option>
         </mat-autocomplete>
@@ -108,15 +108,15 @@
              formControlName="organizationsParticipants">
     </mat-form-field>
 
-    <mat-form-field title="sportKind" [ngStyle]="{width: '46%'}">
+    <mat-form-field title="sport_kind" [ngStyle]="{width: '46%'}">
       <mat-label>вид спорту (активності)</mat-label>
       <input type="text"
              placeholder="вид спорту (активності)..."
-             aria-label="sportKind"
+             aria-label="sport_kind"
              matInput
-             formControlName="sportKind"
-             [matAutocomplete]="auto">
-      <mat-autocomplete #auto="matAutocomplete">
+             formControlName="sport_kind"
+             [matAutocomplete]="sport_kind">
+      <mat-autocomplete #sport_kind="matAutocomplete">
         <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
           {{option}}
         </mat-option>

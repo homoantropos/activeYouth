@@ -1,12 +1,12 @@
 import {Injectable} from '@angular/core';
-import {Appointment, AppointmentFinancing, Report} from '../interfases';
+import {Appointment} from '../interfases';
 import {Observable, of} from 'rxjs';
 import {MockDataBase} from '../../thoseWillBeDeletedAfterDBCreating/mockDB';
 import {SynchronizationOfSavingService} from './synchronization-of-saving.service';
 import {HttpClient} from '@angular/common/http';
 import {environment} from '../../../environments/environment';
-import {PlacesService} from './places.service';
 import {map} from 'rxjs/operators';
+import {AppointmentPlaceService} from '../../super-admin-layout/services/appointment-place.service';
 
 @Injectable({
   providedIn: 'root'
@@ -15,7 +15,7 @@ export class AppointmentService {
 
   constructor(
     private http: HttpClient,
-    private placesService: PlacesService,
+    private placesService: AppointmentPlaceService,
     private synchronizationService: SynchronizationOfSavingService
   ) {
   }
@@ -25,8 +25,8 @@ export class AppointmentService {
       .pipe(
         map((response: Array<any>) => {
           for (const appointment of response) {
-            appointment.startDate = new Date(appointment.startdate.toString());
-            appointment.finishDate = new Date(appointment.finishdate.toString());
+            appointment.startDate = new Date(appointment.start.toString());
+            appointment.finishDate = new Date(appointment.finish.toString());
           }
           return response;
         })
@@ -40,11 +40,11 @@ export class AppointmentService {
           // @ts-ignore
           response.sort((a, b) => new Date(a.start) - new Date(b.start));
           for (const appointment of response) {
-            const id: string = (appointment.place) as unknown as string;
-            this.placesService.getPlaceById(id)
+            const id: number = (appointment.appointment_place) as unknown as number;
+            this.placesService.getOneAppointmentPlaceById(id)
               .subscribe(place => {
-                place.place_id = id;
-                appointment.place = place;
+                place.id = id;
+                appointment.appointment_place = place;
               });
           }
           return response;
@@ -87,16 +87,8 @@ export class AppointmentService {
     return this.http.get<any>(`${environment.postgresDbUrl}/appointment/${id}`)
       .pipe(
         map(appointment => {
-          appointment.start = new Date(appointment.startdate.toString());
-          appointment.finish = new Date(appointment.finishdate.toString());
-          const place = {
-            country: appointment.country_name,
-            region: appointment.region_name,
-            town: appointment.town_name,
-            sportHall: appointment.sporthall_name,
-            address: appointment.address
-          };
-          appointment.place = place;
+          appointment.start = new Date(appointment.start.toString());
+          appointment.finish = new Date(appointment.finish.toString());
           return appointment;
         })
       );
@@ -106,11 +98,11 @@ export class AppointmentService {
     return this.http.get<Appointment>(`${environment.mongoDbUrl}/schedule/${id}`)
       .pipe(
         map((appointment: Appointment) => {
-            const appId: string = (appointment.place) as unknown as string;
-            this.placesService.getPlaceById(appId)
+            const appId: number = (appointment.appointment_place) as unknown as number;
+            this.placesService.getOneAppointmentPlaceById(appId)
               .subscribe(place => {
-                place.place_id = appId;
-                appointment.place = place;
+                place.id = appId;
+                appointment.appointment_place = place;
               });
             return appointment;
           }

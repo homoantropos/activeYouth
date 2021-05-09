@@ -7,7 +7,7 @@
     <ng-container matColumnDef="title">
       <th mat-header-cell *matHeaderCellDef mat-sort-header="title"> Захід</th>
       <td mat-cell *matCellDef="let appointment">
-        <a [routerLink]="[appointment.appointment_id]">{{appointment.title}}</a></td>
+        <a [routerLink]="[appointment.id]">{{appointment.title}}</a></td>
     </ng-container>
 
     <ng-container matColumnDef="termsOfHolding">
@@ -20,8 +20,8 @@
     <ng-container matColumnDef="place">
       <th mat-header-cell *matHeaderCellDef> Місце<br>проведення</th>
       <td mat-cell *matCellDef="let appointment">
-        {{appointment.country_name | titlecase}}{{', ' + appointment.region_name}}<br>
-        {{appointment.town_name}}
+        {{appointment.appointment_place.country.country_name | titlecase}}{{', ' + appointment.appointment_place.region.region_name}}<br>
+        {{appointment.appointment_place.town.town_name}}
       </td>
     </ng-container>
 

@@ -26,12 +26,12 @@ export class AppointmentEditorComponent implements OnInit, OnDestroy {
   // @ts-ignore
   townFilteredOptions: Observable<string[]>;
   // @ts-ignore
-  sportHallFilteredOptions: Observable<string[]>;
+  placeNamesFilteredOptions: Observable<string[]>;
   sportKinds: Array<SportKind> = [];
   countries: Array<Country> = [];
   regionsName: Array<string> = [];
   townsName: Array<string> = [];
-  sportHallsName: Array<string> = [];
+  appointmentPlaceNames: Array<string> = [];
   minDate = new Date();
   // @ts-ignore
   minFinishDate$: Observable<Date>;
@@ -56,20 +56,20 @@ export class AppointmentEditorComponent implements OnInit, OnDestroy {
       appointment => {
         this.appointmentEditorForm = new FormGroup({
           title: new FormControl(appointment.title, [Validators.required]),
-          start: new FormControl(appointment.startdate, [Validators.required]),
-          finish: new FormControl(appointment.finishdate, [Validators.required]),
+          start: new FormControl(appointment.start, [Validators.required]),
+          finish: new FormControl(appointment.finish, [Validators.required]),
           place: new FormGroup({
-            country: new FormControl(appointment.place.country, [Validators.required]),
-            region: new FormControl(appointment.place.region),
-            town: new FormControl(appointment.place.town, [Validators.required]),
-            sportHall: new FormControl(appointment.place.sportHall)
+            country: new FormControl(appointment.appointment_place.country.country_name, [Validators.required]),
+            region: new FormControl(appointment.appointment_place.region.region_name, [Validators.required]),
+            town: new FormControl(appointment.appointment_place.town.town_name, [Validators.required]),
+            appointment_place_name: new FormControl(appointment.appointment_place.appointment_place_name)
           }),
 
-          organizationsParticipants: new FormControl(appointment.organizationsparticipants, [Validators.required]),
+          organizationsParticipants: new FormControl(appointment.organizationsParticipants, [Validators.required]),
           kpkv: new FormControl(2201310),
           character: new FormControl(appointment.haracter, [Validators.required]),
           participants: new FormControl(appointment.participants, [Validators.required]),
-          sport_kind: new FormControl(appointment.name, [Validators.required]),
+          sport_kind: new FormControl(appointment.sport_kind.sport_kind, [Validators.required]),
           direction: new FormControl(appointment.direction, [Validators.required]),
           status: new FormControl(appointment.status, [Validators.required]),
           organiser: new FormControl(appointment.organiser, [Validators.required])
@@ -77,7 +77,7 @@ export class AppointmentEditorComponent implements OnInit, OnDestroy {
         // @ts-ignore
         this.minFinishDate$ = this.appointmentEditorForm.get('start').valueChanges;
         // @ts-ignore
-        this.filteredOptions = this.appointmentEditorForm.get('sportKind').valueChanges
+        this.filteredOptions = this.appointmentEditorForm.get('sport_kind').valueChanges
           .pipe(
             startWith(''),
             map((value: string) => this._filter(value))
@@ -101,10 +101,10 @@ export class AppointmentEditorComponent implements OnInit, OnDestroy {
             map((value: string) => this._filterTown(value))
           );
         // @ts-ignore
-        this.sportHallFilteredOptions = this.appointmentEditorForm.get('place').get('sportHall').valueChanges
+        this.placeNamesFilteredOptions = this.appointmentEditorForm.get('place').get('appointment_place_name').valueChanges
           .pipe(
             startWith(''),
-            map((value: string) => this._filterSportHall(value))
+            map((value: string) => this._filterPlaceNames(value))
           );
       }
     );
@@ -142,14 +142,15 @@ export class AppointmentEditorComponent implements OnInit, OnDestroy {
     return this.townsName.filter(option => option.toLowerCase().includes(filterValue));
   }
 
-  private _filterSportHall(value: string): string[] {
+  private _filterPlaceNames(value: string): string[] {
     const filterValue = value.toLowerCase();
-    AutoUpdateArrays.sportHalls
-      // @ts-ignore
-      .filter(sportHall => sportHall.town_name === this.appointmentEditorForm.get('place').get('town').value)
-      .map(sportHall => this.sportHallsName.push(sportHall.sport_hall_name));
-    this.sportHallsName = this.sportHallsName.filter((v, i, a) => a.indexOf(v) === i);
-    return this.sportHallsName.filter(option => option.toLowerCase().includes(filterValue));
+    AutoUpdateArrays.appointmentPlaces
+      .filter(appointmentPlace =>
+        // @ts-ignore
+        appointmentPlace.town.town_name === this.appointmentEditorForm.get('place').get('town').value)
+      .map(appointmentPlace => this.appointmentPlaceNames.push(appointmentPlace.appointment_place_name));
+    this.appointmentPlaceNames = this.appointmentPlaceNames.filter((v, i, a) => a.indexOf(v) === i);
+    return this.appointmentPlaceNames.filter(option => option.toLowerCase().includes(filterValue));
   }
 
   onEdit(value: any): void {
@@ -170,6 +171,6 @@ export class AppointmentEditorComponent implements OnInit, OnDestroy {
     this.countries.splice(0);
     this.regionsName.splice(0);
     this.townsName.splice(0);
-    this.sportHallsName.splice(0);
+    this.appointmentPlaceNames.splice(0);
   }
 }

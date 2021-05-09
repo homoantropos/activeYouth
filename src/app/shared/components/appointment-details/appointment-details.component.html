@@ -5,9 +5,10 @@
   <h2>Дата завершення:</h2>
   <p>{{appointment.finish | date : 'dd.MM.yy'}}</p>
   <h2>Місце проведення:</h2>
-  <p>{{appointment.place.sportHall }}</p>
-  <p>{{appointment.place.country + ' ' + appointment.place.region + ' ' +
-  appointment.place.town+ ' ' + appointment.place.address}}</p>
+  <p>{{appointment.appointment_place.appointment_place_name }}</p>
+  <p>{{appointment.appointment_place.country.country_name | titlecase}}{{' '
+  + appointment.appointment_place.region.region_name + ' ' +
+  appointment.appointment_place.town.town_name+ ' ' + appointment.appointment_place.address}}</p>
 
 </div>
 

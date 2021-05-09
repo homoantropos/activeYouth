@@ -2,11 +2,11 @@
 <p><b>Дата початку:  </b>{{appointmentFinancing.appointment.start | date : 'dd.MM.yy'}}</p>
 <p><b>Дата завершення:  </b>{{appointmentFinancing.appointment.finish | date : 'dd.MM.yy'}}</p>
 <p><b>Місце проведення:</b>
-  {{appointmentFinancing.appointment.place.country + ' ' +
-    appointmentFinancing.appointment.place.region + ' ' +
-    appointmentFinancing.appointment.place.town + ' ' +
-    appointmentFinancing.appointment.place.sportHall + ' ' +
-    appointmentFinancing.appointment.place.address}}
+  {{appointmentFinancing.appointment.appointment_place.country + ' ' +
+    appointmentFinancing.appointment.appointment_place.region + ' ' +
+    appointmentFinancing.appointment.appointment_place.town + ' ' +
+    appointmentFinancing.appointment.appointment_place.appointment_place_name + ' ' +
+    appointmentFinancing.appointment.appointment_place.address}}
 </p>
 
 <table>

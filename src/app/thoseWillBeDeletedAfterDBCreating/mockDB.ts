@@ -21,11 +21,11 @@ export class MockDataBase {
       participants: 'schoolchild',
       direction: 'sport',
       status: 'ukrainian',
-      place: {
-        country: 'Україна',
-        region: 'Львівська обл.',
-        town: 'Сколе',
-        sportHall: 'база Тисовець',
+      appointment_place: {
+        appointment_place_name: '',
+        country: {country_name: 'Україна'},
+        region: {region_name: 'Львівська обл.'},
+        town: {town_name: 'Сколе'},
         address: ''
       },
       organiser: 'УФУС',
@@ -42,11 +42,11 @@ export class MockDataBase {
       participants: 'students',
       direction: 'sport',
       status: 'ukrainian',
-      place: {
-        country: 'Україна',
-        region: 'Львівська обл.',
-        town: 'Сколе',
-        sportHall: 'база Тисовець',
+      appointment_place: {
+        appointment_place_name: '',
+        country: {country_name: 'Україна'},
+        region: {region_name: 'Львівська обл.'},
+        town: {town_name: 'Сколе'},
         address: ''
       },
       organiser: 'СССУ',
@@ -63,11 +63,11 @@ export class MockDataBase {
       participants: 'schoolchild',
       direction: 'sport',
       status: 'ukrainian',
-      place: {
-        country: 'Україна',
-        region: 'Львівська обл.',
-        town: 'Сколе',
-        sportHall: 'база Тисовець',
+      appointment_place: {
+        appointment_place_name: '',
+        country: {country_name: 'Україна'},
+        region: {region_name: 'Львівська обл.'},
+        town: {town_name: 'Сколе'},
         address: ''
       },
       organiser: 'УФУС',
@@ -84,11 +84,11 @@ export class MockDataBase {
       participants: 'students',
       direction: 'sport',
       status: 'ukrainian',
-      place: {
-        country: 'Україна',
-        region: 'Львівська обл.',
-        town: 'Сколе',
-        sportHall: 'база Тисовець',
+      appointment_place: {
+        appointment_place_name: '',
+        country: {country_name: 'Україна'},
+        region: {region_name: 'Львівська обл.'},
+        town: {town_name: 'Сколе'},
         address: ''
       },
       organiser: 'СССУ',
@@ -105,11 +105,11 @@ export class MockDataBase {
       participants: 'students',
       direction: 'sport',
       status: 'international',
-      place: {
-        country: 'Сербія',
-        region: '',
-        town: 'Белград',
-        sportHall: '',
+      appointment_place: {
+        appointment_place_name: '',
+        country: {country_name: 'Україна'},
+        region: {region_name: 'Львівська обл.'},
+        town: {town_name: 'Сколе'},
         address: ''
       },
       organiser: 'СССУ EUSA',
@@ -126,11 +126,11 @@ export class MockDataBase {
       participants: 'students',
       direction: 'sport',
       status: 'international',
-      place: {
-        country: 'Сербія',
-        region: '',
-        town: 'Белград',
-        sportHall: '',
+      appointment_place: {
+        appointment_place_name: '',
+        country: {country_name: 'Україна'},
+        region: {region_name: 'Львівська обл.'},
+        town: {town_name: 'Сколе'},
         address: ''
       },
       organiser: 'СССУ EUSA',
@@ -147,12 +147,12 @@ export class MockDataBase {
       participants: 'schoolchild',
       direction: 'sport',
       status: 'ukrainian',
-      place: {
-        country: 'Україна',
-        region: 'Івано-Франківська обл.',
-        town: 'Івано-Франківськ',
-        sportHall: 'Олімп',
-        address: 'вул. Паркова 12'
+      appointment_place: {
+        appointment_place_name: '',
+        country: {country_name: 'Україна'},
+        region: {region_name: 'Львівська обл.'},
+        town: {town_name: 'Сколе'},
+        address: ''
       },
       organiser: 'КФВС МОН',
       appointment_id: '7ww'
@@ -168,12 +168,12 @@ export class MockDataBase {
       participants: 'schoolchild',
       direction: 'sport',
       status: 'ukrainian',
-      place: {
-        country: 'Україна',
-        region: 'Луганська обл.',
-        town: 'Кремінна',
-        sportHall: 'спортивний зал ЗОШ № 8',
-        address: 'вул. Весняна 12'
+      appointment_place: {
+        appointment_place_name: '',
+        country: {country_name: 'Україна'},
+        region: {region_name: 'Львівська обл.'},
+        town: {town_name: 'Сколе'},
+        address: ''
       },
       organiser: 'КФВС МОН',
       appointment_id: '8ww'
@@ -189,12 +189,12 @@ export class MockDataBase {
       participants: 'schoolchild',
       direction: 'sport',
       status: 'ukrainian',
-      place: {
-        country: 'Україна',
-        region: 'Луганська обл.',
-        town: 'Кремінна',
-        sportHall: 'спортивний зал ЗОШ № 8',
-        address: 'вул. Весняна 12'
+      appointment_place: {
+        appointment_place_name: '',
+        country: {country_name: 'Україна'},
+        region: {region_name: 'Львівська обл.'},
+        town: {town_name: 'Сколе'},
+        address: ''
       },
       organiser: 'КФВС МОН',
       appointment_id: '9ww'
@@ -210,12 +210,12 @@ export class MockDataBase {
       participants: 'schoolchild',
       direction: 'sport',
       status: 'ukrainian',
-      place: {
-        country: 'Україна',
-        region: 'Луганська обл.',
-        town: 'Кремінна',
-        sportHall: 'спортивний зал ЗОШ № 8',
-        address: 'вул. Весняна 12'
+      appointment_place: {
+        appointment_place_name: '',
+        country: {country_name: 'Україна'},
+        region: {region_name: 'Львівська обл.'},
+        town: {town_name: 'Сколе'},
+        address: ''
       },
       organiser: 'КФВС МОН',
       appointment_id: '10ww'
@@ -231,12 +231,12 @@ export class MockDataBase {
       participants: 'schoolchild',
       direction: 'sport',
       status: 'ukrainian',
-      place: {
-        country: 'Україна',
-        region: 'Сумська обл.',
-        town: 'Суми',
-        sportHall: 'легкоатлетичний манеж СумДУ',
-        address: 'вул. Студентська 52'
+      appointment_place: {
+        appointment_place_name: '',
+        country: {country_name: 'Україна'},
+        region: {region_name: 'Львівська обл.'},
+        town: {town_name: 'Сколе'},
+        address: ''
       },
       organiser: 'КФВС МОН',
       appointment_id: '11ww'
@@ -252,12 +252,12 @@ export class MockDataBase {
       participants: 'students',
       direction: 'sport',
       status: 'ukrainian',
-      place: {
-        country: 'Україна',
-        region: 'Сумська обл.',
-        town: 'Суми',
-        sportHall: 'легкоатлетичний манеж СумДУ',
-        address: 'вул. Студентська 52'
+      appointment_place: {
+        appointment_place_name: '',
+        country: {country_name: 'Україна'},
+        region: {region_name: 'Львівська обл.'},
+        town: {town_name: 'Сколе'},
+        address: ''
       },
       organiser: 'КФВС МОН',
       appointment_id: '12ww'
@@ -273,11 +273,11 @@ export class MockDataBase {
       participants: 'schoolchild',
       direction: 'sport',
       status: 'international',
-      place: {
-        country: 'Сербія',
-        region: '',
-        town: 'Белград',
-        sportHall: '',
+      appointment_place: {
+        appointment_place_name: '',
+        country: {country_name: 'Україна'},
+        region: {region_name: 'Львівська обл.'},
+        town: {town_name: 'Сколе'},
         address: ''
       },
       organiser: 'УФУС ISF',
@@ -294,11 +294,11 @@ export class MockDataBase {
       participants: 'schoolchild',
       direction: 'sport',
       status: 'international',
-      place: {
-        country: 'Сербія',
-        region: '',
-        town: 'Белград',
-        sportHall: '',
+      appointment_place: {
+        appointment_place_name: '',
+        country: {country_name: 'Україна'},
+        region: {region_name: 'Львівська обл.'},
+        town: {town_name: 'Сколе'},
         address: ''
       },
       organiser: 'УФУС ISF',
@@ -315,11 +315,11 @@ export class MockDataBase {
       participants: 'schoolchild',
       direction: 'sport',
       status: 'international',
-      place: {
-        country: 'Сербія',
-        region: '',
-        town: 'Белград',
-        sportHall: '',
+      appointment_place: {
+        appointment_place_name: '',
+        country: {country_name: 'Україна'},
+        region: {region_name: 'Львівська обл.'},
+        town: {town_name: 'Сколе'},
         address: ''
       },
       organiser: 'УФУС ISF',
@@ -336,11 +336,11 @@ export class MockDataBase {
       participants: 'schoolchild',
       direction: 'sport',
       status: 'international',
-      place: {
-        country: 'Сербія',
-        region: '',
-        town: 'Белград',
-        sportHall: '',
+      appointment_place: {
+        appointment_place_name: '',
+        country: {country_name: 'Україна'},
+        region: {region_name: 'Львівська обл.'},
+        town: {town_name: 'Сколе'},
         address: ''
       },
       organiser: 'УФУС ISF',
@@ -357,11 +357,11 @@ export class MockDataBase {
       participants: 'schoolchild',
       direction: 'sport',
       status: 'international',
-      place: {
-        country: 'Сербія',
-        region: '',
-        town: 'Белград',
-        sportHall: '',
+      appointment_place: {
+        appointment_place_name: '',
+        country: {country_name: 'Україна'},
+        region: {region_name: 'Львівська обл.'},
+        town: {town_name: 'Сколе'},
         address: ''
       },
       organiser: 'УФУС ISF',
@@ -378,12 +378,12 @@ export class MockDataBase {
       participants: 'schoolchild',
       direction: 'sport',
       status: 'regional',
-      place: {
-        country: 'Україна',
-        region: 'Волинська обл.',
-        town: 'Луцьк',
-        sportHall: 'Спорткомплекс "Атлет"',
-        address: 'вул. Мохова, 23'
+      appointment_place: {
+        appointment_place_name: '',
+        country: {country_name: 'Україна'},
+        region: {region_name: 'Львівська обл.'},
+        town: {town_name: 'Сколе'},
+        address: ''
       },
       organiser: 'УФУС',
       appointment_id: '1ww6'
@@ -399,11 +399,11 @@ export class MockDataBase {
       participants: 'schoolchild',
       direction: 'physical culture',
       status: 'regional',
-      place: {
-        country: 'Україна',
-        region: 'Вінницька обл.',
-        town: 'Ладижин',
-        sportHall: '',
+      appointment_place: {
+        appointment_place_name: '',
+        country: {country_name: 'Україна'},
+        region: {region_name: 'Львівська обл.'},
+        town: {town_name: 'Сколе'},
         address: ''
       },
       organiser: 'КФВС МОН',
@@ -420,11 +420,11 @@ export class MockDataBase {
       participants: 'schoolchild',
       direction: 'physical culture',
       status: 'regional',
-      place: {
-        country: 'Україна',
-        region: 'Дніпропетровська обл.',
-        town: 'Дніпро',
-        sportHall: '',
+      appointment_place: {
+        appointment_place_name: '',
+        country: {country_name: 'Україна'},
+        region: {region_name: 'Львівська обл.'},
+        town: {town_name: 'Сколе'},
         address: ''
       },
       organiser: 'КФВС МОН',
@@ -441,11 +441,11 @@ export class MockDataBase {
       participants: 'schoolchild',
       direction: 'physical culture',
       status: 'regional',
-      place: {
-        country: 'Україна',
-        region: 'Івано-Франківська обл.',
-        town: 'Долина',
-        sportHall: '',
+      appointment_place: {
+        appointment_place_name: '',
+        country: {country_name: 'Україна'},
+        region: {region_name: 'Львівська обл.'},
+        town: {town_name: 'Сколе'},
         address: ''
       },
       organiser: 'КФВС МОН',
@@ -462,11 +462,11 @@ export class MockDataBase {
       participants: 'schoolchild',
       direction: 'physical culture',
       status: 'regional',
-      place: {
-        country: 'Україна',
-        region: 'Запорізька обл.',
-        town: 'Запоріжжа',
-        sportHall: '',
+      appointment_place: {
+        appointment_place_name: '',
+        country: {country_name: 'Україна'},
+        region: {region_name: 'Львівська обл.'},
+        town: {town_name: 'Сколе'},
         address: ''
       },
       organiser: 'КФВС МОН',
@@ -483,11 +483,11 @@ export class MockDataBase {
       participants: 'schoolchild',
       direction: 'physical culture',
       status: 'regional',
-      place: {
-        country: 'Україна',
-        region: 'Донецька обл.',
-        town: 'Славянск',
-        sportHall: '',
+      appointment_place: {
+        appointment_place_name: '',
+        country: {country_name: 'Україна'},
+        region: {region_name: 'Львівська обл.'},
+        town: {town_name: 'Сколе'},
         address: ''
       },
       organiser: 'КФВС МОН',
@@ -504,12 +504,12 @@ export class MockDataBase {
       participants: 'schoolchild',
       direction: 'physical culture',
       status: 'ukrainian',
-      place: {
-        country: 'Україна',
-        region: 'Київ',
-        town: 'Київ',
-        sportHall: 'Меридіан-Венето',
-        address: 'бул. Героїв Севастополя, 11В'
+      appointment_place: {
+        appointment_place_name: '',
+        country: {country_name: 'Україна'},
+        region: {region_name: 'Львівська обл.'},
+        town: {town_name: 'Сколе'},
+        address: ''
       },
       organiser: 'КФВС МОН',
       appointment_id: '1ww20'
@@ -525,12 +525,12 @@ export class MockDataBase {
       participants: 'students',
       direction: 'sport',
       status: 'regional',
-      place: {
-        country: 'Україна',
-        region: 'Київ',
-        town: 'Київ',
-        sportHall: 'Гребний канал',
-        address: 'Труханів острів'
+      appointment_place: {
+        appointment_place_name: '',
+        country: {country_name: 'Україна'},
+        region: {region_name: 'Львівська обл.'},
+        town: {town_name: 'Сколе'},
+        address: ''
       },
       organiser: 'СССУ',
       appointment_id: '1ww21'
@@ -546,12 +546,12 @@ export class MockDataBase {
       participants: 'schoolchild',
       direction: 'sport',
       status: 'regional',
-      place: {
-        country: 'Україна',
-        region: 'Івано-Франківська обл.',
-        town: 'Івано-Франківськ',
-        sportHall: 'Спорткомплекс Прикарпатського національного уніврситету',
-        address: 'вул. Прикарпатська 90'
+      appointment_place: {
+        appointment_place_name: '',
+        country: {country_name: 'Україна'},
+        region: {region_name: 'Львівська обл.'},
+        town: {town_name: 'Сколе'},
+        address: ''
       },
       organiser: 'УФУС',
       appointment_id: '1ww223'
@@ -567,11 +567,11 @@ export class MockDataBase {
       participants: 'schoolchild',
       direction: 'sport',
       status: 'international',
-      place: {
-        country: 'КНР',
-        region: '',
-        town: 'Ченду',
-        sportHall: '',
+      appointment_place: {
+        appointment_place_name: '',
+        country: {country_name: 'Україна'},
+        region: {region_name: 'Львівська обл.'},
+        town: {town_name: 'Сколе'},
         address: ''
       },
       organiser: 'УФУС ISF',
@@ -588,12 +588,12 @@ export class MockDataBase {
       participants: 'students',
       direction: 'sport',
       status: 'ukrainian',
-      place: {
-        country: 'Україна',
-        region: 'Дніпропетровська обл.',
-        town: 'Дніпропетровськ',
-        sportHall: 'спорткомплекс НУХТУ',
-        address: 'Дніпровська набережна 25'
+      appointment_place: {
+        appointment_place_name: '',
+        country: {country_name: 'Україна'},
+        region: {region_name: 'Львівська обл.'},
+        town: {town_name: 'Сколе'},
+        address: ''
       },
       organiser: 'СССУ',
       appointment_id: '1ww334'
@@ -609,12 +609,12 @@ export class MockDataBase {
       participants: 'schoolchild',
       direction: 'sport',
       status: 'ukrainian',
-      place: {
-        country: 'Україна',
-        region: 'Київ',
-        town: 'Київ',
-        sportHall: 'Палац Спорту',
-        address: 'пл. Спортивна, 1'
+      appointment_place: {
+        appointment_place_name: '',
+        country: {country_name: 'Україна'},
+        region: {region_name: 'Львівська обл.'},
+        town: {town_name: 'Сколе'},
+        address: ''
       },
       organiser: 'КФВС МОН',
       appointment_id: '1ww40'
@@ -630,12 +630,12 @@ export class MockDataBase {
       participants: 'schoolchild',
       direction: 'sport',
       status: 'ukrainian',
-      place: {
-        country: 'Україна',
-        region: 'Київ',
-        town: 'Київ',
-        sportHall: 'Палац Спорту',
-        address: 'пл. Спортивна, 1'
+      appointment_place: {
+        appointment_place_name: '',
+        country: {country_name: 'Україна'},
+        region: {region_name: 'Львівська обл.'},
+        town: {town_name: 'Сколе'},
+        address: ''
       },
       organiser: 'КФВС МОН',
       appointment_id: '1ww41'
@@ -651,12 +651,12 @@ export class MockDataBase {
       participants: 'schoolchild',
       direction: 'sport',
       status: 'ukrainian',
-      place: {
-        country: 'Україна',
-        region: 'Київ',
-        town: 'Київ',
-        sportHall: 'Палац Спорту',
-        address: 'пл. Спортивна, 1'
+      appointment_place: {
+        appointment_place_name: '',
+        country: {country_name: 'Україна'},
+        region: {region_name: 'Львівська обл.'},
+        town: {town_name: 'Сколе'},
+        address: ''
       },
       organiser: 'КФВС МОН',
       appointment_id: '1ww42'
@@ -672,12 +672,12 @@ export class MockDataBase {
       participants: 'schoolchild',
       direction: 'sport',
       status: 'ukrainian',
-      place: {
-        country: 'Україна',
-        region: 'Київ',
-        town: 'Київ',
-        sportHall: 'Палац Спорту',
-        address: 'пл. Спортивна, 1'
+      appointment_place: {
+        appointment_place_name: '',
+        country: {country_name: 'Україна'},
+        region: {region_name: 'Львівська обл.'},
+        town: {town_name: 'Сколе'},
+        address: ''
       },
       organiser: 'КФВС МОН',
       appointment_id: '1ww43'
@@ -693,12 +693,12 @@ export class MockDataBase {
       participants: 'schoolchild',
       direction: 'sport',
       status: 'ukrainian',
-      place: {
-        country: 'Україна',
-        region: 'Київ',
-        town: 'Київ',
-        sportHall: 'Палац Спорту',
-        address: 'пл. Спортивна, 1'
+      appointment_place: {
+        appointment_place_name: '',
+        country: {country_name: 'Україна'},
+        region: {region_name: 'Львівська обл.'},
+        town: {town_name: 'Сколе'},
+        address: ''
       },
       organiser: 'КФВС МОН',
       appointment_id: '1ww44'
@@ -714,12 +714,12 @@ export class MockDataBase {
       participants: 'schoolchild',
       direction: 'sport',
       status: 'ukrainian',
-      place: {
-        country: 'Україна',
-        region: 'Запорізька обл.',
-        town: 'Запоріжжа',
-        sportHall: 'Юність',
-        address: 'Центральний бульвар 96'
+      appointment_place: {
+        appointment_place_name: '',
+        country: {country_name: 'Україна'},
+        region: {region_name: 'Львівська обл.'},
+        town: {town_name: 'Сколе'},
+        address: ''
       },
       organiser: 'КФВС МОН',
       appointment_id: '1ww45'
@@ -735,12 +735,12 @@ export class MockDataBase {
       participants: 'schoolchild',
       direction: 'sport',
       status: 'ukrainian',
-      place: {
-        country: 'Україна',
-        region: 'Тернопільска обл.',
-        town: 'Збараж',
-        sportHall: 'Палац Спорту',
-        address: 'вул. Б. Хмельницького, 1'
+      appointment_place: {
+        appointment_place_name: '',
+        country: {country_name: 'Україна'},
+        region: {region_name: 'Львівська обл.'},
+        town: {town_name: 'Сколе'},
+        address: ''
       },
       organiser: 'КФВС МОН',
       appointment_id: '1ww46'
@@ -756,12 +756,12 @@ export class MockDataBase {
       participants: 'students',
       direction: 'physical culture',
       status: 'ukrainian',
-      place: {
-        country: 'Україна',
-        region: 'Вінницька обл.',
-        town: 'Вінниця',
-        sportHall: 'Стадіон ДЮСШ № 5',
-        address: 'Центральний Парк'
+      appointment_place: {
+        appointment_place_name: '',
+        country: {country_name: 'Україна'},
+        region: {region_name: 'Львівська обл.'},
+        town: {town_name: 'Сколе'},
+        address: ''
       },
       organiser: 'СССУ',
       appointment_id: '1ww47'
@@ -774,12 +774,12 @@ export class MockDataBase {
         start: new Date(2021, 8, 20), finish: new Date(2021, 8, 20), duration: 3,
         organizationsParticipants: 'збірні областей і міста Київ', kpkv: 2201310, character: 'О', participants: 'students',
         direction: 'physical culture', status: 'ukrainian',
-        place: {
-          country: 'Україна',
-          region: 'Вінницька обл.',
-          town: 'Вінниця',
-          sportHall: 'Стадіон ДЮСШ № 5',
-          address: 'Центральний Парк'
+        appointment_place: {
+          appointment_place_name: '',
+          country: {country_name: 'Україна'},
+          region: {region_name: 'Львівська обл.'},
+          town: {town_name: 'Сколе'},
+          address: ''
         },
         organiser: 'СССУ', appointment_id: '1ww47'
       },
@@ -807,12 +807,12 @@ export class MockDataBase {
         start: new Date(2021, 8, 20), finish: new Date(2021, 8, 20), duration: 3,
         organizationsParticipants: 'збірні областей і міста Київ', kpkv: 2201310, character: 'О', participants: 'students',
         direction: 'physical culture', status: 'ukrainian',
-        place: {
-          country: 'Україна',
-          region: 'Вінницька обл.',
-          town: 'Вінниця',
-          sportHall: 'Стадіон ДЮСШ № 5',
-          address: 'Центральний Парк'
+        appointment_place: {
+          appointment_place_name: '',
+          country: {country_name: 'Україна'},
+          region: {region_name: 'Львівська обл.'},
+          town: {town_name: 'Сколе'},
+          address: ''
         },
         organiser: 'СССУ', appointment_id: '1ww47'
       },
@@ -840,12 +840,12 @@ export class MockDataBase {
         start: new Date(2021, 8, 20), finish: new Date(2021, 8, 20), duration: 3,
         organizationsParticipants: 'збірні областей і міста Київ', kpkv: 2201310, character: 'О', participants: 'students',
         direction: 'physical culture', status: 'ukrainian',
-        place: {
-          country: 'Україна',
-          region: 'Вінницька обл.',
-          town: 'Вінниця',
-          sportHall: 'Стадіон ДЮСШ № 5',
-          address: 'Центральний Парк'
+        appointment_place: {
+          appointment_place_name: '',
+          country: {country_name: 'Україна'},
+          region: {region_name: 'Львівська обл.'},
+          town: {town_name: 'Сколе'},
+          address: ''
         },
         organiser: 'СССУ', appointment_id: '1ww47'
       },
@@ -873,12 +873,12 @@ export class MockDataBase {
         start: new Date(2021, 8, 20), finish: new Date(2021, 8, 20), duration: 3,
         organizationsParticipants: 'збірні областей і міста Київ', kpkv: 2201310, character: 'О', participants: 'students',
         direction: 'physical culture', status: 'ukrainian',
-        place: {
-          country: 'Україна',
-          region: 'Вінницька обл.',
-          town: 'Вінниця',
-          sportHall: 'Стадіон ДЮСШ № 5',
-          address: 'Центральний Парк'
+        appointment_place: {
+          appointment_place_name: '',
+          country: {country_name: 'Україна'},
+          region: {region_name: 'Львівська обл.'},
+          town: {town_name: 'Сколе'},
+          address: ''
         },
         organiser: 'СССУ', appointment_id: '1ww47'
       },
@@ -906,12 +906,12 @@ export class MockDataBase {
         start: new Date(2021, 8, 20), finish: new Date(2021, 8, 20), duration: 3,
         organizationsParticipants: 'збірні областей і міста Київ', kpkv: 2201310, character: 'О', participants: 'students',
         direction: 'physical culture', status: 'ukrainian',
-        place: {
-          country: 'Україна',
-          region: 'Вінницька обл.',
-          town: 'Вінниця',
-          sportHall: 'Стадіон ДЮСШ № 5',
-          address: 'Центральний Парк'
+        appointment_place: {
+          appointment_place_name: '',
+          country: {country_name: 'Україна'},
+          region: {region_name: 'Львівська обл.'},
+          town: {town_name: 'Сколе'},
+          address: ''
         },
         organiser: 'СССУ', appointment_id: '1ww47'
       },
@@ -939,12 +939,12 @@ export class MockDataBase {
         start: new Date(2021, 8, 20), finish: new Date(2021, 8, 20), duration: 3,
         organizationsParticipants: 'збірні областей і міста Київ', kpkv: 2201310, character: 'О', participants: 'students',
         direction: 'physical culture', status: 'ukrainian',
-        place: {
-          country: 'Україна',
-          region: 'Вінницька обл.',
-          town: 'Вінниця',
-          sportHall: 'Стадіон ДЮСШ № 5',
-          address: 'Центральний Парк'
+        appointment_place: {
+          appointment_place_name: '',
+          country: {country_name: 'Україна'},
+          region: {region_name: 'Львівська обл.'},
+          town: {town_name: 'Сколе'},
+          address: ''
         },
         organiser: 'СССУ', appointment_id: '1ww47'
       },
@@ -972,12 +972,12 @@ export class MockDataBase {
         start: new Date(2021, 8, 20), finish: new Date(2021, 8, 20), duration: 3,
         organizationsParticipants: 'збірні областей і міста Київ', kpkv: 2201310, character: 'О', participants: 'students',
         direction: 'physical culture', status: 'ukrainian',
-        place: {
-          country: 'Україна',
-          region: 'Вінницька обл.',
-          town: 'Вінниця',
-          sportHall: 'Стадіон ДЮСШ № 5',
-          address: 'Центральний Парк'
+        appointment_place: {
+          appointment_place_name: '',
+          country: {country_name: 'Україна'},
+          region: {region_name: 'Львівська обл.'},
+          town: {town_name: 'Сколе'},
+          address: ''
         },
         organiser: 'СССУ', appointment_id: '1ww47'
       },
@@ -1005,12 +1005,12 @@ export class MockDataBase {
         start: new Date(2021, 8, 20), finish: new Date(2021, 8, 20), duration: 3,
         organizationsParticipants: 'збірні областей і міста Київ', kpkv: 2201310, character: 'О', participants: 'students',
         direction: 'physical culture', status: 'ukrainian',
-        place: {
-          country: 'Україна',
-          region: 'Вінницька обл.',
-          town: 'Вінниця',
-          sportHall: 'Стадіон ДЮСШ № 5',
-          address: 'Центральний Парк'
+        appointment_place: {
+          appointment_place_name: '',
+          country: {country_name: 'Україна'},
+          region: {region_name: 'Львівська обл.'},
+          town: {town_name: 'Сколе'},
+          address: ''
         },
         organiser: 'СССУ', appointment_id: '1ww47'
       },
@@ -1038,12 +1038,12 @@ export class MockDataBase {
         start: new Date(2021, 8, 20), finish: new Date(2021, 8, 20), duration: 3,
         organizationsParticipants: 'збірні областей і міста Київ', kpkv: 2201310, character: 'О', participants: 'students',
         direction: 'physical culture', status: 'ukrainian',
-        place: {
-          country: 'Україна',
-          region: 'Вінницька обл.',
-          town: 'Вінниця',
-          sportHall: 'Стадіон ДЮСШ № 5',
-          address: 'Центральний Парк'
+        appointment_place: {
+          appointment_place_name: '',
+          country: {country_name: 'Україна'},
+          region: {region_name: 'Львівська обл.'},
+          town: {town_name: 'Сколе'},
+          address: ''
         },
         organiser: 'СССУ', appointment_id: '1ww47'
       },
@@ -1071,12 +1071,12 @@ export class MockDataBase {
         start: new Date(2021, 8, 20), finish: new Date(2021, 8, 20), duration: 3,
         organizationsParticipants: 'збірні областей і міста Київ', kpkv: 2201310, character: 'О', participants: 'students',
         direction: 'physical culture', status: 'ukrainian',
-        place: {
-          country: 'Україна',
-          region: 'Вінницька обл.',
-          town: 'Вінниця',
-          sportHall: 'Стадіон ДЮСШ № 5',
-          address: 'Центральний Парк'
+        appointment_place: {
+          appointment_place_name: '',
+          country: {country_name: 'Україна'},
+          region: {region_name: 'Львівська обл.'},
+          town: {town_name: 'Сколе'},
+          address: ''
         },
         organiser: 'СССУ', appointment_id: '1ww47'
       },
@@ -1104,12 +1104,12 @@ export class MockDataBase {
         start: new Date(2021, 8, 20), finish: new Date(2021, 8, 20), duration: 3,
         organizationsParticipants: 'збірні областей і міста Київ', kpkv: 2201310, character: 'О', participants: 'students',
         direction: 'physical culture', status: 'ukrainian',
-        place: {
-          country: 'Україна',
-          region: 'Вінницька обл.',
-          town: 'Вінниця',
-          sportHall: 'Стадіон ДЮСШ № 5',
-          address: 'Центральний Парк'
+        appointment_place: {
+          appointment_place_name: '',
+          country: {country_name: 'Україна'},
+          region: {region_name: 'Львівська обл.'},
+          town: {town_name: 'Сколе'},
+          address: ''
         },
         organiser: 'СССУ', appointment_id: '1ww47'
       },
@@ -1137,12 +1137,12 @@ export class MockDataBase {
         start: new Date(2021, 8, 20), finish: new Date(2021, 8, 20), duration: 3,
         organizationsParticipants: 'збірні областей і міста Київ', kpkv: 2201310, character: 'О', participants: 'students',
         direction: 'physical culture', status: 'ukrainian',
-        place: {
-          country: 'Україна',
-          region: 'Вінницька обл.',
-          town: 'Вінниця',
-          sportHall: 'Стадіон ДЮСШ № 5',
-          address: 'Центральний Парк'
+        appointment_place: {
+          appointment_place_name: '',
+          country: {country_name: 'Україна'},
+          region: {region_name: 'Львівська обл.'},
+          town: {town_name: 'Сколе'},
+          address: ''
         },
         organiser: 'СССУ', appointment_id: '1ww47'
       },
@@ -1170,12 +1170,12 @@ export class MockDataBase {
         start: new Date(2021, 8, 20), finish: new Date(2021, 8, 20), duration: 3,
         organizationsParticipants: 'збірні областей і міста Київ', kpkv: 2201310, character: 'О', participants: 'students',
         direction: 'physical culture', status: 'ukrainian',
-        place: {
-          country: 'Україна',
-          region: 'Вінницька обл.',
-          town: 'Вінниця',
-          sportHall: 'Стадіон ДЮСШ № 5',
-          address: 'Центральний Парк'
+        appointment_place: {
+          appointment_place_name: '',
+          country: {country_name: 'Україна'},
+          region: {region_name: 'Львівська обл.'},
+          town: {town_name: 'Сколе'},
+          address: ''
         },
         organiser: 'СССУ', appointment_id: '1ww47'
       },
@@ -1209,12 +1209,12 @@ export class MockDataBase {
         participants: 'schoolchild',
         direction: 'sport',
         status: 'ukrainian',
-        place: {
-          country: 'Україна',
-          region: 'Запорізька обл.',
-          town: 'Запоріжжа',
-          sportHall: 'Юність',
-          address: 'Центральний бульвар 96'
+        appointment_place: {
+          appointment_place_name: '',
+          country: {country_name: 'Україна'},
+          region: {region_name: 'Львівська обл.'},
+          town: {town_name: 'Сколе'},
+          address: ''
         },
         organiser: 'КФВС МОН',
         appointment_id: '1ww45'
@@ -1248,12 +1248,12 @@ export class MockDataBase {
         participants: 'schoolchild',
         direction: 'sport',
         status: 'ukrainian',
-        place: {
-          country: 'Україна',
-          region: 'Запорізька обл.',
-          town: 'Запоріжжа',
-          sportHall: 'Юність',
-          address: 'Центральний бульвар 96'
+        appointment_place: {
+          appointment_place_name: '',
+          country: {country_name: 'Україна'},
+          region: {region_name: 'Львівська обл.'},
+          town: {town_name: 'Сколе'},
+          address: ''
         },
         organiser: 'КФВС МОН',
         appointment_id: '1ww45'
@@ -1287,12 +1287,12 @@ export class MockDataBase {
         participants: 'schoolchild',
         direction: 'sport',
         status: 'ukrainian',
-        place: {
-          country: 'Україна',
-          region: 'Запорізька обл.',
-          town: 'Запоріжжа',
-          sportHall: 'Юність',
-          address: 'Центральний бульвар 96'
+        appointment_place: {
+          appointment_place_name: '',
+          country: {country_name: 'Україна'},
+          region: {region_name: 'Львівська обл.'},
+          town: {town_name: 'Сколе'},
+          address: ''
         },
         organiser: 'КФВС МОН',
         appointment_id: '1ww45'
@@ -1326,12 +1326,12 @@ export class MockDataBase {
         participants: 'schoolchild',
         direction: 'physical culture',
         status: 'ukrainian',
-        place: {
-          country: 'Україна',
-          region: 'Київ',
-          town: 'Київ',
-          sportHall: 'Меридіан-Венето',
-          address: 'бул. Героїв Севастополя, 11В'
+        appointment_place: {
+          appointment_place_name: '',
+          country: {country_name: 'Україна'},
+          region: {region_name: 'Львівська обл.'},
+          town: {town_name: 'Сколе'},
+          address: ''
         },
         organiser: 'КФВС МОН',
         appointment_id: '1ww20'
@@ -1365,12 +1365,12 @@ export class MockDataBase {
         participants: 'schoolchild',
         direction: 'physical culture',
         status: 'ukrainian',
-        place: {
-          country: 'Україна',
-          region: 'Київ',
-          town: 'Київ',
-          sportHall: 'Меридіан-Венето',
-          address: 'бул. Героїв Севастополя, 11В'
+        appointment_place: {
+          appointment_place_name: '',
+          country: {country_name: 'Україна'},
+          region: {region_name: 'Львівська обл.'},
+          town: {town_name: 'Сколе'},
+          address: ''
         },
         organiser: 'КФВС МОН',
         appointment_id: '1ww20'
@@ -1404,12 +1404,12 @@ export class MockDataBase {
         participants: 'schoolchild',
         direction: 'physical culture',
         status: 'ukrainian',
-        place: {
-          country: 'Україна',
-          region: 'Київ',
-          town: 'Київ',
-          sportHall: 'Меридіан-Венето',
-          address: 'бул. Героїв Севастополя, 11В'
+        appointment_place: {
+          appointment_place_name: '',
+          country: {country_name: 'Україна'},
+          region: {region_name: 'Львівська обл.'},
+          town: {town_name: 'Сколе'},
+          address: ''
         },
         organiser: 'КФВС МОН',
         appointment_id: '1ww20'
@@ -1443,12 +1443,12 @@ export class MockDataBase {
         participants: 'schoolchild',
         direction: 'sport',
         status: 'ukrainian',
-        place: {
-          country: 'Україна',
-          region: 'Запорізька обл.',
-          town: 'Запоріжжа',
-          sportHall: 'Юність',
-          address: 'Центральний бульвар 96'
+        appointment_place: {
+          appointment_place_name: '',
+          country: {country_name: 'Україна'},
+          region: {region_name: 'Львівська обл.'},
+          town: {town_name: 'Сколе'},
+          address: ''
         },
         organiser: 'КФВС МОН',
         appointment_id: '1ww45'
@@ -1482,12 +1482,12 @@ export class MockDataBase {
         participants: 'schoolchild',
         direction: 'sport',
         status: 'ukrainian',
-        place: {
-          country: 'Україна',
-          region: 'Запорізька обл.',
-          town: 'Запоріжжа',
-          sportHall: 'Юність',
-          address: 'Центральний бульвар 96'
+        appointment_place: {
+          appointment_place_name: '',
+          country: {country_name: 'Україна'},
+          region: {region_name: 'Львівська обл.'},
+          town: {town_name: 'Сколе'},
+          address: ''
         },
         organiser: 'КФВС МОН',
         appointment_id: '1ww45'
