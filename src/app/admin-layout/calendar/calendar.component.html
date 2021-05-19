@@ -11,83 +11,83 @@
 
       <ng-container matColumnDef="title">
         <th mat-header-cell *matHeaderCellDef mat-sort-header> Назва</th>
-        <td mat-cell *matCellDef="let appointment">
-          {{appointment.title}}</td>
+        <td mat-cell *matCellDef="let report">
+          {{report.appointment.title}}</td>
       </ng-container>
 
       <ng-container matColumnDef="termsOfHolding">
         <th mat-header-cell *matHeaderCellDef><small>Орієнтовні строки<br>початку.закінчення</small></th>
-        <td mat-cell *matCellDef="let appointment">
-          {{appointment.startdate | date : 'dd.MM.yy'}}<br>
-          {{appointment.finishdate | date : 'dd.MM.yy'}}</td>
+        <td mat-cell *matCellDef="let report">
+          {{report.appointment.start | date : 'dd.MM.yy'}}<br>
+          {{report.appointment.finish | date : 'dd.MM.yy'}}</td>
       </ng-container>
 
       <ng-container matColumnDef="duration">
         <th mat-header-cell *matHeaderCellDef><small>Орієнтовна<br>тривалість</small></th>
-        <td mat-cell *matCellDef="let appointment">
-          {{appointment.duration}}</td>
+        <td mat-cell *matCellDef="let report">
+          {{report.appointment.duration}}</td>
       </ng-container>
 
       <ng-container matColumnDef="place">
         <th mat-header-cell *matHeaderCellDef> Орієнтовне місце<br>проведення</th>
-        <td mat-cell *matCellDef="let appointment">
-          {{appointment.country_name | titlecase}}{{', ' + appointment.region_name}}<br>
-          {{appointment.town_name}}
+        <td mat-cell *matCellDef="let report">
+          {{report.appointment.appointment_place.country.country_name | titlecase}}{{', ' + report.appointment.appointment_place.region.region_name}}<br>
+          {{report.appointment.appointment_place.town.town_name}}
         </td>
       </ng-container>
 
       <ng-container matColumnDef="organizationsparticipants">
         <th mat-header-cell *matHeaderCellDef><small>Орган.<br>учасники</small></th>
-        <td mat-cell *matCellDef="let appointment">
-          {{appointment.organizationsparticipants}}</td>
+        <td mat-cell *matCellDef="let report">
+          {{report.appointment.organizationsParticipants}}</td>
       </ng-container>
 
       <ng-container matColumnDef="sportsmen">
         <th mat-header-cell *matHeaderCellDef><small>Спортсменів<br>план</small></th>
-        <td mat-cell *matCellDef="let appointment">
-          {{appointment.sportsmen_plan}}</td>
+        <td mat-cell *matCellDef="let report">
+          {{report.sportsmen_plan}}</td>
       </ng-container>
 
       <ng-container matColumnDef="coaches">
         <th mat-header-cell *matHeaderCellDef><small>Тренерів<br>план</small></th>
-        <td mat-cell *matCellDef="let appointment">
-          {{appointment.coaches_plan}}</td>
+        <td mat-cell *matCellDef="let report">
+          {{report.coaches_plan}}</td>
       </ng-container>
 
       <ng-container matColumnDef="referees">
         <th mat-header-cell *matHeaderCellDef><small>Суддів<br>план</small></th>
-        <td mat-cell *matCellDef="let appointment">
-          {{appointment.referees_plan}}</td>
+        <td mat-cell *matCellDef="let report">
+          {{report.referees_plan}}</td>
       </ng-container>
 
       <ng-container matColumnDef="others">
         <th mat-header-cell *matHeaderCellDef><small>Інших<br>план</small></th>
-        <td mat-cell *matCellDef="let appointment">
-          {{appointment.others_plan}}</td>
+        <td mat-cell *matCellDef="let report">
+          {{report.others_plan}}</td>
       </ng-container>
 
       <ng-container matColumnDef="total">
         <th mat-header-cell *matHeaderCellDef><small>ВСЬОГО<br>план</small></th>
-        <td mat-cell *matCellDef="let appointment">
-          {{appointment.total_plan}}</td>
+        <td mat-cell *matCellDef="let report">
+          {{report.total_plan}}</td>
       </ng-container>
 
       <ng-container matColumnDef="character">
         <th mat-header-cell *matHeaderCellDef><small>Вид<br>змагань</small></th>
-        <td mat-cell *matCellDef="let appointment">
-          {{appointment.haracter}}</td>
+        <td mat-cell *matCellDef="let report">
+          {{report.appointment.haracter}}</td>
       </ng-container>
 
       <ng-container matColumnDef="kpkv">
         <th mat-header-cell *matHeaderCellDef><small>Код<br>КПКВК</small></th>
-        <td mat-cell *matCellDef="let appointment">
-          {{appointment.kpkv}}</td>
+        <td mat-cell *matCellDef="let report">
+          {{report.appointment.kpkv}}</td>
       </ng-container>
 
       <ng-container matColumnDef="personPerDay">
         <th mat-header-cell *matHeaderCellDef><small>Всього<br>людиноднів</small></th>
-        <td mat-cell *matCellDef="let appointment" [ngStyle]="{textAlign: 'center'}">
-          {{'  ' + appointment.person_per_day_plan}}</td>
+        <td mat-cell *matCellDef="let report" [ngStyle]="{textAlign: 'center'}">
+          {{'  ' + report.person_per_day_plan}}</td>
       </ng-container>
 
       <ng-container matColumnDef="costPlan">
@@ -97,8 +97,8 @@
 
       <ng-container matColumnDef="sportKind">
         <th mat-header-cell *matHeaderCellDef><small>Вид<br>спорту</small></th>
-        <td mat-cell *matCellDef="let appointment">
-          {{appointment.name | lowercase}}
+        <td mat-cell *matCellDef="let report">
+          {{report.appointment.sport_kind.sport_kind | lowercase}}
         </td>
       </ng-container>
 

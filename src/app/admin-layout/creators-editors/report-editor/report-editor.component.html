@@ -1,9 +1,9 @@
 <div *ngIf="reportEditorForm; else loader">
-  <h1>{{report.title}}</h1>
-  <p><b>Дата початку: </b>{{report.startdate | date : 'dd.MM.yy'}}</p>
-  <p><b>Дата завершення: </b>{{report.finishdate | date : 'dd.MM.yy'}}</p>
-  <p><b>Місце проведення: </b>{{report.country_name + ' ' + report.region_name + ' ' +
-  report.town_name}}</p>
+  <h1>{{report.appointment.title}}</h1>
+  <p><b>Дата початку: </b>{{report.appointment.start | date : 'dd.MM.yy'}}</p>
+  <p><b>Дата завершення: </b>{{report.appointment.finish | date : 'dd.MM.yy'}}</p>
+  <p><b>Місце проведення: </b>{{report.appointment.appointment_place.country.country_name | titlecase}} {{' ' + report.appointment.appointment_place.region.region_name + ' ' +
+  report.appointment.appointment_place.town.town_name}}</p>
 
   <form [formGroup]="reportEditorForm" (ngSubmit)="onSubmit(reportEditorForm.value)" autocomplete="off">
 

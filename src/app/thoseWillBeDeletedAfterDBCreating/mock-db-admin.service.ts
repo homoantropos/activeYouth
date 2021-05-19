@@ -122,13 +122,15 @@ export class MockDBAdministratorService {
       total
     };
 
+    const reportId = membersFact.total + membersPlan.total;
+
     return {
       appointment,
       membersPlan,
       personPerDayPlan: personPerDayTotalPlan,
       membersFact,
       personPerDayFact: personPerDayTotalFact,
-      report_id: `${membersFact.total + membersPlan.total}`
+      id: reportId
     };
   }
 

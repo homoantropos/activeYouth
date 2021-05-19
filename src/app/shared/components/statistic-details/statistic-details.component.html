@@ -1,11 +1,11 @@
 <div *ngIf="statistic; else loader">
 
-<h1>{{statistic.title}}</h1>
-<p><b>Дата початку:  </b>{{statistic.startdate | date : 'dd.MM.yy'}}</p>
-<p><b>Дата завершення:  </b>{{statistic.finishdate | date : 'dd.MM.yy'}}</p>
-<p><b>Місце проведення: </b>{{statistic.country_name + ' ' + statistic.region_name + ' ' +
-statistic.town_name}}</p>
-<p>{{statistic.sporthall_name + ' '+ statistic.address}}</p>
+<h1>{{statistic.appointment.title}}</h1>
+<p><b>Дата початку:  </b>{{statistic.appointment.start | date : 'dd.MM.yy'}}</p>
+<p><b>Дата завершення:  </b>{{statistic.appointment.finish | date : 'dd.MM.yy'}}</p>
+<p><b>Місце проведення: </b>{{statistic.appointment.appointment_place.country.country_name | titlecase}}{{' ' + statistic.appointment.appointment_place.region.region_name + ' ' +
+statistic.appointment.appointment_place.town.town_name}}</p>
+<p>{{statistic.appointment.appointment_place.appointment_place_name + ' '+ statistic.appointment.appointment_place.address}}</p>
 
 <table>
   <tr>

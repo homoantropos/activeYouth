@@ -57,10 +57,11 @@ export class StatisticDashboardComponent implements OnInit, AfterViewInit {
   }
 
   goToStatDetails(s: Report): void {
-    this.router.navigateByUrl(`/admin/statistic/${s.report_id}`);
+    this.router.navigateByUrl(`/admin/statistic/${s.id}`);
   }
 
-  goToReportEditor(id: number): void {
-    this.router.navigateByUrl(`/admin/statistic/edit/${id}`);
+  goToReportEditor(r: Report): void {
+    console.log(r);
+    this.router.navigateByUrl(`/admin/statistic/edit/${r.id}`);
   }
 }

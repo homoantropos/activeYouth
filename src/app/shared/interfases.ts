@@ -148,8 +148,8 @@ export interface Report {
   personPerDayPlan: number;
   membersFact: Members;
   personPerDayFact: number;
-  report_id?: string;
-  person_id?: string;
+  id?: number;
+  person_id?: number;
 }
 
 export interface News {
