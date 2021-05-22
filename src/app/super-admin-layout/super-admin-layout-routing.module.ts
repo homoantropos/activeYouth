@@ -22,6 +22,9 @@ import {TownEditorComponent} from './creators-editors/town-editor/town-editor.co
 import {AppointmentPlaceAdminPageComponent} from './appointment-place-admin-page/appointment-place-admin-page.component';
 import {AppointmentPlaceCreatorComponent} from './creators-editors/appointment-place-creator/appointment-place-creator.component';
 import {AppointmentPlaceEditorComponent} from './creators-editors/appointment-place-editor/appointment-place-editor.component';
+import {EducationalEntityAdminPageComponent} from './educational-entity-admin-page/educational-entity-admin-page.component';
+import {EducationalEntityCreatorComponent} from './creators-editors/educational-entity-creator/educational-entity-creator.component';
+import {EducationalEntityEditorComponent} from './creators-editors/educational-entity-editor/educational-entity-editor.component';
 
 const routes: Routes = [
   {
@@ -71,7 +74,12 @@ const routes: Routes = [
           {path: '', component: SportKindAdminPageComponent}
         ]
       },
-      {path: 'coaches', component: CoachesAdminPageComponent}
+      {path: 'coaches', component: CoachesAdminPageComponent},
+      {path: 'eduEntities', children: [
+          {path: 'create', component: EducationalEntityCreatorComponent},
+          {path: 'edit/:id', component: EducationalEntityEditorComponent},
+          {path: '', component: EducationalEntityAdminPageComponent}
+        ]}
     ]
   }
 ];

@@ -5,7 +5,6 @@ import { SuperAdminLayoutRoutingModule } from './super-admin-layout-routing.modu
 import { SuperAdminLayoutComponent } from './super-admin-layout.component';
 import { UserAdminPageComponent } from './user-admin-page/user-admin-page.component';
 import { PlacesAdminPageComponent } from './places-admin-page/places-admin-page.component';
-import { SportsAdminPageComponent } from './sports-admin-page/sports-admin-page.component';
 import { CoachesAdminPageComponent } from './coaches-admin-page/coaches-admin-page.component';
 import { UserCreatorComponent } from './creators-editors/user-creator/user-creator.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
@@ -26,6 +25,9 @@ import { TownEditorComponent } from './creators-editors/town-editor/town-editor.
 import { AppointmentPlaceAdminPageComponent } from './appointment-place-admin-page/appointment-place-admin-page.component';
 import { AppointmentPlaceCreatorComponent } from './creators-editors/appointment-place-creator/appointment-place-creator.component';
 import { AppointmentPlaceEditorComponent } from './creators-editors/appointment-place-editor/appointment-place-editor.component';
+import { EducationalEntityAdminPageComponent } from './educational-entity-admin-page/educational-entity-admin-page.component';
+import { EducationalEntityCreatorComponent } from './creators-editors/educational-entity-creator/educational-entity-creator.component';
+import { EducationalEntityEditorComponent } from './creators-editors/educational-entity-editor/educational-entity-editor.component';
 
 
 @NgModule({
@@ -33,7 +35,6 @@ import { AppointmentPlaceEditorComponent } from './creators-editors/appointment-
     SuperAdminLayoutComponent,
     UserAdminPageComponent,
     PlacesAdminPageComponent,
-    SportsAdminPageComponent,
     CoachesAdminPageComponent,
     UserCreatorComponent,
     UserEditorComponent,
@@ -51,7 +52,10 @@ import { AppointmentPlaceEditorComponent } from './creators-editors/appointment-
     TownEditorComponent,
     AppointmentPlaceAdminPageComponent,
     AppointmentPlaceCreatorComponent,
-    AppointmentPlaceEditorComponent],
+    AppointmentPlaceEditorComponent,
+    EducationalEntityAdminPageComponent,
+    EducationalEntityCreatorComponent,
+    EducationalEntityEditorComponent],
   imports: [
     FormsModule,
     ReactiveFormsModule,

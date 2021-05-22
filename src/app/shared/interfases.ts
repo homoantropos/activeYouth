@@ -72,8 +72,10 @@ export interface EducationEntity {
   name: string;
   category?: number;
   type: string;
+  country?: Country;
+  reg?: Region;
   region?: string;
-  eduentity_id?: string;
+  id?: number;
 }
 
 export interface Participant {

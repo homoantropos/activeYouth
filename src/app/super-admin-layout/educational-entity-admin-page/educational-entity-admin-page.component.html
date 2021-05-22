@@ -1,0 +1,91 @@
+<nav>
+  <ul>
+    <li>
+      <button mat-button color="primary" class="widthButton" (click)="changeEduEntityType('ЗЗСО')">
+        ЗЗСО
+      </button>
+    </li>
+    <li>
+      <button mat-button color="primary" class="widthButton" (click)="changeEduEntityType('ЗП(ПТ)О')">
+        ЗП(ПТ)О
+      </button>
+    </li>
+    <li>
+      <button mat-button color="primary" class="widthButton" (click)="changeEduEntityType('ЗФПВО')">
+        ЗФПВО
+      </button>
+    </li>
+    <li>
+      <button mat-button color="primary" class="widthButton" (click)="changeEduEntityType('ЗВО')">
+        ЗВО
+      </button>
+    </li>
+    <li>
+      <button mat-raised-button color="primary" class="widthButton" (click)="goToCreator()">
+        Додати
+      </button>
+    </li>
+  </ul>
+</nav>
+
+<div
+  class="table-container"
+  *ngIf="educationalEntities$ | async as datasource; else loader">
+  <table mat-table
+         class="mat-elevation-z8"
+         [dataSource]="datasource"
+  >
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef>Заклад освіти</th>
+      <td mat-cell *matCellDef="let eduEntity">
+        {{eduEntity.name}}
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="country">
+      <th mat-header-cell *matHeaderCellDef>Країна</th>
+      <td mat-cell *matCellDef="let eduEntity">
+        {{eduEntity.region.country.country_name | titlecase}}
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="region">
+      <th mat-header-cell *matHeaderCellDef>Регіон</th>
+      <td mat-cell *matCellDef="let eduEntity">
+        {{eduEntity.region.region_name}}
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="category">
+      <th mat-header-cell *matHeaderCellDef>Категорія</th>
+      <td mat-cell *matCellDef="let eduEntity">
+        {{eduEntity.category}}
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="edit">
+      <th mat-header-cell *matHeaderCellDef>Редагувати</th>
+      <td mat-cell *matCellDef="let eduEntity">
+        <button mat-button color="primary" (click)="goToEditor(eduEntity.id)">
+          Редагувати
+        </button>
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="delete">
+      <th mat-header-cell *matHeaderCellDef>Видалити</th>
+      <td mat-cell *matCellDef="let eduEntity">
+        <button mat-button color="primary" (click)="deleteEduEntity(eduEntity.id)">
+          Редагувати
+        </button>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+  </table>
+</div>
+
+<ng-template #loader>
+  <app-loader></app-loader>
+</ng-template>

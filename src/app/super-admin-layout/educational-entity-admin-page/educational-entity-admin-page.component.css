@@ -1,0 +1,11 @@
+nav {
+  justify-content: center;
+}
+
+.widthButton {
+  width: 10vw;
+}
+
+button:active {
+  color: red;
+}
