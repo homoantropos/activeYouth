@@ -33,7 +33,7 @@
   *ngIf="educationalEntities$ | async as datasource; else loader">
   <table mat-table
          class="mat-elevation-z8"
-         [dataSource]="datasource"
+         [dataSource]="datasource | paginate: { itemsPerPage: 10, currentPage: paginatorStartPageNumber }"
   >
     <ng-container matColumnDef="name">
       <th mat-header-cell *matHeaderCellDef>Заклад освіти</th>
@@ -85,6 +85,13 @@
     <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
   </table>
 </div>
+
+<pagination-controls
+  class="my-pagination"
+  (pageChange)="paginatorStartPageNumber = $event"
+  previousLabel="назад"
+  nextLabel="уперед"
+></pagination-controls>
 
 <ng-template #loader>
   <app-loader></app-loader>

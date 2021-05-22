@@ -14,6 +14,7 @@ export class EducationalEntityAdminPageComponent implements OnInit {
   educationalEntities$: Observable<Array<EducationalEntity>>;
   eduEntityType = 'ЗВО';
   displayedColumns = ['name', 'country', 'region', 'category', 'edit', 'delete'];
+  paginatorStartPageNumber = 0;
 
   constructor(
     private eduEntityService: EducationalEntityService,
