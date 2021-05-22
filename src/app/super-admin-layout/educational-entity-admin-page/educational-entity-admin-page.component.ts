@@ -39,7 +39,7 @@ export class EducationalEntityAdminPageComponent implements OnInit {
 
   deleteEduEntity(id: number): void {
     this.eduEntityService.deleteEduEntity(id).subscribe(
-      message => alert(message.)
+      message => alert(message)
     );
   }
 }
