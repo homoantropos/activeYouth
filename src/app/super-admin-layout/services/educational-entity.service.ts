@@ -15,6 +15,10 @@ export class EducationalEntityService {
     private http: HttpClient
   ) { }
 
+  createEduEntity(eduEntity: EducationEntity): Observable<EducationEntity>{
+    return this.http.post<EducationEntity>(`${environment.postgresDbUrl}/eduEntity`, eduEntity);
+  }
+
   getEduEntities(eduEntityType: string): Observable<Array<EducationEntity>> {
     return this.http.get<Array<EducationEntity>>(`${environment.postgresDbUrl}/eduEntity?eduEntityType=${eduEntityType}`);
   }
