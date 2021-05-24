@@ -60,7 +60,7 @@ export class EducationalEntityCreatorComponent implements OnInit {
         this.router.navigate(['superadmin', 'eduEntities']);
       },
       error => {
-        alert(`${error.error.message}`);
+        this.eduEntityService.errorHandle(error);
         this.eduEntityCreatorFrom.enable();
       }
     );
