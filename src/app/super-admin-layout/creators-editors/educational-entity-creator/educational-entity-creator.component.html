@@ -1,7 +1,8 @@
-<div *ngIf="eduEntityCreatorFrom; else loader" class="form-container">
+<div *ngIf="eduEntityCreatorFrom; else loader" class="forms-container" [ngStyle]="{padding: '2%'}">
   <form
     [formGroup]="eduEntityCreatorFrom"
     (ngSubmit)="onCreate(eduEntityCreatorFrom.value)"
+    class="login-container"
   >
     <h4>Додати навчальний заклад</h4>
 
@@ -13,7 +14,7 @@
       {{ message }}
     </div>
 
-    <mat-form-field>
+    <mat-form-field class="forms-inputs">
       <mat-label>введіть назву закладу освіти...</mat-label>
       <input class="forms-inputs"
              matInput
@@ -41,7 +42,7 @@
         <mat-radio-button value=6>шоста</mat-radio-button>
       </mat-radio-group>
     </div>
-    <mat-form-field title="region_name">
+    <mat-form-field title="region_name" class="forms-inputs">
       <mat-label>регіон проведення...</mat-label>
       <input type="text"
              placeholder="регіон проведення..."

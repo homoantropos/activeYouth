@@ -92,9 +92,9 @@ export interface Participant {
 export interface Coach {
   coach_name: string;
   surname: string;
-  fatherName: string;
+  fathersName: string;
   gender: string;
-  coach_id?: string;
+  id?: number;
 }
 
 export interface Result {
