@@ -23,16 +23,24 @@ export class EducationalEntityService {
     return this.http.get<Array<EducationEntity>>(`${environment.postgresDbUrl}/eduEntity?eduEntityType=${eduEntityType}`);
   }
 
-  deleteEduEntity(id: number): Observable<string> {
-    return this.http.delete<string>(`${environment.postgresDbUrl}/eduEntity/${id}`);
+  getOneEduEntityById(id: number): Observable<EducationEntity> {
+    return this.http.get<EducationEntity>(`${environment.postgresDbUrl}/eduEntity/${id}`);
+  }
+
+  deleteEduEntity(id: number): Observable<{message: string}> {
+    return this.http.delete<{message: string}>(`${environment.postgresDbUrl}/eduEntity/${id}`);
+  }
+
+  updateEduEntity(eduEntity: EducationEntity): Observable<{message: string}> {
+    return this.http.patch<{message: string}>(`${environment.postgresDbUrl}/eduEntity/${eduEntity.id}`, eduEntity);
   }
 
   public errorHandle(error: HttpErrorResponse): any {
     const message = error.error.message;
     if (message) {
       switch (message) {
-        case('повторювані значення ключа порушують обмеження унікальності "country_country_name_key"'):
-          this.error$.next('така назва країни вже зареєстрована.');
+        case('повторювані значення ключа порушують обмеження унікальності "educational_entity_name_eduEntityType_regionId_key"'):
+          this.error$.next('такий навчальний заклад вже зареєстровано.');
           break;
       }
     }

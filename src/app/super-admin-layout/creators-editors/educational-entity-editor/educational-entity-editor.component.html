@@ -1,1 +1,71 @@
-<p>educational-entity-editor works!</p>
+<div *ngIf="eduEntityEditorForm; else loader" class="forms-container" [ngStyle]="{padding: '2%'}">
+  <form
+    [formGroup]="eduEntityEditorForm"
+    (ngSubmit)="onUpdate(eduEntityEditorForm.value)"
+    class="login-container"
+  >
+    <h4>Додати навчальний заклад</h4>
+
+    <div class="alert danger" *ngIf="eduEntityService.error$ | async as error">
+      {{ error }}
+    </div>
+
+    <div class="alert info" *ngIf="message && eduEntityEditorForm.untouched">
+      {{ message }}
+    </div>
+
+    <mat-form-field class="forms-inputs">
+      <mat-label>введіть назву закладу освіти...</mat-label>
+      <input class="forms-inputs"
+             matInput
+             title="eduEntityNameInput"
+             type="text"
+             formControlName="name">
+    </mat-form-field>
+
+    <small>тип закладу освіти: </small>
+    <mat-radio-group title="eduEntityType" formControlName="eduEntityType">
+      <mat-radio-button value="ЗЗСО">ЗЗСО</mat-radio-button>
+      <mat-radio-button value="ЗП(ПТ)О">ЗП(ПТ)О</mat-radio-button>
+      <mat-radio-button value="ЗФПВО">ЗФПВО</mat-radio-button>
+      <mat-radio-button value="ЗВО">ЗВО</mat-radio-button>
+    </mat-radio-group>
+
+    <div *ngIf="eduEntityType && eduEntityType ==='ЗВО'">
+      <small>категорія ЗВО</small>
+      <mat-radio-group title="category" formControlName="category">
+        <mat-radio-button value=1>перша</mat-radio-button>
+        <mat-radio-button value=2>друга</mat-radio-button>
+        <mat-radio-button value=3>третя</mat-radio-button>
+        <mat-radio-button value=4>четверта</mat-radio-button>
+        <mat-radio-button value=5>п'ята</mat-radio-button>
+        <mat-radio-button value=6>шоста</mat-radio-button>
+      </mat-radio-group>
+    </div>
+    <mat-form-field title="region_name" class="forms-inputs">
+      <mat-label>регіон проведення...</mat-label>
+      <input type="text"
+             placeholder="регіон проведення..."
+             aria-label="region_name"
+             matInput
+             formControlName="region_name"
+             [matAutocomplete]="region">
+      <mat-autocomplete #region="matAutocomplete">
+        <mat-option *ngFor="let option of regionFilteredOptions | async" [value]="option">
+          {{option}}
+        </mat-option>
+      </mat-autocomplete>
+    </mat-form-field>
+
+    <button mat-button
+            color="primary"
+            [disabled]="eduEntityEditorForm.invalid || submitted">Додати
+    </button>
+
+  </form>
+</div>
+
+<ng-template #loader>
+  <app-loader></app-loader>
+</ng-template>
+

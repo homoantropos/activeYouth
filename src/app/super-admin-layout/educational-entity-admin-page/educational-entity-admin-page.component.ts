@@ -40,9 +40,8 @@ export class EducationalEntityAdminPageComponent implements OnInit {
 
   deleteEduEntity(id: number): void {
     this.eduEntityService.deleteEduEntity(id).subscribe(
-      message => {
-        console.log(message);
-        alert(`${message}`);
+      res => {
+        alert(res.message);
         this.ngOnInit();
       }
     );

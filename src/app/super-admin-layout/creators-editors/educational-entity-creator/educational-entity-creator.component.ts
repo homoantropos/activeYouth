@@ -31,10 +31,10 @@ export class EducationalEntityCreatorComponent implements OnInit {
 
   ngOnInit(): void {
     this.eduEntityCreatorFrom = new FormGroup({
-      name: new FormControl('', Validators.required),
+      name: new FormControl('', [Validators.required]),
       category: new FormControl(null),
-      eduEntityType: new FormControl('', Validators.required),
-      region_name: new FormControl('', Validators.required)
+      eduEntityType: new FormControl('', [Validators.required]),
+      region_name: new FormControl('', [Validators.required])
     });
     // @ts-ignore
     this.regionFilteredOptions = this.eduEntityCreatorFrom.get('region_name').valueChanges
