@@ -4,7 +4,7 @@ import {TownService} from '../../services/town.service';
 import {ActivatedRoute, Params, Router} from '@angular/router';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import { startWith } from 'rxjs/internal/operators/startWith';
-import { map } from 'rxjs/operators';
+import {map, switchMap} from 'rxjs/operators';
 import {AutoUpdateArrays} from '../../../shared/utils/autoUpdateArrays';
 import {Town} from '../../../shared/interfases';
 
@@ -37,12 +37,14 @@ export class TownEditorComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    this.route.params.subscribe(
-      (params: Params) => {
-        this.townId = params.id;
-      }
-    );
-    this.townService.getOneTownById(this.townId).subscribe(
+    this.route.paramMap.pipe(
+      switchMap(
+        (params: Params) => {
+          this.townId = params.get('id');
+          return this.townService.getOneTownById(params.get('id'));
+        }
+      )
+    ).subscribe(
       res => {
         this.townEditorForm = new FormGroup({
           town_name: new FormControl(res.town_name, [

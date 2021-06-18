@@ -4,7 +4,7 @@ import {Observable, Subscription} from 'rxjs';
 import {AppointmentPlace, Country, SportKind} from '../../../shared/interfases';
 import {AppointmentPlaceService} from '../../services/appointment-place.service';
 import {ActivatedRoute, Params, Router} from '@angular/router';
-import {map, startWith} from 'rxjs/operators';
+import {map, startWith, switchMap} from 'rxjs/operators';
 import {AutoUpdateArrays} from '../../../shared/utils/autoUpdateArrays';
 
 @Component({
@@ -37,10 +37,14 @@ export class AppointmentPlaceEditorComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    this.route.params.subscribe(
-      (params: Params) => this.appointmentPlaceId = params.id
-    );
-    this.apSub = this.appointmentPlaceService.getOneAppointmentPlaceById(this.appointmentPlaceId).subscribe(
+    this.route.paramMap.pipe(
+      switchMap(
+        (params: Params) => {
+          this.appointmentPlaceId = params.get('id');
+          return this.appointmentPlaceService.getOneAppointmentPlaceById(params.get('id'));
+        }
+      )
+    ).subscribe(
       appointmentPlace =>
     {
       this.appointmentPlaceEditorForm = new FormGroup({
@@ -100,7 +104,7 @@ export class AppointmentPlaceEditorComponent implements OnInit, OnDestroy {
 
   onCreate(appointmentPlace: AppointmentPlace): void {
     appointmentPlace.id = this.appointmentPlaceId;
-    this.appointmentPlaceService.updateAppointmentPlace(appointmentPlace)
+    this.apSub = this.appointmentPlaceService.updateAppointmentPlace(appointmentPlace)
       .subscribe(
         appointmentPlc => {
           this.router.navigate(['superadmin', 'appointmentPlaces']);
@@ -114,6 +118,9 @@ export class AppointmentPlaceEditorComponent implements OnInit, OnDestroy {
     this.countries.splice(0);
     this.regionsName.splice(0);
     this.townsName.splice(0);
+    if (this.apSub) {
+      this.apSub.unsubscribe();
+    }
   }
 
 }

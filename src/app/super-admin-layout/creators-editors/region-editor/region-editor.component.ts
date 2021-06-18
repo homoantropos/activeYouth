@@ -4,6 +4,7 @@ import {Country, Region} from '../../../shared/interfases';
 import {ActivatedRoute, Params, Router} from '@angular/router';
 import {RegionService} from '../../services/region.service';
 import {AutoUpdateArrays} from '../../../shared/utils/autoUpdateArrays';
+import {switchMap} from 'rxjs/operators';
 
 @Component({
   selector: 'app-region-editor',
@@ -31,12 +32,14 @@ export class RegionEditorComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    this.route.params.subscribe(
-      (params: Params) => {
-        this.regionId = params.id;
-      }
-    );
-    this.regionService.getOneRegionById(this.regionId).subscribe(
+    this.route.paramMap.pipe(
+      switchMap(
+        (params: Params) => {
+          this.regionId = params.get('id');
+          return  this.regionService.getOneRegionById(params.get('id'));
+        }
+      )
+    ).subscribe(
       region => {
         this.regionEditorForm = new FormGroup({
           region_name: new FormControl(region.region_name, [

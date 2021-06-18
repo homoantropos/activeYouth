@@ -4,7 +4,7 @@ import {EducationalEntityService} from '../../services/educational-entity.servic
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {EducationEntity} from '../../../shared/interfases';
 import {Observable} from 'rxjs';
-import {map, startWith} from 'rxjs/operators';
+import {map, startWith, switchMap} from 'rxjs/operators';
 import {AutoUpdateArrays} from '../../../shared/utils/autoUpdateArrays';
 
 @Component({
@@ -33,10 +33,14 @@ export class EducationalEntityEditorComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.route.params.subscribe(
-      (params: Params) => this.eduEntityId = params.id
-    );
-    this.eduEntityService.getOneEduEntityById(this.eduEntityId).subscribe(
+    this.route.paramMap.pipe(
+      switchMap(
+        (params: Params) => {
+          this.eduEntityId = params.get('id');
+          return this.eduEntityService.getOneEduEntityById(params.get('id'));
+        }
+      )
+    ).subscribe(
       eduEntity => {
         console.log(eduEntity);
         this.eduEntityEditorForm = new FormGroup({

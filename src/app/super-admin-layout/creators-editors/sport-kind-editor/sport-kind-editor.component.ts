@@ -4,6 +4,7 @@ import {SportKind} from '../../../shared/interfases';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {SportKindService} from '../../services/sport-kind.service';
 import {ActivatedRoute, Params, Router} from '@angular/router';
+import {switchMap} from 'rxjs/operators';
 
 @Component({
   selector: 'app-sport-kind-editor',
@@ -31,12 +32,14 @@ export class SportKindEditorComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    this.route.params.subscribe(
-      (params: Params) => {
-        this.sportKindId = params.id;
-      }
-    );
-    this.sportKindService.getOneSportKindById(this.sportKindId).subscribe(
+    this.route.paramMap.pipe(
+      switchMap(
+        (params: Params) => {
+          this.sportKindId = params.get('id');
+          return this.sportKindService.getOneSportKindById(params.get('id'));
+        }
+      )
+    ).subscribe(
       sportKind => {
         this.sportKindEditorForm = new FormGroup({
           sport_kind: new FormControl(sportKind.sport_kind, [
