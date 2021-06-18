@@ -3,6 +3,7 @@ import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {Country} from '../../../shared/interfases';
 import {ActivatedRoute, Params, Router} from '@angular/router';
 import {CountryService} from '../../services/country.service';
+import {switchMap} from 'rxjs/operators';
 
 @Component({
   selector: 'app-country-editor',
@@ -27,12 +28,12 @@ export class CountryEditorComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    this.route.params.subscribe(
-      (params: Params) => {
-        this.countryId = params.id;
-      }
-    );
-    this.countryService.getOneCountryById(this.countryId).subscribe(
+    this.route.paramMap.pipe(
+      switchMap((params: Params) => {
+        this.countryId = params.get('id');
+        return this.countryService.getOneCountryById(params.get('id'));
+      })
+    ).subscribe(
       country => {
         this.countryEditorForm = new FormGroup({
           country_name: new FormControl(country.country_name, [
