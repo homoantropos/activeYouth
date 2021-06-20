@@ -5,6 +5,7 @@ import {AuthService} from '../../../admin-layout/auth/auth.service';
 import {UserService} from '../../services/user.service';
 import {ActivatedRoute, Params, Router} from '@angular/router';
 import {User} from '../../../shared/interfases';
+import {switchMap} from 'rxjs/operators';
 
 @Component({
   selector: 'app-user-editor',
@@ -31,8 +32,14 @@ export class UserEditorComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    this.route.params.subscribe((params: Params) => this.userId = (params.id) as number);
-    this.userService.getOneUserById(this.userId).subscribe(user => {
+    this.route.paramMap.pipe(
+      switchMap(
+        (params: Params) => {
+          this.userId = params.get('id');
+          return this.userService.getOneUserById(params.get('id'));
+        }
+      )
+    ).subscribe(user => {
       this.userEditorForm = new FormGroup({
         email: new FormControl(user.email, [
           Validators.required,

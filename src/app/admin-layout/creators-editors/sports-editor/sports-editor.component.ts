@@ -6,6 +6,7 @@ import {ActivatedRoute, Params, Router} from '@angular/router';
 import {Activity} from '../../../shared/interfases';
 import {Subscription} from 'rxjs';
 import {AuthService} from '../../auth/auth.service';
+import {switchMap} from 'rxjs/operators';
 
 @Component({
   selector: 'app-sports-editor',
@@ -31,8 +32,14 @@ export class SportsEditorComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    this.route.params.subscribe((params: Params) => this.activityId = (params.id) as number);
-    this.activityService.getActivityByID(this.activityId).subscribe(
+    this.route.paramMap.pipe(
+      switchMap(
+        (params: Params) => {
+          this.activityId = params.get('id');
+          return this.activityService.getActivityByID(params.get('id'));
+        }
+      )
+    ).subscribe(
       (activity: Activity) => {
         this.activity = activity;
         this.sportsEditorForm = new FormGroup({

@@ -3,6 +3,7 @@ import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {Subscription} from 'rxjs';
 import {ActivatedRoute, Params, Router} from '@angular/router';
 import {ReportService} from '../../../shared/services/report.service';
+import {switchMap} from 'rxjs/operators';
 
 @Component({
   selector: 'app-report-editor',
@@ -23,13 +24,17 @@ export class ReportEditorComponent implements OnInit, OnDestroy {
     private route: ActivatedRoute,
     private reportService: ReportService,
     private router: Router
-  ) { }
+  ) {
+  }
 
   ngOnInit(): void {
-    this.rSub = this.route.params.subscribe(
-      (params: Params) => this.reportId = params.id
-    );
-    this.rSub = this.reportService.getStatisticByID(this.reportId).subscribe(
+    this.route.paramMap.pipe(
+      switchMap((params: Params) => {
+          this.reportId = params.get('id');
+          return this.reportService.getStatisticByID(params.get('id'));
+        }
+      )
+    ).subscribe(
       report => {
         this.report = report;
         this.reportEditorForm = new FormGroup({
