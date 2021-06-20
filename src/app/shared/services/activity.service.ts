@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {Observable, of} from 'rxjs';
+import {Observable} from 'rxjs';
 import {HttpClient} from '@angular/common/http';
 
 import {Activity} from '../interfases';
@@ -16,8 +16,17 @@ export class ActivityService {
   ) {
   }
 
-  createActivity(activity: Activity): Observable<Activity> {
-    return this.http.post<Activity>(`${environment.postgresDbUrl}/activity`, activity);
+  createActivity(activity: Activity, file?: File): Observable<Activity> {
+    const fd = new FormData();
+    if (file) {
+      fd.append('image', file);
+    }
+    fd.append('title', activity.title);
+    fd.append('author', activity.author);
+    fd.append('content', activity.content);
+    // @ts-ignore
+    fd.append('kindOfActivity', activity.kindOfActivity);
+    return this.http.post<Activity>(`${environment.postgresDbUrl}/activity`, fd);
   }
 
   deleteActivity(id: string): Observable<any> {
