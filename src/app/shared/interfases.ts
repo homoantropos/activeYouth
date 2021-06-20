@@ -9,6 +9,7 @@ export interface Activity {
   title: string;
   author: string;
   content: string;
+  imageSrc?: string;
   id?: number;
   date?: Date;
   kindOfActivity?: string;
