@@ -22,6 +22,7 @@ export interface Appointment {
   finish: Date;
   duration: number;
   appointment_place: AppointmentPlace;
+  logoSrc?: string;
   organizationsParticipants: string;
   sportKind?: SportKind;
   kpkv: number;
@@ -159,5 +160,6 @@ export interface News {
   title: string;
   date: Date;
   content: string;
+  imagesScr?: Array<string>;
   _id?: string;
 }
