@@ -1,4 +1,4 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
+import {Component, ElementRef, OnDestroy, OnInit, ViewChild} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 
 import {AppointmentFinancing, Country, SportKind} from '../../../shared/interfases';
@@ -38,6 +38,10 @@ export class AppointmentCreatorComponent implements OnInit, OnDestroy {
   minDate = new Date();
   // @ts-ignore
   minFinishDate$: Observable<Date>;
+  // @ts-ignore
+  image: File;
+  // @ts-ignore
+  @ViewChild('input') inputRef: ElementRef;
 
   constructor(
     private appointmentService: AppointmentService,
@@ -149,6 +153,10 @@ export class AppointmentCreatorComponent implements OnInit, OnDestroy {
       .map(appointmentPlace => this.appointmentPlaceNames.push(appointmentPlace.appointment_place_name));
     this.appointmentPlaceNames = this.appointmentPlaceNames.filter((v, i, a) => a.indexOf(v) === i);
     return this.appointmentPlaceNames.filter(option => option.toLowerCase().includes(filterValue));
+  }
+
+  onDownload(): void {
+    this.inputRef.nativeElement.click();
   }
 
   onCreate(value: any): void {

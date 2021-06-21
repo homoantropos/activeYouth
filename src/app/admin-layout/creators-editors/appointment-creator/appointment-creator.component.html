@@ -219,6 +219,18 @@
       <mat-radio-button value="УФУС">УФУС</mat-radio-button>
     </mat-radio-group>
 
+    <input
+      type="file"
+      class="dn"
+      #input
+    >
+    <button
+      mat-button
+      color="primary"
+      (click)="onDownload()"
+    >
+      завантажити логотип заходу
+    </button>
 
     <br>
     <button mat-raised-button
