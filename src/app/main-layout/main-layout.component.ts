@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-main-layout',
@@ -7,5 +8,11 @@ import { Component } from '@angular/core';
 })
 
 export class MainLayoutComponent {
-  constructor( ) {  }
+  constructor(
+    private router: Router
+  ) {  }
+
+  goToLoginPage(): void {
+    this.router.navigate(['admin', 'login']);
+  }
 }

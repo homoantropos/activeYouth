@@ -5,7 +5,7 @@
       <a routerLink="main" routerLinkActive="active">Головна</a>
     </li>
     <li>
-    <a routerLink="activities" routerLinkActive="active">Фізична культура</a>
+      <a routerLink="activities" routerLinkActive="active">Фізична культура</a>
     </li>
     <li>
       <a routerLink="sports" routerLinkActive="active">Спорт</a>
@@ -23,5 +23,9 @@
       <a routerLink="organizator" routerLinkActive="active">Організаторам</a>
     </li>
   </ul>
+  <button mat-button color="primary" (click)="goToLoginPage()" [ngStyle]="{color: 'black'}">
+    Увійти
+  </button>
 </nav>
+
 <router-outlet></router-outlet>

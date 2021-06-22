@@ -18,12 +18,15 @@ export class ScheduleComponent implements OnInit, AfterViewInit {
   // @ts-ignore
   schedule$: Observable<Array<Appointment>>;
   currentPage = 1;
-  displayedColumns: string[] = ['title', 'termsOfHolding', 'place'];
+  displayedColumns: string[] = ['title', 'termsOfHolding', 'place', 'applyTeam'];
   paginatorConfig = { itemsPerPage: 10, currentPage: this.currentPage };
   // @ts-ignore
   @ViewChild(MatPaginator) paginator: MatPaginator;
   // @ts-ignore
   dataSource: MatTableDataSource<Appointment>;
+  // @ts-ignore
+  public userRole: string;
+
   constructor(
     private router: Router,
     private appointmentService: AppointmentService
@@ -31,6 +34,8 @@ export class ScheduleComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit(): void {
+    // @ts-ignore
+    this.userRole = localStorage.getItem('role');
     this.schedule$ = this.appointmentService.getAllAppointmentPSQL();
   }
 
