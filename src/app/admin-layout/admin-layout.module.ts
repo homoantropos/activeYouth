@@ -25,6 +25,7 @@ import { ReportEditorComponent } from './creators-editors/report-editor/report-e
 import { CalendarComponent } from './calendar/calendar.component';
 import { TeacherAdminPageComponent } from './teacher-admin-page/teacher-admin-page.component';
 import { OrganizatorAdminPageComponent } from './organizator-admin-page/organizator-admin-page.component';
+import {AuthGuardService} from './auth/auth-guard.service';
 
 @NgModule({
   declarations: [
@@ -55,6 +56,9 @@ import { OrganizatorAdminPageComponent } from './organizator-admin-page/organiza
     QuillModule,
     SharedModule,
     MatRadioModule
+  ],
+  providers: [
+    AuthGuardService
   ]
 })
 export class AdminLayoutModule { }

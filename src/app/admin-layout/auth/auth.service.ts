@@ -48,16 +48,17 @@ export class AuthService {
   logOut(): void {
     this.setToken(null);
     localStorage.clear();
-    this.router.navigate(['/login']);
+    alert('Ви вийшли з сайту');
+    this.router.navigate(['/']);
   }
+
 
   isAuthenticated(): boolean {
     return !!this.token;
   }
 
   role(): string | null {
-    const role = localStorage.getItem('role');
-    return role;
+    return localStorage.getItem('role');
   }
 
   setToken(token: string | null): void {
