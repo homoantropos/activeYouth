@@ -28,7 +28,7 @@ import {EducationalEntityEditorComponent} from './creators-editors/educational-e
 
 const routes: Routes = [
   {
-    path: '', component: SuperAdminLayoutComponent, canActivate: [AuthGuardService], children: [
+    path: '', component: SuperAdminLayoutComponent, canActivate: [AuthGuardService], canActivateChild: [AuthGuardService], children: [
       {path: '', redirectTo: 'users', pathMatch: 'full'},
       {
         path: 'users', children: [
@@ -44,7 +44,7 @@ const routes: Routes = [
         ]
       },
       {
-        path: 'places', component: PlacesAdminPageComponent, canActivate: [AuthGuardService], children: [
+        path: 'places', component: PlacesAdminPageComponent, children: [
           {path: '', redirectTo: 'countries', pathMatch: 'full'},
 
           {

@@ -17,6 +17,7 @@ import {OrganizatorsPageComponent} from './organizators-page/organizators-page.c
 const routes: Routes = [
   { path: '', component: MainLayoutComponent, children: [
       {path: '', redirectTo: 'main', pathMatch: 'full'},
+      {path: 'login', component: LoginPageComponent},
       {path: 'main', component: MainPageComponent},
       {path: 'activities', component: ActivitiesPageComponent},
       {path: 'activities/:id', component: ActivityDetailsComponent},

@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AdminLayoutComponent } from './admin-layout.component';
-import {LoginPageComponent} from './login-page/login-page.component';
 import {ScheduleDashboardComponent} from './schedule-dashboard/schedule-dashboard.component';
 import {AppointmentCreatorComponent} from './creators-editors/appointment-creator/appointment-creator.component';
 import {ActivitiesDashboardComponent} from './activities-dashboard/activities-dashboard.component';
@@ -25,42 +24,41 @@ import {TeacherAdminPageComponent} from './teacher-admin-page/teacher-admin-page
 import {OrganizatorAdminPageComponent} from './organizator-admin-page/organizator-admin-page.component';
 
 const routes: Routes = [
-  { path: '', component: AdminLayoutComponent, children: [
-      {path: '', redirectTo: 'login', pathMatch: 'full'},
-      {path: 'login', component: LoginPageComponent},
-      {path: 'statistic', canActivate: [AuthGuardService], children: [
+  { path: '', component: AdminLayoutComponent, canActivate: [AuthGuardService], canActivateChild: [AuthGuardService], children: [
+      {path: '', redirectTo: 'activities', pathMatch: 'full'},
+      {path: 'statistic',  children: [
           {path: '', component: StatisticDashboardComponent},
           {path: ':id', component: StatisticDetailsComponent},
           {path: 'edit/:id', component: ReportEditorComponent}
         ]},
-      {path: 'activities', canActivate: [AuthGuardService], children: [
+      {path: 'activities', children: [
           {path: '', component: ActivitiesDashboardComponent},
           {path: 'create', component: ActivityCreatorComponent},
           {path: 'edit/:id', component: ActivityEditorComponent},
           {path: ':id', component: ActivityDetailsComponent}
         ]},
-      {path: 'sports', canActivate: [AuthGuardService], children: [
+      {path: 'sports', children: [
           {path: '', component: SportsDashboardComponent},
           {path: 'create', component: SportsCreatorComponent},
           {path: 'edit/:id', component: SportsEditorComponent},
           {path: ':id', component: ActivityDetailsComponent}
         ]},
-      {path: 'schedule', canActivate: [AuthGuardService], children: [
+      {path: 'schedule', children: [
           {path: '', component: ScheduleDashboardComponent},
           {path: 'create', component: AppointmentCreatorComponent},
           {path: 'edit/:id', component: AppointmentEditorComponent},
           {path: ':id', component: AppointmentDetailsComponent}
         ]},
-      {path: 'rating', canActivate: [AuthGuardService], children: [
+      {path: 'rating', children: [
           {path: '', component: ResultsDashboardComponent},
           {path: 'create', component: ResultsCreatorComponent},
           {path: 'edit/:id', component: ResultsEditorComponent}
         ]},
-      {path: 'calendar', component: CalendarComponent, canActivate: [AuthGuardService]},
-      {path: 'teacher', canActivate: [AuthGuardService], children: [
+      {path: 'calendar', component: CalendarComponent},
+      {path: 'teacher', children: [
           {path: '', component: TeacherAdminPageComponent}
         ]},
-      {path: 'organizator', canActivate: [AuthGuardService], children: [
+      {path: 'organizator', children: [
           {path: '', component: OrganizatorAdminPageComponent}
         ]}
     ] }];

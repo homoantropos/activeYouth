@@ -13,6 +13,6 @@ export class MainLayoutComponent {
   ) {  }
 
   goToLoginPage(): void {
-    this.router.navigate(['admin', 'login']);
+    this.router.navigate(['login']);
   }
 }

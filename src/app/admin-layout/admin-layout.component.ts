@@ -3,7 +3,6 @@ import {AuthService} from './auth/auth.service';
 import {Router} from '@angular/router';
 
 import {AutoUpdateArraysCreateService} from '../shared/services/auto-update-arrays-create.service';
-import {AutoUpdateArrays} from '../shared/utils/autoUpdateArrays';
 
 @Component({
   selector: 'app-admin-layout',
@@ -26,7 +25,6 @@ export class AdminLayoutComponent implements OnInit {
   goToMainPage(): void {
     this.router.navigate(['main']);
   }
-
 }
 
 
