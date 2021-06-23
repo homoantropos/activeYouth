@@ -17,15 +17,11 @@ export class SuperAdminLayoutComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    if (this.auth.role() === 'superadmin') {
-      const existToken = localStorage.getItem('auth-token');
-      if (existToken !== null){
-        this.auth.setToken(existToken);
-      }
-      this.autoUpdateCreator.createAutoUpdateArrays();
-    } else {
+    if (this.auth.role() !== 'superadmin') {
       this.router.navigate(['main']);
       alert('Немає доступу до цього рівня сайту');
+    } else {
+      this.autoUpdateCreator.createAutoUpdateArrays();
     }
   }
 

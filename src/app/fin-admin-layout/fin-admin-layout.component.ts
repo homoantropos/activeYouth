@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
 import {AuthService} from '../admin-layout/auth/auth.service';
 
@@ -12,15 +12,11 @@ export class FinAdminLayoutComponent implements OnInit {
   constructor(
     public auth: AuthService,
     private router: Router
-  ) { }
+  ) {
+  }
 
   ngOnInit(): void {
-    if (this.auth.role() === 'superadmin') {
-      const existToken = localStorage.getItem('auth-token');
-      if (existToken !== null){
-        this.auth.setToken(existToken);
-      }
-    } else {
+    if (this.auth.role() !== 'superadmin') {
       this.router.navigate(['main']);
       alert('Немає доступу до цього рівня сайту');
     }
@@ -28,6 +24,6 @@ export class FinAdminLayoutComponent implements OnInit {
 
   goToMainPage(): void {
     this.router.navigate(['main']);
-}
+  }
 
 }
