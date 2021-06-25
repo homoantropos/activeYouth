@@ -26,6 +26,7 @@ import { CalendarComponent } from './calendar/calendar.component';
 import { TeacherAdminPageComponent } from './teacher-admin-page/teacher-admin-page.component';
 import { OrganizatorAdminPageComponent } from './organizator-admin-page/organizator-admin-page.component';
 import {AuthGuardService} from './auth/auth-guard.service';
+import { ApplicationFormComponent } from './creators-editors/application-form/application-form.component';
 
 @NgModule({
   declarations: [
@@ -47,7 +48,8 @@ import {AuthGuardService} from './auth/auth-guard.service';
     ReportEditorComponent,
     CalendarComponent,
     TeacherAdminPageComponent,
-    OrganizatorAdminPageComponent],
+    OrganizatorAdminPageComponent,
+    ApplicationFormComponent],
   imports: [
     FormsModule,
     ReactiveFormsModule,

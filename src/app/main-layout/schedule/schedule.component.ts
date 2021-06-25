@@ -42,6 +42,9 @@ export class ScheduleComponent implements OnInit, AfterViewInit {
   ngAfterViewInit(): void {
   }
 
+  goToApplicationForm(): void {
+    this.router.navigate(['schedule', 'application']);
+  }
 }
 
 /* TODO:
