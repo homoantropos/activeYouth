@@ -88,7 +88,8 @@ export interface Participant {
   gender: string;
   schoolchildOrStudent: string;
   coach?: Coach;
-  participant_id?: string;
+  participant_id?: string; /*this will be removed*/
+  id?: number;
 }
 
 export interface Coach {
@@ -102,13 +103,18 @@ export interface Coach {
 export interface Result {
   appointment: Appointment;
   participant: Participant;
+  coach?: Coach;
   eduentity: EducationEntity;
+  reg?: Region;
   region?: string;
   discipline: string;
   place: number;
   ratingPoints: number;
-  result_id?: string;
-  person_id?: string;
+  completed?: false;
+  id?: number;
+  personId?: number;
+  result_id?: string; /*this will be removed*/
+  person_id?: string; /*this will be removed*/
 }
 
 export interface RatingBrick {

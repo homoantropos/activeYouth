@@ -1,1 +1,18 @@
-<p>application-form works!</p>
+<div *ngIf="applicationForm; else loader">
+  <h4>Подати заявку до участі в змаганнях</h4>
+  <h5>{{appointment.title + ', '
+  + appointment.appointment_place.town.town_name + ', '}}
+    {{appointment.start | date: 'dd.MM.yy' + '-'}}
+    {{appointment.finish | date: 'dd.MM.yy'}}</h5>
+  <form
+    [formGroup]="applicationForm"
+    (ngSubmit)="onApply(applicationForm.value)"
+  >
+
+  </form>
+</div>
+<app-results-list [results]="listOfParticipants"></app-results-list>
+
+<ng-template #loader>
+  <app-loader></app-loader>
+</ng-template>

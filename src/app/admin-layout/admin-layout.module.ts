@@ -27,6 +27,8 @@ import { TeacherAdminPageComponent } from './teacher-admin-page/teacher-admin-pa
 import { OrganizatorAdminPageComponent } from './organizator-admin-page/organizator-admin-page.component';
 import {AuthGuardService} from './auth/auth-guard.service';
 import { ApplicationFormComponent } from './creators-editors/application-form/application-form.component';
+import { TeamListComponent } from './team-list/team-list.component';
+import { OneResultEditorComponent } from './creators-editors/one-result-editor/one-result-editor.component';
 
 @NgModule({
   declarations: [
@@ -49,7 +51,9 @@ import { ApplicationFormComponent } from './creators-editors/application-form/ap
     CalendarComponent,
     TeacherAdminPageComponent,
     OrganizatorAdminPageComponent,
-    ApplicationFormComponent],
+    ApplicationFormComponent,
+    TeamListComponent,
+    OneResultEditorComponent],
   imports: [
     FormsModule,
     ReactiveFormsModule,

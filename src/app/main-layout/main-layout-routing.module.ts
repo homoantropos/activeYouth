@@ -26,7 +26,7 @@ const routes: Routes = [
       {path: 'sports', component: SportsPageComponent},
       {path: 'sports/:id', component: ActivityDetailsComponent},
       {path: 'schedule', component: ScheduleComponent},
-      {path: 'schedule/application', canActivate: [AuthGuardService], component: ApplicationFormComponent},
+      {path: 'application/:id', canActivate: [AuthGuardService], component: ApplicationFormComponent},
       {path: 'schedule/:id', component: AppointmentDetailsComponent},
       {path: 'rating', component: RatingPageComponent, children: [
           {path: '', redirectTo: 'students', pathMatch: 'full'},

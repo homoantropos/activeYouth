@@ -22,6 +22,7 @@ import {ReportEditorComponent} from './creators-editors/report-editor/report-edi
 import {CalendarComponent} from './calendar/calendar.component';
 import {TeacherAdminPageComponent} from './teacher-admin-page/teacher-admin-page.component';
 import {OrganizatorAdminPageComponent} from './organizator-admin-page/organizator-admin-page.component';
+import {OneResultEditorComponent} from './creators-editors/one-result-editor/one-result-editor.component';
 
 const routes: Routes = [
   { path: '', component: AdminLayoutComponent, canActivate: [AuthGuardService], canActivateChild: [AuthGuardService], children: [
@@ -51,8 +52,9 @@ const routes: Routes = [
         ]},
       {path: 'rating', children: [
           {path: '', component: ResultsDashboardComponent},
-          {path: 'create', component: ResultsCreatorComponent},
-          {path: 'edit/:id', component: ResultsEditorComponent}
+          {path: 'create/:id', component: ResultsCreatorComponent},
+          {path: 'edit/:id', component: ResultsEditorComponent},
+          {path: 'editOne/:id', component: OneResultEditorComponent}
         ]},
       {path: 'calendar', component: CalendarComponent},
       {path: 'teacher', children: [
