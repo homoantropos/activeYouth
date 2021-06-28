@@ -1,16 +1,118 @@
 <div *ngIf="applicationForm; else loader">
+
   <h4>Подати заявку до участі в змаганнях</h4>
-  <h5>{{appointment.title + ', '
-  + appointment.appointment_place.town.town_name + ', '}}
+  <h5>{{appointment.title + ', ' + appointment.appointment_place.town.town_name + ', '}}
     {{appointment.start | date: 'dd.MM.yy' + '-'}}
-    {{appointment.finish | date: 'dd.MM.yy'}}</h5>
+    {{appointment.finish | date: 'dd.MM.yy'}}
+  </h5>
+
   <form
     [formGroup]="applicationForm"
     (ngSubmit)="onApply(applicationForm.value)"
   >
+    <b>учасник: </b>
+    <mat-form-field class="narrow forms-inputs">
+      <mat-label>прізвище...</mat-label>
+      <input matInput
+             title="for participant_surname"
+             type="text"
+             formControlName="participant_surname">
+    </mat-form-field>
 
+    <mat-form-field class="narrow forms-inputs">
+      <mat-label>ім'я...</mat-label>
+      <input matInput
+             title="for participant_name"
+             type="text"
+             formControlName="participant_name">
+    </mat-form-field>
+
+    <mat-form-field class="narrow forms-inputs">
+      <mat-label>по-батькові...</mat-label>
+      <input matInput
+             title="for participant_fathersName"
+             type="text"
+             formControlName="participant_fathersName">
+    </mat-form-field>
+
+    <mat-form-field class="forms-inputs" [ngStyle]="{width: '10%'}">
+      <mat-label>дата народження...</mat-label>
+      <input matInput
+             [matDatepicker]="DoB"
+             formControlName="participant_DoB">
+      <mat-datepicker-toggle matSuffix [for]="DoB"></mat-datepicker-toggle>
+      <mat-datepicker #DoB></mat-datepicker>
+    </mat-form-field>
+
+    <span>стать: </span>
+    <mat-radio-group title="participant_gender" formControlName="participant_gender">
+      <mat-radio-button value="female">Ж</mat-radio-button>
+      <mat-radio-button value="male">Ч</mat-radio-button>
+    </mat-radio-group>
+
+    <mat-form-field class="narrow forms-inputs">
+      <mat-label>регіон...</mat-label>
+      <input matInput
+             title="for region"
+             type="text"
+             formControlName="region">
+    </mat-form-field>
+
+    <mat-form-field class="narrow forms-inputs">
+      <mat-label>заклад освіти...</mat-label>
+      <input matInput
+             title="for eduentityName"
+             type="text"
+             formControlName="eduentityName">
+    </mat-form-field>
+
+    <br>
+
+    <b>тренер: </b>
+    <mat-form-field class="forms-inputs">
+      <mat-label>прізвище...</mat-label>
+      <input matInput
+             title="for coach_surname"
+             type="text"
+             formControlName="coach_surname">
+    </mat-form-field>
+
+    <mat-form-field class="forms-inputs">
+      <mat-label>ім'я...</mat-label>
+      <input matInput
+             title="for coach_name"
+             type="text"
+             formControlName="coach_name">
+    </mat-form-field>
+
+    <mat-form-field class="forms-inputs">
+      <mat-label>по-батькові...</mat-label>
+      <input matInput
+             title="for coach_fathersName"
+             type="text"
+             formControlName="coach_fathersName">
+    </mat-form-field>
+
+    <mat-form-field class="forms-inputs">
+      <mat-label>вид програми змагань...</mat-label>
+      <input matInput
+             title="for discipline"
+             type="text"
+             formControlName="discipline">
+    </mat-form-field>
+
+    <button
+      mat-button
+      color="primary"
+      type="submit"
+      [disabled]="applicationForm.invalid || submitted"
+    >
+      Додати
+    </button>
   </form>
+
 </div>
+
 <app-results-list [results]="listOfParticipants"></app-results-list>
 
 <ng-template #loader>

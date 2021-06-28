@@ -1,3 +1,11 @@
 .dn {
   display: none;
 }
+
+.wide_input {
+  width: 94%;
+}
+
+.middle {
+  width: 20%;
+}

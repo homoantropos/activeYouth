@@ -104,9 +104,8 @@ button {
 }
 
 .forms-inputs {
-  width: 94%;
-  padding-right: 2%;
-  padding-left: 2%;
+  padding-right: 1%;
+  padding-left: 1%;
   font-family: "Roboto Condensed", sans-serif;
 }
 

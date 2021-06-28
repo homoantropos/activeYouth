@@ -17,6 +17,7 @@ export class ApplicationFormComponent implements OnInit {
   // @ts-ignore
   applicationForm: FormGroup;
   listOfParticipants: Array<Result> = [];
+  submitted = false;
 
   constructor(
     private route: ActivatedRoute,
@@ -41,7 +42,6 @@ export class ApplicationFormComponent implements OnInit {
           participant_fathersName: new FormControl('', Validators.required),
           participant_DoB: new FormControl('', Validators.required),
           participant_gender: new FormControl('', Validators.required),
-          participant_schoolchildOrStudent: new FormControl('', Validators.required),
           coach_name: new FormControl('', Validators.required),
           coach_surname: new FormControl('', Validators.required),
           coach_fathersName: new FormControl('', Validators.required),
@@ -53,6 +53,8 @@ export class ApplicationFormComponent implements OnInit {
   }
 
   onApply(value: any): void {
-
+    this.applicationForm.reset();
+    console.log(value);
   }
+
 }

@@ -8,7 +8,7 @@
     [formGroup]="appointmentCreatorForm"
     (ngSubmit)="onCreate(appointmentCreatorForm.value)"
   >
-    <mat-form-field class="forms-inputs" title="title">
+    <mat-form-field class="wide_input forms-inputs" title="title">
       <mat-label>введіть назву заходу ...</mat-label>
       <input matInput
              title="title"
@@ -16,29 +16,9 @@
              formControlName="title">
     </mat-form-field>
 
-    <mat-form-field class="forms-inputs" [ngStyle]="{width: '45%'}">
-      <mat-label>дата початку...</mat-label>
-      <input matInput
-             [min]="minDate"
-             [matDatepicker]="start"
-             formControlName="start">
-      <mat-datepicker-toggle matSuffix [for]="start"></mat-datepicker-toggle>
-      <mat-datepicker #start></mat-datepicker>
-    </mat-form-field>
-
-    <mat-form-field class="forms-inputs" [ngStyle]="{width: '45%'}">
-      <mat-label>дата завершення...</mat-label>
-      <input matInput [min]="minFinishDate$ | async"
-             [matDatepicker]="finish"
-             formControlName="finish">
-      <mat-datepicker-toggle matSuffix [for]="finish"></mat-datepicker-toggle>
-      <mat-datepicker #finish></mat-datepicker>
-    </mat-form-field>
-
-
     <form formGroupName="place">
 
-      <mat-form-field title="country">
+      <mat-form-field title="country" class="middle forms-inputs">
         <mat-label>країна проведення...</mat-label>
         <input type="search"
                placeholder="країна проведення..."
@@ -53,7 +33,7 @@
         </mat-autocomplete>
       </mat-form-field>
 
-      <mat-form-field title="region" [ngStyle]="{marginLeft: '10px', marginRight: '10px'}">
+      <mat-form-field title="region" class="middle forms-inputs">
         <mat-label>регіон проведення...</mat-label>
         <input type="text"
                placeholder="регіон проведення..."
@@ -68,7 +48,7 @@
         </mat-autocomplete>
       </mat-form-field>
 
-      <mat-form-field title="town">
+      <mat-form-field title="town" class="middle forms-inputs">
         <mat-label>місто проведення...</mat-label>
         <input type="search"
                placeholder="місто проведення..."
@@ -83,7 +63,7 @@
         </mat-autocomplete>
       </mat-form-field>
 
-      <mat-form-field title="appointment_place_name">
+      <mat-form-field title="appointment_place_name" class="middle forms-inputs">
         <mat-label>спортивна споруда...</mat-label>
         <input type="search"
                placeholder="спортивна споруда..."
@@ -100,7 +80,26 @@
 
     </form>
 
-    <mat-form-field class="forms-inputs" title="organizationsParticipants" [ngStyle]="{width: '46%'}">
+    <mat-form-field class="middle forms-inputs">
+      <mat-label>дата початку...</mat-label>
+      <input matInput
+             [min]="minDate"
+             [matDatepicker]="start"
+             formControlName="start">
+      <mat-datepicker-toggle matSuffix [for]="start"></mat-datepicker-toggle>
+      <mat-datepicker #start></mat-datepicker>
+    </mat-form-field>
+
+    <mat-form-field class="middle forms-inputs">
+      <mat-label>дата завершення...</mat-label>
+      <input matInput [min]="minFinishDate$ | async"
+             [matDatepicker]="finish"
+             formControlName="finish">
+      <mat-datepicker-toggle matSuffix [for]="finish"></mat-datepicker-toggle>
+      <mat-datepicker #finish></mat-datepicker>
+    </mat-form-field>
+
+    <mat-form-field class="middle forms-inputs" title="organizationsParticipants">
       <mat-label>організації-учасники...</mat-label>
       <input matInput
              title="organizationsParticipants"
@@ -108,7 +107,7 @@
              formControlName="organizationsParticipants">
     </mat-form-field>
 
-    <mat-form-field title="sport_kind" [ngStyle]="{width: '46%'}">
+    <mat-form-field class="middle forms-inputs" title="sport_kind">
       <mat-label>вид спорту (активності)</mat-label>
       <input type="text"
              placeholder="вид спорту (активності)..."
