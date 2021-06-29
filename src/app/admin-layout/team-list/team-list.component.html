@@ -15,7 +15,7 @@
   <ng-container matColumnDef="region">
     <th mat-header-cell *matHeaderCellDef>Регіон</th>
     <td mat-cell *matCellDef="let result">
-      {{result.region.region_name}}
+      {{result.reg.region_name}}
     </td>
   </ng-container>
 
@@ -23,6 +23,20 @@
     <th mat-header-cell *matHeaderCellDef>Заклад освіти</th>
     <td mat-cell *matCellDef="let result">
       {{result.eduentity.name}}
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="DoB">
+    <th mat-header-cell *matHeaderCellDef>Дата народження</th>
+    <td mat-cell *matCellDef="let result">
+      {{result.participant.DoB | date: 'dd.MM.yy'}}
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="coach">
+    <th mat-header-cell *matHeaderCellDef>Тренер</th>
+    <td mat-cell *matCellDef="let result">
+      {{result.coach.surname + ' ' + result.coach.coach_name}}
     </td>
   </ng-container>
 
@@ -39,7 +53,7 @@
       <button
         mat-button
         color="primary"
-        (click)="goToOneResultEditor(result.participant.id)"
+        (click)="goToOneResultEditor(result.id)"
       >Редагувати</button>
     </td>
   </ng-container>

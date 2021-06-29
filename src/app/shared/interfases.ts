@@ -96,7 +96,7 @@ export interface Coach {
   coach_name: string;
   surname: string;
   fathersName: string;
-  gender: string;
+  gender?: string;
   id?: number;
 }
 
@@ -108,8 +108,8 @@ export interface Result {
   reg?: Region;
   region?: string;
   discipline: string;
-  place: number;
-  ratingPoints: number;
+  place?: number;
+  ratingPoints?: number;
   completed?: false;
   id?: number;
   personId?: number;

@@ -12,11 +12,12 @@ import {FormControl, FormGroup, Validators} from '@angular/forms';
 })
 export class ApplicationFormComponent implements OnInit {
 
+  static resultId = 0;
+  listOfParticipants: Array<Result> = [];
   // @ts-ignore
   appointment: Appointment;
   // @ts-ignore
   applicationForm: FormGroup;
-  listOfParticipants: Array<Result> = [];
   submitted = false;
 
   constructor(
@@ -53,8 +54,35 @@ export class ApplicationFormComponent implements OnInit {
   }
 
   onApply(value: any): void {
+    const result: Result = {
+      appointment: this.appointment,
+      participant: {
+        name: value.participant_name,
+        surname: value.participant_surname,
+        fathersName: value.participant_fathersName,
+        DoB: value.participant_DoB,
+        gender: value.participant_gender,
+        schoolchildOrStudent: this.appointment.participants
+      },
+      coach: {
+        coach_name: value.coach_name,
+        surname: value.coach_surname,
+        fathersName: value.coach_fathersName
+      },
+      reg: {
+        region_name: value.region
+      },
+      eduentity: {
+        name: value.eduentityName,
+        type: 'ЗВО'
+      },
+      discipline: value.discipline,
+      id: ApplicationFormComponent.resultId
+    };
+    ++ ApplicationFormComponent.resultId;
+    this.listOfParticipants.unshift(result);
     this.applicationForm.reset();
-    console.log(value);
+    console.log(result);
   }
 
 }

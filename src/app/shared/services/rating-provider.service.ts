@@ -20,6 +20,7 @@ export class RatingProviderService {
       if (onePersonResults.length === 0) {
         return;
       }
+      // @ts-ignore
       onePersonResults.map( resOne => totalRating = +(totalRating + resOne.ratingPoints) );
       const resultsOwnerStudent: Participant = onePersonResults[0].participant;
       rating.push({
@@ -43,6 +44,7 @@ export class RatingProviderService {
         const oneEduEntityRatingBrick = cloneResults.filter(result => result.eduentity.name === r.eduentity.name);
         if (oneEduEntityRatingBrick.length === 0) { return; }
         const resultsOwnerEduEntity = oneEduEntityRatingBrick[0].eduentity;
+        // @ts-ignore
         oneEduEntityRatingBrick.map( rOne => totalRating = totalRating + rOne.ratingPoints );
         ratingEduEntities.push({
           resultsOwnerEduEntity,

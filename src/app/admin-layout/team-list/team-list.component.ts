@@ -11,7 +11,7 @@ import {Router} from '@angular/router';
 export class TeamListComponent implements OnInit {
 
   @Input() results: Array<Result> = [];
-  displayedColumns = ['participant', 'region', 'eduentity', 'discipline', 'edit'];
+  displayedColumns = ['participant', 'region', 'eduentity', 'DoB', 'coach', 'discipline', 'edit'];
   paginatorStartPageNumber = 0;
 
   constructor(
