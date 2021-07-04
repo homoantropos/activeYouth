@@ -15,7 +15,7 @@ import {AppointmentService} from '../../shared/services/appointment.service';
 
 export class ScheduleDashboardComponent implements OnInit {
 
-  displayedColumns: string[] = ['title', 'termsOfHolding', 'place', 'edit', 'delete'];
+  displayedColumns: string[] = ['title', 'termsOfHolding', 'place', 'applySportReport', 'edit', 'delete'];
 
   // @ts-ignore
   dataSource: MatTableDataSource<Appointment>;
@@ -45,5 +45,9 @@ export class ScheduleDashboardComponent implements OnInit {
 
   gpToAppiontmentEditor(id: number): void {
     this.router.navigateByUrl(`admin/schedule/edit/${id}`);
+  }
+
+  goToSportResultPage(id: number): void {
+    this.router.navigateByUrl(`admin/result/${id}`);
   }
 }

@@ -1,9 +1,12 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Params} from '@angular/router';
 import {Appointment, Result} from '../../../shared/interfases';
-import {switchMap} from 'rxjs/operators';
+import {map, startWith, switchMap} from 'rxjs/operators';
 import {AppointmentService} from '../../../shared/services/appointment.service';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
+import {ResultService} from '../../../shared/services/result.service';
+import {Observable} from 'rxjs';
+import {AutoUpdateArrays} from '../../../shared/utils/autoUpdateArrays';
 
 @Component({
   selector: 'app-application-form',
@@ -14,15 +17,19 @@ export class ApplicationFormComponent implements OnInit {
 
   static resultId = 0;
   listOfParticipants: Array<Result> = [];
+  regionsName: Array<string> = [];
   // @ts-ignore
   appointment: Appointment;
   // @ts-ignore
   applicationForm: FormGroup;
+  // @ts-ignore
+  regionFilteredOptions: Observable<string[]>;
   submitted = false;
 
   constructor(
     private route: ActivatedRoute,
-    private appointmentService: AppointmentService
+    private appointmentService: AppointmentService,
+    private resultService: ResultService
   ) {
   }
 
@@ -50,7 +57,22 @@ export class ApplicationFormComponent implements OnInit {
           region: new FormControl('', Validators.required),
           discipline: new FormControl('', Validators.required)
         });
+        // @ts-ignore
+        this.regionFilteredOptions = this.applicationForm.get('region').valueChanges
+          .pipe(
+            startWith(''),
+            map((value: string) => this._filterRegion(value))
+          );
       });
+  }
+
+  private _filterRegion(value: string): string[] {
+    const filterValue = value.toLowerCase();
+    AutoUpdateArrays.regions
+      // @ts-ignore
+      .map(region => this.regionsName.push(region.region_name));
+    this.regionsName = this.regionsName.filter((v, i, a) => a.indexOf(v) === i);
+    return this.regionsName.filter(regionName => regionName.toLowerCase().includes(filterValue));
   }
 
   onApply(value: any): void {
@@ -73,16 +95,17 @@ export class ApplicationFormComponent implements OnInit {
         region_name: value.region
       },
       eduentity: {
-        name: value.eduentityName,
-        type: 'ЗВО'
+        name: value.eduentityName
       },
       discipline: value.discipline,
+      completed: false,
       id: ApplicationFormComponent.resultId
     };
-    ++ ApplicationFormComponent.resultId;
+    ++ApplicationFormComponent.resultId;
     this.listOfParticipants.unshift(result);
-    this.applicationForm.reset();
-    console.log(result);
+    this.resultService.createResult(result).subscribe(
+      res => console.log(res)
+    );
   }
 
 }

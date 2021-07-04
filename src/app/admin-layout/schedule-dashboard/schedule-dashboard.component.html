@@ -29,6 +29,14 @@
         </td>
       </ng-container>
 
+      <ng-container matColumnDef="applySportReport">
+        <th mat-header-cell *matHeaderCellDef>Результати</th>
+        <td mat-cell *matCellDef="let appointment">
+          <button mat-button color="primary" (click)="goToSportResultPage(appointment.id)">
+            Результати змагань
+          </button>
+        </td>
+      </ng-container>
       <ng-container matColumnDef="edit">
         <th mat-header-cell *matHeaderCellDef> Редагувати</th>
         <td mat-cell *matCellDef="let appointment">

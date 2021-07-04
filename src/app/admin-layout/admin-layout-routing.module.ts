@@ -50,8 +50,9 @@ const routes: Routes = [
           {path: 'edit/:id', component: AppointmentEditorComponent},
           {path: ':id', component: AppointmentDetailsComponent}
         ]},
-      {path: 'rating', children: [
-          {path: '', component: ResultsDashboardComponent},
+      {path: 'result', children: [
+          {path: '', redirectTo: ':id', pathMatch: 'full'},
+          {path: ':id', component: ResultsDashboardComponent},
           {path: 'create/:id', component: ResultsCreatorComponent},
           {path: 'edit/:id', component: ResultsEditorComponent},
           {path: 'editOne/:id', component: OneResultEditorComponent}

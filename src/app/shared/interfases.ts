@@ -73,7 +73,7 @@ export interface AppointmentPlace {
 export interface EducationEntity {
   name: string;
   category?: number;
-  type: string;
+  type?: string;
   country?: Country;
   reg?: Region;
   region?: string;
