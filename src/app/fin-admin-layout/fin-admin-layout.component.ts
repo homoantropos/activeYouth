@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
 import {AuthService} from '../admin-layout/auth/auth.service';
+import {AlertService} from '../shared/services/alert.service';
 
 @Component({
   selector: 'app-fin-admin-layout',
@@ -11,14 +12,15 @@ export class FinAdminLayoutComponent implements OnInit {
 
   constructor(
     public auth: AuthService,
-    private router: Router
+    private router: Router,
+    private alert: AlertService
   ) {
   }
 
   ngOnInit(): void {
     if (this.auth.role() !== 'superadmin') {
       this.router.navigate(['main']);
-      alert('Немає доступу до цього рівня сайту');
+      this.alert.danger('Немає доступу до цього рівня сайту');
     }
   }
 

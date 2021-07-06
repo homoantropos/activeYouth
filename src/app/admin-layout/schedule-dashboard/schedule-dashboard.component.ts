@@ -5,6 +5,7 @@ import {Router} from '@angular/router';
 import {MatTableDataSource} from '@angular/material/table';
 import {Appointment} from '../../shared/interfases';
 import {AppointmentService} from '../../shared/services/appointment.service';
+import {AlertService} from '../../shared/services/alert.service';
 
 
 @Component({
@@ -25,7 +26,8 @@ export class ScheduleDashboardComponent implements OnInit {
 
   constructor(
     private router: Router,
-    private appointmentService: AppointmentService
+    private appointmentService: AppointmentService,
+    private alert: AlertService
   ) {
   }
 
@@ -37,7 +39,7 @@ export class ScheduleDashboardComponent implements OnInit {
     this.appointmentService.deleteAppointment(id)
       .subscribe(
         (message) => {
-          alert(message.message);
+          this.alert.success(message.message);
           this.ngOnInit();
         }
       );

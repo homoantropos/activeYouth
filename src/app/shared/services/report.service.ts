@@ -22,8 +22,8 @@ export class ReportService {
 
   }
 
-  updateStatistic(report: Report): Observable<Report> {
-    return this.http.patch<Report>(`${environment.postgresDbUrl}/report`, report);
+  updateStatistic(report: Report): Observable<{ message: string }> {
+    return this.http.patch<{ message: string }>(`${environment.postgresDbUrl}/report`, report);
   }
 
   getAllStatistics(): Observable<Array<Report>> {

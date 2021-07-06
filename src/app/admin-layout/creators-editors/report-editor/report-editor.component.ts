@@ -4,6 +4,7 @@ import {Subscription} from 'rxjs';
 import {ActivatedRoute, Params, Router} from '@angular/router';
 import {ReportService} from '../../../shared/services/report.service';
 import {switchMap} from 'rxjs/operators';
+import {AlertService} from '../../../shared/services/alert.service';
 
 @Component({
   selector: 'app-report-editor',
@@ -23,7 +24,8 @@ export class ReportEditorComponent implements OnInit, OnDestroy {
   constructor(
     private route: ActivatedRoute,
     private reportService: ReportService,
-    private router: Router
+    private router: Router,
+    private alert: AlertService
   ) {
   }
 
@@ -53,7 +55,6 @@ export class ReportEditorComponent implements OnInit, OnDestroy {
           referees_fact: new FormControl(report.referees_fact, [Validators.required]),
           others_fact: new FormControl(report.others_fact, [Validators.required]),
         });
-        console.log(report);
       }
     );
   }
@@ -80,7 +81,10 @@ export class ReportEditorComponent implements OnInit, OnDestroy {
     this.report.referees_fact = value.referees_fact;
     this.report.others_fact = value.others_fact;
     this.reportService.updateStatistic(this.report).subscribe(
-      () => this.router.navigate(['admin', 'statistic'])
+      res => {
+        this.alert.success(res.message);
+        this.router.navigate(['admin', 'statistic']);
+      }
     );
   }
 

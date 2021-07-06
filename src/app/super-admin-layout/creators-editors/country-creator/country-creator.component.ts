@@ -1,11 +1,12 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
-import {Subscription} from 'rxjs';
+import {concat, Subscription} from 'rxjs';
 import {AuthService} from '../../../admin-layout/auth/auth.service';
 import {Router} from '@angular/router';
 import {Country} from '../../../shared/interfases';
 import {CountryService} from '../../services/country.service';
-import {AutoUpdateArrays} from '../../../shared/utils/autoUpdateArrays';
+import {AlertService} from '../../../shared/services/alert.service';
+import {catchError, concatAll, concatMap} from 'rxjs/operators';
 
 @Component({
   selector: 'app-countries-creator',
@@ -24,7 +25,8 @@ export class CountryCreatorComponent implements OnInit, OnDestroy {
   constructor(
     public auth: AuthService,
     public countryService: CountryService,
-    private router: Router
+    private router: Router,
+    private alert: AlertService
   ) {
   }
 
@@ -37,6 +39,7 @@ export class CountryCreatorComponent implements OnInit, OnDestroy {
   }
 
   onSubmit(country: Country): void {
+    country.country_name = country.country_name.toUpperCase();
     if (this.countryCreatorForm.invalid) {
       return;
     }
@@ -44,7 +47,8 @@ export class CountryCreatorComponent implements OnInit, OnDestroy {
     this.countryCreatorForm.disable();
     this.cSub = this.countryService.createCountry(country)
       .subscribe(
-        (con) => {
+        (con: Country) => {
+          this.alert.success(`Країна ${con.country_name} успішно додана до бази даних`);
           this.router.navigateByUrl('/superadmin/places/countries');
         },
         error => {
@@ -52,6 +56,13 @@ export class CountryCreatorComponent implements OnInit, OnDestroy {
           this.countryCreatorForm.enable();
         }
       );
+    if (this.countryService.error$) {
+        this.countryService.error$.subscribe(
+          message => {
+            this.alert.danger(message);
+          }
+        );
+    }
   }
 
   ngOnDestroy(): void {

@@ -5,6 +5,7 @@ import {Observable} from 'rxjs';
 
 import {Activity} from '../../shared/interfases';
 import {ActivityService} from '../../shared/services/activity.service';
+import {AlertService} from '../../shared/services/alert.service';
 
 @Component({
   selector: 'app-sports-dashboard',
@@ -24,7 +25,8 @@ export class SportsDashboardComponent implements OnInit {
 
   constructor(
     private router: Router,
-    private activityService: ActivityService
+    private activityService: ActivityService,
+    private alert: AlertService
   ) {
   }
 
@@ -48,7 +50,7 @@ export class SportsDashboardComponent implements OnInit {
     this.activityService.deleteActivity(id)
       .subscribe(
         (message) => {
-          alert(message.message);
+          this.alert.success(message.message);
           this.ngOnInit();
         }
       );

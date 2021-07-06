@@ -3,6 +3,7 @@ import {Result} from '../../shared/interfases';
 import {ResultService} from '../../shared/services/result.service';
 import {ActivatedRoute, Params, Router} from '@angular/router';
 import {switchMap} from 'rxjs/operators';
+import {AlertService} from '../../shared/services/alert.service';
 
 @Component({
   selector: 'app-results-dashboard',
@@ -18,7 +19,8 @@ export class ResultsDashboardComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private resultService: ResultService,
-    private router: Router
+    private router: Router,
+    private alert: AlertService
   ) { }
 
   ngOnInit(): void {
@@ -45,7 +47,7 @@ export class ResultsDashboardComponent implements OnInit {
   deleteResultFromDB(id: number): void {
     this.resultService.deleteResult(id).subscribe(
       (message) => {
-        alert(message.message);
+        this.alert.success(message.message);
         this.ngOnInit();
       }
     );

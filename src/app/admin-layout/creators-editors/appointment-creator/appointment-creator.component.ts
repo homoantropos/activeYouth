@@ -10,6 +10,7 @@ import {AppointmentFinancingService} from '../../../shared/services/appointment-
 import {Observable} from 'rxjs';
 import {map, startWith} from 'rxjs/operators';
 import {AutoUpdateArrays} from '../../../shared/utils/autoUpdateArrays';
+import {AlertService} from '../../../shared/services/alert.service';
 
 @Component({
   selector: 'app-appointment-creator',
@@ -47,7 +48,8 @@ export class AppointmentCreatorComponent implements OnInit, OnDestroy {
     private appointmentService: AppointmentService,
     private dateProvider: DateProviderService,
     private appointmentFinancingService: AppointmentFinancingService,
-    private router: Router
+    private router: Router,
+    private alert: AlertService
   ) {
   }
 
@@ -174,7 +176,7 @@ export class AppointmentCreatorComponent implements OnInit, OnDestroy {
             apf => console.log(apf)
           );
           this.router.navigate(['admin', 'schedule']);
-          alert('ваш захід додано!');
+          this.alert.success('ВІтаємо! Ваш захід додано!');
         }
       );
   }

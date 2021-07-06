@@ -6,6 +6,7 @@ import {AppointmentPlaceService} from '../../services/appointment-place.service'
 import {ActivatedRoute, Params, Router} from '@angular/router';
 import {map, startWith, switchMap} from 'rxjs/operators';
 import {AutoUpdateArrays} from '../../../shared/utils/autoUpdateArrays';
+import {AlertService} from '../../../shared/services/alert.service';
 
 @Component({
   selector: 'app-appointment-place-editor',
@@ -32,7 +33,8 @@ export class AppointmentPlaceEditorComponent implements OnInit, OnDestroy {
   constructor(
     private route: ActivatedRoute,
     private appointmentPlaceService: AppointmentPlaceService,
-    private router: Router
+    private router: Router,
+    private alert: AlertService
   ) {
   }
 
@@ -106,9 +108,9 @@ export class AppointmentPlaceEditorComponent implements OnInit, OnDestroy {
     appointmentPlace.id = this.appointmentPlaceId;
     this.apSub = this.appointmentPlaceService.updateAppointmentPlace(appointmentPlace)
       .subscribe(
-        appointmentPlc => {
+        res => {
           this.router.navigate(['superadmin', 'appointmentPlaces']);
-          alert('Зміни збережено');
+          this.alert.success(res.message);
         }
       );
   }

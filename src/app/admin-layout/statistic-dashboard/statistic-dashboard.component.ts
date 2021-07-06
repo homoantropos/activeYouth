@@ -6,6 +6,7 @@ import {MatPaginator} from '@angular/material/paginator';
 import {MatSort} from '@angular/material/sort';
 import {Router} from '@angular/router';
 import {ReportService} from '../../shared/services/report.service';
+import {AlertService} from '../../shared/services/alert.service';
 
 @Component({
   selector: 'app-statistic-dashboard',
@@ -38,7 +39,8 @@ export class StatisticDashboardComponent implements OnInit, AfterViewInit {
 
   constructor(
     private router: Router,
-    private reportService: ReportService
+    private reportService: ReportService,
+    private alert: AlertService
   ) {
   }
 
@@ -61,7 +63,6 @@ export class StatisticDashboardComponent implements OnInit, AfterViewInit {
   }
 
   goToReportEditor(r: Report): void {
-    console.log(r);
     this.router.navigateByUrl(`/admin/statistic/edit/${r.id}`);
   }
 }

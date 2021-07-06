@@ -5,6 +5,7 @@ import {ActivatedRoute, Params, Router} from '@angular/router';
 import {Activity} from '../../../shared/interfases';
 import {Subscription} from 'rxjs';
 import {switchMap} from 'rxjs/operators';
+import {AlertService} from '../../../shared/services/alert.service';
 
 @Component({
   selector: 'app-activity-editor',
@@ -22,7 +23,8 @@ export class ActivityEditorComponent implements OnInit, OnDestroy {
   constructor(
     private route: ActivatedRoute,
     private activityService: ActivityService,
-    private router: Router
+    private router: Router,
+    private alert: AlertService
   ) {
   }
 
@@ -63,11 +65,11 @@ export class ActivityEditorComponent implements OnInit, OnDestroy {
       kindOfActivity: 'physical culture',
       id: this.activityId
     };
-    this.activityService.updateActivity(activity).subscribe((act) => {
+    this.activityService.updateActivity(activity).subscribe(res => {
       this.activitiesEditorForm.reset();
       this.submitted = false;
       this.router.navigate(['admin', 'activities']);
-      alert('Вітаємо! Ваші зміни успішно додано в базу даних!');
+      this.alert.success(res.message);
     });
   }
 

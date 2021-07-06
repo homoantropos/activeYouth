@@ -5,6 +5,7 @@ import {environment} from '../../../environments/environment';
 import {Observable, Subject, throwError} from 'rxjs';
 import {catchError, tap} from 'rxjs/operators';
 import {Router} from '@angular/router';
+import {AlertService} from '../../shared/services/alert.service';
 
 @Injectable({
   providedIn: 'root'
@@ -16,7 +17,9 @@ export class AuthService {
 
   constructor(
     private http: HttpClient,
-    private router: Router) {
+    private router: Router,
+    private alert: AlertService
+  ) {
   }
 
   getToken(): string | null {
@@ -49,7 +52,7 @@ export class AuthService {
   logOut(): void {
     this.setToken(null);
     localStorage.clear();
-    alert('Ви вийшли з сайту');
+    this.alert.warning('Ви вийшли з сайту');
     this.router.navigate(['/']);
   }
 

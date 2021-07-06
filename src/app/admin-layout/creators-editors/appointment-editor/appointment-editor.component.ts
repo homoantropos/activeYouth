@@ -8,6 +8,7 @@ import {AppointmentFinancingService} from '../../../shared/services/appointment-
 import {ActivatedRoute, Params, Router} from '@angular/router';
 import {map, startWith} from 'rxjs/operators';
 import {AutoUpdateArrays} from '../../../shared/utils/autoUpdateArrays';
+import {AlertService} from '../../../shared/services/alert.service';
 
 @Component({
   selector: 'app-appointment-editor',
@@ -44,7 +45,8 @@ export class AppointmentEditorComponent implements OnInit, OnDestroy {
     private dateProvider: DateProviderService,
     private appointmentFinancingService: AppointmentFinancingService,
     private route: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private alert: AlertService
   ) {
   }
 
@@ -167,7 +169,7 @@ export class AppointmentEditorComponent implements OnInit, OnDestroy {
         (a) => {
           // @ts-ignore
           this.router.navigate(['admin', 'schedule']);
-          alert('Ваші зміни збережено!');
+          this.alert.success('Ваші зміни збережено!');
         }
       );
   }

@@ -4,6 +4,7 @@ import {Router} from '@angular/router';
 
 import {Activity} from '../../../shared/interfases';
 import {ActivityService} from '../../../shared/services/activity.service';
+import {AlertService} from '../../../shared/services/alert.service';
 
 @Component({
   selector: 'app-sports-creator',
@@ -18,7 +19,8 @@ export class SportsCreatorComponent implements OnInit {
 
   constructor(
     private activityService: ActivityService,
-    private router: Router
+    private router: Router,
+    private alert: AlertService
   ) {
   }
 
@@ -52,7 +54,7 @@ export class SportsCreatorComponent implements OnInit {
       this.activitiesCreatorForm.reset();
       this.submitted = false;
       this.router.navigate(['admin', 'sports']);
-      alert('Вітаємо! Ваш урок успішно додано в базу даних!');
+      this.alert.success('Вітаємо! Ваш урок успішно додано в базу даних!');
     });
   }
 

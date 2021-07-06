@@ -4,6 +4,7 @@ import {Activity} from '../../../shared/interfases';
 import {Router} from '@angular/router';
 import {ActivityService} from '../../../shared/services/activity.service';
 import {Subscription} from 'rxjs';
+import {AlertService} from '../../../shared/services/alert.service';
 
 @Component({
   selector: 'app-activity-creator',
@@ -20,7 +21,8 @@ export class ActivityCreatorComponent implements OnInit, OnDestroy {
 
   constructor(
     private activityService: ActivityService,
-    private router: Router
+    private router: Router,
+    private alert: AlertService
   ) {
   }
 
@@ -51,7 +53,7 @@ export class ActivityCreatorComponent implements OnInit, OnDestroy {
     };
     this.aSub = this.activityService.createActivity(activity).subscribe(() => {
       this.router.navigate(['admin', 'activities']);
-      alert('Вітаємо! Ваш урок успішно додано в базу даних!');
+      this.alert.success('Вітаємо! Ваш урок успішно додано в базу даних!');
     });
   }
 

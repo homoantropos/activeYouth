@@ -2,6 +2,7 @@ import {Component, OnDestroy, OnInit} from '@angular/core';
 import {AppointmentPlaceService} from '../services/appointment-place.service';
 import {Observable, Subscription} from 'rxjs';
 import {Router} from '@angular/router';
+import {AlertService} from '../../shared/services/alert.service';
 
 @Component({
   selector: 'app-appointment-place-admin-page',
@@ -18,7 +19,8 @@ export class AppointmentPlaceAdminPageComponent implements OnInit, OnDestroy {
 
   constructor(
     private appointmentPlaceService: AppointmentPlaceService,
-    private router: Router
+    private router: Router,
+    private alert: AlertService
   ) { }
 
   ngOnInit(): void {
@@ -36,7 +38,7 @@ export class AppointmentPlaceAdminPageComponent implements OnInit, OnDestroy {
   deleteAppointmentPlace(id: number): void {
     this.apSub = this.appointmentPlaceService.deleteAppointmentPlace(id).subscribe(
       res => {
-        alert(res.message);
+        this.alert.success(res.message);
         this.ngOnInit();
       }
     );

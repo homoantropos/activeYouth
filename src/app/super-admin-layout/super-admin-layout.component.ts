@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {AuthService} from '../admin-layout/auth/auth.service';
 import {Router} from '@angular/router';
 import {AutoUpdateArraysCreateService} from '../shared/services/auto-update-arrays-create.service';
+import {AlertService} from '../shared/services/alert.service';
 
 @Component({
   selector: 'app-super-admin',
@@ -13,13 +14,14 @@ export class SuperAdminLayoutComponent implements OnInit {
   constructor(
     public auth: AuthService,
     private router: Router,
-    private autoUpdateCreator: AutoUpdateArraysCreateService
+    private autoUpdateCreator: AutoUpdateArraysCreateService,
+    private alert: AlertService
   ) { }
 
   ngOnInit(): void {
     if (this.auth.role() !== 'superadmin') {
       this.router.navigate(['main']);
-      alert('Немає доступу до цього рівня сайту');
+      this.alert.danger('Немає доступу до цього рівня сайту');
     } else {
       this.autoUpdateCreator.createAutoUpdateArrays();
     }

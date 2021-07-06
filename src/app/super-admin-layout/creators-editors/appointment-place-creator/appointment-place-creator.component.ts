@@ -6,6 +6,7 @@ import {Router} from '@angular/router';
 import {map, startWith} from 'rxjs/operators';
 import {AutoUpdateArrays} from '../../../shared/utils/autoUpdateArrays';
 import {AppointmentPlaceService} from '../../services/appointment-place.service';
+import {AlertService} from '../../../shared/services/alert.service';
 
 @Component({
   selector: 'app-appointment-place-creator',
@@ -29,7 +30,8 @@ export class AppointmentPlaceCreatorComponent implements OnInit, OnDestroy {
 
   constructor(
     private appointmentPlaceService: AppointmentPlaceService,
-    private router: Router
+    private router: Router,
+    private alert: AlertService
   ) {
   }
 
@@ -93,7 +95,7 @@ export class AppointmentPlaceCreatorComponent implements OnInit, OnDestroy {
       .subscribe(
           appointmentPlc => {
             this.router.navigate(['superadmin', 'appointmentPlaces']);
-            alert('Місце проведення додано!');
+            this.alert.success('Місце проведення додано!');
           }
       );
   }

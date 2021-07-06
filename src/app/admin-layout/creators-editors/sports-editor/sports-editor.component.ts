@@ -7,6 +7,7 @@ import {Activity} from '../../../shared/interfases';
 import {Subscription} from 'rxjs';
 import {AuthService} from '../../auth/auth.service';
 import {switchMap} from 'rxjs/operators';
+import {AlertService} from '../../../shared/services/alert.service';
 
 @Component({
   selector: 'app-sports-editor',
@@ -27,7 +28,8 @@ export class SportsEditorComponent implements OnInit, OnDestroy {
     public auth: AuthService,
     private route: ActivatedRoute,
     private activityService: ActivityService,
-    private router: Router
+    private router: Router,
+    private alert: AlertService
   ) {
   }
 
@@ -71,14 +73,15 @@ export class SportsEditorComponent implements OnInit, OnDestroy {
       id: this.activityId
     };
     this.sSub = this.activityService.updateActivity(activity)
-      .subscribe(a => {
-        this.submitted = false;
-        this.router.navigate(['admin', 'sports']);
-        alert('Вітаємо! Ваші зміни успішно додано в базу даних!');
-    }, error => {
-      this.sportsEditorForm.enable();
-    }
-    );
+      .subscribe(res => {
+          this.submitted = false;
+          this.router.navigate(['admin', 'sports']);
+          this.alert.success(res.message);
+        }, error => {
+          this.alert.warning(error.message);
+          this.sportsEditorForm.enable();
+        }
+      );
     this.sportsEditorForm.enable();
     this.ngOnInit();
   }

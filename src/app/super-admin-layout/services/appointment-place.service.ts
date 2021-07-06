@@ -17,8 +17,8 @@ export class AppointmentPlaceService {
     return this.http.post<AppointmentPlace>(`${environment.postgresDbUrl}/place`, appointmentPlace);
   }
 
-  updateAppointmentPlace(appointmentPlace: AppointmentPlace): Observable<string> {
-    return this.http.patch<string>(`${environment.postgresDbUrl}/place/${appointmentPlace.id}`, appointmentPlace);
+  updateAppointmentPlace(appointmentPlace: AppointmentPlace): Observable<{message: string}> {
+    return this.http.patch<{message: string}>(`${environment.postgresDbUrl}/place/${appointmentPlace.id}`, appointmentPlace);
   }
 
   deleteAppointmentPlace(id: number): Observable<any> {
