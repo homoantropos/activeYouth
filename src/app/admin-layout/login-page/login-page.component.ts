@@ -4,7 +4,6 @@ import {User} from '../../shared/interfases';
 import {AuthService} from '../auth/auth.service';
 import {ActivatedRoute, Params, Router} from '@angular/router';
 import {Subscription} from 'rxjs';
-import {HttpErrorResponse} from '@angular/common/http';
 
 @Component({
   selector: 'app-login-page',
@@ -20,8 +19,6 @@ export class LoginPageComponent implements OnInit, OnDestroy {
   // @ts-ignore
   message: string;
   submitted = false;
-  // @ts-ignore
-  errorResponse: HttpErrorResponse;
 
   constructor(
     public auth: AuthService,

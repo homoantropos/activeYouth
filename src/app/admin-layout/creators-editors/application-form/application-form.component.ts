@@ -1,12 +1,14 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Params} from '@angular/router';
 import {Appointment, Result} from '../../../shared/interfases';
-import {map, startWith, switchMap} from 'rxjs/operators';
+import {catchError, map, startWith, switchMap} from 'rxjs/operators';
 import {AppointmentService} from '../../../shared/services/appointment.service';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {ResultService} from '../../../shared/services/result.service';
-import {Observable} from 'rxjs';
+import {Observable, Subject, throwError} from 'rxjs';
 import {AutoUpdateArrays} from '../../../shared/utils/autoUpdateArrays';
+import {HttpErrorResponse} from '@angular/common/http';
+import {AlertService} from '../../../shared/services/alert.service';
 
 @Component({
   selector: 'app-application-form',
@@ -16,6 +18,7 @@ import {AutoUpdateArrays} from '../../../shared/utils/autoUpdateArrays';
 export class ApplicationFormComponent implements OnInit {
 
   static resultId = 0;
+  error$: Subject<string> = new Subject<string>();
   appointmentId = 0;
   listOfParticipants: Array<Result> = [];
   regionsName: Array<string> = [];
@@ -30,7 +33,8 @@ export class ApplicationFormComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private appointmentService: AppointmentService,
-    private resultService: ResultService
+    private resultService: ResultService,
+    public alertService: AlertService
   ) {
   }
 
@@ -111,6 +115,7 @@ export class ApplicationFormComponent implements OnInit {
     };
     this.resultService.createResult(result)
       .pipe(
+        catchError(this.errorHandle.bind(this)),
         switchMap(
           res => {
             return this.resultService.getResultByAppointment(this.appointmentId);
@@ -119,8 +124,35 @@ export class ApplicationFormComponent implements OnInit {
       )
       .subscribe(
         results => this.listOfParticipants = results,
-        error => alert(error)
+        error => {
+          this.errorHandle(error);
+        }
       );
+    if (this.error$) {
+      this.error$.subscribe(
+        message => {
+          this.alertService.warning(message);
+        }
+      );
+    }
+  }
+
+  private errorHandle(error: HttpErrorResponse): any {
+    const message = error.error.message;
+    if (message) {
+      switch (message) {
+        case('INVALID_PASSWORD'):
+          this.error$.next('невірний пароль');
+          break;
+        case('EMAIL_NOT_FOUND'):
+          this.error$.next('емейл не знайдено');
+          break;
+        case('повторювані значення ключа порушують обмеження унікальності \"result_discipline_participantId_key\"'):
+          this.error$.next('Такий учасник вже зареєстрований в цій вагові категорії');
+          break;
+      }
+    }
+    return throwError(error);
   }
 
 }

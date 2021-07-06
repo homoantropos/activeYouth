@@ -21,6 +21,7 @@ import {NgxPaginationModule} from 'ngx-pagination';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import {MAT_DATE_FORMATS, MAT_DATE_LOCALE, MatNativeDateModule} from '@angular/material/core';
 import {MatRadioModule} from '@angular/material/radio';
+import { AlertComponent } from './alert/alert.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import {MatRadioModule} from '@angular/material/radio';
     AppointmentFinancingDetailsComponent,
     SanitizeHTMLPipePipe,
     StatisticDetailsComponent,
-    LoaderComponent
+    LoaderComponent,
+    AlertComponent
   ],
   imports: [
     CommonModule,
@@ -49,25 +51,26 @@ import {MatRadioModule} from '@angular/material/radio';
     NgxPaginationModule,
     HttpClientModule
   ],
-  exports: [
-    MatFormFieldModule,
-    MatInputModule,
-    MatButtonModule,
-    MatTableModule,
-    MatPaginatorModule,
-    MatSortModule,
-    MatDatepickerModule,
-    MatMomentDateModule,
-    MatSelectModule,
-    MatProgressSpinnerModule,
-    MatAutocompleteModule,
-    MatNativeDateModule,
-    MatRadioModule,
-    SanitizeHTMLPipePipe,
-    NgxPaginationModule,
-    HttpClientModule,
-    LoaderComponent
-  ],
+    exports: [
+        MatFormFieldModule,
+        MatInputModule,
+        MatButtonModule,
+        MatTableModule,
+        MatPaginatorModule,
+        MatSortModule,
+        MatDatepickerModule,
+        MatMomentDateModule,
+        MatSelectModule,
+        MatProgressSpinnerModule,
+        MatAutocompleteModule,
+        MatNativeDateModule,
+        MatRadioModule,
+        SanitizeHTMLPipePipe,
+        NgxPaginationModule,
+        HttpClientModule,
+        LoaderComponent,
+        AlertComponent
+    ],
   providers: [
     {provide: MAT_DATE_LOCALE, useValue: 'ua-UA'},
     {provide: MAT_MOMENT_DATE_ADAPTER_OPTIONS, useValue: {useUtc: true}}
