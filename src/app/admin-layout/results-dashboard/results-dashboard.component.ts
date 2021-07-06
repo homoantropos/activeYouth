@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {Result} from '../../shared/interfases';
 import {ResultService} from '../../shared/services/result.service';
-import {ActivatedRoute, Params} from '@angular/router';
-import {AppointmentService} from '../../shared/services/appointment.service';
-import {map, switchMap} from 'rxjs/operators';
+import {ActivatedRoute, Params, Router} from '@angular/router';
+import {switchMap} from 'rxjs/operators';
 
 @Component({
   selector: 'app-results-dashboard',
@@ -18,7 +17,8 @@ export class ResultsDashboardComponent implements OnInit {
   displayedColumns: Array<string> = ['participant', 'region', 'eduentity', 'DoB', 'coach', 'discipline', 'delete'];
   constructor(
     private route: ActivatedRoute,
-    private resultService: ResultService
+    private resultService: ResultService,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -36,6 +36,10 @@ export class ResultsDashboardComponent implements OnInit {
           this.results = res;
         }
       );
+  }
+
+  goToOneResultEditor(id: number): void {
+    this.router.navigateByUrl(`admin/result/edit/${id}`);
   }
 
   deleteResultFromDB(id: number): void {

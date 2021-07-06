@@ -30,13 +30,14 @@ export class AuthService {
   }
 
   login(user: User): Observable<any> {
-    return this.http.post<{ token: string, userRole: string }>(`${environment.postgresDbUrl}/user/login`, user)
+    return this.http.post<{ token: string, userRole: string, userEmail: string }>(`${environment.postgresDbUrl}/user/login`, user)
       .pipe(
         tap(
           response => {
-            const authExpTime = new Date(new Date().getTime() + 60 * 60 * 1000 );
+            const authExpTime = new Date(new Date().getTime() + 60 * 60 * 1000);
             localStorage.setItem('auth-token-exp', authExpTime.toString());
             localStorage.setItem('auth-token', response.token);
+            localStorage.setItem('user-email', response.userEmail);
             localStorage.setItem('role', response.userRole);
             this.setToken(response.token);
           }
@@ -75,6 +76,9 @@ export class AuthService {
           break;
         case('EMAIL_NOT_FOUND'):
           this.error$.next('емейл не знайдено');
+          break;
+        case('повторювані значення ключа порушують обмеження унікальності \\"result_discipline_participantId_key\\'):
+          this.error$.next('Такий учасник вже зареєстрований в цій вагові категорії');
           break;
       }
     }

@@ -16,6 +16,7 @@ import {AutoUpdateArrays} from '../../../shared/utils/autoUpdateArrays';
 export class ApplicationFormComponent implements OnInit {
 
   static resultId = 0;
+  appointmentId = 0;
   listOfParticipants: Array<Result> = [];
   regionsName: Array<string> = [];
   // @ts-ignore
@@ -38,12 +39,19 @@ export class ApplicationFormComponent implements OnInit {
       .pipe(
         switchMap(
           (params: Params) => {
-            return this.appointmentService.getAppointmentById(params.get('id'));
+            this.appointmentId = params.get('id');
+            return this.resultService.getResultByAppointment(params.get('id'));
           }
         )
       )
-      .subscribe(appointment => {
-        this.appointment = appointment;
+      .subscribe(res => {
+        if (res[0] === undefined) {
+          // @ts-ignore
+          this.appointment = res;
+        } else {
+          this.appointment = res[0].appointment;
+          this.listOfParticipants = res;
+        }
         this.applicationForm = new FormGroup({
           participant_name: new FormControl('', Validators.required),
           participant_surname: new FormControl('', Validators.required),
@@ -101,11 +109,18 @@ export class ApplicationFormComponent implements OnInit {
       completed: false,
       id: ApplicationFormComponent.resultId
     };
-    ++ApplicationFormComponent.resultId;
-    this.listOfParticipants.unshift(result);
-    this.resultService.createResult(result).subscribe(
-      res => console.log(res)
-    );
+    this.resultService.createResult(result)
+      .pipe(
+        switchMap(
+          res => {
+            return this.resultService.getResultByAppointment(this.appointmentId);
+          }
+        )
+      )
+      .subscribe(
+        results => this.listOfParticipants = results,
+        error => alert(error)
+      );
   }
 
 }

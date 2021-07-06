@@ -111,6 +111,7 @@ export interface Result {
   place?: number;
   ratingPoints?: number;
   completed?: false;
+  user?: User;
   id?: number;
   personId?: number;
   result_id?: string; /*this will be removed*/

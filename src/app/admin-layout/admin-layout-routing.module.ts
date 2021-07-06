@@ -23,6 +23,7 @@ import {CalendarComponent} from './calendar/calendar.component';
 import {TeacherAdminPageComponent} from './teacher-admin-page/teacher-admin-page.component';
 import {OrganizatorAdminPageComponent} from './organizator-admin-page/organizator-admin-page.component';
 import {OneResultEditorComponent} from './creators-editors/one-result-editor/one-result-editor.component';
+import {ApplicationFormComponent} from './creators-editors/application-form/application-form.component';
 
 const routes: Routes = [
   { path: '', component: AdminLayoutComponent, canActivate: [AuthGuardService], canActivateChild: [AuthGuardService], children: [
@@ -48,7 +49,8 @@ const routes: Routes = [
           {path: '', component: ScheduleDashboardComponent},
           {path: 'create', component: AppointmentCreatorComponent},
           {path: 'edit/:id', component: AppointmentEditorComponent},
-          {path: ':id', component: AppointmentDetailsComponent}
+          {path: ':id', component: AppointmentDetailsComponent},
+          {path: 'application/:id', component: ApplicationFormComponent},
         ]},
       {path: 'result', children: [
           {path: '', redirectTo: ':id', pathMatch: 'full'},

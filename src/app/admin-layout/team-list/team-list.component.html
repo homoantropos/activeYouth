@@ -15,14 +15,14 @@
   <ng-container matColumnDef="region">
     <th mat-header-cell *matHeaderCellDef>Регіон</th>
     <td mat-cell *matCellDef="let result">
-      {{result.reg.region_name}}
+      {{result.region.region_name}}
     </td>
   </ng-container>
 
   <ng-container matColumnDef="eduentity">
     <th mat-header-cell *matHeaderCellDef>Заклад освіти</th>
     <td mat-cell *matCellDef="let result">
-      {{result.eduentity.name}}
+      {{result.educational_entity.name}}
     </td>
   </ng-container>
 
@@ -36,7 +36,7 @@
   <ng-container matColumnDef="coach">
     <th mat-header-cell *matHeaderCellDef>Тренер</th>
     <td mat-cell *matCellDef="let result">
-      {{result.coach.surname + ' ' + result.coach.coach_name}}
+      {{result.coach.surname + ' ' + result.coach.name}}
     </td>
   </ng-container>
 
