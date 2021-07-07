@@ -4,6 +4,7 @@ import {Town, User} from '../../../shared/interfases';
 import {Observable} from 'rxjs';
 import {Router} from '@angular/router';
 import {TownService} from '../../services/town.service';
+import {AlertService} from '../../../shared/services/alert.service';
 
 @Component({
   selector: 'app-towns-admin-page',
@@ -23,7 +24,8 @@ export class TownsAdminPageComponent implements OnInit {
 
   constructor(
     private router: Router,
-    private townService: TownService
+    private townService: TownService,
+    private alert: AlertService
   ) {
   }
 
@@ -35,7 +37,7 @@ export class TownsAdminPageComponent implements OnInit {
   onDelete(id: number): void {
     this.townService.removeTown(id).subscribe(
       res => {
-        alert(res.message);
+        this.alert.success(res.message);
         this.ngOnInit();
       }
     );

@@ -2,7 +2,7 @@
       [formGroup]="sportKindEditorForm"
       (ngSubmit)="onSubmit(sportKindEditorForm.value)">
 
-  <h3>Змініть вид спорту (активності)</h3>
+  <small>Змініть вид спорту (активності)</small>
 
   <div class="alert danger" *ngIf="sportKindService.error$ | async as error">
     {{ error }}

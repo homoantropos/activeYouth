@@ -4,15 +4,7 @@
     (ngSubmit)="onCreate(eduEntityCreatorFrom.value)"
     class="login-container"
   >
-    <h4>Додати навчальний заклад</h4>
-
-    <div class="alert danger" *ngIf="eduEntityService.error$ | async as error">
-      {{ error }}
-    </div>
-
-    <div class="alert info" *ngIf="message && eduEntityCreatorFrom.untouched">
-      {{ message }}
-    </div>
+    <small>Додати навчальний заклад</small>
 
     <mat-form-field class="forms-inputs">
       <mat-label>введіть назву закладу освіти...</mat-label>

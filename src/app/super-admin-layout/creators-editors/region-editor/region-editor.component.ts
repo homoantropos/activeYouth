@@ -1,10 +1,10 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
-import {Country, Region} from '../../../shared/interfases';
+import {Region} from '../../../shared/interfases';
 import {ActivatedRoute, Params, Router} from '@angular/router';
 import {RegionService} from '../../services/region.service';
-import {AutoUpdateArrays} from '../../../shared/utils/autoUpdateArrays';
 import {switchMap} from 'rxjs/operators';
+import {AlertService} from '../../../shared/services/alert.service';
 
 @Component({
   selector: 'app-region-editor',
@@ -20,14 +20,13 @@ export class RegionEditorComponent implements OnInit, OnDestroy {
   region: Region;
   // @ts-ignore
   rSub: Subscription;
-  // @ts-ignore
-  message: string;
   submitted = false;
 
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    public regionService: RegionService
+    public regionService: RegionService,
+    private alert: AlertService
   ) {
   }
 
@@ -36,7 +35,7 @@ export class RegionEditorComponent implements OnInit, OnDestroy {
       switchMap(
         (params: Params) => {
           this.regionId = params.get('id');
-          return  this.regionService.getOneRegionById(params.get('id'));
+          return this.regionService.getOneRegionById(params.get('id'));
         }
       )
     ).subscribe(
@@ -51,7 +50,11 @@ export class RegionEditorComponent implements OnInit, OnDestroy {
         });
       }
     );
-
+    if (this.regionService.error$) {
+      this.regionService.error$.subscribe(
+        message => this.alert.danger(message)
+      );
+    }
   }
 
   onSubmit(): void {
@@ -78,6 +81,11 @@ export class RegionEditorComponent implements OnInit, OnDestroy {
           this.regionService.errorHandle(error);
         }
       );
+    if (this.regionService.error$) {
+      this.regionService.error$.subscribe(
+        message => this.alert.danger(message)
+      );
+    }
   }
 
   ngOnDestroy(): void {

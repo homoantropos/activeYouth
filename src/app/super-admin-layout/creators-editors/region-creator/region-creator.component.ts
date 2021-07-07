@@ -7,6 +7,7 @@ import {Country, Region} from '../../../shared/interfases';
 import {RegionService} from '../../services/region.service';
 import {map, startWith} from 'rxjs/operators';
 import {AutoUpdateArrays} from '../../../shared/utils/autoUpdateArrays';
+import {AlertService} from '../../../shared/services/alert.service';
 
 @Component({
   selector: 'app-regions-creator',
@@ -20,8 +21,6 @@ export class RegionCreatorComponent implements OnInit, OnDestroy {
   // @ts-ignore
   rSub: Subscription;
   // @ts-ignore
-  message: string;
-  // @ts-ignore
   countryFilteredOptions: Observable<string[]>;
   // @ts-ignore
   countries: Array<Country>;
@@ -29,7 +28,8 @@ export class RegionCreatorComponent implements OnInit, OnDestroy {
   constructor(
     public auth: AuthService,
     public regionService: RegionService,
-    private router: Router
+    private router: Router,
+    private alert: AlertService
   ) {
   }
 
@@ -65,8 +65,8 @@ export class RegionCreatorComponent implements OnInit, OnDestroy {
     this.regionCreatorForm.disable();
     this.rSub = this.regionService.createRegion(region)
       .subscribe(
-        () => {
-          alert(`Новий регіон успішно додано до бази даних.`);
+        rgn => {
+          this.alert.success(`Вітаємо! ${rgn.region_name} успішно додано до бази даних.`);
           this.router.navigate(['superadmin', 'places', 'regions']);
         },
         error => {
@@ -74,6 +74,11 @@ export class RegionCreatorComponent implements OnInit, OnDestroy {
           this.regionCreatorForm.enable();
         }
       );
+    if (this.regionService.error$) {
+      this.regionService.error$.subscribe(
+        message => this.alert.danger(message)
+      );
+    }
     this.regionCreatorForm.enable();
   }
 

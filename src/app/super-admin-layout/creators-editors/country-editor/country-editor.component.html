@@ -2,15 +2,7 @@
       [formGroup]="countryEditorForm"
       (ngSubmit)="onSubmit()">
 
-  <h4>Змініти назву країни</h4>
-
-  <div class="alert danger" *ngIf="countryService.error$ | async as error">
-    {{ error }}
-  </div>
-
-  <div class="alert info" *ngIf = "message && countryEditorForm.untouched">
-    {{ message }}
-  </div>
+  <small>Змініти назву країни</small>
 
   <mat-form-field>
     <mat-label>введіть назву...</mat-label>

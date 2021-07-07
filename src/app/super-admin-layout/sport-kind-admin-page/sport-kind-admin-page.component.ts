@@ -4,6 +4,7 @@ import {User} from '../../shared/interfases';
 import {Observable} from 'rxjs';
 import {Router} from '@angular/router';
 import {SportKindService} from '../services/sport-kind.service';
+import {AlertService} from '../../shared/services/alert.service';
 
 @Component({
   selector: 'app-sport-kind-admin',
@@ -20,7 +21,8 @@ export class SportKindAdminPageComponent implements OnInit {
 
   constructor(
     private router: Router,
-    private sportKindService: SportKindService
+    private sportKindService: SportKindService,
+    private alert: AlertService
   ) {
   }
 
@@ -31,7 +33,7 @@ export class SportKindAdminPageComponent implements OnInit {
   onDelete(id: number): void {
     this.sportKindService.removeSportKind(id).subscribe(
       res => {
-        alert(res.message);
+        this.alert.success(res.message);
         this.ngOnInit();
       }
     );

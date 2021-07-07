@@ -3,7 +3,6 @@ import {Observable, Subject, throwError} from 'rxjs';
 import {HttpClient, HttpErrorResponse} from '@angular/common/http';
 import {Town} from '../../shared/interfases';
 import {environment} from '../../../environments/environment';
-import {map} from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'

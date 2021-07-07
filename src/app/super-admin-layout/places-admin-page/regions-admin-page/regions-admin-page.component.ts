@@ -4,6 +4,7 @@ import {Country, Region, User} from '../../../shared/interfases';
 import {Observable, of} from 'rxjs';
 import {ActivatedRoute, Router} from '@angular/router';
 import {RegionService} from '../../services/region.service';
+import {AlertService} from '../../../shared/services/alert.service';
 
 @Component({
   selector: 'app-regions-admin-page',
@@ -26,7 +27,8 @@ export class RegionsAdminPageComponent implements OnInit {
   constructor(
     private router: Router,
     private regionService: RegionService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private alert: AlertService
   ) {
     this.countryFilteredOptions = of(this.route.children.length);
   }
@@ -39,7 +41,7 @@ export class RegionsAdminPageComponent implements OnInit {
   onDelete(id: number): void {
     this.regionService.removeRegion(id).subscribe(
       res => {
-        alert(res.message);
+        this.alert.success(res.message);
         this.ngOnInit();
       }
     );

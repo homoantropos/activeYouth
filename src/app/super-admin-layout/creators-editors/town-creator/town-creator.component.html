@@ -2,7 +2,7 @@
       [formGroup]="townCreatorForm"
       (ngSubmit)="onSubmit()">
 
-  <small><b>Додати місто</b></small>
+  <small>Додати місто</small>
 
   <div class="alert danger" *ngIf="townService.error$ | async as error">
     {{ error }}

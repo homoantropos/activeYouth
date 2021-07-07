@@ -2,15 +2,7 @@
   [formGroup]="regionCreatorForm"
   (ngSubmit)="onSubmit(regionCreatorForm.value)">
 
-  <small><b>Додати регіон</b></small>
-
-  <div class="alert danger" *ngIf="regionService.error$ | async as error">
-    {{ error }}
-  </div>
-
-  <div class="alert info" *ngIf = "message && regionCreatorForm.untouched">
-    {{ message }}
-  </div>
+  <small>Додати регіон</small>
 
   <mat-form-field>
     <mat-label>введіть назву регіону...</mat-label>

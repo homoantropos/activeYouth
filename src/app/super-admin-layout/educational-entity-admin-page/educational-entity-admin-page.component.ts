@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {EducationalEntityService} from '../services/educational-entity.service';
 import {Observable} from 'rxjs';
 import {Router} from '@angular/router';
+import {AlertService} from '../../shared/services/alert.service';
 
 @Component({
   selector: 'app-educational-entity-admin-page',
@@ -18,7 +19,8 @@ export class EducationalEntityAdminPageComponent implements OnInit {
 
   constructor(
     private eduEntityService: EducationalEntityService,
-    private router: Router
+    private router: Router,
+    private alert: AlertService
   ) { }
 
   ngOnInit(): void {
@@ -41,7 +43,7 @@ export class EducationalEntityAdminPageComponent implements OnInit {
   deleteEduEntity(id: number): void {
     this.eduEntityService.deleteEduEntity(id).subscribe(
       res => {
-        alert(res.message);
+        this.alert.success(res.message);
         this.ngOnInit();
       }
     );

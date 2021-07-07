@@ -2,15 +2,7 @@
       [formGroup]="regionEditorForm"
       (ngSubmit)="onSubmit()">
 
-  <h4>Редагувати регіон</h4>
-
-  <div class="alert danger" *ngIf="regionService.error$ | async as error">
-    {{ error }}
-  </div>
-
-  <div class="alert info" *ngIf = "message && regionEditorForm.untouched">
-    {{ message }}
-  </div>
+  <small>Редагувати регіон</small>
 
   <mat-form-field>
     <mat-label>введіть назву...</mat-label>

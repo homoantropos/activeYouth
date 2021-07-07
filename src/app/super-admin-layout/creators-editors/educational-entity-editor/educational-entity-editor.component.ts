@@ -6,6 +6,7 @@ import {EducationEntity} from '../../../shared/interfases';
 import {Observable} from 'rxjs';
 import {map, startWith, switchMap} from 'rxjs/operators';
 import {AutoUpdateArrays} from '../../../shared/utils/autoUpdateArrays';
+import {AlertService} from '../../../shared/services/alert.service';
 
 @Component({
   selector: 'app-educational-entity-editor',
@@ -19,8 +20,6 @@ export class EducationalEntityEditorComponent implements OnInit {
   // @ts-ignore
   eduEntityId: number;
   // @ts-ignore
-  message: string;
-  // @ts-ignore
   regionFilteredOptions: Observable<string[]>;
   // @ts-ignore
   eduEntityType: string;
@@ -29,7 +28,8 @@ export class EducationalEntityEditorComponent implements OnInit {
   constructor(
     private router: Router,
     private route: ActivatedRoute,
-    public eduEntityService: EducationalEntityService
+    public eduEntityService: EducationalEntityService,
+    private alert: AlertService
   ) { }
 
   ngOnInit(): void {
@@ -42,7 +42,6 @@ export class EducationalEntityEditorComponent implements OnInit {
       )
     ).subscribe(
       eduEntity => {
-        console.log(eduEntity);
         this.eduEntityEditorForm = new FormGroup({
           name: new FormControl(eduEntity.name, [Validators.required]),
           category: new FormControl(eduEntity.category),
@@ -60,8 +59,14 @@ export class EducationalEntityEditorComponent implements OnInit {
         this.eduEntityType = this.eduEntityEditorForm.get('eduEntityType').valueChanges.subscribe(
           (value: string) => this.eduEntityType = value
         );
-      }
+      },
+      error => this.eduEntityService.errorHandle(error)
     );
+    if (this.eduEntityService.error$) {
+      this.eduEntityService.error$.subscribe(
+        message => this.alert.danger(message)
+      );
+    }
   }
 
   private _filterRegion(value: string): string[] {
@@ -71,16 +76,23 @@ export class EducationalEntityEditorComponent implements OnInit {
 
   onUpdate(eduEntity: EducationEntity): void {
     this.submitted = true;
+    this.eduEntityEditorForm.disable();
     eduEntity.id = this.eduEntityId;
     this.eduEntityService.updateEduEntity(eduEntity).subscribe(
       res => {
-        alert(res.message);
+        this.alert.success(res.message);
         this.router.navigate(['superadmin', 'eduEntities']);
       }, (err) => {
         this.eduEntityService.errorHandle(err);
         this.submitted = false;
+        this.eduEntityEditorForm.enable();
     }
     );
+    if (this.eduEntityService.error$) {
+      this.eduEntityService.error$.subscribe(
+        message => this.alert.danger(message)
+      );
+    }
   }
 
 }

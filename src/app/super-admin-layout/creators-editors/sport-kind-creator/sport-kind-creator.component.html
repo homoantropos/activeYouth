@@ -2,15 +2,7 @@
       [formGroup]="sportKindCreatorForm"
       (ngSubmit)="onSubmit()">
 
-  <h3>Додайте вид спорту (активності)</h3>
-
-  <div class="alert danger" *ngIf="sportKindService.error$ | async as error">
-    {{ error }}
-  </div>
-
-  <div class="alert info" *ngIf="message && sportKindCreatorForm.untouched">
-    {{ message }}
-  </div>
+  <small>Додайте вид спорту (активності)</small>
 
   <mat-form-field class="forms-inputs">
     <mat-label>введіть назву виду активності...</mat-label>

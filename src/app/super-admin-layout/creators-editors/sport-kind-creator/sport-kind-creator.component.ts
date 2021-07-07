@@ -6,6 +6,7 @@ import {SportKind} from '../../../shared/interfases';
 import {SportKindService} from '../../services/sport-kind.service';
 import {AutoUpdateArrays} from '../../../shared/utils/autoUpdateArrays';
 import {Router} from '@angular/router';
+import {AlertService} from '../../../shared/services/alert.service';
 
 @Component({
   selector: 'app-sport-kind-creator',
@@ -18,13 +19,12 @@ export class SportKindCreatorComponent implements OnInit, OnDestroy {
   sportKindCreatorForm: FormGroup;
   // @ts-ignore
   skSub: Subscription;
-  // @ts-ignore
-  message: string;
   submitted = false;
 
   constructor(
     public sportKindService: SportKindService,
-    private router: Router
+    private router: Router,
+    private alert: AlertService
   ) {
   }
 
@@ -53,8 +53,8 @@ export class SportKindCreatorComponent implements OnInit, OnDestroy {
     };
     this.skSub = this.sportKindService.createSportKind(sportKind)
       .subscribe(
-        () => {
-          this.message = 'Вид спорту успішно додано до бази даних!';
+        sport => {
+          this.alert.success(`${sport.sport_kind} успішно додано до бази даних!`);
           this.router.navigate(['superadmin', 'sports']);
         },
         error => {
@@ -63,6 +63,11 @@ export class SportKindCreatorComponent implements OnInit, OnDestroy {
           this.sportKindCreatorForm.enable();
         }
       );
+    if (this.sportKindService.error$) {
+      this.sportKindService.error$.subscribe(
+        message => this.alert.danger(message)
+      );
+    }
   }
 
   ngOnDestroy(): void {

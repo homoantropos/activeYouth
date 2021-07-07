@@ -4,6 +4,7 @@ import {Country, User} from '../../../shared/interfases';
 import {Observable} from 'rxjs';
 import {Router} from '@angular/router';
 import {CountryService} from '../../services/country.service';
+import {AlertService} from '../../../shared/services/alert.service';
 
 @Component({
   selector: 'app-countries-admin-page',
@@ -21,7 +22,8 @@ export class CountriesAdminPageComponent implements OnInit {
 
   constructor(
     private router: Router,
-    private countryService: CountryService
+    private countryService: CountryService,
+    private alert: AlertService
   ) {
   }
 
@@ -32,7 +34,7 @@ export class CountriesAdminPageComponent implements OnInit {
   onDelete(id: number): void {
     this.countryService.removeCountry(id).subscribe(
       res => {
-        alert(res.message);
+        this.alert.success(res.message);
         this.ngOnInit();
       }
     );

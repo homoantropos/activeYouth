@@ -4,6 +4,7 @@ import {MatTableDataSource} from '@angular/material/table';
 import {User} from '../../shared/interfases';
 import {Observable} from 'rxjs';
 import {UserService} from '../services/user.service';
+import {AlertService} from '../../shared/services/alert.service';
 
 @Component({
   selector: 'app-user-admin',
@@ -19,7 +20,8 @@ export class UserAdminPageComponent implements OnInit {
 
   constructor(
     private router: Router,
-    private userService: UserService
+    private userService: UserService,
+    private alert: AlertService
   ) {
   }
 
@@ -30,7 +32,7 @@ export class UserAdminPageComponent implements OnInit {
   onDelete(id: string): void {
     this.userService.removeUser(id).subscribe(
       res => {
-        alert(res.message);
+        this.alert.success(res.message);
         this.ngOnInit();
       }
     );

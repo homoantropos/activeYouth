@@ -4,6 +4,7 @@ import {Country} from '../../../shared/interfases';
 import {ActivatedRoute, Params, Router} from '@angular/router';
 import {CountryService} from '../../services/country.service';
 import {switchMap} from 'rxjs/operators';
+import {AlertService} from '../../../shared/services/alert.service';
 
 @Component({
   selector: 'app-country-editor',
@@ -16,14 +17,13 @@ export class CountryEditorComponent implements OnInit, OnDestroy {
   countryId = 0;
   // @ts-ignore
   cSub: Subscription;
-  // @ts-ignore
-  message: string;
   submitted = false;
 
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    public countryService: CountryService
+    public countryService: CountryService,
+    private alert: AlertService
   ) {
   }
 
@@ -58,7 +58,7 @@ export class CountryEditorComponent implements OnInit, OnDestroy {
     this.cSub = this.countryService.updateCountry(country)
       .subscribe(
         (res) => {
-          alert(`${res.message}`);
+          this.alert.success(res.message);
           this.router.navigate(['superadmin', 'appointmentPlaces']);
         },
         error => {
@@ -67,6 +67,11 @@ export class CountryEditorComponent implements OnInit, OnDestroy {
           this.countryEditorForm.enable();
         }
       );
+    if (this.countryService.error$) {
+      this.countryService.error$.subscribe(
+        message => this.alert.danger(message)
+      );
+    }
   }
 
   ngOnDestroy(): void {
