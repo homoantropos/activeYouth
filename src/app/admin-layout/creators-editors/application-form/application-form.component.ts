@@ -5,9 +5,8 @@ import {catchError, map, startWith, switchMap} from 'rxjs/operators';
 import {AppointmentService} from '../../../shared/services/appointment.service';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {ResultService} from '../../../shared/services/result.service';
-import {Observable, Subject, throwError} from 'rxjs';
+import {Observable, Subject} from 'rxjs';
 import {AutoUpdateArrays} from '../../../shared/utils/autoUpdateArrays';
-import {HttpErrorResponse} from '@angular/common/http';
 import {AlertService} from '../../../shared/services/alert.service';
 
 @Component({
@@ -29,12 +28,14 @@ export class ApplicationFormComponent implements OnInit {
   // @ts-ignore
   regionFilteredOptions: Observable<string[]>;
   submitted = false;
+  // @ts-ignore
+  initResult: Result;
 
   constructor(
     private route: ActivatedRoute,
     private appointmentService: AppointmentService,
     private resultService: ResultService,
-    public alertService: AlertService
+    public alert: AlertService
   ) {
   }
 
@@ -44,38 +45,47 @@ export class ApplicationFormComponent implements OnInit {
         switchMap(
           (params: Params) => {
             this.appointmentId = params.get('id');
+            this.initResult = this.resultService.getEmptyResult(this.appointment);
             return this.resultService.getResultByAppointment(params.get('id'));
           }
         )
       )
       .subscribe(res => {
-        if (res[0] === undefined) {
+          if (res[0] === undefined) {
+            // @ts-ignore
+            this.appointment = res;
+          } else {
+            this.appointment = res[0].appointment;
+            this.listOfParticipants = res;
+          }
+          this.applicationForm = new FormGroup({
+            participant_name: new FormControl(this.initResult.participant.name, Validators.required),
+            participant_surname: new FormControl(this.initResult.participant.surname, Validators.required),
+            participant_fathersName: new FormControl(this.initResult.participant.fathersName, Validators.required),
+            participant_DoB: new FormControl(this.initResult.participant.DoB, Validators.required),
+            participant_gender: new FormControl(this.initResult.participant.gender, Validators.required),
+            coach_name: new FormControl(this.initResult.coach?.coach_name, Validators.required),
+            coach_surname: new FormControl(this.initResult.coach?.surname, Validators.required),
+            coach_fathersName: new FormControl(this.initResult.coach?.fathersName, Validators.required),
+            eduentityName: new FormControl(this.initResult.eduentity.name, Validators.required),
+            region: new FormControl(this.initResult.reg?.region_name, Validators.required),
+            discipline: new FormControl(this.initResult.discipline, Validators.required)
+          });
           // @ts-ignore
-          this.appointment = res;
-        } else {
-          this.appointment = res[0].appointment;
-          this.listOfParticipants = res;
+          this.regionFilteredOptions = this.applicationForm.get('region').valueChanges
+            .pipe(
+              startWith(''),
+              map((value: string) => this._filterRegion(value))
+            );
+        },
+        error => this.resultService.errorHandle(error));
+    if (this.resultService.error$) {
+      this.resultService.error$.subscribe(
+        message => {
+          this.alert.warning(message);
         }
-        this.applicationForm = new FormGroup({
-          participant_name: new FormControl('', Validators.required),
-          participant_surname: new FormControl('', Validators.required),
-          participant_fathersName: new FormControl('', Validators.required),
-          participant_DoB: new FormControl('', Validators.required),
-          participant_gender: new FormControl('', Validators.required),
-          coach_name: new FormControl('', Validators.required),
-          coach_surname: new FormControl('', Validators.required),
-          coach_fathersName: new FormControl('', Validators.required),
-          eduentityName: new FormControl('', Validators.required),
-          region: new FormControl('', Validators.required),
-          discipline: new FormControl('', Validators.required)
-        });
-        // @ts-ignore
-        this.regionFilteredOptions = this.applicationForm.get('region').valueChanges
-          .pipe(
-            startWith(''),
-            map((value: string) => this._filterRegion(value))
-          );
-      });
+      );
+    }
   }
 
   private _filterRegion(value: string): string[] {
@@ -115,9 +125,10 @@ export class ApplicationFormComponent implements OnInit {
     };
     this.resultService.createResult(result)
       .pipe(
-        catchError(this.errorHandle.bind(this)),
+        catchError(this.resultService.errorHandle.bind(this)),
         switchMap(
           res => {
+            this.alert.success('Вітаємо! Учасник успішно доданий до заявки!');
             return this.resultService.getResultByAppointment(this.appointmentId);
           }
         )
@@ -125,34 +136,16 @@ export class ApplicationFormComponent implements OnInit {
       .subscribe(
         results => this.listOfParticipants = results,
         error => {
-          this.errorHandle(error);
+          this.resultService.errorHandle(error);
         }
       );
-    if (this.error$) {
-      this.error$.subscribe(
+    if (this.resultService.error$) {
+      this.resultService.error$.subscribe(
         message => {
-          this.alertService.warning(message);
+          this.alert.warning(message);
         }
       );
     }
-  }
-
-  private errorHandle(error: HttpErrorResponse): any {
-    const message = error.error.message;
-    if (message) {
-      switch (message) {
-        case('INVALID_PASSWORD'):
-          this.error$.next('невірний пароль');
-          break;
-        case('EMAIL_NOT_FOUND'):
-          this.error$.next('емейл не знайдено');
-          break;
-        case('повторювані значення ключа порушують обмеження унікальності \"result_discipline_participantId_key\"'):
-          this.error$.next('Такий учасник вже зареєстрований в цій вагові категорії');
-          break;
-      }
-    }
-    return throwError(error);
   }
 
 }

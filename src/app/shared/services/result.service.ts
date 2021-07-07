@@ -1,14 +1,16 @@
-import { Injectable } from '@angular/core';
-import { Result } from '../interfases';
-import { Observable, of } from 'rxjs';
-import { MockDataBase } from '../../thoseWillBeDeletedAfterDBCreating/mockDB';
-import {HttpClient} from '@angular/common/http';
+import {Injectable} from '@angular/core';
+import {Appointment, Result} from '../interfases';
+import {Observable, of, Subject, throwError} from 'rxjs';
+import {MockDataBase} from '../../thoseWillBeDeletedAfterDBCreating/mockDB';
+import {HttpClient, HttpErrorResponse} from '@angular/common/http';
 import {environment} from '../../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ResultService {
+
+  error$: Subject<string> = new Subject<string>();
 
   constructor(
     private http: HttpClient
@@ -46,5 +48,44 @@ export class ResultService {
   getResultByID(id: string): Observable<Result> {
     // http-client get will be here later
     return of((MockDataBase.mockResultsDataBase.find(r => r.result_id === id)) as Result);
+  }
+
+  getEmptyResult(appointment: Appointment): Result {
+    return {
+      appointment,
+      participant: {
+        name: '',
+        surname: '',
+        fathersName: '',
+        DoB: new Date(),
+        gender: '',
+        schoolchildOrStudent: ''
+      },
+      coach: {
+        coach_name: '',
+        surname: '',
+        fathersName: ''
+      },
+      reg: {
+        region_name: ''
+      },
+      eduentity: {
+        name: ''
+      },
+      discipline: '',
+      completed: false
+    };
+  }
+
+  errorHandle(error: HttpErrorResponse): any {
+    const message = error.error.message;
+    if (message) {
+      switch (message) {
+        case('повторювані значення ключа порушують обмеження унікальності \"result_discipline_participantId_key\"'):
+          this.error$.next('Такий учасник вже зареєстрований в цій вагові категорії');
+          break;
+      }
+    }
+    return throwError(error);
   }
 }
