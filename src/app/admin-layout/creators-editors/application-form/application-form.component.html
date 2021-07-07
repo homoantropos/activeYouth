@@ -120,7 +120,9 @@
 
 </div>
 
-<app-results-list [results]="listOfParticipants"></app-results-list>
+<app-results-list
+  [results]="listOfParticipants"
+  (resultEmit)="ngOnInit($event)"></app-results-list>
 
 <ng-template #loader>
   <app-loader></app-loader>

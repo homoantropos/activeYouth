@@ -39,13 +39,19 @@ export class ApplicationFormComponent implements OnInit {
   ) {
   }
 
-  ngOnInit(): void {
+  ngOnInit(result?: Result): void {
+    if (result) {
+      this.initResult = result;
+    }
     this.route.paramMap
       .pipe(
         switchMap(
           (params: Params) => {
             this.appointmentId = params.get('id');
-            this.initResult = this.resultService.getEmptyResult(this.appointment);
+            if (this.initResult === undefined) {
+              this.initResult = this.resultService.getEmptyResult(this.appointment);
+            }
+            console.log('result: ', this.initResult);
             return this.resultService.getResultByAppointment(params.get('id'));
           }
         )
@@ -67,7 +73,7 @@ export class ApplicationFormComponent implements OnInit {
             coach_name: new FormControl(this.initResult.coach?.coach_name, Validators.required),
             coach_surname: new FormControl(this.initResult.coach?.surname, Validators.required),
             coach_fathersName: new FormControl(this.initResult.coach?.fathersName, Validators.required),
-            eduentityName: new FormControl(this.initResult.eduentity.name, Validators.required),
+            eduentityName: new FormControl(this.initResult.educational_entity?.name, Validators.required),
             region: new FormControl(this.initResult.reg?.region_name, Validators.required),
             discipline: new FormControl(this.initResult.discipline, Validators.required)
           });

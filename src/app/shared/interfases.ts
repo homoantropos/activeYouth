@@ -31,6 +31,7 @@ export interface Appointment {
   direction: string;
   status: string;
   organiser: string;
+  appointmentId?: number;
   appointment_id?: string;
   person_id?: string;
 }
@@ -105,12 +106,14 @@ export interface Result {
   participant: Participant;
   coach?: Coach;
   eduentity: EducationEntity;
+  educational_entity?: EducationEntity;
   reg?: Region;
   region?: string;
   discipline: string;
   place?: number;
   ratingPoints?: number;
   completed?: false;
+  appointmentId?: number;
   user?: User;
   id?: number;
   personId?: number;

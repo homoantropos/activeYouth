@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Result} from '../../shared/interfases';
 import {Router} from '@angular/router';
 
@@ -11,6 +11,7 @@ import {Router} from '@angular/router';
 export class TeamListComponent implements OnInit {
 
   @Input() results: Array<Result> = [];
+  @Output() resultEmit: EventEmitter<Result> = new EventEmitter<Result>();
   displayedColumns = ['participant', 'region', 'eduentity', 'DoB', 'coach', 'discipline', 'edit'];
   paginatorStartPageNumber = 0;
 
@@ -21,7 +22,8 @@ export class TeamListComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  goToOneResultEditor(id: number): void {
-    this.router.navigateByUrl(`admin/rating/editOne/${id}`);
+  goToOneResultEditor(result: Result): void {
+    this.resultEmit.emit(result);
+    this.router.navigateByUrl(`admin/schedule/application/${result.appointmentId}`);
   }
 }
