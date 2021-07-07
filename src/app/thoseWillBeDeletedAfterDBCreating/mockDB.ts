@@ -786,12 +786,21 @@ export class MockDataBase {
       participant: {
         name: 'Сергій',
         surname: 'Антропов',
+        fathersName: 'Анатолійович',
         DoB: new Date(1990, 2, 13),
         gender: 'male',
         schoolchildOrStudent: 'students',
-        participant_id: 'СергійАнтропов19900213'
       },
-      eduentity: {
+      coach: {
+        name: 'Старовойт',
+        surname: 'Андрій',
+        fathersName: 'Петрович'
+      },
+      region: {
+        region_name: 'Київ'
+      },
+      completed: true,
+      educational_entity: {
         name: 'Київський інститут інженерів цивільної авіації',
         category: 2,
         type: 'ЗВО'
@@ -799,7 +808,6 @@ export class MockDataBase {
       discipline: 'біг',
       place: 1,
       ratingPoints: 25,
-      result_id: 'dfwvrvwververg'
     },
     {
       appointment: {
@@ -819,20 +827,28 @@ export class MockDataBase {
       participant: {
         name: 'Сергій',
         surname: 'Антропов',
+        fathersName: 'Анатолійович',
         DoB: new Date(1990, 2, 13),
         gender: 'male',
-        schoolchildOrStudent: 'students',
-        participant_id: 'СергійАнтропов19900213'
+        schoolchildOrStudent: 'students'
       },
-      eduentity: {
+      coach: {
+        name: 'Старовойт',
+        surname: 'Андрій',
+        fathersName: 'Петрович'
+      },
+      region: {
+        region_name: 'Київ'
+      },
+      completed: true,
+      educational_entity: {
         name: 'Київський інститут інженерів цивільної авіації',
         category: 2,
         type: 'ЗВО'
       },
       discipline: 'стрибки',
       place: 1,
-      ratingPoints: 25,
-      result_id: 'sdfsdgldpbfmp'
+      ratingPoints: 25
     },
     {
       appointment: {
@@ -854,18 +870,25 @@ export class MockDataBase {
         surname: 'Леонтович',
         DoB: new Date(1990, 2, 13),
         gender: 'male',
-        schoolchildOrStudent: 'students',
-        participant_id: 'ДмитроЛеонтович19900213'
+        schoolchildOrStudent: 'students'
       },
-      eduentity: {
+      coach: {
+        name: 'Старовойт',
+        surname: 'Андрій',
+        fathersName: 'Петрович'
+      },
+      region: {
+        region_name: 'Київ'
+      },
+      completed: true,
+      educational_entity: {
         name: 'Київський інститут інженерів цивільної авіації',
         category: 2,
         type: 'ЗВО'
       },
       discipline: 'біг',
       place: 3,
-      ratingPoints: 20,
-      result_id: 'івавпапваіпвап'
+      ratingPoints: 20
     },
     {
       appointment: {
@@ -887,18 +910,25 @@ export class MockDataBase {
         surname: 'Леонтович',
         DoB: new Date(1990, 2, 13),
         gender: 'male',
-        schoolchildOrStudent: 'students',
-        participant_id: 'ДмитроЛеонтович19900213'
+        schoolchildOrStudent: 'students'
       },
-      eduentity: {
+      coach: {
+        name: 'Старовойт',
+        surname: 'Андрій',
+        fathersName: 'Петрович'
+      },
+      region: {
+        region_name: 'Київ'
+      },
+      completed: true,
+      educational_entity: {
         name: 'Київський інститут інженерів цивільної авіації',
         category: 2,
         type: 'ЗВО'
       },
       discipline: 'стрибки',
       place: 2,
-      ratingPoints: 22,
-      result_id: 'dsvsldsdbsd'
+      ratingPoints: 22
     },
     {
       appointment: {
@@ -920,18 +950,25 @@ export class MockDataBase {
         surname: 'Михайлов',
         DoB: new Date(1990, 2, 13),
         gender: 'male',
-        schoolchildOrStudent: 'students',
-        participant_id: 'СтаніславМихайлов19900213'
+        schoolchildOrStudent: 'students'
       },
-      eduentity: {
+      coach: {
+        name: 'Старовойт',
+        surname: 'Андрій',
+        fathersName: 'Петрович'
+      },
+      region: {
+        region_name: 'Київ'
+      },
+      completed: true,
+      educational_entity: {
         name: 'Сумський державний університет',
         category: 2,
         type: 'ЗВО'
       },
       discipline: 'біг',
       place: 2,
-      ratingPoints: 22,
-      result_id: 'оілваіва'
+      ratingPoints: 22
     },
     {
       appointment: {
@@ -953,18 +990,25 @@ export class MockDataBase {
         surname: 'Михайлов',
         DoB: new Date(1990, 2, 13),
         gender: 'male',
-        schoolchildOrStudent: 'students',
-        participant_id: 'СтаніславМихайлов19900213'
+        schoolchildOrStudent: 'students'
       },
-      eduentity: {
+      coach: {
+        name: 'Старовойт',
+        surname: 'Андрій',
+        fathersName: 'Петрович'
+      },
+      region: {
+        region_name: 'Київ'
+      },
+      completed: true,
+      educational_entity: {
         name: 'Сумський державний університет',
         category: 2,
         type: 'ЗВО'
       },
       discipline: 'стрибки',
       place: 3,
-      ratingPoints: 20,
-      result_id: 'оілваіва'
+      ratingPoints: 20
     },
     {
       appointment: {
@@ -986,18 +1030,25 @@ export class MockDataBase {
         surname: 'Михайлов',
         DoB: new Date(1990, 2, 13),
         gender: 'male',
-        schoolchildOrStudent: 'students',
-        participant_id: 'СтаніславМихайлов19900213'
+        schoolchildOrStudent: 'students'
       },
-      eduentity: {
+      coach: {
+        name: 'Старовойт',
+        surname: 'Андрій',
+        fathersName: 'Петрович'
+      },
+      region: {
+        region_name: 'Київ'
+      },
+      completed: true,
+      educational_entity: {
         name: 'Сумський державний університет',
         category: 2,
         type: 'ЗВО'
       },
       discipline: 'стояння',
       place: 1,
-      ratingPoints: 25,
-      result_id: 'оілваіва'
+      ratingPoints: 25
     },
     {
       appointment: {
@@ -1019,18 +1070,25 @@ export class MockDataBase {
         surname: 'Смолякова',
         DoB: new Date(2000, 2, 13),
         gender: 'female',
-        schoolchildOrStudent: 'students',
-        participant_id: 'ГаннаСмолякова20000213'
+        schoolchildOrStudent: 'students'
       },
-      eduentity: {
+      coach: {
+        name: 'Старовойт',
+        surname: 'Андрій',
+        fathersName: 'Петрович'
+      },
+      region: {
+        region_name: 'Київ'
+      },
+      completed: true,
+      educational_entity: {
         name: 'Київський національний університет імені Т. Г. Шевченка',
         category: 2,
         type: 'ЗВО'
       },
       discipline: 'біг',
       place: 1,
-      ratingPoints: 25,
-      result_id: 'vdfbdfbdfbdb'
+      ratingPoints: 25
     },
     {
       appointment: {
@@ -1052,18 +1110,25 @@ export class MockDataBase {
         surname: 'Смолякова',
         DoB: new Date(2000, 2, 13),
         gender: 'female',
-        schoolchildOrStudent: 'students',
-        participant_id: 'ГаннаСмолякова20000213'
+        schoolchildOrStudent: 'students'
       },
-      eduentity: {
+      coach: {
+        name: 'Старовойт',
+        surname: 'Андрій',
+        fathersName: 'Петрович'
+      },
+      region: {
+        region_name: 'Київ'
+      },
+      completed: true,
+      educational_entity: {
         name: 'Київський національний університет імені Т. Г. Шевченка',
         category: 2,
         type: 'ЗВО'
       },
       discipline: 'стрибки',
       place: 1,
-      ratingPoints: 25,
-      result_id: 'sdfsdgldpbfmp'
+      ratingPoints: 25
     },
     {
       appointment: {
@@ -1085,18 +1150,25 @@ export class MockDataBase {
         surname: 'Макаревич',
         DoB: new Date(2005, 2, 13),
         gender: 'female',
-        schoolchildOrStudent: 'students',
-        participant_id: 'НаталіяМакаревич20050213'
+        schoolchildOrStudent: 'students'
       },
-      eduentity: {
+      coach: {
+        name: 'Старовойт',
+        surname: 'Андрій',
+        fathersName: 'Петрович'
+      },
+      region: {
+        region_name: 'Київ'
+      },
+      completed: true,
+      educational_entity: {
         name: 'Національний університет фізичного виховання та спорту України',
         category: 1,
         type: 'ЗВО'
       },
       discipline: 'біг',
       place: 3,
-      ratingPoints: 20,
-      result_id: 'сукпіи'
+      ratingPoints: 20
     },
     {
       appointment: {
@@ -1118,18 +1190,25 @@ export class MockDataBase {
         surname: 'Макаревич',
         DoB: new Date(2005, 2, 13),
         gender: 'female',
-        schoolchildOrStudent: 'students',
-        participant_id: 'НаталіяМакаревич20050213'
+        schoolchildOrStudent: 'students'
       },
-      eduentity: {
+      coach: {
+        name: 'Старовойт',
+        surname: 'Андрій',
+        fathersName: 'Петрович'
+      },
+      region: {
+        region_name: 'Київ'
+      },
+      completed: true,
+      educational_entity: {
         name: 'Національний університет фізичного виховання та спорту України',
         category: 1,
         type: 'ЗВО'
       },
       discipline: 'стрибки',
       place: 2,
-      ratingPoints: 22,
-      result_id: 'двіпівп'
+      ratingPoints: 22
     },
     {
       appointment: {
@@ -1151,18 +1230,25 @@ export class MockDataBase {
         surname: 'Підкопаєва',
         DoB: new Date(2010, 2, 13),
         gender: 'female',
-        schoolchildOrStudent: 'students',
-        participant_id: 'ЛіліяПідкопаєва20120213'
+        schoolchildOrStudent: 'students'
       },
-      eduentity: {
+      coach: {
+        name: 'Старовойт',
+        surname: 'Андрій',
+        fathersName: 'Петрович'
+      },
+      region: {
+        region_name: 'Київ'
+      },
+      completed: true,
+      educational_entity: {
         name: 'Сумський державний університет',
         category: 2,
         type: 'ЗВО'
       },
       discipline: 'біг',
       place: 2,
-      ratingPoints: 22,
-      result_id: 'іваіп'
+      ratingPoints: 22
     },
     {
       appointment: {
@@ -1184,18 +1270,25 @@ export class MockDataBase {
         surname: 'Підкопаєва',
         DoB: new Date(1990, 2, 13),
         gender: 'female',
-        schoolchildOrStudent: 'students',
-        participant_id: 'ЛіліяПідкопаєва20120213'
+        schoolchildOrStudent: 'students'
       },
-      eduentity: {
+      coach: {
+        name: 'Старовойт',
+        surname: 'Андрій',
+        fathersName: 'Петрович'
+      },
+      region: {
+        region_name: 'Київ'
+      },
+      completed: true,
+      educational_entity: {
         name: 'Сумський державний університет',
         category: 2,
         type: 'ЗВО'
       },
       discipline: 'стрибки',
       place: 3,
-      ratingPoints: 20,
-      result_id: 'івмівп'
+      ratingPoints: 20
     },
     {
       appointment: {
@@ -1224,17 +1317,24 @@ export class MockDataBase {
         surname: 'Йойович',
         DoB: new Date(2009, 2, 13),
         gender: 'female',
-        schoolchildOrStudent: 'schoolchild',
-        participant_id: 'МілаЙойович20090213'
+        schoolchildOrStudent: 'schoolchild'
       },
-      eduentity: {
+      coach: {
+        name: 'Старовойт',
+        surname: 'Андрій',
+        fathersName: 'Петрович'
+      },
+      region: {
+        region_name: 'Київ'
+      },
+      completed: true,
+      educational_entity: {
         name: 'Загальноосвітня школа №4 міста Запоріжжа',
         type: 'ЗЗСО'
       },
       discipline: 'дівчата',
       place: 1,
-      ratingPoints: 25,
-      result_id: 'івпщуикь'
+      ratingPoints: 25
     },
     {
       appointment: {
@@ -1263,17 +1363,24 @@ export class MockDataBase {
         surname: 'Максимова',
         DoB: new Date(2009, 2, 13),
         gender: 'female',
-        schoolchildOrStudent: 'schoolchild',
-        participant_id: 'ІринаМаксимко20090213'
+        schoolchildOrStudent: 'schoolchild'
       },
-      eduentity: {
+      coach: {
+        name: 'Старовойт',
+        surname: 'Андрій',
+        fathersName: 'Петрович'
+      },
+      region: {
+        region_name: 'Київ'
+      },
+      completed: true,
+      educational_entity: {
         name: 'Загальноосвітня школа №4 міста Запоріжжа',
         type: 'ЗЗСО'
       },
       discipline: 'дівчата',
       place: 1,
-      ratingPoints: 25,
-      result_id: 'іваіаіва'
+      ratingPoints: 25
     },
     {
       appointment: {
@@ -1302,17 +1409,24 @@ export class MockDataBase {
         surname: 'Попович',
         DoB: new Date(2009, 2, 13),
         gender: 'female',
-        schoolchildOrStudent: 'schoolchild',
-        participant_id: 'ЛюдмилаПопович20090213'
+        schoolchildOrStudent: 'schoolchild'
       },
-      eduentity: {
+      coach: {
+        name: 'Старовойт',
+        surname: 'Андрій',
+        fathersName: 'Петрович'
+      },
+      region: {
+        region_name: 'Київ'
+      },
+      completed: true,
+      educational_entity: {
         name: 'Загальноосвітня школа №4 міста Запоріжжа',
         type: 'ЗЗСО'
       },
       discipline: 'дівчата',
       place: 1,
-      ratingPoints: 25,
-      result_id: 'івпщуикь'
+      ratingPoints: 25
     },
     {
       appointment: {
@@ -1341,17 +1455,24 @@ export class MockDataBase {
         surname: 'Попович',
         DoB: new Date(2009, 2, 13),
         gender: 'female',
-        schoolchildOrStudent: 'schoolchild',
-        participant_id: 'ЛюдмилаПопович20090213'
+        schoolchildOrStudent: 'schoolchild'
       },
-      eduentity: {
+      coach: {
+        name: 'Старовойт',
+        surname: 'Андрій',
+        fathersName: 'Петрович'
+      },
+      region: {
+        region_name: 'Київ'
+      },
+      completed: true,
+      educational_entity: {
         name: 'Загальноосвітня школа №4 міста Запоріжжа',
         type: 'ЗЗСО'
       },
       discipline: 'ІІІ віковий дивізіон',
       place: 1,
-      ratingPoints: 25,
-      result_id: 'іваівпмуеик'
+      ratingPoints: 25
     },
     {
       appointment: {
@@ -1380,17 +1501,24 @@ export class MockDataBase {
         surname: 'Попович',
         DoB: new Date(2009, 2, 13),
         gender: 'male',
-        schoolchildOrStudent: 'schoolchild',
-        participant_id: 'ОлександрПопович20090213'
+        schoolchildOrStudent: 'schoolchild'
       },
-      eduentity: {
+      coach: {
+        name: 'Старовойт',
+        surname: 'Андрій',
+        fathersName: 'Петрович'
+      },
+      region: {
+        region_name: 'Київ'
+      },
+      completed: true,
+      educational_entity: {
         name: 'Загальноосвітня школа №4 міста Запоріжжа',
         type: 'ЗЗСО'
       },
       discipline: 'ІІІ віковий дивізіон',
       place: 1,
-      ratingPoints: 25,
-      result_id: 'іваівпмуеик'
+      ratingPoints: 25
     },
     {
       appointment: {
@@ -1419,17 +1547,24 @@ export class MockDataBase {
         surname: 'Попович',
         DoB: new Date(2009, 2, 13),
         gender: 'male',
-        schoolchildOrStudent: 'schoolchild',
-        participant_id: 'ЛюдмилаПопович20090213'
+        schoolchildOrStudent: 'schoolchild'
       },
-      eduentity: {
+      coach: {
+        name: 'Старовойт',
+        surname: 'Андрій',
+        fathersName: 'Петрович'
+      },
+      region: {
+        region_name: 'Київ'
+      },
+      completed: true,
+      educational_entity: {
         name: 'Загальноосвітня школа №4 міста Запоріжжа',
         type: 'ЗЗСО'
       },
       discipline: 'ІІІ віковий дивізіон',
       place: 1,
-      ratingPoints: 25,
-      result_id: 'іваівпмуеик'
+      ratingPoints: 25
     },
     {
       appointment: {
@@ -1458,17 +1593,24 @@ export class MockDataBase {
         surname: 'Максимов',
         DoB: new Date(2009, 2, 13),
         gender: 'male',
-        schoolchildOrStudent: 'schoolchild',
-        participant_id: 'АндрійМаксимов20090213'
+        schoolchildOrStudent: 'schoolchild'
       },
-      eduentity: {
+      coach: {
+        name: 'Старовойт',
+        surname: 'Андрій',
+        fathersName: 'Петрович'
+      },
+      region: {
+        region_name: 'Київ'
+      },
+      completed: true,
+      educational_entity: {
         name: 'Загальноосвітня школа №4 міста Запоріжжа',
         type: 'ЗЗСО'
       },
       discipline: 'хлопці',
       place: 1,
-      ratingPoints: 25,
-      result_id: 'іваіаіва'
+      ratingPoints: 25
     },
     {
       appointment: {
@@ -1497,17 +1639,24 @@ export class MockDataBase {
         surname: 'Смирнов',
         DoB: new Date(2009, 2, 13),
         gender: 'male',
-        schoolchildOrStudent: 'schoolchild',
-        participant_id: 'КОнтантинСмирнов20090213'
+        schoolchildOrStudent: 'schoolchild'
       },
-      eduentity: {
+      coach: {
+        name: 'Старовойт',
+        surname: 'Андрій',
+        fathersName: 'Петрович'
+      },
+      region: {
+        region_name: 'Київ'
+      },
+      completed: true,
+      educational_entity: {
         name: 'Загальноосвітня школа №4 міста Запоріжжа',
         type: 'ЗЗСО'
       },
       discipline: 'хлопці',
       place: 1,
-      ratingPoints: 25,
-      result_id: 'іваіаіва'
+      ratingPoints: 25
     }
   ];
 }

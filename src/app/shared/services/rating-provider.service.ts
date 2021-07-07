@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import {Participant, RatingBrick, Result} from '../interfases';
-import {ResultService} from './result.service';
 
 @Injectable({
   providedIn: 'root'
@@ -8,7 +7,6 @@ import {ResultService} from './result.service';
 export class RatingProviderService {
 
   constructor(
-    private resultsService: ResultService
   ) { }
 
   createStudentsRating(results: Array<Result>): Array<RatingBrick> {
@@ -16,7 +14,7 @@ export class RatingProviderService {
     let totalRating = 0;
     let cloneResults = results.slice();
     results.map( r => {
-      const onePersonResults = cloneResults.filter(result => result.participant.participant_id === r.participant.participant_id);
+      const onePersonResults = cloneResults.filter(result => result.participant.id === r.participant.id);
       if (onePersonResults.length === 0) {
         return;
       }
@@ -29,7 +27,7 @@ export class RatingProviderService {
         totalRating
       });
       totalRating = 0;
-      cloneResults = cloneResults.filter(result => result.participant.participant_id !== r.participant.participant_id);
+      cloneResults = cloneResults.filter(result => result.participant.id !== r.participant.id);
     });
     rating.sort((a, b) => b.totalRating - a.totalRating);
     return rating;
@@ -41,9 +39,9 @@ export class RatingProviderService {
     let totalRating = 0;
     cloneResults.map(
       r => {
-        const oneEduEntityRatingBrick = cloneResults.filter(result => result.eduentity.name === r.eduentity.name);
+        const oneEduEntityRatingBrick = cloneResults.filter(result => result.educational_entity.name === r.educational_entity.name);
         if (oneEduEntityRatingBrick.length === 0) { return; }
-        const resultsOwnerEduEntity = oneEduEntityRatingBrick[0].eduentity;
+        const resultsOwnerEduEntity = oneEduEntityRatingBrick[0].educational_entity;
         // @ts-ignore
         oneEduEntityRatingBrick.map( rOne => totalRating = totalRating + rOne.ratingPoints );
         ratingEduEntities.push({
@@ -51,7 +49,7 @@ export class RatingProviderService {
           results: oneEduEntityRatingBrick,
           totalRating
         });
-        cloneResults = cloneResults.filter(rafter => rafter.eduentity.name !== r.eduentity.name);
+        cloneResults = cloneResults.filter(rafter => rafter.educational_entity.name !== r.educational_entity.name);
         totalRating = 0;
       }
     );

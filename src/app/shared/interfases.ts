@@ -88,37 +88,29 @@ export interface Participant {
   DoB: Date;
   gender: string;
   schoolchildOrStudent: string;
-  coach?: Coach;
-  participant_id?: string; /*this will be removed*/
   id?: number;
 }
 
 export interface Coach {
-  coach_name: string;
+  name: string;
   surname: string;
   fathersName: string;
-  gender?: string;
   id?: number;
 }
 
 export interface Result {
   appointment: Appointment;
   participant: Participant;
-  coach?: Coach;
-  eduentity: EducationEntity;
-  educational_entity?: EducationEntity;
-  reg?: Region;
-  region?: string;
+  coach: Coach;
+  educational_entity: EducationEntity;
+  region: Region;
   discipline: string;
   place?: number;
   ratingPoints?: number;
-  completed?: false;
+  completed: boolean;
   appointmentId?: number;
   user?: User;
   id?: number;
-  personId?: number;
-  result_id?: string; /*this will be removed*/
-  person_id?: string; /*this will be removed*/
 }
 
 export interface RatingBrick {

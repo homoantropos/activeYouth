@@ -36,9 +36,9 @@ export class RatingFilterService {
 
   filterByEduEntity(results: Array<Result>, eduEntityType: string, eduEntityCategory?: number): Array<Result> {
     let cloneResults = results.slice();
-    cloneResults = cloneResults.filter(r => r.eduentity.type === eduEntityType);
+    cloneResults = cloneResults.filter(r => r.educational_entity.type === eduEntityType);
     if (eduEntityType === 'ЗВО' && eduEntityCategory !== 0) {
-      cloneResults = cloneResults.filter(r => r.eduentity.category === eduEntityCategory);
+      cloneResults = cloneResults.filter(r => r.educational_entity.category === eduEntityCategory);
     }
     return cloneResults;
   }

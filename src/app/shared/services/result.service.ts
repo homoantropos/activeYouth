@@ -25,11 +25,6 @@ export class ResultService {
     return this.http.delete<{ message: string }>(`${environment.postgresDbUrl}/result/${id}`);
   }
 
-  updateResult(result: Result): Observable<Result> {
-    // http-client patch will be here later
-    return of(result);
-  }
-
   getAllResultsFromDb(): Observable<Array<Result>> {
     return this.http.get<Array<Result>>(`${environment.postgresDbUrl}/result`);
   }
@@ -45,11 +40,6 @@ export class ResultService {
     return of(results);
   }
 
-  getResultByID(id: string): Observable<Result> {
-    // http-client get will be here later
-    return of((MockDataBase.mockResultsDataBase.find(r => r.result_id === id)) as Result);
-  }
-
   getEmptyResult(appointment: Appointment): Result {
     return {
       appointment,
@@ -62,14 +52,14 @@ export class ResultService {
         schoolchildOrStudent: ''
       },
       coach: {
-        coach_name: '',
+        name: '',
         surname: '',
         fathersName: ''
       },
-      reg: {
+      region: {
         region_name: ''
       },
-      eduentity: {
+      educational_entity: {
         name: ''
       },
       discipline: '',

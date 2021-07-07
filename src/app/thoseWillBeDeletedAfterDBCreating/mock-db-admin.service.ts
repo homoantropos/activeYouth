@@ -37,41 +37,52 @@ export class MockDBAdministratorService {
     const name = `ім'я ${variants}`;
     const surname = `прізвище ${variants}`;
     const DoB = new Date();
-    const id = name + surname + DoB.toString() + gender;
 
     // @ts-ignore
     let ratingPoints = 0;
 
     const mockParticipant: Participant = {
-      name, surname, DoB, gender, schoolchildOrStudent, participant_id: id
+      name, surname, DoB, gender, schoolchildOrStudent
     };
 
     // mockEduEntity creating
-    const mockEducationalEntity: EducationEntity = { name: EduEntName, category, type };
+    const mockEducationalEntity: EducationEntity = {name: EduEntName, category, type};
 
     switch (place) {
-      case 1 : ratingPoints = 5;
-               break;
-      case 2 : ratingPoints = 4;
-               break;
-      case 3 : ratingPoints = 3;
-               break;
-      case 4 : ratingPoints = 2;
-               break;
-      case 5 : ratingPoints = 1;
-               break;
+      case 1 :
+        ratingPoints = 5;
+        break;
+      case 2 :
+        ratingPoints = 4;
+        break;
+      case 3 :
+        ratingPoints = 3;
+        break;
+      case 4 :
+        ratingPoints = 2;
+        break;
+      case 5 :
+        ratingPoints = 1;
+        break;
     }
 
-    const result: Result = {
+    return {
       appointment,
       participant: mockParticipant,
-      eduentity: mockEducationalEntity,
+      educational_entity: mockEducationalEntity,
+      coach: {
+        name: 'Антропов',
+        surname: 'Сергій',
+        fathersName: 'Анатолійович'
+      },
+      region: {
+        region_name: 'Київ'
+      },
+      completed: true,
       discipline,
       place,
-      ratingPoints,
-      result_id: `${Date}`
+      ratingPoints
     };
-    return result;
   }
 
   createResults(): void {
@@ -79,7 +90,7 @@ export class MockDBAdministratorService {
       a => {
         for (let i = 1; i <= 10; i++) {
           for (let j = 1; j <= 5; j++) {
-            const result: Result = this.createResult(a, `discipline ${i}`, j );
+            const result: Result = this.createResult(a, `discipline ${i}`, j);
             MockDataBase.mockResultsDataBase.push(result);
           }
         }

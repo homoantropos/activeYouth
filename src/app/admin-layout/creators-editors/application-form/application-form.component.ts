@@ -70,11 +70,11 @@ export class ApplicationFormComponent implements OnInit {
             participant_fathersName: new FormControl(this.initResult.participant.fathersName, Validators.required),
             participant_DoB: new FormControl(this.initResult.participant.DoB, Validators.required),
             participant_gender: new FormControl(this.initResult.participant.gender, Validators.required),
-            coach_name: new FormControl(this.initResult.coach?.coach_name, Validators.required),
+            coach_name: new FormControl(this.initResult.coach?.name, Validators.required),
             coach_surname: new FormControl(this.initResult.coach?.surname, Validators.required),
             coach_fathersName: new FormControl(this.initResult.coach?.fathersName, Validators.required),
             eduentityName: new FormControl(this.initResult.educational_entity?.name, Validators.required),
-            region: new FormControl(this.initResult.reg?.region_name, Validators.required),
+            region: new FormControl(this.initResult.region?.region_name, Validators.required),
             discipline: new FormControl(this.initResult.discipline, Validators.required)
           });
           // @ts-ignore
@@ -115,14 +115,14 @@ export class ApplicationFormComponent implements OnInit {
         schoolchildOrStudent: this.appointment.participants
       },
       coach: {
-        coach_name: value.coach_name,
+        name: value.coach_name,
         surname: value.coach_surname,
         fathersName: value.coach_fathersName
       },
-      reg: {
+      region: {
         region_name: value.region
       },
-      eduentity: {
+      educational_entity: {
         name: value.eduentityName
       },
       discipline: value.discipline,
@@ -134,6 +134,7 @@ export class ApplicationFormComponent implements OnInit {
         catchError(this.resultService.errorHandle.bind(this)),
         switchMap(
           res => {
+            console.log('result: ', result);
             this.alert.success('Вітаємо! Учасник успішно доданий до заявки!');
             return this.resultService.getResultByAppointment(this.appointmentId);
           }
