@@ -21,6 +21,10 @@ export class ResultService {
     return this.http.post<Result>(`${environment.postgresDbUrl}/result`, result);
   }
 
+  updateResult(result: Result): Observable<Result> {
+    return this.http.patch<Result>(`${environment.postgresDbUrl}/result`, result);
+  }
+
   deleteResult(id: number): Observable<{ message: string }> {
     return this.http.delete<{ message: string }>(`${environment.postgresDbUrl}/result/${id}`);
   }

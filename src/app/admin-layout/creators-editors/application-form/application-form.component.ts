@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {AfterViewInit, Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {ActivatedRoute, Params} from '@angular/router';
 import {Appointment, Result} from '../../../shared/interfases';
 import {catchError, map, startWith, switchMap} from 'rxjs/operators';
@@ -14,9 +14,10 @@ import {AlertService} from '../../../shared/services/alert.service';
   templateUrl: './application-form.component.html',
   styleUrls: ['./application-form.component.css']
 })
-export class ApplicationFormComponent implements OnInit {
+export class ApplicationFormComponent implements OnInit, AfterViewInit {
 
-  static resultId = 0;
+  // @ts-ignore
+  @ViewChild('name') inputRef: ElementRef;
   error$: Subject<string> = new Subject<string>();
   appointmentId = 0;
   listOfParticipants: Array<Result> = [];
@@ -30,6 +31,7 @@ export class ApplicationFormComponent implements OnInit {
   submitted = false;
   // @ts-ignore
   initResult: Result;
+  creatOrEditor = true;
 
   constructor(
     private route: ActivatedRoute,
@@ -42,6 +44,7 @@ export class ApplicationFormComponent implements OnInit {
   ngOnInit(result?: Result): void {
     if (result) {
       this.initResult = result;
+      this.creatOrEditor = false;
     }
     this.route.paramMap
       .pipe(
@@ -51,7 +54,6 @@ export class ApplicationFormComponent implements OnInit {
             if (this.initResult === undefined) {
               this.initResult = this.resultService.getEmptyResult(this.appointment);
             }
-            console.log('result: ', this.initResult);
             return this.resultService.getResultByAppointment(params.get('id'));
           }
         )
@@ -94,6 +96,9 @@ export class ApplicationFormComponent implements OnInit {
     }
   }
 
+  ngAfterViewInit(): void {
+  }
+
   private _filterRegion(value: string): string[] {
     const filterValue = value.toLowerCase();
     AutoUpdateArrays.regions
@@ -126,22 +131,24 @@ export class ApplicationFormComponent implements OnInit {
         name: value.eduentityName
       },
       discipline: value.discipline,
-      completed: false,
-      id: ApplicationFormComponent.resultId
+      completed: false
     };
     this.resultService.createResult(result)
       .pipe(
         catchError(this.resultService.errorHandle.bind(this)),
         switchMap(
           res => {
-            console.log('result: ', result);
             this.alert.success('Вітаємо! Учасник успішно доданий до заявки!');
             return this.resultService.getResultByAppointment(this.appointmentId);
           }
         )
       )
       .subscribe(
-        results => this.listOfParticipants = results,
+        results => {
+          this.listOfParticipants = results;
+          this.applicationForm.reset();
+          this.inputRef.nativeElement.focus();
+        },
         error => {
           this.resultService.errorHandle(error);
         }
@@ -155,4 +162,66 @@ export class ApplicationFormComponent implements OnInit {
     }
   }
 
+  onEdit(value: any): void {
+    this.applicationForm.disable();
+    const result: Result = {
+      appointment: this.appointment,
+      participant: {
+        name: value.participant_name,
+        surname: value.participant_surname,
+        fathersName: value.participant_fathersName,
+        DoB: value.participant_DoB,
+        gender: value.participant_gender,
+        schoolchildOrStudent: this.appointment.participants,
+        id: this.initResult.participant.id
+      },
+      coach: {
+        name: value.coach_name,
+        surname: value.coach_surname,
+        fathersName: value.coach_fathersName,
+        id: this.initResult.coach.id
+      },
+      region: {
+        region_name: value.region
+      },
+      educational_entity: {
+        name: value.eduentityName
+      },
+      discipline: value.discipline,
+      completed: false,
+      id: this.initResult.id
+    };
+    this.resultService.updateResult(result)
+      .pipe(
+        catchError(this.resultService.errorHandle.bind(this)),
+        switchMap(
+          res => {
+            this.alert.success('Вітаємо! Ваші зміни успішно збережені!');
+            return this.resultService.getResultByAppointment(this.appointmentId);
+          }
+        )
+      )
+      .subscribe(
+        results => {
+          this.listOfParticipants = results;
+          this.applicationForm.reset();
+          this.inputRef.nativeElement.focus();
+          this.creatOrEditor = true;
+        },
+        error => {
+          {
+            this.resultService.errorHandle(error);
+            this.applicationForm.enable();
+          }
+        }
+      );
+    if (this.resultService.error$) {
+      this.resultService.error$.subscribe(
+        message => {
+          this.alert.warning(message);
+        }
+      );
+    }
+    this.applicationForm.enable();
+  }
 }

@@ -16,7 +16,9 @@
       <input matInput
              title="for participant_surname"
              type="text"
-             formControlName="participant_surname">
+             formControlName="participant_surname"
+             #name
+      >
     </mat-form-field>
 
     <mat-form-field class="narrow forms-inputs">
@@ -109,12 +111,23 @@
     </mat-form-field>
 
     <button
+      *ngIf="creatOrEditor"
       mat-button
       color="primary"
       type="submit"
       [disabled]="applicationForm.invalid || submitted"
     >
       Додати
+    </button>
+    <button
+      *ngIf="!creatOrEditor"
+      mat-button
+      color="primary"
+      type="button"
+      (click)="onEdit(applicationForm.value)"
+      [disabled]="applicationForm.invalid || submitted"
+    >
+      Зберегти зміни
     </button>
   </form>
 
