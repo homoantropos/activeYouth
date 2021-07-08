@@ -1,6 +1,6 @@
 <div *ngIf="coache$ | async as coaches ; else loader">
   <ul *ngFor="let coach of coaches">
-    <li>{{coach.coach_name}}</li>
+    <li>{{coach.name}}</li>
     <li>{{coach.surname}}</li>
   </ul>
 </div>

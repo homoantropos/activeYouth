@@ -133,6 +133,7 @@
 </div>
 
 <app-results-list
+  *ngIf="listOfParticipants.length > 0"
   [results]="listOfParticipants"
   (resultEmit)="ngOnInit($event)"></app-results-list>
 

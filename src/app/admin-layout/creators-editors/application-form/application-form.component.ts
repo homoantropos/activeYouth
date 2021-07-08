@@ -85,6 +85,7 @@ export class ApplicationFormComponent implements OnInit, AfterViewInit {
               startWith(''),
               map((value: string) => this._filterRegion(value))
             );
+          this.inputRef.nativeElement.focus();
         },
         error => this.resultService.errorHandle(error));
     if (this.resultService.error$) {
@@ -147,6 +148,7 @@ export class ApplicationFormComponent implements OnInit, AfterViewInit {
         results => {
           this.listOfParticipants = results;
           this.applicationForm.reset();
+          this.applicationForm.markAsPristine();
           this.inputRef.nativeElement.focus();
         },
         error => {
