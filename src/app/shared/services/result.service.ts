@@ -44,6 +44,36 @@ export class ResultService {
     return of(results);
   }
 
+  getResult(appointment: Appointment, value: any, initResult?: Result): Result {
+    return {
+      appointment,
+      participant: {
+        name: value.participant_name,
+        surname: value.participant_surname,
+        fathersName: value.participant_fathersName,
+        DoB: value.participant_DoB,
+        gender: value.participant_gender,
+        schoolchildOrStudent: appointment.participants,
+        id: initResult?.participant.id
+      },
+      coach: {
+        name: value.coach_name,
+        surname: value.coach_surname,
+        fathersName: value.coach_fathersName,
+        id: initResult?.coach.id
+      },
+      region: {
+        region_name: value.region
+      },
+      educational_entity: {
+        name: value.eduentityName
+      },
+      discipline: value.discipline,
+      completed: false,
+      id: initResult?.id
+    };
+  }
+
   getEmptyResult(appointment: Appointment): Result {
     return {
       appointment,

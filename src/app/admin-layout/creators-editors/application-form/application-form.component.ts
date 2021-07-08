@@ -1,5 +1,5 @@
 import {AfterViewInit, Component, ElementRef, OnInit, ViewChild} from '@angular/core';
-import {ActivatedRoute, Params} from '@angular/router';
+import {ActivatedRoute, Params, Router} from '@angular/router';
 import {Appointment, Result} from '../../../shared/interfases';
 import {catchError, map, startWith, switchMap} from 'rxjs/operators';
 import {AppointmentService} from '../../../shared/services/appointment.service';
@@ -35,6 +35,7 @@ export class ApplicationFormComponent implements OnInit, AfterViewInit {
 
   constructor(
     private route: ActivatedRoute,
+    private router: Router,
     private appointmentService: AppointmentService,
     private resultService: ResultService,
     public alert: AlertService
@@ -51,14 +52,14 @@ export class ApplicationFormComponent implements OnInit, AfterViewInit {
         switchMap(
           (params: Params) => {
             this.appointmentId = params.get('id');
-            if (this.initResult === undefined) {
-              this.initResult = this.resultService.getEmptyResult(this.appointment);
-            }
             return this.resultService.getResultByAppointment(params.get('id'));
           }
         )
       )
       .subscribe(res => {
+          if (this.initResult === undefined) {
+            this.initResult = this.resultService.getEmptyResult(this.appointment);
+          }
           if (res[0] === undefined) {
             // @ts-ignore
             this.appointment = res;
@@ -85,7 +86,6 @@ export class ApplicationFormComponent implements OnInit, AfterViewInit {
               startWith(''),
               map((value: string) => this._filterRegion(value))
             );
-          this.inputRef.nativeElement.focus();
         },
         error => this.resultService.errorHandle(error));
     if (this.resultService.error$) {
@@ -110,30 +110,8 @@ export class ApplicationFormComponent implements OnInit, AfterViewInit {
   }
 
   onApply(value: any): void {
-    const result: Result = {
-      appointment: this.appointment,
-      participant: {
-        name: value.participant_name,
-        surname: value.participant_surname,
-        fathersName: value.participant_fathersName,
-        DoB: value.participant_DoB,
-        gender: value.participant_gender,
-        schoolchildOrStudent: this.appointment.participants
-      },
-      coach: {
-        name: value.coach_name,
-        surname: value.coach_surname,
-        fathersName: value.coach_fathersName
-      },
-      region: {
-        region_name: value.region
-      },
-      educational_entity: {
-        name: value.eduentityName
-      },
-      discipline: value.discipline,
-      completed: false
-    };
+    this.applicationForm.disable();
+    const result: Result = this.resultService.getResult(this.appointment, value);
     this.resultService.createResult(result)
       .pipe(
         catchError(this.resultService.errorHandle.bind(this)),
@@ -146,13 +124,14 @@ export class ApplicationFormComponent implements OnInit, AfterViewInit {
       )
       .subscribe(
         results => {
-          this.listOfParticipants = results;
-          this.applicationForm.reset();
-          this.applicationForm.markAsPristine();
-          this.inputRef.nativeElement.focus();
+            this.listOfParticipants = results;
+            this.applicationForm.reset();
+            this.inputRef.nativeElement.focus();
+            this.creatOrEditor = true;
         },
         error => {
           this.resultService.errorHandle(error);
+          this.applicationForm.enable();
         }
       );
     if (this.resultService.error$) {
@@ -162,37 +141,12 @@ export class ApplicationFormComponent implements OnInit, AfterViewInit {
         }
       );
     }
+    this.applicationForm.enable();
   }
 
   onEdit(value: any): void {
     this.applicationForm.disable();
-    const result: Result = {
-      appointment: this.appointment,
-      participant: {
-        name: value.participant_name,
-        surname: value.participant_surname,
-        fathersName: value.participant_fathersName,
-        DoB: value.participant_DoB,
-        gender: value.participant_gender,
-        schoolchildOrStudent: this.appointment.participants,
-        id: this.initResult.participant.id
-      },
-      coach: {
-        name: value.coach_name,
-        surname: value.coach_surname,
-        fathersName: value.coach_fathersName,
-        id: this.initResult.coach.id
-      },
-      region: {
-        region_name: value.region
-      },
-      educational_entity: {
-        name: value.eduentityName
-      },
-      discipline: value.discipline,
-      completed: false,
-      id: this.initResult.id
-    };
+    const result: Result = this.resultService.getResult(this.appointment, value, this.initResult);
     this.resultService.updateResult(result)
       .pipe(
         catchError(this.resultService.errorHandle.bind(this)),
@@ -225,5 +179,12 @@ export class ApplicationFormComponent implements OnInit, AfterViewInit {
       );
     }
     this.applicationForm.enable();
+  }
+
+  goToSportResultPage(id: number): void {
+    this.applicationForm.reset();
+    this.creatOrEditor = true;
+    this.alert.warning('Зміни скасовані.');
+    this.router.navigateByUrl(`admin/application/${id}`);
   }
 }

@@ -43,7 +43,7 @@ export class ScheduleComponent implements OnInit, AfterViewInit {
   }
 
   goToApplicationForm(id: number): void {
-    this.router.navigateByUrl(`admin/schedule/application/${id}`);
+    this.router.navigateByUrl(`admin/application/${id}`);
   }
 }
 

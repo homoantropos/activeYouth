@@ -118,6 +118,7 @@
     >
       Додати
     </button>
+
     <button
       *ngIf="!creatOrEditor"
       mat-button
@@ -127,6 +128,17 @@
       [disabled]="applicationForm.invalid || submitted"
     >
       Зберегти зміни
+    </button>
+
+    <button
+      *ngIf="!creatOrEditor"
+      mat-button
+      color="primary"
+      type="button"
+      (click)="goToSportResultPage(appointmentId)"
+      [disabled]="applicationForm.invalid || submitted"
+    >
+      Скасувати зміни
     </button>
   </form>
 

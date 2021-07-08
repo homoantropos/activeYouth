@@ -8,7 +8,7 @@
   <ng-container matColumnDef="participant">
     <th mat-header-cell *matHeaderCellDef>Учасник</th>
     <td mat-cell *matCellDef="let result">
-      {{result.participant.surname + ' ' + result.participant.name}}
+      {{result.participant.surname + ' ' + result.participant.name + ' ' + result.participant.fathersName }}
     </td>
   </ng-container>
 
@@ -36,7 +36,7 @@
   <ng-container matColumnDef="coach">
     <th mat-header-cell *matHeaderCellDef>Тренер</th>
     <td mat-cell *matCellDef="let result">
-      {{result.coach.surname + ' ' + result.coach.name}}
+      {{result.coach.surname + ' ' + result.coach.name + ' ' + result.coach.fathersName}}
     </td>
   </ng-container>
 

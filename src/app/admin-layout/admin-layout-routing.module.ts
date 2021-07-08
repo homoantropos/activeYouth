@@ -49,8 +49,10 @@ const routes: Routes = [
           {path: '', component: ScheduleDashboardComponent},
           {path: 'create', component: AppointmentCreatorComponent},
           {path: 'edit/:id', component: AppointmentEditorComponent},
-          {path: ':id', component: AppointmentDetailsComponent},
-          {path: 'application/:id', component: ApplicationFormComponent},
+          {path: ':id', component: AppointmentDetailsComponent}
+        ]},
+      {path: 'application', children: [
+          {path: ':id', component: ApplicationFormComponent}
         ]},
       {path: 'result', children: [
           {path: '', redirectTo: ':id', pathMatch: 'full'},

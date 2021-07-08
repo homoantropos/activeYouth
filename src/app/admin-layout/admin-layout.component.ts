@@ -20,6 +20,7 @@ export class AdminLayoutComponent implements OnInit {
 
   ngOnInit(): void {
     this.autoUpdateCreator.createAutoUpdateArrays();
+    console.log(this.auth.role());
   }
 
   goToMainPage(): void {
