@@ -117,6 +117,7 @@ export class ApplicationFormComponent implements OnInit, AfterViewInit {
         catchError(this.resultService.errorHandle.bind(this)),
         switchMap(
           res => {
+            this.initResult = res as Result;
             this.alert.success('Вітаємо! Учасник успішно доданий до заявки!');
             return this.resultService.getResultByAppointment(this.appointmentId);
           }
