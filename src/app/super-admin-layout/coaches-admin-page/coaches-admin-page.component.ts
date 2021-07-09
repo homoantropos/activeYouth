@@ -70,18 +70,21 @@ export class CoachesAdminPageComponent implements OnInit, AfterViewInit {
         )
       )
       .subscribe(
-      coaches => {
-        this.coachesList = coaches;
-        this.coachForm.reset();
-        this.coachForm.enable();
-        this.inputRef.nativeElement.focus();
-        this.submitted = false;
-        this.showCoachForm = false;
-      }, error => {
-        this.alert.danger(error.message);
-        this.coachForm.enable();
+        coaches => {
+          this.coachesList = coaches;
+          this.resetCoachForm();
+        }, error => {
+          this.alert.danger(error.message);
+          this.coachForm.enable();
         }
-    );
+      );
   }
 
+  resetCoachForm(): void {
+    this.coachForm.reset();
+    this.coachForm.enable();
+    this.inputRef.nativeElement.focus();
+    this.submitted = false;
+    this.showCoachForm = false;
+  }
 }
