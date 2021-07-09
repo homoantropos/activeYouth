@@ -131,14 +131,13 @@
     </button>
 
     <button
-      *ngIf="!creatOrEditor"
       mat-button
       color="primary"
       type="button"
-      (click)="goToSportResultPage(appointmentId)"
+      (click)="resetApplicationForm(appointmentId)"
       [disabled]="applicationForm.invalid || submitted"
     >
-      Скасувати зміни
+      Скасувати
     </button>
   </form>
 

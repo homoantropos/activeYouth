@@ -127,6 +127,12 @@ export class ApplicationFormComponent implements OnInit, AfterViewInit {
         results => {
             this.listOfParticipants = results;
             this.applicationForm.reset();
+            Object.keys(this.applicationForm.controls)
+              .forEach(
+                key => {
+                    this.applicationForm.controls[key].setErrors(null);
+                }
+              );
             this.inputRef.nativeElement.focus();
             this.creatOrEditor = true;
         },
@@ -182,10 +188,10 @@ export class ApplicationFormComponent implements OnInit, AfterViewInit {
     this.applicationForm.enable();
   }
 
-  goToSportResultPage(id: number): void {
+  resetApplicationForm(id: number): void {
     this.applicationForm.reset();
     this.creatOrEditor = true;
-    this.alert.warning('Зміни скасовані.');
+    this.alert.warning('Скасовано');
     this.router.navigateByUrl(`admin/application/${id}`);
   }
 }
