@@ -8,9 +8,12 @@ import {CoachService} from '../services/coach.service';
   templateUrl: './coaches-admin-page.component.html',
   styleUrls: ['./coaches-admin-page.component.css']
 })
+
 export class CoachesAdminPageComponent implements OnInit {
   // @ts-ignore
   coache$: Observable<Array<Coach>>;
+  paginatorStartPageNumber = 0;
+  displayedColumns: Array<string> = ['coachFullName', 'id', 'edit', 'delete'];
 
   constructor(
     private coachService: CoachService
