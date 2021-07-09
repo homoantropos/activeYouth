@@ -13,7 +13,7 @@ export class CoachesAdminPageComponent implements OnInit {
   // @ts-ignore
   coache$: Observable<Array<Coach>>;
   paginatorStartPageNumber = 0;
-  displayedColumns: Array<string> = ['coachFullName', 'id', 'edit', 'delete'];
+  displayedColumns: Array<string> = ['id', 'coachFullName', 'edit', 'delete'];
 
   constructor(
     private coachService: CoachService
