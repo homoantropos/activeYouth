@@ -13,6 +13,9 @@ export class CoachService {
     private http: HttpClient
   ) { }
 
+  saveCoachToDB(coach: Coach): Observable<Coach> {
+    return this.http.post<Coach>(`${environment.postgresDbUrl}/coach`, coach);
+  }
   getAllCoaches(): Observable<Array<Coach>> {
     return this.http.get<Array<Coach>>(`${environment.postgresDbUrl}/coach`);
   }

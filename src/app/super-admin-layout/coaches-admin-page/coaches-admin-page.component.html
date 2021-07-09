@@ -1,60 +1,47 @@
-<div *ngIf="coache$ | async as coaches ; else loader">
+<div *ngIf="coachForm; else loader">
 
-  <table mat-table
-         [dataSource]="coaches | paginate: { itemsPerPage: 10, currentPage: paginatorStartPageNumber }"
-         class="mat-elevation-z8">
+<form
+  [formGroup]="coachForm"
+>
+  <small>Додати тренера:</small>
+  <mat-form-field class="forms-inputs">
+    <mat-label>прізвище...</mat-label>
+    <input matInput
+           title="for surname"
+           type="text"
+           #nameInput
+           formControlName="surname">
+  </mat-form-field>
 
-    <ng-container matColumnDef="coachFullName">
-      <th mat-header-cell *matHeaderCellDef>
-        П. І. по Б.
-      </th>
-      <td mat-cell *matCellDef="let coach">
-        {{coach.surname + ' ' + coach.name + ' ' + coach.fathersName}}
-      </td>
-    </ng-container>
+  <mat-form-field class="forms-inputs">
+    <mat-label>ім'я...</mat-label>
+    <input matInput
+           title="for name"
+           type="text"
+           formControlName="name">
+  </mat-form-field>
 
-    <ng-container matColumnDef="id">
-      <th mat-header-cell *matHeaderCellDef>
-        ID
-      </th>
-      <td mat-cell *matCellDef="let coach">
-        {{coach.id}}
-      </td>
-    </ng-container>
+  <mat-form-field class="forms-inputs">
+    <mat-label>по-батькові...</mat-label>
+    <input matInput
+           title="for fathersName"
+           type="text"
+           formControlName="fathersName">
+  </mat-form-field>
 
-    <ng-container matColumnDef="edit">
-      <th mat-header-cell *matHeaderCellDef>
-        Редагувати
-      </th>
-      <td mat-cell *matCellDef="let coach">
-        <button mat-button color="primary">
-          Редагувати
-        </button>
-      </td>
-    </ng-container>
+  <button mat-button
+          color="primary"
+          type="button"
+          (click)="onCreate(coachForm.value)"
+          [disabled]="coachForm.invalid || submitted"
+  >
+    Додати
+  </button>
 
-    <ng-container matColumnDef="delete">
-      <th mat-header-cell *matHeaderCellDef>
-        Видалити
-      </th>
-      <td mat-cell *matCellDef="let coach">
-        <button mat-button color="primary">
-          Видалити
-        </button>
-      </td>
-    </ng-container>
-    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
-  </table>
+</form>
 
 </div>
-
-<pagination-controls
-  class="my-pagination"
-  (pageChange)="paginatorStartPageNumber = $event"
-  previousLabel="назад"
-  nextLabel="уперед"
-></pagination-controls>
+<app-coaches-list [coachesList]="coachesList"></app-coaches-list>
 
 <ng-template #loader>
   <app-loader></app-loader>

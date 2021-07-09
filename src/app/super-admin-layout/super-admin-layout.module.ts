@@ -28,6 +28,7 @@ import { AppointmentPlaceEditorComponent } from './creators-editors/appointment-
 import { EducationalEntityAdminPageComponent } from './educational-entity-admin-page/educational-entity-admin-page.component';
 import { EducationalEntityCreatorComponent } from './creators-editors/educational-entity-creator/educational-entity-creator.component';
 import { EducationalEntityEditorComponent } from './creators-editors/educational-entity-editor/educational-entity-editor.component';
+import { CoachesListComponent } from './coaches-list/coaches-list.component';
 
 
 @NgModule({
@@ -55,7 +56,8 @@ import { EducationalEntityEditorComponent } from './creators-editors/educational
     AppointmentPlaceEditorComponent,
     EducationalEntityAdminPageComponent,
     EducationalEntityCreatorComponent,
-    EducationalEntityEditorComponent],
+    EducationalEntityEditorComponent,
+    CoachesListComponent],
   imports: [
     FormsModule,
     ReactiveFormsModule,
