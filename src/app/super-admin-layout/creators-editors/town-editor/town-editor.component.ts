@@ -7,6 +7,7 @@ import { startWith } from 'rxjs/internal/operators/startWith';
 import {map, switchMap} from 'rxjs/operators';
 import {AutoUpdateArrays} from '../../../shared/utils/autoUpdateArrays';
 import {Town} from '../../../shared/interfases';
+import {AlertService} from '../../../shared/services/alert.service';
 
 @Component({
   selector: 'app-town-editor',
@@ -19,8 +20,6 @@ export class TownEditorComponent implements OnInit, OnDestroy {
   // @ts-ignore
   tSub: Subscription;
   // @ts-ignore
-  message: string;
-  // @ts-ignore
   countryFilteredOptions: Observable<string[]>;
   // @ts-ignore
   regionFilteredOptions: Observable<string[]>;
@@ -32,7 +31,8 @@ export class TownEditorComponent implements OnInit, OnDestroy {
     public auth: AuthService,
     public townService: TownService,
     private router: Router,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private alert: AlertService
   ) {
   }
 
@@ -50,7 +50,7 @@ export class TownEditorComponent implements OnInit, OnDestroy {
           town_name: new FormControl(res.town_name, [
             Validators.required
           ]),
-          country_name: new FormControl(res.country.country_name, [
+          country_name: new FormControl(res.region.country.country_name, [
             Validators.required
           ]),
           region_name: new FormControl(res.region.region_name, [
@@ -99,7 +99,7 @@ export class TownEditorComponent implements OnInit, OnDestroy {
     this.tSub = this.townService.updateTown(town)
       .subscribe(
         (res) => {
-          alert(`${res.message}`);
+          this.alert.success(res.message);
           this.router.navigate(['superadmin', 'appointmentPlaces']);
         },
         error => {
@@ -107,6 +107,11 @@ export class TownEditorComponent implements OnInit, OnDestroy {
           this.townEditorForm.enable();
         }
       );
+    if (this.townService.error$) {
+      this.townService.error$.subscribe(
+        message => this.alert.danger(message)
+      );
+    }
     this.townEditorForm.enable();
   }
 

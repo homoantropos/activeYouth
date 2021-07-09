@@ -125,16 +125,10 @@ export class ApplicationFormComponent implements OnInit, AfterViewInit {
       )
       .subscribe(
         results => {
-            this.listOfParticipants = results;
-            this.applicationForm.reset();
-            Object.keys(this.applicationForm.controls)
-              .forEach(
-                key => {
-                    this.applicationForm.controls[key].setErrors(null);
-                }
-              );
-            this.inputRef.nativeElement.focus();
-            this.creatOrEditor = true;
+          this.listOfParticipants = results;
+          this.applicationForm.reset();
+          this.inputRef.nativeElement.focus();
+          this.creatOrEditor = true;
         },
         error => {
           this.resultService.errorHandle(error);
@@ -190,6 +184,7 @@ export class ApplicationFormComponent implements OnInit, AfterViewInit {
 
   resetApplicationForm(id: number): void {
     this.applicationForm.reset();
+    this.inputRef.nativeElement.focus();
     this.creatOrEditor = true;
     this.alert.warning('Скасовано');
     this.router.navigateByUrl(`admin/application/${id}`);

@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {Observable, Subject, throwError} from 'rxjs';
 import {HttpClient, HttpErrorResponse} from '@angular/common/http';
 import {Town} from '../../shared/interfases';
@@ -25,7 +25,7 @@ export class TownService {
     return this.http.delete(`${environment.postgresDbUrl}/town/${id}`);
   }
 
-  updateTown(town: Town): Observable<any>{
+  updateTown(town: Town): Observable<any> {
     return this.http.patch<any>(`${environment.postgresDbUrl}/town`, town);
   }
 
@@ -47,6 +47,9 @@ export class TownService {
       switch (message) {
         case('повторювані значення ключа порушують обмеження унікальності "town_town_name_countryid_key"'):
           this.error$.next('така назва міста для цієї країни вже зареєстрована.');
+          break;
+        case('update або delete в таблиці "appointment_place" порушує обмеження зовнішнього ключа "appointment_appointmentPlaceId_fkey" таблиці "appointment"'):
+          this.error$.next('Видалення міста неможливе - спочатку видаліть всі місця проведення, пов"язані з цим містом');
           break;
       }
     }

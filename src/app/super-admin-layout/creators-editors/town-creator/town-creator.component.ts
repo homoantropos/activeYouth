@@ -7,6 +7,7 @@ import {Router} from '@angular/router';
 import {map, startWith} from 'rxjs/operators';
 import {AutoUpdateArrays} from '../../../shared/utils/autoUpdateArrays';
 import {TownService} from '../../services/town.service';
+import {AlertService} from '../../../shared/services/alert.service';
 
 @Component({
   selector: 'app-town-creator',
@@ -31,7 +32,8 @@ export class TownCreatorComponent implements OnInit, OnDestroy {
   constructor(
     public auth: AuthService,
     public townService: TownService,
-    private router: Router
+    private router: Router,
+    private alert: AlertService
   ) {
   }
 
@@ -85,7 +87,7 @@ export class TownCreatorComponent implements OnInit, OnDestroy {
     this.tSub = this.townService.createTown(town)
       .subscribe(
         () => {
-          alert(`Нове місто успішно додано до бази даних.`);
+          this.alert.success(`Нове місто успішно додано до бази даних.`);
           this.router.navigate(['superadmin', 'places', 'towns']);
         },
         error => {
