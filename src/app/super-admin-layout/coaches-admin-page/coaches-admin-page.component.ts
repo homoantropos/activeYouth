@@ -1,4 +1,4 @@
-import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
+import {AfterViewInit, Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {CoachService} from '../services/coach.service';
 import {Coach} from '../../shared/interfases';
@@ -11,12 +11,13 @@ import {switchMap} from 'rxjs/operators';
   styleUrls: ['./coaches-admin-page.component.css']
 })
 
-export class CoachesAdminPageComponent implements OnInit {
+export class CoachesAdminPageComponent implements OnInit, AfterViewInit {
 
   // @ts-ignore
   coachForm: FormGroup;
   submitted = false;
   coachesList: Array<Coach> = [];
+  showCoachForm = false;
   // @ts-ignore
   @ViewChild('nameInput') inputRef: ElementRef;
 
@@ -40,6 +41,10 @@ export class CoachesAdminPageComponent implements OnInit {
           this.alert.warning(error.message);
         }
       );
+  }
+
+  ngAfterViewInit(): void {
+    this.inputRef.nativeElement.focus();
   }
 
   onCreate(formValue: any): void {
@@ -71,6 +76,7 @@ export class CoachesAdminPageComponent implements OnInit {
         this.coachForm.enable();
         this.inputRef.nativeElement.focus();
         this.submitted = false;
+        this.showCoachForm = false;
       }, error => {
         this.alert.danger(error.message);
         this.coachForm.enable();
