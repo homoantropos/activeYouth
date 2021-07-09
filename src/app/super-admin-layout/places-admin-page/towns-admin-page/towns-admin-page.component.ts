@@ -43,7 +43,7 @@ export class TownsAdminPageComponent implements OnInit {
         this.townService.errorHandle(error);
       }
     );
-    if(this.townService.error$) {
+    if (this.townService.error$) {
       this.townService.error$.subscribe(
         message => this.alert.warning(message)
       );
