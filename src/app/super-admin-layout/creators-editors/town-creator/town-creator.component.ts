@@ -86,8 +86,9 @@ export class TownCreatorComponent implements OnInit, OnDestroy {
     this.townCreatorForm.disable();
     this.tSub = this.townService.createTown(town)
       .subscribe(
-        () => {
+        townAndTowns => {
           this.alert.success(`Нове місто успішно додано до бази даних.`);
+          this.towns = townAndTowns.towns;
           this.router.navigate(['superadmin', 'places', 'towns']);
         },
         error => {

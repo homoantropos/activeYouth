@@ -17,8 +17,8 @@ export class TownService {
   ) {
   }
 
-  createTown(town: Town): Observable<Town> {
-    return this.http.post<Town>(`${environment.postgresDbUrl}/town`, town);
+  createTown(town: Town): Observable<{ town: Town, towns: Array<Town> }> {
+    return this.http.post<{ town: Town, towns: Array<Town> }>(`${environment.postgresDbUrl}/town`, town);
   }
 
   removeTown(id: number): Observable<any> {
