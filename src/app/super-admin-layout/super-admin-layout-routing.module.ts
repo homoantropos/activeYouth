@@ -3,7 +3,7 @@ import {RouterModule, Routes} from '@angular/router';
 import {SuperAdminLayoutComponent} from './super-admin-layout.component';
 import {UserAdminPageComponent} from './user-admin-page/user-admin-page.component';
 import {PlacesAdminPageComponent} from './places-admin-page/places-admin-page.component';
-import {CoachesAdminPageComponent} from './coaches-admin-page/coaches-admin-page.component';
+import {CoachesAdminPageComponent} from './coaches_dashboard/coaches-admin-page/coaches-admin-page.component';
 import {UserCreatorComponent} from './creators-editors/user-creator/user-creator.component';
 import {AuthGuardService} from '../admin-layout/auth/auth-guard.service';
 import {UserEditorComponent} from './creators-editors/user-editor/user-editor.component';
@@ -12,19 +12,17 @@ import {SportKindCreatorComponent} from './creators-editors/sport-kind-creator/s
 import {SportKindEditorComponent} from './creators-editors/sport-kind-editor/sport-kind-editor.component';
 import {CountriesAdminPageComponent} from './places-admin-page/countries-admin-page/countries-admin-page.component';
 import {RegionsAdminPageComponent} from './places-admin-page/regions-admin-page/regions-admin-page.component';
-import {TownsAdminPageComponent} from './places-admin-page/towns-admin-page/towns-admin-page.component';
 import {CountryCreatorComponent} from './creators-editors/country-creator/country-creator.component';
 import {CountryEditorComponent} from './creators-editors/country-editor/country-editor.component';
 import {RegionCreatorComponent} from './creators-editors/region-creator/region-creator.component';
 import {RegionEditorComponent} from './creators-editors/region-editor/region-editor.component';
-import {TownCreatorComponent} from './creators-editors/town-creator/town-creator.component';
-import {TownEditorComponent} from './creators-editors/town-editor/town-editor.component';
 import {AppointmentPlaceAdminPageComponent} from './appointment-place-admin-page/appointment-place-admin-page.component';
 import {AppointmentPlaceCreatorComponent} from './creators-editors/appointment-place-creator/appointment-place-creator.component';
 import {AppointmentPlaceEditorComponent} from './creators-editors/appointment-place-editor/appointment-place-editor.component';
 import {EducationalEntityAdminPageComponent} from './educational-entity-admin-page/educational-entity-admin-page.component';
 import {EducationalEntityCreatorComponent} from './creators-editors/educational-entity-creator/educational-entity-creator.component';
 import {EducationalEntityEditorComponent} from './creators-editors/educational-entity-editor/educational-entity-editor.component';
+import {TownAdminPageComponent} from './town_dashboard/town-admin-page/town-admin-page.component';
 
 const routes: Routes = [
   {
@@ -59,12 +57,7 @@ const routes: Routes = [
               {path: 'edit/:id', component: RegionEditorComponent}
             ]
           },
-          {
-            path: 'towns', component: TownsAdminPageComponent, children: [
-              {path: 'create', component: TownCreatorComponent},
-              {path: 'edit/:id', component: TownEditorComponent}
-            ]
-          }
+          {path: 'towns', component: TownAdminPageComponent}
         ]
       },
       {

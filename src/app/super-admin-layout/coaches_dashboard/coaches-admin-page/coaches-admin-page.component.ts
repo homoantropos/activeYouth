@@ -1,8 +1,8 @@
 import {AfterViewInit, Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
-import {CoachService} from '../services/coach.service';
-import {Coach} from '../../shared/interfases';
-import {AlertService} from '../../shared/services/alert.service';
+import {CoachService} from '../../services/coach.service';
+import {Coach} from '../../../shared/interfases';
+import {AlertService} from '../../../shared/services/alert.service';
 
 @Component({
   selector: 'app-activities-admin',

@@ -73,12 +73,7 @@
   [coachesList]="coachesList"
   (coachEventEmitter)="ngOnInit($event)"
   (resetFormEventEmitter)="resetCoachForm()"
-  *ngIf="coachesList.length > 0; else emptyListMessage"
 ></app-coaches-list>
-
-<ng-template #emptyListMessage>
-    <h3 [ngStyle]="{textAlign: 'center', fontFamily: 'oswald, sans serif'}">База даних тренерів порожня</h3>
-</ng-template>
 
 <ng-template #loader>
   <app-loader></app-loader>

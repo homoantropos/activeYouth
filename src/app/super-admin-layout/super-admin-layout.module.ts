@@ -5,7 +5,7 @@ import { SuperAdminLayoutRoutingModule } from './super-admin-layout-routing.modu
 import { SuperAdminLayoutComponent } from './super-admin-layout.component';
 import { UserAdminPageComponent } from './user-admin-page/user-admin-page.component';
 import { PlacesAdminPageComponent } from './places-admin-page/places-admin-page.component';
-import { CoachesAdminPageComponent } from './coaches-admin-page/coaches-admin-page.component';
+import { CoachesAdminPageComponent } from './coaches_dashboard/coaches-admin-page/coaches-admin-page.component';
 import { UserCreatorComponent } from './creators-editors/user-creator/user-creator.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {SharedModule} from '../shared/shared.module';
@@ -15,20 +15,19 @@ import { SportKindCreatorComponent } from './creators-editors/sport-kind-creator
 import { SportKindEditorComponent } from './creators-editors/sport-kind-editor/sport-kind-editor.component';
 import { CountriesAdminPageComponent } from './places-admin-page/countries-admin-page/countries-admin-page.component';
 import { RegionsAdminPageComponent } from './places-admin-page/regions-admin-page/regions-admin-page.component';
-import { TownsAdminPageComponent } from './places-admin-page/towns-admin-page/towns-admin-page.component';
 import { CountryCreatorComponent } from './creators-editors/country-creator/country-creator.component';
 import { CountryEditorComponent } from './creators-editors/country-editor/country-editor.component';
 import { RegionCreatorComponent } from './creators-editors/region-creator/region-creator.component';
 import { RegionEditorComponent } from './creators-editors/region-editor/region-editor.component';
-import { TownCreatorComponent } from './creators-editors/town-creator/town-creator.component';
-import { TownEditorComponent } from './creators-editors/town-editor/town-editor.component';
 import { AppointmentPlaceAdminPageComponent } from './appointment-place-admin-page/appointment-place-admin-page.component';
 import { AppointmentPlaceCreatorComponent } from './creators-editors/appointment-place-creator/appointment-place-creator.component';
 import { AppointmentPlaceEditorComponent } from './creators-editors/appointment-place-editor/appointment-place-editor.component';
 import { EducationalEntityAdminPageComponent } from './educational-entity-admin-page/educational-entity-admin-page.component';
 import { EducationalEntityCreatorComponent } from './creators-editors/educational-entity-creator/educational-entity-creator.component';
 import { EducationalEntityEditorComponent } from './creators-editors/educational-entity-editor/educational-entity-editor.component';
-import { CoachesListComponent } from './coaches-list/coaches-list.component';
+import { CoachesListComponent } from './coaches_dashboard/coaches-list/coaches-list.component';
+import { TownAdminPageComponent } from './town_dashboard/town-admin-page/town-admin-page.component';
+import { TownListComponent } from './town_dashboard/town-list/town-list.component';
 
 
 @NgModule({
@@ -44,20 +43,19 @@ import { CoachesListComponent } from './coaches-list/coaches-list.component';
     SportKindEditorComponent,
     CountriesAdminPageComponent,
     RegionsAdminPageComponent,
-    TownsAdminPageComponent,
     CountryCreatorComponent,
     CountryEditorComponent,
     RegionCreatorComponent,
     RegionEditorComponent,
-    TownCreatorComponent,
-    TownEditorComponent,
     AppointmentPlaceAdminPageComponent,
     AppointmentPlaceCreatorComponent,
     AppointmentPlaceEditorComponent,
     EducationalEntityAdminPageComponent,
     EducationalEntityCreatorComponent,
     EducationalEntityEditorComponent,
-    CoachesListComponent],
+    CoachesListComponent,
+    TownAdminPageComponent,
+    TownListComponent],
   imports: [
     FormsModule,
     ReactiveFormsModule,

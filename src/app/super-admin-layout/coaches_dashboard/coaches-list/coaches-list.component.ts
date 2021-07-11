@@ -1,8 +1,7 @@
 import {Component, EventEmitter, Input, Output, OnInit} from '@angular/core';
-import {Coach} from '../../shared/interfases';
-import {CoachService} from '../services/coach.service';
-import {Router} from '@angular/router';
-import {AlertService} from '../../shared/services/alert.service';
+import {Coach} from '../../../shared/interfases';
+import {CoachService} from '../../services/coach.service';
+import {AlertService} from '../../../shared/services/alert.service';
 
 @Component({
   selector: 'app-coaches-list',
@@ -24,7 +23,6 @@ export class CoachesListComponent implements OnInit {
 
   constructor(
     private coachService: CoachService,
-    private router: Router,
     private alert: AlertService
   ) {
   }
@@ -34,15 +32,14 @@ export class CoachesListComponent implements OnInit {
 
   editCoach(coach: Coach): void {
     this.coachEventEmitter.emit(coach);
-    this.router.navigateByUrl(`superadmin/coaches`);
   }
 
-  deleteCoach(id: number): void {
+  callDeletion(id: number): void {
     this.showDeleteConfirmation = true;
     this.coachId = id;
   }
 
-  confirmDeletion(confirm: boolean): void {
+  onDelete(confirm: boolean): void {
     if (confirm) {
       this.coachService.deleteCoach(this.coachId)
         .subscribe(

@@ -21,12 +21,12 @@ export class TownService {
     return this.http.post<{ town: Town, towns: Array<Town> }>(`${environment.postgresDbUrl}/town`, town);
   }
 
-  removeTown(id: number): Observable<any> {
-    return this.http.delete(`${environment.postgresDbUrl}/town/${id}`);
+  deleteTown(id: number): Observable<{ message: string, towns: Array<Town> }> {
+    return this.http.delete<{message: string, towns: Array<Town>}>(`${environment.postgresDbUrl}/town/${id}`);
   }
 
-  updateTown(town: Town): Observable<any> {
-    return this.http.patch<any>(`${environment.postgresDbUrl}/town`, town);
+  updateTown(town: Town): Observable<{ message: string, towns: Array<Town> }> {
+    return this.http.patch<{ message: string, towns: Array<Town> }>(`${environment.postgresDbUrl}/town`, town);
   }
 
   getAllTowns(): Observable<Array<Town>> {
@@ -39,6 +39,19 @@ export class TownService {
 
   getTownsByOptions(option: string): Observable<Array<Town>> {
     return this.http.get<Array<Town>>(`${environment.postgresDbUrl}/region/${option}`);
+  }
+
+  static get initTown(): Town {
+    return {
+        town_name: '',
+        country: {
+          country_name: ''
+        },
+        region: {
+          region_name: '',
+          region_group: 0
+        }
+    };
   }
 
   public errorHandle(error: HttpErrorResponse): any {
