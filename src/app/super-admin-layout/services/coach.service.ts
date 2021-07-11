@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpErrorResponse} from '@angular/common/http';
-import {Observable, Subject, throwError} from 'rxjs';
+import {Observable, of, Subject, throwError} from 'rxjs';
 import {Coach} from '../../shared/interfases';
 import {environment} from '../../../environments/environment';
 
@@ -23,8 +23,9 @@ export class CoachService {
   }
 
   deleteCoach(id: number): Observable<{ coaches: Array<Coach>, message: string }> {
-    return this.http.delete<{coaches: Array<Coach>, message: string}>(`${environment.postgresDbUrl}/coach/${id}`);
+      return this.http.delete<{ coaches: Array<Coach>, message: string }>(`${environment.postgresDbUrl}/coach/${id}`);
   }
+
   getAllCoaches(): Observable<Array<Coach>> {
     return this.http.get<Array<Coach>>(`${environment.postgresDbUrl}/coach`);
   }

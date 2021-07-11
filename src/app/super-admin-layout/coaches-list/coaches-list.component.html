@@ -63,3 +63,8 @@
 <ng-template #loader>
   <app-loader></app-loader>
 </ng-template>
+
+<app-deletion-confirmer
+  [show]="showDeleteConfirmation"
+  (confirm)="confirmDeletion($event)"
+></app-deletion-confirmer>

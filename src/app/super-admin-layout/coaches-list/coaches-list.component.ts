@@ -9,6 +9,7 @@ import {AlertService} from '../../shared/services/alert.service';
   templateUrl: './coaches-list.component.html',
   styleUrls: ['./coaches-list.component.css']
 })
+
 export class CoachesListComponent implements OnInit {
   // @ts-ignore
   @Input() coachesList: Array<Coach>;
@@ -16,6 +17,9 @@ export class CoachesListComponent implements OnInit {
   @Output() resetFormEventEmitter: EventEmitter<boolean> = new EventEmitter<boolean>();
   paginatorStartPageNumber = 0;
   displayedColumns: Array<string> = ['id', 'coachFullName', 'edit', 'delete'];
+  showDeleteConfirmation = false;
+  // @ts-ignore
+  coachId: number;
 
   constructor(
     private coachService: CoachService,
@@ -24,7 +28,8 @@ export class CoachesListComponent implements OnInit {
   ) {
   }
 
-  ngOnInit(): void { }
+  ngOnInit(): void {
+  }
 
   editCoach(coach: Coach): void {
     this.coachEventEmitter.emit(coach);
@@ -32,21 +37,32 @@ export class CoachesListComponent implements OnInit {
   }
 
   deleteCoach(id: number): void {
-    this.coachService.deleteCoach(id).subscribe(
-      response => {
-        this.alert.success(response.message);
-        this.resetFormEventEmitter.emit(true);
-        this.coachesList = response.coaches;
-      },
-      error => {
-        this.coachService.errorHandle(error);
+    this.showDeleteConfirmation = true;
+    this.coachId = id;
+  }
+
+  confirmDeletion(confirm: boolean): void {
+    if (confirm) {
+      this.coachService.deleteCoach(this.coachId)
+        .subscribe(
+          response => {
+            this.alert.success(response.message);
+            this.resetFormEventEmitter.emit(true);
+            this.coachesList = response.coaches;
+          },
+          error => {
+            this.coachService.errorHandle(error);
+          }
+        );
+      if (this.coachService.error$) {
+        this.coachService.error$.subscribe(
+          message => this.alert.danger(message)
+        );
       }
-    );
-    if (this.coachService.error$) {
-      this.coachService.error$.subscribe(
-        message => this.alert.danger(message)
-      );
+    } else {
+      this.alert.warning('Видалення скасованою');
     }
+    this.showDeleteConfirmation = false;
   }
 
 }

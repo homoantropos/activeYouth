@@ -22,6 +22,7 @@ import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import {MAT_DATE_FORMATS, MAT_DATE_LOCALE, MatNativeDateModule} from '@angular/material/core';
 import {MatRadioModule} from '@angular/material/radio';
 import { AlertComponent } from './alert/alert.component';
+import { DeletionConfirmerComponent } from './components/deletion-confirmer/deletion-confirmer.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { AlertComponent } from './alert/alert.component';
     SanitizeHTMLPipePipe,
     StatisticDetailsComponent,
     LoaderComponent,
-    AlertComponent
+    AlertComponent,
+    DeletionConfirmerComponent
   ],
   imports: [
     CommonModule,
@@ -69,7 +71,8 @@ import { AlertComponent } from './alert/alert.component';
         NgxPaginationModule,
         HttpClientModule,
         LoaderComponent,
-        AlertComponent
+        AlertComponent,
+        DeletionConfirmerComponent
     ],
   providers: [
     {provide: MAT_DATE_LOCALE, useValue: 'ua-UA'},
