@@ -6,6 +6,7 @@
           *ngIf="!showCoachForm">
     Додати тренера
   </button>
+
   <form
     [formGroup]="coachForm"
     *ngIf="showCoachForm"
@@ -37,6 +38,7 @@
     </mat-form-field>
 
     <button mat-button
+            *ngIf="creatOrEditor"
             color="primary"
             type="button"
             (click)="onCreate(coachForm.value)"
@@ -44,6 +46,17 @@
     >
       Додати
     </button>
+
+    <button mat-button
+            *ngIf="!creatOrEditor"
+            color="primary"
+            type="button"
+            (click)="onUpdate(coachForm.value)"
+            [disabled]="coachForm.invalid || submitted"
+    >
+      Зберегти зміни
+    </button>
+
     <button mat-button
             color="primary"
             type="button"
@@ -55,7 +68,16 @@
   </form>
 
 </div>
-<app-coaches-list [coachesList]="coachesList"></app-coaches-list>
+
+<app-coaches-list
+  [coachesList]="coachesList"
+  (coachEventEmitter)="ngOnInit($event)"
+  *ngIf="coachesList.length > 0; else emptyListMessage"
+></app-coaches-list>
+
+<ng-template #emptyListMessage>
+    <h3 [ngStyle]="{textAlign: 'center', fontFamily: 'oswald, sans serif'}">База даних тренерів порожня</h3>
+</ng-template>
 
 <ng-template #loader>
   <app-loader></app-loader>

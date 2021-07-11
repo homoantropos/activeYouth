@@ -102,9 +102,11 @@ export interface Result {
   appointment: Appointment;
   participant: Participant;
   coach: Coach;
+  coaches?: Array<Coach>;
   educational_entity: EducationEntity;
   region: Region;
   discipline: string;
+  disciplines?: Array<string>;
   place?: number;
   ratingPoints?: number;
   completed: boolean;

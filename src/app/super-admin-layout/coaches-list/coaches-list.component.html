@@ -27,7 +27,10 @@
         Редагувати
       </th>
       <td mat-cell *matCellDef="let coach">
-        <button mat-button color="primary">
+        <button mat-button color="primary"
+                type="button"
+                (click)="editCoach(coach)"
+        >
           Редагувати
         </button>
       </td>
@@ -38,7 +41,8 @@
         Видалити
       </th>
       <td mat-cell *matCellDef="let coach">
-        <button mat-button color="primary">
+        <button mat-button color="primary"
+                (click)="deleteCoach(coach.id)">
           Видалити
         </button>
       </td>
@@ -59,4 +63,3 @@
 <ng-template #loader>
   <app-loader></app-loader>
 </ng-template>
-

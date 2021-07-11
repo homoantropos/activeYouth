@@ -1,4 +1,4 @@
-import {AfterViewInit, Component, ElementRef, OnInit, ViewChild} from '@angular/core';
+import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {ActivatedRoute, Params, Router} from '@angular/router';
 import {Appointment, Result} from '../../../shared/interfases';
 import {catchError, map, startWith, switchMap} from 'rxjs/operators';
@@ -14,7 +14,7 @@ import {AlertService} from '../../../shared/services/alert.service';
   templateUrl: './application-form.component.html',
   styleUrls: ['./application-form.component.css']
 })
-export class ApplicationFormComponent implements OnInit, AfterViewInit {
+export class ApplicationFormComponent implements OnInit {
 
   // @ts-ignore
   @ViewChild('name') inputRef: ElementRef;
@@ -95,9 +95,6 @@ export class ApplicationFormComponent implements OnInit, AfterViewInit {
         }
       );
     }
-  }
-
-  ngAfterViewInit(): void {
   }
 
   private _filterRegion(value: string): string[] {
