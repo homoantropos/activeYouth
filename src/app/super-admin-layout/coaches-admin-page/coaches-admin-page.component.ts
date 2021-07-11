@@ -3,7 +3,6 @@ import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {CoachService} from '../services/coach.service';
 import {Coach} from '../../shared/interfases';
 import {AlertService} from '../../shared/services/alert.service';
-import {switchMap} from 'rxjs/operators';
 
 @Component({
   selector: 'app-activities-admin',
@@ -104,11 +103,11 @@ export class CoachesAdminPageComponent implements OnInit, AfterViewInit {
           this.inputRef.nativeElement.focus();
         }
       );
-    if(this.coachService.error$) {
+    if (this.coachService.error$) {
       this.coachService.error$.subscribe(
         message =>
           this.alert.danger(message)
-      )
+      );
     }
   }
 
@@ -118,5 +117,6 @@ export class CoachesAdminPageComponent implements OnInit, AfterViewInit {
     this.inputRef.nativeElement.focus();
     this.submitted = false;
     this.showCoachForm = false;
+    this.creatOrEditor = true;
   }
 }

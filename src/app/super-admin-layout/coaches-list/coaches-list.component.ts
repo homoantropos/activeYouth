@@ -13,6 +13,7 @@ export class CoachesListComponent implements OnInit {
   // @ts-ignore
   @Input() coachesList: Array<Coach>;
   @Output() coachEventEmitter: EventEmitter<Coach> = new EventEmitter<Coach>();
+  @Output() resetFormEventEmitter: EventEmitter<boolean> = new EventEmitter<boolean>();
   paginatorStartPageNumber = 0;
   displayedColumns: Array<string> = ['id', 'coachFullName', 'edit', 'delete'];
 
@@ -34,6 +35,7 @@ export class CoachesListComponent implements OnInit {
     this.coachService.deleteCoach(id).subscribe(
       response => {
         this.alert.success(response.message);
+        this.resetFormEventEmitter.emit(true);
         this.coachesList = response.coaches;
       },
       error => {

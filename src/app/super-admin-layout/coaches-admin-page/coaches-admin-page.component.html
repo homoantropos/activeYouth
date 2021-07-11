@@ -72,6 +72,7 @@
 <app-coaches-list
   [coachesList]="coachesList"
   (coachEventEmitter)="ngOnInit($event)"
+  (resetFormEventEmitter)="resetCoachForm()"
   *ngIf="coachesList.length > 0; else emptyListMessage"
 ></app-coaches-list>
 
