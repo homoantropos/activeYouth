@@ -8,6 +8,7 @@ import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 export class DeletionConfirmerComponent implements OnInit {
 
   @Input() show = false;
+  @Input() option = '';
   @Output() confirm: EventEmitter<boolean> = new EventEmitter<boolean>();
 
   constructor() { }

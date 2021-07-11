@@ -1,16 +1,16 @@
 <div class="backDrop" *ngIf="show">
   <div class="delete_confirmer">
-    <h3>УВАГА!<br>Ви збираєтесь зробити дію, наслідки якої неможливо змінити!<br>Ви підтверджуєте дію? </h3>
+    <h3>УВАГА!<br>Наслідки цієї дії неможливо скасувати!<br>Видалити {{option}} остаточно? </h3>
     <div class="btn-container">
 
-      <button mat-raised-button color="warn"
+      <button mat-button [ngStyle]="{backgroundColor: 'slategray', color: 'white'}"
               (click)="confirm.emit(true)">
-        Підтвердити
+        Так
       </button>
 
-      <button mat-raised-button color="primary"
+      <button mat-button [ngStyle]="{backgroundColor: 'white'}"
       (click)="confirm.emit(false)">
-        Відмінити
+        Ні
       </button>
     </div>
   </div>

@@ -20,6 +20,7 @@ export class CoachesListComponent implements OnInit {
   showDeleteConfirmation = false;
   // @ts-ignore
   coachId: number;
+  option = 'тренера';
 
   constructor(
     private coachService: CoachService,
