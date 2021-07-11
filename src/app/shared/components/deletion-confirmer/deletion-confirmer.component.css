@@ -1,0 +1,25 @@
+.backDrop {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 1;
+}
+.delete_confirmer {
+  width: 30vw;
+  height: 28vh;
+  position: fixed;
+  left: 50%;
+  top: 20%;
+  transform: translate(-50%);
+  padding: 12px 20px 20px 20px;
+  background-color: antiquewhite;
+  font-family: "Oswald", "Roboto Condensed", sans-serif;
+  z-index: 1;
+}
+
+.delete_confirmer, button {
+  margin: 20px;
+}
