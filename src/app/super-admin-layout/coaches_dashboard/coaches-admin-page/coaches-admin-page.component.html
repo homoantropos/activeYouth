@@ -2,22 +2,22 @@
 
   <button mat-button color="primary"
           type="button"
-          (click)="showCoachForm = !showCoachForm"
+          (click)="showForm()"
           *ngIf="!showCoachForm">
     Додати тренера
   </button>
 
   <form
     [formGroup]="coachForm"
-    *ngIf="showCoachForm"
+    [hidden]="!showCoachForm"
   >
-    <small>Додати тренера:</small>
+    <small>{{option}}</small>
     <mat-form-field class="forms-inputs">
       <mat-label>прізвище...</mat-label>
-      <input matInput
+      <input #nameInput
+             matInput
              title="for surname"
              type="text"
-             #nameInput
              formControlName="surname">
     </mat-form-field>
 

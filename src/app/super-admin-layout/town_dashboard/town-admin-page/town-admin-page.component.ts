@@ -16,23 +16,22 @@ import {AutoUpdateArrays} from '../../../shared/utils/autoUpdateArrays';
 })
 export class TownAdminPageComponent implements OnInit, OnDestroy{
 
-  showEditor = false;
   // @ts-ignore
-  @ViewChild('townNameInput') inputRef: ElementRef;
-  // @ts-ignore
-  @Input() initTown: Town;
+  @ViewChild('townNameInput', {static: false}) inputRef: ElementRef;
   // @ts-ignore
   townForm: FormGroup;
+  submitted = false;
+  towns: Array<Town> = [];
+  showTownForm = false;
+  // @ts-ignore
+  initTown: Town = TownService.initTown;
+  creatOrEditor = true;
   // @ts-ignore
   tSub: Subscription;
   // @ts-ignore
   countryFilteredOptions: Observable<string[]>;
   // @ts-ignore
   regionFilteredOptions: Observable<string[]>;
-  // @ts-ignore
-  towns: Array<Town>;
-  submitted = false;
-  creatOrEditor = true;
   createOrEditOption = 'Додати';
   options = 'місто';
 
@@ -48,9 +47,8 @@ export class TownAdminPageComponent implements OnInit, OnDestroy{
     if (town) {
       this.initTown = town;
       this.creatOrEditor = false;
-      this.showEditor = true;
-    } else {
-      this.initTown = TownService.initTown;
+      this.createOrEditOption = 'Змінити';
+      this.showTownForm = true;
     }
     this.townForm = new FormGroup({
       town_name: new FormControl(this.initTown.town_name, [
@@ -109,6 +107,7 @@ export class TownAdminPageComponent implements OnInit, OnDestroy{
         error => {
           this.townService.errorHandle(error);
           this.townForm.enable();
+          this.inputRef.nativeElement.focus();
         }
       );
     this.townForm.enable();
@@ -137,10 +136,12 @@ export class TownAdminPageComponent implements OnInit, OnDestroy{
         error => {
           this.townService.errorHandle(error);
           this.townForm.enable();
+          this.inputRef.nativeElement.focus();
         }
       );
     this.townForm.enable();
   }
+
   ngOnDestroy(): void {
     if (this.tSub) {
       this.tSub.unsubscribe();
@@ -150,9 +151,8 @@ export class TownAdminPageComponent implements OnInit, OnDestroy{
   resetForm(): void {
     this.townForm.reset();
     this.townForm.enable();
-    this.inputRef.nativeElement.focus();
     this.submitted = false;
-    this.showEditor = false;
+    this.showTownForm = false;
     this.creatOrEditor = true;
   }
 }

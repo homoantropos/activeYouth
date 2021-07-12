@@ -1,8 +1,9 @@
-import {AfterViewInit, Component, ElementRef, OnInit, ViewChild} from '@angular/core';
+import {AfterViewInit, Component, ElementRef, OnDestroy, OnInit, ViewChild} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {CoachService} from '../../services/coach.service';
 import {Coach} from '../../../shared/interfases';
 import {AlertService} from '../../../shared/services/alert.service';
+import {Subscription} from 'rxjs';
 
 @Component({
   selector: 'app-activities-admin',
@@ -10,8 +11,9 @@ import {AlertService} from '../../../shared/services/alert.service';
   styleUrls: ['./coaches-admin-page.component.css']
 })
 
-export class CoachesAdminPageComponent implements OnInit, AfterViewInit {
-
+export class CoachesAdminPageComponent implements OnInit, AfterViewInit, OnDestroy {
+  // @ts-ignore
+  @ViewChild('nameInput', {static: false}) nameInput: ElementRef;
   // @ts-ignore
   coachForm: FormGroup;
   submitted = false;
@@ -19,8 +21,9 @@ export class CoachesAdminPageComponent implements OnInit, AfterViewInit {
   showCoachForm = false;
   initCoach = CoachService.initCoach;
   creatOrEditor = true;
+  option = 'Додати';
   // @ts-ignore
-  @ViewChild('nameInput') inputRef: ElementRef;
+  cSub: Subscription;
 
   constructor(
     private coachService: CoachService,
@@ -32,9 +35,10 @@ export class CoachesAdminPageComponent implements OnInit, AfterViewInit {
     if (coach) {
       this.initCoach = coach;
       this.creatOrEditor = false;
+      this.option = 'Редагувати';
       this.showCoachForm = true;
     }
-    this.coachService.getAllCoaches()
+    this.cSub = this.coachService.getAllCoaches()
       .subscribe(
         coaches => {
           this.coachesList = coaches;
@@ -43,16 +47,19 @@ export class CoachesAdminPageComponent implements OnInit, AfterViewInit {
             surname: new FormControl(this.initCoach.surname, Validators.required),
             fathersName: new FormControl(this.initCoach.fathersName, Validators.required)
           });
+
         }, error => {
           this.alert.warning(error.message);
-          this.inputRef.nativeElement.focus();
+          this.nameInput.nativeElement.focus();
           this.coachForm.enable();
           this.submitted = false;
         }
       );
   }
 
-  ngAfterViewInit(): void {  }
+  ngAfterViewInit(): void {
+    this.nameInput.nativeElement.focus();
+  }
 
   onCreate(formValue: any): void {
     this.coachForm.disable();
@@ -62,7 +69,7 @@ export class CoachesAdminPageComponent implements OnInit, AfterViewInit {
       surname: formValue.surname,
       fathersName: formValue.fathersName
     };
-    this.coachService.saveCoachToDB(coach)
+    this.cSub = this.coachService.saveCoachToDB(coach)
       .subscribe(
         response => {
           this.alert.success(
@@ -76,6 +83,7 @@ export class CoachesAdminPageComponent implements OnInit, AfterViewInit {
         }, error => {
           this.alert.danger(error.message);
           this.coachForm.enable();
+          this.nameInput.nativeElement.focus();
           this.submitted = false;
         }
       );
@@ -90,7 +98,7 @@ export class CoachesAdminPageComponent implements OnInit, AfterViewInit {
       fathersName: formValue.fathersName,
       id: this.initCoach.id
     };
-    this.coachService.updateCoach(coach)
+    this.cSub = this.coachService.updateCoach(coach)
       .subscribe(
         response => {
           this.coachesList = response.coaches;
@@ -100,7 +108,7 @@ export class CoachesAdminPageComponent implements OnInit, AfterViewInit {
           this.coachService.errorHandle(error);
           this.coachForm.enable();
           this.submitted = false;
-          this.inputRef.nativeElement.focus();
+          this.nameInput.nativeElement.focus();
         }
       );
     if (this.coachService.error$) {
@@ -111,12 +119,23 @@ export class CoachesAdminPageComponent implements OnInit, AfterViewInit {
     }
   }
 
+  showForm(): void {
+    this.showCoachForm = true;
+    this.nameInput.nativeElement.focus();
+  }
+
   resetCoachForm(): void {
     this.coachForm.reset();
     this.coachForm.enable();
-    this.inputRef.nativeElement.focus();
     this.submitted = false;
     this.showCoachForm = false;
+    this.option = 'Додати';
     this.creatOrEditor = true;
+  }
+
+  ngOnDestroy(): void {
+    if (this.cSub) {
+      this.cSub.unsubscribe();
+    }
   }
 }

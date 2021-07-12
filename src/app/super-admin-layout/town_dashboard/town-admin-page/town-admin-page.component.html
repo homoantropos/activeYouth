@@ -1,16 +1,16 @@
 <button mat-button color="primary"
-        *ngIf="!showEditor"
+        *ngIf="!showTownForm"
         type="button"
-        (click)="showEditor = !showEditor"
+        (click)="showTownForm = !showTownForm"
 >
   Додати місто
 </button>
 
-<div *ngIf="showEditor">
+<div *ngIf="showTownForm">
 
   <form *ngIf="townForm; else loader" [formGroup]="townForm">
 
-    <small>{{createOrEditOption}} місто</small>
+    <small>{{createOrEditOption}}</small>
 
     <mat-form-field class="forms-inputs">
       <mat-label>введіть назву міста...</mat-label>
