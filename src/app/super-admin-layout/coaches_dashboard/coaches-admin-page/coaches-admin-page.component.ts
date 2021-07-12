@@ -13,7 +13,7 @@ import {Subscription} from 'rxjs';
 
 export class CoachesAdminPageComponent implements OnInit, AfterViewInit, OnDestroy {
   // @ts-ignore
-  @ViewChild('nameInput', {static: false}) nameInput: ElementRef;
+  @ViewChild('nameInput') nameInput: ElementRef<HTMLInputElement>;
   // @ts-ignore
   coachForm: FormGroup;
   submitted = false;
@@ -47,18 +47,16 @@ export class CoachesAdminPageComponent implements OnInit, AfterViewInit, OnDestr
             surname: new FormControl(this.initCoach.surname, Validators.required),
             fathersName: new FormControl(this.initCoach.fathersName, Validators.required)
           });
-
+          this.nameInput.nativeElement.focus();
         }, error => {
           this.alert.warning(error.message);
           this.nameInput.nativeElement.focus();
           this.coachForm.enable();
-          this.submitted = false;
         }
       );
   }
 
   ngAfterViewInit(): void {
-    this.nameInput.nativeElement.focus();
   }
 
   onCreate(formValue: any): void {
