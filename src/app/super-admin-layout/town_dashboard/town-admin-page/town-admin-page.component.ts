@@ -1,4 +1,4 @@
-import {Component, ElementRef, Input, OnDestroy, OnInit, ViewChild} from '@angular/core';
+import {Component, ElementRef, OnDestroy, OnInit, ViewChild} from '@angular/core';
 import {Town} from '../../../shared/interfases';
 import {TownService} from '../../services/town.service';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
@@ -61,28 +61,42 @@ export class TownAdminPageComponent implements OnInit, OnDestroy{
         Validators.required
       ])
     });
-    // @ts-ignore
-    this.countryFilteredOptions = this.townForm.get('country_name').valueChanges
-      .pipe(
-        startWith(''),
-        map((value: string) => this._filterCountry(value))
-      );
-    // @ts-ignore
-    this.regionFilteredOptions = this.townForm.get('region_name').valueChanges
-      .pipe(
-        startWith(''),
-        map((value: string) => this._filterRegion(value))
-      );
+    try {
+      // @ts-ignore
+      this.countryFilteredOptions = this.townForm.get('country_name').valueChanges
+        .pipe(
+          startWith(''),
+          map((value: string) => this._filterCountry(value))
+        );
+    } catch (e) {
+    }
+    try {
+      // @ts-ignore
+      this.regionFilteredOptions = this.townForm.get('region_name').valueChanges
+        .pipe(
+          startWith(''),
+          map((value: string) => this._filterRegion(value))
+        );
+    } catch (e) {
+    }
   }
 
   private _filterCountry(value: string): string[] {
-    const filterValue = value.toLowerCase();
-    return AutoUpdateArrays.countryNames.filter(option => option.toLowerCase().includes(filterValue));
+    try {
+      const filterValue = value.toLowerCase();
+      return AutoUpdateArrays.countryNames.filter(option => option.toLowerCase().includes(filterValue));
+    } catch (e) {
+      return e.message;
+    }
   }
 
   private _filterRegion(value: string): string[] {
-    const filterValue = value.toLowerCase();
-    return AutoUpdateArrays.regionsNames.filter(option => option.toLowerCase().includes(filterValue));
+    try {
+      const filterValue = value.toLowerCase();
+      return AutoUpdateArrays.regionsNames.filter(option => option.toLowerCase().includes(filterValue));
+    } catch (e) {
+      return e.message;
+    }
   }
 
   onSubmit(): void {
@@ -104,8 +118,8 @@ export class TownAdminPageComponent implements OnInit, OnDestroy{
           this.router.navigate(['superadmin', 'places', 'towns']);
           this.resetForm();
         },
-        error => {
-          this.townService.errorHandle(error);
+        err => {
+          this.townService.errorHandle(err);
           this.townForm.enable();
           this.inputRef.nativeElement.focus();
         }
@@ -133,8 +147,8 @@ export class TownAdminPageComponent implements OnInit, OnDestroy{
           this.router.navigate(['superadmin', 'places', 'towns']);
           this.resetForm();
         },
-        error => {
-          this.townService.errorHandle(error);
+        err => {
+          this.townService.errorHandle(err);
           this.townForm.enable();
           this.inputRef.nativeElement.focus();
         }
