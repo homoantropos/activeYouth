@@ -47,7 +47,11 @@ export class CoachesAdminPageComponent implements OnInit, AfterViewInit, OnDestr
             surname: new FormControl(this.initCoach.surname, Validators.required),
             fathersName: new FormControl(this.initCoach.fathersName, Validators.required)
           });
-          this.nameInput.nativeElement.focus();
+          try {
+            this.nameInput.nativeElement.focus();
+          } catch (error) {
+            console.log(error.message);
+          }
         }, error => {
           this.alert.warning(error.message);
           this.nameInput.nativeElement.focus();

@@ -1,4 +1,4 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
+import {AfterViewInit, Component, ElementRef, OnDestroy, OnInit, ViewChild} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {ActivityService} from '../../../shared/services/activity.service';
 import {ActivatedRoute, Params, Router} from '@angular/router';
@@ -12,7 +12,9 @@ import {AlertService} from '../../../shared/services/alert.service';
   templateUrl: './activity-editor.component.html',
   styleUrls: ['./activity-editor.component.css']
 })
-export class ActivityEditorComponent implements OnInit, OnDestroy {
+export class ActivityEditorComponent implements OnInit, OnDestroy, AfterViewInit {
+  // @ts-ignore
+  @ViewChild('title') titleRef: ElementRef;
   submitted = false;
   // @ts-ignore
   activitiesEditorForm: FormGroup;
@@ -51,6 +53,10 @@ export class ActivityEditorComponent implements OnInit, OnDestroy {
         });
       }
     );
+  }
+
+  ngAfterViewInit(): void {
+    this.titleRef.nativeElement.focus();
   }
 
   onChangeActivity(): void {
