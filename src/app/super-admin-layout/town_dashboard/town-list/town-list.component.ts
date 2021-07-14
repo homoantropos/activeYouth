@@ -24,7 +24,6 @@ export class TownListComponent implements OnInit {
   // @ts-ignore
 
   townId: number;
-  showEditor = false;
   showDeleteConfirmation = false;
   options = 'місто';
 

@@ -1,4 +1,4 @@
-import {Component, ElementRef, OnDestroy, OnInit, ViewChild} from '@angular/core';
+import {AfterViewInit, Component, ElementRef, OnDestroy, OnInit, ViewChild} from '@angular/core';
 import {Town} from '../../../shared/interfases';
 import {TownService} from '../../services/town.service';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
@@ -14,10 +14,10 @@ import {AutoUpdateArrays} from '../../../shared/utils/autoUpdateArrays';
   templateUrl: './town-admin-page.component.html',
   styleUrls: ['./town-admin-page.component.css']
 })
-export class TownAdminPageComponent implements OnInit, OnDestroy{
+export class TownAdminPageComponent implements OnInit, OnDestroy, AfterViewInit {
 
   // @ts-ignore
-  @ViewChild('townNameInput', {static: false}) inputRef: ElementRef;
+  @ViewChild('townNameInput') inputRef: ElementRef;
   // @ts-ignore
   townForm: FormGroup;
   submitted = false;
@@ -61,6 +61,7 @@ export class TownAdminPageComponent implements OnInit, OnDestroy{
         Validators.required
       ])
     });
+    this.showTownForm = true;
     try {
       // @ts-ignore
       this.countryFilteredOptions = this.townForm.get('country_name').valueChanges
@@ -79,6 +80,10 @@ export class TownAdminPageComponent implements OnInit, OnDestroy{
         );
     } catch (e) {
     }
+  }
+
+  ngAfterViewInit(): void {
+    this.inputRef.nativeElement.focus();
   }
 
   private _filterCountry(value: string): string[] {
@@ -160,6 +165,10 @@ export class TownAdminPageComponent implements OnInit, OnDestroy{
     if (this.tSub) {
       this.tSub.unsubscribe();
     }
+  }
+
+  showForm(): void {
+    this.showTownForm = true;
   }
 
   resetForm(): void {

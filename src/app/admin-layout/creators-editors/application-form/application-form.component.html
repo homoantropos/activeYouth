@@ -1,4 +1,6 @@
-<div *ngIf="applicationForm; else loader" class="mat-elevation-z8" [ngStyle]="{padding: '1% 2%'}">
+<app-loader [ngClass]="{dn: formInitiated}"></app-loader>
+
+<div [ngClass]="{dn: !formInitiated}" class="mat-elevation-z8" [ngStyle]="{padding: '1% 2%'}">
 
   <h4>Подати заявку до участі в змаганнях</h4>
   <h5>{{appointment.title + ', ' + appointment.appointment_place.town.town_name + ', '}}
@@ -148,6 +150,5 @@
   [results]="listOfParticipants"
   (resultEmit)="ngOnInit($event)"></app-results-list>
 
-<ng-template #loader>
-  <app-loader></app-loader>
-</ng-template>
+
+

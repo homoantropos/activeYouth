@@ -1,4 +1,4 @@
-import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
+import {AfterViewInit, Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {ActivatedRoute, Params, Router} from '@angular/router';
 import {Appointment, Result} from '../../../shared/interfases';
 import {catchError, map, startWith, switchMap} from 'rxjs/operators';
@@ -14,7 +14,7 @@ import {AlertService} from '../../../shared/services/alert.service';
   templateUrl: './application-form.component.html',
   styleUrls: ['./application-form.component.css']
 })
-export class ApplicationFormComponent implements OnInit {
+export class ApplicationFormComponent implements OnInit, AfterViewInit {
 
   // @ts-ignore
   @ViewChild('name') inputRef: ElementRef;
@@ -26,6 +26,7 @@ export class ApplicationFormComponent implements OnInit {
   appointment: Appointment;
   // @ts-ignore
   applicationForm: FormGroup;
+  formInitiated = false;
   // @ts-ignore
   regionFilteredOptions: Observable<string[]>;
   submitted = false;
@@ -80,6 +81,7 @@ export class ApplicationFormComponent implements OnInit {
             region: new FormControl(this.initResult.region?.region_name, Validators.required),
             discipline: new FormControl(this.initResult.discipline, Validators.required)
           });
+          this.formInitiated = true;
           // @ts-ignore
           this.regionFilteredOptions = this.applicationForm.get('region').valueChanges
             .pipe(
@@ -95,6 +97,10 @@ export class ApplicationFormComponent implements OnInit {
         }
       );
     }
+  }
+
+  ngAfterViewInit(): void {
+    this.inputRef.nativeElement.focus();
   }
 
   private _filterRegion(value: string): string[] {
@@ -124,7 +130,6 @@ export class ApplicationFormComponent implements OnInit {
         results => {
           this.listOfParticipants = results;
           this.applicationForm.reset();
-          this.inputRef.nativeElement.focus();
           this.creatOrEditor = true;
         },
         error => {
