@@ -1,4 +1,4 @@
-import {AfterViewInit, Component, ElementRef, OnInit, ViewChild} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Params, Router} from '@angular/router';
 import {Appointment, Result} from '../../../shared/interfases';
 import {catchError, map, startWith, switchMap} from 'rxjs/operators';
@@ -14,10 +14,8 @@ import {AlertService} from '../../../shared/services/alert.service';
   templateUrl: './application-form.component.html',
   styleUrls: ['./application-form.component.css']
 })
-export class ApplicationFormComponent implements OnInit, AfterViewInit {
+export class ApplicationFormComponent implements OnInit {
 
-  // @ts-ignore
-  @ViewChild('name') inputRef: ElementRef;
   error$: Subject<string> = new Subject<string>();
   appointmentId = 0;
   listOfParticipants: Array<Result> = [];
@@ -99,10 +97,6 @@ export class ApplicationFormComponent implements OnInit, AfterViewInit {
     }
   }
 
-  ngAfterViewInit(): void {
-    this.inputRef.nativeElement.focus();
-  }
-
   private _filterRegion(value: string): string[] {
     const filterValue = value.toLowerCase();
     AutoUpdateArrays.regions
@@ -140,7 +134,7 @@ export class ApplicationFormComponent implements OnInit, AfterViewInit {
     if (this.resultService.error$) {
       this.resultService.error$.subscribe(
         message => {
-          this.alert.warning(message);
+          this.alert.danger(message);
         }
       );
     }
@@ -154,7 +148,7 @@ export class ApplicationFormComponent implements OnInit, AfterViewInit {
       .pipe(
         catchError(this.resultService.errorHandle.bind(this)),
         switchMap(
-          res => {
+          () => {
             this.alert.success('Вітаємо! Ваші зміни успішно збережені!');
             return this.resultService.getResultByAppointment(this.appointmentId);
           }
@@ -164,7 +158,6 @@ export class ApplicationFormComponent implements OnInit, AfterViewInit {
         results => {
           this.listOfParticipants = results;
           this.applicationForm.reset();
-          this.inputRef.nativeElement.focus();
           this.creatOrEditor = true;
         },
         error => {
@@ -177,7 +170,7 @@ export class ApplicationFormComponent implements OnInit, AfterViewInit {
     if (this.resultService.error$) {
       this.resultService.error$.subscribe(
         message => {
-          this.alert.warning(message);
+          this.alert.danger(message);
         }
       );
     }
@@ -186,9 +179,7 @@ export class ApplicationFormComponent implements OnInit, AfterViewInit {
 
   resetApplicationForm(id: number): void {
     this.applicationForm.reset();
-    this.inputRef.nativeElement.focus();
     this.creatOrEditor = true;
     this.alert.warning('Скасовано');
-    this.router.navigateByUrl(`admin/application/${id}`);
   }
 }

@@ -1,4 +1,4 @@
-import {AfterViewInit, Component, ElementRef, OnDestroy, OnInit, ViewChild} from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {Town} from '../../../shared/interfases';
 import {TownService} from '../../services/town.service';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
@@ -14,10 +14,8 @@ import {AutoUpdateArrays} from '../../../shared/utils/autoUpdateArrays';
   templateUrl: './town-admin-page.component.html',
   styleUrls: ['./town-admin-page.component.css']
 })
-export class TownAdminPageComponent implements OnInit, OnDestroy, AfterViewInit {
+export class TownAdminPageComponent implements OnInit, OnDestroy {
 
-  // @ts-ignore
-  @ViewChild('townNameInput') inputRef: ElementRef;
   // @ts-ignore
   townForm: FormGroup;
   submitted = false;
@@ -51,17 +49,16 @@ export class TownAdminPageComponent implements OnInit, OnDestroy, AfterViewInit 
       this.showTownForm = true;
     }
     this.townForm = new FormGroup({
-      town_name: new FormControl(this.initTown.town_name, [
+      town_name: new FormControl(this.initTown.town_name.trim(), [
         Validators.required
       ]),
-      country_name: new FormControl(this.initTown.region?.country?.country_name, [
+      country_name: new FormControl(this.initTown.region?.country?.country_name.trim(), [
         Validators.required
       ]),
-      region_name: new FormControl(this.initTown.region?.region_name, [
+      region_name: new FormControl(this.initTown.region?.region_name.trim(), [
         Validators.required
       ])
     });
-    this.showTownForm = true;
     try {
       // @ts-ignore
       this.countryFilteredOptions = this.townForm.get('country_name').valueChanges
@@ -80,10 +77,6 @@ export class TownAdminPageComponent implements OnInit, OnDestroy, AfterViewInit 
         );
     } catch (e) {
     }
-  }
-
-  ngAfterViewInit(): void {
-    this.inputRef.nativeElement.focus();
   }
 
   private _filterCountry(value: string): string[] {
@@ -109,9 +102,9 @@ export class TownAdminPageComponent implements OnInit, OnDestroy, AfterViewInit 
       return;
     }
     const town: Town = {
-      town_name: this.townForm.value.town_name,
+      town_name: this.townForm.value.town_name.trim(),
       region: {
-        region_name: this.townForm.value.region_name
+        region_name: this.townForm.value.region_name.trim()
       }
     };
     this.townForm.disable();
@@ -120,13 +113,11 @@ export class TownAdminPageComponent implements OnInit, OnDestroy, AfterViewInit 
         townAndTowns => {
           this.alert.success(`Нове місто успішно додано до бази даних.`);
           this.towns = townAndTowns.towns;
-          this.router.navigate(['superadmin', 'places', 'towns']);
           this.resetForm();
         },
         err => {
           this.townService.errorHandle(err);
           this.townForm.enable();
-          this.inputRef.nativeElement.focus();
         }
       );
     this.townForm.enable();
@@ -137,9 +128,9 @@ export class TownAdminPageComponent implements OnInit, OnDestroy, AfterViewInit 
       return;
     }
     const town: Town = {
-      town_name: this.townForm.value.town_name,
+      town_name: this.townForm.value.town_name.trim(),
       region: {
-        region_name: this.townForm.value.region_name
+        region_name: this.townForm.value.region_name.trim()
       },
       id: this.initTown.id
     };
@@ -149,13 +140,11 @@ export class TownAdminPageComponent implements OnInit, OnDestroy, AfterViewInit 
         messageAndTowns => {
           this.alert.success(messageAndTowns.message);
           this.towns = messageAndTowns.towns;
-          this.router.navigate(['superadmin', 'places', 'towns']);
           this.resetForm();
         },
         err => {
           this.townService.errorHandle(err);
           this.townForm.enable();
-          this.inputRef.nativeElement.focus();
         }
       );
     this.townForm.enable();

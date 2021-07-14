@@ -1,21 +1,21 @@
-<div *ngIf="coachForm; else loader">
+<button mat-button color="primary"
+        type="button"
+        (click)="showForm()"
+        *ngIf="!showCoachForm">
+  Додати тренера
+</button>
 
-  <button mat-button color="primary"
-          type="button"
-          (click)="showForm()"
-          *ngIf="!showCoachForm">
-    Додати тренера
-  </button>
-
+<div
+  *ngIf="coachForm; else loader"
+>
   <form
     [formGroup]="coachForm"
-    [hidden]="!showCoachForm"
+    *ngIf="showCoachForm"
   >
     <small>{{option}}</small>
     <mat-form-field class="forms-inputs">
       <mat-label>прізвище...</mat-label>
-      <input #nameInput
-             matInput
+      <input matInput
              title="for surname"
              type="text"
              formControlName="surname">
@@ -38,7 +38,7 @@
     </mat-form-field>
 
     <button mat-button
-            *ngIf="creatOrEditor"
+            [ngClass]="{'dn': !creatOrEditor}"
             color="primary"
             type="button"
             (click)="onCreate(coachForm.value)"
@@ -48,7 +48,7 @@
     </button>
 
     <button mat-button
-            *ngIf="!creatOrEditor"
+            [ngClass]="{'dn': creatOrEditor}"
             color="primary"
             type="button"
             (click)="onUpdate(coachForm.value)"
@@ -69,12 +69,14 @@
 
 </div>
 
+<ng-template #loader>
+  <app-loader></app-loader>
+</ng-template>
+
+
 <app-coaches-list
   [coachesList]="coachesList"
   (coachEventEmitter)="ngOnInit($event)"
   (resetFormEventEmitter)="resetCoachForm()"
 ></app-coaches-list>
 
-<ng-template #loader>
-  <app-loader></app-loader>
-</ng-template>

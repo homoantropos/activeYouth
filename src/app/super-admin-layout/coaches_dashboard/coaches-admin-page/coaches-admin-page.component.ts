@@ -1,4 +1,4 @@
-import {AfterViewInit, Component, ElementRef, OnDestroy, OnInit, ViewChild} from '@angular/core';
+import {AfterViewInit, Component, OnDestroy, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {CoachService} from '../../services/coach.service';
 import {Coach} from '../../../shared/interfases';
@@ -12,8 +12,6 @@ import {Subscription} from 'rxjs';
 })
 
 export class CoachesAdminPageComponent implements OnInit, AfterViewInit, OnDestroy {
-  // @ts-ignore
-  @ViewChild('nameInput') nameInput: ElementRef<HTMLInputElement>;
   // @ts-ignore
   coachForm: FormGroup;
   submitted = false;
@@ -43,18 +41,12 @@ export class CoachesAdminPageComponent implements OnInit, AfterViewInit, OnDestr
         coaches => {
           this.coachesList = coaches;
           this.coachForm = new FormGroup({
-            name: new FormControl(this.initCoach.name, Validators.required),
-            surname: new FormControl(this.initCoach.surname, Validators.required),
-            fathersName: new FormControl(this.initCoach.fathersName, Validators.required)
+            name: new FormControl(this.initCoach.name.trim(), Validators.required),
+            surname: new FormControl(this.initCoach.surname.trim(), Validators.required),
+            fathersName: new FormControl(this.initCoach.fathersName.trim(), Validators.required)
           });
-          try {
-            this.nameInput.nativeElement.focus();
-          } catch (error) {
-            console.log(error.message);
-          }
         }, error => {
-          this.alert.warning(error.message);
-          this.nameInput.nativeElement.focus();
+          this.alert.danger(error.message);
           this.coachForm.enable();
         }
       );
@@ -67,9 +59,9 @@ export class CoachesAdminPageComponent implements OnInit, AfterViewInit, OnDestr
     this.coachForm.disable();
     this.submitted = true;
     const coach = {
-      name: formValue.name,
-      surname: formValue.surname,
-      fathersName: formValue.fathersName
+      name: formValue.name.trim(),
+      surname: formValue.surname.trim(),
+      fathersName: formValue.fathersName.trim()
     };
     this.cSub = this.coachService.saveCoachToDB(coach)
       .subscribe(
@@ -85,7 +77,6 @@ export class CoachesAdminPageComponent implements OnInit, AfterViewInit, OnDestr
         }, error => {
           this.alert.danger(error.message);
           this.coachForm.enable();
-          this.nameInput.nativeElement.focus();
           this.submitted = false;
         }
       );
@@ -95,9 +86,9 @@ export class CoachesAdminPageComponent implements OnInit, AfterViewInit, OnDestr
     this.coachForm.disable();
     this.submitted = true;
     const coach = {
-      name: formValue.name,
-      surname: formValue.surname,
-      fathersName: formValue.fathersName,
+      name: formValue.name.trim(),
+      surname: formValue.surname.trim(),
+      fathersName: formValue.fathersName.trim(),
       id: this.initCoach.id
     };
     this.cSub = this.coachService.updateCoach(coach)
@@ -110,7 +101,6 @@ export class CoachesAdminPageComponent implements OnInit, AfterViewInit, OnDestr
           this.coachService.errorHandle(error);
           this.coachForm.enable();
           this.submitted = false;
-          this.nameInput.nativeElement.focus();
         }
       );
     if (this.coachService.error$) {
@@ -123,7 +113,6 @@ export class CoachesAdminPageComponent implements OnInit, AfterViewInit, OnDestr
 
   showForm(): void {
     this.showCoachForm = true;
-    this.nameInput.nativeElement.focus();
   }
 
   resetCoachForm(): void {

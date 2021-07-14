@@ -1,6 +1,4 @@
-<app-loader [ngClass]="{dn: formInitiated}"></app-loader>
-
-<div [ngClass]="{dn: !formInitiated}" class="mat-elevation-z8" [ngStyle]="{padding: '1% 2%'}">
+<div *ngIf="applicationForm; else loader" class="mat-elevation-z8" [ngStyle]="{padding: '1% 2%'}">
 
   <h4>Подати заявку до участі в змаганнях</h4>
   <h5>{{appointment.title + ', ' + appointment.appointment_place.town.town_name + ', '}}
@@ -18,7 +16,6 @@
              title="for participant_surname"
              type="text"
              formControlName="participant_surname"
-             #name
       >
     </mat-form-field>
 
@@ -137,13 +134,17 @@
       color="primary"
       type="button"
       (click)="resetApplicationForm(appointmentId)"
-      [disabled]="applicationForm.invalid || submitted"
+      [disabled]="submitted"
     >
       Скасувати
     </button>
   </form>
 
 </div>
+
+<ng-template #loader>
+  <app-loader></app-loader>
+</ng-template>
 
 <app-results-list
   *ngIf="listOfParticipants.length > 0"

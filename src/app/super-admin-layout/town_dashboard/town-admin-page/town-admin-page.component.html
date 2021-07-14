@@ -1,83 +1,90 @@
-<button mat-button color="primary"
-        [ngClass]="{dn: showTownForm}"
-        type="button"
-        (click)="showForm()"
->
-  Додати місто
-</button>
+<ng-template #loader>
+  <app-loader></app-loader>
+</ng-template>
 
-<form [ngClass]="{dn: showTownForm}" [formGroup]="townForm">
+<div *ngIf="townForm; else loader">
 
-  <small>{{createOrEditOption}}</small>
+  <button mat-button color="primary"
+          *ngIf="!showTownForm"
+          type="button"
+          (click)="showForm()"
+  >
+    Додати місто
+  </button>
+  <form *ngIf="showTownForm" [formGroup]="townForm">
 
-  <mat-form-field class="forms-inputs">
-    <mat-label>введіть назву міста...</mat-label>
-    <input matInput
-           title="nameInput"
-           type="text"
-           formControlName="town_name"
-           #townNameInput
+    <small>{{createOrEditOption}}</small>
+
+    <mat-form-field class="forms-inputs">
+      <mat-label>введіть назву міста...</mat-label>
+      <input matInput
+             title="nameInput"
+             type="text"
+             formControlName="town_name"
+             #townNameInput
+      >
+    </mat-form-field>
+
+    <mat-form-field class="forms-inputs"
+                    title="country">
+      <mat-label>країна проведення...</mat-label>
+      <input type="text"
+             placeholder="країна проведення..."
+             aria-label="country"
+             matInput
+             formControlName="country_name"
+             [matAutocomplete]="country">
+      <mat-autocomplete #country="matAutocomplete">
+        <mat-option *ngFor="let option of countryFilteredOptions | async" [value]="option">
+          {{option}}
+        </mat-option>
+      </mat-autocomplete>
+    </mat-form-field>
+
+    <mat-form-field class="forms-inputs"
+                    title="region">
+      <mat-label>регіон проведення...</mat-label>
+      <input type="text"
+             placeholder="регіон проведення..."
+             aria-label="region"
+             matInput
+             formControlName="region_name"
+             [matAutocomplete]="region">
+      <mat-autocomplete #region="matAutocomplete">
+        <mat-option *ngFor="let option of regionFilteredOptions | async" [value]="option">
+          {{option}}
+        </mat-option>
+      </mat-autocomplete>
+    </mat-form-field>
+
+    <button mat-button
+            *ngIf="creatOrEditor"
+            color="primary"
+            type="button"
+            (click)="onSubmit()"
+            [disabled]="townForm.invalid || townForm.disabled"
     >
-  </mat-form-field>
+      Додати
+    </button>
+    <button mat-button
+            *ngIf="!creatOrEditor"
+            color="primary"
+            type="button"
+            (click)="onUpdate()"
+            [disabled]="townForm.invalid || townForm.disabled"
+    >
+      Зберегти зміни
+    </button>
+    <button mat-button
+            color="primary"
+            type="button"
+            (click)="resetForm()"
+    >
+      Скасувати
+    </button>
+  </form>
 
-  <mat-form-field class="forms-inputs"
-                  title="country">
-    <mat-label>країна проведення...</mat-label>
-    <input type="text"
-           placeholder="країна проведення..."
-           aria-label="country"
-           matInput
-           formControlName="country_name"
-           [matAutocomplete]="country">
-    <mat-autocomplete #country="matAutocomplete">
-      <mat-option *ngFor="let option of countryFilteredOptions | async" [value]="option">
-        {{option}}
-      </mat-option>
-    </mat-autocomplete>
-  </mat-form-field>
-
-  <mat-form-field class="forms-inputs"
-                  title="region">
-    <mat-label>регіон проведення...</mat-label>
-    <input type="text"
-           placeholder="регіон проведення..."
-           aria-label="region"
-           matInput
-           formControlName="region_name"
-           [matAutocomplete]="region">
-    <mat-autocomplete #region="matAutocomplete">
-      <mat-option *ngFor="let option of regionFilteredOptions | async" [value]="option">
-        {{option}}
-      </mat-option>
-    </mat-autocomplete>
-  </mat-form-field>
-
-  <button mat-button
-          *ngIf="creatOrEditor"
-          color="primary"
-          type="button"
-          (click)="onSubmit()"
-          [disabled]="townForm.invalid || townForm.disabled"
-  >
-    Додати
-  </button>
-  <button mat-button
-          *ngIf="!creatOrEditor"
-          color="primary"
-          type="button"
-          (click)="onUpdate()"
-          [disabled]="townForm.invalid || townForm.disabled"
-  >
-    Зберегти зміни
-  </button>
-  <button mat-button
-          color="primary"
-          type="button"
-          (click)="resetForm()"
-  >
-    Скасувати
-  </button>
-</form>
+</div>
 
 
 <app-town-list

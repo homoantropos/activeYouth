@@ -48,27 +48,27 @@ export class ResultService {
     return {
       appointment,
       participant: {
-        name: value.participant_name,
-        surname: value.participant_surname,
-        fathersName: value.participant_fathersName,
+        name: value.participant_name.trim(),
+        surname: value.participant_surname.trim(),
+        fathersName: value.participant_fathersName.trim(),
         DoB: value.participant_DoB,
         gender: value.participant_gender,
         schoolchildOrStudent: appointment.participants,
         id: initResult?.participant.id
       },
       coach: {
-        name: value.coach_name,
-        surname: value.coach_surname,
-        fathersName: value.coach_fathersName,
+        name: value.coach_name.trim(),
+        surname: value.coach_surname.trim(),
+        fathersName: value.coach_fathersName.trim(),
         id: initResult?.coach.id
       },
       region: {
-        region_name: value.region
+        region_name: value.region.trim()
       },
       educational_entity: {
-        name: value.eduentityName
+        name: value.eduentityName.trim()
       },
-      discipline: value.discipline,
+      discipline: value.discipline.trim(),
       completed: false,
       id: initResult?.id
     };
@@ -106,7 +106,10 @@ export class ResultService {
     if (message) {
       switch (message) {
         case('повторювані значення ключа порушують обмеження унікальності \"result_discipline_participantId_key\"'):
-          this.error$.next('Такий учасник вже зареєстрований в цій вагові категорії');
+          this.error$.next('Такий учасник вже зареєстрований в цій дисципліні змагань.');
+          break;
+        case('повторювані значення ключа порушують обмеження унікальності \"participant_name_surname_fathersName_DoB_gender_schoolchild_key\"'):
+          this.error$.next('Такий учасник вже зареєстрований в цій дисципліні змагань.');
           break;
       }
     }
