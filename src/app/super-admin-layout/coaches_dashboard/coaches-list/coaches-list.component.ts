@@ -2,6 +2,9 @@ import {Component, EventEmitter, Input, Output, OnInit} from '@angular/core';
 import {Coach} from '../../../shared/interfases';
 import {CoachService} from '../../services/coach.service';
 import {AlertService} from '../../../shared/services/alert.service';
+import {AutoUpdateArrays} from '../../../shared/utils/autoUpdateArrays';
+import {Router} from '@angular/router';
+import {CoachesAdminPageComponent} from '../coaches-admin-page/coaches-admin-page.component';
 
 @Component({
   selector: 'app-coaches-list',
@@ -11,7 +14,7 @@ import {AlertService} from '../../../shared/services/alert.service';
 
 export class CoachesListComponent implements OnInit {
   // @ts-ignore
-  @Input() coachesList: Array<Coach>;
+  static coachesList: Array<Coach>;
   @Output() coachEventEmitter: EventEmitter<Coach> = new EventEmitter<Coach>();
   @Output() resetFormEventEmitter: EventEmitter<boolean> = new EventEmitter<boolean>();
   paginatorStartPageNumber = 0;
@@ -22,12 +25,16 @@ export class CoachesListComponent implements OnInit {
   option = 'тренера';
 
   constructor(
+    private router: Router,
     private coachService: CoachService,
     private alert: AlertService
   ) {
   }
 
   ngOnInit(): void {
+    this.coachService.getAllCoaches().subscribe(
+      coaches => CoachesListComponent.coachesList = coaches
+    );
   }
 
   editCoach(coach: Coach): void {
@@ -46,7 +53,7 @@ export class CoachesListComponent implements OnInit {
           response => {
             this.alert.success(response.message);
             this.resetFormEventEmitter.emit(true);
-            this.coachesList = response.coaches;
+            CoachesListComponent.coachesList = response.coaches;
           },
           error => {
             this.coachService.errorHandle(error);
@@ -63,4 +70,12 @@ export class CoachesListComponent implements OnInit {
     this.showDeleteConfirmation = false;
   }
 
+  goToCoachEditor(id: number): void {
+    this.router.navigateByUrl(`superadmin/coaches/edit/${id}`);
+    return CoachesAdminPageComponent.setShowButton(true);
+  }
+
+  get coachesList(): Array<Coach> {
+    return CoachesListComponent.coachesList;
+  }
 }

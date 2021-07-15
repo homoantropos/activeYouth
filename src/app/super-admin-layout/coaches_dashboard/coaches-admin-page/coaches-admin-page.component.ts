@@ -1,9 +1,5 @@
 import {AfterViewInit, Component, OnDestroy, OnInit} from '@angular/core';
-import {FormControl, FormGroup, Validators} from '@angular/forms';
-import {CoachService} from '../../services/coach.service';
-import {Coach} from '../../../shared/interfases';
-import {AlertService} from '../../../shared/services/alert.service';
-import {Subscription} from 'rxjs';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-activities-admin',
@@ -12,121 +8,34 @@ import {Subscription} from 'rxjs';
 })
 
 export class CoachesAdminPageComponent implements OnInit, AfterViewInit, OnDestroy {
-  // @ts-ignore
-  coachForm: FormGroup;
-  submitted = false;
-  coachesList: Array<Coach> = [];
-  showCoachForm = false;
-  initCoach = CoachService.initCoach;
-  creatOrEditor = true;
-  option = 'Додати';
-  // @ts-ignore
-  cSub: Subscription;
+
+  private static showButton = false;
+
+  static setShowButton(condition: boolean): void {
+    CoachesAdminPageComponent.showButton = condition;
+  }
 
   constructor(
-    private coachService: CoachService,
-    private alert: AlertService
+    private router: Router
   ) {
   }
 
-  ngOnInit(coach?: Coach): void {
-    if (coach) {
-      this.initCoach = coach;
-      this.creatOrEditor = false;
-      this.option = 'Редагувати';
-      this.showCoachForm = true;
-    }
-    this.cSub = this.coachService.getAllCoaches()
-      .subscribe(
-        coaches => {
-          this.coachesList = coaches;
-          this.coachForm = new FormGroup({
-            name: new FormControl(this.initCoach.name.trim(), Validators.required),
-            surname: new FormControl(this.initCoach.surname.trim(), Validators.required),
-            fathersName: new FormControl(this.initCoach.fathersName.trim(), Validators.required)
-          });
-        }, error => {
-          this.alert.danger(error.message);
-          this.coachForm.enable();
-        }
-      );
+  ngOnInit(): void {
   }
 
   ngAfterViewInit(): void {
+    CoachesAdminPageComponent.showButton = false;
   }
 
-  onCreate(formValue: any): void {
-    this.coachForm.disable();
-    this.submitted = true;
-    const coach = {
-      name: formValue.name.trim(),
-      surname: formValue.surname.trim(),
-      fathersName: formValue.fathersName.trim()
-    };
-    this.cSub = this.coachService.saveCoachToDB(coach)
-      .subscribe(
-        response => {
-          this.alert.success(
-            `
-               ${response.coach.surname} ${response.coach.name} ${response.coach.fathersName}
-                успішно доданий(а) до бази тренерів
-                `
-          );
-          this.coachesList = response.coaches;
-          this.resetCoachForm();
-        }, error => {
-          this.alert.danger(error.message);
-          this.coachForm.enable();
-          this.submitted = false;
-        }
-      );
+  goToCoachEditor(): void {
+    CoachesAdminPageComponent.showButton = true;
+    this.router.navigateByUrl(`superadmin/coaches/create`);
   }
 
-  onUpdate(formValue: any): void {
-    this.coachForm.disable();
-    this.submitted = true;
-    const coach = {
-      name: formValue.name.trim(),
-      surname: formValue.surname.trim(),
-      fathersName: formValue.fathersName.trim(),
-      id: this.initCoach.id
-    };
-    this.cSub = this.coachService.updateCoach(coach)
-      .subscribe(
-        response => {
-          this.coachesList = response.coaches;
-          this.alert.success(response.message);
-          this.resetCoachForm();
-        }, error => {
-          this.coachService.errorHandle(error);
-          this.coachForm.enable();
-          this.submitted = false;
-        }
-      );
-    if (this.coachService.error$) {
-      this.coachService.error$.subscribe(
-        message =>
-          this.alert.danger(message)
-      );
-    }
-  }
-
-  showForm(): void {
-    this.showCoachForm = true;
-  }
-
-  resetCoachForm(): void {
-    this.coachForm.reset();
-    this.coachForm.enable();
-    this.submitted = false;
-    this.showCoachForm = false;
-    this.option = 'Додати';
-    this.creatOrEditor = true;
+  get showButton(): boolean {
+    return CoachesAdminPageComponent.showButton;
   }
 
   ngOnDestroy(): void {
-    if (this.cSub) {
-      this.cSub.unsubscribe();
-    }
   }
 }

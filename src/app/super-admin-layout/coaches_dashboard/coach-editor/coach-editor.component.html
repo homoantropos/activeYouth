@@ -1,1 +1,66 @@
-<p>coach-editor works!</p>
+<ng-template #loader>
+  <app-loader></app-loader>
+</ng-template>
+
+<div *ngIf="coachForm; else loader">
+  <form
+    [formGroup]="coachForm"
+  >
+    <small>{{option}}</small>
+    <mat-form-field class="forms-inputs">
+      <mat-label>прізвище...</mat-label>
+      <input matInput
+             title="for surname"
+             type="text"
+             formControlName="surname"
+             #name
+      >
+    </mat-form-field>
+
+    <mat-form-field class="forms-inputs">
+      <mat-label>ім'я...</mat-label>
+      <input matInput
+             title="for name"
+             type="text"
+             formControlName="name">
+    </mat-form-field>
+
+    <mat-form-field class="forms-inputs">
+      <mat-label>по-батькові...</mat-label>
+      <input matInput
+             title="for fathersName"
+             type="text"
+             formControlName="fathersName">
+    </mat-form-field>
+
+    <button mat-button
+            *ngIf="creatOrEditor"
+            color="primary"
+            type="button"
+            (click)="onCreate(coachForm.value)"
+            [disabled]="coachForm.invalid || submitted"
+    >
+      Додати
+    </button>
+
+    <button mat-button
+            *ngIf="!creatOrEditor"
+            color="primary"
+            type="button"
+            (click)="onUpdate(coachForm.value)"
+            [disabled]="coachForm.invalid || submitted"
+    >
+      Зберегти зміни
+    </button>
+
+    <button mat-button
+            color="primary"
+            type="button"
+            (click)="resetCoachForm()"
+    >
+      Скасувати
+    </button>
+
+  </form>
+</div>
+

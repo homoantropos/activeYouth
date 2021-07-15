@@ -1,82 +1,11 @@
 <button mat-button color="primary"
         type="button"
-        (click)="showForm()"
-        *ngIf="!showCoachForm">
+        (click)="goToCoachEditor()"
+        [ngClass]="{dn: showButton}">
   Додати тренера
 </button>
 
-<div
-  *ngIf="coachForm; else loader"
->
-  <form
-    [formGroup]="coachForm"
-    *ngIf="showCoachForm"
-  >
-    <small>{{option}}</small>
-    <mat-form-field class="forms-inputs">
-      <mat-label>прізвище...</mat-label>
-      <input matInput
-             title="for surname"
-             type="text"
-             formControlName="surname">
-    </mat-form-field>
+<router-outlet></router-outlet>
 
-    <mat-form-field class="forms-inputs">
-      <mat-label>ім'я...</mat-label>
-      <input matInput
-             title="for name"
-             type="text"
-             formControlName="name">
-    </mat-form-field>
-
-    <mat-form-field class="forms-inputs">
-      <mat-label>по-батькові...</mat-label>
-      <input matInput
-             title="for fathersName"
-             type="text"
-             formControlName="fathersName">
-    </mat-form-field>
-
-    <button mat-button
-            [ngClass]="{'dn': !creatOrEditor}"
-            color="primary"
-            type="button"
-            (click)="onCreate(coachForm.value)"
-            [disabled]="coachForm.invalid || submitted"
-    >
-      Додати
-    </button>
-
-    <button mat-button
-            [ngClass]="{'dn': creatOrEditor}"
-            color="primary"
-            type="button"
-            (click)="onUpdate(coachForm.value)"
-            [disabled]="coachForm.invalid || submitted"
-    >
-      Зберегти зміни
-    </button>
-
-    <button mat-button
-            color="primary"
-            type="button"
-            (click)="resetCoachForm()"
-    >
-      Скасувати
-    </button>
-
-  </form>
-
-</div>
-
-<ng-template #loader>
-  <app-loader></app-loader>
-</ng-template>
-
-
-<app-coaches-list
-  [coachesList]="coachesList"
-  (coachEventEmitter)="ngOnInit($event)"
-  (resetFormEventEmitter)="resetCoachForm()"
-></app-coaches-list>
+<app-coaches-list></app-coaches-list>
 

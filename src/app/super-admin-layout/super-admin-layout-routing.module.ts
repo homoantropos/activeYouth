@@ -69,10 +69,9 @@ const routes: Routes = [
         ]
       },
       {
-        path: 'coaches', children: [
+        path: 'coaches', component: CoachesAdminPageComponent, children: [
           {path: 'create', component: CoachEditorComponent},
-          {path: 'edit/:id', component: CoachEditorComponent},
-          {path: '', component: CoachesAdminPageComponent},
+          {path: 'edit/:id', component: CoachEditorComponent}
         ]
       },
       {
