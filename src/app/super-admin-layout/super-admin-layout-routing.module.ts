@@ -23,6 +23,7 @@ import {EducationalEntityAdminPageComponent} from './educational-entity-admin-pa
 import {EducationalEntityCreatorComponent} from './creators-editors/educational-entity-creator/educational-entity-creator.component';
 import {EducationalEntityEditorComponent} from './creators-editors/educational-entity-editor/educational-entity-editor.component';
 import {TownAdminPageComponent} from './town_dashboard/town-admin-page/town-admin-page.component';
+import {CoachEditorComponent} from './coaches_dashboard/coach-editor/coach-editor.component';
 
 const routes: Routes = [
   {
@@ -67,12 +68,20 @@ const routes: Routes = [
           {path: '', component: SportKindAdminPageComponent}
         ]
       },
-      {path: 'coaches', component: CoachesAdminPageComponent},
-      {path: 'eduEntities', children: [
+      {
+        path: 'coaches', children: [
+          {path: 'create', component: CoachEditorComponent},
+          {path: 'edit/:id', component: CoachEditorComponent},
+          {path: '', component: CoachesAdminPageComponent},
+        ]
+      },
+      {
+        path: 'eduEntities', children: [
           {path: 'create', component: EducationalEntityCreatorComponent},
           {path: 'edit/:id', component: EducationalEntityEditorComponent},
           {path: '', component: EducationalEntityAdminPageComponent}
-        ]}
+        ]
+      }
     ]
   }
 ];

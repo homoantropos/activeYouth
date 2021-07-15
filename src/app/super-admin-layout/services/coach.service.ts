@@ -30,6 +30,10 @@ export class CoachService {
     return this.http.get<Array<Coach>>(`${environment.postgresDbUrl}/coach`);
   }
 
+  getCoachById(id: number): Observable<Coach> {
+    return this.http.get<Coach>(`${environment.postgresDbUrl}/coach/${id}`);
+  }
+
   errorHandle(error: HttpErrorResponse): any {
     const message = error.error.message;
     switch (message) {

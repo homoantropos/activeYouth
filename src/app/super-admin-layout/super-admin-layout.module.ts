@@ -28,6 +28,7 @@ import { EducationalEntityEditorComponent } from './creators-editors/educational
 import { CoachesListComponent } from './coaches_dashboard/coaches-list/coaches-list.component';
 import { TownAdminPageComponent } from './town_dashboard/town-admin-page/town-admin-page.component';
 import { TownListComponent } from './town_dashboard/town-list/town-list.component';
+import { CoachEditorComponent } from './coaches_dashboard/coach-editor/coach-editor.component';
 
 
 @NgModule({
@@ -55,7 +56,8 @@ import { TownListComponent } from './town_dashboard/town-list/town-list.componen
     EducationalEntityEditorComponent,
     CoachesListComponent,
     TownAdminPageComponent,
-    TownListComponent],
+    TownListComponent,
+    CoachEditorComponent],
   imports: [
     FormsModule,
     ReactiveFormsModule,
