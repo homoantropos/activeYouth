@@ -1,4 +1,4 @@
-import {AfterViewInit, Component, ElementRef, OnDestroy, OnInit, ViewChild} from '@angular/core';
+import {AfterContentInit, AfterViewInit, ChangeDetectorRef, Component, ElementRef, OnDestroy, OnInit, ViewChild} from '@angular/core';
 import {ActivatedRoute, Params, Router} from '@angular/router';
 import {CoachService} from '../../services/coach.service';
 import {switchMap} from 'rxjs/operators';
@@ -14,11 +14,11 @@ import {CoachesAdminPageComponent} from '../coaches-admin-page/coaches-admin-pag
   templateUrl: './coach-editor.component.html',
   styleUrls: ['./coach-editor.component.css']
 })
-export class CoachEditorComponent implements OnInit, OnDestroy, AfterViewInit {
+export class CoachEditorComponent implements OnInit, OnDestroy, AfterViewInit, AfterContentInit {
 
   private static creatOrEditor = true;
   // @ts-ignore
-  @ViewChild('name') nameInputRef: ElementRef;
+  // @ViewChild('name') nameInputRef: ElementRef;
   // @ts-ignore
   coachForm: FormGroup;
   // @ts-ignore
@@ -34,6 +34,16 @@ export class CoachEditorComponent implements OnInit, OnDestroy, AfterViewInit {
     CoachEditorComponent.creatOrEditor = condition;
   }
 
+  @ViewChild('name')
+  set name(name: ElementRef<HTMLInputElement>) {
+    if (name) {
+      setTimeout(() => {
+        name.nativeElement.focus();
+      });
+    }
+
+  }
+
   get creatOrEditor(): boolean {
     return CoachEditorComponent.creatOrEditor;
   }
@@ -42,7 +52,8 @@ export class CoachEditorComponent implements OnInit, OnDestroy, AfterViewInit {
     private route: ActivatedRoute,
     private router: Router,
     private coachService: CoachService,
-    private alert: AlertService
+    private alert: AlertService,
+    private cd: ChangeDetectorRef
   ) {
   }
 
@@ -62,6 +73,8 @@ export class CoachEditorComponent implements OnInit, OnDestroy, AfterViewInit {
         .subscribe(
           coach => {
             this.coachForm = this.createCoachForm(coach);
+            // this.cd.detectChanges();
+            // this.nameInputRef.nativeElement.focus();
           },
           error => this.alert.danger(error.message)
         );
@@ -69,13 +82,22 @@ export class CoachEditorComponent implements OnInit, OnDestroy, AfterViewInit {
       this.coachForm = this.createCoachForm(CoachService.initCoach);
       this.option = 'Додати';
     }
-    this.nameInputRef.nativeElement.focus();
   }
 
   ngAfterViewInit(): void {
-    try {
-      this.nameInputRef.nativeElement.focus();
-    } catch (e) {
+    // if (!this.route.toString().includes('edit')) {
+    //   this.nameInputRef.nativeElement.focus();
+    // }
+    // try {
+    //   this.nameInputRef.nativeElement.focus();
+    // } catch (e) {
+    //   console.log(e.message);
+    // }
+  }
+
+  ngAfterContentInit(): void {
+    if (!this.route.toString().includes('edit')) {
+      // this.nameInputRef.nativeElement.focus();
     }
   }
 
