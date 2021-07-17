@@ -1,0 +1,70 @@
+<ng-template #loader>
+  <app-loader></app-loader>
+</ng-template>
+
+<div *ngIf="townForm; else loader">
+  <form [formGroup]="townForm">
+
+    <small>{{createOrEditLabelName}}</small>
+
+    <mat-form-field class="forms-inputs">
+      <mat-label>введіть назву міста...</mat-label>
+      <input matInput
+             title="nameInput"
+             type="text"
+             formControlName="townName"
+             #townNameInput
+      >
+    </mat-form-field>
+
+    <mat-form-field class="forms-inputs"
+                    title="country">
+      <mat-label>країна проведення...</mat-label>
+      <input type="text"
+             placeholder="країна проведення..."
+             aria-label="country"
+             matInput
+             formControlName="country_name"
+             [matAutocomplete]="country">
+      <mat-autocomplete #country="matAutocomplete">
+        <mat-option *ngFor="let option of countryFilteredOptions | async" [value]="option">
+          {{option}}
+        </mat-option>
+      </mat-autocomplete>
+    </mat-form-field>
+
+    <mat-form-field class="forms-inputs"
+                    title="region">
+      <mat-label>регіон проведення...</mat-label>
+      <input type="text"
+             placeholder="регіон проведення..."
+             aria-label="region"
+             matInput
+             formControlName="region_name"
+             [matAutocomplete]="region">
+      <mat-autocomplete #region="matAutocomplete">
+        <mat-option *ngFor="let option of regionFilteredOptions | async" [value]="option">
+          {{option}}
+        </mat-option>
+      </mat-autocomplete>
+    </mat-form-field>
+
+    <button mat-button
+            color="primary"
+            type="button"
+            (click)="onSubmit(townForm.value)"
+            [disabled]="townForm.invalid || submitted"
+    >
+      {{createOrEditLabelName}}
+    </button>
+
+    <button mat-button
+            color="primary"
+            type="button"
+            (click)="resetTownForm()"
+    >
+      Скасувати
+    </button>
+  </form>
+
+</div>
