@@ -14,8 +14,8 @@ export class CoachService {
     private http: HttpClient
   ) { }
 
-  saveCoachToDB(coach: Coach): Observable<{ coach: Coach, coaches: Array<Coach> }> {
-    return this.http.post<{ coach: Coach, coaches: Array<Coach> }>(`${environment.postgresDbUrl}/coach`, coach);
+  saveCoachToDB(coach: Coach): Observable< {coach: Coach, message: string} > {
+    return this.http.post<{coach: Coach, message: string}>(`${environment.postgresDbUrl}/coach`, coach);
   }
 
   updateCoach(coach: Coach): Observable<{ coach: Coach, message: string }> {
@@ -47,7 +47,7 @@ export class CoachService {
     return throwError(error);
   }
 
-  static get initCoach(): Coach {
+  get initCoach(): Coach {
     return {
       name: '',
       surname: '',

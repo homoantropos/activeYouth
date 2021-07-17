@@ -72,6 +72,7 @@ export class AutoUpdateArraysCreateService implements OnDestroy {
               AutoUpdateArrays.appointmentPlacesNames.push(appointmentPlace.appointment_place_name));
       }
     );
+
   }
 
   ngOnDestroy(): void {

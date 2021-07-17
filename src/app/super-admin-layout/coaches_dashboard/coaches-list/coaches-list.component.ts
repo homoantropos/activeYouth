@@ -1,10 +1,10 @@
-import {Component, EventEmitter, Input, Output, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Coach} from '../../../shared/interfases';
 import {CoachService} from '../../services/coach.service';
 import {AlertService} from '../../../shared/services/alert.service';
-import {AutoUpdateArrays} from '../../../shared/utils/autoUpdateArrays';
 import {Router} from '@angular/router';
 import {CoachesAdminPageComponent} from '../coaches-admin-page/coaches-admin-page.component';
+import {MatTableDataSource} from '@angular/material/table';
 
 @Component({
   selector: 'app-coaches-list',
@@ -13,16 +13,17 @@ import {CoachesAdminPageComponent} from '../coaches-admin-page/coaches-admin-pag
 })
 
 export class CoachesListComponent implements OnInit {
+
   // @ts-ignore
-  static coachesList: Array<Coach>;
-  @Output() coachEventEmitter: EventEmitter<Coach> = new EventEmitter<Coach>();
-  @Output() resetFormEventEmitter: EventEmitter<boolean> = new EventEmitter<boolean>();
+  static coaches: Array<Coach>;
   paginatorStartPageNumber = 0;
   displayedColumns: Array<string> = ['id', 'coachFullName', 'edit', 'delete'];
   showDeleteConfirmation = false;
   // @ts-ignore
   coachId: number;
   option = 'тренера';
+  // @ts-ignore
+  dataSource: MatTableDataSource<Coach>;
 
   constructor(
     private router: Router,
@@ -33,12 +34,8 @@ export class CoachesListComponent implements OnInit {
 
   ngOnInit(): void {
     this.coachService.getAllCoaches().subscribe(
-      coaches => CoachesListComponent.coachesList = coaches
+      coaches => CoachesListComponent.coaches = coaches.slice()
     );
-  }
-
-  editCoach(coach: Coach): void {
-    this.coachEventEmitter.emit(coach);
   }
 
   callDeletion(id: number): void {
@@ -52,8 +49,7 @@ export class CoachesListComponent implements OnInit {
         .subscribe(
           response => {
             this.alert.success(response.message);
-            this.resetFormEventEmitter.emit(true);
-            CoachesListComponent.coachesList = response.coaches;
+            CoachesListComponent.coaches = response.coaches;
           },
           error => {
             this.coachService.errorHandle(error);
@@ -76,6 +72,6 @@ export class CoachesListComponent implements OnInit {
   }
 
   get coachesList(): Array<Coach> {
-    return CoachesListComponent.coachesList;
+    return CoachesListComponent.coaches;
   }
 }
