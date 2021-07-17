@@ -29,6 +29,7 @@ import { CoachesListComponent } from './coaches_dashboard/coaches-list/coaches-l
 import { TownAdminPageComponent } from './town_dashboard/town-admin-page/town-admin-page.component';
 import { TownListComponent } from './town_dashboard/town-list/town-list.component';
 import { CoachEditorComponent } from './coaches_dashboard/coach-editor/coach-editor.component';
+import { TownEditorComponent } from './town_dashboard/town-editor/town-editor.component';
 
 
 @NgModule({
@@ -57,7 +58,8 @@ import { CoachEditorComponent } from './coaches_dashboard/coach-editor/coach-edi
     CoachesListComponent,
     TownAdminPageComponent,
     TownListComponent,
-    CoachEditorComponent],
+    CoachEditorComponent,
+    TownEditorComponent],
   imports: [
     FormsModule,
     ReactiveFormsModule,

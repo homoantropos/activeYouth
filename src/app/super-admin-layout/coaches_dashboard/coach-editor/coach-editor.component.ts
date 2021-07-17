@@ -69,9 +69,7 @@ export class CoachEditorComponent implements OnInit, OnDestroy {
           )
         )
         .subscribe(
-          coach => {
-            this.coachForm = this.createCoachForm(coach);
-          },
+          coach => this.coachForm = this.createCoachForm(coach),
           error => this.alert.danger(error.message)
         );
     } else {

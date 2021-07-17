@@ -57,7 +57,7 @@ export class AutoUpdateArraysCreateService implements OnDestroy {
         AutoUpdateArrays.towns.splice(0);
         AutoUpdateArrays.townsNames.splice(0);
         AutoUpdateArrays.towns = towns.slice();
-        AutoUpdateArrays.towns.map(town => AutoUpdateArrays.townsNames.push(town.town_name));
+        AutoUpdateArrays.towns.map(town => AutoUpdateArrays.townsNames.push(town.townName));
       }
     );
 

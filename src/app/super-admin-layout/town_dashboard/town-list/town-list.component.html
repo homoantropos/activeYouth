@@ -1,8 +1,8 @@
-<div *ngIf="towns; else loader">
+<div *ngIf="townsList; else loader">
 
   <table mat-table
-         *ngIf="towns.length > 0; else empty"
-         [dataSource]="towns | paginate: { itemsPerPage: 10, currentPage: paginatorStartPageNumber }"
+         *ngIf="townsList.length > 0; else empty"
+         [dataSource]="townsList | paginate: { itemsPerPage: 10, currentPage: paginatorStartPageNumber }"
          class="mat-elevation-z8">
 
     <ng-container matColumnDef="_id">
@@ -14,7 +14,7 @@
       <th mat-header-cell *matHeaderCellDef>Місто</th>
       <td mat-cell *matCellDef="let town">
         <a>
-          {{town.town_name}}
+          {{town.townName}}
         </a></td>
     </ng-container>
 
@@ -33,7 +33,7 @@
     <ng-container matColumnDef="edit">
       <th mat-header-cell *matHeaderCellDef>видалити</th>
       <td mat-cell *matCellDef="let town">
-        <button mat-button color="primary" (click)="editTown(town)">
+        <button mat-button color="primary" (click)="goToTownEditor(town.id)">
           Редагувати
         </button>
       </td>

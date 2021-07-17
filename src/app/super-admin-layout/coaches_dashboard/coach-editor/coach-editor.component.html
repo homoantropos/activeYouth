@@ -3,10 +3,11 @@
 </ng-template>
 
 <div *ngIf="coachForm; else loader">
-  <form
-    [formGroup]="coachForm"
-  >
+
+  <form [formGroup]="coachForm">
+
     <small>{{createOrEditLabelName}}</small>
+
     <mat-form-field class="forms-inputs">
       <mat-label>прізвище...</mat-label>
       <input matInput

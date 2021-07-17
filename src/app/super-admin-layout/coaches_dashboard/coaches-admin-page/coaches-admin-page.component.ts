@@ -1,4 +1,4 @@
-import {AfterViewInit, Component, OnDestroy, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Params, Router} from '@angular/router';
 
 @Component({
@@ -7,7 +7,7 @@ import {ActivatedRoute, Params, Router} from '@angular/router';
   styleUrls: ['./coaches-admin-page.component.css']
 })
 
-export class CoachesAdminPageComponent implements OnInit, OnDestroy {
+export class CoachesAdminPageComponent implements OnInit {
 
   showButton = true;
 
@@ -36,6 +36,4 @@ export class CoachesAdminPageComponent implements OnInit, OnDestroy {
     this.router.navigateByUrl(`superadmin/coaches/create`);
   }
 
-  ngOnDestroy(): void {
-  }
 }

@@ -142,7 +142,7 @@ export class AppointmentCreatorComponent implements OnInit, OnDestroy {
       // @ts-ignore
       .filter(town => town.region.region_name === this.appointmentCreatorForm.get('place').get('region').value)
       // @ts-ignore
-      .map(town => this.townsName.push(town.town_name));
+      .map(town => this.townsName.push(town.townName));
     this.townsName = this.townsName.filter((v, i, a) => a.indexOf(v) === i);
     return this.townsName.filter(option => option.toLowerCase().includes(filterValue));
   }
@@ -151,7 +151,7 @@ export class AppointmentCreatorComponent implements OnInit, OnDestroy {
     const filterValue = value.toLowerCase();
     AutoUpdateArrays.appointmentPlaces
       // @ts-ignore
-      .filter(appointmentPlace => appointmentPlace.town.town_name === this.appointmentCreatorForm.get('place').get('town').value)
+      .filter(appointmentPlace => appointmentPlace.town.townName === this.appointmentCreatorForm.get('place').get('town').value)
       .map(appointmentPlace => this.appointmentPlaceNames.push(appointmentPlace.appointment_place_name));
     this.appointmentPlaceNames = this.appointmentPlaceNames.filter((v, i, a) => a.indexOf(v) === i);
     return this.appointmentPlaceNames.filter(option => option.toLowerCase().includes(filterValue));

@@ -24,6 +24,7 @@ import {EducationalEntityCreatorComponent} from './creators-editors/educational-
 import {EducationalEntityEditorComponent} from './creators-editors/educational-entity-editor/educational-entity-editor.component';
 import {TownAdminPageComponent} from './town_dashboard/town-admin-page/town-admin-page.component';
 import {CoachEditorComponent} from './coaches_dashboard/coach-editor/coach-editor.component';
+import {TownEditorComponent} from './town_dashboard/town-editor/town-editor.component';
 
 const routes: Routes = [
   {
@@ -58,7 +59,10 @@ const routes: Routes = [
               {path: 'edit/:id', component: RegionEditorComponent}
             ]
           },
-          {path: 'towns', component: TownAdminPageComponent}
+          {path: 'towns', component: TownAdminPageComponent, children: [
+              {path: 'create', component: TownEditorComponent},
+              {path: 'edit/:id', component: TownEditorComponent}
+            ]}
         ]
       },
       {

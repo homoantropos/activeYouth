@@ -17,16 +17,16 @@ export class TownService {
   ) {
   }
 
-  createTown(town: Town): Observable<{ town: Town, towns: Array<Town> }> {
-    return this.http.post<{ town: Town, towns: Array<Town> }>(`${environment.postgresDbUrl}/town`, town);
+  createTown(town: Town): Observable<{ town: Town, message: string }> {
+    return this.http.post<{ town: Town, message: string }>(`${environment.postgresDbUrl}/town`, town);
   }
 
   deleteTown(id: number): Observable<{ message: string, towns: Array<Town> }> {
     return this.http.delete<{message: string, towns: Array<Town>}>(`${environment.postgresDbUrl}/town/${id}`);
   }
 
-  updateTown(town: Town): Observable<{ message: string, towns: Array<Town> }> {
-    return this.http.patch<{ message: string, towns: Array<Town> }>(`${environment.postgresDbUrl}/town`, town);
+  updateTown(town: Town): Observable<{ town: Town, message: string }> {
+    return this.http.patch<{ town: Town, message: string }>(`${environment.postgresDbUrl}/town`, town);
   }
 
   getAllTowns(): Observable<Array<Town>> {
@@ -43,7 +43,7 @@ export class TownService {
 
   static get initTown(): Town {
     return {
-        town_name: '',
+        townName: '',
         country: {
           country_name: ''
         },

@@ -25,7 +25,7 @@ export class MockDataBase {
         appointment_place_name: '',
         country: {country_name: 'Україна'},
         region: {region_name: 'Львівська обл.'},
-        town: {town_name: 'Сколе'},
+        town: {townName: 'Сколе'},
         address: ''
       },
       organiser: 'УФУС',
@@ -46,7 +46,7 @@ export class MockDataBase {
         appointment_place_name: '',
         country: {country_name: 'Україна'},
         region: {region_name: 'Львівська обл.'},
-        town: {town_name: 'Сколе'},
+        town: {townName: 'Сколе'},
         address: ''
       },
       organiser: 'СССУ',
@@ -67,7 +67,7 @@ export class MockDataBase {
         appointment_place_name: '',
         country: {country_name: 'Україна'},
         region: {region_name: 'Львівська обл.'},
-        town: {town_name: 'Сколе'},
+        town: {townName: 'Сколе'},
         address: ''
       },
       organiser: 'УФУС',
@@ -88,7 +88,7 @@ export class MockDataBase {
         appointment_place_name: '',
         country: {country_name: 'Україна'},
         region: {region_name: 'Львівська обл.'},
-        town: {town_name: 'Сколе'},
+        town: {townName: 'Сколе'},
         address: ''
       },
       organiser: 'СССУ',
@@ -109,7 +109,7 @@ export class MockDataBase {
         appointment_place_name: '',
         country: {country_name: 'Україна'},
         region: {region_name: 'Львівська обл.'},
-        town: {town_name: 'Сколе'},
+        town: {townName: 'Сколе'},
         address: ''
       },
       organiser: 'СССУ EUSA',
@@ -130,7 +130,7 @@ export class MockDataBase {
         appointment_place_name: '',
         country: {country_name: 'Україна'},
         region: {region_name: 'Львівська обл.'},
-        town: {town_name: 'Сколе'},
+        town: {townName: 'Сколе'},
         address: ''
       },
       organiser: 'СССУ EUSA',
@@ -151,7 +151,7 @@ export class MockDataBase {
         appointment_place_name: '',
         country: {country_name: 'Україна'},
         region: {region_name: 'Львівська обл.'},
-        town: {town_name: 'Сколе'},
+        town: {townName: 'Сколе'},
         address: ''
       },
       organiser: 'КФВС МОН',
@@ -172,7 +172,7 @@ export class MockDataBase {
         appointment_place_name: '',
         country: {country_name: 'Україна'},
         region: {region_name: 'Львівська обл.'},
-        town: {town_name: 'Сколе'},
+        town: {townName: 'Сколе'},
         address: ''
       },
       organiser: 'КФВС МОН',
@@ -193,7 +193,7 @@ export class MockDataBase {
         appointment_place_name: '',
         country: {country_name: 'Україна'},
         region: {region_name: 'Львівська обл.'},
-        town: {town_name: 'Сколе'},
+        town: {townName: 'Сколе'},
         address: ''
       },
       organiser: 'КФВС МОН',
@@ -214,7 +214,7 @@ export class MockDataBase {
         appointment_place_name: '',
         country: {country_name: 'Україна'},
         region: {region_name: 'Львівська обл.'},
-        town: {town_name: 'Сколе'},
+        town: {townName: 'Сколе'},
         address: ''
       },
       organiser: 'КФВС МОН',
@@ -235,7 +235,7 @@ export class MockDataBase {
         appointment_place_name: '',
         country: {country_name: 'Україна'},
         region: {region_name: 'Львівська обл.'},
-        town: {town_name: 'Сколе'},
+        town: {townName: 'Сколе'},
         address: ''
       },
       organiser: 'КФВС МОН',
@@ -256,7 +256,7 @@ export class MockDataBase {
         appointment_place_name: '',
         country: {country_name: 'Україна'},
         region: {region_name: 'Львівська обл.'},
-        town: {town_name: 'Сколе'},
+        town: {townName: 'Сколе'},
         address: ''
       },
       organiser: 'КФВС МОН',
@@ -277,7 +277,7 @@ export class MockDataBase {
         appointment_place_name: '',
         country: {country_name: 'Україна'},
         region: {region_name: 'Львівська обл.'},
-        town: {town_name: 'Сколе'},
+        town: {townName: 'Сколе'},
         address: ''
       },
       organiser: 'УФУС ISF',
@@ -298,7 +298,7 @@ export class MockDataBase {
         appointment_place_name: '',
         country: {country_name: 'Україна'},
         region: {region_name: 'Львівська обл.'},
-        town: {town_name: 'Сколе'},
+        town: {townName: 'Сколе'},
         address: ''
       },
       organiser: 'УФУС ISF',
@@ -319,7 +319,7 @@ export class MockDataBase {
         appointment_place_name: '',
         country: {country_name: 'Україна'},
         region: {region_name: 'Львівська обл.'},
-        town: {town_name: 'Сколе'},
+        town: {townName: 'Сколе'},
         address: ''
       },
       organiser: 'УФУС ISF',
@@ -340,7 +340,7 @@ export class MockDataBase {
         appointment_place_name: '',
         country: {country_name: 'Україна'},
         region: {region_name: 'Львівська обл.'},
-        town: {town_name: 'Сколе'},
+        town: {townName: 'Сколе'},
         address: ''
       },
       organiser: 'УФУС ISF',
@@ -361,7 +361,7 @@ export class MockDataBase {
         appointment_place_name: '',
         country: {country_name: 'Україна'},
         region: {region_name: 'Львівська обл.'},
-        town: {town_name: 'Сколе'},
+        town: {townName: 'Сколе'},
         address: ''
       },
       organiser: 'УФУС ISF',
@@ -382,7 +382,7 @@ export class MockDataBase {
         appointment_place_name: '',
         country: {country_name: 'Україна'},
         region: {region_name: 'Львівська обл.'},
-        town: {town_name: 'Сколе'},
+        town: {townName: 'Сколе'},
         address: ''
       },
       organiser: 'УФУС',
@@ -403,7 +403,7 @@ export class MockDataBase {
         appointment_place_name: '',
         country: {country_name: 'Україна'},
         region: {region_name: 'Львівська обл.'},
-        town: {town_name: 'Сколе'},
+        town: {townName: 'Сколе'},
         address: ''
       },
       organiser: 'КФВС МОН',
@@ -424,7 +424,7 @@ export class MockDataBase {
         appointment_place_name: '',
         country: {country_name: 'Україна'},
         region: {region_name: 'Львівська обл.'},
-        town: {town_name: 'Сколе'},
+        town: {townName: 'Сколе'},
         address: ''
       },
       organiser: 'КФВС МОН',
@@ -445,7 +445,7 @@ export class MockDataBase {
         appointment_place_name: '',
         country: {country_name: 'Україна'},
         region: {region_name: 'Львівська обл.'},
-        town: {town_name: 'Сколе'},
+        town: {townName: 'Сколе'},
         address: ''
       },
       organiser: 'КФВС МОН',
@@ -466,7 +466,7 @@ export class MockDataBase {
         appointment_place_name: '',
         country: {country_name: 'Україна'},
         region: {region_name: 'Львівська обл.'},
-        town: {town_name: 'Сколе'},
+        town: {townName: 'Сколе'},
         address: ''
       },
       organiser: 'КФВС МОН',
@@ -487,7 +487,7 @@ export class MockDataBase {
         appointment_place_name: '',
         country: {country_name: 'Україна'},
         region: {region_name: 'Львівська обл.'},
-        town: {town_name: 'Сколе'},
+        town: {townName: 'Сколе'},
         address: ''
       },
       organiser: 'КФВС МОН',
@@ -508,7 +508,7 @@ export class MockDataBase {
         appointment_place_name: '',
         country: {country_name: 'Україна'},
         region: {region_name: 'Львівська обл.'},
-        town: {town_name: 'Сколе'},
+        town: {townName: 'Сколе'},
         address: ''
       },
       organiser: 'КФВС МОН',
@@ -529,7 +529,7 @@ export class MockDataBase {
         appointment_place_name: '',
         country: {country_name: 'Україна'},
         region: {region_name: 'Львівська обл.'},
-        town: {town_name: 'Сколе'},
+        town: {townName: 'Сколе'},
         address: ''
       },
       organiser: 'СССУ',
@@ -550,7 +550,7 @@ export class MockDataBase {
         appointment_place_name: '',
         country: {country_name: 'Україна'},
         region: {region_name: 'Львівська обл.'},
-        town: {town_name: 'Сколе'},
+        town: {townName: 'Сколе'},
         address: ''
       },
       organiser: 'УФУС',
@@ -571,7 +571,7 @@ export class MockDataBase {
         appointment_place_name: '',
         country: {country_name: 'Україна'},
         region: {region_name: 'Львівська обл.'},
-        town: {town_name: 'Сколе'},
+        town: {townName: 'Сколе'},
         address: ''
       },
       organiser: 'УФУС ISF',
@@ -592,7 +592,7 @@ export class MockDataBase {
         appointment_place_name: '',
         country: {country_name: 'Україна'},
         region: {region_name: 'Львівська обл.'},
-        town: {town_name: 'Сколе'},
+        town: {townName: 'Сколе'},
         address: ''
       },
       organiser: 'СССУ',
@@ -613,7 +613,7 @@ export class MockDataBase {
         appointment_place_name: '',
         country: {country_name: 'Україна'},
         region: {region_name: 'Львівська обл.'},
-        town: {town_name: 'Сколе'},
+        town: {townName: 'Сколе'},
         address: ''
       },
       organiser: 'КФВС МОН',
@@ -634,7 +634,7 @@ export class MockDataBase {
         appointment_place_name: '',
         country: {country_name: 'Україна'},
         region: {region_name: 'Львівська обл.'},
-        town: {town_name: 'Сколе'},
+        town: {townName: 'Сколе'},
         address: ''
       },
       organiser: 'КФВС МОН',
@@ -655,7 +655,7 @@ export class MockDataBase {
         appointment_place_name: '',
         country: {country_name: 'Україна'},
         region: {region_name: 'Львівська обл.'},
-        town: {town_name: 'Сколе'},
+        town: {townName: 'Сколе'},
         address: ''
       },
       organiser: 'КФВС МОН',
@@ -676,7 +676,7 @@ export class MockDataBase {
         appointment_place_name: '',
         country: {country_name: 'Україна'},
         region: {region_name: 'Львівська обл.'},
-        town: {town_name: 'Сколе'},
+        town: {townName: 'Сколе'},
         address: ''
       },
       organiser: 'КФВС МОН',
@@ -697,7 +697,7 @@ export class MockDataBase {
         appointment_place_name: '',
         country: {country_name: 'Україна'},
         region: {region_name: 'Львівська обл.'},
-        town: {town_name: 'Сколе'},
+        town: {townName: 'Сколе'},
         address: ''
       },
       organiser: 'КФВС МОН',
@@ -718,7 +718,7 @@ export class MockDataBase {
         appointment_place_name: '',
         country: {country_name: 'Україна'},
         region: {region_name: 'Львівська обл.'},
-        town: {town_name: 'Сколе'},
+        town: {townName: 'Сколе'},
         address: ''
       },
       organiser: 'КФВС МОН',
@@ -739,7 +739,7 @@ export class MockDataBase {
         appointment_place_name: '',
         country: {country_name: 'Україна'},
         region: {region_name: 'Львівська обл.'},
-        town: {town_name: 'Сколе'},
+        town: {townName: 'Сколе'},
         address: ''
       },
       organiser: 'КФВС МОН',
@@ -760,7 +760,7 @@ export class MockDataBase {
         appointment_place_name: '',
         country: {country_name: 'Україна'},
         region: {region_name: 'Львівська обл.'},
-        town: {town_name: 'Сколе'},
+        town: {townName: 'Сколе'},
         address: ''
       },
       organiser: 'СССУ',
@@ -778,7 +778,7 @@ export class MockDataBase {
           appointment_place_name: '',
           country: {country_name: 'Україна'},
           region: {region_name: 'Львівська обл.'},
-          town: {town_name: 'Сколе'},
+          town: {townName: 'Сколе'},
           address: ''
         },
         organiser: 'СССУ', appointment_id: '1ww47'
@@ -819,7 +819,7 @@ export class MockDataBase {
           appointment_place_name: '',
           country: {country_name: 'Україна'},
           region: {region_name: 'Львівська обл.'},
-          town: {town_name: 'Сколе'},
+          town: {townName: 'Сколе'},
           address: ''
         },
         organiser: 'СССУ', appointment_id: '1ww47'
@@ -860,7 +860,7 @@ export class MockDataBase {
           appointment_place_name: '',
           country: {country_name: 'Україна'},
           region: {region_name: 'Львівська обл.'},
-          town: {town_name: 'Сколе'},
+          town: {townName: 'Сколе'},
           address: ''
         },
         organiser: 'СССУ', appointment_id: '1ww47'
@@ -900,7 +900,7 @@ export class MockDataBase {
           appointment_place_name: '',
           country: {country_name: 'Україна'},
           region: {region_name: 'Львівська обл.'},
-          town: {town_name: 'Сколе'},
+          town: {townName: 'Сколе'},
           address: ''
         },
         organiser: 'СССУ', appointment_id: '1ww47'
@@ -940,7 +940,7 @@ export class MockDataBase {
           appointment_place_name: '',
           country: {country_name: 'Україна'},
           region: {region_name: 'Львівська обл.'},
-          town: {town_name: 'Сколе'},
+          town: {townName: 'Сколе'},
           address: ''
         },
         organiser: 'СССУ', appointment_id: '1ww47'
@@ -980,7 +980,7 @@ export class MockDataBase {
           appointment_place_name: '',
           country: {country_name: 'Україна'},
           region: {region_name: 'Львівська обл.'},
-          town: {town_name: 'Сколе'},
+          town: {townName: 'Сколе'},
           address: ''
         },
         organiser: 'СССУ', appointment_id: '1ww47'
@@ -1020,7 +1020,7 @@ export class MockDataBase {
           appointment_place_name: '',
           country: {country_name: 'Україна'},
           region: {region_name: 'Львівська обл.'},
-          town: {town_name: 'Сколе'},
+          town: {townName: 'Сколе'},
           address: ''
         },
         organiser: 'СССУ', appointment_id: '1ww47'
@@ -1060,7 +1060,7 @@ export class MockDataBase {
           appointment_place_name: '',
           country: {country_name: 'Україна'},
           region: {region_name: 'Львівська обл.'},
-          town: {town_name: 'Сколе'},
+          town: {townName: 'Сколе'},
           address: ''
         },
         organiser: 'СССУ', appointment_id: '1ww47'
@@ -1100,7 +1100,7 @@ export class MockDataBase {
           appointment_place_name: '',
           country: {country_name: 'Україна'},
           region: {region_name: 'Львівська обл.'},
-          town: {town_name: 'Сколе'},
+          town: {townName: 'Сколе'},
           address: ''
         },
         organiser: 'СССУ', appointment_id: '1ww47'
@@ -1140,7 +1140,7 @@ export class MockDataBase {
           appointment_place_name: '',
           country: {country_name: 'Україна'},
           region: {region_name: 'Львівська обл.'},
-          town: {town_name: 'Сколе'},
+          town: {townName: 'Сколе'},
           address: ''
         },
         organiser: 'СССУ', appointment_id: '1ww47'
@@ -1180,7 +1180,7 @@ export class MockDataBase {
           appointment_place_name: '',
           country: {country_name: 'Україна'},
           region: {region_name: 'Львівська обл.'},
-          town: {town_name: 'Сколе'},
+          town: {townName: 'Сколе'},
           address: ''
         },
         organiser: 'СССУ', appointment_id: '1ww47'
@@ -1220,7 +1220,7 @@ export class MockDataBase {
           appointment_place_name: '',
           country: {country_name: 'Україна'},
           region: {region_name: 'Львівська обл.'},
-          town: {town_name: 'Сколе'},
+          town: {townName: 'Сколе'},
           address: ''
         },
         organiser: 'СССУ', appointment_id: '1ww47'
@@ -1260,7 +1260,7 @@ export class MockDataBase {
           appointment_place_name: '',
           country: {country_name: 'Україна'},
           region: {region_name: 'Львівська обл.'},
-          town: {town_name: 'Сколе'},
+          town: {townName: 'Сколе'},
           address: ''
         },
         organiser: 'СССУ', appointment_id: '1ww47'
@@ -1306,7 +1306,7 @@ export class MockDataBase {
           appointment_place_name: '',
           country: {country_name: 'Україна'},
           region: {region_name: 'Львівська обл.'},
-          town: {town_name: 'Сколе'},
+          town: {townName: 'Сколе'},
           address: ''
         },
         organiser: 'КФВС МОН',
@@ -1352,7 +1352,7 @@ export class MockDataBase {
           appointment_place_name: '',
           country: {country_name: 'Україна'},
           region: {region_name: 'Львівська обл.'},
-          town: {town_name: 'Сколе'},
+          town: {townName: 'Сколе'},
           address: ''
         },
         organiser: 'КФВС МОН',
@@ -1398,7 +1398,7 @@ export class MockDataBase {
           appointment_place_name: '',
           country: {country_name: 'Україна'},
           region: {region_name: 'Львівська обл.'},
-          town: {town_name: 'Сколе'},
+          town: {townName: 'Сколе'},
           address: ''
         },
         organiser: 'КФВС МОН',
@@ -1444,7 +1444,7 @@ export class MockDataBase {
           appointment_place_name: '',
           country: {country_name: 'Україна'},
           region: {region_name: 'Львівська обл.'},
-          town: {town_name: 'Сколе'},
+          town: {townName: 'Сколе'},
           address: ''
         },
         organiser: 'КФВС МОН',
@@ -1490,7 +1490,7 @@ export class MockDataBase {
           appointment_place_name: '',
           country: {country_name: 'Україна'},
           region: {region_name: 'Львівська обл.'},
-          town: {town_name: 'Сколе'},
+          town: {townName: 'Сколе'},
           address: ''
         },
         organiser: 'КФВС МОН',
@@ -1536,7 +1536,7 @@ export class MockDataBase {
           appointment_place_name: '',
           country: {country_name: 'Україна'},
           region: {region_name: 'Львівська обл.'},
-          town: {town_name: 'Сколе'},
+          town: {townName: 'Сколе'},
           address: ''
         },
         organiser: 'КФВС МОН',
@@ -1582,7 +1582,7 @@ export class MockDataBase {
           appointment_place_name: '',
           country: {country_name: 'Україна'},
           region: {region_name: 'Львівська обл.'},
-          town: {town_name: 'Сколе'},
+          town: {townName: 'Сколе'},
           address: ''
         },
         organiser: 'КФВС МОН',
@@ -1628,7 +1628,7 @@ export class MockDataBase {
           appointment_place_name: '',
           country: {country_name: 'Україна'},
           region: {region_name: 'Львівська обл.'},
-          town: {town_name: 'Сколе'},
+          town: {townName: 'Сколе'},
           address: ''
         },
         organiser: 'КФВС МОН',

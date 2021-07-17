@@ -144,7 +144,7 @@ export class AppointmentEditorComponent implements OnInit, OnDestroy {
       .filter(town => town.region.region_name === this.appointmentEditorForm.get('place').get('region').value)
       // @ts-ignore
       .map(town => {
-        this.townsName.push(town.town_name);
+        this.townsName.push(town.townName);
       });
     this.townsName = this.townsName.filter((v, i, a) => a.indexOf(v) === i);
     return this.townsName.filter(option => option.toLowerCase().includes(filterValue));
@@ -155,7 +155,7 @@ export class AppointmentEditorComponent implements OnInit, OnDestroy {
     AutoUpdateArrays.appointmentPlaces
       .filter(appointmentPlace =>
         // @ts-ignore
-        appointmentPlace.town.town_name === this.appointmentEditorForm.get('place').get('town').value)
+        appointmentPlace.town.townName === this.appointmentEditorForm.get('place').get('town').value)
       .map(appointmentPlace => this.appointmentPlaceNames.push(appointmentPlace.appointment_place_name));
     this.appointmentPlaceNames = this.appointmentPlaceNames.filter((v, i, a) => a.indexOf(v) === i);
     return this.appointmentPlaceNames.filter(option => option.toLowerCase().includes(filterValue));

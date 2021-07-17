@@ -52,7 +52,7 @@ export class AppointmentPlaceEditorComponent implements OnInit, OnDestroy {
       this.appointmentPlaceEditorForm = new FormGroup({
         country: new FormControl(appointmentPlace.country.country_name, [Validators.required]),
         region: new FormControl(appointmentPlace.region.region_name, [Validators.required]),
-        town_name: new FormControl(appointmentPlace.town.town_name, [Validators.required]),
+        town_name: new FormControl(appointmentPlace.town.townName, [Validators.required]),
         address: new FormControl(appointmentPlace.address, [Validators.required]),
         appointment_place_name: new FormControl(appointmentPlace.appointment_place_name, [Validators.required])
       });
@@ -99,7 +99,7 @@ export class AppointmentPlaceEditorComponent implements OnInit, OnDestroy {
       // @ts-ignore
       .filter(town => town.region.region_name === this.appointmentPlaceEditorForm.get('region').value)
       // @ts-ignore
-      .map(town => this.townsName.push(town.town_name));
+      .map(town => this.townsName.push(town.townName));
     this.townsName = this.townsName.filter((v, i, a) => a.indexOf(v) === i);
     return this.townsName.filter(option => option.toLowerCase().includes(filterValue));
   }

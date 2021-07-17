@@ -56,7 +56,7 @@ export interface Region {
 }
 
 export interface Town {
-  town_name: string;
+  townName: string;
   country?: Country;
   region?: Region;
   id?: number;

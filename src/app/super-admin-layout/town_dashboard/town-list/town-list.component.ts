@@ -4,6 +4,7 @@ import {MatTableDataSource} from '@angular/material/table';
 import {Router} from '@angular/router';
 import {TownService} from '../../services/town.service';
 import {AlertService} from '../../../shared/services/alert.service';
+import {TownEditorComponent} from '../town-editor/town-editor.component';
 
 @Component({
   selector: 'app-town-list',
@@ -12,10 +13,15 @@ import {AlertService} from '../../../shared/services/alert.service';
 })
 export class TownListComponent implements OnInit {
 
+  static towns: Array<Town> = [];
+
+  get townsList(): Array<Town> {
+    return TownListComponent.towns;
+  }
+
   @Output() townEventEmitter: EventEmitter<Town> = new EventEmitter<Town>();
-  @Input() towns: Array<Town> = [];
   @Output() townIdEventEmitter: EventEmitter<number> = new EventEmitter<number>();
-  @Output() resetFormEventEmitter: EventEmitter<boolean> = new EventEmitter<boolean>();
+  @Output() showButton: EventEmitter<boolean> = new EventEmitter<boolean>();
 
   // @ts-ignore
   dataSource: MatTableDataSource<Town> = new MatTableDataSource<Town>(this.towns);
@@ -36,8 +42,16 @@ export class TownListComponent implements OnInit {
 
   ngOnInit(): any {
     this.townService.getAllTowns().subscribe(
-      towns => this.towns = towns
+      towns => {
+        TownListComponent.towns = towns;
+        console.log(towns);
+      }
     );
+  }
+
+  goToTownEditor(id: number): void {
+    this.showButton.emit(false);
+    this.router.navigateByUrl(`superadmin/places/towns/edit/${id}`);
   }
 
   editTown(town: Town): void {
@@ -55,8 +69,8 @@ export class TownListComponent implements OnInit {
         .subscribe(
           response => {
             this.alert.success(response.message);
-            this.resetFormEventEmitter.emit(true);
-            this.towns = response.towns;
+            this.showButton.emit(true);
+            TownListComponent.towns = response.towns;
           },
           error => {
             this.townService.errorHandle(error);
