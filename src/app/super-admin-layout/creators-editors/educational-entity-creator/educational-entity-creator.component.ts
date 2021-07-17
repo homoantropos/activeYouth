@@ -34,10 +34,10 @@ export class EducationalEntityCreatorComponent implements OnInit {
       name: new FormControl('', [Validators.required]),
       category: new FormControl(null),
       eduEntityType: new FormControl('', [Validators.required]),
-      region_name: new FormControl('', [Validators.required])
+      regionName: new FormControl('', [Validators.required])
     });
     // @ts-ignore
-    this.regionFilteredOptions = this.eduEntityCreatorFrom.get('region_name').valueChanges
+    this.regionFilteredOptions = this.eduEntityCreatorFrom.get('regionName').valueChanges
       .pipe(
         startWith(''),
         map((value: string) => this._filterRegion(value))

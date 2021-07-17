@@ -34,13 +34,14 @@
         <mat-radio-button value=6>шоста</mat-radio-button>
       </mat-radio-group>
     </div>
-    <mat-form-field title="region_name" class="forms-inputs">
+
+    <mat-form-field title="regionName" class="forms-inputs">
       <mat-label>регіон проведення...</mat-label>
       <input type="text"
              placeholder="регіон проведення..."
-             aria-label="region_name"
+             aria-label="regionName"
              matInput
-             formControlName="region_name"
+             formControlName="regionName"
              [matAutocomplete]="region">
       <mat-autocomplete #region="matAutocomplete">
         <mat-option *ngFor="let option of regionFilteredOptions | async" [value]="option">

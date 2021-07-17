@@ -22,8 +22,8 @@ export class CoachService {
     return this.http.patch<{ coach: Coach, message: string }>(`${environment.postgresDbUrl}/coach`, coach);
   }
 
-  deleteCoach(id: number): Observable<{ coaches: Array<Coach>, message: string }> {
-      return this.http.delete<{ coaches: Array<Coach>, message: string }>(`${environment.postgresDbUrl}/coach/${id}`);
+  deleteCoach(id: number): Observable<{ message: string }> {
+      return this.http.delete<{ message: string }>(`${environment.postgresDbUrl}/coach/${id}`);
   }
 
   getAllCoaches(): Observable<Array<Coach>> {

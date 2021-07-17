@@ -50,15 +50,15 @@
       </mat-autocomplete>
     </mat-form-field>
 
-    <mat-form-field title="town_name" class="forms-inputs">
+    <mat-form-field title="townName" class="forms-inputs">
       <mat-label>місто проведення...</mat-label>
       <input type="search"
              placeholder="місто проведення..."
-             aria-label="town_name"
+             aria-label="townName"
              matInput
-             formControlName="town_name"
-             [matAutocomplete]="town_name">
-      <mat-autocomplete #town_name="matAutocomplete">
+             formControlName="townName"
+             [matAutocomplete]="townName">
+      <mat-autocomplete #townName="matAutocomplete">
         <mat-option *ngFor="let option of townFilteredOptions | async" [value]="option">
           {{option}}
         </mat-option>

@@ -1,39 +1,40 @@
-<div *ngIf="townsList; else loader">
+<div *ngIf="regionsList; else loader">
 
   <table mat-table
-         *ngIf="townsList.length > 0; else empty"
-         [dataSource]="townsList | paginate: { itemsPerPage: 10, currentPage: paginatorStartPageNumber }"
+         *ngIf="regionsList.length > 0; else empty"
+         [dataSource]="regionsList | paginate: { itemsPerPage: 10, currentPage: paginatorStartPageNumber }"
          class="mat-elevation-z8">
 
     <ng-container matColumnDef="_id">
       <th mat-header-cell *matHeaderCellDef>ID</th>
-      <td mat-cell *matCellDef="let town">{{town.id}}</td>
+      <td mat-cell *matCellDef="let region">{{region.id}}</td>
     </ng-container>
 
     <ng-container matColumnDef="name">
       <th mat-header-cell *matHeaderCellDef>Місто</th>
-      <td mat-cell *matCellDef="let town">
+      <td mat-cell *matCellDef="let region">
         <a>
-          {{town.townName}}
+          {{region.regionName}}
         </a></td>
+    </ng-container>
+
+
+    <ng-container matColumnDef="group">
+      <th mat-header-cell *matHeaderCellDef>Група</th>
+      <td mat-cell *matCellDef="let region">
+        {{region.regionGroup}}
     </ng-container>
 
     <ng-container matColumnDef="country">
       <th mat-header-cell *matHeaderCellDef>Країна</th>
-      <td mat-cell *matCellDef="let town">
-        {{town.region.country.country_name | titlecase}}
-    </ng-container>
-
-    <ng-container matColumnDef="region">
-      <th mat-header-cell *matHeaderCellDef>Регіон</th>
-      <td mat-cell *matCellDef="let town">
-        {{town.region.regionName}}
+      <td mat-cell *matCellDef="let region">
+        {{region.country.country_name | titlecase}}
     </ng-container>
 
     <ng-container matColumnDef="edit">
       <th mat-header-cell *matHeaderCellDef>видалити</th>
-      <td mat-cell *matCellDef="let town">
-        <button mat-button color="primary" (click)="goToTownEditor(town.id)">
+      <td mat-cell *matCellDef="let region">
+        <button mat-button color="primary" (click)="goToRegionEditor(region.id)">
           Редагувати
         </button>
       </td>
@@ -41,8 +42,8 @@
 
     <ng-container matColumnDef="delete">
       <th mat-header-cell *matHeaderCellDef>видалити</th>
-      <td mat-cell *matCellDef="let town">
-        <button mat-button color="primary" (click)="callDeletion(town.id)">
+      <td mat-cell *matCellDef="let region">
+        <button mat-button color="primary" (click)="callDeletion(region.id)">
           Видалити
         </button>
       </td>
@@ -53,7 +54,7 @@
   </table>
 
   <ng-template #empty>
-    <h3 [ngStyle]="{textAlign: 'center', fontFamily: 'oswald, sans serif'}">База даних міст порожня</h3>
+    <h3 [ngStyle]="{textAlign: 'center', fontFamily: 'oswald, sans serif'}">База даних регіонів порожня</h3>
   </ng-template>
 
 </div>
@@ -74,4 +75,5 @@
   [option]="options"
   (confirm)="onDelete($event)"
 ></app-deletion-confirmer>
+
 

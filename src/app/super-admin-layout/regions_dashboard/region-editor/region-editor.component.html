@@ -2,23 +2,25 @@
   <app-loader></app-loader>
 </ng-template>
 
-<div *ngIf="townForm; else loader">
+<div *ngIf="regionForm; else loader">
 
-  <form [formGroup]="townForm">
+  <form [formGroup]="regionForm">
 
     <small>{{createOrEditLabelName}}</small>
 
     <mat-form-field class="forms-inputs">
-      <mat-label>введіть назву міста...</mat-label>
+      <mat-label>введіть назву регіону...</mat-label>
       <input matInput
              title="nameInput"
              type="text"
-             formControlName="townName"
-             #townNameInput
+             formControlName="regionName"
+             #regionNameInput
       >
     </mat-form-field>
 
-    <mat-form-field class="forms-inputs"
+    <mat-form-field
+      *ngIf="creatorOrEditor"
+      class="forms-inputs"
                     title="country">
       <mat-label>країна проведення...</mat-label>
       <input type="text"
@@ -34,27 +36,19 @@
       </mat-autocomplete>
     </mat-form-field>
 
-    <mat-form-field class="forms-inputs"
-                    title="region">
-      <mat-label>регіон проведення...</mat-label>
-      <input type="text"
-             placeholder="регіон проведення..."
-             aria-label="region"
-             matInput
-             formControlName="regionName"
-             [matAutocomplete]="region">
-      <mat-autocomplete #region="matAutocomplete">
-        <mat-option *ngFor="let option of regionFilteredOptions | async" [value]="option">
-          {{option}}
-        </mat-option>
-      </mat-autocomplete>
-    </mat-form-field>
+    <small>група регіонів</small>
+    <mat-radio-group title="group" formControlName="regionGroup">
+      <mat-radio-button value = 1>перша</mat-radio-button>
+      <mat-radio-button value = 2>друга</mat-radio-button>
+      <mat-radio-button value = 3>третя</mat-radio-button>
+      <mat-radio-button value = 0>без категорії</mat-radio-button>
+    </mat-radio-group>
 
     <button mat-button
             color="primary"
             type="button"
-            (click)="onSubmit(townForm.value)"
-            [disabled]="townForm.invalid || submitted"
+            (click)="onSubmit(regionForm.value)"
+            [disabled]="regionForm.invalid || submitted"
     >
       Зберегти
     </button>
@@ -69,3 +63,4 @@
   </form>
 
 </div>
+

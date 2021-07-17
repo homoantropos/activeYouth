@@ -51,8 +51,8 @@ export class AppointmentPlaceEditorComponent implements OnInit, OnDestroy {
     {
       this.appointmentPlaceEditorForm = new FormGroup({
         country: new FormControl(appointmentPlace.country.country_name, [Validators.required]),
-        region: new FormControl(appointmentPlace.region.region_name, [Validators.required]),
-        town_name: new FormControl(appointmentPlace.town.townName, [Validators.required]),
+        region: new FormControl(appointmentPlace.region.regionName, [Validators.required]),
+        townName: new FormControl(appointmentPlace.town.townName, [Validators.required]),
         address: new FormControl(appointmentPlace.address, [Validators.required]),
         appointment_place_name: new FormControl(appointmentPlace.appointment_place_name, [Validators.required])
       });
@@ -88,7 +88,7 @@ export class AppointmentPlaceEditorComponent implements OnInit, OnDestroy {
     AutoUpdateArrays.regions
       // @ts-ignore
       .filter(region => region.country.country_name === this.appointmentPlaceEditorForm.get('country').value)
-      .map(region => this.regionsName.push(region.region_name));
+      .map(region => this.regionsName.push(region.regionName));
     this.regionsName = this.regionsName.filter((v, i, a) => a.indexOf(v) === i);
     return this.regionsName.filter(option => option.toLowerCase().includes(filterValue));
   }
@@ -97,9 +97,9 @@ export class AppointmentPlaceEditorComponent implements OnInit, OnDestroy {
     const filterValue = value.toLowerCase();
     AutoUpdateArrays.towns
       // @ts-ignore
-      .filter(town => town.region.region_name === this.appointmentPlaceEditorForm.get('region').value)
+      .filter(town => town.region.regionName === this.appointmentPlaceEditorForm.get('region').value)
       // @ts-ignore
-      .map(town => this.townsName.push(town.townName));
+      .map(town => this.townsName.push(town.regionName));
     this.townsName = this.townsName.filter((v, i, a) => a.indexOf(v) === i);
     return this.townsName.filter(option => option.toLowerCase().includes(filterValue));
   }

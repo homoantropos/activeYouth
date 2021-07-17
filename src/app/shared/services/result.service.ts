@@ -63,7 +63,8 @@ export class ResultService {
         id: initResult?.coach.id
       },
       region: {
-        region_name: value.region.trim()
+        regionName: value.regionName.trim(),
+        regionGroup: value.regionGroup.trim()
       },
       educational_entity: {
         name: value.eduentityName.trim()
@@ -91,7 +92,8 @@ export class ResultService {
         fathersName: ''
       },
       region: {
-        region_name: ''
+        regionName: '',
+        regionGroup: 0
       },
       educational_entity: {
         name: ''

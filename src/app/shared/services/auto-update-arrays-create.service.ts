@@ -49,7 +49,7 @@ export class AutoUpdateArraysCreateService implements OnDestroy {
         AutoUpdateArrays.regions.splice(0);
         AutoUpdateArrays.regionsNames.splice(0);
         AutoUpdateArrays.regions = regions.slice();
-        AutoUpdateArrays.regions.map(reg => AutoUpdateArrays.regionsNames.push(reg.region_name));
+        AutoUpdateArrays.regions.map(reg => AutoUpdateArrays.regionsNames.push(reg.regionName));
       });
 
     this.sub = this.townService.getAllTowns().subscribe(

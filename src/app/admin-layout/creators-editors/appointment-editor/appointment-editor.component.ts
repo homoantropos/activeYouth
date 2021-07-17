@@ -130,7 +130,7 @@ export class AppointmentEditorComponent implements OnInit, OnDestroy {
       // @ts-ignore
       .filter(region => region.country.country_name === this.appointmentEditorForm.get('place').get('country').value)
       .map(region => {
-        this.regionsName.push(region.region_name);
+        this.regionsName.push(region.regionName);
       });
     this.regionsName = this.regionsName.filter((v, i, a) => a.indexOf(v) === i);
     return this.regionsName.filter(option => option.toLowerCase().includes(filterValue));
@@ -141,7 +141,7 @@ export class AppointmentEditorComponent implements OnInit, OnDestroy {
     this.townsName.splice(0);
     AutoUpdateArrays.towns
       // @ts-ignore
-      .filter(town => town.region.region_name === this.appointmentEditorForm.get('place').get('region').value)
+      .filter(town => town.region.regionName === this.appointmentEditorForm.get('place').get('region').value)
       // @ts-ignore
       .map(town => {
         this.townsName.push(town.townName);
@@ -155,7 +155,7 @@ export class AppointmentEditorComponent implements OnInit, OnDestroy {
     AutoUpdateArrays.appointmentPlaces
       .filter(appointmentPlace =>
         // @ts-ignore
-        appointmentPlace.town.townName === this.appointmentEditorForm.get('place').get('town').value)
+        appointmentPlace.town.regionName === this.appointmentEditorForm.get('place').get('town').value)
       .map(appointmentPlace => this.appointmentPlaceNames.push(appointmentPlace.appointment_place_name));
     this.appointmentPlaceNames = this.appointmentPlaceNames.filter((v, i, a) => a.indexOf(v) === i);
     return this.appointmentPlaceNames.filter(option => option.toLowerCase().includes(filterValue));

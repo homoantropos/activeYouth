@@ -76,7 +76,8 @@ export class MockDBAdministratorService {
         fathersName: 'Анатолійович'
       },
       region: {
-        region_name: 'Київ'
+        regionName: 'Київ',
+        regionGroup: 1
       },
       completed: true,
       discipline,

@@ -54,11 +54,11 @@
       <mat-label>місто проведення...</mat-label>
       <input type="search"
              placeholder="місто проведення..."
-             aria-label="town_name"
+             aria-label="townName"
              matInput
              formControlName="town_name"
-             [matAutocomplete]="town_name">
-      <mat-autocomplete #town_name="matAutocomplete">
+             [matAutocomplete]="townName">
+      <mat-autocomplete #townName="matAutocomplete">
         <mat-option *ngFor="let option of townFilteredOptions | async" [value]="option">
           {{option}}
         </mat-option>

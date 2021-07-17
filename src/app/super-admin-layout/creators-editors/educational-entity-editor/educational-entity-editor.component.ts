@@ -47,10 +47,10 @@ export class EducationalEntityEditorComponent implements OnInit {
           category: new FormControl(eduEntity.category),
           eduEntityType: new FormControl(eduEntity.type, [Validators.required]),
           // @ts-ignore
-          region_name: new FormControl(eduEntity.region.region_name, [Validators.required])
+          regionName: new FormControl(eduEntity.region.regionName, [Validators.required])
         });
         // @ts-ignore
-        this.regionFilteredOptions = this.eduEntityEditorForm.get('region_name').valueChanges
+        this.regionFilteredOptions = this.eduEntityEditorForm.get('regionName').valueChanges
           .pipe(
             startWith(''),
             map((value: string) => this._filterRegion(value))

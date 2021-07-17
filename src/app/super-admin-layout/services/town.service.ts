@@ -21,8 +21,8 @@ export class TownService {
     return this.http.post<{ town: Town, message: string }>(`${environment.postgresDbUrl}/town`, town);
   }
 
-  deleteTown(id: number): Observable<{ message: string, towns: Array<Town> }> {
-    return this.http.delete<{message: string, towns: Array<Town>}>(`${environment.postgresDbUrl}/town/${id}`);
+  deleteTown(id: number): Observable<{ message: string }> {
+    return this.http.delete<{ message: string }>(`${environment.postgresDbUrl}/town/${id}`);
   }
 
   updateTown(town: Town): Observable<{ town: Town, message: string }> {
@@ -48,8 +48,8 @@ export class TownService {
           country_name: ''
         },
         region: {
-          region_name: '',
-          region_group: 0
+          regionName: '',
+          regionGroup: 0
         }
     };
   }

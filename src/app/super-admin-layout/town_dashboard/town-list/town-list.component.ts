@@ -4,7 +4,6 @@ import {MatTableDataSource} from '@angular/material/table';
 import {Router} from '@angular/router';
 import {TownService} from '../../services/town.service';
 import {AlertService} from '../../../shared/services/alert.service';
-import {TownEditorComponent} from '../town-editor/town-editor.component';
 
 @Component({
   selector: 'app-town-list',
@@ -13,25 +12,22 @@ import {TownEditorComponent} from '../town-editor/town-editor.component';
 })
 export class TownListComponent implements OnInit {
 
-  static towns: Array<Town> = [];
+  // @ts-ignore
+  static towns: Array<Town>;
 
   get townsList(): Array<Town> {
     return TownListComponent.towns;
   }
 
-  @Output() townEventEmitter: EventEmitter<Town> = new EventEmitter<Town>();
-  @Output() townIdEventEmitter: EventEmitter<number> = new EventEmitter<number>();
-  @Output() showButton: EventEmitter<boolean> = new EventEmitter<boolean>();
-
-  // @ts-ignore
-  dataSource: MatTableDataSource<Town> = new MatTableDataSource<Town>(this.towns);
   displayedColumns = ['_id', 'name', 'country', 'region', 'edit', 'delete'];
   paginatorStartPageNumber = 0;
-  // @ts-ignore
 
+  // @ts-ignore
   townId: number;
+
   showDeleteConfirmation = false;
   options = 'місто';
+  @Output() showButton: EventEmitter<boolean> = new EventEmitter<boolean>();
 
   constructor(
     private router: Router,
@@ -43,8 +39,7 @@ export class TownListComponent implements OnInit {
   ngOnInit(): any {
     this.townService.getAllTowns().subscribe(
       towns => {
-        TownListComponent.towns = towns;
-        console.log(towns);
+        TownListComponent.towns = towns.slice();
       }
     );
   }
@@ -54,13 +49,11 @@ export class TownListComponent implements OnInit {
     this.router.navigateByUrl(`superadmin/places/towns/edit/${id}`);
   }
 
-  editTown(town: Town): void {
-    this.townEventEmitter.emit(town);
-  }
-
   callDeletion(id: number): void {
     this.showDeleteConfirmation = true;
     this.townId = id;
+    this.router.navigateByUrl(`superadmin/places/towns`);
+    this.showButton.emit(true);
   }
 
   onDelete(confirm: boolean): void {
@@ -70,7 +63,7 @@ export class TownListComponent implements OnInit {
           response => {
             this.alert.success(response.message);
             this.showButton.emit(true);
-            TownListComponent.towns = response.towns;
+            TownListComponent.towns = TownListComponent.towns.filter(t => t.id !== this.townId);
           },
           error => {
             this.townService.errorHandle(error);

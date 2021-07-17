@@ -3,7 +3,6 @@ import {Coach} from '../../../shared/interfases';
 import {CoachService} from '../../services/coach.service';
 import {AlertService} from '../../../shared/services/alert.service';
 import {Router} from '@angular/router';
-import {MatTableDataSource} from '@angular/material/table';
 
 @Component({
   selector: 'app-coaches-list',
@@ -15,14 +14,19 @@ export class CoachesListComponent implements OnInit {
 
   // @ts-ignore
   static coaches: Array<Coach>;
-  paginatorStartPageNumber = 0;
+
+  get coachesList(): Array<Coach> {
+    return CoachesListComponent.coaches;
+  }
+
   displayedColumns: Array<string> = ['id', 'coachFullName', 'edit', 'delete'];
-  showDeleteConfirmation = false;
+  paginatorStartPageNumber = 0;
+
   // @ts-ignore
   coachId: number;
+
+  showDeleteConfirmation = false;
   option = 'тренера';
-  // @ts-ignore
-  dataSource: MatTableDataSource<Coach>;
   @Output() showButton: EventEmitter<boolean> = new EventEmitter<boolean>();
 
   constructor(
@@ -38,9 +42,16 @@ export class CoachesListComponent implements OnInit {
     );
   }
 
+  goToCoachEditor(id: number): void {
+    this.showButton.emit(false);
+    this.router.navigateByUrl(`superadmin/coaches/edit/${id}`);
+  }
+
   callDeletion(id: number): void {
     this.showDeleteConfirmation = true;
     this.coachId = id;
+    this.router.navigateByUrl(`superadmin/coaches`);
+    this.showButton.emit(true);
   }
 
   onDelete(confirm: boolean): void {
@@ -49,7 +60,7 @@ export class CoachesListComponent implements OnInit {
         .subscribe(
           response => {
             this.alert.success(response.message);
-            CoachesListComponent.coaches = response.coaches;
+            CoachesListComponent.coaches = CoachesListComponent.coaches.filter(c => c.id !== this.coachId);
           },
           error => {
             this.coachService.errorHandle(error);
@@ -66,12 +77,4 @@ export class CoachesListComponent implements OnInit {
     this.showDeleteConfirmation = false;
   }
 
-  goToCoachEditor(id: number): void {
-    this.showButton.emit(false);
-    this.router.navigateByUrl(`superadmin/coaches/edit/${id}`);
-  }
-
-  get coachesList(): Array<Coach> {
-    return CoachesListComponent.coaches;
-  }
 }

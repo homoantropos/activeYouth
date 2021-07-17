@@ -1,0 +1,12 @@
+<button mat-button color="primary"
+        type="button"
+        (click)="goToRegionEditor()"
+        *ngIf="showButton">
+  Додати регіон
+</button>
+
+<router-outlet></router-outlet>
+
+<app-regions-list
+  (showButton)="setShowButton($event)"
+></app-regions-list>

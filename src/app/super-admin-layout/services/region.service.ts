@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {Observable, Subject, throwError} from 'rxjs';
 import {HttpClient, HttpErrorResponse} from '@angular/common/http';
-import {Region} from '../../shared/interfases';
+import {Country, Region} from '../../shared/interfases';
 import {environment} from '../../../environments/environment';
 
 @Injectable({
@@ -16,16 +16,16 @@ export class RegionService {
   ) {
   }
 
-  createRegion(region: Region): Observable<Region> {
-    return this.http.post<Region>(`${environment.postgresDbUrl}/region`, region);
+  createRegion(region: Region): Observable<{ region: Region, message: string }> {
+    return this.http.post<{ region: Region, message: string }>(`${environment.postgresDbUrl}/region`, region);
   }
 
   removeRegion(id: number): Observable<any> {
     return this.http.delete(`${environment.postgresDbUrl}/region/${id}`);
   }
 
-  updateRegion(region: Region): Observable<any>{
-    return this.http.patch<any>(`${environment.postgresDbUrl}/region`, region);
+  updateRegion(region: Region): Observable<{ region: Region, message: string }>{
+    return this.http.patch<{ region: Region, message: string }>(`${environment.postgresDbUrl}/region`, region);
   }
 
   getAllRegions(): Observable<Array<Region>> {
@@ -52,4 +52,13 @@ export class RegionService {
     return throwError(error);
   }
 
+  static get initRegion(): Region {
+    return {
+      regionName: '',
+      regionGroup: 0,
+      country: {
+        country_name: ''
+      }
+    };
+  }
 }

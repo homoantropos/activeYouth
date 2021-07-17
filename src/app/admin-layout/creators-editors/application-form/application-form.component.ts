@@ -76,7 +76,7 @@ export class ApplicationFormComponent implements OnInit {
             coach_surname: new FormControl(this.initResult.coach?.surname, Validators.required),
             coach_fathersName: new FormControl(this.initResult.coach?.fathersName, Validators.required),
             eduentityName: new FormControl(this.initResult.educational_entity?.name, Validators.required),
-            region: new FormControl(this.initResult.region?.region_name, Validators.required),
+            region: new FormControl(this.initResult.region?.regionName, Validators.required),
             discipline: new FormControl(this.initResult.discipline, Validators.required)
           });
           this.formInitiated = true;
@@ -101,7 +101,7 @@ export class ApplicationFormComponent implements OnInit {
     const filterValue = value.toLowerCase();
     AutoUpdateArrays.regions
       // @ts-ignore
-      .map(region => this.regionsName.push(region.region_name));
+      .map(region => this.regionsName.push(region.regionName));
     this.regionsName = this.regionsName.filter((v, i, a) => a.indexOf(v) === i);
     return this.regionsName.filter(regionName => regionName.toLowerCase().includes(filterValue));
   }

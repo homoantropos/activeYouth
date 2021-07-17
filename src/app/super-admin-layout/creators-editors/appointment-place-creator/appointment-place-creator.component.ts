@@ -39,7 +39,7 @@ export class AppointmentPlaceCreatorComponent implements OnInit, OnDestroy {
     this.appointmentPlaceCreatorForm = new FormGroup({
       country: new FormControl('', [Validators.required]),
       region: new FormControl('', [Validators.required]),
-      town_name: new FormControl('', [Validators.required]),
+      townName: new FormControl('', [Validators.required]),
       address: new FormControl('', [Validators.required]),
       appointment_place_name: new FormControl('')
     });
@@ -57,7 +57,7 @@ export class AppointmentPlaceCreatorComponent implements OnInit, OnDestroy {
         map((value: string) => this._filterRegion(value))
       );
     // @ts-ignore
-    this.townFilteredOptions = this.appointmentPlaceCreatorForm.get('town_name').valueChanges
+    this.townFilteredOptions = this.appointmentPlaceCreatorForm.get('townName').valueChanges
       .pipe(
         startWith(''),
         map((value: string) => this._filterTown(value))
@@ -74,7 +74,7 @@ export class AppointmentPlaceCreatorComponent implements OnInit, OnDestroy {
     AutoUpdateArrays.regions
       // @ts-ignore
       .filter(region => region.country.country_name === this.appointmentPlaceCreatorForm.get('country').value)
-      .map(region => this.regionsName.push(region.region_name));
+      .map(region => this.regionsName.push(region.regionName));
     this.regionsName = this.regionsName.filter((v, i, a) => a.indexOf(v) === i);
     return this.regionsName.filter(option => option.toLowerCase().includes(filterValue));
   }
@@ -83,7 +83,7 @@ export class AppointmentPlaceCreatorComponent implements OnInit, OnDestroy {
     const filterValue = value.toLowerCase();
     AutoUpdateArrays.towns
       // @ts-ignore
-      .filter(town => town.region.region_name === this.appointmentPlaceCreatorForm.get('region').value)
+      .filter(town => town.region.regionName === this.appointmentPlaceCreatorForm.get('region').value)
       // @ts-ignore
       .map(town => this.townsName.push(town.townName));
     this.townsName = this.townsName.filter((v, i, a) => a.indexOf(v) === i);

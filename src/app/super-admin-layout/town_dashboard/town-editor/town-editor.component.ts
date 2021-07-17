@@ -19,16 +19,15 @@ export class TownEditorComponent implements OnInit, OnDestroy {
 
   // @ts-ignore
   townForm: FormGroup;
+  showTownForm = false;
+  submitted = false;
   // @ts-ignore
   countryFilteredOptions: Observable<string[]>;
   // @ts-ignore
   regionFilteredOptions: Observable<string[]>;
+
   // @ts-ignore
   townId: number;
-  showTownForm = false;
-  submitted = false;
-  // @ts-ignore
-  coachId: number;
 
   // @ts-ignore
   tSub: Subscription;
@@ -95,7 +94,7 @@ export class TownEditorComponent implements OnInit, OnDestroy {
       }
       try {
         // @ts-ignore
-        this.regionFilteredOptions = this.townForm.get('region_name').valueChanges
+        this.regionFilteredOptions = this.townForm.get('regionName').valueChanges
           .pipe(
             startWith(''),
             map((value: string) => this._filterRegion(value))
@@ -109,7 +108,7 @@ export class TownEditorComponent implements OnInit, OnDestroy {
     return new FormGroup({
       townName: new FormControl(town.townName.trim(), [Validators.required]),
       country_name: new FormControl(town.region?.country?.country_name.trim(), [Validators.required]),
-      region_name: new FormControl(town.region?.region_name.trim(), [Validators.required])
+      regionName: new FormControl(town.region?.regionName.trim(), [Validators.required])
     });
   }
 
@@ -137,7 +136,8 @@ export class TownEditorComponent implements OnInit, OnDestroy {
     const createdTown: Town = {
       townName: formValue.townName.trim(),
       region: {
-        region_name: this.townForm.value.region_name.trim()
+        regionName: this.townForm.value.regionName.trim(),
+        regionGroup: 0
       }
     };
     let townServiceMethod;
@@ -150,7 +150,6 @@ export class TownEditorComponent implements OnInit, OnDestroy {
     this.tSub = townServiceMethod
       .subscribe(
         dbTownAndMessage => {
-          console.log(dbTownAndMessage.town);
           TownListComponent.towns = TownListComponent.towns.filter(t => t.id !== dbTownAndMessage.town.id);
           TownListComponent.towns.unshift(dbTownAndMessage.town);
           this.alert.success(dbTownAndMessage.message);
@@ -175,7 +174,6 @@ export class TownEditorComponent implements OnInit, OnDestroy {
         showButton: false
       }
     });
-    this.townForm.reset();
     this.townForm.enable();
     this.submitted = false;
     this.showTownForm = false;

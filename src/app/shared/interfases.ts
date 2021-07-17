@@ -49,8 +49,8 @@ export interface Country {
 }
 
 export interface Region {
-  region_name: string;
-  region_group?: number;
+  regionName: string;
+  regionGroup: number;
   country?: Country;
   id?: number;
 }
