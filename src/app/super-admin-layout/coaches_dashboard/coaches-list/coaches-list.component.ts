@@ -1,9 +1,8 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {Coach} from '../../../shared/interfases';
 import {CoachService} from '../../services/coach.service';
 import {AlertService} from '../../../shared/services/alert.service';
 import {Router} from '@angular/router';
-import {CoachesAdminPageComponent} from '../coaches-admin-page/coaches-admin-page.component';
 import {MatTableDataSource} from '@angular/material/table';
 
 @Component({
@@ -24,6 +23,7 @@ export class CoachesListComponent implements OnInit {
   option = 'тренера';
   // @ts-ignore
   dataSource: MatTableDataSource<Coach>;
+  @Output() showButton: EventEmitter<boolean> = new EventEmitter<boolean>();
 
   constructor(
     private router: Router,
@@ -67,8 +67,8 @@ export class CoachesListComponent implements OnInit {
   }
 
   goToCoachEditor(id: number): void {
+    this.showButton.emit(false);
     this.router.navigateByUrl(`superadmin/coaches/edit/${id}`);
-    return CoachesAdminPageComponent.setShowButton(true);
   }
 
   get coachesList(): Array<Coach> {

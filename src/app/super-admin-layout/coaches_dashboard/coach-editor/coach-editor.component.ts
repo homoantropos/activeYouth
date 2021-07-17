@@ -6,7 +6,6 @@ import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {Coach} from '../../../shared/interfases';
 import {AlertService} from '../../../shared/services/alert.service';
 import {Subscription} from 'rxjs';
-import {CoachesAdminPageComponent} from '../coaches-admin-page/coaches-admin-page.component';
 import {CoachesListComponent} from '../coaches-list/coaches-list.component';
 
 @Component({
@@ -125,19 +124,18 @@ export class CoachEditorComponent implements OnInit, OnDestroy {
     }
   }
 
-  showForm(): void {
-    this.showCoachForm = true;
-  }
-
   resetCoachForm(): void {
-    this.router.navigateByUrl(`superadmin/coaches`);
+    this.router.navigate(['superadmin', 'coaches'], {
+      queryParams: {
+        showButton: false
+      }
+    });
     this.coachForm.reset();
     this.coachForm.enable();
     this.submitted = false;
     this.showCoachForm = false;
     this.createOrEditLabelName = 'Додати';
     this.setCreatOrEditor(true);
-    CoachesAdminPageComponent.setShowButton(false);
   }
 
   ngOnDestroy(): void {

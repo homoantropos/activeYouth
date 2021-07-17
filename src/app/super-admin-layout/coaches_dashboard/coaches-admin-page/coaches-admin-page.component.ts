@@ -1,5 +1,5 @@
 import {AfterViewInit, Component, OnDestroy, OnInit} from '@angular/core';
-import {Router} from '@angular/router';
+import {ActivatedRoute, Params, Router} from '@angular/router';
 
 @Component({
   selector: 'app-activities-admin',
@@ -7,33 +7,33 @@ import {Router} from '@angular/router';
   styleUrls: ['./coaches-admin-page.component.css']
 })
 
-export class CoachesAdminPageComponent implements OnInit, AfterViewInit, OnDestroy {
+export class CoachesAdminPageComponent implements OnInit, OnDestroy {
 
-  private static showButton = false;
-
-  static setShowButton(condition: boolean): void {
-    CoachesAdminPageComponent.showButton = condition;
-  }
+  showButton = true;
 
   constructor(
-    private router: Router
+    private router: Router,
+    private route: ActivatedRoute
   ) {
   }
 
   ngOnInit(): void {
+    this.route.queryParams.subscribe(
+      (params: Params) => {
+        if (params.showButton) {
+          this.showButton = params.showButton;
+        }
+      }
+    );
   }
 
-  ngAfterViewInit(): void {
-    CoachesAdminPageComponent.showButton = false;
+  setShowButton(condition: boolean): void {
+    this.showButton = condition;
   }
 
   goToCoachEditor(): void {
-    CoachesAdminPageComponent.showButton = true;
+    this.showButton = false;
     this.router.navigateByUrl(`superadmin/coaches/create`);
-  }
-
-  get showButton(): boolean {
-    return CoachesAdminPageComponent.showButton;
   }
 
   ngOnDestroy(): void {

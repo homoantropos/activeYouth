@@ -1,11 +1,13 @@
 <button mat-button color="primary"
         type="button"
         (click)="goToCoachEditor()"
-        [ngClass]="{dn: showButton}">
+        *ngIf="showButton">
   Додати тренера
 </button>
 
 <router-outlet></router-outlet>
 
-<app-coaches-list></app-coaches-list>
+<app-coaches-list
+  (showButton)="setShowButton($event)"
+></app-coaches-list>
 
