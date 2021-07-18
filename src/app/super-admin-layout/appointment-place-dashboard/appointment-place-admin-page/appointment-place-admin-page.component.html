@@ -1,0 +1,12 @@
+<button mat-button color="primary"
+        type="button"
+        (click)="goToAppointmentPlaceEditor()"
+        *ngIf="showButton">
+  Додати споруду
+</button>
+
+<router-outlet></router-outlet>
+
+<app-appointment-place-list
+  (showButton)="setShowButton($event)"
+></app-appointment-place-list>

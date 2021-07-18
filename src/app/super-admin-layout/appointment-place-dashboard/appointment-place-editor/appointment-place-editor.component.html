@@ -1,0 +1,106 @@
+<ng-template #loader>
+  <app-loader></app-loader>
+</ng-template>
+
+<div *ngIf="appointmentPlaceForm; else loader">
+
+  <form [formGroup]="appointmentPlaceForm">
+
+    <small>{{createOrEditLabelName}}</small>
+
+    <mat-form-field class="forms-inputs">
+      <mat-label>введіть назву спортивної споруди...</mat-label>
+      <input matInput
+             title="nameInput"
+             type="text"
+             formControlName="appointmentPlaceName"
+             #appointmentPlaceNameInput
+      >
+    </mat-form-field>
+
+    <mat-form-field
+      *ngIf="creatorOrEditor"
+      class="forms-inputs"
+      title="countryName">
+      <mat-label>країна проведення...</mat-label>
+      <input type="text"
+             placeholder="країна проведення..."
+             aria-label="countryName"
+             matInput
+             formControlName="countryName"
+             [matAutocomplete]="countryName">
+      <mat-autocomplete #countryName="matAutocomplete">
+        <mat-option *ngFor="let option of countryFilteredOptions | async" [value]="option">
+          {{option}}
+        </mat-option>
+      </mat-autocomplete>
+    </mat-form-field>
+
+    <mat-form-field
+      *ngIf="creatorOrEditor"
+      class="forms-inputs"
+      title="regionName">
+      <mat-label>регіон проведення...</mat-label>
+      <input type="text"
+             placeholder="регіон проведення..."
+             aria-label="regionName"
+             matInput
+             formControlName="regionName"
+             [matAutocomplete]="regionName">
+      <mat-autocomplete #regionName ="matAutocomplete">
+        <mat-option *ngFor="let option of regionFilteredOptions | async" [value]="option">
+          {{option}}
+        </mat-option>
+      </mat-autocomplete>
+    </mat-form-field>
+
+    <mat-form-field
+      *ngIf="creatorOrEditor"
+      class="forms-inputs"
+      title="townName">
+      <mat-label>місто проведення...</mat-label>
+      <input type="text"
+             placeholder="місто проведення..."
+             aria-label="townName"
+             matInput
+             formControlName="townName"
+             [matAutocomplete]="townName">
+      <mat-autocomplete #townName="matAutocomplete">
+        <mat-option *ngFor="let option of townFilteredOptions | async" [value]="option">
+          {{option}}
+        </mat-option>
+      </mat-autocomplete>
+    </mat-form-field>
+
+    <mat-form-field
+      class="forms-inputs"
+      title="address">
+      <mat-label>адреса...</mat-label>
+      <input type="text"
+             placeholder="адреса споруди..."
+             aria-label="address"
+             matInput
+             formControlName="address">
+    </mat-form-field>
+
+    <button mat-button
+            color="primary"
+            type="button"
+            (click)="onSubmit(appointmentPlaceForm.value)"
+            [disabled]="appointmentPlaceForm.invalid || submitted"
+    >
+      Зберегти
+    </button>
+
+    <button mat-button
+            color="primary"
+            type="button"
+            (click)="resetAppointmentPlaceForm()"
+    >
+      Скасувати
+    </button>
+  </form>
+
+</div>
+
+

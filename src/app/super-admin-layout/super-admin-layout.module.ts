@@ -18,9 +18,7 @@ import {CountryEditorComponent} from './country_dashboard/country-editor/country
 import { CountryListComponent } from './country_dashboard/country-list/country-list.component';
 import {RegionsAdminPageComponent} from './regions_dashboard/regions-admin-page/regions-admin-page.component';
 import {RegionEditorComponent} from './regions_dashboard/region-editor/region-editor.component';
-import { AppointmentPlaceAdminPageComponent } from './appointment-place-admin-page/appointment-place-admin-page.component';
-import { AppointmentPlaceCreatorComponent } from './creators-editors/appointment-place-creator/appointment-place-creator.component';
-import { AppointmentPlaceEditorComponent } from './creators-editors/appointment-place-editor/appointment-place-editor.component';
+import {AppointmentPlaceAdminPageComponent} from './appointment-place-dashboard/appointment-place-admin-page/appointment-place-admin-page.component';
 import { EducationalEntityAdminPageComponent } from './educational-entity-admin-page/educational-entity-admin-page.component';
 import { EducationalEntityCreatorComponent } from './creators-editors/educational-entity-creator/educational-entity-creator.component';
 import { EducationalEntityEditorComponent } from './creators-editors/educational-entity-editor/educational-entity-editor.component';
@@ -30,6 +28,8 @@ import { TownListComponent } from './town_dashboard/town-list/town-list.componen
 import { CoachEditorComponent } from './coaches_dashboard/coach-editor/coach-editor.component';
 import { TownEditorComponent } from './town_dashboard/town-editor/town-editor.component';
 import { RegionsListComponent } from './regions_dashboard/regions-list/regions-list.component';
+import { AppointmentPlaceListComponent } from './appointment-place-dashboard/appointment-place-list/appointment-place-list.component';
+import {AppointmentPlaceEditorComponent} from './appointment-place-dashboard/appointment-place-editor/appointment-place-editor.component';
 
 
 @NgModule({
@@ -47,7 +47,6 @@ import { RegionsListComponent } from './regions_dashboard/regions-list/regions-l
     CountryEditorComponent,
     RegionEditorComponent,
     AppointmentPlaceAdminPageComponent,
-    AppointmentPlaceCreatorComponent,
     AppointmentPlaceEditorComponent,
     EducationalEntityAdminPageComponent,
     EducationalEntityCreatorComponent,
@@ -59,7 +58,8 @@ import { RegionsListComponent } from './regions_dashboard/regions-list/regions-l
     TownEditorComponent,
     RegionsListComponent,
     CountryListComponent,
-    CountryAdminPageComponent],
+    CountryAdminPageComponent,
+    AppointmentPlaceListComponent],
   imports: [
     FormsModule,
     ReactiveFormsModule,

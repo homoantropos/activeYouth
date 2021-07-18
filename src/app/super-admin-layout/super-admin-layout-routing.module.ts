@@ -10,9 +10,7 @@ import {UserEditorComponent} from './creators-editors/user-editor/user-editor.co
 import {SportKindAdminPageComponent} from './sport-kind-admin-page/sport-kind-admin-page.component';
 import {SportKindCreatorComponent} from './creators-editors/sport-kind-creator/sport-kind-creator.component';
 import {SportKindEditorComponent} from './creators-editors/sport-kind-editor/sport-kind-editor.component';
-import {AppointmentPlaceAdminPageComponent} from './appointment-place-admin-page/appointment-place-admin-page.component';
-import {AppointmentPlaceCreatorComponent} from './creators-editors/appointment-place-creator/appointment-place-creator.component';
-import {AppointmentPlaceEditorComponent} from './creators-editors/appointment-place-editor/appointment-place-editor.component';
+import {AppointmentPlaceAdminPageComponent} from './appointment-place-dashboard/appointment-place-admin-page/appointment-place-admin-page.component';
 import {EducationalEntityAdminPageComponent} from './educational-entity-admin-page/educational-entity-admin-page.component';
 import {EducationalEntityCreatorComponent} from './creators-editors/educational-entity-creator/educational-entity-creator.component';
 import {EducationalEntityEditorComponent} from './creators-editors/educational-entity-editor/educational-entity-editor.component';
@@ -23,6 +21,7 @@ import {RegionsAdminPageComponent} from './regions_dashboard/regions-admin-page/
 import {RegionEditorComponent} from './regions_dashboard/region-editor/region-editor.component';
 import {CountryAdminPageComponent} from './country_dashboard/country-admin-page/country-admin-page.component';
 import {CountryEditorComponent} from './country_dashboard/country-editor/country-editor.component';
+import {AppointmentPlaceEditorComponent} from './appointment-place-dashboard/appointment-place-editor/appointment-place-editor.component';
 
 const routes: Routes = [
   {
@@ -35,16 +34,13 @@ const routes: Routes = [
           {path: '', component: UserAdminPageComponent}]
       },
       {
-        path: 'appointmentPlaces', children: [
-          {path: 'create', component: AppointmentPlaceCreatorComponent},
-          {path: 'edit/:id', component: AppointmentPlaceEditorComponent},
-          {path: '', component: AppointmentPlaceAdminPageComponent}
-        ]
-      },
-      {
         path: 'places', component: PlacesAdminPageComponent, children: [
-          {path: '', redirectTo: 'countries', pathMatch: 'full'},
-
+          {
+            path: 'appointmentplaces', component: AppointmentPlaceAdminPageComponent, children: [
+              {path: 'create', component: AppointmentPlaceEditorComponent},
+              {path: 'edit/:id', component: AppointmentPlaceEditorComponent}
+            ]
+          },
           {
             path: 'countries', component: CountryAdminPageComponent, children: [
               {path: 'create', component: CountryEditorComponent},
@@ -57,10 +53,12 @@ const routes: Routes = [
               {path: 'edit/:id', component: RegionEditorComponent}
             ]
           },
-          {path: 'towns', component: TownAdminPageComponent, children: [
+          {
+            path: 'towns', component: TownAdminPageComponent, children: [
               {path: 'create', component: TownEditorComponent},
               {path: 'edit/:id', component: TownEditorComponent}
-            ]}
+            ]
+          }
         ]
       },
       {
