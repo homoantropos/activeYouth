@@ -1,0 +1,12 @@
+<button mat-button color="primary"
+        type="button"
+        (click)="goToCountryEditor()"
+        *ngIf="showButton">
+  Додати країну
+</button>
+
+<router-outlet></router-outlet>
+
+<app-country-list
+  (showButton)="setShowButton($event)"
+></app-country-list>

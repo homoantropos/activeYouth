@@ -85,7 +85,7 @@ export class TownEditorComponent implements OnInit, OnDestroy {
     if (this.townForm) {
       try {
         // @ts-ignore
-        this.countryFilteredOptions = this.townForm.get('country_name').valueChanges
+        this.countryFilteredOptions = this.townForm.get('countryName').valueChanges
           .pipe(
             startWith(''),
             map((value: string) => this._filterCountry(value))
@@ -107,7 +107,7 @@ export class TownEditorComponent implements OnInit, OnDestroy {
   createTownForm(town: Town): FormGroup {
     return new FormGroup({
       townName: new FormControl(town.townName.trim(), [Validators.required]),
-      country_name: new FormControl(town.region?.country?.country_name.trim(), [Validators.required]),
+      countryName: new FormControl(town.region?.country?.countryName.trim(), [Validators.required]),
       regionName: new FormControl(town.region?.regionName.trim(), [Validators.required])
     });
   }

@@ -27,7 +27,7 @@
              placeholder="країна проведення..."
              aria-label="country"
              matInput
-             formControlName="country_name"
+             formControlName="countryName"
              [matAutocomplete]="country">
       <mat-autocomplete #country="matAutocomplete">
         <mat-option *ngFor="let option of countryFilteredOptions | async" [value]="option">
@@ -38,10 +38,10 @@
 
     <small>група регіонів</small>
     <mat-radio-group title="group" formControlName="regionGroup">
-      <mat-radio-button value = 1>перша</mat-radio-button>
-      <mat-radio-button value = 2>друга</mat-radio-button>
-      <mat-radio-button value = 3>третя</mat-radio-button>
-      <mat-radio-button value = 0>без категорії</mat-radio-button>
+      <mat-radio-button value = "I">перша</mat-radio-button>
+      <mat-radio-button value = "II">друга</mat-radio-button>
+      <mat-radio-button value = "III">третя</mat-radio-button>
+      <mat-radio-button value = "IV">без категорії</mat-radio-button>
     </mat-radio-group>
 
     <button mat-button

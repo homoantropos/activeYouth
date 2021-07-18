@@ -89,7 +89,7 @@ export class RegionEditorComponent implements OnInit, OnDestroy {
     if (this.regionForm) {
       try {
         // @ts-ignore
-        this.countryFilteredOptions = this.regionForm.get('country_name').valueChanges
+        this.countryFilteredOptions = this.regionForm.get('countryName').valueChanges
           .pipe(
             startWith(''),
             map((value: string) => this._filterCountry(value))
@@ -103,13 +103,12 @@ export class RegionEditorComponent implements OnInit, OnDestroy {
     return new FormGroup({
       regionName: new FormControl(region.regionName.trim(), [Validators.required]),
       regionGroup: new FormControl(region.regionGroup, [Validators.required]),
-      country_name: new FormControl(region.country?.country_name.trim(), [Validators.required])
+      countryName: new FormControl(region.country?.countryName.trim(), [Validators.required])
     });
   }
 
   private _filterCountry(value: string): string[] {
     try {
-      console.log(value);
       const filterValue = value.toLowerCase();
       return AutoUpdateArrays.countryNames.filter(option => option.toLowerCase().includes(filterValue));
     } catch (e) {
@@ -125,7 +124,7 @@ export class RegionEditorComponent implements OnInit, OnDestroy {
       regionName: formValue.regionName.trim(),
       regionGroup: formValue.regionGroup,
       country: {
-        country_name: this.regionForm.value.country_name.trim()
+        countryName: this.regionForm.value.countryName.trim()
       }
     };
     let regionServiceMethod;

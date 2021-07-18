@@ -10,9 +10,6 @@ import {UserEditorComponent} from './creators-editors/user-editor/user-editor.co
 import {SportKindAdminPageComponent} from './sport-kind-admin-page/sport-kind-admin-page.component';
 import {SportKindCreatorComponent} from './creators-editors/sport-kind-creator/sport-kind-creator.component';
 import {SportKindEditorComponent} from './creators-editors/sport-kind-editor/sport-kind-editor.component';
-import {CountriesAdminPageComponent} from './places-admin-page/countries-admin-page/countries-admin-page.component';
-import {CountryCreatorComponent} from './creators-editors/country-creator/country-creator.component';
-import {CountryEditorComponent} from './creators-editors/country-editor/country-editor.component';
 import {AppointmentPlaceAdminPageComponent} from './appointment-place-admin-page/appointment-place-admin-page.component';
 import {AppointmentPlaceCreatorComponent} from './creators-editors/appointment-place-creator/appointment-place-creator.component';
 import {AppointmentPlaceEditorComponent} from './creators-editors/appointment-place-editor/appointment-place-editor.component';
@@ -24,6 +21,8 @@ import {CoachEditorComponent} from './coaches_dashboard/coach-editor/coach-edito
 import {TownEditorComponent} from './town_dashboard/town-editor/town-editor.component';
 import {RegionsAdminPageComponent} from './regions_dashboard/regions-admin-page/regions-admin-page.component';
 import {RegionEditorComponent} from './regions_dashboard/region-editor/region-editor.component';
+import {CountryAdminPageComponent} from './country_dashboard/country-admin-page/country-admin-page.component';
+import {CountryEditorComponent} from './country_dashboard/country-editor/country-editor.component';
 
 const routes: Routes = [
   {
@@ -47,8 +46,8 @@ const routes: Routes = [
           {path: '', redirectTo: 'countries', pathMatch: 'full'},
 
           {
-            path: 'countries', component: CountriesAdminPageComponent, children: [
-              {path: 'create', component: CountryCreatorComponent},
+            path: 'countries', component: CountryAdminPageComponent, children: [
+              {path: 'create', component: CountryEditorComponent},
               {path: 'edit/:id', component: CountryEditorComponent}
             ]
           },

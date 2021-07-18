@@ -61,9 +61,9 @@ export class AppointmentEditorComponent implements OnInit, OnDestroy {
           start: new FormControl(appointment.start, [Validators.required]),
           finish: new FormControl(appointment.finish, [Validators.required]),
           place: new FormGroup({
-            country: new FormControl(appointment.appointment_place.country.country_name, [Validators.required]),
-            region: new FormControl(appointment.appointment_place.region.region_name, [Validators.required]),
-            town: new FormControl(appointment.appointment_place.town.town_name, [Validators.required]),
+            country: new FormControl(appointment.appointment_place.country.countrName, [Validators.required]),
+            region: new FormControl(appointment.appointment_place.region.regionName, [Validators.required]),
+            town: new FormControl(appointment.appointment_place.town.townName, [Validators.required]),
             appointment_place_name: new FormControl(appointment.appointment_place.appointment_place_name)
           }),
 
@@ -128,7 +128,7 @@ export class AppointmentEditorComponent implements OnInit, OnDestroy {
     this.regionsName.splice(0);
     AutoUpdateArrays.regions
       // @ts-ignore
-      .filter(region => region.country.country_name === this.appointmentEditorForm.get('place').get('country').value)
+      .filter(region => region.country.countryName === this.appointmentEditorForm.get('place').get('country').value)
       .map(region => {
         this.regionsName.push(region.regionName);
       });

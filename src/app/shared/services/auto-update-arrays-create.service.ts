@@ -40,7 +40,7 @@ export class AutoUpdateArraysCreateService implements OnDestroy {
         AutoUpdateArrays.countries.splice(0);
         AutoUpdateArrays.countryNames.splice(0);
         AutoUpdateArrays.countries = countries.slice();
-        AutoUpdateArrays.countries.map(country => AutoUpdateArrays.countryNames.push(country.country_name));
+        AutoUpdateArrays.countries.map(country => AutoUpdateArrays.countryNames.push(country.countryName));
       }
     );
 

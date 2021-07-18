@@ -13,9 +13,9 @@ import { UserEditorComponent } from './creators-editors/user-editor/user-editor.
 import { SportKindAdminPageComponent } from './sport-kind-admin-page/sport-kind-admin-page.component';
 import { SportKindCreatorComponent } from './creators-editors/sport-kind-creator/sport-kind-creator.component';
 import { SportKindEditorComponent } from './creators-editors/sport-kind-editor/sport-kind-editor.component';
-import { CountriesAdminPageComponent } from './places-admin-page/countries-admin-page/countries-admin-page.component';
-import { CountryCreatorComponent } from './creators-editors/country-creator/country-creator.component';
-import { CountryEditorComponent } from './creators-editors/country-editor/country-editor.component';
+import {CountryAdminPageComponent} from './country_dashboard/country-admin-page/country-admin-page.component';
+import {CountryEditorComponent} from './country_dashboard/country-editor/country-editor.component';
+import { CountryListComponent } from './country_dashboard/country-list/country-list.component';
 import {RegionsAdminPageComponent} from './regions_dashboard/regions-admin-page/regions-admin-page.component';
 import {RegionEditorComponent} from './regions_dashboard/region-editor/region-editor.component';
 import { AppointmentPlaceAdminPageComponent } from './appointment-place-admin-page/appointment-place-admin-page.component';
@@ -43,9 +43,7 @@ import { RegionsListComponent } from './regions_dashboard/regions-list/regions-l
     SportKindAdminPageComponent,
     SportKindCreatorComponent,
     SportKindEditorComponent,
-    CountriesAdminPageComponent,
     RegionsAdminPageComponent,
-    CountryCreatorComponent,
     CountryEditorComponent,
     RegionEditorComponent,
     AppointmentPlaceAdminPageComponent,
@@ -59,7 +57,9 @@ import { RegionsListComponent } from './regions_dashboard/regions-list/regions-l
     TownListComponent,
     CoachEditorComponent,
     TownEditorComponent,
-    RegionsListComponent],
+    RegionsListComponent,
+    CountryListComponent,
+    CountryAdminPageComponent],
   imports: [
     FormsModule,
     ReactiveFormsModule,

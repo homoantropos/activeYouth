@@ -130,7 +130,7 @@ export class AppointmentCreatorComponent implements OnInit, OnDestroy {
     const filterValue = value.toLowerCase();
     AutoUpdateArrays.regions
       // @ts-ignore
-      .filter(region => region.country.country_name === this.appointmentCreatorForm.get('place').get('country').value)
+      .filter(region => region.country.countryName === this.appointmentCreatorForm.get('place').get('country').value)
       .map(region => this.regionsName.push(region.regionName));
     this.regionsName = this.regionsName.filter((v, i, a) => a.indexOf(v) === i);
     return this.regionsName.filter(option => option.toLowerCase().includes(filterValue));
@@ -142,7 +142,7 @@ export class AppointmentCreatorComponent implements OnInit, OnDestroy {
       // @ts-ignore
       .filter(town => town.region.regionName === this.appointmentCreatorForm.get('place').get('region').value)
       // @ts-ignore
-      .map(town => this.townsName.push(town.regionName));
+      .map(town => this.townsName.push(town.townName));
     this.townsName = this.townsName.filter((v, i, a) => a.indexOf(v) === i);
     return this.townsName.filter(option => option.toLowerCase().includes(filterValue));
   }

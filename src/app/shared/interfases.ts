@@ -44,13 +44,13 @@ export interface SportKind {
 }
 
 export interface Country {
-  country_name: string;
+  countryName: string;
   id?: number;
 }
 
 export interface Region {
   regionName: string;
-  regionGroup: number;
+  regionGroup: any;
   country?: Country;
   id?: number;
 }

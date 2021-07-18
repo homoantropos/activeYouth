@@ -1,0 +1,41 @@
+<ng-template #loader>
+  <app-loader></app-loader>
+</ng-template>
+
+<div *ngIf="countryForm; else loader">
+
+  <form [formGroup]="countryForm">
+
+    <small>{{createOrEditLabelName}}</small>
+
+    <mat-form-field class="forms-inputs">
+      <mat-label>введіть назву країни...</mat-label>
+      <input matInput
+             title="nameInput"
+             type="text"
+             formControlName="countryName"
+             #countryNameInput
+      >
+    </mat-form-field>
+
+    <button mat-button
+            color="primary"
+            type="button"
+            (click)="onSubmit(countryForm.value)"
+            [disabled]="countryForm.invalid || submitted"
+    >
+      Зберегти
+    </button>
+
+    <button mat-button
+            color="primary"
+            type="button"
+            (click)="resetCountryForm()"
+    >
+      Скасувати
+    </button>
+  </form>
+
+</div>
+
+

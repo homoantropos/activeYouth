@@ -57,7 +57,7 @@ export class RegionService {
       regionName: '',
       regionGroup: 0,
       country: {
-        country_name: ''
+        countryName: ''
       }
     };
   }

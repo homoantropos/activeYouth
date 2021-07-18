@@ -20,8 +20,8 @@
     <ng-container matColumnDef="place">
       <th mat-header-cell *matHeaderCellDef> Місце<br>проведення</th>
       <td mat-cell *matCellDef="let appointment">
-        {{appointment.appointment_place.country.country_name | titlecase}}{{', ' + appointment.appointment_place.region.region_name}}<br>
-        {{appointment.appointment_place.town.town_name}}
+        {{appointment.appointment_place.country.countryName | titlecase}}{{', ' + appointment.appointment_place.region.regionName}}<br>
+        {{appointment.appointment_place.town.townName}}
       </td>
     </ng-container>
 

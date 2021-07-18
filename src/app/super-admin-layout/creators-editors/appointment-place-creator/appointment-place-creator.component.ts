@@ -73,7 +73,7 @@ export class AppointmentPlaceCreatorComponent implements OnInit, OnDestroy {
     const filterValue = value.toLowerCase();
     AutoUpdateArrays.regions
       // @ts-ignore
-      .filter(region => region.country.country_name === this.appointmentPlaceCreatorForm.get('country').value)
+      .filter(region => region.country.countryName === this.appointmentPlaceCreatorForm.get('country').value)
       .map(region => this.regionsName.push(region.regionName));
     this.regionsName = this.regionsName.filter((v, i, a) => a.indexOf(v) === i);
     return this.regionsName.filter(option => option.toLowerCase().includes(filterValue));

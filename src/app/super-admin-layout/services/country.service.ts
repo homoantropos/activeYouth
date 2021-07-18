@@ -22,7 +22,7 @@ export class CountryService {
   }
 
   createCountry(country: Country): Observable<Country> {
-    AutoUpdateArrays.countryNames.push(country.country_name);
+    AutoUpdateArrays.countryNames.push(country.countryName);
     return this.http.post<Country>(`${environment.postgresDbUrl}/country`, country);
   }
 
@@ -35,10 +35,15 @@ export class CountryService {
   }
 
   updateCountry(country: Country): Observable<any>{
-    AutoUpdateArrays.countryNames.push(country.country_name);
+    AutoUpdateArrays.countryNames.push(country.countryName);
     return this.http.patch<any>(`${environment.postgresDbUrl}/country`, country);
   }
 
+  static get initCountry(): Country {
+    return {
+      countryName: ''
+    };
+  }
   public errorHandle(error: HttpErrorResponse): any {
     const message = error.error.message;
     if (message) {

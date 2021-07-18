@@ -45,7 +45,7 @@ export class TownService {
     return {
         townName: '',
         country: {
-          country_name: ''
+          countryName: ''
         },
         region: {
           regionName: '',
