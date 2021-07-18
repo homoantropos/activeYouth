@@ -3,9 +3,9 @@
 <h1>{{statistic.appointment.title}}</h1>
 <p><b>Дата початку:  </b>{{statistic.appointment.start | date : 'dd.MM.yy'}}</p>
 <p><b>Дата завершення:  </b>{{statistic.appointment.finish | date : 'dd.MM.yy'}}</p>
-<p><b>Місце проведення: </b>{{statistic.appointment.appointment_place.country.country_name | titlecase}}{{' ' + statistic.appointment.appointment_place.region.region_name + ' ' +
-statistic.appointment.appointment_place.town.town_name}}</p>
-<p>{{statistic.appointment.appointment_place.appointment_place_name + ' '+ statistic.appointment.appointment_place.address}}</p>
+<p><b>Місце проведення: </b>{{statistic.appointment.appointmentPlace.country.countryName | titlecase}}{{' ' + statistic.appointment.appointmentPlace.region.regionName + ' ' +
+statistic.appointment.appointmentPlace.town.townName}}</p>
+<p>{{statistic.appointment.appointmentPlace.appointmentPlaceName + ' '+ statistic.appointment.appointmentPlace.address}}</p>
 
 <table>
   <tr>

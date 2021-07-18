@@ -15,8 +15,8 @@
     <ng-container matColumnDef="place">
       <th mat-header-cell *matHeaderCellDef mat-sort-header>Місце</th>
       <td mat-cell *matCellDef="let statistic"> {{
-        statistic.appointment.appointment_place.town.townName + ' ' + statistic.appointment.appointment_place.region.regionName}}<br>
-        {{statistic.appointment.appointment_place.country.countryName | titlecase}}</td>
+        statistic.appointment.appointmentPlace.town.townName + ' ' + statistic.appointment.appointmentPlace.region.regionName}}<br>
+        {{statistic.appointment.appointmentPlace.country.countryName | titlecase}}</td>
     </ng-container>
 
     <ng-container matColumnDef="numberOfCountries">

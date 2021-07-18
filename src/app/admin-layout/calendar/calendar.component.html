@@ -31,8 +31,8 @@
       <ng-container matColumnDef="place">
         <th mat-header-cell *matHeaderCellDef> Орієнтовне місце<br>проведення</th>
         <td mat-cell *matCellDef="let report">
-          {{report.appointment.appointment_place.country.countryName | titlecase}}{{', ' + report.appointment.appointment_place.region.regionName}}<br>
-          {{report.appointment.appointment_place.town.townName}}
+          {{report.appointment.appointmentPlace.country.countryName | titlecase}}{{', ' + report.appointment.appointmentPlace.region.regionName}}<br>
+          {{report.appointment.appointmentPlace.town.townName}}
         </td>
       </ng-container>
 
