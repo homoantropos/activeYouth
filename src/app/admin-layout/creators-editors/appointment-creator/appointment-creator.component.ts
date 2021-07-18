@@ -62,7 +62,7 @@ export class AppointmentCreatorComponent implements OnInit, OnDestroy {
         country: new FormControl('', [Validators.required]),
         region: new FormControl(''),
         town: new FormControl('', [Validators.required]),
-        appointment_place_name: new FormControl('', [Validators.required])
+        appointmentPlaceName: new FormControl('', [Validators.required])
       }),
       members: new FormGroup({
         countries: new FormControl('', [Validators.required]),
@@ -109,7 +109,7 @@ export class AppointmentCreatorComponent implements OnInit, OnDestroy {
         map((value: string) => this._filterTown(value))
       );
     // @ts-ignore
-    this.placeNamesFilteredOptions = this.appointmentCreatorForm.get('place').get('appointment_place_name').valueChanges
+    this.placeNamesFilteredOptions = this.appointmentCreatorForm.get('place').get('appointmentPlaceName').valueChanges
       .pipe(
         startWith(''),
         map((value: string) => this._filterPlaceNames(value))
@@ -151,8 +151,8 @@ export class AppointmentCreatorComponent implements OnInit, OnDestroy {
     const filterValue = value.toLowerCase();
     AutoUpdateArrays.appointmentPlaces
       // @ts-ignore
-      .filter(appointmentPlace => appointmentPlace.town.regionName === this.appointmentCreatorForm.get('place').get('town').value)
-      .map(appointmentPlace => this.appointmentPlaceNames.push(appointmentPlace.appointment_place_name));
+      .filter(appointmentPlace => appointmentPlace.town.townName === this.appointmentCreatorForm.get('place').get('town').value)
+      .map(appointmentPlace => this.appointmentPlaceNames.push(appointmentPlace.appointmentPlaceName));
     this.appointmentPlaceNames = this.appointmentPlaceNames.filter((v, i, a) => a.indexOf(v) === i);
     return this.appointmentPlaceNames.filter(option => option.toLowerCase().includes(filterValue));
   }

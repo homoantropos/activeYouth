@@ -54,7 +54,7 @@ export class AppointmentPlaceEditorComponent implements OnInit, OnDestroy {
         region: new FormControl(appointmentPlace.region.regionName, [Validators.required]),
         townName: new FormControl(appointmentPlace.town.townName, [Validators.required]),
         address: new FormControl(appointmentPlace.address, [Validators.required]),
-        appointment_place_name: new FormControl(appointmentPlace.appointment_place_name, [Validators.required])
+        appointmentPlaceName: new FormControl(appointmentPlace.appointmentPlaceName, [Validators.required])
       });
     });
 

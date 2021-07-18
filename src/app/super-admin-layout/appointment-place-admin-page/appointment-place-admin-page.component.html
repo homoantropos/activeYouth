@@ -37,7 +37,7 @@
     <ng-container matColumnDef="appointmentPlaceName">
       <th mat-header-cell *matHeaderCellDef>Місце проведення</th>
       <td mat-cell *matCellDef="let appointmentPlace">
-        <b>{{appointmentPlace.appointment_place_name}}</b>
+        <b>{{appointmentPlace.appointmentPlaceName}}</b>
       </td>
     </ng-container>
 
@@ -74,7 +74,7 @@
     <ng-container matColumnDef="appointmentPlaceCountry">
       <th mat-header-cell *matHeaderCellDef>Країна проведення</th>
       <td mat-cell *matCellDef="let appointmentPlace">
-        {{appointmentPlace.appointment_place_name}}
+        {{appointmentPlace.appointmentPlaceName}}
       </td>
     </ng-container>
 

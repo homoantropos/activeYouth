@@ -61,10 +61,10 @@ export class AppointmentEditorComponent implements OnInit, OnDestroy {
           start: new FormControl(appointment.start, [Validators.required]),
           finish: new FormControl(appointment.finish, [Validators.required]),
           place: new FormGroup({
-            country: new FormControl(appointment.appointment_place.country.countrName, [Validators.required]),
-            region: new FormControl(appointment.appointment_place.region.regionName, [Validators.required]),
-            town: new FormControl(appointment.appointment_place.town.townName, [Validators.required]),
-            appointment_place_name: new FormControl(appointment.appointment_place.appointment_place_name)
+            country: new FormControl(appointment.appointmentPlace.country.countryName, [Validators.required]),
+            region: new FormControl(appointment.appointmentPlace.region.regionName, [Validators.required]),
+            town: new FormControl(appointment.appointmentPlace.town.townName, [Validators.required]),
+            appointmentPlaceName: new FormControl(appointment.appointmentPlace.appointmentPlaceName)
           }),
 
           organizationsParticipants: new FormControl(appointment.organizationsParticipants, [Validators.required]),
@@ -103,7 +103,7 @@ export class AppointmentEditorComponent implements OnInit, OnDestroy {
             map((value: string) => this._filterTown(value))
           );
         // @ts-ignore
-        this.placeNamesFilteredOptions = this.appointmentEditorForm.get('place').get('appointment_place_name').valueChanges
+        this.placeNamesFilteredOptions = this.appointmentEditorForm.get('place').get('appointmentPlaceName').valueChanges
           .pipe(
             startWith(''),
             map((value: string) => this._filterPlaceNames(value))
@@ -156,7 +156,7 @@ export class AppointmentEditorComponent implements OnInit, OnDestroy {
       .filter(appointmentPlace =>
         // @ts-ignore
         appointmentPlace.town.regionName === this.appointmentEditorForm.get('place').get('town').value)
-      .map(appointmentPlace => this.appointmentPlaceNames.push(appointmentPlace.appointment_place_name));
+      .map(appointmentPlace => this.appointmentPlaceNames.push(appointmentPlace.appointmentPlaceName));
     this.appointmentPlaceNames = this.appointmentPlaceNames.filter((v, i, a) => a.indexOf(v) === i);
     return this.appointmentPlaceNames.filter(option => option.toLowerCase().includes(filterValue));
   }

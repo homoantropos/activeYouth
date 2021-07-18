@@ -21,8 +21,8 @@ export class MockDataBase {
       participants: 'schoolchild',
       direction: 'sport',
       status: 'ukrainian',
-      appointment_place: {
-        appointment_place_name: '',
+      appointmentPlace: {
+        appointmentPlaceName: '',
         country: {countryName: 'Україна'},
         region: {regionName: 'Львівська обл.', regionGroup: 2},
         town: {townName: 'Сколе'},
@@ -42,8 +42,8 @@ export class MockDataBase {
       participants: 'students',
       direction: 'sport',
       status: 'ukrainian',
-      appointment_place: {
-        appointment_place_name: '',
+      appointmentPlace: {
+        appointmentPlaceName: '',
         country: {countryName: 'Україна'},
         region: {regionName: 'Львівська обл.', regionGroup: 2},
         town: {townName: 'Сколе'},
@@ -63,8 +63,8 @@ export class MockDataBase {
       participants: 'schoolchild',
       direction: 'sport',
       status: 'ukrainian',
-      appointment_place: {
-        appointment_place_name: '',
+      appointmentPlace: {
+        appointmentPlaceName: '',
         country: {countryName: 'Україна'},
         region: {regionName: 'Львівська обл.', regionGroup: 2},
         town: {townName: 'Сколе'},
@@ -84,8 +84,8 @@ export class MockDataBase {
       participants: 'students',
       direction: 'sport',
       status: 'ukrainian',
-      appointment_place: {
-        appointment_place_name: '',
+      appointmentPlace: {
+        appointmentPlaceName: '',
         country: {countryName: 'Україна'},
         region: {regionName: 'Львівська обл.', regionGroup: 2},
         town: {townName: 'Сколе'},
@@ -105,8 +105,8 @@ export class MockDataBase {
       participants: 'students',
       direction: 'sport',
       status: 'international',
-      appointment_place: {
-        appointment_place_name: '',
+      appointmentPlace: {
+        appointmentPlaceName: '',
         country: {countryName: 'Україна'},
         region: {regionName: 'Львівська обл.', regionGroup: 2},
         town: {townName: 'Сколе'},
@@ -126,8 +126,8 @@ export class MockDataBase {
       participants: 'students',
       direction: 'sport',
       status: 'international',
-      appointment_place: {
-        appointment_place_name: '',
+      appointmentPlace: {
+        appointmentPlaceName: '',
         country: {countryName: 'Україна'},
         region: {regionName: 'Львівська обл.', regionGroup: 2},
         town: {townName: 'Сколе'},
@@ -147,8 +147,8 @@ export class MockDataBase {
       participants: 'schoolchild',
       direction: 'sport',
       status: 'ukrainian',
-      appointment_place: {
-        appointment_place_name: '',
+      appointmentPlace: {
+        appointmentPlaceName: '',
         country: {countryName: 'Україна'},
         region: {regionName: 'Львівська обл.', regionGroup: 2},
         town: {townName: 'Сколе'},
@@ -168,8 +168,8 @@ export class MockDataBase {
       participants: 'schoolchild',
       direction: 'sport',
       status: 'ukrainian',
-      appointment_place: {
-        appointment_place_name: '',
+      appointmentPlace: {
+        appointmentPlaceName: '',
         country: {countryName: 'Україна'},
         region: {regionName: 'Львівська обл.', regionGroup: 2},
         town: {townName: 'Сколе'},
@@ -189,8 +189,8 @@ export class MockDataBase {
       participants: 'schoolchild',
       direction: 'sport',
       status: 'ukrainian',
-      appointment_place: {
-        appointment_place_name: '',
+      appointmentPlace: {
+        appointmentPlaceName: '',
         country: {countryName: 'Україна'},
         region: {regionName: 'Львівська обл.', regionGroup: 2},
         town: {townName: 'Сколе'},
@@ -210,8 +210,8 @@ export class MockDataBase {
       participants: 'schoolchild',
       direction: 'sport',
       status: 'ukrainian',
-      appointment_place: {
-        appointment_place_name: '',
+      appointmentPlace: {
+        appointmentPlaceName: '',
         country: {countryName: 'Україна'},
         region: {regionName: 'Львівська обл.', regionGroup: 2},
         town: {townName: 'Сколе'},
@@ -231,8 +231,8 @@ export class MockDataBase {
       participants: 'schoolchild',
       direction: 'sport',
       status: 'ukrainian',
-      appointment_place: {
-        appointment_place_name: '',
+      appointmentPlace: {
+        appointmentPlaceName: '',
         country: {countryName: 'Україна'},
         region: {regionName: 'Львівська обл.', regionGroup: 2},
         town: {townName: 'Сколе'},
@@ -252,8 +252,8 @@ export class MockDataBase {
       participants: 'students',
       direction: 'sport',
       status: 'ukrainian',
-      appointment_place: {
-        appointment_place_name: '',
+      appointmentPlace: {
+        appointmentPlaceName: '',
         country: {countryName: 'Україна'},
         region: {regionName: 'Львівська обл.', regionGroup: 2},
         town: {townName: 'Сколе'},
@@ -273,8 +273,8 @@ export class MockDataBase {
       participants: 'schoolchild',
       direction: 'sport',
       status: 'international',
-      appointment_place: {
-        appointment_place_name: '',
+      appointmentPlace: {
+        appointmentPlaceName: '',
         country: {countryName: 'Україна'},
         region: {regionName: 'Львівська обл.', regionGroup: 2},
         town: {townName: 'Сколе'},
@@ -294,8 +294,8 @@ export class MockDataBase {
       participants: 'schoolchild',
       direction: 'sport',
       status: 'international',
-      appointment_place: {
-        appointment_place_name: '',
+      appointmentPlace: {
+        appointmentPlaceName: '',
         country: {countryName: 'Україна'},
         region: {regionName: 'Львівська обл.', regionGroup: 2},
         town: {townName: 'Сколе'},
@@ -315,8 +315,8 @@ export class MockDataBase {
       participants: 'schoolchild',
       direction: 'sport',
       status: 'international',
-      appointment_place: {
-        appointment_place_name: '',
+      appointmentPlace: {
+        appointmentPlaceName: '',
         country: {countryName: 'Україна'},
         region: {regionName: 'Львівська обл.', regionGroup: 2},
         town: {townName: 'Сколе'},
@@ -336,8 +336,8 @@ export class MockDataBase {
       participants: 'schoolchild',
       direction: 'sport',
       status: 'international',
-      appointment_place: {
-        appointment_place_name: '',
+      appointmentPlace: {
+        appointmentPlaceName: '',
         country: {countryName: 'Україна'},
         region: {regionName: 'Львівська обл.', regionGroup: 2},
         town: {townName: 'Сколе'},
@@ -357,8 +357,8 @@ export class MockDataBase {
       participants: 'schoolchild',
       direction: 'sport',
       status: 'international',
-      appointment_place: {
-        appointment_place_name: '',
+      appointmentPlace: {
+        appointmentPlaceName: '',
         country: {countryName: 'Україна'},
         region: {regionName: 'Львівська обл.', regionGroup: 2},
         town: {townName: 'Сколе'},
@@ -378,8 +378,8 @@ export class MockDataBase {
       participants: 'schoolchild',
       direction: 'sport',
       status: 'regional',
-      appointment_place: {
-        appointment_place_name: '',
+      appointmentPlace: {
+        appointmentPlaceName: '',
         country: {countryName: 'Україна'},
         region: {regionName: 'Львівська обл.', regionGroup: 2},
         town: {townName: 'Сколе'},
@@ -399,8 +399,8 @@ export class MockDataBase {
       participants: 'schoolchild',
       direction: 'physical culture',
       status: 'regional',
-      appointment_place: {
-        appointment_place_name: '',
+      appointmentPlace: {
+        appointmentPlaceName: '',
         country: {countryName: 'Україна'},
         region: {regionName: 'Львівська обл.', regionGroup: 2},
         town: {townName: 'Сколе'},
@@ -420,8 +420,8 @@ export class MockDataBase {
       participants: 'schoolchild',
       direction: 'physical culture',
       status: 'regional',
-      appointment_place: {
-        appointment_place_name: '',
+      appointmentPlace: {
+        appointmentPlaceName: '',
         country: {countryName: 'Україна'},
         region: {regionName: 'Львівська обл.', regionGroup: 2},
         town: {townName: 'Сколе'},
@@ -441,8 +441,8 @@ export class MockDataBase {
       participants: 'schoolchild',
       direction: 'physical culture',
       status: 'regional',
-      appointment_place: {
-        appointment_place_name: '',
+      appointmentPlace: {
+        appointmentPlaceName: '',
         country: {countryName: 'Україна'},
         region: {regionName: 'Львівська обл.', regionGroup: 2},
         town: {townName: 'Сколе'},
@@ -462,8 +462,8 @@ export class MockDataBase {
       participants: 'schoolchild',
       direction: 'physical culture',
       status: 'regional',
-      appointment_place: {
-        appointment_place_name: '',
+      appointmentPlace: {
+        appointmentPlaceName: '',
         country: {countryName: 'Україна'},
         region: {regionName: 'Львівська обл.', regionGroup: 2},
         town: {townName: 'Сколе'},
@@ -483,8 +483,8 @@ export class MockDataBase {
       participants: 'schoolchild',
       direction: 'physical culture',
       status: 'regional',
-      appointment_place: {
-        appointment_place_name: '',
+      appointmentPlace: {
+        appointmentPlaceName: '',
         country: {countryName: 'Україна'},
         region: {regionName: 'Львівська обл.', regionGroup: 2},
         town: {townName: 'Сколе'},
@@ -504,8 +504,8 @@ export class MockDataBase {
       participants: 'schoolchild',
       direction: 'physical culture',
       status: 'ukrainian',
-      appointment_place: {
-        appointment_place_name: '',
+      appointmentPlace: {
+        appointmentPlaceName: '',
         country: {countryName: 'Україна'},
         region: {regionName: 'Львівська обл.', regionGroup: 2},
         town: {townName: 'Сколе'},
@@ -525,8 +525,8 @@ export class MockDataBase {
       participants: 'students',
       direction: 'sport',
       status: 'regional',
-      appointment_place: {
-        appointment_place_name: '',
+      appointmentPlace: {
+        appointmentPlaceName: '',
         country: {countryName: 'Україна'},
         region: {regionName: 'Львівська обл.', regionGroup: 2},
         town: {townName: 'Сколе'},
@@ -546,8 +546,8 @@ export class MockDataBase {
       participants: 'schoolchild',
       direction: 'sport',
       status: 'regional',
-      appointment_place: {
-        appointment_place_name: '',
+      appointmentPlace: {
+        appointmentPlaceName: '',
         country: {countryName: 'Україна'},
         region: {regionName: 'Львівська обл.', regionGroup: 2},
         town: {townName: 'Сколе'},
@@ -567,8 +567,8 @@ export class MockDataBase {
       participants: 'schoolchild',
       direction: 'sport',
       status: 'international',
-      appointment_place: {
-        appointment_place_name: '',
+      appointmentPlace: {
+        appointmentPlaceName: '',
         country: {countryName: 'Україна'},
         region: {regionName: 'Львівська обл.', regionGroup: 2},
         town: {townName: 'Сколе'},
@@ -588,8 +588,8 @@ export class MockDataBase {
       participants: 'students',
       direction: 'sport',
       status: 'ukrainian',
-      appointment_place: {
-        appointment_place_name: '',
+      appointmentPlace: {
+        appointmentPlaceName: '',
         country: {countryName: 'Україна'},
         region: {regionName: 'Львівська обл.', regionGroup: 2},
         town: {townName: 'Сколе'},
@@ -609,8 +609,8 @@ export class MockDataBase {
       participants: 'schoolchild',
       direction: 'sport',
       status: 'ukrainian',
-      appointment_place: {
-        appointment_place_name: '',
+      appointmentPlace: {
+        appointmentPlaceName: '',
         country: {countryName: 'Україна'},
         region: {regionName: 'Львівська обл.', regionGroup: 2},
         town: {townName: 'Сколе'},
@@ -630,8 +630,8 @@ export class MockDataBase {
       participants: 'schoolchild',
       direction: 'sport',
       status: 'ukrainian',
-      appointment_place: {
-        appointment_place_name: '',
+      appointmentPlace: {
+        appointmentPlaceName: '',
         country: {countryName: 'Україна'},
         region: {regionName: 'Львівська обл.', regionGroup: 2},
         town: {townName: 'Сколе'},
@@ -651,8 +651,8 @@ export class MockDataBase {
       participants: 'schoolchild',
       direction: 'sport',
       status: 'ukrainian',
-      appointment_place: {
-        appointment_place_name: '',
+      appointmentPlace: {
+        appointmentPlaceName: '',
         country: {countryName: 'Україна'},
         region: {regionName: 'Львівська обл.', regionGroup: 2},
         town: {townName: 'Сколе'},
@@ -672,8 +672,8 @@ export class MockDataBase {
       participants: 'schoolchild',
       direction: 'sport',
       status: 'ukrainian',
-      appointment_place: {
-        appointment_place_name: '',
+      appointmentPlace: {
+        appointmentPlaceName: '',
         country: {countryName: 'Україна'},
         region: {regionName: 'Львівська обл.', regionGroup: 2},
         town: {townName: 'Сколе'},
@@ -693,8 +693,8 @@ export class MockDataBase {
       participants: 'schoolchild',
       direction: 'sport',
       status: 'ukrainian',
-      appointment_place: {
-        appointment_place_name: '',
+      appointmentPlace: {
+        appointmentPlaceName: '',
         country: {countryName: 'Україна'},
         region: {regionName: 'Львівська обл.', regionGroup: 2},
         town: {townName: 'Сколе'},
@@ -714,8 +714,8 @@ export class MockDataBase {
       participants: 'schoolchild',
       direction: 'sport',
       status: 'ukrainian',
-      appointment_place: {
-        appointment_place_name: '',
+      appointmentPlace: {
+        appointmentPlaceName: '',
         country: {countryName: 'Україна'},
         region: {regionName: 'Львівська обл.', regionGroup: 2},
         town: {townName: 'Сколе'},
@@ -735,8 +735,8 @@ export class MockDataBase {
       participants: 'schoolchild',
       direction: 'sport',
       status: 'ukrainian',
-      appointment_place: {
-        appointment_place_name: '',
+      appointmentPlace: {
+        appointmentPlaceName: '',
         country: {countryName: 'Україна'},
         region: {regionName: 'Львівська обл.', regionGroup: 2},
         town: {townName: 'Сколе'},
@@ -756,8 +756,8 @@ export class MockDataBase {
       participants: 'students',
       direction: 'physical culture',
       status: 'ukrainian',
-      appointment_place: {
-        appointment_place_name: '',
+      appointmentPlace: {
+        appointmentPlaceName: '',
         country: {countryName: 'Україна'},
         region: {regionName: 'Львівська обл.', regionGroup: 2},
         town: {townName: 'Сколе'},
@@ -774,8 +774,8 @@ export class MockDataBase {
         start: new Date(2021, 8, 20), finish: new Date(2021, 8, 20), duration: 3,
         organizationsParticipants: 'збірні областей і міста Київ', kpkv: 2201310, character: 'О', participants: 'students',
         direction: 'physical culture', status: 'ukrainian',
-        appointment_place: {
-          appointment_place_name: '',
+        appointmentPlace: {
+          appointmentPlaceName: '',
           country: {countryName: 'Україна'},
           region: {regionName: 'Львівська обл.', regionGroup: 2},
           town: {townName: 'Сколе'},
@@ -815,8 +815,8 @@ export class MockDataBase {
         start: new Date(2021, 8, 20), finish: new Date(2021, 8, 20), duration: 3,
         organizationsParticipants: 'збірні областей і міста Київ', kpkv: 2201310, character: 'О', participants: 'students',
         direction: 'physical culture', status: 'ukrainian',
-        appointment_place: {
-          appointment_place_name: '',
+        appointmentPlace: {
+          appointmentPlaceName: '',
           country: {countryName: 'Україна'},
           region: {regionName: 'Львівська обл.', regionGroup: 2},
           town: {townName: 'Сколе'},
@@ -856,8 +856,8 @@ export class MockDataBase {
         start: new Date(2021, 8, 20), finish: new Date(2021, 8, 20), duration: 3,
         organizationsParticipants: 'збірні областей і міста Київ', kpkv: 2201310, character: 'О', participants: 'students',
         direction: 'physical culture', status: 'ukrainian',
-        appointment_place: {
-          appointment_place_name: '',
+        appointmentPlace: {
+          appointmentPlaceName: '',
           country: {countryName: 'Україна'},
           region: {regionName: 'Львівська обл.', regionGroup: 2},
           town: {townName: 'Сколе'},
@@ -896,8 +896,8 @@ export class MockDataBase {
         start: new Date(2021, 8, 20), finish: new Date(2021, 8, 20), duration: 3,
         organizationsParticipants: 'збірні областей і міста Київ', kpkv: 2201310, character: 'О', participants: 'students',
         direction: 'physical culture', status: 'ukrainian',
-        appointment_place: {
-          appointment_place_name: '',
+        appointmentPlace: {
+          appointmentPlaceName: '',
           country: {countryName: 'Україна'},
           region: {regionName: 'Львівська обл.', regionGroup: 2},
           town: {townName: 'Сколе'},
@@ -936,8 +936,8 @@ export class MockDataBase {
         start: new Date(2021, 8, 20), finish: new Date(2021, 8, 20), duration: 3,
         organizationsParticipants: 'збірні областей і міста Київ', kpkv: 2201310, character: 'О', participants: 'students',
         direction: 'physical culture', status: 'ukrainian',
-        appointment_place: {
-          appointment_place_name: '',
+        appointmentPlace: {
+          appointmentPlaceName: '',
           country: {countryName: 'Україна'},
           region: {regionName: 'Львівська обл.', regionGroup: 2},
           town: {townName: 'Сколе'},
@@ -976,8 +976,8 @@ export class MockDataBase {
         start: new Date(2021, 8, 20), finish: new Date(2021, 8, 20), duration: 3,
         organizationsParticipants: 'збірні областей і міста Київ', kpkv: 2201310, character: 'О', participants: 'students',
         direction: 'physical culture', status: 'ukrainian',
-        appointment_place: {
-          appointment_place_name: '',
+        appointmentPlace: {
+          appointmentPlaceName: '',
           country: {countryName: 'Україна'},
           region: {regionName: 'Львівська обл.', regionGroup: 2},
           town: {townName: 'Сколе'},
@@ -1016,8 +1016,8 @@ export class MockDataBase {
         start: new Date(2021, 8, 20), finish: new Date(2021, 8, 20), duration: 3,
         organizationsParticipants: 'збірні областей і міста Київ', kpkv: 2201310, character: 'О', participants: 'students',
         direction: 'physical culture', status: 'ukrainian',
-        appointment_place: {
-          appointment_place_name: '',
+        appointmentPlace: {
+          appointmentPlaceName: '',
           country: {countryName: 'Україна'},
           region: {regionName: 'Львівська обл.', regionGroup: 2},
           town: {townName: 'Сколе'},
@@ -1056,8 +1056,8 @@ export class MockDataBase {
         start: new Date(2021, 8, 20), finish: new Date(2021, 8, 20), duration: 3,
         organizationsParticipants: 'збірні областей і міста Київ', kpkv: 2201310, character: 'О', participants: 'students',
         direction: 'physical culture', status: 'ukrainian',
-        appointment_place: {
-          appointment_place_name: '',
+        appointmentPlace: {
+          appointmentPlaceName: '',
           country: {countryName: 'Україна'},
           region: {regionName: 'Львівська обл.', regionGroup: 2},
           town: {townName: 'Сколе'},
@@ -1096,8 +1096,8 @@ export class MockDataBase {
         start: new Date(2021, 8, 20), finish: new Date(2021, 8, 20), duration: 3,
         organizationsParticipants: 'збірні областей і міста Київ', kpkv: 2201310, character: 'О', participants: 'students',
         direction: 'physical culture', status: 'ukrainian',
-        appointment_place: {
-          appointment_place_name: '',
+        appointmentPlace: {
+          appointmentPlaceName: '',
           country: {countryName: 'Україна'},
           region: {regionName: 'Львівська обл.', regionGroup: 2},
           town: {townName: 'Сколе'},
@@ -1136,8 +1136,8 @@ export class MockDataBase {
         start: new Date(2021, 8, 20), finish: new Date(2021, 8, 20), duration: 3,
         organizationsParticipants: 'збірні областей і міста Київ', kpkv: 2201310, character: 'О', participants: 'students',
         direction: 'physical culture', status: 'ukrainian',
-        appointment_place: {
-          appointment_place_name: '',
+        appointmentPlace: {
+          appointmentPlaceName: '',
           country: {countryName: 'Україна'},
           region: {regionName: 'Львівська обл.', regionGroup: 2},
           town: {townName: 'Сколе'},
@@ -1176,8 +1176,8 @@ export class MockDataBase {
         start: new Date(2021, 8, 20), finish: new Date(2021, 8, 20), duration: 3,
         organizationsParticipants: 'збірні областей і міста Київ', kpkv: 2201310, character: 'О', participants: 'students',
         direction: 'physical culture', status: 'ukrainian',
-        appointment_place: {
-          appointment_place_name: '',
+        appointmentPlace: {
+          appointmentPlaceName: '',
           country: {countryName: 'Україна'},
           region: {regionName: 'Львівська обл.', regionGroup: 2},
           town: {townName: 'Сколе'},
@@ -1216,8 +1216,8 @@ export class MockDataBase {
         start: new Date(2021, 8, 20), finish: new Date(2021, 8, 20), duration: 3,
         organizationsParticipants: 'збірні областей і міста Київ', kpkv: 2201310, character: 'О', participants: 'students',
         direction: 'physical culture', status: 'ukrainian',
-        appointment_place: {
-          appointment_place_name: '',
+        appointmentPlace: {
+          appointmentPlaceName: '',
           country: {countryName: 'Україна'},
           region: {regionName: 'Львівська обл.', regionGroup: 2},
           town: {townName: 'Сколе'},
@@ -1256,8 +1256,8 @@ export class MockDataBase {
         start: new Date(2021, 8, 20), finish: new Date(2021, 8, 20), duration: 3,
         organizationsParticipants: 'збірні областей і міста Київ', kpkv: 2201310, character: 'О', participants: 'students',
         direction: 'physical culture', status: 'ukrainian',
-        appointment_place: {
-          appointment_place_name: '',
+        appointmentPlace: {
+          appointmentPlaceName: '',
           country: {countryName: 'Україна'},
           region: {regionName: 'Львівська обл.', regionGroup: 2},
           town: {townName: 'Сколе'},
@@ -1302,8 +1302,8 @@ export class MockDataBase {
         participants: 'schoolchild',
         direction: 'sport',
         status: 'ukrainian',
-        appointment_place: {
-          appointment_place_name: '',
+        appointmentPlace: {
+          appointmentPlaceName: '',
           country: {countryName: 'Україна'},
           region: {regionName: 'Львівська обл.', regionGroup: 2},
           town: {townName: 'Сколе'},
@@ -1348,8 +1348,8 @@ export class MockDataBase {
         participants: 'schoolchild',
         direction: 'sport',
         status: 'ukrainian',
-        appointment_place: {
-          appointment_place_name: '',
+        appointmentPlace: {
+          appointmentPlaceName: '',
           country: {countryName: 'Україна'},
           region: {regionName: 'Львівська обл.', regionGroup: 2},
           town: {townName: 'Сколе'},
@@ -1394,8 +1394,8 @@ export class MockDataBase {
         participants: 'schoolchild',
         direction: 'sport',
         status: 'ukrainian',
-        appointment_place: {
-          appointment_place_name: '',
+        appointmentPlace: {
+          appointmentPlaceName: '',
           country: {countryName: 'Україна'},
           region: {regionName: 'Львівська обл.', regionGroup: 2},
           town: {townName: 'Сколе'},
@@ -1440,8 +1440,8 @@ export class MockDataBase {
         participants: 'schoolchild',
         direction: 'physical culture',
         status: 'ukrainian',
-        appointment_place: {
-          appointment_place_name: '',
+        appointmentPlace: {
+          appointmentPlaceName: '',
           country: {countryName: 'Україна'},
           region: {regionName: 'Львівська обл.', regionGroup: 2},
           town: {townName: 'Сколе'},
@@ -1486,8 +1486,8 @@ export class MockDataBase {
         participants: 'schoolchild',
         direction: 'physical culture',
         status: 'ukrainian',
-        appointment_place: {
-          appointment_place_name: '',
+        appointmentPlace: {
+          appointmentPlaceName: '',
           country: {countryName: 'Україна'},
           region: {regionName: 'Львівська обл.', regionGroup: 2},
           town: {townName: 'Сколе'},
@@ -1532,8 +1532,8 @@ export class MockDataBase {
         participants: 'schoolchild',
         direction: 'physical culture',
         status: 'ukrainian',
-        appointment_place: {
-          appointment_place_name: '',
+        appointmentPlace: {
+          appointmentPlaceName: '',
           country: {countryName: 'Україна'},
           region: {regionName: 'Львівська обл.', regionGroup: 2},
           town: {townName: 'Сколе'},
@@ -1578,8 +1578,8 @@ export class MockDataBase {
         participants: 'schoolchild',
         direction: 'sport',
         status: 'ukrainian',
-        appointment_place: {
-          appointment_place_name: '',
+        appointmentPlace: {
+          appointmentPlaceName: '',
           country: {countryName: 'Україна'},
           region: {regionName: 'Львівська обл.', regionGroup: 2},
           town: {townName: 'Сколе'},
@@ -1624,8 +1624,8 @@ export class MockDataBase {
         participants: 'schoolchild',
         direction: 'sport',
         status: 'ukrainian',
-        appointment_place: {
-          appointment_place_name: '',
+        appointmentPlace: {
+          appointmentPlaceName: '',
           country: {countryName: 'Україна'},
           region: {regionName: 'Львівська обл.', regionGroup: 2},
           town: {townName: 'Сколе'},

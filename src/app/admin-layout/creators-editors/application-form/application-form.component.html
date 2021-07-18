@@ -1,7 +1,7 @@
 <div *ngIf="applicationForm; else loader" class="mat-elevation-z8" [ngStyle]="{padding: '1% 2%'}">
 
   <h4>Подати заявку до участі в змаганнях</h4>
-  <h5>{{appointment.title + ', ' + appointment.appointment_place.town.townName + ', '}}
+  <h5>{{appointment.title + ', ' + appointment.appointmentPlace.town.townName + ', '}}
     {{appointment.start | date: 'dd.MM.yy' + '-'}}
     {{appointment.finish | date: 'dd.MM.yy'}}
   </h5>
@@ -50,14 +50,14 @@
       <mat-radio-button value="male">Ч</mat-radio-button>
     </mat-radio-group>
 
-    <mat-form-field title="region" class="narrow forms-inputs">
+    <mat-form-field title="regionName" class="narrow forms-inputs">
       <mat-label>регіон...</mat-label>
       <input type="text"
-             aria-label="region"
+             aria-label="regionName"
              matInput
-             formControlName="region"
-             [matAutocomplete]="region">
-      <mat-autocomplete #region="matAutocomplete">
+             formControlName="regionName"
+             [matAutocomplete]="regionName">
+      <mat-autocomplete #regionName="matAutocomplete">
         <mat-option *ngFor="let option of regionFilteredOptions | async" [value]="option">
           {{option}}
         </mat-option>

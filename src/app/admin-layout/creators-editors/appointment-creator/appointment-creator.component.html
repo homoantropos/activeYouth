@@ -63,15 +63,15 @@
         </mat-autocomplete>
       </mat-form-field>
 
-      <mat-form-field title="appointment_place_name" class="middle forms-inputs">
+      <mat-form-field title="appointmentPlaceName" class="middle forms-inputs">
         <mat-label>спортивна споруда...</mat-label>
         <input type="search"
                placeholder="спортивна споруда..."
-               aria-label="appointment_place_name"
+               aria-label="appointmentPlaceName"
                matInput
-               formControlName="appointment_place_name"
-               [matAutocomplete]="appointment_place_name">
-        <mat-autocomplete #appointment_place_name="matAutocomplete">
+               formControlName="appointmentPlaceName"
+               [matAutocomplete]="appointmentPlaceName">
+        <mat-autocomplete #appointmentPlaceName="matAutocomplete">
           <mat-option *ngFor="let option of placeNamesFilteredOptions | async" [value]="option">
             {{option}}
           </mat-option>

@@ -21,7 +21,7 @@ export interface Appointment {
   start: Date;
   finish: Date;
   duration: number;
-  appointment_place: AppointmentPlace;
+  appointmentPlace: AppointmentPlace;
   logoSrc?: string;
   organizationsParticipants: string;
   sportKind?: SportKind;
@@ -63,7 +63,7 @@ export interface Town {
 }
 
 export interface AppointmentPlace {
-  appointment_place_name: string;
+  appointmentPlaceName: string;
   address: string;
   country: Country;
   region: Region;

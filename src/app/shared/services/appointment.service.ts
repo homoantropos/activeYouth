@@ -40,11 +40,11 @@ export class AppointmentService {
           // @ts-ignore
           response.sort((a, b) => new Date(a.start) - new Date(b.start));
           for (const appointment of response) {
-            const id: number = (appointment.appointment_place) as unknown as number;
+            const id: number = (appointment.appointmentPlace) as unknown as number;
             this.placesService.getOneAppointmentPlaceById(id)
               .subscribe(place => {
                 place.id = id;
-                appointment.appointment_place = place;
+                appointment.appointmentPlace = place;
               });
           }
           return response;
@@ -98,11 +98,11 @@ export class AppointmentService {
     return this.http.get<Appointment>(`${environment.mongoDbUrl}/schedule/${id}`)
       .pipe(
         map((appointment: Appointment) => {
-            const appId: number = (appointment.appointment_place) as unknown as number;
+            const appId: number = (appointment.appointmentPlace) as unknown as number;
             this.placesService.getOneAppointmentPlaceById(appId)
               .subscribe(place => {
                 place.id = appId;
-                appointment.appointment_place = place;
+                appointment.appointmentPlace = place;
               });
             return appointment;
           }

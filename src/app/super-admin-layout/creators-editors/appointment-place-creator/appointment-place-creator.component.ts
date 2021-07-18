@@ -41,7 +41,7 @@ export class AppointmentPlaceCreatorComponent implements OnInit, OnDestroy {
       region: new FormControl('', [Validators.required]),
       townName: new FormControl('', [Validators.required]),
       address: new FormControl('', [Validators.required]),
-      appointment_place_name: new FormControl('')
+      appointmentPlaceName: new FormControl('')
     });
 
     // @ts-ignore

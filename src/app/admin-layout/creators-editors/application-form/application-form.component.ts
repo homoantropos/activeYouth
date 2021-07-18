@@ -76,12 +76,12 @@ export class ApplicationFormComponent implements OnInit {
             coach_surname: new FormControl(this.initResult.coach?.surname, Validators.required),
             coach_fathersName: new FormControl(this.initResult.coach?.fathersName, Validators.required),
             eduentityName: new FormControl(this.initResult.educational_entity?.name, Validators.required),
-            region: new FormControl(this.initResult.region?.regionName, Validators.required),
+            regionName: new FormControl(this.initResult.region?.regionName, Validators.required),
             discipline: new FormControl(this.initResult.discipline, Validators.required)
           });
           this.formInitiated = true;
           // @ts-ignore
-          this.regionFilteredOptions = this.applicationForm.get('region').valueChanges
+          this.regionFilteredOptions = this.applicationForm.get('regionName').valueChanges
             .pipe(
               startWith(''),
               map((value: string) => this._filterRegion(value))

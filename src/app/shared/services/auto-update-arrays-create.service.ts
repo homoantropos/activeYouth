@@ -69,7 +69,7 @@ export class AutoUpdateArraysCreateService implements OnDestroy {
         AutoUpdateArrays.appointmentPlaces
           .map(
             appointmentPlace =>
-              AutoUpdateArrays.appointmentPlacesNames.push(appointmentPlace.appointment_place_name));
+              AutoUpdateArrays.appointmentPlacesNames.push(appointmentPlace.appointmentPlaceName));
       }
     );
 

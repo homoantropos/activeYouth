@@ -64,7 +64,7 @@ export class ResultService {
       },
       region: {
         regionName: value.regionName.trim(),
-        regionGroup: value.regionGroup.trim()
+        regionGroup: 0
       },
       educational_entity: {
         name: value.eduentityName.trim()
