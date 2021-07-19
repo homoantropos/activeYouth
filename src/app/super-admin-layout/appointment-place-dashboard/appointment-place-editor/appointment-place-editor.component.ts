@@ -102,28 +102,28 @@ export class AppointmentPlaceEditorComponent implements OnInit, OnDestroy {
       } catch (e) {
         this.alert.danger(e.message);
       }
-    }
 
-    try {
-      // @ts-ignore
-      this.regionFilteredOptions = this.appointmentPlaceForm.get('regionName').valueChanges
-        .pipe(
-          startWith(''),
-          map((value: string) => this._filterRegion(value))
-        );
-    } catch (e) {
-      this.alert.danger(e.message);
-    }
+      try {
+        // @ts-ignore
+        this.regionFilteredOptions = this.appointmentPlaceForm.get('regionName').valueChanges
+          .pipe(
+            startWith(''),
+            map((value: string) => this._filterRegion(value))
+          );
+      } catch (e) {
+        this.alert.danger(e.message);
+      }
 
-    try {
-      // @ts-ignore
-      this.townFilteredOptions = this.appointmentPlaceForm.get('townName').valueChanges
-        .pipe(
-          startWith(''),
-          map((value: string) => this._filterTown(value))
-        );
-    } catch (e) {
-      this.alert.danger(e.message);
+      try {
+        // @ts-ignore
+        this.townFilteredOptions = this.appointmentPlaceForm.get('townName').valueChanges
+          .pipe(
+            startWith(''),
+            map((value: string) => this._filterTown(value))
+          );
+      } catch (e) {
+        this.alert.danger(e.message);
+      }
     }
   }
 
@@ -217,8 +217,9 @@ export class AppointmentPlaceEditorComponent implements OnInit, OnDestroy {
       );
     if (this.appointmentPlaceService.error$) {
       this.appointmentPlaceService.error$.subscribe(
-        message =>
-          this.alert.danger(message)
+        message => {
+          this.alert.danger(message);
+        }
       );
     }
   }

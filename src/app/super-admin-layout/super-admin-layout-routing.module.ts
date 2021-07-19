@@ -35,6 +35,7 @@ const routes: Routes = [
       },
       {
         path: 'places', component: PlacesAdminPageComponent, children: [
+          {path: '', redirectTo: 'appointmentplaces', pathMatch: 'full'},
           {
             path: 'appointmentplaces', component: AppointmentPlaceAdminPageComponent, children: [
               {path: 'create', component: AppointmentPlaceEditorComponent},
