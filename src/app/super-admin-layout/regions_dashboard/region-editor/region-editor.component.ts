@@ -140,7 +140,7 @@ export class RegionEditorComponent implements OnInit, OnDestroy {
           RegionsListComponent.regions = RegionsListComponent.regions.filter(r => r.id !== dbRegionAndMessage.region.id);
           RegionsListComponent.regions.unshift(dbRegionAndMessage.region);
           this.alert.success(dbRegionAndMessage.message);
-          this.resetTownForm();
+          this.resetRegionForm();
         }, error => {
           this.regionService.errorHandle(error);
           this.regionForm.enable();
@@ -155,7 +155,7 @@ export class RegionEditorComponent implements OnInit, OnDestroy {
     }
   }
 
-  resetTownForm(): void {
+  resetRegionForm(): void {
     this.router.navigate(['superadmin', 'places', 'regions'], {
       queryParams: {
         showButton: false
