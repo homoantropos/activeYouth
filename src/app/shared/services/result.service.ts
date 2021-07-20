@@ -66,8 +66,8 @@ export class ResultService {
         regionName: value.regionName.trim(),
         regionGroup: 0
       },
-      educational_entity: {
-        name: value.eduentityName.trim()
+      educationEntity: {
+        name: value.eduentityName
       },
       discipline: value.discipline.trim(),
       completed: false,
@@ -95,7 +95,7 @@ export class ResultService {
         regionName: '',
         regionGroup: 0
       },
-      educational_entity: {
+      educationEntity: {
         name: ''
       },
       discipline: '',

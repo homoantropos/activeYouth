@@ -7,7 +7,7 @@ import {environment} from '../../../environments/environment';
 @Injectable({
   providedIn: 'root'
 })
-export class EducationalEntityService {
+export class EducationEntityService {
 
   public error$: Subject<string> = new Subject<string>();
 
@@ -17,6 +17,10 @@ export class EducationalEntityService {
 
   createEduEntity(eduEntity: EducationEntity): Observable<EducationEntity>{
     return this.http.post<EducationEntity>(`${environment.postgresDbUrl}/eduEntity`, eduEntity);
+  }
+
+  getAllEducationEntities(): Observable<Array<EducationEntity>>{
+    return this.http.get<Array<EducationEntity>>(`${environment.postgresDbUrl}/eduEntity`);
   }
 
   getEduEntities(eduEntityType: string): Observable<Array<EducationEntity>> {

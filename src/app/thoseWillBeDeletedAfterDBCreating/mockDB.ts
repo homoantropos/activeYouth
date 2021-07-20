@@ -28,8 +28,7 @@ export class MockDataBase {
         town: {townName: 'Сколе'},
         address: ''
       },
-      organiser: 'УФУС',
-      appointment_id: '1ww'
+      organiser: 'УФУС'
     },
     {
       title: 'Зимова Універсіада України з біатлону',
@@ -49,8 +48,7 @@ export class MockDataBase {
         town: {townName: 'Сколе'},
         address: ''
       },
-      organiser: 'СССУ',
-      appointment_id: '2ww'
+      organiser: 'СССУ'
     },
     {
       title: 'Зимова Гімназіада України з біатлону',
@@ -70,8 +68,7 @@ export class MockDataBase {
         town: {townName: 'Сколе'},
         address: ''
       },
-      organiser: 'УФУС',
-      appointment_id: '3ww'
+      organiser: 'УФУС'
     },
     {
       title: 'Зимова Універсіада України з лижних гонок',
@@ -91,8 +88,7 @@ export class MockDataBase {
         town: {townName: 'Сколе'},
         address: ''
       },
-      organiser: 'СССУ',
-      appointment_id: '4ww'
+      organiser: 'СССУ'
     },
     {
       title: 'Європейські університетські ігри з волейболу',
@@ -112,8 +108,7 @@ export class MockDataBase {
         town: {townName: 'Сколе'},
         address: ''
       },
-      organiser: 'СССУ EUSA',
-      appointment_id: '5ww'
+      organiser: 'СССУ EUSA'
     },
     {
       title: 'Європейські університетські ігри з регбі-7',
@@ -133,8 +128,7 @@ export class MockDataBase {
         town: {townName: 'Сколе'},
         address: ''
       },
-      organiser: 'СССУ EUSA',
-      appointment_id: '6ww'
+      organiser: 'СССУ EUSA'
     },
     {
       title: 'Чемпіонат України з волейболу серед учнів',
@@ -154,8 +148,7 @@ export class MockDataBase {
         town: {townName: 'Сколе'},
         address: ''
       },
-      organiser: 'КФВС МОН',
-      appointment_id: '7ww'
+      organiser: 'КФВС МОН'
     },
     {
       title: 'Спортивна надія України з волейболу серед учнів',
@@ -175,8 +168,7 @@ export class MockDataBase {
         town: {townName: 'Сколе'},
         address: ''
       },
-      organiser: 'КФВС МОН',
-      appointment_id: '8ww'
+      organiser: 'КФВС МОН'
     },
     {
       title: 'Спортивна надія України з боксу серед учнів',
@@ -196,8 +188,7 @@ export class MockDataBase {
         town: {townName: 'Сколе'},
         address: ''
       },
-      organiser: 'КФВС МОН',
-      appointment_id: '9ww'
+      organiser: 'КФВС МОН'
     },
     {
       title: 'Спортивна надія України з боротьби вільної серед учнів',
@@ -217,8 +208,7 @@ export class MockDataBase {
         town: {townName: 'Сколе'},
         address: ''
       },
-      organiser: 'КФВС МОН',
-      appointment_id: '10ww'
+      organiser: 'КФВС МОН'
     },
     {
       title: 'Чемпіонат України з козацького двобою серед учнів',
@@ -238,8 +228,7 @@ export class MockDataBase {
         town: {townName: 'Сколе'},
         address: ''
       },
-      organiser: 'КФВС МОН',
-      appointment_id: '11ww'
+      organiser: 'КФВС МОН'
     },
     {
       title: 'Чемпіонат України з козацького двобою серед студентів',
@@ -259,8 +248,7 @@ export class MockDataBase {
         town: {townName: 'Сколе'},
         address: ''
       },
-      organiser: 'КФВС МОН',
-      appointment_id: '12ww'
+      organiser: 'КФВС МОН'
     },
     {
       title: 'Всесвітні учнівські спортивні ігри з волейболу (ISF U15 World School Sport Games) (дівчата) (ІІ ранг)',
@@ -280,8 +268,7 @@ export class MockDataBase {
         town: {townName: 'Сколе'},
         address: ''
       },
-      organiser: 'УФУС ISF',
-      appointment_id: '1ww1'
+      organiser: 'УФУС ISF'
     },
     {
       title: 'Всесвітні учнівські спортивні ігри з дзюдо (ISF U15 World School Sport Games) (дівчата) (ІІ ранг)',
@@ -301,8 +288,7 @@ export class MockDataBase {
         town: {townName: 'Сколе'},
         address: ''
       },
-      organiser: 'УФУС ISF',
-      appointment_id: '1ww2'
+      organiser: 'УФУС ISF'
     },
     {
       title: 'Всесвітні учнівські спортивні ігри з карате (ISF U15 World School Sport Games) (дівчата) (ІІ ранг)',
@@ -322,8 +308,7 @@ export class MockDataBase {
         town: {townName: 'Сколе'},
         address: ''
       },
-      organiser: 'УФУС ISF',
-      appointment_id: '1ww3'
+      organiser: 'УФУС ISF'
     },
     {
       title: 'Всесвітні учнівські спортивні ігри з легкої атлетики (ISF U15 World School Sport Games) (дівчата) (ІІ ранг)',
@@ -343,8 +328,7 @@ export class MockDataBase {
         town: {townName: 'Сколе'},
         address: ''
       },
-      organiser: 'УФУС ISF',
-      appointment_id: '1ww4'
+      organiser: 'УФУС ISF'
     },
     {
       title: 'Всесвітні учнівські спортивні ігри з плавання (ISF U15 World School Sport Games) (дівчата) (ІІ ранг)',
@@ -364,8 +348,7 @@ export class MockDataBase {
         town: {townName: 'Сколе'},
         address: ''
       },
-      organiser: 'УФУС ISF',
-      appointment_id: '1ww5'
+      organiser: 'УФУС ISF'
     },
     {
       title: 'Літня Гімназіада України з волейболу (відбіркові)',
@@ -385,8 +368,7 @@ export class MockDataBase {
         town: {townName: 'Сколе'},
         address: ''
       },
-      organiser: 'УФУС',
-      appointment_id: '1ww6'
+      organiser: 'УФУС'
     },
     {
       title: 'ІІІ Всеукраїнські Cool Games (відбіркові)',
@@ -406,8 +388,7 @@ export class MockDataBase {
         town: {townName: 'Сколе'},
         address: ''
       },
-      organiser: 'КФВС МОН',
-      appointment_id: '1ww7'
+      organiser: 'КФВС МОН'
     },
     {
       title: 'ІІІ Всеукраїнські Cool Games (відбіркові)',
@@ -427,8 +408,7 @@ export class MockDataBase {
         town: {townName: 'Сколе'},
         address: ''
       },
-      organiser: 'КФВС МОН',
-      appointment_id: '1ww8'
+      organiser: 'КФВС МОН'
     },
     {
       title: 'ІІІ Всеукраїнські Cool Games (відбіркові)',
@@ -448,8 +428,7 @@ export class MockDataBase {
         town: {townName: 'Сколе'},
         address: ''
       },
-      organiser: 'КФВС МОН',
-      appointment_id: '1ww9'
+      organiser: 'КФВС МОН'
     },
     {
       title: 'ІІІ Всеукраїнські Cool Games (відбіркові)',
@@ -469,8 +448,7 @@ export class MockDataBase {
         town: {townName: 'Сколе'},
         address: ''
       },
-      organiser: 'КФВС МОН',
-      appointment_id: '1ww10'
+      organiser: 'КФВС МОН'
     },
     {
       title: 'ІІІ Всеукраїнські Cool Games (відбіркові)',
@@ -490,8 +468,7 @@ export class MockDataBase {
         town: {townName: 'Сколе'},
         address: ''
       },
-      organiser: 'КФВС МОН',
-      appointment_id: '1ww19'
+      organiser: 'КФВС МОН'
     },
     {
       title: 'ІІІ Всеукраїнські Cool Games',
@@ -511,8 +488,7 @@ export class MockDataBase {
         town: {townName: 'Сколе'},
         address: ''
       },
-      organiser: 'КФВС МОН',
-      appointment_id: '1ww20'
+      organiser: 'КФВС МОН'
     },
     {
       title: 'Літня Універсіада України з веслування академічного',
@@ -532,8 +508,7 @@ export class MockDataBase {
         town: {townName: 'Сколе'},
         address: ''
       },
-      organiser: 'СССУ',
-      appointment_id: '1ww21'
+      organiser: 'СССУ'
     },
     {
       title: 'Літня Гімназіада України з тхеквондо ВТФ (відбіркові)',
@@ -553,8 +528,7 @@ export class MockDataBase {
         town: {townName: 'Сколе'},
         address: ''
       },
-      organiser: 'УФУС',
-      appointment_id: '1ww223'
+      organiser: 'УФУС'
     },
     {
       title: 'Всесвітня літня Гімназіада з велоспорту',
@@ -574,8 +548,7 @@ export class MockDataBase {
         town: {townName: 'Сколе'},
         address: ''
       },
-      organiser: 'УФУС ISF',
-      appointment_id: '1ww331'
+      organiser: 'УФУС ISF'
     },
     {
       title: 'Літня Універсіада України з гандболу',
@@ -595,8 +568,7 @@ export class MockDataBase {
         town: {townName: 'Сколе'},
         address: ''
       },
-      organiser: 'СССУ',
-      appointment_id: '1ww334'
+      organiser: 'СССУ'
     },
     {
       title: 'Всеукраїнські Combat Games з карате',
@@ -616,8 +588,7 @@ export class MockDataBase {
         town: {townName: 'Сколе'},
         address: ''
       },
-      organiser: 'КФВС МОН',
-      appointment_id: '1ww40'
+      organiser: 'КФВС МОН'
     },
     {
       title: 'Всеукраїнські Combat Games з боротьби греко-римської',
@@ -637,8 +608,7 @@ export class MockDataBase {
         town: {townName: 'Сколе'},
         address: ''
       },
-      organiser: 'КФВС МОН',
-      appointment_id: '1ww41'
+      organiser: 'КФВС МОН'
     },
     {
       title: 'Всеукраїнські Combat Games з тхеквондо ВТФ',
@@ -658,8 +628,7 @@ export class MockDataBase {
         town: {townName: 'Сколе'},
         address: ''
       },
-      organiser: 'КФВС МОН',
-      appointment_id: '1ww42'
+      organiser: 'КФВС МОН'
     },
     {
       title: 'Всеукраїнські Combat Games з боротьби вільної',
@@ -679,8 +648,7 @@ export class MockDataBase {
         town: {townName: 'Сколе'},
         address: ''
       },
-      organiser: 'КФВС МОН',
-      appointment_id: '1ww43'
+      organiser: 'КФВС МОН'
     },
     {
       title: 'Всеукраїнські Combat Games з дзюдо',
@@ -700,8 +668,7 @@ export class MockDataBase {
         town: {townName: 'Сколе'},
         address: ''
       },
-      organiser: 'КФВС МОН',
-      appointment_id: '1ww44'
+      organiser: 'КФВС МОН'
     },
     {
       title: 'Шкільна баскетбольна ліга',
@@ -721,8 +688,7 @@ export class MockDataBase {
         town: {townName: 'Сколе'},
         address: ''
       },
-      organiser: 'КФВС МОН',
-      appointment_id: '1ww45'
+      organiser: 'КФВС МОН'
     },
     {
       title: 'Чемпіонат України з фрі-файту серед учнів',
@@ -742,8 +708,7 @@ export class MockDataBase {
         town: {townName: 'Сколе'},
         address: ''
       },
-      organiser: 'КФВС МОН',
-      appointment_id: '1ww46'
+      organiser: 'КФВС МОН'
     },
     {
       title: 'Міжнародний день студентського спорту',
@@ -763,8 +728,7 @@ export class MockDataBase {
         town: {townName: 'Сколе'},
         address: ''
       },
-      organiser: 'СССУ',
-      appointment_id: '1ww47'
+      organiser: 'СССУ'
     }];
 
   static mockResultsDataBase: Array<Result> = [
@@ -781,7 +745,7 @@ export class MockDataBase {
           town: {townName: 'Сколе'},
           address: ''
         },
-        organiser: 'СССУ', appointment_id: '1ww47'
+        organiser: 'СССУ'
       },
       participant: {
         name: 'Сергій',
@@ -800,7 +764,7 @@ export class MockDataBase {
         regionName: 'Київ', regionGroup: 1
       },
       completed: true,
-      educational_entity: {
+      educationEntity: {
         name: 'Київський інститут інженерів цивільної авіації',
         category: 2,
         type: 'ЗВО'
@@ -822,7 +786,7 @@ export class MockDataBase {
           town: {townName: 'Сколе'},
           address: ''
         },
-        organiser: 'СССУ', appointment_id: '1ww47'
+        organiser: 'СССУ'
       },
       participant: {
         name: 'Сергій',
@@ -841,7 +805,7 @@ export class MockDataBase {
         regionName: 'Київ', regionGroup: 1
       },
       completed: true,
-      educational_entity: {
+      educationEntity: {
         name: 'Київський інститут інженерів цивільної авіації',
         category: 2,
         type: 'ЗВО'
@@ -863,7 +827,7 @@ export class MockDataBase {
           town: {townName: 'Сколе'},
           address: ''
         },
-        organiser: 'СССУ', appointment_id: '1ww47'
+        organiser: 'СССУ'
       },
       participant: {
         name: 'Дмитро',
@@ -881,7 +845,7 @@ export class MockDataBase {
         regionName: 'Київ', regionGroup: 1
       },
       completed: true,
-      educational_entity: {
+      educationEntity: {
         name: 'Київський інститут інженерів цивільної авіації',
         category: 2,
         type: 'ЗВО'
@@ -903,7 +867,7 @@ export class MockDataBase {
           town: {townName: 'Сколе'},
           address: ''
         },
-        organiser: 'СССУ', appointment_id: '1ww47'
+        organiser: 'СССУ'
       },
       participant: {
         name: 'Дмитро',
@@ -921,7 +885,7 @@ export class MockDataBase {
         regionName: 'Київ', regionGroup: 1
       },
       completed: true,
-      educational_entity: {
+      educationEntity: {
         name: 'Київський інститут інженерів цивільної авіації',
         category: 2,
         type: 'ЗВО'
@@ -943,7 +907,7 @@ export class MockDataBase {
           town: {townName: 'Сколе'},
           address: ''
         },
-        organiser: 'СССУ', appointment_id: '1ww47'
+        organiser: 'СССУ'
       },
       participant: {
         name: 'Станіслав',
@@ -961,7 +925,7 @@ export class MockDataBase {
         regionName: 'Київ', regionGroup: 1
       },
       completed: true,
-      educational_entity: {
+      educationEntity: {
         name: 'Сумський державний університет',
         category: 2,
         type: 'ЗВО'
@@ -983,7 +947,7 @@ export class MockDataBase {
           town: {townName: 'Сколе'},
           address: ''
         },
-        organiser: 'СССУ', appointment_id: '1ww47'
+        organiser: 'СССУ'
       },
       participant: {
         name: 'Станіслав',
@@ -1001,7 +965,7 @@ export class MockDataBase {
         regionName: 'Київ', regionGroup: 1
       },
       completed: true,
-      educational_entity: {
+      educationEntity: {
         name: 'Сумський державний університет',
         category: 2,
         type: 'ЗВО'
@@ -1023,7 +987,7 @@ export class MockDataBase {
           town: {townName: 'Сколе'},
           address: ''
         },
-        organiser: 'СССУ', appointment_id: '1ww47'
+        organiser: 'СССУ'
       },
       participant: {
         name: 'Станіслав',
@@ -1041,7 +1005,7 @@ export class MockDataBase {
         regionName: 'Київ', regionGroup: 1
       },
       completed: true,
-      educational_entity: {
+      educationEntity: {
         name: 'Сумський державний університет',
         category: 2,
         type: 'ЗВО'
@@ -1063,7 +1027,7 @@ export class MockDataBase {
           town: {townName: 'Сколе'},
           address: ''
         },
-        organiser: 'СССУ', appointment_id: '1ww47'
+        organiser: 'СССУ'
       },
       participant: {
         name: 'Ганна',
@@ -1081,7 +1045,7 @@ export class MockDataBase {
         regionName: 'Київ', regionGroup: 1
       },
       completed: true,
-      educational_entity: {
+      educationEntity: {
         name: 'Київський національний університет імені Т. Г. Шевченка',
         category: 2,
         type: 'ЗВО'
@@ -1103,7 +1067,7 @@ export class MockDataBase {
           town: {townName: 'Сколе'},
           address: ''
         },
-        organiser: 'СССУ', appointment_id: '1ww47'
+        organiser: 'СССУ'
       },
       participant: {
         name: 'Ганна',
@@ -1121,7 +1085,7 @@ export class MockDataBase {
         regionName: 'Київ', regionGroup: 1
       },
       completed: true,
-      educational_entity: {
+      educationEntity: {
         name: 'Київський національний університет імені Т. Г. Шевченка',
         category: 2,
         type: 'ЗВО'
@@ -1143,7 +1107,7 @@ export class MockDataBase {
           town: {townName: 'Сколе'},
           address: ''
         },
-        organiser: 'СССУ', appointment_id: '1ww47'
+        organiser: 'СССУ'
       },
       participant: {
         name: 'Наталія',
@@ -1161,7 +1125,7 @@ export class MockDataBase {
         regionName: 'Київ', regionGroup: 1
       },
       completed: true,
-      educational_entity: {
+      educationEntity: {
         name: 'Національний університет фізичного виховання та спорту України',
         category: 1,
         type: 'ЗВО'
@@ -1183,7 +1147,7 @@ export class MockDataBase {
           town: {townName: 'Сколе'},
           address: ''
         },
-        organiser: 'СССУ', appointment_id: '1ww47'
+        organiser: 'СССУ'
       },
       participant: {
         name: 'Наталія',
@@ -1201,7 +1165,7 @@ export class MockDataBase {
         regionName: 'Київ', regionGroup: 1
       },
       completed: true,
-      educational_entity: {
+      educationEntity: {
         name: 'Національний університет фізичного виховання та спорту України',
         category: 1,
         type: 'ЗВО'
@@ -1223,7 +1187,7 @@ export class MockDataBase {
           town: {townName: 'Сколе'},
           address: ''
         },
-        organiser: 'СССУ', appointment_id: '1ww47'
+        organiser: 'СССУ'
       },
       participant: {
         name: 'Лілія',
@@ -1241,7 +1205,7 @@ export class MockDataBase {
         regionName: 'Київ', regionGroup: 1
       },
       completed: true,
-      educational_entity: {
+      educationEntity: {
         name: 'Сумський державний університет',
         category: 2,
         type: 'ЗВО'
@@ -1263,7 +1227,7 @@ export class MockDataBase {
           town: {townName: 'Сколе'},
           address: ''
         },
-        organiser: 'СССУ', appointment_id: '1ww47'
+        organiser: 'СССУ'
       },
       participant: {
         name: 'Лілія',
@@ -1281,7 +1245,7 @@ export class MockDataBase {
         regionName: 'Київ', regionGroup: 1
       },
       completed: true,
-      educational_entity: {
+      educationEntity: {
         name: 'Сумський державний університет',
         category: 2,
         type: 'ЗВО'
@@ -1309,8 +1273,7 @@ export class MockDataBase {
           town: {townName: 'Сколе'},
           address: ''
         },
-        organiser: 'КФВС МОН',
-        appointment_id: '1ww45'
+        organiser: 'КФВС МОН'
       },
       participant: {
         name: 'Міла',
@@ -1328,7 +1291,7 @@ export class MockDataBase {
         regionName: 'Київ', regionGroup: 1
       },
       completed: true,
-      educational_entity: {
+      educationEntity: {
         name: 'Загальноосвітня школа №4 міста Запоріжжа',
         type: 'ЗЗСО'
       },
@@ -1355,8 +1318,7 @@ export class MockDataBase {
           town: {townName: 'Сколе'},
           address: ''
         },
-        organiser: 'КФВС МОН',
-        appointment_id: '1ww45'
+        organiser: 'КФВС МОН'
       },
       participant: {
         name: 'Ірина',
@@ -1374,7 +1336,7 @@ export class MockDataBase {
         regionName: 'Київ', regionGroup: 1
       },
       completed: true,
-      educational_entity: {
+      educationEntity: {
         name: 'Загальноосвітня школа №4 міста Запоріжжа',
         type: 'ЗЗСО'
       },
@@ -1401,8 +1363,7 @@ export class MockDataBase {
           town: {townName: 'Сколе'},
           address: ''
         },
-        organiser: 'КФВС МОН',
-        appointment_id: '1ww45'
+        organiser: 'КФВС МОН'
       },
       participant: {
         name: 'Людмила',
@@ -1420,7 +1381,7 @@ export class MockDataBase {
         regionName: 'Київ', regionGroup: 1
       },
       completed: true,
-      educational_entity: {
+      educationEntity: {
         name: 'Загальноосвітня школа №4 міста Запоріжжа',
         type: 'ЗЗСО'
       },
@@ -1447,8 +1408,7 @@ export class MockDataBase {
           town: {townName: 'Сколе'},
           address: ''
         },
-        organiser: 'КФВС МОН',
-        appointment_id: '1ww20'
+        organiser: 'КФВС МОН'
       },
       participant: {
         name: 'Людмила',
@@ -1466,7 +1426,7 @@ export class MockDataBase {
         regionName: 'Київ', regionGroup: 1
       },
       completed: true,
-      educational_entity: {
+      educationEntity: {
         name: 'Загальноосвітня школа №4 міста Запоріжжа',
         type: 'ЗЗСО'
       },
@@ -1493,8 +1453,7 @@ export class MockDataBase {
           town: {townName: 'Сколе'},
           address: ''
         },
-        organiser: 'КФВС МОН',
-        appointment_id: '1ww20'
+        organiser: 'КФВС МОН'
       },
       participant: {
         name: 'Олександр',
@@ -1512,7 +1471,7 @@ export class MockDataBase {
         regionName: 'Київ', regionGroup: 1
       },
       completed: true,
-      educational_entity: {
+      educationEntity: {
         name: 'Загальноосвітня школа №4 міста Запоріжжа',
         type: 'ЗЗСО'
       },
@@ -1539,8 +1498,7 @@ export class MockDataBase {
           town: {townName: 'Сколе'},
           address: ''
         },
-        organiser: 'КФВС МОН',
-        appointment_id: '1ww20'
+        organiser: 'КФВС МОН'
       },
       participant: {
         name: 'Олексій',
@@ -1558,7 +1516,7 @@ export class MockDataBase {
         regionName: 'Київ', regionGroup: 1
       },
       completed: true,
-      educational_entity: {
+      educationEntity: {
         name: 'Загальноосвітня школа №4 міста Запоріжжа',
         type: 'ЗЗСО'
       },
@@ -1585,8 +1543,7 @@ export class MockDataBase {
           town: {townName: 'Сколе'},
           address: ''
         },
-        organiser: 'КФВС МОН',
-        appointment_id: '1ww45'
+        organiser: 'КФВС МОН'
       },
       participant: {
         name: 'Андрій',
@@ -1604,7 +1561,7 @@ export class MockDataBase {
         regionName: 'Київ', regionGroup: 1
       },
       completed: true,
-      educational_entity: {
+      educationEntity: {
         name: 'Загальноосвітня школа №4 міста Запоріжжа',
         type: 'ЗЗСО'
       },
@@ -1631,8 +1588,7 @@ export class MockDataBase {
           town: {townName: 'Сколе'},
           address: ''
         },
-        organiser: 'КФВС МОН',
-        appointment_id: '1ww45'
+        organiser: 'КФВС МОН'
       },
       participant: {
         name: 'Констянтин',
@@ -1650,7 +1606,7 @@ export class MockDataBase {
         regionName: 'Київ', regionGroup: 1
       },
       completed: true,
-      educational_entity: {
+      educationEntity: {
         name: 'Загальноосвітня школа №4 міста Запоріжжа',
         type: 'ЗЗСО'
       },

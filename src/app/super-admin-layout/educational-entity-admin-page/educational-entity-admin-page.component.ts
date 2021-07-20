@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {EducationalEntityService} from '../services/educational-entity.service';
+import {EducationEntityService} from '../services/education-entity.service';
 import {Observable} from 'rxjs';
 import {Router} from '@angular/router';
 import {AlertService} from '../../shared/services/alert.service';
@@ -12,13 +12,13 @@ import {AlertService} from '../../shared/services/alert.service';
 export class EducationalEntityAdminPageComponent implements OnInit {
 
   // @ts-ignore
-  educationalEntities$: Observable<Array<EducationalEntity>>;
+  educationalEntities$: Observable<Array<EducationEntity>>;
   eduEntityType = 'ЗВО';
   displayedColumns = ['name', 'country', 'region', 'category', 'edit', 'delete'];
   paginatorStartPageNumber = 0;
 
   constructor(
-    private eduEntityService: EducationalEntityService,
+    private eduEntityService: EducationEntityService,
     private router: Router,
     private alert: AlertService
   ) { }

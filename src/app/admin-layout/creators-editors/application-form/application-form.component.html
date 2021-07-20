@@ -69,7 +69,13 @@
       <input matInput
              title="for eduentityName"
              type="text"
-             formControlName="eduentityName">
+             formControlName="eduentityName"
+             [matAutocomplete]="educationEntityName">
+      <mat-autocomplete #educationEntityName="matAutocomplete">
+        <mat-option *ngFor="let option of educationEntityNameFilteredOptions | async" [value]="option">
+          {{option}}
+        </mat-option>
+      </mat-autocomplete>
     </mat-form-field>
 
     <br>

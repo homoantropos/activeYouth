@@ -33,25 +33,6 @@ export class AppointmentService {
       );
   }
 
-  getAllAppointment(): Observable<Array<Appointment>> {
-    return this.http.get<Array<Appointment>>(`${environment.mongoDbUrl}/schedule`)
-      .pipe(
-        map((response: Array<Appointment>) => {
-          // @ts-ignore
-          response.sort((a, b) => new Date(a.start) - new Date(b.start));
-          for (const appointment of response) {
-            const id: number = (appointment.appointmentPlace) as unknown as number;
-            this.placesService.getOneAppointmentPlaceById(id)
-              .subscribe(place => {
-                place.id = id;
-                appointment.appointmentPlace = place;
-              });
-          }
-          return response;
-        })
-      );
-  }
-
   saveAppointmentToDb(appointment: Appointment): Observable<Appointment> {
     return this.http.post<Appointment>(`${environment.mongoDbUrl}/schedule`, appointment);
   }
@@ -61,7 +42,6 @@ export class AppointmentService {
   }
 
   createAppointment(appointment: Appointment): Observable<Appointment> {
-    appointment.appointment_id = `${Date.now()}`;
     MockDataBase.schedule.unshift(appointment);
     this.synchronizationService.onAppointmentCreation(appointment);
     return of(appointment);
@@ -73,10 +53,6 @@ export class AppointmentService {
 
   updateAppointment(appointment: Appointment): Observable<Appointment> {
     return this.http.patch<Appointment>(`${environment.postgresDbUrl}/appointment`, appointment);
-  }
-
-  getAllAppointments(): Observable<Array<Appointment>> {
-    return of(MockDataBase.schedule);
   }
 
   getCalendar(): Observable<any> {

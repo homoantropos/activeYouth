@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute, Params, Router} from '@angular/router';
-import {EducationalEntityService} from '../../services/educational-entity.service';
+import {EducationEntityService} from '../../services/education-entity.service';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {EducationEntity} from '../../../shared/interfases';
 import {Observable} from 'rxjs';
@@ -28,7 +28,7 @@ export class EducationalEntityEditorComponent implements OnInit {
   constructor(
     private router: Router,
     private route: ActivatedRoute,
-    public eduEntityService: EducationalEntityService,
+    public eduEntityService: EducationEntityService,
     private alert: AlertService
   ) { }
 

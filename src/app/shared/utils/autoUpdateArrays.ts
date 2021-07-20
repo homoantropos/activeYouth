@@ -1,4 +1,4 @@
-import {AppointmentPlace, Country, Region, SportKind, Town} from '../interfases';
+import {AppointmentPlace, Country, EducationEntity, Region, SportKind, Town} from '../interfases';
 
 export class AutoUpdateArrays {
 
@@ -7,6 +7,7 @@ export class AutoUpdateArrays {
   static towns: Array<Town> = [];
   static sportKinds: Array<SportKind> = [];
   static appointmentPlaces: Array<AppointmentPlace> = [];
+  static educationEntities: Array<EducationEntity> = [];
 
   static countryNames: Array<string> = [];
   static regionsNames: Array<string> = [];
@@ -14,4 +15,5 @@ export class AutoUpdateArrays {
   static addresses: Array<string> = [];
   static sportKindsNames: Array<string> = [];
   static appointmentPlacesNames: Array<string> = [];
+  static educationEntityNames: Array<string> = [];
 }

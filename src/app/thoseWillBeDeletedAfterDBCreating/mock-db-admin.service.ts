@@ -69,7 +69,7 @@ export class MockDBAdministratorService {
     return {
       appointment,
       participant: mockParticipant,
-      educational_entity: mockEducationalEntity,
+      educationEntity: mockEducationalEntity,
       coach: {
         name: 'Антропов',
         surname: 'Сергій',
@@ -77,7 +77,7 @@ export class MockDBAdministratorService {
       },
       region: {
         regionName: 'Київ',
-        regionGroup: 1
+        regionGroup: 0
       },
       completed: true,
       discipline,
@@ -184,8 +184,7 @@ export class MockDBAdministratorService {
     return {
       appointment,
       expensesPlan,
-      expensesFact,
-      appointmentfinancing_id: `${totalFact + totalPlan}`
+      expensesFact
     };
   }
 

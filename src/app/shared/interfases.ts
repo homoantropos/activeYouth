@@ -13,7 +13,7 @@ export interface Activity {
   id?: number;
   date?: Date;
   kindOfActivity?: string;
-  user_id?: string;
+  userId?: number;
 }
 
 export interface Appointment {
@@ -32,8 +32,7 @@ export interface Appointment {
   status: string;
   organiser: string;
   appointmentId?: number;
-  appointment_id?: string;
-  person_id?: string;
+  userId?: number;
 }
 
 export interface SportKind {
@@ -103,7 +102,7 @@ export interface Result {
   participant: Participant;
   coach: Coach;
   coaches?: Array<Coach>;
-  educational_entity: EducationEntity;
+  educationEntity: EducationEntity;
   region: Region;
   discipline: string;
   disciplines?: Array<string>;
@@ -135,8 +134,8 @@ export interface AppointmentFinancing {
   appointment: Appointment;
   expensesPlan: Expenses;
   expensesFact: Expenses;
-  appointmentfinancing_id?: string;
-  person_id?: string;
+  appointmentFinancingId?: number;
+  userId?: number;
 }
 
 export interface Members {
@@ -165,5 +164,5 @@ export interface News {
   date: Date;
   content: string;
   imagesScr?: Array<string>;
-  _id?: string;
+  id?: number;
 }

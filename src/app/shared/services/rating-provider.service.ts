@@ -39,9 +39,9 @@ export class RatingProviderService {
     let totalRating = 0;
     cloneResults.map(
       r => {
-        const oneEduEntityRatingBrick = cloneResults.filter(result => result.educational_entity.name === r.educational_entity.name);
+        const oneEduEntityRatingBrick = cloneResults.filter(result => result.educationEntity.name === r.educationEntity.name);
         if (oneEduEntityRatingBrick.length === 0) { return; }
-        const resultsOwnerEduEntity = oneEduEntityRatingBrick[0].educational_entity;
+        const resultsOwnerEduEntity = oneEduEntityRatingBrick[0].educationEntity;
         // @ts-ignore
         oneEduEntityRatingBrick.map( rOne => totalRating = totalRating + rOne.ratingPoints );
         ratingEduEntities.push({
@@ -49,7 +49,7 @@ export class RatingProviderService {
           results: oneEduEntityRatingBrick,
           totalRating
         });
-        cloneResults = cloneResults.filter(rafter => rafter.educational_entity.name !== r.educational_entity.name);
+        cloneResults = cloneResults.filter(rafter => rafter.educationEntity.name !== r.educationEntity.name);
         totalRating = 0;
       }
     );

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {EducationEntity} from '../../../shared/interfases';
-import {EducationalEntityService} from '../../services/educational-entity.service';
+import {EducationEntityService} from '../../services/education-entity.service';
 import {Observable} from 'rxjs';
 import {map, startWith} from 'rxjs/operators';
 import {AutoUpdateArrays} from '../../../shared/utils/autoUpdateArrays';
@@ -24,7 +24,7 @@ export class EducationalEntityCreatorComponent implements OnInit {
   submitted = false;
 
   constructor(
-    public eduEntityService: EducationalEntityService,
+    public eduEntityService: EducationEntityService,
     private router: Router,
     private alert: AlertService
   ) { }

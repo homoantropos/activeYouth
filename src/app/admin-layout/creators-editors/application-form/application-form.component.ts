@@ -20,6 +20,7 @@ export class ApplicationFormComponent implements OnInit {
   appointmentId = 0;
   listOfParticipants: Array<Result> = [];
   regionsName: Array<string> = [];
+  educationalEntityName: Array<string> = [];
   // @ts-ignore
   appointment: Appointment;
   // @ts-ignore
@@ -27,6 +28,8 @@ export class ApplicationFormComponent implements OnInit {
   formInitiated = false;
   // @ts-ignore
   regionFilteredOptions: Observable<string[]>;
+  // @ts-ignore
+  educationEntityNameFilteredOptions: Observable<string>;
   submitted = false;
   // @ts-ignore
   initResult: Result;
@@ -75,7 +78,7 @@ export class ApplicationFormComponent implements OnInit {
             coach_name: new FormControl(this.initResult.coach?.name, Validators.required),
             coach_surname: new FormControl(this.initResult.coach?.surname, Validators.required),
             coach_fathersName: new FormControl(this.initResult.coach?.fathersName, Validators.required),
-            eduentityName: new FormControl(this.initResult.educational_entity?.name, Validators.required),
+            eduentityName: new FormControl(this.initResult.educationEntity?.name, Validators.required),
             regionName: new FormControl(this.initResult.region?.regionName, Validators.required),
             discipline: new FormControl(this.initResult.discipline, Validators.required)
           });
@@ -85,6 +88,12 @@ export class ApplicationFormComponent implements OnInit {
             .pipe(
               startWith(''),
               map((value: string) => this._filterRegion(value))
+            );
+          // @ts-ignore
+          this.educationEntityNameFilteredOptions = this.applicationForm.get('eduentityName').valueChanges
+            .pipe(
+              startWith(''),
+              map((value: string) => this._filterEducationEntityName(value))
             );
         },
         error => this.resultService.errorHandle(error));
@@ -99,11 +108,12 @@ export class ApplicationFormComponent implements OnInit {
 
   private _filterRegion(value: string): string[] {
     const filterValue = value.toLowerCase();
-    AutoUpdateArrays.regions
-      // @ts-ignore
-      .map(region => this.regionsName.push(region.regionName));
-    this.regionsName = this.regionsName.filter((v, i, a) => a.indexOf(v) === i);
-    return this.regionsName.filter(regionName => regionName.toLowerCase().includes(filterValue));
+    return AutoUpdateArrays.regionsNames.filter(regionName => regionName.toLowerCase().includes(filterValue));
+  }
+
+  private _filterEducationEntityName(value: string): string[] {
+    const filterValue = value.toLowerCase();
+    return AutoUpdateArrays.educationEntityNames.filter(educationalEntityName => educationalEntityName.toLowerCase().includes(filterValue));
   }
 
   onApply(value: any): void {
@@ -144,6 +154,10 @@ export class ApplicationFormComponent implements OnInit {
   onEdit(value: any): void {
     this.applicationForm.disable();
     const result: Result = this.resultService.getResult(this.appointment, value, this.initResult);
+    if (this.initResult) {
+      // @ts-ignore
+      const aimResult = this.listOfParticipants[this.initResult.id];
+    }
     this.resultService.updateResult(result)
       .pipe(
         catchError(this.resultService.errorHandle.bind(this)),
@@ -156,6 +170,7 @@ export class ApplicationFormComponent implements OnInit {
       )
       .subscribe(
         results => {
+          // @ts-ignore
           this.listOfParticipants = results;
           this.applicationForm.reset();
           this.creatOrEditor = true;

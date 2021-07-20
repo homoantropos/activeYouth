@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {Appointment, AppointmentFinancing} from '../interfases';
+import {AppointmentFinancing} from '../interfases';
 import { Observable, of } from 'rxjs';
 import { MockDataBase } from '../../thoseWillBeDeletedAfterDBCreating/mockDB';
 import {HttpClient} from '@angular/common/http';
@@ -32,7 +32,7 @@ export class AppointmentFinancingService {
     return of(MockDataBase.balance);
   }
 
-  getAppointmentFinancingByID(id: string): Observable<AppointmentFinancing> {
-    return of((MockDataBase.balance.find(a => a.appointmentfinancing_id === id)) as AppointmentFinancing);
+  getAppointmentFinancingByID(id: number): Observable<AppointmentFinancing> {
+    return of((MockDataBase.balance.find(a => a.appointmentFinancingId === id)) as AppointmentFinancing);
   }
 }

@@ -6,6 +6,7 @@ import {AutoUpdateArrays} from '../utils/autoUpdateArrays';
 import {Subscription} from 'rxjs';
 import {TownService} from '../../super-admin-layout/services/town.service';
 import {AppointmentPlaceService} from '../../super-admin-layout/services/appointment-place.service';
+import {EducationEntityService} from '../../super-admin-layout/services/education-entity.service';
 
 @Injectable({
   providedIn: 'root'
@@ -20,7 +21,8 @@ export class AutoUpdateArraysCreateService implements OnDestroy {
     private countryService: CountryService,
     private regionService: RegionService,
     private townService: TownService,
-    private appointmentPlaceService: AppointmentPlaceService
+    private appointmentPlaceService: AppointmentPlaceService,
+    private educationEntityServie: EducationEntityService
   ) {
   }
 
@@ -73,6 +75,17 @@ export class AutoUpdateArraysCreateService implements OnDestroy {
       }
     );
 
+    this.sub = this.educationEntityServie.getAllEducationEntities().subscribe(
+      educationEntities => {
+        AutoUpdateArrays.educationEntities.splice(0);
+        AutoUpdateArrays.educationEntityNames.splice(0);
+        AutoUpdateArrays.educationEntities = educationEntities.slice();
+        AutoUpdateArrays.educationEntities
+          .map(
+            educationEntity =>
+              AutoUpdateArrays.educationEntityNames.push(educationEntity.name));
+      }
+    );
   }
 
   ngOnDestroy(): void {
