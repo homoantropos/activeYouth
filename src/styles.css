@@ -200,3 +200,19 @@ mat-radio-button {
 .dn {
   display: none;
 }
+
+.narrow {
+  width: 11%;
+}
+
+.average {
+  width: 20%;
+}
+
+.wide {
+  width: 70%;
+}
+
+.xl {
+  width: 94%;
+}

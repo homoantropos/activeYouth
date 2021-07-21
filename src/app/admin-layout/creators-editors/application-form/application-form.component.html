@@ -10,7 +10,7 @@
     [formGroup]="applicationForm"
   >
     <b>учасник: </b>
-    <mat-form-field class="narrow forms-inputs">
+    <mat-form-field class="average forms-inputs">
       <mat-label>прізвище...</mat-label>
       <input matInput
              title="for participant_surname"
@@ -19,7 +19,7 @@
       >
     </mat-form-field>
 
-    <mat-form-field class="narrow forms-inputs">
+    <mat-form-field class="average forms-inputs">
       <mat-label>ім'я...</mat-label>
       <input matInput
              title="for participant_name"
@@ -27,7 +27,7 @@
              formControlName="participant_name">
     </mat-form-field>
 
-    <mat-form-field class="narrow forms-inputs">
+    <mat-form-field class="average forms-inputs">
       <mat-label>по-батькові...</mat-label>
       <input matInput
              title="for participant_fathersName"
@@ -50,7 +50,8 @@
       <mat-radio-button value="male">Ч</mat-radio-button>
     </mat-radio-group>
 
-    <mat-form-field title="regionName" class="narrow forms-inputs">
+    <b [ngStyle]="{paddingRight: '1%'}">регіон:</b>
+    <mat-form-field title="regionName" class="average forms-inputs">
       <mat-label>регіон...</mat-label>
       <input type="text"
              aria-label="regionName"
@@ -64,7 +65,7 @@
       </mat-autocomplete>
     </mat-form-field>
 
-    <mat-form-field class="narrow forms-inputs">
+    <mat-form-field class="wide forms-inputs">
       <mat-label>заклад освіти...</mat-label>
       <input matInput
              title="for eduentityName"
@@ -81,7 +82,7 @@
     <br>
 
     <b>тренер: </b>
-    <mat-form-field class="forms-inputs">
+    <mat-form-field class="average forms-inputs">
       <mat-label>прізвище...</mat-label>
       <input matInput
              title="for coach_surname"
@@ -89,7 +90,7 @@
              formControlName="coach_surname">
     </mat-form-field>
 
-    <mat-form-field class="forms-inputs">
+    <mat-form-field class="average forms-inputs">
       <mat-label>ім'я...</mat-label>
       <input matInput
              title="for coach_name"
@@ -97,7 +98,7 @@
              formControlName="coach_name">
     </mat-form-field>
 
-    <mat-form-field class="forms-inputs">
+    <mat-form-field class="average forms-inputs">
       <mat-label>по-батькові...</mat-label>
       <input matInput
              title="for coach_fathersName"
@@ -105,7 +106,7 @@
              formControlName="coach_fathersName">
     </mat-form-field>
 
-    <mat-form-field class="forms-inputs">
+    <mat-form-field class="narrow forms-inputs">
       <mat-label>вид програми змагань...</mat-label>
       <input matInput
              title="for discipline"
