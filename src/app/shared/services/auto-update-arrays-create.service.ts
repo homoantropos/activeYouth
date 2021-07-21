@@ -75,17 +75,6 @@ export class AutoUpdateArraysCreateService implements OnDestroy {
       }
     );
 
-    this.sub = this.educationEntityServie.getAllEducationEntities().subscribe(
-      educationEntities => {
-        AutoUpdateArrays.educationEntities.splice(0);
-        AutoUpdateArrays.educationEntityNames.splice(0);
-        AutoUpdateArrays.educationEntities = educationEntities.slice();
-        AutoUpdateArrays.educationEntities
-          .map(
-            educationEntity =>
-              AutoUpdateArrays.educationEntityNames.push(educationEntity.name));
-      }
-    );
   }
 
   ngOnDestroy(): void {

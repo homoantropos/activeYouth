@@ -1,13 +1,14 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Params, Router} from '@angular/router';
 import {Appointment, Result} from '../../../shared/interfases';
-import {catchError, map, startWith, switchMap} from 'rxjs/operators';
+import {catchError, distinct, map, startWith, switchMap} from 'rxjs/operators';
 import {AppointmentService} from '../../../shared/services/appointment.service';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {ResultService} from '../../../shared/services/result.service';
 import {Observable, Subject} from 'rxjs';
 import {AutoUpdateArrays} from '../../../shared/utils/autoUpdateArrays';
 import {AlertService} from '../../../shared/services/alert.service';
+import {EducationEntityService} from '../../../super-admin-layout/services/education-entity.service';
 
 @Component({
   selector: 'app-application-form',
@@ -19,7 +20,6 @@ export class ApplicationFormComponent implements OnInit {
   error$: Subject<string> = new Subject<string>();
   appointmentId = 0;
   listOfParticipants: Array<Result> = [];
-  regionsName: Array<string> = [];
   educationalEntityName: Array<string> = [];
   // @ts-ignore
   appointment: Appointment;
@@ -34,11 +34,13 @@ export class ApplicationFormComponent implements OnInit {
   // @ts-ignore
   initResult: Result;
   creatOrEditor = true;
+  regionName = '';
 
   constructor(
     private route: ActivatedRoute,
     private router: Router,
     private appointmentService: AppointmentService,
+    private educationEntityService: EducationEntityService,
     private resultService: ResultService,
     public alert: AlertService
   ) {
@@ -96,7 +98,9 @@ export class ApplicationFormComponent implements OnInit {
               map((value: string) => this._filterEducationEntityName(value))
             );
         },
-        error => this.resultService.errorHandle(error));
+        error => this.resultService.errorHandle(error)
+      );
+    // @ts-ignore
     if (this.resultService.error$) {
       this.resultService.error$.subscribe(
         message => {
@@ -108,12 +112,23 @@ export class ApplicationFormComponent implements OnInit {
 
   private _filterRegion(value: string): string[] {
     const filterValue = value.toLowerCase();
+    this.regionName = value;
     return AutoUpdateArrays.regionsNames.filter(regionName => regionName.toLowerCase().includes(filterValue));
   }
 
   private _filterEducationEntityName(value: string): string[] {
     const filterValue = value.toLowerCase();
-    return AutoUpdateArrays.educationEntityNames.filter(educationalEntityName => educationalEntityName.toLowerCase().includes(filterValue));
+    if (this.regionName) {
+      this.educationEntityService.getEduEntitiesNamesByRegion(this.regionName)
+        .pipe(
+          distinct()
+        )
+        .subscribe(
+          educationEntityNames => {
+            this.educationalEntityName = educationEntityNames.slice();
+          });
+    }
+    return this.educationalEntityName.filter(educationalEntityName => educationalEntityName.toLowerCase().includes(filterValue));
   }
 
   onApply(value: any): void {

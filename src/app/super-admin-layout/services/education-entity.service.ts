@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {HttpClient, HttpErrorResponse} from '@angular/common/http';
 import {EducationEntity} from '../../shared/interfases';
 import {Observable, Subject, throwError} from 'rxjs';
@@ -13,30 +13,37 @@ export class EducationEntityService {
 
   constructor(
     private http: HttpClient
-  ) { }
+  ) {
+  }
 
-  createEduEntity(eduEntity: EducationEntity): Observable<EducationEntity>{
+  createEduEntity(eduEntity: EducationEntity): Observable<EducationEntity> {
     return this.http.post<EducationEntity>(`${environment.postgresDbUrl}/eduEntity`, eduEntity);
   }
 
-  getAllEducationEntities(): Observable<Array<EducationEntity>>{
+  getAllEducationEntities(): Observable<Array<EducationEntity>> {
     return this.http.get<Array<EducationEntity>>(`${environment.postgresDbUrl}/eduEntity`);
   }
 
-  getEduEntities(eduEntityType: string): Observable<Array<EducationEntity>> {
+  getEduEntities(eduEntityType: string):
+    Observable<Array<EducationEntity>> {
     return this.http.get<Array<EducationEntity>>(`${environment.postgresDbUrl}/eduEntity?eduEntityType=${eduEntityType}`);
+  }
+
+  getEduEntitiesNamesByRegion(regionName: string):
+    Observable<Array<string>> {
+    return this.http.get<Array<string>>(`${environment.postgresDbUrl}/eduEntity/regionName?regionName=${regionName}`);
   }
 
   getOneEduEntityById(id: number): Observable<EducationEntity> {
     return this.http.get<EducationEntity>(`${environment.postgresDbUrl}/eduEntity/${id}`);
   }
 
-  deleteEduEntity(id: number): Observable<{message: string}> {
-    return this.http.delete<{message: string}>(`${environment.postgresDbUrl}/eduEntity/${id}`);
+  deleteEduEntity(id: number): Observable<{ message: string }> {
+    return this.http.delete<{ message: string }>(`${environment.postgresDbUrl}/eduEntity/${id}`);
   }
 
-  updateEduEntity(eduEntity: EducationEntity): Observable<{message: string}> {
-    return this.http.patch<{message: string}>(`${environment.postgresDbUrl}/eduEntity/${eduEntity.id}`, eduEntity);
+  updateEduEntity(eduEntity: EducationEntity): Observable<{ message: string }> {
+    return this.http.patch<{ message: string }>(`${environment.postgresDbUrl}/eduEntity/${eduEntity.id}`, eduEntity);
   }
 
   public errorHandle(error: HttpErrorResponse): any {
