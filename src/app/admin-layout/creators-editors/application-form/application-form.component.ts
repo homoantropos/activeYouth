@@ -169,10 +169,6 @@ export class ApplicationFormComponent implements OnInit {
   onEdit(value: any): void {
     this.applicationForm.disable();
     const result: Result = this.resultService.getResult(this.appointment, value, this.initResult);
-    if (this.initResult) {
-      // @ts-ignore
-      const aimResult = this.listOfParticipants[this.initResult.id];
-    }
     this.resultService.updateResult(result)
       .pipe(
         catchError(this.resultService.errorHandle.bind(this)),
