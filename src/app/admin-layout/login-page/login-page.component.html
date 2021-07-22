@@ -12,23 +12,30 @@
     {{ message }}
   </div>
 
-  <mat-form-field class="xl forms-inputs">
-    <mat-label>введіть емейл...</mat-label>
-    <input matInput
-           class="logInput"
-           title="emailInput"
-           type="text"
-           formControlName="email">
-  </mat-form-field>
 
-  <mat-form-field class="xl forms-inputs">
-    <mat-label title="passwordInput">введіть пароль...</mat-label>
-    <input matInput
-           class="logInput"
-           title="passwordInput"
-           type="password"
-           formControlName="password">
-  </mat-form-field>
+  <div>
+    <i class="glyphicon glyphicon-envelope"></i>
+    <mat-form-field class="xl forms-inputs">
+      <mat-label>введіть емейл...</mat-label>
+      <input matInput
+             class="logInput"
+             title="emailInput"
+             type="text"
+             formControlName="email">
+    </mat-form-field>
+  </div>
+
+  <div>
+    <i class="glyphicon glyphicon-user"></i>
+    <mat-form-field class="xl forms-inputs">
+      <mat-label title="passwordInput">введіть пароль...</mat-label>
+      <input matInput
+             class="logInput"
+             title="passwordInput"
+             type="password"
+             formControlName="password">
+    </mat-form-field>
+  </div>
 
   <button mat-button
           color="primary"

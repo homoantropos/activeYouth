@@ -16,6 +16,7 @@
              title="for participant_surname"
              type="text"
              formControlName="participant_surname"
+             #participantSurnameInput
       >
     </mat-form-field>
 
@@ -49,6 +50,8 @@
       <mat-radio-button value="female">Ж</mat-radio-button>
       <mat-radio-button value="male">Ч</mat-radio-button>
     </mat-radio-group>
+
+    <br>
 
     <b [ngStyle]="{paddingRight: '1%'}">регіон:</b>
     <mat-form-field title="regionName" class="average forms-inputs">
@@ -140,7 +143,7 @@
       mat-button
       color="primary"
       type="button"
-      (click)="resetApplicationForm(appointmentId)"
+      (click)="resetApplicationForm()"
       [disabled]="submitted"
     >
       Скасувати

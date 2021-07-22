@@ -1,11 +1,11 @@
-import {Component, OnInit} from '@angular/core';
+import {ChangeDetectorRef, Component, ElementRef, OnDestroy, OnInit, ViewChild} from '@angular/core';
 import {ActivatedRoute, Params, Router} from '@angular/router';
 import {Appointment, Result} from '../../../shared/interfases';
 import {catchError, distinct, map, startWith, switchMap} from 'rxjs/operators';
 import {AppointmentService} from '../../../shared/services/appointment.service';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {ResultService} from '../../../shared/services/result.service';
-import {Observable, Subject} from 'rxjs';
+import {Observable, Subscription} from 'rxjs';
 import {AutoUpdateArrays} from '../../../shared/utils/autoUpdateArrays';
 import {AlertService} from '../../../shared/services/alert.service';
 import {EducationEntityService} from '../../../super-admin-layout/services/education-entity.service';
@@ -15,26 +15,40 @@ import {EducationEntityService} from '../../../super-admin-layout/services/educa
   templateUrl: './application-form.component.html',
   styleUrls: ['./application-form.component.css']
 })
-export class ApplicationFormComponent implements OnInit {
 
-  error$: Subject<string> = new Subject<string>();
+export class ApplicationFormComponent implements OnInit, OnDestroy {
+
+  // @ts-ignore
+  applicationForm: FormGroup;
+  submitted = false;
+  creatOrEditor = true;
+
+  // @ts-ignore
+  afSub: Subscription;
+
   appointmentId = 0;
   listOfParticipants: Array<Result> = [];
   educationalEntityName: Array<string> = [];
   // @ts-ignore
-  appointment: Appointment;
-  // @ts-ignore
-  applicationForm: FormGroup;
-  formInitiated = false;
+  educationEntityNameFilteredOptions: Observable<string>;
   // @ts-ignore
   regionFilteredOptions: Observable<string[]>;
+
   // @ts-ignore
-  educationEntityNameFilteredOptions: Observable<string>;
-  submitted = false;
+  appointment: Appointment;
   // @ts-ignore
   initResult: Result;
-  creatOrEditor = true;
+
   regionName = '';
+
+  @ViewChild('participantSurnameInput')
+  set participantSurname(participantSurnameInput: ElementRef<HTMLInputElement>) {
+    if (participantSurnameInput) {
+      setTimeout(() => {
+        participantSurnameInput.nativeElement.focus();
+      });
+    }
+  }
 
   constructor(
     private route: ActivatedRoute,
@@ -42,6 +56,7 @@ export class ApplicationFormComponent implements OnInit {
     private appointmentService: AppointmentService,
     private educationEntityService: EducationEntityService,
     private resultService: ResultService,
+    private cd: ChangeDetectorRef,
     public alert: AlertService
   ) {
   }
@@ -60,47 +75,21 @@ export class ApplicationFormComponent implements OnInit {
           }
         )
       )
-      .subscribe(res => {
+      .subscribe(resultsOfAppointment => {
           if (this.initResult === undefined) {
             this.initResult = this.resultService.getEmptyResult(this.appointment);
           }
-          if (res[0] === undefined) {
+          if (resultsOfAppointment[0] === undefined) {
             // @ts-ignore
-            this.appointment = res;
+            this.appointment = resultsOfAppointment;
           } else {
-            this.appointment = res[0].appointment;
-            this.listOfParticipants = res;
+            this.appointment = resultsOfAppointment[0].appointment;
+            this.listOfParticipants = resultsOfAppointment;
           }
-          this.applicationForm = new FormGroup({
-            participant_name: new FormControl(this.initResult.participant.name, Validators.required),
-            participant_surname: new FormControl(this.initResult.participant.surname, Validators.required),
-            participant_fathersName: new FormControl(this.initResult.participant.fathersName, Validators.required),
-            participant_DoB: new FormControl(this.initResult.participant.DoB, Validators.required),
-            participant_gender: new FormControl(this.initResult.participant.gender, Validators.required),
-            coach_name: new FormControl(this.initResult.coach?.name, Validators.required),
-            coach_surname: new FormControl(this.initResult.coach?.surname, Validators.required),
-            coach_fathersName: new FormControl(this.initResult.coach?.fathersName, Validators.required),
-            eduentityName: new FormControl(this.initResult.educationEntity?.name, Validators.required),
-            regionName: new FormControl(this.initResult.region?.regionName, Validators.required),
-            discipline: new FormControl(this.initResult.discipline, Validators.required)
-          });
-          this.formInitiated = true;
-          // @ts-ignore
-          this.regionFilteredOptions = this.applicationForm.get('regionName').valueChanges
-            .pipe(
-              startWith(''),
-              map((value: string) => this._filterRegion(value))
-            );
-          // @ts-ignore
-          this.educationEntityNameFilteredOptions = this.applicationForm.get('eduentityName').valueChanges
-            .pipe(
-              startWith(''),
-              map((value: string) => this._filterEducationEntityName(value))
-            );
+          this.applicationForm = this.createApplicationForm(this.initResult);
         },
         error => this.resultService.errorHandle(error)
       );
-    // @ts-ignore
     if (this.resultService.error$) {
       this.resultService.error$.subscribe(
         message => {
@@ -110,52 +99,23 @@ export class ApplicationFormComponent implements OnInit {
     }
   }
 
-  private _filterRegion(value: string): string[] {
-    const filterValue = value.toLowerCase();
-    this.regionName = value;
-    return AutoUpdateArrays.regionsNames.filter(regionName => regionName.toLowerCase().includes(filterValue));
-  }
-
-  private _filterEducationEntityName(value: string): string[] {
-    const filterValue = value.toLowerCase();
-    if (this.regionName) {
-      this.educationEntityService.getEduEntitiesNamesByRegion(this.regionName)
-        .pipe(
-          distinct()
-        )
-        .subscribe(
-          educationEntityNames => {
-            this.educationalEntityName = educationEntityNames.slice();
-          });
-    }
-    return this.educationalEntityName.filter(educationalEntityName => educationalEntityName.toLowerCase().includes(filterValue));
-  }
-
   onApply(value: any): void {
     this.applicationForm.disable();
     const result: Result = this.resultService.getResult(this.appointment, value);
-    this.resultService.createResult(result)
-      .pipe(
-        catchError(this.resultService.errorHandle.bind(this)),
-        switchMap(
-          res => {
-            this.initResult = res as Result;
-            this.alert.success('Вітаємо! Учасник успішно доданий до заявки!');
-            return this.resultService.getResultByAppointment(this.appointmentId);
-          }
-        )
-      )
-      .subscribe(
-        results => {
-          this.listOfParticipants = results;
-          this.applicationForm.reset();
-          this.creatOrEditor = true;
-        },
-        error => {
-          this.resultService.errorHandle(error);
-          this.applicationForm.enable();
-        }
-      );
+    this.resultService.createResult(result).subscribe(
+      res => {
+        this.listOfParticipants.unshift(res);
+        this.cd.detectChanges();
+        this.alert.success('Вітаємо! Учасник успішно доданий до заявки!');
+        this.applicationForm.enable();
+        this.applicationForm.reset();
+        this.creatOrEditor = true;
+      },
+      error => {
+        this.resultService.errorHandle(error);
+        this.applicationForm.enable();
+      }
+    );
     if (this.resultService.error$) {
       this.resultService.error$.subscribe(
         message => {
@@ -163,13 +123,12 @@ export class ApplicationFormComponent implements OnInit {
         }
       );
     }
-    this.applicationForm.enable();
   }
 
   onEdit(value: any): void {
     this.applicationForm.disable();
     const result: Result = this.resultService.getResult(this.appointment, value, this.initResult);
-    this.resultService.updateResult(result)
+    this.afSub = this.resultService.updateResult(result)
       .pipe(
         catchError(this.resultService.errorHandle.bind(this)),
         switchMap(
@@ -203,9 +162,71 @@ export class ApplicationFormComponent implements OnInit {
     this.applicationForm.enable();
   }
 
-  resetApplicationForm(id: number): void {
+  resetApplicationForm(): void {
     this.applicationForm.reset();
     this.creatOrEditor = true;
     this.alert.warning('Скасовано');
+  }
+
+  createApplicationForm(result: Result): FormGroup {
+    const applicationForm = new FormGroup({
+      participant_name: new FormControl(result.participant.name, Validators.required),
+      participant_surname: new FormControl(result.participant.surname, Validators.required),
+      participant_fathersName: new FormControl(result.participant.fathersName, Validators.required),
+      participant_DoB: new FormControl(result.participant.DoB, Validators.required),
+      participant_gender: new FormControl(result.participant.gender, Validators.required),
+      coach_name: new FormControl(result.coach?.name, Validators.required),
+      coach_surname: new FormControl(result.coach?.surname, Validators.required),
+      coach_fathersName: new FormControl(result.coach?.fathersName, Validators.required),
+      eduentityName: new FormControl(result.educationEntity?.name, Validators.required),
+      regionName: new FormControl(result.region?.regionName, Validators.required),
+      discipline: new FormControl(result.discipline, Validators.required)
+    });
+    // @ts-ignore
+    this.regionFilteredOptions = applicationForm.get('regionName').valueChanges
+      .pipe(
+        startWith(''),
+        map((value: string) => this._filterRegion(value))
+      );
+    // @ts-ignore
+    this.educationEntityNameFilteredOptions = applicationForm.get('eduentityName').valueChanges
+      .pipe(
+        startWith(''),
+        map((value: string) => this._filterEducationEntityName(value))
+      );
+    return applicationForm;
+  }
+
+  private _filterRegion(value: string): string[] {
+    if (value) {
+      const filterValue = value.toLowerCase();
+      this.regionName = value;
+      return AutoUpdateArrays.regionsNames.filter(regionName => regionName.toLowerCase().includes(filterValue));
+    }
+    return [];
+  }
+
+  private _filterEducationEntityName(value: string): string[] {
+    if (value) {
+      const filterValue = value.toLowerCase();
+      if (this.regionName) {
+        this.educationEntityService.getEduEntitiesNamesByRegion(this.regionName)
+          .pipe(
+            distinct()
+          )
+          .subscribe(
+            educationEntityNames => {
+              this.educationalEntityName = educationEntityNames.slice();
+            });
+      }
+      return this.educationalEntityName.filter(educationalEntityName => educationalEntityName.toLowerCase().includes(filterValue));
+    }
+    return [];
+  }
+
+  ngOnDestroy(): void {
+    if (this.afSub) {
+      this.afSub.unsubscribe();
+    }
   }
 }
