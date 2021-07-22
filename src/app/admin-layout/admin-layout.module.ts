@@ -29,6 +29,7 @@ import {AuthGuardService} from './auth/auth-guard.service';
 import { ApplicationFormComponent } from './creators-editors/application-form/application-form.component';
 import { TeamListComponent } from './team-list/team-list.component';
 import { OneResultEditorComponent } from './creators-editors/one-result-editor/one-result-editor.component';
+import {MatIconModule} from '@angular/material/icon';
 
 @NgModule({
   declarations: [
@@ -54,15 +55,16 @@ import { OneResultEditorComponent } from './creators-editors/one-result-editor/o
     ApplicationFormComponent,
     TeamListComponent,
     OneResultEditorComponent],
-  imports: [
-    FormsModule,
-    ReactiveFormsModule,
-    CommonModule,
-    AdminLayoutRoutingModule,
-    QuillModule,
-    SharedModule,
-    MatRadioModule
-  ],
+    imports: [
+        FormsModule,
+        ReactiveFormsModule,
+        CommonModule,
+        AdminLayoutRoutingModule,
+        QuillModule,
+        SharedModule,
+        MatRadioModule,
+        MatIconModule
+    ],
   providers: [
     AuthGuardService
   ]
