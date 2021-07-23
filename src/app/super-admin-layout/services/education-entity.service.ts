@@ -16,8 +16,15 @@ export class EducationEntityService {
   ) {
   }
 
-  createEduEntity(eduEntity: EducationEntity): Observable<EducationEntity> {
-    return this.http.post<EducationEntity>(`${environment.postgresDbUrl}/eduEntity`, eduEntity);
+  createEduEntity(eduEntity: EducationEntity):
+    Observable<{
+      educationEntity: EducationEntity,
+      message: string
+    }> {
+    return this.http.post<{
+      educationEntity: EducationEntity,
+      message: string
+    }>(`${environment.postgresDbUrl}/eduEntity`, eduEntity);
   }
 
   getAllEducationEntities(): Observable<Array<EducationEntity>> {
@@ -50,8 +57,27 @@ export class EducationEntityService {
     return this.http.delete<{ message: string }>(`${environment.postgresDbUrl}/eduEntity/${id}`);
   }
 
-  updateEduEntity(eduEntity: EducationEntity): Observable<{ message: string }> {
-    return this.http.patch<{ message: string }>(`${environment.postgresDbUrl}/eduEntity/${eduEntity.id}`, eduEntity);
+  updateEduEntity(eduEntity: EducationEntity):
+    Observable<{
+      educationEntity: EducationEntity,
+      message: string
+    }> {
+    return this.http.patch<{
+      educationEntity: EducationEntity,
+      message: string
+    }>(`${environment.postgresDbUrl}/eduEntity/${eduEntity.id}`, eduEntity);
+  }
+
+  get initEducationEntity(): EducationEntity {
+    return {
+      name: '',
+      type: '',
+      category: 0,
+      region: {
+        regionName: '',
+        regionGroup: 0
+      }
+    };
   }
 
   public errorHandle(error: HttpErrorResponse): any {

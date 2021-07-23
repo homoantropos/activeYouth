@@ -19,8 +19,6 @@ import { CountryListComponent } from './country-dashboard/country-list/country-l
 import {RegionsAdminPageComponent} from './regions_dashboard/regions-admin-page/regions-admin-page.component';
 import {RegionEditorComponent} from './regions_dashboard/region-editor/region-editor.component';
 import {AppointmentPlaceAdminPageComponent} from './appointment-place-dashboard/appointment-place-admin-page/appointment-place-admin-page.component';
-import { EducationalEntityCreatorComponent } from './creators-editors/educational-entity-creator/educational-entity-creator.component';
-import { EducationalEntityEditorComponent } from './creators-editors/educational-entity-editor/educational-entity-editor.component';
 import { CoachesListComponent } from './coaches-dashboard/coaches-list/coaches-list.component';
 import { TownAdminPageComponent } from './town_dashboard/town-admin-page/town-admin-page.component';
 import { TownListComponent } from './town_dashboard/town-list/town-list.component';
@@ -50,8 +48,6 @@ import { EducationEntityEditorComponent } from './education-entity-dashboard/edu
     RegionEditorComponent,
     AppointmentPlaceAdminPageComponent,
     AppointmentPlaceEditorComponent,
-    EducationalEntityCreatorComponent,
-    EducationalEntityEditorComponent,
     CoachesListComponent,
     TownAdminPageComponent,
     TownListComponent,

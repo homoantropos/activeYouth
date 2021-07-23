@@ -1,1 +1,79 @@
-<p>education-entity-editor works!</p>
+<ng-template #loader>
+  <app-loader></app-loader>
+</ng-template>
+
+<div *ngIf="educationEntityForm; else loader">
+
+  <form [formGroup]="educationEntityForm">
+
+    <small>{{createOrEditLabelName}}</small>
+
+
+    <mat-form-field class="xl forms-inputs">
+      <mat-label>введіть назву закладу освіти...</mat-label>
+      <input class="forms-inputs"
+             matInput
+             title="eduEntityNameInput"
+             type="text"
+             formControlName="name"
+             #eduEntityNameInput
+      >
+    </mat-form-field>
+
+    <small>тип закладу освіти: </small>
+    <mat-radio-group title="eduEntityType" formControlName="eduEntityType">
+      <mat-radio-button value='ЗЗСО'>ЗЗСО</mat-radio-button>
+      <mat-radio-button value='ЗП(ПТ)О'>ЗП(ПТ)О</mat-radio-button>
+      <mat-radio-button value='ЗФПВО'>ЗФПВО</mat-radio-button>
+      <mat-radio-button value='ЗВО'>ЗВО</mat-radio-button>
+    </mat-radio-group>
+
+    <div *ngIf="eduEntityType && eduEntityType ==='ЗВО'">
+      <small>категорія ЗВО</small>
+      <mat-radio-group title="category" formControlName="category">
+        <mat-radio-button value=1>перша</mat-radio-button>
+        <mat-radio-button value=2>друга</mat-radio-button>
+        <mat-radio-button value=3>третя</mat-radio-button>
+        <mat-radio-button value=4>четверта</mat-radio-button>
+        <mat-radio-button value=5>п'ята</mat-radio-button>
+        <mat-radio-button value=6>шоста</mat-radio-button>
+      </mat-radio-group>
+    </div>
+
+    <mat-form-field title="regionName" class="xl forms-inputs">
+      <mat-label>регіон проведення...</mat-label>
+      <input type="text"
+             placeholder="регіон проведення..."
+             aria-label="regionName"
+             matInput
+             formControlName="regionName"
+             [matAutocomplete]="region">
+      <mat-autocomplete #region="matAutocomplete">
+        <mat-option *ngFor="let option of regionFilteredOptions | async" [value]="option">
+          {{option}}
+        </mat-option>
+      </mat-autocomplete>
+    </mat-form-field>
+
+
+    <button mat-button
+            color="primary"
+            type="button"
+            (click)="onSubmit(educationEntityForm.value)"
+            [disabled]="educationEntityForm.invalid || submitted"
+    >
+      Зберегти
+    </button>
+
+    <button mat-button
+            color="primary"
+            type="button"
+            (click)="resetEducationEntityForm()"
+    >
+      Скасувати
+    </button>
+
+  </form>
+</div>
+
+

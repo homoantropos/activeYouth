@@ -11,9 +11,6 @@ import {SportKindAdminPageComponent} from './sport-kind-admin-page/sport-kind-ad
 import {SportKindCreatorComponent} from './creators-editors/sport-kind-creator/sport-kind-creator.component';
 import {SportKindEditorComponent} from './creators-editors/sport-kind-editor/sport-kind-editor.component';
 import {AppointmentPlaceAdminPageComponent} from './appointment-place-dashboard/appointment-place-admin-page/appointment-place-admin-page.component';
-
-import {EducationalEntityCreatorComponent} from './creators-editors/educational-entity-creator/educational-entity-creator.component';
-import {EducationalEntityEditorComponent} from './creators-editors/educational-entity-editor/educational-entity-editor.component';
 import {TownAdminPageComponent} from './town_dashboard/town-admin-page/town-admin-page.component';
 import {CoachEditorComponent} from './coaches-dashboard/coach-editor/coach-editor.component';
 import {TownEditorComponent} from './town_dashboard/town-editor/town-editor.component';
@@ -23,6 +20,7 @@ import {CountryAdminPageComponent} from './country-dashboard/country-admin-page/
 import {CountryEditorComponent} from './country-dashboard/country-editor/country-editor.component';
 import {AppointmentPlaceEditorComponent} from './appointment-place-dashboard/appointment-place-editor/appointment-place-editor.component';
 import {EducationEntityAdminPageComponent} from './education-entity-dashboard/education-entity-admin-page/education-entity-admin-page.component';
+import {EducationEntityEditorComponent} from './education-entity-dashboard/education-entity-editor/education-entity-editor.component';
 
 const routes: Routes = [
   {
@@ -78,8 +76,8 @@ const routes: Routes = [
       },
       {
         path: 'eduEntities', component: EducationEntityAdminPageComponent, children: [
-          {path: 'create', component: EducationalEntityCreatorComponent},
-          {path: 'edit/:id', component: EducationalEntityEditorComponent}
+          {path: 'create', component: EducationEntityEditorComponent},
+          {path: 'edit/:id', component: EducationEntityEditorComponent}
         ]
       }
     ]

@@ -75,8 +75,7 @@ export interface EducationEntity {
   category?: number;
   type?: string;
   country?: Country;
-  reg?: Region;
-  region?: string;
+  region?: Region;
   id?: number;
 }
 
