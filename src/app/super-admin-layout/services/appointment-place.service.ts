@@ -59,11 +59,18 @@ export class AppointmentPlaceService {
     const message = error.error.message;
     if (message) {
       switch (message) {
-        case('повторювані значення ключа порушують обмеження унікальності \"country_country_name_key149\"'):
-          this.error$.next('така назва країни вже зареєстрована.');
+        case('' +
+          'повторювані значення ключа порушують обмеження унікальності \"appointmentPlace_appointmentPlaceName_countryId_regionId_to_key\"'):
+          this.error$.next('така споруда вже зареєстрована.');
+          break;
+        case('update або delete в таблиці ' +
+          '\"appointmentPlace\" порушує обмеження зовнішнього ключа ' +
+          '\"appointment_appointmentPlaceId_fkey1\" таблиці \"appointment\"'):
+          this.error$.next('Споруда не може бути видалена - в базі даних є захід, до якого вона привязана.');
           break;
       }
     }
     return throwError(error);
   }
 }
+
