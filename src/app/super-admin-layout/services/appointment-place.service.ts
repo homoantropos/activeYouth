@@ -59,8 +59,7 @@ export class AppointmentPlaceService {
     const message = error.error.message;
     if (message) {
       switch (message) {
-        case('' +
-          'повторювані значення ключа порушують обмеження унікальності \"appointmentPlace_appointmentPlaceName_countryId_regionId_to_key\"'):
+        case('повторювані значення ключа порушують обмеження унікальності \"appointmentPlace_appointmentPlaceName_countryId_regionId_to_key\"'):
           this.error$.next('така споруда вже зареєстрована.');
           break;
         case('update або delete в таблиці ' +
