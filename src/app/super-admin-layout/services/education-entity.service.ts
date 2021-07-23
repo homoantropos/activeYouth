@@ -71,7 +71,7 @@ export class EducationEntityService {
   get initEducationEntity(): EducationEntity {
     return {
       name: '',
-      type: '',
+      eduEntityType: '',
       category: 0,
       region: {
         regionName: '',

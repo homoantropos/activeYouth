@@ -86,7 +86,7 @@ export class EducationEntityEditorComponent implements OnInit, OnDestroy {
     const eduEntityForm = new FormGroup({
       name: new FormControl(educationEntity.name, [Validators.required]),
       category: new FormControl(educationEntity.category),
-      eduEntityType: new FormControl(educationEntity.type, [Validators.required]),
+      eduEntityType: new FormControl(educationEntity.eduEntityType, [Validators.required]),
       regionName: new FormControl(educationEntity.region?.regionName, [Validators.required])
     });
     // @ts-ignore
@@ -113,7 +113,7 @@ export class EducationEntityEditorComponent implements OnInit, OnDestroy {
     const createdEducationEntity: EducationEntity = {
       name: formValue.name.trim(),
       category: formValue.category,
-      type: formValue.eduEntityType.trim(),
+      eduEntityType: formValue.eduEntityType.trim(),
       region: {
         regionName: formValue.regionName.trim(),
         regionGroup: 0

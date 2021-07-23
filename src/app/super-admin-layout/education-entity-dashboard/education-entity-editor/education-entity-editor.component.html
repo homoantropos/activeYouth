@@ -8,8 +8,7 @@
 
     <small>{{createOrEditLabelName}}</small>
 
-
-    <mat-form-field class="xl forms-inputs">
+    <mat-form-field class="half forms-inputs">
       <mat-label>введіть назву закладу освіти...</mat-label>
       <input class="forms-inputs"
              matInput
@@ -28,19 +27,7 @@
       <mat-radio-button value='ЗВО'>ЗВО</mat-radio-button>
     </mat-radio-group>
 
-    <div *ngIf="eduEntityType && eduEntityType ==='ЗВО'">
-      <small>категорія ЗВО</small>
-      <mat-radio-group title="category" formControlName="category">
-        <mat-radio-button value=1>перша</mat-radio-button>
-        <mat-radio-button value=2>друга</mat-radio-button>
-        <mat-radio-button value=3>третя</mat-radio-button>
-        <mat-radio-button value=4>четверта</mat-radio-button>
-        <mat-radio-button value=5>п'ята</mat-radio-button>
-        <mat-radio-button value=6>шоста</mat-radio-button>
-      </mat-radio-group>
-    </div>
-
-    <mat-form-field title="regionName" class="xl forms-inputs">
+    <mat-form-field title="regionName" class="forms-inputs">
       <mat-label>регіон проведення...</mat-label>
       <input type="text"
              placeholder="регіон проведення..."
@@ -55,6 +42,16 @@
       </mat-autocomplete>
     </mat-form-field>
 
+
+    <mat-radio-group title="category" formControlName="category" *ngIf="eduEntityType && eduEntityType ==='ЗВО'">
+      <small>категорія ЗВО: </small>
+      <mat-radio-button value=1>перша</mat-radio-button>
+      <mat-radio-button value=2>друга</mat-radio-button>
+      <mat-radio-button value=3>третя</mat-radio-button>
+      <mat-radio-button value=4>четверта</mat-radio-button>
+      <mat-radio-button value=5>п'ята</mat-radio-button>
+      <mat-radio-button value=6>шоста</mat-radio-button>
+    </mat-radio-group>
 
     <button mat-button
             color="primary"

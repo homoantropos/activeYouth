@@ -767,7 +767,7 @@ export class MockDataBase {
       educationEntity: {
         name: 'Київський інститут інженерів цивільної авіації',
         category: 2,
-        type: 'ЗВО'
+        eduEntityType: 'ЗВО'
       },
       discipline: 'біг',
       place: 1,
@@ -808,7 +808,7 @@ export class MockDataBase {
       educationEntity: {
         name: 'Київський інститут інженерів цивільної авіації',
         category: 2,
-        type: 'ЗВО'
+        eduEntityType: 'ЗВО'
       },
       discipline: 'стрибки',
       place: 1,
@@ -848,7 +848,7 @@ export class MockDataBase {
       educationEntity: {
         name: 'Київський інститут інженерів цивільної авіації',
         category: 2,
-        type: 'ЗВО'
+        eduEntityType: 'ЗВО'
       },
       discipline: 'біг',
       place: 3,
@@ -888,7 +888,7 @@ export class MockDataBase {
       educationEntity: {
         name: 'Київський інститут інженерів цивільної авіації',
         category: 2,
-        type: 'ЗВО'
+        eduEntityType: 'ЗВО'
       },
       discipline: 'стрибки',
       place: 2,
@@ -928,7 +928,7 @@ export class MockDataBase {
       educationEntity: {
         name: 'Сумський державний університет',
         category: 2,
-        type: 'ЗВО'
+        eduEntityType: 'ЗВО'
       },
       discipline: 'біг',
       place: 2,
@@ -968,7 +968,7 @@ export class MockDataBase {
       educationEntity: {
         name: 'Сумський державний університет',
         category: 2,
-        type: 'ЗВО'
+        eduEntityType: 'ЗВО'
       },
       discipline: 'стрибки',
       place: 3,
@@ -1008,7 +1008,7 @@ export class MockDataBase {
       educationEntity: {
         name: 'Сумський державний університет',
         category: 2,
-        type: 'ЗВО'
+        eduEntityType: 'ЗВО'
       },
       discipline: 'стояння',
       place: 1,
@@ -1048,7 +1048,7 @@ export class MockDataBase {
       educationEntity: {
         name: 'Київський національний університет імені Т. Г. Шевченка',
         category: 2,
-        type: 'ЗВО'
+        eduEntityType: 'ЗВО'
       },
       discipline: 'біг',
       place: 1,
@@ -1088,7 +1088,7 @@ export class MockDataBase {
       educationEntity: {
         name: 'Київський національний університет імені Т. Г. Шевченка',
         category: 2,
-        type: 'ЗВО'
+        eduEntityType: 'ЗВО'
       },
       discipline: 'стрибки',
       place: 1,
@@ -1128,7 +1128,7 @@ export class MockDataBase {
       educationEntity: {
         name: 'Національний університет фізичного виховання та спорту України',
         category: 1,
-        type: 'ЗВО'
+        eduEntityType: 'ЗВО'
       },
       discipline: 'біг',
       place: 3,
@@ -1168,7 +1168,7 @@ export class MockDataBase {
       educationEntity: {
         name: 'Національний університет фізичного виховання та спорту України',
         category: 1,
-        type: 'ЗВО'
+        eduEntityType: 'ЗВО'
       },
       discipline: 'стрибки',
       place: 2,
@@ -1208,7 +1208,7 @@ export class MockDataBase {
       educationEntity: {
         name: 'Сумський державний університет',
         category: 2,
-        type: 'ЗВО'
+        eduEntityType: 'ЗВО'
       },
       discipline: 'біг',
       place: 2,
@@ -1248,7 +1248,7 @@ export class MockDataBase {
       educationEntity: {
         name: 'Сумський державний університет',
         category: 2,
-        type: 'ЗВО'
+        eduEntityType: 'ЗВО'
       },
       discipline: 'стрибки',
       place: 3,
@@ -1293,7 +1293,7 @@ export class MockDataBase {
       completed: true,
       educationEntity: {
         name: 'Загальноосвітня школа №4 міста Запоріжжа',
-        type: 'ЗЗСО'
+        eduEntityType: 'ЗЗСО'
       },
       discipline: 'дівчата',
       place: 1,
@@ -1338,7 +1338,7 @@ export class MockDataBase {
       completed: true,
       educationEntity: {
         name: 'Загальноосвітня школа №4 міста Запоріжжа',
-        type: 'ЗЗСО'
+        eduEntityType: 'ЗЗСО'
       },
       discipline: 'дівчата',
       place: 1,
@@ -1383,7 +1383,7 @@ export class MockDataBase {
       completed: true,
       educationEntity: {
         name: 'Загальноосвітня школа №4 міста Запоріжжа',
-        type: 'ЗЗСО'
+        eduEntityType: 'ЗЗСО'
       },
       discipline: 'дівчата',
       place: 1,
@@ -1428,7 +1428,7 @@ export class MockDataBase {
       completed: true,
       educationEntity: {
         name: 'Загальноосвітня школа №4 міста Запоріжжа',
-        type: 'ЗЗСО'
+        eduEntityType: 'ЗЗСО'
       },
       discipline: 'ІІІ віковий дивізіон',
       place: 1,
@@ -1473,7 +1473,7 @@ export class MockDataBase {
       completed: true,
       educationEntity: {
         name: 'Загальноосвітня школа №4 міста Запоріжжа',
-        type: 'ЗЗСО'
+        eduEntityType: 'ЗЗСО'
       },
       discipline: 'ІІІ віковий дивізіон',
       place: 1,
@@ -1518,7 +1518,7 @@ export class MockDataBase {
       completed: true,
       educationEntity: {
         name: 'Загальноосвітня школа №4 міста Запоріжжа',
-        type: 'ЗЗСО'
+        eduEntityType: 'ЗЗСО'
       },
       discipline: 'ІІІ віковий дивізіон',
       place: 1,
@@ -1563,7 +1563,7 @@ export class MockDataBase {
       completed: true,
       educationEntity: {
         name: 'Загальноосвітня школа №4 міста Запоріжжа',
-        type: 'ЗЗСО'
+        eduEntityType: 'ЗЗСО'
       },
       discipline: 'хлопці',
       place: 1,
@@ -1608,7 +1608,7 @@ export class MockDataBase {
       completed: true,
       educationEntity: {
         name: 'Загальноосвітня школа №4 міста Запоріжжа',
-        type: 'ЗЗСО'
+        eduEntityType: 'ЗЗСО'
       },
       discipline: 'хлопці',
       place: 1,

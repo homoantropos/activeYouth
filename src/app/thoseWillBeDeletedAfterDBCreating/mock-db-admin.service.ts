@@ -46,7 +46,7 @@ export class MockDBAdministratorService {
     };
 
     // mockEduEntity creating
-    const mockEducationalEntity: EducationEntity = {name: EduEntName, category, type};
+    const mockEducationalEntity: EducationEntity = {name: EduEntName, category, eduEntityType: type};
 
     switch (place) {
       case 1 :

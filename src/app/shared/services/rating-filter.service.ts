@@ -36,7 +36,7 @@ export class RatingFilterService {
 
   filterByEduEntity(results: Array<Result>, eduEntityType: string, eduEntityCategory?: number): Array<Result> {
     let cloneResults = results.slice();
-    cloneResults = cloneResults.filter(r => r.educationEntity.type === eduEntityType);
+    cloneResults = cloneResults.filter(r => r.educationEntity.eduEntityType === eduEntityType);
     if (eduEntityType === 'ЗВО' && eduEntityCategory !== 0) {
       cloneResults = cloneResults.filter(r => r.educationEntity.category === eduEntityCategory);
     }
