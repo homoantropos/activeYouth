@@ -1,3 +1,28 @@
+<nav>
+  <ul>
+    <li>
+      <button mat-button color="primary" class="widthButton" (click)="changeEduEntityType('ЗЗСО')">
+        ЗЗСО
+      </button>
+    </li>
+    <li>
+      <button mat-button color="primary" class="widthButton" (click)="changeEduEntityType('ЗП(ПТ)О')">
+        ЗП(ПТ)О
+      </button>
+    </li>
+    <li>
+      <button mat-button color="primary" class="widthButton" (click)="changeEduEntityType('ЗФПВО')">
+        ЗФПВО
+      </button>
+    </li>
+    <li>
+      <button mat-button color="primary" class="widthButton" (click)="changeEduEntityType('ЗВО')">
+        ЗВО
+      </button>
+    </li>
+  </ul>
+</nav>
+
 <div *ngIf="educationEntitiesList; else loader">
 
   <table mat-table

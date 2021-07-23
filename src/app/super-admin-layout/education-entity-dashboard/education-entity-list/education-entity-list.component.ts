@@ -81,4 +81,8 @@ export class EducationEntityListComponent implements OnInit {
     this.showDeleteConfirmation = false;
   }
 
+  changeEduEntityType(eduEntityType: string): void {
+    this.eduEntityType = eduEntityType;
+    this.ngOnInit();
+  }
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Params, Router} from '@angular/router';
 
 @Component({
@@ -9,7 +9,6 @@ import {ActivatedRoute, Params, Router} from '@angular/router';
 export class EducationEntityAdminPageComponent implements OnInit {
 
   showButton = true;
-  eduEntityType = 'ЗЗСО';
 
   constructor(
     private router: Router,
@@ -36,8 +35,4 @@ export class EducationEntityAdminPageComponent implements OnInit {
     this.router.navigateByUrl(`superadmin/eduEntities/create`);
   }
 
-  changeEduEntityType(eduEntityType: string): void {
-    this.eduEntityType = eduEntityType;
-    this.router.navigateByUrl(`superadmin/eduEntities`);
-  }
 }
