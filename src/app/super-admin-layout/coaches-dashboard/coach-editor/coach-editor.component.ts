@@ -105,7 +105,7 @@ export class CoachEditorComponent implements OnInit, OnDestroy {
       .subscribe(
         dbCoachAndMessage => {
           CoachesListComponent.coaches = CoachesListComponent.coaches.filter(c => c.id !== dbCoachAndMessage.coach.id);
-          CoachesListComponent.coaches.unshift(dbCoachAndMessage.coach);
+          CoachesListComponent.coaches.push(dbCoachAndMessage.coach);
           this.alert.success(dbCoachAndMessage.message);
           this.resetCoachForm();
         }, error => {

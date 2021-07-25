@@ -24,6 +24,6 @@ export class TeamListComponent implements OnInit {
 
   goToOneResultEditor(result: Result): void {
     this.resultEmit.emit(result);
-    this.router.navigateByUrl(`admin/application/${result.appointmentId}`);
+    this.router.navigateByUrl(`application/${result.appointmentId}`);
   }
 }

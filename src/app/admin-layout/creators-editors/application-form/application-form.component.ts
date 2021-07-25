@@ -1,7 +1,7 @@
 import {ChangeDetectorRef, Component, ElementRef, OnDestroy, OnInit, ViewChild} from '@angular/core';
 import {ActivatedRoute, Params, Router} from '@angular/router';
 import {Appointment, Result} from '../../../shared/interfases';
-import {catchError, distinct, map, startWith, switchMap} from 'rxjs/operators';
+import {distinct, map, startWith, switchMap} from 'rxjs/operators';
 import {AppointmentService} from '../../../shared/services/appointment.service';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {ResultService} from '../../../shared/services/result.service';
@@ -9,6 +9,7 @@ import {Observable, Subscription} from 'rxjs';
 import {AutoUpdateArrays} from '../../../shared/utils/autoUpdateArrays';
 import {AlertService} from '../../../shared/services/alert.service';
 import {EducationEntityService} from '../../../super-admin-layout/services/education-entity.service';
+import {RegionService} from '../../../super-admin-layout/services/region.service';
 
 @Component({
   selector: 'app-application-form',
@@ -26,9 +27,9 @@ export class ApplicationFormComponent implements OnInit, OnDestroy {
   // @ts-ignore
   afSub: Subscription;
 
-  appointmentId = 0;
   listOfParticipants: Array<Result> = [];
   educationalEntityName: Array<string> = [];
+  regionsNames: Array<string> = [];
   // @ts-ignore
   educationEntityNameFilteredOptions: Observable<string>;
   // @ts-ignore
@@ -57,11 +58,23 @@ export class ApplicationFormComponent implements OnInit, OnDestroy {
     private educationEntityService: EducationEntityService,
     private resultService: ResultService,
     private cd: ChangeDetectorRef,
+    private regionService: RegionService,
     public alert: AlertService
   ) {
   }
 
   ngOnInit(result?: Result): void {
+    this.afSub = this.regionService.getAllRegions()
+      .pipe(
+        map(
+          regions => regions.map(
+            region => region.regionName
+          )
+        )
+      )
+      .subscribe(
+        regionsNames => this.regionsNames = regionsNames.slice()
+      );
     if (result) {
       this.initResult = result;
       this.creatOrEditor = false;
@@ -70,7 +83,6 @@ export class ApplicationFormComponent implements OnInit, OnDestroy {
       .pipe(
         switchMap(
           (params: Params) => {
-            this.appointmentId = params.get('id');
             return this.resultService.getResultByAppointment(params.get('id'));
           }
         )
@@ -99,49 +111,25 @@ export class ApplicationFormComponent implements OnInit, OnDestroy {
     }
   }
 
-  onApply(value: any): void {
+  onSubmit(formGroupValue: any): void {
     this.applicationForm.disable();
-    const result: Result = this.resultService.getResult(this.appointment, value);
-    this.resultService.createResult(result).subscribe(
-      res => {
-        this.listOfParticipants.unshift(res);
-        this.cd.detectChanges();
-        this.alert.success('Вітаємо! Учасник успішно доданий до заявки!');
-        this.applicationForm.enable();
-        this.applicationForm.reset();
-        this.creatOrEditor = true;
-      },
-      error => {
-        this.resultService.errorHandle(error);
-        this.applicationForm.enable();
-      }
-    );
-    if (this.resultService.error$) {
-      this.resultService.error$.subscribe(
-        message => {
-          this.alert.danger(message);
-        }
-      );
+    const result: Result = this.resultService.getResult(this.appointment, formGroupValue, this.initResult);
+    let resultServiceMethod;
+    if (this.creatOrEditor){
+      resultServiceMethod = this.resultService.createResult(result);
+    } else {
+      resultServiceMethod = this.resultService.updateResult(result);
     }
-  }
-
-  onEdit(value: any): void {
-    this.applicationForm.disable();
-    const result: Result = this.resultService.getResult(this.appointment, value, this.initResult);
-    this.afSub = this.resultService.updateResult(result)
-      .pipe(
-        catchError(this.resultService.errorHandle.bind(this)),
-        switchMap(
-          () => {
-            this.alert.success('Вітаємо! Ваші зміни успішно збережені!');
-            return this.resultService.getResultByAppointment(this.appointmentId);
-          }
-        )
-      )
+    this.afSub = resultServiceMethod
       .subscribe(
-        results => {
-          // @ts-ignore
-          this.listOfParticipants = results;
+        dbResultAndMessage => {
+          this.listOfParticipants = this.listOfParticipants
+            .filter(
+              r => r.id !== dbResultAndMessage.result.id
+            );
+          this.listOfParticipants.push(dbResultAndMessage.result);
+          this.cd.detectChanges();
+          this.alert.success(dbResultAndMessage.message);
           this.applicationForm.reset();
           this.creatOrEditor = true;
         },
@@ -201,7 +189,7 @@ export class ApplicationFormComponent implements OnInit, OnDestroy {
     if (value) {
       const filterValue = value.toLowerCase();
       this.regionName = value;
-      return AutoUpdateArrays.regionsNames.filter(regionName => regionName.toLowerCase().includes(filterValue));
+      return this.regionsNames.filter(regionName => regionName.toLowerCase().includes(filterValue));
     }
     return [];
   }

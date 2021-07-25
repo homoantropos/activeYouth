@@ -13,8 +13,8 @@ import {RatingOfStudentsComponent} from './raiting-page/rating-of-students/ratin
 import {RatingOfEducationalEntityComponent} from './raiting-page/rating-of-educational-entity/rating-of-educational-entity.component';
 import {TeachersPageComponent} from './teachers-page/teachers-page.component';
 import {OrganizatorsPageComponent} from './organizators-page/organizators-page.component';
-import {AuthGuardService} from '../admin-layout/auth/auth-guard.service';
 import {ApplicationFormComponent} from '../admin-layout/creators-editors/application-form/application-form.component';
+import {AuthGuardService} from '../admin-layout/auth/auth-guard.service';
 
 const routes: Routes = [
   { path: '', component: MainLayoutComponent, children: [
@@ -33,7 +33,10 @@ const routes: Routes = [
           {path: 'eduentity', component: RatingOfEducationalEntityComponent}
         ]},
       {path: 'teacher', component: TeachersPageComponent},
-      {path: 'organizator', component: OrganizatorsPageComponent}
+      {path: 'organizator', component: OrganizatorsPageComponent},
+      {path: 'application', canActivate: [AuthGuardService], children: [
+          {path: ':id', component: ApplicationFormComponent}
+        ]},
     ] }
 ];
 

@@ -21,8 +21,7 @@ export class AutoUpdateArraysCreateService implements OnDestroy {
     private countryService: CountryService,
     private regionService: RegionService,
     private townService: TownService,
-    private appointmentPlaceService: AppointmentPlaceService,
-    private educationEntityServie: EducationEntityService
+    private appointmentPlaceService: AppointmentPlaceService
   ) {
   }
 

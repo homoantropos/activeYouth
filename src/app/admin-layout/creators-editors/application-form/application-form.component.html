@@ -118,25 +118,13 @@
     </mat-form-field>
 
     <button
-      *ngIf="creatOrEditor"
       mat-button
       color="primary"
       type="button"
-      (click)="onApply(applicationForm.value)"
+      (click)="onSubmit(applicationForm.value)"
       [disabled]="applicationForm.invalid || submitted"
     >
-      Додати
-    </button>
-
-    <button
-      *ngIf="!creatOrEditor"
-      mat-button
-      color="primary"
-      type="button"
-      (click)="onEdit(applicationForm.value)"
-      [disabled]="applicationForm.invalid || submitted"
-    >
-      Зберегти зміни
+      {{creatOrEditor ? 'Додати' : 'Зберегти зміни'}}
     </button>
 
     <button
