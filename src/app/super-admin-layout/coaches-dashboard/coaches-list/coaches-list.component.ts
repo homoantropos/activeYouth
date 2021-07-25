@@ -25,6 +25,7 @@ export class CoachesListComponent implements OnInit {
   // @ts-ignore
   coachId: number;
 
+  direction = true;
   showDeleteConfirmation = false;
   option = 'тренера';
   @Output() showButton: EventEmitter<boolean> = new EventEmitter<boolean>();
@@ -77,4 +78,16 @@ export class CoachesListComponent implements OnInit {
     this.showDeleteConfirmation = false;
   }
 
+  sortByNames(): void {
+    if (this.direction){
+      CoachesListComponent.coaches = CoachesListComponent.coaches.sort(
+        (a, b) => b.surname.toLowerCase().localeCompare(a.surname.toLowerCase())
+      );
+    } else {
+      CoachesListComponent.coaches = CoachesListComponent.coaches.sort(
+        (a, b) => a.surname.toLowerCase().localeCompare(b.surname.toLowerCase())
+      );
+    }
+    this.direction = !this.direction;
+  }
 }
