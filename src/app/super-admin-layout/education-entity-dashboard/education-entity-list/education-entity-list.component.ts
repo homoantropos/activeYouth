@@ -25,6 +25,7 @@ export class EducationEntityListComponent implements OnInit {
   // @ts-ignore
   educationEntityId: number;
 
+  direction = true;
   showDeleteConfirmation = false;
   option = 'заклад освіти';
   @Output() showButton: EventEmitter<boolean> = new EventEmitter<boolean>();
@@ -84,5 +85,33 @@ export class EducationEntityListComponent implements OnInit {
   changeEduEntityType(eduEntityType: string): void {
     this.eduEntityType = eduEntityType;
     this.ngOnInit();
+  }
+
+  sortByNames(): void {
+    if (this.direction){
+      EducationEntityListComponent.educationEntities = EducationEntityListComponent.educationEntities.sort(
+        (a, b) => b.name.toLowerCase().localeCompare(a.name.toLowerCase())
+      );
+    } else {
+      EducationEntityListComponent.educationEntities = EducationEntityListComponent.educationEntities.sort(
+        (a, b) => a.name.toLowerCase().localeCompare(b.name.toLowerCase())
+      );
+    }
+    this.direction = !this.direction;
+  }
+
+  sortById(): void {
+    if (this.direction){
+      EducationEntityListComponent.educationEntities = EducationEntityListComponent.educationEntities.sort(
+        // @ts-ignore
+        (a, b) => b.id - a.id
+      );
+    } else {
+      EducationEntityListComponent.educationEntities = EducationEntityListComponent.educationEntities.sort(
+        // @ts-ignore
+        (a, b) => a.id - b.id
+      );
+    }
+    this.direction = !this.direction;
   }
 }
