@@ -6,7 +6,6 @@ import {AppointmentService} from '../../../shared/services/appointment.service';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {ResultService} from '../../../shared/services/result.service';
 import {Observable, Subscription} from 'rxjs';
-import {AutoUpdateArrays} from '../../../shared/utils/autoUpdateArrays';
 import {AlertService} from '../../../shared/services/alert.service';
 import {EducationEntityService} from '../../../super-admin-layout/services/education-entity.service';
 import {RegionService} from '../../../super-admin-layout/services/region.service';

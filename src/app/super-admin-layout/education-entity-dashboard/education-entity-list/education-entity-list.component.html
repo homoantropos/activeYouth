@@ -36,7 +36,7 @@
         <button
           mat-button color="primary"
           [innerHTML]="direction ? '&#8593;' : '&#8595;'"
-          (click) = sortById()
+          (click) = "sortTable('id')"
         >
         </button>
       </th>
@@ -51,7 +51,7 @@
         <button
           mat-button color="primary"
           [innerHTML]="direction ? '&#8593;' : '&#8595;'"
-          (click) = sortByNames()
+          (click) = "sortTable('name')"
         >
         </button>
       </th>

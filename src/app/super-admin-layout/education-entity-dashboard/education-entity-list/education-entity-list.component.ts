@@ -3,6 +3,7 @@ import {EducationEntity} from '../../../shared/interfases';
 import {Router} from '@angular/router';
 import {AlertService} from '../../../shared/services/alert.service';
 import {EducationEntityService} from '../../services/education-entity.service';
+import {TableSortService} from '../../../shared/utils/table-sort.service';
 
 @Component({
   selector: 'app-education-entity-list',
@@ -33,7 +34,8 @@ export class EducationEntityListComponent implements OnInit {
   constructor(
     private router: Router,
     private educationEntityService: EducationEntityService,
-    private alert: AlertService
+    private alert: AlertService,
+    private sortService: TableSortService
   ) {
   }
 
@@ -87,31 +89,7 @@ export class EducationEntityListComponent implements OnInit {
     this.ngOnInit();
   }
 
-  sortByNames(): void {
-    if (this.direction){
-      EducationEntityListComponent.educationEntities = EducationEntityListComponent.educationEntities.sort(
-        (a, b) => b.name.toLowerCase().localeCompare(a.name.toLowerCase())
-      );
-    } else {
-      EducationEntityListComponent.educationEntities = EducationEntityListComponent.educationEntities.sort(
-        (a, b) => a.name.toLowerCase().localeCompare(b.name.toLowerCase())
-      );
-    }
-    this.direction = !this.direction;
-  }
-
-  sortById(): void {
-    if (this.direction){
-      EducationEntityListComponent.educationEntities = EducationEntityListComponent.educationEntities.sort(
-        // @ts-ignore
-        (a, b) => b.id - a.id
-      );
-    } else {
-      EducationEntityListComponent.educationEntities = EducationEntityListComponent.educationEntities.sort(
-        // @ts-ignore
-        (a, b) => a.id - b.id
-      );
-    }
-    this.direction = !this.direction;
+  sortTable(sortOption: any): void {
+    this.direction = this.sortService.sortTableByStringValues(sortOption, EducationEntityListComponent.educationEntities, this.direction);
   }
 }
