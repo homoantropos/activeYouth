@@ -6,12 +6,26 @@
          class="mat-elevation-z8">
 
     <ng-container matColumnDef="_id">
-      <th mat-header-cell *matHeaderCellDef>ID</th>
+      <th mat-header-cell *matHeaderCellDef>
+        id
+        <button mat-button color="primary"
+                [innerHTML]="sortDirection ? '&#8595;' : '&#8593;'"
+                (click)="sort('id')"
+        >
+        </button>
+      </th>
       <td mat-cell *matCellDef="let town">{{town.id}}</td>
     </ng-container>
 
     <ng-container matColumnDef="name">
-      <th mat-header-cell *matHeaderCellDef>Місто</th>
+      <th mat-header-cell *matHeaderCellDef>
+        Місто
+        <button mat-button color="primary"
+                [innerHTML]="sortDirection ? '&#8595;' : '&#8593;'"
+                (click)="sort('townName')"
+        >
+        </button>
+      </th>
       <td mat-cell *matCellDef="let town">
         <a>
           {{town.townName}}
@@ -19,13 +33,27 @@
     </ng-container>
 
     <ng-container matColumnDef="country">
-      <th mat-header-cell *matHeaderCellDef>Країна</th>
+      <th mat-header-cell *matHeaderCellDef>
+        Країна
+        <button mat-button color="primary"
+                [innerHTML]="sortDirection ? '&#8595;' : '&#8593;'"
+                (click)="sortTable(['region', 'country', 'countryName'])"
+        >
+        </button>
+      </th>
       <td mat-cell *matCellDef="let town">
         {{town.region.country.countryName | titlecase}}
     </ng-container>
 
     <ng-container matColumnDef="region">
-      <th mat-header-cell *matHeaderCellDef>Регіон</th>
+      <th mat-header-cell *matHeaderCellDef>
+        Регіон
+        <button mat-button color="primary"
+                [innerHTML]="sortDirection ? '&#8595;' : '&#8593;'"
+                (click)="sortTable(['region', 'regionName'])"
+        >
+        </button>
+      </th>
       <td mat-cell *matCellDef="let town">
         {{town.region.regionName}}
     </ng-container>

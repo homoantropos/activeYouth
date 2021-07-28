@@ -9,6 +9,7 @@ export class TableSortService {
   }
 
   sortTableByStringValues(sortOption: any, sortedArray: Array<any>, direction: boolean): boolean {
+    console.log(sortedArray[0][sortOption]);
     if (typeof sortedArray[0][sortOption] === 'string') {
       if (direction) {
         sortedArray.sort((a, b) => b[sortOption].toLowerCase().localeCompare(a[sortOption].toLowerCase()));

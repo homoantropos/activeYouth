@@ -26,7 +26,7 @@ export class EducationEntityListComponent implements OnInit {
   // @ts-ignore
   educationEntityId: number;
 
-  direction = true;
+  sortDirection = true;
   showDeleteConfirmation = false;
   option = 'заклад освіти';
   @Output() showButton: EventEmitter<boolean> = new EventEmitter<boolean>();
@@ -90,6 +90,7 @@ export class EducationEntityListComponent implements OnInit {
   }
 
   sortTable(sortOption: any): void {
-    this.direction = this.sortService.sortTableByStringValues(sortOption, EducationEntityListComponent.educationEntities, this.direction);
+    this.sortDirection =
+      this.sortService.sortTableByStringValues(sortOption, EducationEntityListComponent.educationEntities, this.sortDirection);
   }
 }

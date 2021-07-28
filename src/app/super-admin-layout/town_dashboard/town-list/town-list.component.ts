@@ -4,6 +4,7 @@ import {MatTableDataSource} from '@angular/material/table';
 import {Router} from '@angular/router';
 import {TownService} from '../../services/town.service';
 import {AlertService} from '../../../shared/services/alert.service';
+import {TableSortService} from '../../../shared/utils/table-sort.service';
 
 @Component({
   selector: 'app-town-list',
@@ -14,6 +15,7 @@ export class TownListComponent implements OnInit {
 
   // @ts-ignore
   static towns: Array<Town>;
+  sortDirection = true;
 
   get townsList(): Array<Town> {
     return TownListComponent.towns;
@@ -32,7 +34,8 @@ export class TownListComponent implements OnInit {
   constructor(
     private router: Router,
     private townService: TownService,
-    private alert: AlertService
+    private alert: AlertService,
+    private sortService: TableSortService
   ) {
   }
 
@@ -78,6 +81,26 @@ export class TownListComponent implements OnInit {
       this.alert.warning('Видалення скасовано.');
     }
     this.showDeleteConfirmation = false;
+  }
+
+  sort(sortOption: any): void {
+    this.sortDirection = this.sortService.sortTableByStringValues(sortOption, TownListComponent.towns, this.sortDirection);
+  }
+
+
+  sortTable(sortOption: Array<string>): void {
+    if (this.sortDirection) {
+      TownListComponent.towns.sort(
+        (a, b) =>
+          // @ts-ignore
+          b[sortOption[0]][sortOption[1]].toLowerCase().localeCompare(a[sortOption[0]][sortOption[1]].toLowerCase()));
+    } else {
+      TownListComponent.towns.sort(
+        (a, b) =>
+          // @ts-ignore
+          a[sortOption[0]][sortOption[1]].toLowerCase().localeCompare(b[sortOption[0]][sortOption[1]].toLowerCase()));
+    }
+    this.sortDirection = !this.sortDirection;
   }
 
 }
