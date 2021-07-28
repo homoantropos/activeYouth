@@ -1,6 +1,5 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {Town} from '../../../shared/interfases';
-import {MatTableDataSource} from '@angular/material/table';
 import {Router} from '@angular/router';
 import {TownService} from '../../services/town.service';
 import {AlertService} from '../../../shared/services/alert.service';
