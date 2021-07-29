@@ -1,9 +1,26 @@
-<div>
-  <button mat-button color="primary"
-          type="button"
-          (click)="goToSportKindEditor()"
-          *ngIf="showButton">
-    Додати вид спорту
+<button mat-button color="primary"
+        [ngStyle]="{marginTop:'10px'}"
+        type="button"
+        (click)="goToSportKindEditor()"
+        *ngIf="showButton">
+  Додати вид спорту
+</button>
+
+<div *ngIf="showButton" [ngStyle]="{float: 'right'}">
+  <mat-form-field >
+    <mat-label>пошук за {{searchOption ? 'типом' : 'назвою'}}...</mat-label>
+    <input matInput
+           title="nameInput"
+           type="text"
+           id="nameInput"
+           [(ngModel)]="searchValue"
+    >
+  </mat-form-field>
+  <button
+    mat-button color="primary"
+    (click)="searchOption=!searchOption"
+  >
+    змінити, шукати за {{searchOption ? 'назвою' : 'типом'}}
   </button>
 </div>
 
@@ -11,4 +28,5 @@
 
 <app-sport-kind-list
   (showButton)="setShowButton($event)"
+  [list]="sportKinds | search : searchValue"
 ></app-sport-kind-list>

@@ -6,7 +6,7 @@ import {AlertService} from '../../../shared/services/alert.service';
 import {switchMap} from 'rxjs/operators';
 import {SportKind} from '../../../shared/interfases';
 import {SportKindService} from '../../services/sport-kind.service';
-import {SportKindListComponent} from '../sport-kind-list/sport-kind-list.component';
+import {SportKindAdminPageComponent} from '../sport-kind-admin-page/sport-kind-admin-page.component';
 
 @Component({
   selector: 'app-sport-kind-editor',
@@ -95,7 +95,7 @@ export class SportKindEditorComponent implements OnInit, OnDestroy {
   onSubmit(formValue: any): void {
     this.sportKindForm.disable();
     this.submitted = true;
-    const registrationNumber = `${SportKindListComponent.sportKinds.length + 1}`;
+    const registrationNumber = `${SportKindAdminPageComponent.sportKinds.length + 1}`;
     const createdSportKind: SportKind = {
       sportKind: formValue.sportKind.trim(),
       program: formValue.program.trim(),
@@ -112,8 +112,9 @@ export class SportKindEditorComponent implements OnInit, OnDestroy {
     this.skSub = sportKindServiceMethod
       .subscribe(
         dbSportKindAndMessage => {
-          SportKindListComponent.sportKinds = SportKindListComponent.sportKinds.filter(sk => sk.id !== dbSportKindAndMessage.sportKind.id);
-          SportKindListComponent.sportKinds.push(dbSportKindAndMessage.sportKind);
+          SportKindAdminPageComponent.sportKinds =
+            SportKindAdminPageComponent.sportKinds.filter(sk => sk.id !== dbSportKindAndMessage.sportKind.id);
+          SportKindAdminPageComponent.sportKinds.push(dbSportKindAndMessage.sportKind);
           this.alert.success(dbSportKindAndMessage.message);
           this.resetSportKindForm();
         }, error => {

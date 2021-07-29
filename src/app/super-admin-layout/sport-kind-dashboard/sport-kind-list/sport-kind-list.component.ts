@@ -4,21 +4,18 @@ import {Router} from '@angular/router';
 import {AlertService} from '../../../shared/services/alert.service';
 import {SportKindService} from '../../services/sport-kind.service';
 import {TableSortService} from '../../../shared/utils/table-sort.service';
-import {fromEvent} from 'rxjs';
+import {SportKindAdminPageComponent} from '../sport-kind-admin-page/sport-kind-admin-page.component';
 
 @Component({
   selector: 'app-sport-kind-list',
   templateUrl: './sport-kind-list.component.html',
   styleUrls: ['./sport-kind-list.component.css']
 })
+
 export class SportKindListComponent implements OnInit {
 
   // @ts-ignore
-  static sportKinds: Array<SportKind>;
-
-  get sportKindsList(): Array<SportKind> {
-    return SportKindListComponent.sportKinds;
-  }
+  @Input() list: Array<SportKind>;
 
   displayedColumns = ['id', 'sportKind', 'program', 'registrationNumber', 'edit', 'delete'];
   paginatorStartPageNumber = 0;
@@ -28,8 +25,6 @@ export class SportKindListComponent implements OnInit {
 
   sortDirection = true;
   showDeleteConfirmation = false;
-  // @ts-ignore
-  searchOption: string;
   options = 'вид спорту';
   @Output() showButton: EventEmitter<boolean> = new EventEmitter<boolean>();
 
@@ -41,13 +36,7 @@ export class SportKindListComponent implements OnInit {
   ) {
   }
 
-  ngOnInit(): any {
-    this.sportKindService.getAllSportKinds().subscribe(
-      sportKinds => {
-        SportKindListComponent.sportKinds = sportKinds.slice();
-      }
-    );
-  }
+  ngOnInit(): void { }
 
   goToSportKindEditor(id: number): void {
     this.showButton.emit(false);
@@ -68,7 +57,8 @@ export class SportKindListComponent implements OnInit {
           response => {
             this.alert.success(response.message);
             this.showButton.emit(true);
-            SportKindListComponent.sportKinds = SportKindListComponent.sportKinds.filter(sk => sk.id !== this.sportKindId);
+            SportKindAdminPageComponent.sportKinds =
+              SportKindAdminPageComponent.sportKinds.filter(sk => sk.id !== this.sportKindId);
           },
           error => {
             this.sportKindService.errorHandle(error);
@@ -86,13 +76,6 @@ export class SportKindListComponent implements OnInit {
   }
 
   sortTable(sortOption: any): void {
-    this.sortDirection = this.sortService.sortTableByStringValues(sortOption, SportKindListComponent.sportKinds, this.sortDirection);
-  }
-
-  filter(value: string): void {
-    const nameInput = fromEvent(document, 'keydown');
-    SportKindListComponent.sportKinds = SportKindListComponent.sportKinds.filter(
-      sk => sk.sportKind.toLowerCase().includes(this.searchOption.toLowerCase())
-    );
+    this.sortDirection = this.sortService.sortTableByStringValues(sortOption, SportKindAdminPageComponent.sportKinds, this.sortDirection);
   }
 }

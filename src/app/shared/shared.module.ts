@@ -23,6 +23,7 @@ import {MAT_DATE_FORMATS, MAT_DATE_LOCALE, MatNativeDateModule} from '@angular/m
 import {MatRadioModule} from '@angular/material/radio';
 import { AlertComponent } from './alert/alert.component';
 import { DeletionConfirmerComponent } from './components/deletion-confirmer/deletion-confirmer.component';
+import { SearchPipe } from './pipes/search.pipe';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { DeletionConfirmerComponent } from './components/deletion-confirmer/dele
     StatisticDetailsComponent,
     LoaderComponent,
     AlertComponent,
-    DeletionConfirmerComponent
+    DeletionConfirmerComponent,
+    SearchPipe
   ],
   imports: [
     CommonModule,
@@ -72,7 +74,8 @@ import { DeletionConfirmerComponent } from './components/deletion-confirmer/dele
         HttpClientModule,
         LoaderComponent,
         AlertComponent,
-        DeletionConfirmerComponent
+        DeletionConfirmerComponent,
+        SearchPipe
     ],
   providers: [
     {provide: MAT_DATE_LOCALE, useValue: 'ua-UA'},
