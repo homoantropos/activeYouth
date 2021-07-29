@@ -19,6 +19,7 @@ export class SportKindAdminPageComponent implements OnInit {
   showButton = true;
   searchOption = true;
   searchValue = '';
+  searchField = 'sportKind';
 
   constructor(
     private router: Router,
@@ -55,4 +56,8 @@ export class SportKindAdminPageComponent implements OnInit {
     this.router.navigateByUrl(`superadmin/sports/create`);
   }
 
+  changeSearchOption(): void {
+    this.searchOption = !this.searchOption;
+    this.searchField = this.searchOption ? 'sportKind' : 'program';
+  }
 }
