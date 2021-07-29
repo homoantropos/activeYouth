@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import {Observable, Subject, throwError} from 'rxjs';
 import {HttpClient, HttpErrorResponse} from '@angular/common/http';
 import {environment} from '../../../environments/environment';
-import {SportKind} from '../../shared/interfases';
+import {Country, SportKind} from '../../shared/interfases';
 
 @Injectable({
   providedIn: 'root'
@@ -37,11 +37,19 @@ export class SportKindService {
     return this.http.patch<any>(`${environment.postgresDbUrl}/sportKind`, sportKind);
   }
 
+  static get initSportKind(): SportKind {
+    return {
+      sportKind: '',
+      program: '',
+      registrationNumber: ''
+    };
+  }
+
   public errorHandle(error: HttpErrorResponse): any {
     const message = error.error.message;
     if (message) {
       switch (message) {
-        case('повторювані значення ключа порушують обмеження унікальності "sport_kind_sport_kind_program_key"'):
+        case('повторювані значення ключа порушують обмеження унікальності "sportKind_sportKind_program_key"'):
           this.error$.next('такий вид спорту вже зареєстровано.');
           break;
       }

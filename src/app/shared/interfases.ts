@@ -36,9 +36,9 @@ export interface Appointment {
 }
 
 export interface SportKind {
-  sport_kind: string;
+  sportKind: string;
   program: string;
-  registration_number: number;
+  registrationNumber: string;
   id?: number;
 }
 

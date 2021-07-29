@@ -82,26 +82,9 @@ export class TownListComponent implements OnInit {
     this.showDeleteConfirmation = false;
   }
 
-  sort(sortOption: any): void {
+  sortTable(sortOption: any): void {
     this.sortDirection = this.sortService.sortTableByStringValues(sortOption, TownListComponent.towns, this.sortDirection);
   }
-
-
-  sortTable(sortOption: Array<string>): void {
-    if (this.sortDirection) {
-      TownListComponent.towns.sort(
-        (a, b) =>
-          // @ts-ignore
-          b[sortOption[0]][sortOption[1]].toLowerCase().localeCompare(a[sortOption[0]][sortOption[1]].toLowerCase()));
-    } else {
-      TownListComponent.towns.sort(
-        (a, b) =>
-          // @ts-ignore
-          a[sortOption[0]][sortOption[1]].toLowerCase().localeCompare(b[sortOption[0]][sortOption[1]].toLowerCase()));
-    }
-    this.sortDirection = !this.sortDirection;
-  }
-
 }
 
 

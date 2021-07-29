@@ -1,0 +1,104 @@
+<div *ngIf="sportKindsList; else loader">
+
+  <table mat-table
+         *ngIf="sportKindsList.length > 0; else empty"
+         [dataSource]="sportKindsList | paginate: { itemsPerPage: 20, currentPage: paginatorStartPageNumber }"
+         class="mat-elevation-z8">
+
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef
+          (click)="sortTable(['id'])"
+          [innerHTML]="sortDirection ? 'id &#8595;' : 'id &#8593;'"
+          class="sortArrow"
+      >
+      </th>
+      <td mat-cell *matCellDef="let sportKind">
+        {{sportKind.id}}
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="registrationNumber">
+      <th mat-header-cell *matHeaderCellDef
+          (click)="sortTable(['registrationNumber'])"
+          [innerHTML]="sortDirection ? 'Реєстраційний номер &#8595;' : 'Реєстраційний номер &#8593;'"
+          class="sortArrow"
+      >
+      </th>
+      <td mat-cell *matCellDef="let sportKind">
+        {{sportKind.program + '.' +
+        sportKind.registrationNumber}}
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="sportKind">
+      <th mat-header-cell *matHeaderCellDef
+          (click)="sortTable(['sportKind'])"
+          [innerHTML]="sortDirection ? 'Вид спорту (активності) &#8595;' : 'Вид спорту (активності) &#8593;'"
+          class="sortArrow"
+      >
+      </th>
+      <td mat-cell *matCellDef="let sportKind">
+        {{sportKind.sportKind}}
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="program">
+      <th mat-header-cell *matHeaderCellDef
+          (click)="sortTable(['program'])"
+          [innerHTML]="sortDirection ? 'Програма (тип виду спорту) &#8595;' : 'Програма (тип виду спорту) &#8593;'"
+          class="sortArrow"
+      >
+      </th>
+      <td mat-cell *matCellDef="let sportKind">
+        <p *ngIf="sportKind.program === 'I'">олімпійські</p>
+        <p *ngIf="sportKind.program === 'II'">неолімпійські</p>
+        <p *ngIf="sportKind.program === 'III'">пара(деф)лімпійські</p>
+        <p *ngIf="sportKind.program === 'IV'">інші</p>
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="edit">
+      <th mat-header-cell *matHeaderCellDef></th>
+      <td mat-cell *matCellDef="let sportKind">
+        <button mat-button color="primary" (click)="goToSportKindEditor(sportKind.id)">
+          Редагувати
+        </button>
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="delete">
+      <th mat-header-cell *matHeaderCellDef></th>
+      <td mat-cell *matCellDef="let sportKind">
+        <button mat-button color="primary" (click)="callDeletion(sportKind.id)">
+          Видалити
+        </button>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+  </table>
+
+  <ng-template #empty>
+    <h3 [ngStyle]="{textAlign: 'center', fontFamily: 'oswald, sans serif'}">База даних видів спорту порожня</h3>
+  </ng-template>
+
+</div>
+
+<pagination-controls
+  class="my-pagination"
+  (pageChange)="paginatorStartPageNumber = $event"
+  previousLabel="назад"
+  nextLabel="уперед"
+></pagination-controls>
+
+<ng-template #loader>
+  <app-loader></app-loader>
+</ng-template>
+
+<app-deletion-confirmer
+  [show]="showDeleteConfirmation"
+  [option]="options"
+  (confirm)="onDelete($event)"
+></app-deletion-confirmer>
+

@@ -1,10 +1,10 @@
 import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
 import {MatTableDataSource} from '@angular/material/table';
-import {User} from '../../shared/interfases';
+import {User} from '../../../shared/interfases';
 import {Observable} from 'rxjs';
-import {UserService} from '../services/user.service';
-import {AlertService} from '../../shared/services/alert.service';
+import {UserService} from '../../services/user.service';
+import {AlertService} from '../../../shared/services/alert.service';
 
 @Component({
   selector: 'app-user-admin',

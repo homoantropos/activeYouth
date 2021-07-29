@@ -1,0 +1,47 @@
+<ng-template #loader>
+  <app-loader></app-loader>
+</ng-template>
+
+<div *ngIf="sportKindForm; else loader">
+
+  <form [formGroup]="sportKindForm">
+
+    <small>{{createOrEditLabelName}}</small>
+
+    <mat-form-field class="forms-inputs">
+      <mat-label>введіть назву виду спорту...</mat-label>
+      <input matInput
+             title="sportKindInput"
+             type="text"
+             formControlName="sportKind"
+             #sportKindNameInput
+      >
+    </mat-form-field>
+
+    <b>оберіть групу видів спорту:</b>
+    <mat-radio-group title="typeInput" formControlName="program">
+      <mat-radio-button value="I">олімпійські</mat-radio-button>
+      <mat-radio-button value="II">неолімпійські</mat-radio-button>
+      <mat-radio-button value="III">пара(деф)лімпійські</mat-radio-button>
+      <mat-radio-button value="IV">інші</mat-radio-button>
+    </mat-radio-group>
+
+    <button mat-button
+            color="primary"
+            type="button"
+            (click)="onSubmit(sportKindForm.value)"
+            [disabled]="sportKindForm.invalid || submitted"
+    >
+      Зберегти
+    </button>
+
+    <button mat-button
+            color="primary"
+            type="button"
+            (click)="resetSportKindForm()"
+    >
+      Скасувати
+    </button>
+  </form>
+
+</div>

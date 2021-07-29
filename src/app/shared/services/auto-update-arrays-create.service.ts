@@ -32,7 +32,7 @@ export class AutoUpdateArraysCreateService implements OnDestroy {
         AutoUpdateArrays.sportKinds.splice(0);
         AutoUpdateArrays.sportKindsNames.splice(0);
         AutoUpdateArrays.sportKinds = sportKinds.slice();
-        AutoUpdateArrays.sportKinds.map(sportKind => AutoUpdateArrays.sportKindsNames.push(sportKind.sport_kind));
+        AutoUpdateArrays.sportKinds.map(sportKind => AutoUpdateArrays.sportKindsNames.push(sportKind.sportKind));
       }
     );
 

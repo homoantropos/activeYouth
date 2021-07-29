@@ -3,16 +3,13 @@ import { CommonModule } from '@angular/common';
 
 import { SuperAdminLayoutRoutingModule } from './super-admin-layout-routing.module';
 import { SuperAdminLayoutComponent } from './super-admin-layout.component';
-import { UserAdminPageComponent } from './user-admin-page/user-admin-page.component';
+import { UserAdminPageComponent } from './user-dashboard/user-admin-page/user-admin-page.component';
 import { PlacesAdminPageComponent } from './places-admin-page/places-admin-page.component';
 import { CoachesAdminPageComponent } from './coaches-dashboard/coaches-admin-page/coaches-admin-page.component';
-import { UserCreatorComponent } from './creators-editors/user-creator/user-creator.component';
+import { UserCreatorComponent } from './user-dashboard/user-creator/user-creator.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {SharedModule} from '../shared/shared.module';
-import { UserEditorComponent } from './creators-editors/user-editor/user-editor.component';
-import { SportKindAdminPageComponent } from './sport-kind-admin-page/sport-kind-admin-page.component';
-import { SportKindCreatorComponent } from './creators-editors/sport-kind-creator/sport-kind-creator.component';
-import { SportKindEditorComponent } from './creators-editors/sport-kind-editor/sport-kind-editor.component';
+import { UserEditorComponent } from './user-dashboard/user-editor/user-editor.component';
 import {CountryAdminPageComponent} from './country-dashboard/country-admin-page/country-admin-page.component';
 import {CountryEditorComponent} from './country-dashboard/country-editor/country-editor.component';
 import { CountryListComponent } from './country-dashboard/country-list/country-list.component';
@@ -30,6 +27,10 @@ import {AppointmentPlaceEditorComponent} from './appointment-place-dashboard/app
 import { EducationEntityAdminPageComponent } from './education-entity-dashboard/education-entity-admin-page/education-entity-admin-page.component';
 import { EducationEntityListComponent } from './education-entity-dashboard/education-entity-list/education-entity-list.component';
 import { EducationEntityEditorComponent } from './education-entity-dashboard/education-entity-editor/education-entity-editor.component';
+import { SportKindListComponent } from './sport-kind-dashboard/sport-kind-list/sport-kind-list.component';
+import {SportKindAdminPageComponent} from './sport-kind-dashboard/sport-kind-admin-page/sport-kind-admin-page.component';
+import {SportKindEditorComponent} from './sport-kind-dashboard/sport-kind-editor/sport-kind-editor.component';
+import {MatIconModule} from '@angular/material/icon';
 
 
 @NgModule({
@@ -41,7 +42,7 @@ import { EducationEntityEditorComponent } from './education-entity-dashboard/edu
     UserCreatorComponent,
     UserEditorComponent,
     SportKindAdminPageComponent,
-    SportKindCreatorComponent,
+    SportKindListComponent,
     SportKindEditorComponent,
     RegionsAdminPageComponent,
     CountryEditorComponent,
@@ -59,13 +60,15 @@ import { EducationEntityEditorComponent } from './education-entity-dashboard/edu
     AppointmentPlaceListComponent,
     EducationEntityAdminPageComponent,
     EducationEntityListComponent,
-    EducationEntityEditorComponent],
-  imports: [
-    FormsModule,
-    ReactiveFormsModule,
-    CommonModule,
-    SuperAdminLayoutRoutingModule,
-    SharedModule
-  ]
+    EducationEntityEditorComponent,
+    SportKindListComponent],
+    imports: [
+        FormsModule,
+        ReactiveFormsModule,
+        CommonModule,
+        SuperAdminLayoutRoutingModule,
+        SharedModule,
+        MatIconModule
+    ]
 })
 export class SuperAdminLayoutModule { }

@@ -1,15 +1,12 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
 import {SuperAdminLayoutComponent} from './super-admin-layout.component';
-import {UserAdminPageComponent} from './user-admin-page/user-admin-page.component';
+import {UserAdminPageComponent} from './user-dashboard/user-admin-page/user-admin-page.component';
 import {PlacesAdminPageComponent} from './places-admin-page/places-admin-page.component';
 import {CoachesAdminPageComponent} from './coaches-dashboard/coaches-admin-page/coaches-admin-page.component';
-import {UserCreatorComponent} from './creators-editors/user-creator/user-creator.component';
+import {UserCreatorComponent} from './user-dashboard/user-creator/user-creator.component';
 import {AuthGuardService} from '../admin-layout/auth/auth-guard.service';
-import {UserEditorComponent} from './creators-editors/user-editor/user-editor.component';
-import {SportKindAdminPageComponent} from './sport-kind-admin-page/sport-kind-admin-page.component';
-import {SportKindCreatorComponent} from './creators-editors/sport-kind-creator/sport-kind-creator.component';
-import {SportKindEditorComponent} from './creators-editors/sport-kind-editor/sport-kind-editor.component';
+import {UserEditorComponent} from './user-dashboard/user-editor/user-editor.component';
 import {AppointmentPlaceAdminPageComponent} from './appointment-place-dashboard/appointment-place-admin-page/appointment-place-admin-page.component';
 import {TownAdminPageComponent} from './town_dashboard/town-admin-page/town-admin-page.component';
 import {CoachEditorComponent} from './coaches-dashboard/coach-editor/coach-editor.component';
@@ -21,6 +18,8 @@ import {CountryEditorComponent} from './country-dashboard/country-editor/country
 import {AppointmentPlaceEditorComponent} from './appointment-place-dashboard/appointment-place-editor/appointment-place-editor.component';
 import {EducationEntityAdminPageComponent} from './education-entity-dashboard/education-entity-admin-page/education-entity-admin-page.component';
 import {EducationEntityEditorComponent} from './education-entity-dashboard/education-entity-editor/education-entity-editor.component';
+import {SportKindAdminPageComponent} from './sport-kind-dashboard/sport-kind-admin-page/sport-kind-admin-page.component';
+import {SportKindEditorComponent} from './sport-kind-dashboard/sport-kind-editor/sport-kind-editor.component';
 
 const routes: Routes = [
   {
@@ -62,10 +61,9 @@ const routes: Routes = [
         ]
       },
       {
-        path: 'sports', children: [
-          {path: 'create', component: SportKindCreatorComponent},
-          {path: 'edit/:id', component: SportKindEditorComponent},
-          {path: '', component: SportKindAdminPageComponent}
+        path: 'sports', component: SportKindAdminPageComponent, children: [
+          {path: 'create', component: SportKindEditorComponent},
+          {path: 'edit/:id', component: SportKindEditorComponent}
         ]
       },
       {

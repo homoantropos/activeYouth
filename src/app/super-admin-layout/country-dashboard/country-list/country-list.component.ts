@@ -78,6 +78,4 @@ export class CountryListComponent implements OnInit {
     }
     this.showDeleteConfirmation = false;
   }
-
-
 }

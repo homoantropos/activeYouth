@@ -2,7 +2,7 @@
 
   <table mat-table
          *ngIf="coachesList.length > 0; else emptyListMessage"
-         [dataSource]="coachesList | paginate: { itemsPerPage: 10, currentPage: paginatorStartPageNumber }"
+         [dataSource]="coachesList | paginate: { itemsPerPage: 20, currentPage: paginatorStartPageNumber }"
          class="mat-elevation-z8">
 
     <ng-container matColumnDef="coachFullName">

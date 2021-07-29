@@ -2,7 +2,7 @@
 
   <table mat-table
          *ngIf="regionsList.length > 0; else empty"
-         [dataSource]="regionsList | paginate: { itemsPerPage: 10, currentPage: paginatorStartPageNumber }"
+         [dataSource]="regionsList | paginate: { itemsPerPage: 20, currentPage: paginatorStartPageNumber }"
          class="mat-elevation-z8">
 
     <ng-container matColumnDef="_id">

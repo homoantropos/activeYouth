@@ -221,3 +221,8 @@ mat-radio-button {
 .xl {
   width: 94%;
 }
+
+.sortArrow:hover {
+  color: crimson;
+  cursor: pointer;
+}

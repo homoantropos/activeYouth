@@ -2,7 +2,7 @@
 
   <table mat-table
          *ngIf="townsList.length > 0; else empty"
-         [dataSource]="townsList | paginate: { itemsPerPage: 10, currentPage: paginatorStartPageNumber }"
+         [dataSource]="townsList | paginate: { itemsPerPage: 20, currentPage: paginatorStartPageNumber }"
          class="mat-elevation-z8">
 
     <ng-container matColumnDef="_id">
@@ -10,7 +10,7 @@
         id
         <button mat-button color="primary"
                 [innerHTML]="sortDirection ? '&#8595;' : '&#8593;'"
-                (click)="sort('id')"
+                (click)="sortTable(['id'])"
         >
         </button>
       </th>
@@ -22,7 +22,7 @@
         Місто
         <button mat-button color="primary"
                 [innerHTML]="sortDirection ? '&#8595;' : '&#8593;'"
-                (click)="sort('townName')"
+                (click)="sortTable(['townName'])"
         >
         </button>
       </th>

@@ -1,0 +1,12 @@
+<button mat-button color="primary"
+        type="button"
+        (click)="goToSportKindEditor()"
+        *ngIf="showButton">
+  Додати вид спорту
+</button>
+
+<router-outlet></router-outlet>
+
+<app-sport-kind-list
+  (showButton)="setShowButton($event)"
+></app-sport-kind-list>

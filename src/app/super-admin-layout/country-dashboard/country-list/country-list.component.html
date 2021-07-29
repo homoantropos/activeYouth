@@ -2,7 +2,7 @@
 
   <table mat-table
          *ngIf="countriesList.length > 0; else empty"
-         [dataSource]="countriesList | paginate: { itemsPerPage: 10, currentPage: paginatorStartPageNumber }"
+         [dataSource]="countriesList | paginate: { itemsPerPage: 20, currentPage: paginatorStartPageNumber }"
          class="mat-elevation-z8">
 
     <ng-container matColumnDef="_id">
@@ -62,6 +62,3 @@
   [option]="options"
   (confirm)="onDelete($event)"
 ></app-deletion-confirmer>
-
-
-

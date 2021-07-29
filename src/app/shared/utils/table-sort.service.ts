@@ -8,19 +8,31 @@ export class TableSortService {
   constructor() {
   }
 
-  sortTableByStringValues(sortOption: any, sortedArray: Array<any>, direction: boolean): boolean {
-    console.log(sortedArray[0][sortOption]);
-    if (typeof sortedArray[0][sortOption] === 'string') {
-      if (direction) {
-        sortedArray.sort((a, b) => b[sortOption].toLowerCase().localeCompare(a[sortOption].toLowerCase()));
+  sortTableByStringValues(sortOption: Array<string>, sortedArray: Array<any>, direction: boolean): boolean {
+
+    if (sortOption.length === 1){
+      if (typeof sortedArray[0][sortOption[0]] === 'string') {
+        if (direction) {
+          sortedArray.sort((a, b) => b[sortOption[0]].toLowerCase().localeCompare(a[sortOption[0]].toLowerCase()));
+        } else {
+          sortedArray.sort((a, b) => a[sortOption[0]].toLowerCase().localeCompare(b[sortOption[0]].toLowerCase()));
+        }
       } else {
-        sortedArray.sort((a, b) => a[sortOption].toLowerCase().localeCompare(b[sortOption].toLowerCase()));
+        if (direction) {
+          sortedArray.sort((a, b) => b[sortOption[0]] - a[sortOption[0]]);
+        } else {
+          sortedArray.sort((a, b) => a[sortOption[0]] - b[sortOption[0]]);
+        }
       }
     } else {
       if (direction) {
-        sortedArray.sort((a, b) => b[sortOption] - a[sortOption]);
+        sortedArray.sort(
+          (a, b) =>
+            b[sortOption[0]][sortOption[1]].toLowerCase().localeCompare(a[sortOption[0]][sortOption[1]].toLowerCase()));
       } else {
-        sortedArray.sort((a, b) => a[sortOption] - b[sortOption]);
+        sortedArray.sort(
+          (a, b) =>
+            a[sortOption[0]][sortOption[1]].toLowerCase().localeCompare(b[sortOption[0]][sortOption[1]].toLowerCase()));
       }
     }
     return !direction;
