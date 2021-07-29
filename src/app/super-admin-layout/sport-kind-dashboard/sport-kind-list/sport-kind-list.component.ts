@@ -1,4 +1,4 @@
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {SportKind} from '../../../shared/interfases';
 import {Router} from '@angular/router';
 import {AlertService} from '../../../shared/services/alert.service';
@@ -27,6 +27,8 @@ export class SportKindListComponent implements OnInit {
 
   sortDirection = true;
   showDeleteConfirmation = false;
+  // @ts-ignore
+  @Input() searchOption = 'w';
   options = 'вид спорту';
   @Output() showButton: EventEmitter<boolean> = new EventEmitter<boolean>();
 
@@ -44,6 +46,7 @@ export class SportKindListComponent implements OnInit {
         SportKindListComponent.sportKinds = sportKinds.slice();
       }
     );
+    console.log(this.searchOption);
   }
 
   goToSportKindEditor(id: number): void {

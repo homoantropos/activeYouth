@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {ActivatedRoute, Params, Router} from '@angular/router';
 
 @Component({
@@ -9,6 +9,7 @@ import {ActivatedRoute, Params, Router} from '@angular/router';
 export class SportKindAdminPageComponent implements OnInit {
 
   showButton = true;
+  @Output() searchOption: EventEmitter<string> = new EventEmitter<string>();
 
   constructor(
     private router: Router,
