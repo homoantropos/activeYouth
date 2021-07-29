@@ -76,6 +76,6 @@ export class SportKindListComponent implements OnInit {
   }
 
   sortTable(sortOption: any): void {
-    this.sortDirection = this.sortService.sortTableByStringValues(sortOption, SportKindAdminPageComponent.sportKinds, this.sortDirection);
+    this.sortDirection = this.sortService.sortTableByStringValues(sortOption, this.list, this.sortDirection);
   }
 }
