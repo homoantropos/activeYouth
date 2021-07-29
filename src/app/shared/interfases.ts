@@ -38,6 +38,7 @@ export interface Appointment {
 export interface SportKind {
   sportKind: string;
   program: string;
+  programUkrainian?: string;
   registrationNumber: string;
   id?: number;
 }

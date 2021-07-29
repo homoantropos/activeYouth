@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {ActivatedRoute, Params, Router} from '@angular/router';
 import {SportKind} from '../../../shared/interfases';
 import {switchMap} from 'rxjs/operators';
@@ -16,10 +16,14 @@ export class SportKindAdminPageComponent implements OnInit {
   get sportKinds(): Array<SportKind> {
     return SportKindAdminPageComponent.sportKinds;
   }
+
   showButton = true;
   searchOption = true;
   searchValue = '';
   searchField = 'sportKind';
+
+  // @ts-ignore
+  @ViewChild('nameInput') nameInputRef: ElementRef;
 
   constructor(
     private router: Router,
@@ -41,10 +45,29 @@ export class SportKindAdminPageComponent implements OnInit {
         )
       )
       .subscribe(
-      sportKinds => {
-        SportKindAdminPageComponent.sportKinds = sportKinds.slice();
-      }
-    );
+        sportKinds => {
+          SportKindAdminPageComponent.sportKinds = sportKinds.slice();
+          SportKindAdminPageComponent.sportKinds.map(
+            (sportKind: SportKind) => {
+              let programUkrainian = '';
+              switch (sportKind.program) {
+                case('I'):
+                  programUkrainian = 'олімпійські';
+                  break;
+                case('II'):
+                  programUkrainian = 'неолімпійські';
+                  break;
+                case('III'):
+                  programUkrainian = 'пара(деф)лімпійські';
+                  break;
+                case('IV'):
+                  programUkrainian = 'інші';
+                  break;
+              }
+              sportKind.programUkrainian = programUkrainian;
+            });
+        }
+      );
   }
 
   setShowButton(condition: boolean): void {
@@ -54,10 +77,12 @@ export class SportKindAdminPageComponent implements OnInit {
   goToSportKindEditor(): void {
     this.showButton = false;
     this.router.navigateByUrl(`superadmin/sports/create`);
+    this.searchValue = '';
   }
 
   changeSearchOption(): void {
     this.searchOption = !this.searchOption;
-    this.searchField = this.searchOption ? 'sportKind' : 'program';
+    this.nameInputRef.nativeElement.focus();
+    this.searchField = this.searchOption ? 'sportKind' : 'programUkrainian';
   }
 }

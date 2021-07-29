@@ -49,10 +49,7 @@
       >
       </th>
       <td mat-cell *matCellDef="let sportKind">
-        <p *ngIf="sportKind.program === 'I'">олімпійські</p>
-        <p *ngIf="sportKind.program === 'II'">неолімпійські</p>
-        <p *ngIf="sportKind.program === 'III'">пара(деф)лімпійські</p>
-        <p *ngIf="sportKind.program === 'IV'">інші</p>
+        {{sportKind.programUkrainian}}
       </td>
     </ng-container>
 
