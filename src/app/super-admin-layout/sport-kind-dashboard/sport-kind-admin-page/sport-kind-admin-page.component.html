@@ -5,21 +5,10 @@
           *ngIf="showButton">
     Додати вид спорту
   </button>
-
-  <mat-form-field class="forms-inputs" [ngStyle]="{float: 'right'}">
-    <mat-label>пошук...</mat-label>
-    <input matInput
-           title="nameInput"
-           type="text"
-           #nameInput
-           (keydown)="searchOption.emit(nameInput.value)"
-    >
-  </mat-form-field>
 </div>
 
 <router-outlet></router-outlet>
 
 <app-sport-kind-list
   (showButton)="setShowButton($event)"
-  (keydown)="searchOption"
 ></app-sport-kind-list>

@@ -4,6 +4,7 @@ import {Router} from '@angular/router';
 import {AlertService} from '../../../shared/services/alert.service';
 import {SportKindService} from '../../services/sport-kind.service';
 import {TableSortService} from '../../../shared/utils/table-sort.service';
+import {fromEvent} from 'rxjs';
 
 @Component({
   selector: 'app-sport-kind-list',
@@ -28,7 +29,7 @@ export class SportKindListComponent implements OnInit {
   sortDirection = true;
   showDeleteConfirmation = false;
   // @ts-ignore
-  @Input() searchOption = 'w';
+  searchOption: string;
   options = 'вид спорту';
   @Output() showButton: EventEmitter<boolean> = new EventEmitter<boolean>();
 
@@ -46,7 +47,6 @@ export class SportKindListComponent implements OnInit {
         SportKindListComponent.sportKinds = sportKinds.slice();
       }
     );
-    console.log(this.searchOption);
   }
 
   goToSportKindEditor(id: number): void {
@@ -87,5 +87,12 @@ export class SportKindListComponent implements OnInit {
 
   sortTable(sortOption: any): void {
     this.sortDirection = this.sortService.sortTableByStringValues(sortOption, SportKindListComponent.sportKinds, this.sortDirection);
+  }
+
+  filter(value: string): void {
+    const nameInput = fromEvent(document, 'keydown');
+    SportKindListComponent.sportKinds = SportKindListComponent.sportKinds.filter(
+      sk => sk.sportKind.toLowerCase().includes(this.searchOption.toLowerCase())
+    );
   }
 }
