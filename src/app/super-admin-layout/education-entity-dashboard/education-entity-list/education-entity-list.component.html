@@ -27,7 +27,7 @@
 
   <table mat-table
          *ngIf="educationEntitiesList.length > 0; else emptyListMessage"
-         [dataSource]="educationEntitiesList | paginate: { itemsPerPage: 20, currentPage: paginatorStartPageNumber }"
+         [dataSource]="educationEntitiesList | paginate: { itemsPerPage: 12, currentPage: paginatorStartPageNumber }"
          class="mat-elevation-z8">
 
     <ng-container matColumnDef="id">

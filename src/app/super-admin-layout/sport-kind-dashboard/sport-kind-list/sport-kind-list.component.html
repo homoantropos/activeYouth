@@ -1,7 +1,7 @@
 <div *ngIf="list; else loader">
   <table mat-table
          *ngIf="list.length > 0; else empty"
-         [dataSource]="list | paginate: { itemsPerPage: 20, currentPage: paginatorStartPageNumber }"
+         [dataSource]="list | paginate: { itemsPerPage: 12, currentPage: paginatorStartPageNumber }"
          class="mat-elevation-z8">
 
     <ng-container matColumnDef="id">
