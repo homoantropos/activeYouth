@@ -6,7 +6,7 @@ import {AlertService} from '../../../shared/services/alert.service';
 import {switchMap} from 'rxjs/operators';
 import {Country} from '../../../shared/interfases';
 import {CountryService} from '../../services/country.service';
-import {CountryListComponent} from '../country-list/country-list.component';
+import {CountryAdminPageComponent} from '../country-admin-page/country-admin-page.component';
 
 @Component({
   selector: 'app-country-editor',
@@ -105,8 +105,8 @@ export class CountryEditorComponent implements OnInit, OnDestroy {
     this.cSub = countryServiceMethod
       .subscribe(
         dbCountryAndMessage => {
-          CountryListComponent.countries = CountryListComponent.countries.filter(c => c.id !== dbCountryAndMessage.country.id);
-          CountryListComponent.countries.unshift(dbCountryAndMessage.country);
+          CountryAdminPageComponent.countries = CountryAdminPageComponent.countries.filter(c => c.id !== dbCountryAndMessage.country.id);
+          CountryAdminPageComponent.countries.push(dbCountryAndMessage.country);
           this.alert.success(dbCountryAndMessage.message);
           this.resetCountryForm();
         }, error => {

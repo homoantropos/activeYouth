@@ -27,8 +27,16 @@ export class EducationEntityService {
     }>(`${environment.postgresDbUrl}/eduEntity`, eduEntity);
   }
 
-  getAllEducationEntities(): Observable<Array<EducationEntity>> {
-    return this.http.get<Array<EducationEntity>>(`${environment.postgresDbUrl}/eduEntity`);
+  getAllEducationEntities(): Observable<{
+    eduEntities: Array<EducationEntity>,
+    eduEntityNames: Array<string>,
+    message: string
+  }> {
+    return this.http.get<{
+      eduEntities: Array<EducationEntity>,
+      eduEntityNames: Array<string>,
+      message: string
+    }>(`${environment.postgresDbUrl}/eduEntity`);
   }
 
   getEduEntities(eduEntityType: string):

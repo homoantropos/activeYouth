@@ -6,8 +6,8 @@ import {AlertService} from '../../../shared/services/alert.service';
 import {map, startWith, switchMap} from 'rxjs/operators';
 import {EducationEntity} from '../../../shared/interfases';
 import {EducationEntityService} from '../../services/education-entity.service';
-import {EducationEntityListComponent} from '../education-entity-list/education-entity-list.component';
 import {AutoUpdateArrays} from '../../../shared/utils/autoUpdateArrays';
+import {EducationEntityAdminPageComponent} from '../education-entity-admin-page/education-entity-admin-page.component';
 
 @Component({
   selector: 'app-education-entity-editor',
@@ -129,10 +129,10 @@ export class EducationEntityEditorComponent implements OnInit, OnDestroy {
     this.eeSub = educationEntityServiceMethod
       .subscribe(
         dbEducationEntityAndMessage => {
-          EducationEntityListComponent.educationEntities =
-            EducationEntityListComponent.educationEntities
+          EducationEntityAdminPageComponent.educationEntities =
+            EducationEntityAdminPageComponent.educationEntities
               .filter(ee => ee.id !== dbEducationEntityAndMessage.educationEntity.id);
-          EducationEntityListComponent.educationEntities.unshift(dbEducationEntityAndMessage.educationEntity);
+          EducationEntityAdminPageComponent.educationEntities.unshift(dbEducationEntityAndMessage.educationEntity);
           this.alert.success(dbEducationEntityAndMessage.message);
           this.resetEducationEntityForm();
         }, error => {

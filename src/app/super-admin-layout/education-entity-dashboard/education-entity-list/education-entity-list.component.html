@@ -1,44 +1,16 @@
-<nav>
-  <ul>
-    <li>
-      <button mat-button color="primary" class="widthButton" (click)="changeEduEntityType('ЗЗСО')">
-        ЗЗСО
-      </button>
-    </li>
-    <li>
-      <button mat-button color="primary" class="widthButton" (click)="changeEduEntityType('ЗП(ПТ)О')">
-        ЗП(ПТ)О
-      </button>
-    </li>
-    <li>
-      <button mat-button color="primary" class="widthButton" (click)="changeEduEntityType('ЗФПВО')">
-        ЗФПВО
-      </button>
-    </li>
-    <li>
-      <button mat-button color="primary" class="widthButton" (click)="changeEduEntityType('ЗВО')">
-        ЗВО
-      </button>
-    </li>
-  </ul>
-</nav>
-
-<div *ngIf="educationEntitiesList; else loader">
+<div *ngIf="educationEntities; else loader">
 
   <table mat-table
-         *ngIf="educationEntitiesList.length > 0; else emptyListMessage"
-         [dataSource]="educationEntitiesList | paginate: { itemsPerPage: 12, currentPage: paginatorStartPageNumber }"
+         *ngIf="educationEntities.length > 0; else emptyListMessage"
+         [dataSource]="educationEntities | paginate: { itemsPerPage: 12, currentPage: paginatorStartPageNumber }"
          class="mat-elevation-z8">
 
     <ng-container matColumnDef="id">
-      <th mat-header-cell *matHeaderCellDef>
-        ID
-        <button
-          mat-button color="primary"
-          [innerHTML]="sortDirection ? '&#8595;' : '&#8593;'"
-          (click) = "sortTable('id')"
-        >
-        </button>
+      <th mat-header-cell *matHeaderCellDef
+          (click)="sortTable(['id'])"
+          [innerHTML]="sortDirection ? 'id &#8595;' : 'id &#8593;'"
+          class="sortArrow"
+      >
       </th>
       <td mat-cell *matCellDef="let educationEntity">
         {{educationEntity.id}}
@@ -46,14 +18,11 @@
     </ng-container>
 
     <ng-container matColumnDef="name">
-      <th mat-header-cell *matHeaderCellDef>
-        Заклад освіти
-        <button
-          mat-button color="primary"
-          [innerHTML]="sortDirection ? '&#8595;' : '&#8593;'"
-          (click) = "sortTable('name')"
-        >
-        </button>
+      <th mat-header-cell *matHeaderCellDef
+          (click)="sortTable(['name'])"
+          [innerHTML]="sortDirection ? 'Заклад освіти &#8595;' : 'Заклад освіти &#8593;'"
+          class="sortArrow"
+      >
       </th>
       <td mat-cell *matCellDef="let educationEntity">
         {{educationEntity.name}}
@@ -61,21 +30,36 @@
     </ng-container>
 
     <ng-container matColumnDef="country">
-      <th mat-header-cell *matHeaderCellDef>Країна</th>
+      <th mat-header-cell *matHeaderCellDef
+          (click)="sortTable(['region', 'country', 'countryName'])"
+          [innerHTML]="sortDirection ? 'Країна &#8595;' : 'Країна &#8593;'"
+          class="sortArrow"
+      >
+      </th>
       <td mat-cell *matCellDef="let educationEntity">
         {{educationEntity.region.country.countryName | titlecase}}
       </td>
     </ng-container>
 
     <ng-container matColumnDef="region">
-      <th mat-header-cell *matHeaderCellDef>Регіон</th>
+      <th mat-header-cell *matHeaderCellDef
+          (click)="sortTable(['region', 'regionName'])"
+          [innerHTML]="sortDirection ? 'Регіон &#8595;' : 'Регіон &#8593;'"
+          class="sortArrow"
+      >
+      </th>
       <td mat-cell *matCellDef="let educationEntity">
         {{educationEntity.region.regionName}}
       </td>
     </ng-container>
 
     <ng-container matColumnDef="category">
-      <th mat-header-cell *matHeaderCellDef>Категорія</th>
+      <th mat-header-cell *matHeaderCellDef
+          (click)="sortTable(['category'])"
+          [innerHTML]="sortDirection ? 'Категорія &#8595;' : 'Категорія &#8593;'"
+          class="sortArrow"
+      >
+      </th>
       <td mat-cell *matCellDef="let educationEntity">
         {{educationEntity.category}}
       </td>

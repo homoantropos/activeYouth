@@ -1,8 +1,10 @@
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, OnInit, Input, Output} from '@angular/core';
 import {Country} from '../../../shared/interfases';
 import {Router} from '@angular/router';
 import {AlertService} from '../../../shared/services/alert.service';
 import {CountryService} from '../../services/country.service';
+import {CountryAdminPageComponent} from '../country-admin-page/country-admin-page.component';
+import {TableSortService} from '../../../shared/utils/table-sort.service';
 
 @Component({
   selector: 'app-country-list',
@@ -12,11 +14,7 @@ import {CountryService} from '../../services/country.service';
 export class CountryListComponent implements OnInit {
 
   // @ts-ignore
-  static countries: Array<Country>;
-
-  get countriesList(): Array<Country> {
-    return CountryListComponent.countries;
-  }
+  @Input() countries: Array<Country>;
 
   displayedColumns = ['_id', 'name', 'edit', 'delete'];
   paginatorStartPageNumber = 0;
@@ -24,24 +22,21 @@ export class CountryListComponent implements OnInit {
   // @ts-ignore
   countryId: number;
 
+  sortDirection = true;
   showDeleteConfirmation = false;
   options = 'країна';
+
   @Output() showButton: EventEmitter<boolean> = new EventEmitter<boolean>();
 
   constructor(
     private router: Router,
     private countryService: CountryService,
-    private alert: AlertService
+    private alert: AlertService,
+    private sortService: TableSortService
   ) {
   }
 
-  ngOnInit(): any {
-    this.countryService.getAllCountries().subscribe(
-      countries => {
-        CountryListComponent.countries = countries.slice();
-      }
-    );
-  }
+  ngOnInit(): void { }
 
   goToCountryEditor(id: number): void {
     this.showButton.emit(false);
@@ -62,7 +57,7 @@ export class CountryListComponent implements OnInit {
           response => {
             this.alert.success(response.message);
             this.showButton.emit(true);
-            CountryListComponent.countries = CountryListComponent.countries.filter(c => c.id !== this.countryId);
+            CountryAdminPageComponent.countries = CountryAdminPageComponent.countries.filter(c => c.id !== this.countryId);
           },
           error => {
             this.countryService.errorHandle(error);
@@ -77,5 +72,9 @@ export class CountryListComponent implements OnInit {
       this.alert.warning('Видалення скасовано.');
     }
     this.showDeleteConfirmation = false;
+  }
+
+  sortTable(sortOption: any): void {
+    this.sortDirection = this.sortService.sortTableByStringValues(sortOption, this.countries, this.sortDirection);
   }
 }

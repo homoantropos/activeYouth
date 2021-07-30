@@ -1,9 +1,10 @@
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {EducationEntity} from '../../../shared/interfases';
 import {Router} from '@angular/router';
 import {AlertService} from '../../../shared/services/alert.service';
 import {EducationEntityService} from '../../services/education-entity.service';
 import {TableSortService} from '../../../shared/utils/table-sort.service';
+import {EducationEntityAdminPageComponent} from '../education-entity-admin-page/education-entity-admin-page.component';
 
 @Component({
   selector: 'app-education-entity-list',
@@ -13,12 +14,7 @@ import {TableSortService} from '../../../shared/utils/table-sort.service';
 export class EducationEntityListComponent implements OnInit {
 
   // @ts-ignore
-  static educationEntities: Array<EducationEntity>;
-  eduEntityType = 'ЗЗСО';
-
-  get educationEntitiesList(): Array<EducationEntity> {
-    return EducationEntityListComponent.educationEntities;
-  }
+  @Input() educationEntities: Array<EducationEntity>;
 
   displayedColumns: Array<string> = ['id', 'name', 'country', 'region', 'category', 'edit', 'delete'];
   paginatorStartPageNumber = 0;
@@ -39,13 +35,7 @@ export class EducationEntityListComponent implements OnInit {
   ) {
   }
 
-  ngOnInit(): void {
-    this.educationEntityService.getEduEntities(this.eduEntityType).subscribe(
-      educationEntities => {
-        EducationEntityListComponent.educationEntities = educationEntities.eduEntities.slice();
-      }
-    );
-  }
+  ngOnInit(): void { }
 
   goToEducationEntityEditor(id: number): void {
     this.showButton.emit(false);
@@ -65,8 +55,8 @@ export class EducationEntityListComponent implements OnInit {
         .subscribe(
           response => {
             this.alert.success(response.message);
-            EducationEntityListComponent.educationEntities =
-              EducationEntityListComponent.educationEntities
+            EducationEntityAdminPageComponent.educationEntities =
+              EducationEntityAdminPageComponent.educationEntities
                 .filter(eduEnt => eduEnt.id !== this.educationEntityId);
           },
           error => {
@@ -84,13 +74,8 @@ export class EducationEntityListComponent implements OnInit {
     this.showDeleteConfirmation = false;
   }
 
-  changeEduEntityType(eduEntityType: string): void {
-    this.eduEntityType = eduEntityType;
-    this.ngOnInit();
-  }
-
   sortTable(sortOption: any): void {
     this.sortDirection =
-      this.sortService.sortTableByStringValues(sortOption, EducationEntityListComponent.educationEntities, this.sortDirection);
+      this.sortService.sortTableByStringValues(sortOption, this.educationEntities, this.sortDirection);
   }
 }

@@ -1,12 +1,66 @@
 <button mat-button color="primary"
+        [ngStyle]="{marginTop:'10px'}"
         type="button"
         (click)="goToEducationEntityEditor()"
         *ngIf="showButton">
   Додати заклад освіти
 </button>
 
+<div *ngIf="showButton" [ngStyle]="{float: 'right'}">
+
+  <button
+    mat-button color="primary"
+    (click)="this.searchValue = ''"
+  >
+    скинути
+  </button>
+
+  <mat-form-field >
+    <mat-label>пошук за {{searchOption ? 'назвою' : 'регіоном'}}...</mat-label>
+    <input matInput
+           title="nameInput"
+           type="text"
+           #nameInput
+           [(ngModel)]="searchValue"
+    >
+  </mat-form-field>
+
+  <button
+    mat-button color="primary"
+    (click)="changeSearchOption()"
+  >
+    змінити, шукати за {{searchOption ? 'регіоном' : 'назвою'}}
+  </button>
+</div>
+
 <router-outlet></router-outlet>
+
+<nav>
+  <ul>
+    <li>
+      <button mat-button color="primary" class="widthButton" (click)="changeEduEntityType('ЗЗСО')">
+        ЗЗСО
+      </button>
+    </li>
+    <li>
+      <button mat-button color="primary" class="widthButton" (click)="changeEduEntityType('ЗП(ПТ)О')">
+        ЗП(ПТ)О
+      </button>
+    </li>
+    <li>
+      <button mat-button color="primary" class="widthButton" (click)="changeEduEntityType('ЗФПВО')">
+        ЗФПВО
+      </button>
+    </li>
+    <li>
+      <button mat-button color="primary" class="widthButton" (click)="changeEduEntityType('ЗВО')">
+        ЗВО
+      </button>
+    </li>
+  </ul>
+</nav>
 
 <app-education-entity-list
   (showButton)="setShowButton($event)"
+  [educationEntities]="educationEntities | search : searchValue : searchField"
 ></app-education-entity-list>

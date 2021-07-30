@@ -1,5 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {ActivatedRoute, Params, Router} from '@angular/router';
+import {Country} from '../../../shared/interfases';
+import {CountryService} from '../../services/country.service';
+import {switchMap} from 'rxjs/operators';
 
 @Component({
   selector: 'app-country-admin-page',
@@ -9,21 +12,40 @@ import {ActivatedRoute, Params, Router} from '@angular/router';
 
 export class CountryAdminPageComponent implements OnInit {
 
+  static countries: Array<Country> = [];
+  get countries(): Array<Country> {
+    return CountryAdminPageComponent.countries;
+  }
+
   showButton = true;
+
+  searchValue = '';
+  searchField = ['countryName'];
+
+  // @ts-ignore
+  @ViewChild('nameInput') nameInputRef: ElementRef;
 
   constructor(
     private router: Router,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private countryService: CountryService
   ) {
   }
 
   ngOnInit(): void {
-    this.route.queryParams.subscribe(
-      (params: Params) => {
-        if (params.showButton) {
-          this.showButton = params.showButton;
-        }
-      }
+    this.route.queryParams
+      .pipe(
+        switchMap(
+          (params: Params) => {
+            if (params.showButton) {
+              this.showButton = params.showButton;
+            }
+            return this.countryService.getAllCountries();
+          }
+        )
+      )
+      .subscribe(
+      countries => CountryAdminPageComponent.countries = countries.slice()
     );
   }
 
@@ -34,6 +56,7 @@ export class CountryAdminPageComponent implements OnInit {
   goToCountryEditor(): void {
     this.showButton = false;
     this.router.navigateByUrl(`superadmin/places/countries/create`);
+    this.searchValue = '';
   }
 
 }

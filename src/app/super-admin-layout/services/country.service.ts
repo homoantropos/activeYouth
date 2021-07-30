@@ -49,7 +49,7 @@ export class CountryService {
     const message = error.error.message;
     if (message) {
       switch (message) {
-        case('повторювані значення ключа порушують обмеження унікальності \"country_country_name_key149\"'):
+        case('повторювані значення ключа порушують обмеження унікальності \"country_countryName_key25\"'):
           this.error$.next('така назва країни вже зареєстрована.');
           break;
       }

@@ -11,7 +11,7 @@ import {switchMap} from 'rxjs/operators';
 })
 export class AppointmentPlaceAdminPageComponent implements OnInit {
 
-  static appointmentPlaces: Array<AppointmentPlace>;
+  static appointmentPlaces: Array<AppointmentPlace> = [];
   get appointmentPlaces(): Array<AppointmentPlace> {
     return AppointmentPlaceAdminPageComponent.appointmentPlaces;
   }

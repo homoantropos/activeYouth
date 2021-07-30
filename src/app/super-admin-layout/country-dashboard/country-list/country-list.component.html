@@ -1,17 +1,27 @@
-<div *ngIf="countriesList; else loader">
+<div *ngIf="countries; else loader">
 
   <table mat-table
-         *ngIf="countriesList.length > 0; else empty"
-         [dataSource]="countriesList | paginate: { itemsPerPage: 12, currentPage: paginatorStartPageNumber }"
+         *ngIf="countries.length > 0; else empty"
+         [dataSource]="countries | paginate: { itemsPerPage: 12, currentPage: paginatorStartPageNumber }"
          class="mat-elevation-z8">
 
     <ng-container matColumnDef="_id">
-      <th mat-header-cell *matHeaderCellDef>id</th>
+      <th mat-header-cell *matHeaderCellDef
+          (click)="sortTable(['id'])"
+          [innerHTML]="sortDirection ? 'id &#8595;' : 'id &#8593;'"
+          class="sortArrow"
+      >
+      </th>
       <td mat-cell *matCellDef="let region">{{region.id}}</td>
     </ng-container>
 
     <ng-container matColumnDef="name">
-      <th mat-header-cell *matHeaderCellDef>Країна</th>
+      <th mat-header-cell *matHeaderCellDef
+          (click)="sortTable(['countryName'])"
+          [innerHTML]="sortDirection ? 'Країна &#8595;' : 'Країна &#8593;'"
+          class="sortArrow"
+      >
+      </th>
       <td mat-cell *matCellDef="let country">
         {{country.countryName}}
       </td>
@@ -19,7 +29,7 @@
 
 
     <ng-container matColumnDef="edit">
-      <th mat-header-cell *matHeaderCellDef>рндагувати</th>
+      <th mat-header-cell *matHeaderCellDef>редагувати</th>
       <td mat-cell *matCellDef="let country">
         <button mat-button color="primary" (click)="goToCountryEditor(country.id)">
           Редагувати
@@ -29,8 +39,8 @@
 
     <ng-container matColumnDef="delete">
       <th mat-header-cell *matHeaderCellDef>видалити</th>
-      <td mat-cell *matCellDef="let region">
-        <button mat-button color="primary" (click)="callDeletion(region.id)">
+      <td mat-cell *matCellDef="let country">
+        <button mat-button color="primary" (click)="callDeletion(country.id)">
           Видалити
         </button>
       </td>
