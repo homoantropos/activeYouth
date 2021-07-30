@@ -7,13 +7,14 @@ import {map, startWith, switchMap} from 'rxjs/operators';
 import {AppointmentPlace} from '../../../shared/interfases';
 import {AutoUpdateArrays} from '../../../shared/utils/autoUpdateArrays';
 import {AppointmentPlaceService} from '../../services/appointment-place.service';
-import {AppointmentPlaceListComponent} from '../appointment-place-list/appointment-place-list.component';
+import {AppointmentPlaceAdminPageComponent} from '../appointment-place-admin-page/appointment-place-admin-page.component';
 
 @Component({
   selector: 'app-appointment-place-editor',
   templateUrl: './appointment-place-editor.component.html',
   styleUrls: ['./appointment-place-editor.component.css']
 })
+
 export class AppointmentPlaceEditorComponent implements OnInit, OnDestroy {
 
   // @ts-ignore
@@ -204,9 +205,9 @@ export class AppointmentPlaceEditorComponent implements OnInit, OnDestroy {
     this.aSub = appointmentPlaceServiceMethod
       .subscribe(
         dbAppointmentPlaceAndMessage => {
-          AppointmentPlaceListComponent.appointmentPlaces =
-            AppointmentPlaceListComponent.appointmentPlaces.filter(ap => ap.id !== dbAppointmentPlaceAndMessage.appointmentPlace.id);
-          AppointmentPlaceListComponent.appointmentPlaces.unshift(dbAppointmentPlaceAndMessage.appointmentPlace);
+          AppointmentPlaceAdminPageComponent.appointmentPlaces =
+            AppointmentPlaceAdminPageComponent.appointmentPlaces.filter(ap => ap.id !== dbAppointmentPlaceAndMessage.appointmentPlace.id);
+          AppointmentPlaceAdminPageComponent.appointmentPlaces.unshift(dbAppointmentPlaceAndMessage.appointmentPlace);
           this.alert.success(dbAppointmentPlaceAndMessage.message);
           this.resetAppointmentPlaceForm();
         }, error => {

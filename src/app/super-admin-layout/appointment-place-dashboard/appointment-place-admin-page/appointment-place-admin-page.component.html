@@ -1,12 +1,41 @@
 <button mat-button color="primary"
+        [ngStyle]="{marginTop:'10px'}"
         type="button"
         (click)="goToAppointmentPlaceEditor()"
         *ngIf="showButton">
   Додати споруду
 </button>
 
+<div *ngIf="showButton" [ngStyle]="{float: 'right'}">
+
+  <button
+    mat-button color="primary"
+    (click)="this.searchValue = ''"
+  >
+    скинути
+  </button>
+
+  <mat-form-field >
+    <mat-label>пошук за {{searchOption ? 'назвою' : 'містом'}}...</mat-label>
+    <input matInput
+           title="nameInput"
+           type="text"
+           #nameInput
+           [(ngModel)]="searchValue"
+    >
+  </mat-form-field>
+
+  <button
+    mat-button color="primary"
+    (click)="changeSearchOption()"
+  >
+    змінити, шукати за {{searchOption ? 'містом' : 'назвою'}}
+  </button>
+</div>
+
 <router-outlet></router-outlet>
 
 <app-appointment-place-list
   (showButton)="setShowButton($event)"
+  [appointmentPlaces]="appointmentPlaces | search : searchValue : searchField"
 ></app-appointment-place-list>
