@@ -7,12 +7,14 @@
 </button>
 
 <div *ngIf="showButton" [ngStyle]="{float: 'right'}">
+
   <button
     mat-button color="primary"
     (click)="this.searchValue = ''"
   >
     скинути
   </button>
+
   <mat-form-field >
     <mat-label>пошук за {{searchOption ? 'назвою' : 'типом'}}...</mat-label>
     <input matInput
@@ -35,5 +37,5 @@
 
 <app-sport-kind-list
   (showButton)="setShowButton($event)"
-  [list]="sportKinds | search : searchValue : searchField"
+  [sportKinds]="sportKinds | search : searchValue : searchField"
 ></app-sport-kind-list>

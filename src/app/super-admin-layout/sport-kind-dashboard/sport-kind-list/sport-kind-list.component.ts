@@ -15,7 +15,7 @@ import {SportKindAdminPageComponent} from '../sport-kind-admin-page/sport-kind-a
 export class SportKindListComponent implements OnInit {
 
   // @ts-ignore
-  @Input() list: Array<SportKind>;
+  @Input() sportKinds: Array<SportKind>;
 
   displayedColumns = ['id', 'sportKind', 'program', 'registrationNumber', 'edit', 'delete'];
   paginatorStartPageNumber = 0;
@@ -26,6 +26,7 @@ export class SportKindListComponent implements OnInit {
   sortDirection = true;
   showDeleteConfirmation = false;
   options = 'вид спорту';
+
   @Output() showButton: EventEmitter<boolean> = new EventEmitter<boolean>();
 
   constructor(
@@ -76,6 +77,6 @@ export class SportKindListComponent implements OnInit {
   }
 
   sortTable(sortOption: any): void {
-    this.sortDirection = this.sortService.sortTableByStringValues(sortOption, this.list, this.sortDirection);
+    this.sortDirection = this.sortService.sortTableByStringValues(sortOption, this.sportKinds, this.sortDirection);
   }
 }

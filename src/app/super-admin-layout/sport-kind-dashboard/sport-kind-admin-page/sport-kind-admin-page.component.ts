@@ -18,9 +18,10 @@ export class SportKindAdminPageComponent implements OnInit {
   }
 
   showButton = true;
+
   searchOption = true;
   searchValue = '';
-  searchField = 'sportKind';
+  searchField = ['sportKind'];
 
   // @ts-ignore
   @ViewChild('nameInput') nameInputRef: ElementRef;
@@ -83,6 +84,6 @@ export class SportKindAdminPageComponent implements OnInit {
   changeSearchOption(): void {
     this.searchOption = !this.searchOption;
     this.nameInputRef.nativeElement.focus();
-    this.searchField = this.searchOption ? 'sportKind' : 'programUkrainian';
+    this.searchField = this.searchOption ? ['sportKind'] : ['programUkrainian'];
   }
 }

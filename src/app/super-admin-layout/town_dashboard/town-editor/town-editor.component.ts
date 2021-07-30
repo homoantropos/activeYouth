@@ -7,7 +7,7 @@ import {Town} from '../../../shared/interfases';
 import {map, startWith, switchMap} from 'rxjs/operators';
 import {AutoUpdateArrays} from '../../../shared/utils/autoUpdateArrays';
 import {Observable, Subscription} from 'rxjs';
-import {TownListComponent} from '../town-list/town-list.component';
+import {TownAdminPageComponent} from '../town-admin-page/town-admin-page.component';
 
 @Component({
   selector: 'app-town-editor',
@@ -150,8 +150,8 @@ export class TownEditorComponent implements OnInit, OnDestroy {
     this.tSub = townServiceMethod
       .subscribe(
         dbTownAndMessage => {
-          TownListComponent.towns = TownListComponent.towns.filter(t => t.id !== dbTownAndMessage.town.id);
-          TownListComponent.towns.unshift(dbTownAndMessage.town);
+          TownAdminPageComponent.towns = TownAdminPageComponent.towns.filter(t => t.id !== dbTownAndMessage.town.id);
+          TownAdminPageComponent.towns.unshift(dbTownAndMessage.town);
           this.alert.success(dbTownAndMessage.message);
           this.resetTownForm();
         }, error => {

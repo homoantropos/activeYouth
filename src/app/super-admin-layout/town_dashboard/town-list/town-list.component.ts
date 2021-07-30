@@ -1,24 +1,21 @@
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, OnInit, Input, Output} from '@angular/core';
 import {Town} from '../../../shared/interfases';
 import {Router} from '@angular/router';
 import {TownService} from '../../services/town.service';
 import {AlertService} from '../../../shared/services/alert.service';
 import {TableSortService} from '../../../shared/utils/table-sort.service';
+import {TownAdminPageComponent} from '../town-admin-page/town-admin-page.component';
 
 @Component({
   selector: 'app-town-list',
   templateUrl: './town-list.component.html',
   styleUrls: ['./town-list.component.css']
 })
+
 export class TownListComponent implements OnInit {
 
   // @ts-ignore
-  static towns: Array<Town>;
-  sortDirection = true;
-
-  get townsList(): Array<Town> {
-    return TownListComponent.towns;
-  }
+  @Input() towns: Array<Town>;
 
   displayedColumns = ['_id', 'name', 'country', 'region', 'edit', 'delete'];
   paginatorStartPageNumber = 0;
@@ -26,8 +23,10 @@ export class TownListComponent implements OnInit {
   // @ts-ignore
   townId: number;
 
+  sortDirection = true;
   showDeleteConfirmation = false;
   options = 'місто';
+
   @Output() showButton: EventEmitter<boolean> = new EventEmitter<boolean>();
 
   constructor(
@@ -38,13 +37,7 @@ export class TownListComponent implements OnInit {
   ) {
   }
 
-  ngOnInit(): any {
-    this.townService.getAllTowns().subscribe(
-      towns => {
-        TownListComponent.towns = towns.slice();
-      }
-    );
-  }
+  ngOnInit(): void {  }
 
   goToTownEditor(id: number): void {
     this.showButton.emit(false);
@@ -65,7 +58,7 @@ export class TownListComponent implements OnInit {
           response => {
             this.alert.success(response.message);
             this.showButton.emit(true);
-            TownListComponent.towns = TownListComponent.towns.filter(t => t.id !== this.townId);
+            TownAdminPageComponent.towns = TownAdminPageComponent.towns.filter(t => t.id !== this.townId);
           },
           error => {
             this.townService.errorHandle(error);
@@ -83,7 +76,7 @@ export class TownListComponent implements OnInit {
   }
 
   sortTable(sortOption: any): void {
-    this.sortDirection = this.sortService.sortTableByStringValues(sortOption, TownListComponent.towns, this.sortDirection);
+    this.sortDirection = this.sortService.sortTableByStringValues(sortOption, this.towns, this.sortDirection);
   }
 }
 

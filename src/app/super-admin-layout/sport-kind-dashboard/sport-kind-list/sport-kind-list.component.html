@@ -1,7 +1,8 @@
-<div *ngIf="list; else loader">
+<div *ngIf="sportKinds; else loader">
+
   <table mat-table
-         *ngIf="list.length > 0; else empty"
-         [dataSource]="list | paginate: { itemsPerPage: 12, currentPage: paginatorStartPageNumber }"
+         *ngIf="sportKinds.length > 0; else empty"
+         [dataSource]="sportKinds | paginate: { itemsPerPage: 12, currentPage: paginatorStartPageNumber }"
          class="mat-elevation-z8">
 
     <ng-container matColumnDef="id">
