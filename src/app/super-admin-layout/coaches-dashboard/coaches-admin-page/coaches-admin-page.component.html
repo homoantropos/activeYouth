@@ -1,13 +1,38 @@
 <button mat-button color="primary"
+        [ngStyle]="{marginTop:'10px'}"
         type="button"
         (click)="goToCoachEditor()"
         *ngIf="showButton">
   Додати тренера
 </button>
 
+
+<div *ngIf="showButton" [ngStyle]="{float: 'right'}">
+
+  <button
+    mat-button color="primary"
+    (click)="this.searchValue = ''"
+  >
+    скинути
+  </button>
+
+  <mat-form-field >
+    <mat-label>пошук ...</mat-label>
+    <input matInput
+           title="nameInput"
+           type="text"
+           #nameInput
+           [(ngModel)]="searchValue"
+    >
+  </mat-form-field>
+
+</div>
+
+
 <router-outlet></router-outlet>
 
 <app-coaches-list
   (showButton)="setShowButton($event)"
+  [coaches] = "coaches | search : searchValue : searchField"
 ></app-coaches-list>
 

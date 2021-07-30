@@ -1,8 +1,10 @@
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Coach} from '../../../shared/interfases';
 import {CoachService} from '../../services/coach.service';
 import {AlertService} from '../../../shared/services/alert.service';
 import {Router} from '@angular/router';
+import {CoachesAdminPageComponent} from '../coaches-admin-page/coaches-admin-page.component';
+import {TableSortService} from '../../../shared/utils/table-sort.service';
 
 @Component({
   selector: 'app-coaches-list',
@@ -13,11 +15,7 @@ import {Router} from '@angular/router';
 export class CoachesListComponent implements OnInit {
 
   // @ts-ignore
-  static coaches: Array<Coach>;
-
-  get coachesList(): Array<Coach> {
-    return CoachesListComponent.coaches;
-  }
+  @Input() coaches: Array<Coach>;
 
   displayedColumns: Array<string> = ['id', 'coachFullName', 'edit', 'delete'];
   paginatorStartPageNumber = 0;
@@ -25,23 +23,21 @@ export class CoachesListComponent implements OnInit {
   // @ts-ignore
   coachId: number;
 
-  direction = true;
+  sortDirection = true;
   showDeleteConfirmation = false;
   option = 'тренера';
+
   @Output() showButton: EventEmitter<boolean> = new EventEmitter<boolean>();
 
   constructor(
     private router: Router,
     private coachService: CoachService,
-    private alert: AlertService
+    private alert: AlertService,
+    private sortService: TableSortService
   ) {
   }
 
-  ngOnInit(): void {
-    this.coachService.getAllCoaches().subscribe(
-      coaches => CoachesListComponent.coaches = coaches.slice()
-    );
-  }
+  ngOnInit(): void { }
 
   goToCoachEditor(id: number): void {
     this.showButton.emit(false);
@@ -61,7 +57,7 @@ export class CoachesListComponent implements OnInit {
         .subscribe(
           response => {
             this.alert.success(response.message);
-            CoachesListComponent.coaches = CoachesListComponent.coaches.filter(c => c.id !== this.coachId);
+            CoachesAdminPageComponent.coaches = CoachesAdminPageComponent.coaches.filter(c => c.id !== this.coachId);
           },
           error => {
             this.coachService.errorHandle(error);
@@ -78,16 +74,9 @@ export class CoachesListComponent implements OnInit {
     this.showDeleteConfirmation = false;
   }
 
-  sortByNames(): void {
-    if (this.direction){
-      CoachesListComponent.coaches = CoachesListComponent.coaches.sort(
-        (a, b) => b.surname.toLowerCase().localeCompare(a.surname.toLowerCase())
-      );
-    } else {
-      CoachesListComponent.coaches = CoachesListComponent.coaches.sort(
-        (a, b) => a.surname.toLowerCase().localeCompare(b.surname.toLowerCase())
-      );
-    }
-    this.direction = !this.direction;
+
+  sortTable(sortOption: any): void {
+    this.sortDirection = this.sortService.sortTableByStringValues(sortOption, this.coaches, this.sortDirection);
   }
+
 }

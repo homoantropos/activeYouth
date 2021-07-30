@@ -107,15 +107,15 @@
              formControlName="organizationsParticipants">
     </mat-form-field>
 
-    <mat-form-field class="middle forms-inputs" title="sport_kind">
+    <mat-form-field class="middle forms-inputs" title="sportKind">
       <mat-label>вид спорту (активності)</mat-label>
       <input type="text"
              placeholder="вид спорту (активності)..."
-             aria-label="sport_kind"
+             aria-label="sportKind"
              matInput
-             formControlName="sport_kind"
-             [matAutocomplete]="sport_kind">
-      <mat-autocomplete #sport_kind="matAutocomplete">
+             formControlName="sportKind"
+             [matAutocomplete]="sportKind">
+      <mat-autocomplete #sportKind="matAutocomplete">
         <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
           {{option}}
         </mat-option>

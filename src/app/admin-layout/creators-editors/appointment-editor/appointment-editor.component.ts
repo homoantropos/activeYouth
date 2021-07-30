@@ -71,7 +71,7 @@ export class AppointmentEditorComponent implements OnInit, OnDestroy {
           kpkv: new FormControl(2201310),
           character: new FormControl(appointment.haracter, [Validators.required]),
           participants: new FormControl(appointment.participants, [Validators.required]),
-          sport_kind: new FormControl(appointment.sport_kind.sport_kind, [Validators.required]),
+          sportKind: new FormControl(appointment.sportKind.sportKind, [Validators.required]),
           direction: new FormControl(appointment.direction, [Validators.required]),
           status: new FormControl(appointment.status, [Validators.required]),
           organiser: new FormControl(appointment.organiser, [Validators.required])
@@ -79,7 +79,7 @@ export class AppointmentEditorComponent implements OnInit, OnDestroy {
         // @ts-ignore
         this.minFinishDate$ = this.appointmentEditorForm.get('start').valueChanges;
         // @ts-ignore
-        this.filteredOptions = this.appointmentEditorForm.get('sport_kind').valueChanges
+        this.filteredOptions = this.appointmentEditorForm.get('sportKind').valueChanges
           .pipe(
             startWith(''),
             map((value: string) => this._filter(value))

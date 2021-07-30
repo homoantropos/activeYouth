@@ -7,6 +7,7 @@ import {Coach} from '../../../shared/interfases';
 import {AlertService} from '../../../shared/services/alert.service';
 import {Subscription} from 'rxjs';
 import {CoachesListComponent} from '../coaches-list/coaches-list.component';
+import {CoachesAdminPageComponent} from '../coaches-admin-page/coaches-admin-page.component';
 
 @Component({
   selector: 'app-coach-editor',
@@ -104,8 +105,8 @@ export class CoachEditorComponent implements OnInit, OnDestroy {
     this.cSub = coachServiceMethod
       .subscribe(
         dbCoachAndMessage => {
-          CoachesListComponent.coaches = CoachesListComponent.coaches.filter(c => c.id !== dbCoachAndMessage.coach.id);
-          CoachesListComponent.coaches.push(dbCoachAndMessage.coach);
+          CoachesAdminPageComponent.coaches = CoachesAdminPageComponent.coaches.filter(c => c.id !== dbCoachAndMessage.coach.id);
+          CoachesAdminPageComponent.coaches.push(dbCoachAndMessage.coach);
           this.alert.success(dbCoachAndMessage.message);
           this.resetCoachForm();
         }, error => {
