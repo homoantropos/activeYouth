@@ -64,7 +64,7 @@ export class AppointmentPlaceService {
           break;
         case('update або delete в таблиці ' +
           '\"appointmentPlace\" порушує обмеження зовнішнього ключа ' +
-          '\"appointment_appointmentPlaceId_fkey1\" таблиці \"appointment\"'):
+          '\"appointment_appointmentPlaceId_fkey\" таблиці \"appointment\"'):
           this.error$.next('Споруда не може бути видалена - в базі даних є захід, до якого вона привязана.');
           break;
       }
@@ -72,4 +72,3 @@ export class AppointmentPlaceService {
     return throwError(error);
   }
 }
-
