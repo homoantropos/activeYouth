@@ -7,7 +7,7 @@ import {map, startWith, switchMap} from 'rxjs/operators';
 import {Region} from '../../../shared/interfases';
 import {AutoUpdateArrays} from '../../../shared/utils/autoUpdateArrays';
 import {RegionService} from '../../services/region.service';
-import {RegionsListComponent} from '../regions-list/regions-list.component';
+import {RegionsAdminPageComponent} from '../regions-admin-page/regions-admin-page.component';
 
 @Component({
   selector: 'app-region-editor',
@@ -137,8 +137,8 @@ export class RegionEditorComponent implements OnInit, OnDestroy {
     this.rSub = regionServiceMethod
       .subscribe(
         dbRegionAndMessage => {
-          RegionsListComponent.regions = RegionsListComponent.regions.filter(r => r.id !== dbRegionAndMessage.region.id);
-          RegionsListComponent.regions.unshift(dbRegionAndMessage.region);
+          RegionsAdminPageComponent.regions = RegionsAdminPageComponent.regions.filter(r => r.id !== dbRegionAndMessage.region.id);
+          RegionsAdminPageComponent.regions.unshift(dbRegionAndMessage.region);
           this.alert.success(dbRegionAndMessage.message);
           this.resetRegionForm();
         }, error => {

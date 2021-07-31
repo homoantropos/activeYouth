@@ -1,12 +1,41 @@
 <button mat-button color="primary"
+        [ngStyle]="{marginTop:'10px'}"
         type="button"
         (click)="goToRegionEditor()"
         *ngIf="showButton">
   Додати регіон
 </button>
 
+<div *ngIf="showButton" [ngStyle]="{float: 'right'}">
+
+  <button
+    mat-button color="primary"
+    (click)="this.searchValue = ''"
+  >
+    скинути
+  </button>
+
+  <mat-form-field>
+    <mat-label>пошук за {{searchOption ? 'назвою' : 'країною'}}...</mat-label>
+    <input matInput
+           title="nameInput"
+           type="text"
+           #nameInput
+           [(ngModel)]="searchValue"
+    >
+  </mat-form-field>
+
+  <button
+    mat-button color="primary"
+    (click)="changeSearchOption()"
+  >
+    змінити, шукати за {{searchOption ? 'країною' : 'назвою'}}
+  </button>
+</div>
+
 <router-outlet></router-outlet>
 
 <app-regions-list
   (showButton)="setShowButton($event)"
+  [regions]="regions | search: searchValue : searchField"
 ></app-regions-list>

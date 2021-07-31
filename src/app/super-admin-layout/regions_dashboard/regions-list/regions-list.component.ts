@@ -1,22 +1,21 @@
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Region} from '../../../shared/interfases';
 import {Router} from '@angular/router';
 import {AlertService} from '../../../shared/services/alert.service';
 import {RegionService} from '../../services/region.service';
+import {RegionsAdminPageComponent} from '../regions-admin-page/regions-admin-page.component';
+import {TableSortService} from '../../../shared/utils/table-sort.service';
 
 @Component({
   selector: 'app-regions-list',
   templateUrl: './regions-list.component.html',
   styleUrls: ['./regions-list.component.css']
 })
+
 export class RegionsListComponent implements OnInit {
 
   // @ts-ignore
-  static regions: Array<Region>;
-
-  get regionsList(): Array<Region> {
-    return RegionsListComponent.regions;
-  }
+  @Input() regions: Array<Region>;
 
   displayedColumns = ['_id', 'name', 'group', 'country', 'edit', 'delete'];
   paginatorStartPageNumber = 0;
@@ -24,6 +23,7 @@ export class RegionsListComponent implements OnInit {
   // @ts-ignore
   regionId: number;
 
+  sortDirection = true;
   showDeleteConfirmation = false;
   options = 'регіон';
   @Output() showButton: EventEmitter<boolean> = new EventEmitter<boolean>();
@@ -31,16 +31,12 @@ export class RegionsListComponent implements OnInit {
   constructor(
     private router: Router,
     private regionService: RegionService,
-    private alert: AlertService
+    private alert: AlertService,
+    private sortService: TableSortService
   ) {
   }
 
   ngOnInit(): any {
-    this.regionService.getAllRegions().subscribe(
-      regions => {
-        RegionsListComponent.regions = regions.slice();
-      }
-    );
   }
 
   goToRegionEditor(id: number): void {
@@ -62,7 +58,7 @@ export class RegionsListComponent implements OnInit {
           response => {
             this.alert.success(response.message);
             this.showButton.emit(true);
-            RegionsListComponent.regions = RegionsListComponent.regions.filter(r => r.id !== this.regionId);
+            RegionsAdminPageComponent.regions = RegionsAdminPageComponent.regions.filter(r => r.id !== this.regionId);
           },
           error => {
             this.regionService.errorHandle(error);
@@ -77,6 +73,10 @@ export class RegionsListComponent implements OnInit {
       this.alert.warning('Видалення скасовано.');
     }
     this.showDeleteConfirmation = false;
+  }
+
+  sortTable(sortOption: any): void {
+    this.sortDirection = this.sortService.sortTableByStringValues(sortOption, this.regions, this.sortDirection);
   }
 
 }
