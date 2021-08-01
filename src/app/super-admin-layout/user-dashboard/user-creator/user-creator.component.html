@@ -2,7 +2,11 @@
       [formGroup]="userCreatorForm"
       (ngSubmit)="onSubmit()">
 
-  <small>Додайте користувача</small>
+  <h3>Редагувати дані користувача</h3>
+
+  <div class="alert info" *ngIf="message">
+    {{ message }}
+  </div>
 
   <mat-form-field class="xl forms-inputs">
     <mat-label>введіть емейл...</mat-label>

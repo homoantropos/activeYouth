@@ -5,10 +5,6 @@
 
   <h3>Редагувати дані користувача</h3>
 
-  <div class="alert danger" *ngIf="userService.error$ | async as error">
-    {{ error }}
-  </div>
-
   <div class="alert info" *ngIf="message">
     {{ message }}
   </div>

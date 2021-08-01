@@ -6,6 +6,7 @@ import {UserService} from '../../services/user.service';
 import {ActivatedRoute, Params, Router} from '@angular/router';
 import {User} from '../../../shared/interfases';
 import {switchMap} from 'rxjs/operators';
+import {AlertService} from '../../../shared/services/alert.service';
 
 @Component({
   selector: 'app-user-editor',
@@ -27,7 +28,8 @@ export class UserEditorComponent implements OnInit, OnDestroy {
     public auth: AuthService,
     public userService: UserService,
     private router: Router,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private alert: AlertService
   ) {
   }
 
@@ -83,7 +85,7 @@ export class UserEditorComponent implements OnInit, OnDestroy {
     this.uSub = this.userService.updateUser(user)
       .subscribe(
         resuser => {
-          alert(resuser.message);
+          this.alert.success(resuser.message);
           this.router.navigate(['/superadmin', 'users']);
         },
         error => {
@@ -91,6 +93,11 @@ export class UserEditorComponent implements OnInit, OnDestroy {
           this.userEditorForm.enable();
         }
       );
+    if (this.userService.error$) {
+      this.userService.error$.subscribe(
+        message => this.alert.danger(message)
+      );
+    }
     this.userEditorForm.enable();
   }
 
