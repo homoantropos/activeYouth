@@ -40,8 +40,11 @@ export class UserService {
     const message = error.error.message;
     if (message) {
       switch (message) {
-        case('повторювані значення ключа порушують обмеження унікальності "person_email_key"'):
+        case('повторювані значення ключа порушують обмеження унікальності "user_email_key43"'):
           this.error$.next('емейл вже занято. спробуйте інший.');
+          break;
+        case('INVALID_CODE'):
+          this.error$.next('Ви ввели невірний код ролі. Введіть вірний і повторіть спробу.');
           break;
       }
     }
@@ -49,3 +52,4 @@ export class UserService {
   }
 
 }
+
