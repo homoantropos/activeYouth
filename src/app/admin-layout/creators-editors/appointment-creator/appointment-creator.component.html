@@ -1,4 +1,4 @@
-<div *ngIf = "appointmentCreatorForm; else loader"
+<div *ngIf="appointmentCreatorForm; else loader"
      class="forms-container mat-elevation-z8"
      [ngStyle]="{padding: '2%'}">
 
@@ -227,6 +227,7 @@
       mat-button
       color="primary"
       (click)="onDownload()"
+      [disabled] = "appointmentCreatorForm.invalid"
     >
       завантажити логотип заходу
     </button>
