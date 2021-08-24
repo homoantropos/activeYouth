@@ -5,6 +5,7 @@ import {Router} from '@angular/router';
 import {User} from '../../../shared/interfases';
 import {UserService} from '../../services/user.service';
 import {AuthService} from '../../../admin-layout/auth/auth.service';
+import {AlertService} from '../../../shared/services/alert.service';
 
 @Component({
   selector: 'app-user-creator',
@@ -24,7 +25,8 @@ export class UserCreatorComponent implements OnInit, OnDestroy {
   constructor(
     public auth: AuthService,
     public userService: UserService,
-    private router: Router
+    private router: Router,
+    private alert: AlertService
   ) {
   }
 
@@ -75,6 +77,11 @@ export class UserCreatorComponent implements OnInit, OnDestroy {
           this.userCreatorForm.enable();
         }
       );
+    if (this.userService.error$) {
+      this.userService.error$.subscribe(
+        message => this.alert.danger(message)
+      );
+    }
     this.userCreatorForm.enable();
   }
 

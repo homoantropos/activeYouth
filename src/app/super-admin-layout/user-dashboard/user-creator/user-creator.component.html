@@ -2,13 +2,9 @@
       [formGroup]="userCreatorForm"
       (ngSubmit)="onSubmit()">
 
-  <small>Додайте користувача</small>
+  <h3>Редагувати дані користувача</h3>
 
-  <div class="alert danger" *ngIf="userService.error$ | async as error">
-    {{ error }}
-  </div>
-
-  <div class="alert info" *ngIf = "message">
+  <div class="alert info" *ngIf="message">
     {{ message }}
   </div>
 

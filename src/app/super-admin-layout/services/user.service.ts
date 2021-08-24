@@ -32,20 +32,34 @@ export class UserService {
     return this.http.get<User>(`${environment.postgresDbUrl}/user/${id}`);
   }
 
-  updateUser(user: User): Observable<any>{
+  updateUser(user: User): Observable<any> {
     return this.http.patch<any>(`${environment.postgresDbUrl}/user/${user.id}`, user);
   }
 
   public errorHandle(error: HttpErrorResponse): any {
-    const message = error.error.message;
+    let message;
+    if (error.error.message) {
+      message = error.error.message;
+    } else {
+      message = error.message;
+    }
+
     if (message) {
       switch (message) {
-        case('повторювані значення ключа порушують обмеження унікальності "person_email_key"'):
+        case('повторювані значення ключа порушують обмеження унікальності "user_email_key76"'):
           this.error$.next('емейл вже занято. спробуйте інший.');
+          break;
+        case('повторювані значення ключа порушують обмеження унікальності "user_email_key66"'):
+          this.error$.next('емейл вже занято. спробуйте інший.');
+          break;
+        case('INVALID_EMAIL'):
+          this.error$.next('емейл вже занято. спробуйте інший.');
+          break;
+        case('INVALID_CODE'):
+          this.error$.next('Ви ввели невірний код ролі. Введіть вірний і повторіть спробу.');
           break;
       }
     }
     return throwError(error);
   }
-
 }

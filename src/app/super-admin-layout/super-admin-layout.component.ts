@@ -18,14 +18,7 @@ export class SuperAdminLayoutComponent implements OnInit {
     private alert: AlertService
   ) { }
 
-  ngOnInit(): void {
-    if (this.auth.role() !== 'superadmin') {
-      this.router.navigate(['main']);
-      this.alert.danger('Немає доступу до цього рівня сайту');
-    } else {
-      this.autoUpdateCreator.createAutoUpdateArrays();
-    }
-  }
+  ngOnInit(): void {this.autoUpdateCreator.createAutoUpdateArrays();}
 
   goToMainPage(): void {
     this.router.navigate(['main']);
