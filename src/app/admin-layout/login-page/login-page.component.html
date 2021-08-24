@@ -23,6 +23,10 @@
              type="text"
              formControlName="email">
     </mat-form-field>
+    <div *ngIf="loginForm.get('email').touched && loginForm.get('email').invalid">
+      <small class="error" *ngIf="loginForm.get('email').errors.required">поле повинно бути заповнене</small>
+      <small class="error" *ngIf="loginForm.get('email').errors.email">введіть коректну адресу електронної пошти</small>
+    </div>
   </div>
 
   <div>
@@ -35,6 +39,12 @@
              type="password"
              formControlName="password">
     </mat-form-field>
+    <div *ngIf="loginForm.get('password').touched && loginForm.get('password').invalid">
+      <small class="error" *ngIf="loginForm.get('password').errors.required">поле повинно бути заповнене</small>
+      <small class="error" *ngIf="loginForm.get('password').errors.minlength">
+        пароль повинен бути більшим {{loginForm.get('password').errors.minlength.requiredLength}} символів
+        ви ввели {{loginForm.get('password').errors.minlength.actualLength}} символів</small>
+    </div>
   </div>
 
   <button mat-button

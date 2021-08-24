@@ -2,8 +2,9 @@ import {Component, OnDestroy, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {User} from '../../shared/interfases';
 import {AuthService} from '../auth/auth.service';
-import {ActivatedRoute, Params, Router} from '@angular/router';
+import {Router} from '@angular/router';
 import {Subscription} from 'rxjs';
+import {AlertService} from '../../shared/services/alert.service';
 
 @Component({
   selector: 'app-login-page',
@@ -13,7 +14,7 @@ import {Subscription} from 'rxjs';
 
 export class LoginPageComponent implements OnInit, OnDestroy {
   // @ts-ignore
-  loginForm: FormGroup;
+  loginForm!: FormGroup;
   // @ts-ignore
   aSub: Subscription;
   // @ts-ignore
@@ -23,7 +24,7 @@ export class LoginPageComponent implements OnInit, OnDestroy {
   constructor(
     public auth: AuthService,
     private router: Router,
-    private route: ActivatedRoute
+    private alert: AlertService
   ) {
   }
 
@@ -31,17 +32,12 @@ export class LoginPageComponent implements OnInit, OnDestroy {
     if (this.auth.isAuthenticated()) {
       this.router.navigate(['admin', 'activities']);
     }
-    this.route.queryParams.subscribe((params: Params) => {
-      if (params.loginFailed) {
-        this.message = 'Ви повинні авторизуватися';
-      }
-    });
     this.loginForm = new FormGroup({
-      email: new FormControl(null, [
+      email: new FormControl('', [
         Validators.required,
         Validators.email
       ]),
-      password: new FormControl(null, [
+      password: new FormControl('', [
         Validators.required,
         Validators.minLength(3)
       ])
@@ -62,6 +58,7 @@ export class LoginPageComponent implements OnInit, OnDestroy {
       .subscribe(
         () => this.router.navigate(['/']),
         error => {
+          this.alert.danger(error.message);
           this.loginForm.enable();
         }
       );

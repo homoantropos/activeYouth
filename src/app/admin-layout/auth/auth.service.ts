@@ -13,7 +13,7 @@ import {AlertService} from '../../shared/services/alert.service';
 
 export class AuthService {
   public error$: Subject<string> = new Subject<string>();
-  token = null;
+  token: string | null = null;
 
   constructor(
     private http: HttpClient,
