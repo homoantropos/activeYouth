@@ -1,6 +1,6 @@
 <h2>Admin panel</h2>
 <nav>
-  <ul *ngIf="auth.role() === 'superadmin' || auth.role() === 'admin'">
+  <ul *ngIf="auth.role() === 'superAdmin' || auth.role() === 'admin'">
     <li>
       <a routerLink="activities" routerLinkActive="active">Фізична культура</a>
     </li>
@@ -26,9 +26,8 @@
       <a (click)="auth.logOut()" routerLinkActive="active">LogOut</a>
     </li>
   </ul>
-  <li>
-    <a routerLink="application" routerLinkActive="active"></a>
-  </li>
 </nav>
+
 <router-outlet></router-outlet>
+
 <a (click)="goToMainPage()">на головну</a>

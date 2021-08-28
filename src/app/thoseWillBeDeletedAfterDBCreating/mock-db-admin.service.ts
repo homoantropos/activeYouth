@@ -16,6 +16,7 @@ import {MockDataBase} from './mockDB';
 })
 export class MockDBAdministratorService {
 
+  static partId = 0;
   constructor() {
   }
 
@@ -37,12 +38,13 @@ export class MockDBAdministratorService {
     const name = `ім'я ${variants}`;
     const surname = `прізвище ${variants}`;
     const DoB = new Date();
+    const id = variants;
 
     // @ts-ignore
     let ratingPoints = 0;
 
     const mockParticipant: Participant = {
-      name, surname, DoB, gender, schoolchildOrStudent
+      name, surname, DoB, gender, schoolchildOrStudent, id
     };
 
     // mockEduEntity creating
