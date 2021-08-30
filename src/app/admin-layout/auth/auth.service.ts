@@ -24,12 +24,12 @@ export class AuthService {
 
   getToken(): string | null {
     // @ts-ignore
-    const expDate = new Date(localStorage.getItem('auth-token-exp'));
+    const expDate = new Date(sessionStorage.getItem('auth-token-exp'));
     if (new Date() > expDate) {
       this.logOut();
       return null;
     }
-    return localStorage.getItem('auth-token');
+    return sessionStorage.getItem('auth-token');
   }
 
   login(user: User): Observable<any> {
@@ -38,10 +38,10 @@ export class AuthService {
         tap(
           response => {
             const authExpTime = new Date(new Date().getTime() + 60 * 60 * 1000);
-            localStorage.setItem('auth-token-exp', authExpTime.toString());
-            localStorage.setItem('auth-token', response.token);
-            localStorage.setItem('user-email', response.userEmail);
-            localStorage.setItem('role', response.userRole);
+            sessionStorage.setItem('auth-token-exp', authExpTime.toString());
+            sessionStorage.setItem('auth-token', response.token);
+            sessionStorage.setItem('user-email', response.userEmail);
+            sessionStorage.setItem('role', response.userRole);
             this.setToken(response.token);
           }
         ),
@@ -51,7 +51,7 @@ export class AuthService {
 
   logOut(): void {
     this.setToken(null);
-    localStorage.clear();
+    sessionStorage.clear();
     this.alert.warning('Ви вийшли з сайту');
     this.router.navigate(['/']);
   }
@@ -62,11 +62,10 @@ export class AuthService {
   }
 
   role(): string | null {
-    return localStorage.getItem('role');
+    return sessionStorage.getItem('role');
   }
 
   setToken(token: string | null): void {
-    // @ts-ignore
     this.token = token;
   }
 

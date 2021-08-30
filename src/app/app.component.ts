@@ -19,7 +19,7 @@ export class AppComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    const existToken = localStorage.getItem('auth-token');
+    const existToken = sessionStorage.getItem('auth-token');
     if (existToken !== null){
       this.auth.setToken(existToken);
     }
@@ -29,7 +29,7 @@ export class AppComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    localStorage.clear();
+    sessionStorage.clear();
   }
 
 }
