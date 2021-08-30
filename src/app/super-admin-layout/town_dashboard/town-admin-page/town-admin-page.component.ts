@@ -23,7 +23,6 @@ export class TownAdminPageComponent implements OnInit {
   searchValue = '';
   searchField = ['townName'];
 
-  // @ts-ignore
   @ViewChild('nameInput') nameInputRef: ElementRef;
 
   constructor(

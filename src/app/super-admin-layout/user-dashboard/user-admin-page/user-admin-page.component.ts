@@ -12,9 +12,7 @@ import {AlertService} from '../../../shared/services/alert.service';
   styleUrls: ['./user-admin-page.component.css']
 })
 export class UserAdminPageComponent implements OnInit {
-  // @ts-ignore
   dataSource: MatTableDataSource<User>;
-  // @ts-ignore
   user$: Observable<Array<User>>;
   displayedColumns = ['_id', 'email', 'role', 'delete'];
 

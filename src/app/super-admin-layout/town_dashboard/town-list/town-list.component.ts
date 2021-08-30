@@ -14,13 +14,11 @@ import {TownAdminPageComponent} from '../town-admin-page/town-admin-page.compone
 
 export class TownListComponent implements OnInit {
 
-  // @ts-ignore
   @Input() towns: Array<Town>;
 
   displayedColumns = ['_id', 'name', 'country', 'region', 'edit', 'delete'];
   paginatorStartPageNumber = 0;
 
-  // @ts-ignore
   townId: number;
 
   sortDirection = true;
