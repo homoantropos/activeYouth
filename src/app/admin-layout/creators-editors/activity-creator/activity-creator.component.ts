@@ -14,11 +14,8 @@ import {AlertService} from '../../../shared/services/alert.service';
 
 export class ActivityCreatorComponent implements OnInit, OnDestroy, AfterViewInit {
   submitted = false;
-  // @ts-ignore
   activitiesCreatorForm: FormGroup;
-  // @ts-ignore
   aSub: Subscription;
-  // @ts-ignore
   @ViewChild('title') title: ElementRef;
 
   constructor(

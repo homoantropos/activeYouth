@@ -13,12 +13,9 @@ import {AlertService} from '../../../shared/services/alert.service';
   styleUrls: ['./activity-editor.component.css']
 })
 export class ActivityEditorComponent implements OnInit, OnDestroy, AfterViewInit {
-  // @ts-ignore
   @ViewChild('title') titleRef: ElementRef;
   submitted = false;
-  // @ts-ignore
   activitiesEditorForm: FormGroup;
-  // @ts-ignore
   activityId: number;
   aSub: Subscription = new Subscription();
 

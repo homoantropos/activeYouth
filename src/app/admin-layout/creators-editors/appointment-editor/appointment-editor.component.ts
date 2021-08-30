@@ -16,17 +16,11 @@ import {AlertService} from '../../../shared/services/alert.service';
   styleUrls: ['./appointment-editor.component.css']
 })
 export class AppointmentEditorComponent implements OnInit, OnDestroy {
-// @ts-ignore
   appointmentEditorForm: FormGroup;
-  // @ts-ignore
   filteredOptions: Observable<string[]>;
-  // @ts-ignore
   countryFilteredOptions: Observable<string[]>;
-  // @ts-ignore
   regionFilteredOptions: Observable<string[]>;
-  // @ts-ignore
   townFilteredOptions: Observable<string[]>;
-  // @ts-ignore
   placeNamesFilteredOptions: Observable<string[]>;
   sportKinds: Array<SportKind> = [];
   countries: Array<Country> = [];
@@ -34,10 +28,8 @@ export class AppointmentEditorComponent implements OnInit, OnDestroy {
   townsName: Array<string> = [];
   appointmentPlaceNames: Array<string> = [];
   minDate = new Date();
-  // @ts-ignore
   minFinishDate$: Observable<Date>;
   appointmentId = 0;
-  // @ts-ignore
   appointment: Appointment;
 
   constructor(
@@ -76,33 +68,27 @@ export class AppointmentEditorComponent implements OnInit, OnDestroy {
           status: new FormControl(appointment.status, [Validators.required]),
           organiser: new FormControl(appointment.organiser, [Validators.required])
         });
-        // @ts-ignore
         this.minFinishDate$ = this.appointmentEditorForm.get('start').valueChanges;
-        // @ts-ignore
         this.filteredOptions = this.appointmentEditorForm.get('sportKind').valueChanges
           .pipe(
             startWith(''),
             map((value: string) => this._filter(value))
           );
-        // @ts-ignore
         this.countryFilteredOptions = this.appointmentEditorForm.get('place').get('country').valueChanges
           .pipe(
             startWith(''),
             map((value: string) => this._filterCountry(value))
           );
-        // @ts-ignore
         this.regionFilteredOptions = this.appointmentEditorForm.get('place').get('region').valueChanges
           .pipe(
             startWith(''),
             map((value: string) => this._filterRegion(value))
           );
-        // @ts-ignore
         this.townFilteredOptions = this.appointmentEditorForm.get('place').get('town').valueChanges
           .pipe(
             startWith(''),
             map((value: string) => this._filterTown(value))
           );
-        // @ts-ignore
         this.placeNamesFilteredOptions = this.appointmentEditorForm.get('place').get('appointmentPlaceName').valueChanges
           .pipe(
             startWith(''),
@@ -127,7 +113,6 @@ export class AppointmentEditorComponent implements OnInit, OnDestroy {
     const filterValue = value.toLowerCase();
     this.regionsName.splice(0);
     AutoUpdateArrays.regions
-      // @ts-ignore
       .filter(region => region.country.countryName === this.appointmentEditorForm.get('place').get('country').value)
       .map(region => {
         this.regionsName.push(region.regionName);
@@ -140,9 +125,7 @@ export class AppointmentEditorComponent implements OnInit, OnDestroy {
     const filterValue = value.toLowerCase();
     this.townsName.splice(0);
     AutoUpdateArrays.towns
-      // @ts-ignore
       .filter(town => town.region.regionName === this.appointmentEditorForm.get('place').get('region').value)
-      // @ts-ignore
       .map(town => {
         this.townsName.push(town.townName);
       });
@@ -154,8 +137,7 @@ export class AppointmentEditorComponent implements OnInit, OnDestroy {
     const filterValue = value.toLowerCase();
     AutoUpdateArrays.appointmentPlaces
       .filter(appointmentPlace =>
-        // @ts-ignore
-        appointmentPlace.town.regionName === this.appointmentEditorForm.get('place').get('town').value)
+        appointmentPlace.town.townName === this.appointmentEditorForm.get('place').get('town').value)
       .map(appointmentPlace => this.appointmentPlaceNames.push(appointmentPlace.appointmentPlaceName));
     this.appointmentPlaceNames = this.appointmentPlaceNames.filter((v, i, a) => a.indexOf(v) === i);
     return this.appointmentPlaceNames.filter(option => option.toLowerCase().includes(filterValue));
@@ -167,7 +149,6 @@ export class AppointmentEditorComponent implements OnInit, OnDestroy {
     this.appointmentService.updateAppointment(value)
       .subscribe(
         (a) => {
-          // @ts-ignore
           this.router.navigate(['admin', 'schedule']);
           this.alert.success('Ваші зміни збережено!');
         }

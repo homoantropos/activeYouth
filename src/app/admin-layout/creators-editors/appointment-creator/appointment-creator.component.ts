@@ -19,17 +19,11 @@ import {AlertService} from '../../../shared/services/alert.service';
 })
 
 export class AppointmentCreatorComponent implements OnInit, OnDestroy {
-  // @ts-ignore
   appointmentCreatorForm: FormGroup;
-  // @ts-ignore
   filteredOptions: Observable<string[]>;
-  // @ts-ignore
   countryFilteredOptions: Observable<string[]>;
-  // @ts-ignore
   regionFilteredOptions: Observable<string[]>;
-  // @ts-ignore
   townFilteredOptions: Observable<string[]>;
-  // @ts-ignore
   placeNamesFilteredOptions: Observable<string[]>;
   sportKinds: Array<SportKind> = [];
   countries: Array<Country> = [];
@@ -37,11 +31,8 @@ export class AppointmentCreatorComponent implements OnInit, OnDestroy {
   townsName: Array<string> = [];
   appointmentPlaceNames: Array<string> = [];
   minDate = new Date();
-  // @ts-ignore
   minFinishDate$: Observable<Date>;
-  // @ts-ignore
   image: File;
-  // @ts-ignore
   @ViewChild('input') inputRef: ElementRef;
 
   constructor(
@@ -82,33 +73,27 @@ export class AppointmentCreatorComponent implements OnInit, OnDestroy {
       status: new FormControl('', [Validators.required]),
       organiser: new FormControl('', [Validators.required])
     });
-    // @ts-ignore
     this.minFinishDate$ = this.appointmentCreatorForm.get('start').valueChanges;
-    // @ts-ignore
     this.filteredOptions = this.appointmentCreatorForm.get('sportKind').valueChanges
       .pipe(
         startWith(''),
         map((value: string) => this._filter(value))
       );
-    // @ts-ignore
     this.countryFilteredOptions = this.appointmentCreatorForm.get('place').get('country').valueChanges
       .pipe(
         startWith(''),
         map((value: string) => this._filterCountry(value))
       );
-    // @ts-ignore
     this.regionFilteredOptions = this.appointmentCreatorForm.get('place').get('region').valueChanges
       .pipe(
         startWith(''),
         map((value: string) => this._filterRegion(value))
       );
-    // @ts-ignore
     this.townFilteredOptions = this.appointmentCreatorForm.get('place').get('town').valueChanges
       .pipe(
         startWith(''),
         map((value: string) => this._filterTown(value))
       );
-    // @ts-ignore
     this.placeNamesFilteredOptions = this.appointmentCreatorForm.get('place').get('appointmentPlaceName').valueChanges
       .pipe(
         startWith(''),
@@ -129,7 +114,6 @@ export class AppointmentCreatorComponent implements OnInit, OnDestroy {
   private _filterRegion(value: string): string[] {
     const filterValue = value.toLowerCase();
     AutoUpdateArrays.regions
-      // @ts-ignore
       .filter(region => region.country.countryName === this.appointmentCreatorForm.get('place').get('country').value)
       .map(region => this.regionsName.push(region.regionName));
     this.regionsName = this.regionsName.filter((v, i, a) => a.indexOf(v) === i);
@@ -139,9 +123,8 @@ export class AppointmentCreatorComponent implements OnInit, OnDestroy {
   private _filterTown(value: string): string[] {
     const filterValue = value.toLowerCase();
     AutoUpdateArrays.towns
-      // @ts-ignore
       .filter(town => town.region.regionName === this.appointmentCreatorForm.get('place').get('region').value)
-      // @ts-ignore
+
       .map(town => this.townsName.push(town.townName));
     this.townsName = this.townsName.filter((v, i, a) => a.indexOf(v) === i);
     return this.townsName.filter(option => option.toLowerCase().includes(filterValue));
@@ -150,7 +133,6 @@ export class AppointmentCreatorComponent implements OnInit, OnDestroy {
   private _filterPlaceNames(value: string): string[] {
     const filterValue = value.toLowerCase();
     AutoUpdateArrays.appointmentPlaces
-      // @ts-ignore
       .filter(appointmentPlace => appointmentPlace.town.townName === this.appointmentCreatorForm.get('place').get('town').value)
       .map(appointmentPlace => this.appointmentPlaceNames.push(appointmentPlace.appointmentPlaceName));
     this.appointmentPlaceNames = this.appointmentPlaceNames.filter((v, i, a) => a.indexOf(v) === i);
@@ -166,7 +148,6 @@ export class AppointmentCreatorComponent implements OnInit, OnDestroy {
     this.appointmentService.saveAppointmentToPSQL(value)
       .subscribe(
         (a) => {
-          // @ts-ignore
           const appointmentFinancing: AppointmentFinancing = {
             appointment: a,
             expensesPlan: basicExpensesPlan,

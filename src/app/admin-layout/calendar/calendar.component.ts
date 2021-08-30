@@ -30,10 +30,9 @@ export class CalendarComponent implements OnInit {
     'sportKind'
   ];
 
-  // @ts-ignore
   dataSource: MatTableDataSource<Appointment>;
   paginatorStartPageNumber = 1;
-  // @ts-ignore
+
   schedule$: Observable<Array<Appointment>>;
 
   constructor(

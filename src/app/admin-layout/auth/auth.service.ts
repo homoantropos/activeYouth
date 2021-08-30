@@ -23,7 +23,6 @@ export class AuthService {
   }
 
   getToken(): string | null {
-    // @ts-ignore
     const expDate = new Date(sessionStorage.getItem('auth-token-exp'));
     if (new Date() > expDate) {
       this.logOut();

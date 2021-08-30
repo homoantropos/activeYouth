@@ -18,25 +18,19 @@ import {RegionService} from '../../../super-admin-layout/services/region.service
 
 export class ApplicationFormComponent implements OnInit, OnDestroy {
 
-  // @ts-ignore
   applicationForm: FormGroup;
   submitted = false;
   creatOrEditor = true;
 
-  // @ts-ignore
   afSub: Subscription;
 
   listOfParticipants: Array<Result> = [];
   educationalEntityName: Array<string> = [];
   regionsNames: Array<string> = [];
-  // @ts-ignore
   educationEntityNameFilteredOptions: Observable<string>;
-  // @ts-ignore
   regionFilteredOptions: Observable<string[]>;
 
-  // @ts-ignore
   appointment: Appointment;
-  // @ts-ignore
   initResult: Result;
 
   regionName = '';
